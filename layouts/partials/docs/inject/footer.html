@@ -1,0 +1,11 @@
+{{ with .Site.Pages.Prev . }}
+<div class="text-left page-navigation">
+<a href="{{ .Permalink | relURL }}"> {{ .Title }} ◀︎ </a>
+</div>
+{{end}}
+
+<script>
+function toggleTooltip(el) {
+    el.classList.toggle("active");
+}
+</script>
