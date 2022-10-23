@@ -1,0 +1,10 @@
+{
+  "targetFolderPath": "",
+  "fileName": "{{title}}",
+  "goodreadsBaseUrl": "https://www.goodreads.com/review/list_rss/...",
+  "goodreadsShelves": "currently-reading",
+  "frontmatterDictionary": {
+    "title": "title"
+  },
+  "bodyString": "# {{title}}\n\nauthor::[[{{author}}]]"
+}

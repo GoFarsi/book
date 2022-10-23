@@ -1,0 +1,10 @@
+{
+	"id": "booksidian-plugin",
+	"name": "Booksidian",
+	"version": "0.2.0",
+	"minAppVersion": "0.12.0",
+	"description": "Connect Obsidian to your Goodreads.",
+	"author": "Micha Brugger",
+	"authorUrl": "https://github.com/MichaBrugger",
+	"isDesktopOnly": false
+}
