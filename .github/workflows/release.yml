@@ -1,11 +1,6 @@
 name: "release"
 
 on:
-  schedule:
-    - cron: '* * 1 * *'
-  workflow_dispatch:
-
-on:
   push:
     branches:
       - "gh-pages"
