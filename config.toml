@@ -32,6 +32,10 @@ BookToC = true
 # For backward compatibility you can set '*' to render all sections to menu. Acts same as '/'
 BookSection= '*'
 
+# (Optional, default none) Set the path to a logo for the book. If the logo is
+# /static/logo.png then the path would be 'logo.png'
+BookLogo = 'Go-Logo.png'
+
 # Set source repository location.
 # Used for 'Last Modified' and 'Edit this page' links.
 BookRepo = 'https://github.com/GoFarsi/book'
