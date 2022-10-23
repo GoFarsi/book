@@ -1,0 +1,29 @@
+/* In the name of Allah */
+
+.cm-line
+/* Fixes most elements of the editor */
+,
+.inline-title
+/* Fixes the big note title inside the view */
+,
+.view-header-title
+
+/* File title above editor or reading view for Obsidian v0.15.*/
+    {
+    unicode-bidi: plaintext;
+}
+
+/* Fixes th elements */
+th {
+    text-align: -webkit-auto !important;
+}
+
+/* Fixes the bullet points margin with text in reading mode */
+.rtl-bullet-point:after {
+    margin-left: 40px;
+}
+
+/* Fixes the RTL checklists bad view */
+input.task-list-item-checkbox {
+    margin-left: 6px;
+}
