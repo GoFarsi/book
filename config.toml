@@ -34,7 +34,7 @@ BookSection= '*'
 
 # (Optional, default none) Set the path to a logo for the book. If the logo is
 # /static/logo.png then the path would be 'logo.png'
-BookLogo = 'Go-Logo.png'
+BookLogo = 'favicon.png'
 
 # Enable 'Edit this page' links for 'doc' page type.
 # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
@@ -62,4 +62,8 @@ BookSearch = true
 # See https://gohugo.io/content-management/comments/#configure-disqus
 # Can be overwritten by same param in page frontmatter
 BookComments = true
+
+# /!\ This is an experimental feature, might be removed or changed at any time
+# (Optional, experimental, default false) Enables service worker that caches visited pages and resources for offline use.
+BookServiceWorker = true
 
