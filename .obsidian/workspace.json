@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/preface.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
@@ -45,6 +45,24 @@
           }
         ],
         "currentTab": 2
+      },
+      {
+        "id": "c157f2551ea0b21e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc4d824cae62964a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/preface.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/preface.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +168,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/preface.md"
+                "file": "README.md"
               }
             }
           }
@@ -164,10 +182,10 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "602d7b7e8d28cf63",
+  "active": "dc4d824cae62964a",
   "lastOpenFiles": [
-    "content/history.md",
     "content/preface.md",
+    "content/history.md",
     "content/_index.md"
   ]
 }
