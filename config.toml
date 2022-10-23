@@ -3,6 +3,8 @@ languageCode = 'fa-IR'
 title = 'زبان گو فارسی'
 theme = 'hugo-book'
 
+disqusShortname = "gofarsi"
+
 
 defaultContentLanguage = 'fa'
 [languages]
