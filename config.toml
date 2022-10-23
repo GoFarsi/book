@@ -36,6 +36,11 @@ BookSection= '*'
 # /static/logo.png then the path would be 'logo.png'
 BookLogo = 'Go-Logo.png'
 
+# Enable 'Edit this page' links for 'doc' page type.
+# Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
+# Path must point to the site directory.
+BookEditPath = 'edit/main'
+
 # Set source repository location.
 # Used for 'Last Modified' and 'Edit this page' links.
 BookRepo = 'https://github.com/GoFarsi/book'
