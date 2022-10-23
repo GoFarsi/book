@@ -1,4 +1,4 @@
-baseURL = 'https://gofarsi.github.io'
+baseURL = 'https://gofarsi.github.io/book'
 languageCode = 'fa-IR'
 title = 'زبان گو فارسی'
 theme = 'hugo-book'
