@@ -1,4 +1,4 @@
-baseURL = 'https://gofarsi.ir/book'
+baseURL = 'https://book.gofarsi.ir'
 languageCode = 'fa-IR'
 title = 'زبان گو فارسی'
 theme = 'hugo-book'
