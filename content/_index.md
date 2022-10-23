@@ -1,5 +1,5 @@
 ---
-title: 'آموزش زبان گو فارسی'
+title: ''
 weight: 1
 description: 'آموزش زبان گو فارسی'
 tags:
