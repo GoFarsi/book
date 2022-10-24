@@ -29,18 +29,14 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-  release:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Create Release
+        uses: Miraddo/create-release@v0.0.1
+        id: create_release
         with:
-          allow_empty_commit: false
-          target_branch: "gh-pages"
-          build_dir: "./"
-          jekyll: false
-          verbose: true
+          release_branch: gh-pages
+          tag: 0.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      
