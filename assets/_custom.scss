@@ -93,6 +93,10 @@ h2 {
   line-height: 1.7;
 }
 
+.book-menu .book-menu-content {
+  width: 20rem !important;
+}
+
 a.book-btn {
   display: inline-block;
   font-size: $font-size-14;
@@ -118,6 +122,10 @@ a.book-btn.gray {
 
 .markdown code {
   direction: ltr !important;
+}
+
+.markdown pre code > span {
+    overflow-x: auto;
 }
 
 .markdown {
