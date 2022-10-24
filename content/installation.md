@@ -6,16 +6,10 @@ weight: 4
 
 جهت نصب زبان گو برروی سیستم عامل مورد نظر خود در ابتدا باید نسخه مناسب با پلت فرم خود را [دانلود](https://go.dev/dl/) کنید.
 
-![Featured downloads golang](assets/img/content/installation/1.png)
+![Featured downloads golang](../assets/img/content/installation/1.png)
 
-```tpl
-{{</* tabs "uniqueid" */>}}
-{{</* tab "Linux" */>}} # لینوکس {{</* /tab */>}}
-{{</* tab "Windows" */>}} # ویندوز {{</* /tab */>}}
-{{</* tab "MacOS" */>}} # مکینتاش {{</* /tab */>}}
-{{</* /tabs */>}}
-```
-
+{{< tabs "uniqueid" >}}
+{{< tab "Linux" >}}
 # Linux
 
 1. در [اینجا](https://go.dev/dl/) نسخه مرتبط با لینوکس خود را دانلود کنید.
@@ -45,12 +39,15 @@ export PATH=$PATH:/usr/local/go/bin
 go version
 ```
 
-
+{{< tab "Windows" >}}
 # Windows
 
 آموزش نصب در ویندوز...
 
-
+{{< tab "MacOS" >}}
 # MacOS
 
 آموزش نصب در مکینتاش...
+
+{{< /tab >}}
+{{< /tabs >}}
