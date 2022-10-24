@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "c9d5815ca0521b25",
+        "id": "9f46cb3428b2bec5",
         "type": "tabs",
         "children": [
           {
-            "id": "e1fccfd52c449230",
+            "id": "4ef5c1a60784245d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/history.md",
+                "file": "content/installation.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/history.md",
+                "file": "content/installation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/history.md",
+                "file": "content/installation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/history.md"
+                "file": "content/installation.md"
               }
             }
           }
@@ -139,14 +139,16 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "e1fccfd52c449230",
+  "active": "4ef5c1a60784245d",
   "lastOpenFiles": [
+    "assets/img/content/installation/obsidian-1.png.md",
+    "content/installation.md",
+    "COUNTRIBUTING.md",
+    "content/history.md",
+    "content/preface.md",
     "content/_index.md",
     "README.md",
-    "COUNTRIBUTING.md",
     "assets/img/help.md",
-    "().md",
-    "content/preface.md",
-    "content/history.md"
+    "().md"
   ]
 }
