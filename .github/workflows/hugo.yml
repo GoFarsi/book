@@ -39,7 +39,7 @@ jobs:
         with:
           allow_empty_commit: false
           target_branch: "gh-pages"
-          build_dir: "./public"
+          build_dir: "./"
           jekyll: false
           verbose: true
         env:
