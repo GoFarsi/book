@@ -1,0 +1,16 @@
+on: [pull_request]
+
+name: Check Build
+jobs:
+  deploy:
+      runs-on: ubuntu-20.04
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            submodules: true
+            fetch-depth: 0
+        - name: Setup Hugo
+          uses: peaceiris/actions-hugo@v2
+          with:
+            hugo-version: 'latest'
+            extended: true
