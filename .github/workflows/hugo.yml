@@ -38,8 +38,8 @@ jobs:
       - uses: aaiezza/create-release@master
         id: create_release
         with:
-          release_branch: "gh-pages/v$semver"
-          tag: "v$semver"
+          release_branch: "gh-pages/0.0.1"
+          tag: "0.0.1"
           
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
