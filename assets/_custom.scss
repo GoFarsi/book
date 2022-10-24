@@ -112,9 +112,13 @@ a.book-btn.gray {
   border-color: var(--gray-500);
 }
 
+.markdown code {
+  direction: ltr !important;
+}
+
 .markdown {
   line-height: 2;
-  direction: ltr !important;
+ 
 
   h1,
   h2 {
