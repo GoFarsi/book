@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "4b6ab148f042a522",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/toolchain.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/installation.md",
+                "file": "content/toolchain.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/installation.md",
+                "file": "content/toolchain.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/installation.md"
+                "file": "content/toolchain.md"
               }
             }
           }
@@ -139,10 +152,11 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "4ef5c1a60784245d",
+  "active": "4b6ab148f042a522",
   "lastOpenFiles": [
-    "content/history.md",
     "content/installation.md",
+    "content/toolchain.md",
+    "content/history.md",
     "assets/img/content/installation/obsidian-1.png.md",
     "COUNTRIBUTING.md",
     "content/preface.md",
