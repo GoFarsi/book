@@ -143,13 +143,13 @@
   "lastOpenFiles": [
     "content/chapter 1/1.1-basic-structure.md",
     "content/chapter 1/_index.md",
+    "content/_index.md",
+    "content/chapter 1/1.2-keywords.md",
     "content/toolchain.md",
     "content/chapter 1/1.9-expresstion.md",
     "content/chapter 1/1.10-package.md",
     "content/chapter 1/1.11-if-switch.md",
     "content/chapter 1/1.12-for.md",
-    "content/chapter 1/1.13-defer.md",
-    "content/chapter 1/1.14-panic-recovery.md",
-    "content/chapter 1/1.8-function.md"
+    "content/chapter 1/1.13-defer.md"
   ]
 }
