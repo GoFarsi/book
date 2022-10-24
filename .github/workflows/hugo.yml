@@ -35,6 +35,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: aaiezza/create-release@master
+        id: create_release
+        with:
+          release_branch: "gh-pages/v$semver"
+          tag: "v$semver"
+          
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           allow_empty_commit: false
