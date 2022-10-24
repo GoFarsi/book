@@ -31,7 +31,7 @@ jobs:
           publish_dir: ./public
 
       - name: Create Release
-        uses: aaiezza/create-release@master
+        uses: Miraddo/create-release@v0.0.1
         id: create_release
         with:
           release_branch: gh-pages
