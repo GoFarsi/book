@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "9f46cb3428b2bec5",
+        "id": "424c50343b1037a7",
         "type": "tabs",
         "children": [
           {
-            "id": "4ef5c1a60784245d",
+            "id": "011ca23d18867a9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/installation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4b6ab148f042a522",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/toolchain.md",
+                "file": "content/chapter 1/1.2-keywords.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/toolchain.md",
+                "file": "content/chapter 1/1.2-keywords.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/toolchain.md",
+                "file": "content/chapter 1/1.2-keywords.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/toolchain.md"
+                "file": "content/chapter 1/1.2-keywords.md"
               }
             }
           }
@@ -152,17 +139,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "4b6ab148f042a522",
+  "active": "011ca23d18867a9c",
   "lastOpenFiles": [
-    "content/installation.md",
+    "content/chapter 1/1.1-basic-structure.md",
+    "content/chapter 1/_index.md",
     "content/toolchain.md",
-    "content/history.md",
-    "assets/img/content/installation/obsidian-1.png.md",
-    "COUNTRIBUTING.md",
-    "content/preface.md",
-    "content/_index.md",
-    "README.md",
-    "assets/img/help.md",
-    "().md"
+    "content/chapter 1/1.9-expresstion.md",
+    "content/chapter 1/1.10-package.md",
+    "content/chapter 1/1.11-if-switch.md",
+    "content/chapter 1/1.12-for.md",
+    "content/chapter 1/1.13-defer.md",
+    "content/chapter 1/1.14-panic-recovery.md",
+    "content/chapter 1/1.8-function.md"
   ]
 }
