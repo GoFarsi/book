@@ -2,19 +2,19 @@ name: "release"
 
 on: push
 
-jobs:
-  release:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+# jobs:
+#   release:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          allow_empty_commit: false
-          target_branch: "gh-pages"
-          build_dir: "."
-          jekyll: false
-          verbose: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       - uses: crazy-max/ghaction-github-pages@v3.1.0
+#         with:
+#           allow_empty_commit: false
+#           target_branch: "gh-pages"
+#           build_dir: "./public"
+#           jekyll: false
+#           verbose: true
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
