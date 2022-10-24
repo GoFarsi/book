@@ -4,7 +4,9 @@ type: chapter
 weight: 3
 ---
 
-زبان گو (Go) به عنوان یک زبان کامپایلری و تایپ استاتیک در نوامبر سال ۲۰۰۹ بصورت عمومی معرفی شد که توسط شرکت گوگل توسعه داده شده است و بسیاری از اعضای تیم طراحی و توسعه زبان گو [[Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), [Robert Griesemer](https://en.wikipedia.org/wiki/Robert_Griesemer)] سال ها تجربه در زمینه تحقیق و توسعه زبان برنامه نویسی دارند.
+زبان گو (Go) در سال ۲۰۰۷ (به شمسی: ۱۳۸۶) توسط «شرکت گوگل» با هدف افزایش بهره‌وری برنامه‌نویسی در محیط چندهسته‌ای، رایانه‌های شبکه‌ای و کدبیس‌های بزرگ طراحی شد [[به نقل از ویکی پدیا](https://fa.wikipedia.org/wiki/%DA%AF%D9%88_(%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C))] و سپس به عنوان یک زبان کامپایلری و تایپ استاتیک در نوامبر سال ۲۰۰۹ بصورت عمومی با هدف {{< tooltip text="کامپایل کارآمد" note="efficient compilation" >}}، {{< tooltip text="اجرای کارآمد" note="efficient execution" >}} و{{< tooltip text="سهولت برنامه نویسی" note="ease of programming" >}} معرفی شد که توسط شرکت گوگل توسعه داده شده است و بسیاری از اعضای تیم طراحی و توسعه زبان گو [[Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), [Robert Griesemer](https://en.wikipedia.org/wiki/Robert_Griesemer)] سال ها تجربه در زمینه تحقیق و توسعه زبان برنامه نویسی دارند.
+
+
 
 
 زبان گو دارای یک سری ویژگی های منحصر به فرد می باشد و برخی از ویژگی هایش از سایر زبان ها الهام گرفته شده است :
