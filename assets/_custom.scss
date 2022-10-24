@@ -203,11 +203,11 @@ a.book-btn.gray {
 }
 
 .container {
-    margin: 0 auto;
-    padding: 0 15px;
+    margin: 0 auto !important;
+    padding: 0 15px !important;
 }
 .book-menu{
-    display: flex;
-    width: 30rem;
+    display: flex !important;
+    width: 30rem !important;
 }
 
