@@ -9,8 +9,7 @@ weight: 4
 ![Featured downloads golang](../assets/img/content/installation/1.png)
 
 {{< tabs "uniqueid" >}}
-{{< tab "Linux" >}}
-# Linux
+{{< tab "لینوکس" >}}
 
 1. در [اینجا](https://go.dev/dl/) نسخه مرتبط با لینوکس خود را دانلود کنید.
 ```shell
@@ -26,12 +25,7 @@ export PATH=$PATH:/usr/local/go/bin
 ```
 
 {{< hint=info >}}
-بهتر است برای اینکه هر بار هر بار ترمینال را باز میکنید و فایل go توسط shell شناخته شود دستور زیر را به فایل `home/{user}/.profile/` اضافه کنید.
-
-```shell
-export PATH=$PATH:/usr/local/go/bin
-```
-
+بهتر است برای اینکه هر بار هر بار ترمینال را باز میکنید و فایل go توسط shell شناخته شود دستور فوق را به فایل `home/{user}/.profile/` اضافه کنید.
 {{< /hint >}}
 
 4. جهت اطمینان از اینکه زبان گو بدرستی برروی سیستم عامل  شما نصب شده است دستور زیر را داخل ترمینال بزنید.
@@ -39,13 +33,13 @@ export PATH=$PATH:/usr/local/go/bin
 go version
 ```
 
-{{< tab "Windows" >}}
-# Windows
+{{< /tab >}}
+{{< tab "ویندوز" >}}
 
 آموزش نصب در ویندوز...
 
-{{< tab "MacOS" >}}
-# MacOS
+{{< /tab >}}
+{{< tab "مکینتاش" >}}
 
 آموزش نصب در مکینتاش...
 
