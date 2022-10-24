@@ -94,12 +94,10 @@ h2 {
 }
 
 .book-menu .book-menu-content {
-  width: 20rem !important;
   padding: 1rem;
   background: var(--body-background);
   position: fixed;
   top: 0;
-  bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -205,9 +203,16 @@ a.book-btn.gray {
 .container {
     margin: 0 auto !important;
     padding: 0 15px !important;
+    max-width: none !important;
 }
 .book-menu{
     display: flex !important;
     width: 30rem !important;
+    flex: none !important
+}
+
+.book-menu .book-menu-content {
+    width: 16rem !important;
+    right: 0 !important;
 }
 
