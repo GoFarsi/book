@@ -1,6 +1,6 @@
 ---
 title: 'فصل اول: آشنایی با مفاهیم زبان گو'
-weight: 6
+weight: 1000
 bookCollapseSection: true
 ---
 
