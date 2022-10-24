@@ -20,24 +20,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "85dbafb251335f78",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "0dcea0f95cb0ecf5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/history.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -157,7 +139,7 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "0dcea0f95cb0ecf5",
+  "active": "e1fccfd52c449230",
   "lastOpenFiles": [
     "content/_index.md",
     "README.md",
