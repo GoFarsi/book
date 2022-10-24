@@ -13,6 +13,7 @@ jobs:
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           allow_empty_commit: false
+          build_dir: .
           jekyll: false
           verbose: true
         env:
