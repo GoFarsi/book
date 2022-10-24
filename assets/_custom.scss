@@ -200,6 +200,8 @@ a.book-btn.gray {
   }
 }
 
+@media only screen
+  and (min-width: 896px) {
 .container {
     margin: 0 auto !important;
     padding: 0 15px !important;
@@ -214,5 +216,6 @@ a.book-btn.gray {
 .book-menu .book-menu-content {
     width: 20rem !important;
     right: 10px !important;
+}
 }
 
