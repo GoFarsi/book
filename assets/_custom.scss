@@ -133,6 +133,28 @@ a.book-btn.gray {
     overflow-x: auto;
 }
 
+.markdown blockquote {
+    margin: 1rem 0;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+    border-inline-start: 0.25rem solid var(--gray-200);
+    border-radius: 0.25rem;
+}
+
+.markdown .book-hint.info {
+    border-color: #6bf;
+    background-color: rgba(102,187,255,.1);
+}
+
+.markdown .book-hint.warning {
+    border-color: #fd6;
+    background-color: rgba(255,221,102,.1);
+}
+
+.markdown .book-hint.danger {
+    border-color: #f66;
+    background-color: rgba(255,102,102,.1);
+}
+
 .markdown {
   line-height: 2;
  
