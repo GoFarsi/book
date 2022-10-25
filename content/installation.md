@@ -24,7 +24,7 @@ $ sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.xx.x.linux-amd64.
 export PATH=$PATH:/usr/local/go/bin
 ```
 
-{{< hint=info >}}
+{{< hint info >}}
 بهتر است برای اینکه هر بار هر بار ترمینال را باز میکنید و فایل go توسط shell شناخته شود دستور فوق را به فایل `home/{user}/.profile/` اضافه کنید.
 {{< /hint >}}
 
