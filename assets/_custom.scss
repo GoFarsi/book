@@ -142,46 +142,6 @@ a.book-btn.gray {
     font-weight: 700;
   }
 
-  blockquote {
-    width: 80%;
-    margin: 10px auto;
-    color: var(--gray-800);
-    border-inline-start: $padding-8 solid #78C0A8;
-    position: relative;
-    padding-right: 40px;
-    background-color: var(--gray-200);
-
-    :first-child {
-      margin-top: unset;
-    }
-
-    :last-child {
-      margin-bottom: unset;
-    }
-
-    span:not([data-tooltip]) {
-      display: block;
-      color: var(--body-font-color);
-      font-style: normal;
-      font-weight: bold;
-      margin-top: 1em;
-    }
-  }
-
-  blockquote::before {
-    font-family: Arial;
-    content: "\201D";
-    color: #78C0A8;
-    font-size: 4em;
-    position: absolute;
-    right: 10px;
-    top: -0.5em;
-  }
-
-  blockquote::after {
-    content: '';
-  }
-
   em {
     display: block;
     width: 75%;
