@@ -226,17 +226,14 @@ a.book-btn.gray {
 }
 }
 
-$startLevel: 1;
-$endLevel: 6;
-
-.book-page .markdown {
-  @for $currentLevel from $startLevel through $endLevel {
-    > h#{$currentLevel} {
-      counter-increment: h#{$currentLevel};
-      counter-reset: h#{$currentLevel + 1};
+.markdown {
+  @for $h from 1 through 6 {
+    > h#{$h} {
+      counter-increment: h#{$h};
+      counter-reset: h#{$h + 1};
 
       $content: "";
-      @for $n from $startLevel through $currentLevel {
+      @for $n from 1 through $h {
         $content: $content + 'counter(h#{$n})"."';
       }
 
@@ -245,5 +242,9 @@ $endLevel: 6;
       }
     }
   }
+}
+
+.book-toc nav ul {
+  list-style: decimal;
 }
 
