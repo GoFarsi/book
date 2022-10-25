@@ -1,3 +1,28 @@
+@import "defaults";
+@import "variables";
+
+::-webkit-scrollbar {
+  width: $padding-8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: $padding-8;
+}
+
+:hover::-webkit-scrollbar-thumb {
+  background: var(--gray-500);
+}
+
+body {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+.book-menu nav {
+  scrollbar-color: transparent var(--gray-500);
+}
+
 :root {
   --gray-800: #555
 }
@@ -199,5 +224,26 @@ a.book-btn.gray {
     width: 20rem !important;
     right: 10px !important;
 }
+}
+
+$startLevel: 1;
+$endLevel: 6;
+
+.book-page .markdown {
+  @for $currentLevel from $startLevel through $endLevel {
+    > h#{$currentLevel} {
+      counter-increment: h#{$currentLevel};
+      counter-reset: h#{$currentLevel + 1};
+
+      $content: "";
+      @for $n from $startLevel through $currentLevel {
+        $content: $content + 'counter(h#{$n})"."';
+      }
+
+      &::before {
+        content: unquote($content) " ";
+      }
+    }
+  }
 }
 
