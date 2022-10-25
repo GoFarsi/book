@@ -39,5 +39,5 @@ tags:
 <p>
 <a href="https://github.com/Ja7ad"><img src="https://avatars.githubusercontent.com/u/56496801?v=4" alt="Javad Rajabzadeh" title="Javad Rajabzadeh" with="45" style="width:45px;max-width:45px;height:45px" height="45" /></a>
 <a href="https://github.com/Miraddo"><img src="https://avatars.githubusercontent.com/u/14594374?v=4" alt="Milad Poshtdari" title="Milad Poshtdari" with="45" style="width:45px;max-width:45px;height:45px" height="45" /></a>
-<a href="https://github.com/ar-mokhtari"><img src="https://avatars.githubusercontent.com/u/49469395?v=4" alt="Alireza Mokhtari Garakani" title="Milad Poshtdari" with="45" style="width:45px;max-width:45px;height:45px" height="45" /></a>
+<a href="https://github.com/ar-mokhtari"><img src="https://avatars.githubusercontent.com/u/49469395?v=4" alt="Alireza Mokhtari Garakani" title="Alireza Mokhtari Garakani" with="45" style="width:45px;max-width:45px;height:45px" height="45" /></a>
 </p>
