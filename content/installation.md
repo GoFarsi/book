@@ -69,7 +69,10 @@ choco install golang
 $ go version
 ```
 
+{{< hint info >}}
 دقت داشته باشید برای نصب برنامه‌های مختلف مثل git و یا ابزارهای دیگر در محیط Administrator باید از دستور choco استفاده کنید.
+{{< /hint >}}
+
 
 {{< /tab >}}
 {{< tab "مکینتاش" >}}
