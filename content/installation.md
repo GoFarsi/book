@@ -35,6 +35,7 @@ $ go version
 
 {{< /tab >}}
 {{< tab "ویندوز" >}}
+## روش اول
 1. در [اینجا](https://go.dev/dl/) نسخه مرتبط با ویندوز خود را دانلود کنید.
 2. سپس فایل **go1.xx.x.windows-{arch}.msi** را اجرا کنید.
 3. مراحل نصب را بصورت پیش فرض طی کنید تا زبان گو برروی ویندوز نصب شود.
@@ -47,10 +48,33 @@ $ go version
 go version
 ```
 
+## روش دوم
+برای نصب گو می‌توانید از [Chocolatey Package Manager](https://community.chocolatey.org/) استفاده کنید.
+1. خط فرمان PowerShell را به صورت Administrator باز کنید و دستور زیر را داخل PowerShell بزنید.
+
+```shell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+2. بعد از نصب می‌توانید از دستور choco برای نصب گو استفاده کنید.
+
+```shell
+choco install golang
+```
+
+3. جهت اطمینان از اینکه زبان گو بدرستی برروی سیستم عامل  شما نصب شده است دستور زیر را داخل ترمینال بزنید.
+
+
+```shell
+$ go version
+```
+
+دقت داشته باشید برای نصب برنامه‌های مختلف مثل git و یا ابزارهای دیگر در محیط Administrator باید از دستور choco استفاده کنید.
+
 {{< /tab >}}
 {{< tab "مکینتاش" >}}
 
-
+## روش اول
 1. در [اینجا](https://go.dev/dl/) نسخه مرتبط با مکینتاش خود را دانلود کنید.
 2. سپس فایل **go1.xx.x.darwin-{arch}.pkg** را اجرا کنید.
 3. مراحل نصب را بصورت پیش فرض طی کنید تا زبان گو برروی مکینتاش نصب شود.
@@ -60,6 +84,28 @@ go version
 ```shell
 $ go version
 ```
+
+## روش دوم
+برای نصب گو میتوانید از [Homebrew Package Manager](https://brew.sh/) استفاده کنید. 
+1. برای نصب brew می‌توانید ترمینال خود را باز کنید و از دستور زیر استفاده کنید.
+
+```shell
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+2. بعد از نصب brew از دستور زیر برای نصب گو داخل ترمینال استفاده کنید.
+
+```shell
+$ brew update && brew install golang
+```
+
+3. جهت اطمینان از اینکه زبان گو بدرستی برروی سیستم عامل  شما نصب شده است دستور زیر را داخل ترمینال بزنید.
+
+
+```shell
+$ go version
+```
+
 
 {{< /tab >}}
 {{< /tabs >}}
