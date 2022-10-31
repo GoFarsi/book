@@ -62,7 +62,7 @@ Additional help topics:
 Use "go help <topic>" for more information about that topic.
 ```
 
-## جدول  {{< tooltip text="دستورات"note="Commands prompt" >}}
+## جدول دستورات (Commands)
 
 |  دستور      | توضیحات                                                     |
 |---------|-----------------------------------------------------------------|
@@ -104,7 +104,7 @@ Hello world!!!
 
  در کد فوق ما یکسری {{< tooltip text="کلید واژه" note="keyword" >}}  نظیر package , import , func استفاده کردیم که در بخش [1.2 کلید واژه و شناسه‌ها](https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/) آشنا می شوید.
 
-## انواع {{< tooltip text="نرم افزارهای محیط توسعه"note="IDE" >}} زبان گو
+## انواع نرم افزارهای محیط توسعه (IDE) زبان گو
 
 زبان گو هم مثل سایر زبان ها دارای یکسری {{< tooltip text="نرم افزار محیط توسعه"note="IDE" >}} می باشد. که در زیر محبوبترین ها را معرفی می کنیم.
 
