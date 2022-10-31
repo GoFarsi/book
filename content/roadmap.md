@@ -8,9 +8,9 @@ weight: 6
 
 
 {{< details title="نقشه یادگیری زبان گو" >}}
- ![Featured downloads golang](../assets/img/content/roadmap/go.jpg)
+ ![roadmap go](../assets/img/content/roadmap/go.jpg)
 {{< /details >}}
 
 {{< details title="نقشه یادگیری بک اند" >}}
- ![Featured downloads golang](../assets/img/content/roadmap/backend.jpg)
+ ![roadmap backend](../assets/img/content/roadmap/backend.jpg)
 {{< /details >}}
