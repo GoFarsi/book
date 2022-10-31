@@ -14,3 +14,5 @@ jobs:
           with:
             hugo-version: 'latest'
             extended: true
+        - name: Test changes
+          run: hugo --minify --disableKinds=taxonomy,term
