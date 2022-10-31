@@ -4,7 +4,7 @@ type: chapter
 weight: 5
 ---
 
-پس از اینکه زبان گو را برروی سیستم خود نصب کردید از طریق ترمینال {{< tooltip text="ترمینال note="Terminal" >}}  و یا  {{< tooltip text="خط فرمان" note="Command prompt" >}}  ویندوز قابل دسترس است که می توانید با زدن کلمه `go` یکسری عملیات انجام دهید:
+پس از اینکه زبان گو را برروی سیستم خود نصب کردید از طریق {{< tooltip text="ترمینال" note="Terminal" >}} و یا  {{< tooltip text="خط فرمان" note="Command prompt" >}}  ویندوز قابل دسترس است که می توانید با زدن کلمه `go` یکسری عملیات انجام دهید:
 
 ```shell
 $ go
@@ -110,4 +110,4 @@ Hello world!!!
 
 1. نرم افزار [Jetbrains Goland](https://www.jetbrains.com/go/) اگر با سایر محصولات جت برینز آشنا باشید به راحتی از این  {{< tooltip text="نرم افزار محیط توسعه"note="IDE" >}}  استفاده کنید.
 2. نرم افزار [VsCode](https://code.visualstudio.com/) تقریبا همه برنامه نویس ها باهاش آشنا هستند یک  {{< tooltip text="نرم افزار محیط توسعه"note="IDE" >}} متن باز می باشد که خیلی محبوب است بین برنامه نویس ها است و برای استفاده زبان گو در این نرم افزار باید افزونه[ vscode-go](https://code.visualstudio.com/docs/languages/go) را نصب کنید.
-3. نرم افزار [Vim](https://www.vim.org/) یک نرم افزار متن باز و معروف می باشد که داخل  {{< tooltip text="ترمینال note="Terminal" >}} قابل استفاده است و ازش می توانید جهت توسعه با زبان گو استفاده کنید و البته نیازمند [نصب پلاگین](https://github.com/fatih/vim-go) می باشد.
+3. نرم افزار [Vim](https://www.vim.org/) یک نرم افزار متن باز و معروف می باشد که داخل  {{< tooltip text="ترمینال" note="Terminal" >}} قابل استفاده است و ازش می توانید جهت توسعه با زبان گو استفاده کنید و البته نیازمند [نصب پلاگین](https://github.com/fatih/vim-go) می باشد.
