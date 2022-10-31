@@ -138,15 +138,15 @@
   },
   "active": "b048f7243ce66fdd",
   "lastOpenFiles": [
-    "content/toolchain.md",
-    "().md",
-    "content/chapter 1/1.2-keywords.md",
-    "content/installation.md",
     "content/chapter 1/1.1-basic-structure.md",
     "content/history.md",
+    "content/installation.md",
+    "content/chapter 1/1.4-operators.md",
+    "content/chapter 1/1.2-keywords.md",
+    "content/toolchain.md",
+    "().md",
     "content/chapter 1/1.12-defer-panic-recovery.md",
     "content/chapter 1/1.11-packages-import.md",
-    "content/chapter 1/1.8-map.md",
-    "content/chapter 1/_index.md"
+    "content/chapter 1/1.8-map.md"
   ]
 }
