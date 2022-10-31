@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 1/1.4-operators.md",
+                "file": "content/chapter 1/1.3-types.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 1/1.4-operators.md",
+                "file": "content/chapter 1/1.3-types.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 1/1.4-operators.md",
+                "file": "content/chapter 1/1.3-types.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 1/1.4-operators.md"
+                "file": "content/chapter 1/1.3-types.md"
               }
             }
           }
@@ -138,10 +138,10 @@
   },
   "active": "b048f7243ce66fdd",
   "lastOpenFiles": [
+    "content/chapter 1/1.4-operators.md",
     "content/chapter 1/1.1-basic-structure.md",
     "content/history.md",
     "content/installation.md",
-    "content/chapter 1/1.4-operators.md",
     "content/chapter 1/1.2-keywords.md",
     "content/toolchain.md",
     "().md",
