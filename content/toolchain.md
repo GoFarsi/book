@@ -4,4 +4,110 @@ type: chapter
 weight: 5
 ---
 
-معرفی ابزارها...
+پس از اینکه زبان گو را برروی سیستم خود نصب کردید از طریق ترمینال {{< tooltip text="ترمینال note="Terminal" >}}  و یا  {{< tooltip text="خط فرمان" note="Command prompt" >}}  ویندوز قابل دسترس است که می توانید با زدن کلمه `go` یکسری عملیات انجام دهید:
+
+```shell
+$ go
+Go is a tool for managing Go source code.
+
+Usage:
+
+	go <command> [arguments]
+
+The commands are:
+
+	bug         start a bug report
+	build       compile packages and dependencies
+	clean       remove object files and cached files
+	doc         show documentation for package or symbol
+	env         print Go environment information
+	fix         update packages to use new APIs
+	fmt         gofmt (reformat) package sources
+	generate    generate Go files by processing source
+	get         add dependencies to current module and install them
+	install     compile and install packages and dependencies
+	list        list packages or modules
+	mod         module maintenance
+	work        workspace maintenance
+	run         compile and run Go program
+	test        test packages
+	tool        run specified go tool
+	version     print Go version
+	vet         report likely mistakes in packages
+
+Use "go help <command>" for more information about a command.
+
+Additional help topics:
+
+	buildconstraint build constraints
+	buildmode       build modes
+	c               calling between Go and C
+	cache           build and test caching
+	environment     environment variables
+	filetype        file types
+	go.mod          the go.mod file
+	gopath          GOPATH environment variable
+	gopath-get      legacy GOPATH go get
+	goproxy         module proxy protocol
+	importpath      import path syntax
+	modules         modules, module versions, and more
+	module-get      module-aware go get
+	module-auth     module authentication using go.sum
+	packages        package lists and patterns
+	private         configuration for downloading non-public code
+	testflag        testing flags
+	testfunc        testing functions
+	vcs             controlling version control with GOVCS
+
+Use "go help <topic>" for more information about that topic.
+```
+
+## جدول  {{< tooltip text="دستورات"note="Commands prompt" >}}
+
+|  دستور      | توضیحات                                                     |
+|---------|-----------------------------------------------------------------|
+| build | با این دستور می توانید فایل `go` را کامپایل `go build main.go` کنید.    |
+| clean | با این دستور می توانید فایل های کش شده را پاکسازی کنید    |
+| doc | با این دستور می توانید به داکیومنت هر یک از توابع عمومی `go doc fmt.Println` را ببینید    |
+| env | با این دستور می توانید {{< tooltip text="متغیرهای محیطی" note="environment variable" >}} تنظیم شده زبان گو را ببینید و آنها را با دستور `go env -w key=value` مقدار دهی کنید.    |
+| fmt | با این دستور می توانید کدهای خود را مرتب `go fmt ./...` کنید.    |
+| install | با استفاده از این دستور می توانید یکسری پکیج های را گرفته و کامپایل کنید جهت استفاده    |
+| list | لیست پکیج ها و ماژول های دانلود شده   |
+| generate | با این دستور می توانید از قابلیتGenerator زبان گو استفاده کنید و فایل generate کنید.    |
+| mod | برای مدیریت و ایجاد فایل mod به ازای هر پروژه    |
+| get | با این دستور می توانید پکیجی را دانلود یا بروز رسانی کنید و همچنین برای استفاده از این دستور نیاز به `git` دارید که نصب باشد   |
+| work | با این دستور می توانید یک workspace ایجاد کنید و آن را مدیریت کنید.   |
+| run | با این دستور می توانید فایل های گو یا پروژه را `go run main.go` اجرا کنید   |
+| test | با این دستور می توانید فایل های تست را `go test example_test.go` اجرا کنید   |
+| version | با این دستور می توانید نسخه نصب شده زبان گو را ببینید  |
+| vet | با این دستور می توانید اشتباهات کدهای خود را ببینید  |
+
+
+## اجرای کد ساده زبان گو
+
+در زیر یک نمونه کد ساده قرار دادیم که به سادگی می توانید با دستور `go run main.go` اجرا کنید و خروجی را ببینید.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello world!!!")
+}
+```
+
+```shell
+$ go run main.go
+Hello world!!!
+```
+
+ در کد فوق ما یکسری {{< tooltip text="کلید واژه" note="keyword" >}}  نظیر package , import , func استفاده کردیم که در بخش [1.2 کلید واژه و شناسه‌ها](https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/) آشنا می شوید.
+
+## انواع {{< tooltip text="نرم افزارهای محیط توسعه"note="IDE" >}} زبان گو
+
+زبان گو هم مثل سایر زبان ها دارای یکسری {{< tooltip text="نرم افزار محیط توسعه"note="IDE" >}} می باشد. که در زیر محبوبترین ها را معرفی می کنیم.
+
+1. نرم افزار [Jetbrains Goland](https://www.jetbrains.com/go/) اگر با سایر محصولات جت برینز آشنا باشید به راحتی از این  {{< tooltip text="نرم افزار محیط توسعه"note="IDE" >}}  استفاده کنید.
+2. نرم افزار [VsCode](https://code.visualstudio.com/) تقریبا همه برنامه نویس ها باهاش آشنا هستند یک  {{< tooltip text="نرم افزار محیط توسعه"note="IDE" >}} متن باز می باشد که خیلی محبوب است بین برنامه نویس ها است و برای استفاده زبان گو در این نرم افزار باید افزونه[ vscode-go](https://code.visualstudio.com/docs/languages/go) را نصب کنید.
+3. نرم افزار [Vim](https://www.vim.org/) یک نرم افزار متن باز و معروف می باشد که داخل  {{< tooltip text="ترمینال note="Terminal" >}} قابل استفاده است و ازش می توانید جهت توسعه با زبان گو استفاده کنید و البته نیازمند [نصب پلاگین](https://github.com/fatih/vim-go) می باشد.
