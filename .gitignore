@@ -15,5 +15,8 @@ _book
 *.mobi
 *.pdf
 build/*
-.idea/
 .trash/
+
+#IDE and code editor(s) setting
+.idea/
+.vscode
