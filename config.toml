@@ -1,6 +1,7 @@
-baseURL = 'https://book.gofarsi.ir'
+baseURL = 'https://book.javad.id.ir'
 languageCode = 'fa-IR'
-title = 'زبان گو فارسی 1.19'
+title = 'زبان گو فارسی'
+subTitle = ' 1.19'
 theme = 'hugo-book'
 
 disqusShortname = "gofarsi"
