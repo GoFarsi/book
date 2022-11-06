@@ -1,0 +1,5 @@
+{{- $githubUrl := .Get "githubUrl" -}}
+{{- $githubImg := .Get "githubImg" -}}
+{{- $name := .Get "name" -}}
+
+<a href="{{- $githubUrl -}}"><img src="{{- $githubImg -}}" alt="{{- $name -}}" title="{{- $name -}}" with="45" style="width:45px;max-width:45px;height:45px" height="45" /></a>
