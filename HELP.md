@@ -57,3 +57,23 @@
 ```
 
 > سه نوع hint داریم می توانید از info , warning , error استفاده کنید.
+
+
+## کد کوتاه playground
+
+![playground](assets/img/help/shortcodes/playground.png)
+
+با استفاده از کد فوق می توانید دکمه اجرا کد در playground زبان گو اضافه کنید.
+
+1. در ابتدا به سایت go.dev/play بروید.
+2. سپس کد خود را در **playground** قرار دهید و تست بگیرید.
+3. سپس دکمه **share** را بزنید تا آدرس کد ایجاد شود.
+4. اکنون تگ داخل آدرس را در کد کوتاه زیر قرار دهید.
+
+```html
+https://go.dev/play/p/65lnwMCf_EV
+```
+
+```html
+{{< playground url=65lnwMCf_EV >}}
+```

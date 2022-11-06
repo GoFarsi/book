@@ -366,3 +366,22 @@ icon-filter: brightness(0) invert(1),
     --#{$name}: #{$value};
 }
 }
+
+.goplay-btn {
+  bottom: 7px;
+  right: 7px;
+  border: 0;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 0.85em;
+  line-height: 1.8;
+  background-color: #5EC9E3;
+  color: #000;
+  opacity: .5;
+  min-width: 55px;
+  text-align: center;
+}
+
+.goplay-btn:hover {
+  opacity: .45;
+}
