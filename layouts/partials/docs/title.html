@@ -1,13 +1,10 @@
-{{ $title := "" }}
-{{ $subTitle := "" }}
+{{ $title := "زبان گو فارسی" }}
 
 {{ if .Title }}
-  {{ $title = .Title }}
-  {{ $subTitle = .subTitle }}
 {{ else if and .IsSection .File }}
   {{ $title = path.Base .File.Dir | humanize | title }}
 {{ else if and .IsPage .File }}
   {{ $title = .File.BaseFileName | humanize | title }}
 {{ end }}
 
-{{ return $title $subTitle }}
+{{ return $title }}
