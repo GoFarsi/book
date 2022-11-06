@@ -83,6 +83,6 @@ BookServiceWorker = true
     lineNos = true
     lineNumbersInTable = false
     noClasses = true
-    noHl = false
+    noHl = true
     style = 'dracula'
     tabWidth = 4
