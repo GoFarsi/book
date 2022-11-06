@@ -241,6 +241,7 @@ a.book-btn.gray {
   background-color: transparent;
   border: 0;
   padding: 0;
+  bottom: 10px;
   -webkit-touch-callout: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -293,7 +294,7 @@ a.book-btn.gray {
   height: 17px;
   right: 5px;
   top: 0px;
-  bottom: 0px;
+  bottom: -10px;
   margin-top: auto;
   margin-bottom: auto;
   line-height: 0;
@@ -326,6 +327,7 @@ a.book-btn.gray {
 .magic {
   display: flex;
 }
+
 
 body.dark-mode, 
 body.dark-mode main * {
@@ -363,4 +365,23 @@ icon-filter: brightness(0) invert(1),
 @each $name, $value in $theme-light {
     --#{$name}: #{$value};
 }
+}
+
+.goplay-btn {
+  bottom: 7px;
+  right: 7px;
+  border: 0;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 0.85em;
+  line-height: 1.8;
+  background-color: #5EC9E3;
+  color: #000;
+  opacity: .5;
+  min-width: 55px;
+  text-align: center;
+}
+
+.goplay-btn:hover {
+  opacity: .45;
 }
