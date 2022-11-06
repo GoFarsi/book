@@ -20,4 +20,3 @@ build/*
 #IDE and code editor(s) setting
 .idea/
 .vscode
-.obsidian
