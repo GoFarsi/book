@@ -1,4 +1,4 @@
-baseURL = 'https://javad.id.ir/book'
+baseURL = 'https://book.gofarsi.ir'
 languageCode = 'fa-IR'
 title = 'زبان گو فارسی 1.19'
 theme = 'hugo-book'
