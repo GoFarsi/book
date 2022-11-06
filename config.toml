@@ -25,7 +25,7 @@ startLevel = 1
 [params]
 # (Optional, default light) Sets color theme: light, dark or auto.
 # Theme 'auto' switches between dark and light modes based on browser/os preferences
-BookTheme = 'auto'
+BookTheme = 'light'
 
 # (Optional, default true) Controls table of contents visibility on right side of pages.
 # Start and end levels can be controlled with markup.tableOfContents setting.
