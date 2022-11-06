@@ -1,11 +1,13 @@
 {{ $title := "" }}
+{{ $subTitle := "" }}
 
 {{ if .Title }}
-  {{ $title = .Title .subTitle }}
+  {{ $title = .Title }}
+  {{ $subTitle = .subTitle }}
 {{ else if and .IsSection .File }}
   {{ $title = path.Base .File.Dir | humanize | title }}
 {{ else if and .IsPage .File }}
   {{ $title = .File.BaseFileName | humanize | title }}
 {{ end }}
 
-{{ return $title }}
+{{ return $title $subTitle }}
