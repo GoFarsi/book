@@ -1,2 +1,14 @@
+<link rel="stylesheet" href="prism.css"/>
 <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", "}}{{ end }}" />
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+
+<script>
+    var html = document.documentElement;  
+    //Check Storage. Keep user preference on page reload
+    if (localStorage.getItem('themeMode') == 'dark') {
+      html.setAttribute("data-theme","dark");
+    }
+    if (localStorage.getItem('themeMode') == 'light') {
+      html.setAttribute("data-theme","light");
+    }
+  </script>
