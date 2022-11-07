@@ -1,7 +1,6 @@
 baseURL = 'https://book.gofarsi.ir'
 languageCode = 'fa-IR'
-title = 'زبان گو فارسی'
-subTitle = ' 1.19'
+title = 'زبان گو فارسی 1.19'
 theme = 'hugo-book'
 
 disqusShortname = "gofarsi"
@@ -72,3 +71,18 @@ BookComments = true
 # (Optional, experimental, default false) Enables service worker that caches visited pages and resources for offline use.
 BookServiceWorker = true
 
+[markup]
+  [markup.highlight]
+    anchorLineNos = true
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = true
+    noHl = true
+    style = 'dracula'
+    tabWidth = 4
