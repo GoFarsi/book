@@ -81,7 +81,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 11/_index.md",
+                "file": "content/chapter 3/3.19-garbage-collector.md",
                 "mode": "source",
                 "source": false
               }
@@ -154,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 11/_index.md",
+                "file": "content/chapter 3/3.19-garbage-collector.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 11/_index.md",
+                "file": "content/chapter 3/3.19-garbage-collector.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -194,7 +194,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 11/_index.md"
+                "file": "content/chapter 3/3.19-garbage-collector.md"
               }
             }
           }
@@ -207,6 +207,8 @@
   },
   "active": "09ee0668ed470ef6",
   "lastOpenFiles": [
+    "content/chapter 3/3.18-rules.md",
+    "content/chapter 11/_index.md",
     "content/chapter 10/_index.md",
     "content/chapter 9/structural patterns/9.2.7-proxy.md",
     "content/chapter 9/_index.md",
@@ -214,8 +216,6 @@
     "content/chapter 9/structural patterns/9.2.5-facade.md",
     "content/chapter 9/structural patterns/9.2.4-decorator.md",
     "content/chapter 9/structural patterns/9.2.3-composite.md",
-    "content/chapter 9/structural patterns/9.2.2-bridge.md",
-    "content/chapter 9/structural patterns/9.2.1-adaptor.md",
-    "content/chapter 9/structural patterns/_index.md"
+    "content/chapter 9/structural patterns/9.2.2-bridge.md"
   ]
 }
