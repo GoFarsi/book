@@ -11,15 +11,84 @@
             "id": "97d801f1f5ea9e97",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "5520b22e1815d8b0",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md",
+                "file": "content/chapter 5/_index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7b543c4fb7bdeb54",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/chapter 6/_index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "753e026bf716bffd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/chapter 7/_index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6c1723aed0db414d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/chapter 9/_index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "47cd40085446c4b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/chapter 10/_index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "09ee0668ed470ef6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/chapter 11/_index.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -85,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md",
+                "file": "content/chapter 11/_index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md",
+                "file": "content/chapter 11/_index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +194,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md"
+                "file": "content/chapter 11/_index.md"
               }
             }
           }
@@ -136,17 +205,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "97d801f1f5ea9e97",
+  "active": "09ee0668ed470ef6",
   "lastOpenFiles": [
-    "content/chapter 1/1.2-keywords.md",
-    "content/chapter 1/1.3-types.md",
-    "content/chapter 1/1.7-array-slice.md",
-    "content/chapter 1/1.5-variables.md",
-    "content/chapter 1/1.6-function.md",
-    "content/chapter 1/1.1-basic-structure.md",
-    "content/chapter 1/1.4-operators.md",
-    "content/preface.md",
-    "content/roadmap.md",
-    "content/installation.md"
+    "content/chapter 10/_index.md",
+    "content/chapter 9/structural patterns/9.2.7-proxy.md",
+    "content/chapter 9/_index.md",
+    "content/chapter 9/structural patterns/9.2.6-flyweight.md",
+    "content/chapter 9/structural patterns/9.2.5-facade.md",
+    "content/chapter 9/structural patterns/9.2.4-decorator.md",
+    "content/chapter 9/structural patterns/9.2.3-composite.md",
+    "content/chapter 9/structural patterns/9.2.2-bridge.md",
+    "content/chapter 9/structural patterns/9.2.1-adaptor.md",
+    "content/chapter 9/structural patterns/_index.md"
   ]
 }
