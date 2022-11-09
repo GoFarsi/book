@@ -40,4 +40,5 @@ tags:
 {{< author githubUrl="https://github.com/Ja7ad" githubImg="https://avatars.githubusercontent.com/u/56496801?v=4" name="Javad Rajabzadeh" >}}
 {{< author githubUrl="https://github.com/Miraddo" githubImg="https://avatars.githubusercontent.com/u/14594374?v=4" name="Milad Poshtdari" >}}
 {{< author githubUrl="https://github.com/ar-mokhtari" githubImg="https://avatars.githubusercontent.com/u/49469395?v=4" name="Alireza Mokhtari Garakani" >}}
+{{< author githubUrl="https://github.com/alirezanqp" githubImg="https://avatars.githubusercontent.com/u/61993445?v=4" name="Alireza Naghdipour" >}}
 </p>
