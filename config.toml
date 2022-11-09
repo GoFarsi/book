@@ -9,6 +9,8 @@ disqusShortname = "gofarsi"
 # Always put it on the top of the configuration file, otherwise it won't work
 googleAnalytics = "UA-235734076-1"
 
+enableRobotsTXT = true
+
 
 defaultContentLanguage = 'fa'
 [languages]
