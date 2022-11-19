@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "d4475d1ecd1dec11",
+        "id": "73e8f7bc5c2e7fc1",
         "type": "tabs",
         "children": [
           {
-            "id": "0b44575741777995",
+            "id": "f49e3d874c43672b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md",
+                "file": "content/chapter 1/1.12-defer-panic-recovery.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md",
+                "file": "content/chapter 1/1.12-defer-panic-recovery.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md",
+                "file": "content/chapter 1/1.12-defer-panic-recovery.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 1/1.7-array-slice.md"
+                "file": "content/chapter 1/1.12-defer-panic-recovery.md"
               }
             }
           }
@@ -137,7 +137,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "0b44575741777995",
+  "active": "f49e3d874c43672b",
   "lastOpenFiles": [
     "content/chapter 1/1.7-array-slice.md",
     "content/chapter 1/1.1-basic-structure.md",
