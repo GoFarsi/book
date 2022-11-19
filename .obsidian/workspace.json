@@ -4,139 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "6c9b97a716bac3f8",
+        "id": "e30bef4d7692925d",
         "type": "tabs",
         "children": [
           {
-            "id": "97d801f1f5ea9e97",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "5520b22e1815d8b0",
+            "id": "d69720412c538908",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 5/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7b543c4fb7bdeb54",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 6/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "753e026bf716bffd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 7/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6c1723aed0db414d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 9/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "47cd40085446c4b5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 10/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "09ee0668ed470ef6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 5/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9a01af585e84c872",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 5/5.1-http-server-begginer.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "88dcdaf5713b5540",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 5/5.2-http-server-advanced.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b46a208941ba6184",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 5/5.3-http-client-begginer.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d2c2326fc762a5ac",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 5/5.1-http-server-begginer.md",
+                "file": "content/chapter 1/1.7-array-slice.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 10
+        ]
       }
     ],
     "direction": "vertical"
@@ -186,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f142c3a005ae7658",
@@ -202,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 5/5.1-http-server-begginer.md",
+                "file": "content/chapter 1/1.7-array-slice.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -219,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 5/5.1-http-server-begginer.md",
+                "file": "content/chapter 1/1.7-array-slice.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -242,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 5/5.1-http-server-begginer.md"
+                "file": "content/chapter 1/1.7-array-slice.md"
               }
             }
           }
@@ -253,17 +137,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "d2c2326fc762a5ac",
+  "active": "d69720412c538908",
   "lastOpenFiles": [
+    "content/chapter 1/1.1-basic-structure.md",
+    "content/chapter 1/1.7-array-slice.md",
+    "content/roadmap.md",
+    "content/installation.md",
+    "content/chapter 1/1.8-map.md",
+    "content/chapter 5/5.1-http-server-begginer.md",
     "content/chapter 5/5.2-http-server-advanced.md",
     "content/chapter 5/5.3-http-client-begginer.md",
     "content/chapter 5/5.4-http-client-advanced.md",
-    "content/chapter 5/5.1-http-server-begginer.md",
-    "content/chapter 5/_index.md",
-    "content/chapter 4/4.1-build.md",
-    "content/chapter 3/_index.md",
-    "content/chapter 4/_index.md",
-    "content/chapter 2/2.7-casting-conversion.md",
-    "content/chapter 2/2.6-error-handling.md"
+    "content/chapter 5/_index.md"
   ]
 }
