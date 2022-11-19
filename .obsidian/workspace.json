@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e30bef4d7692925d",
+        "id": "d4475d1ecd1dec11",
         "type": "tabs",
         "children": [
           {
-            "id": "d69720412c538908",
+            "id": "0b44575741777995",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -137,10 +137,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "d69720412c538908",
+  "active": "0b44575741777995",
   "lastOpenFiles": [
-    "content/chapter 1/1.1-basic-structure.md",
     "content/chapter 1/1.7-array-slice.md",
+    "content/chapter 1/1.1-basic-structure.md",
     "content/roadmap.md",
     "content/installation.md",
     "content/chapter 1/1.8-map.md",
