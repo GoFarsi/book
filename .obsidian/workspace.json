@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f142c3a005ae7658",
@@ -140,14 +139,14 @@
   "active": "f49e3d874c43672b",
   "lastOpenFiles": [
     "content/chapter 1/1.7-array-slice.md",
+    "content/chapter 1/1.12-defer-panic-recovery.md",
+    "content/chapter 1/1.2-keywords.md",
     "content/chapter 1/1.1-basic-structure.md",
     "content/roadmap.md",
     "content/installation.md",
     "content/chapter 1/1.8-map.md",
     "content/chapter 5/5.1-http-server-begginer.md",
     "content/chapter 5/5.2-http-server-advanced.md",
-    "content/chapter 5/5.3-http-client-begginer.md",
-    "content/chapter 5/5.4-http-client-advanced.md",
-    "content/chapter 5/_index.md"
+    "content/chapter 5/5.3-http-client-begginer.md"
   ]
 }
