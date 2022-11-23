@@ -4,6 +4,8 @@ type: chapter
 weight: 7
 ---
 
+ ![gopher](../../assets/img/content/changes/logo.png)
+
 {{< timeline >}}
 
     {{% event date="2022-08-02" title="نسخه 1.19"%}}

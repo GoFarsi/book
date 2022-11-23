@@ -138,9 +138,9 @@
   },
   "active": "5f40706af0dfcd09",
   "lastOpenFiles": [
-    "content/roadmap.md",
-    "content/changes-log.md",
     "content/chapter 1/1.12-defer-panic-recovery.md",
+    "content/changes-log.md",
+    "content/roadmap.md",
     "content/chapter 1/1.7-array-slice.md",
     "content/chapter 1/1.2-keywords.md",
     "content/chapter 1/1.1-basic-structure.md",
