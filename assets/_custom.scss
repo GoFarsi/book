@@ -385,3 +385,74 @@ icon-filter: brightness(0) invert(1),
 .goplay-btn:hover {
   opacity: .45;
 }
+
+*, html,body{
+  padding:0px;
+  margin:0px;
+  box-sizing:border-box;
+  font-family: Vazir, sans-serif;
+  perspective:100%;
+}
+
+
+.timeline {
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.timeline ul{
+  list-style-type:none;
+  border-left:2px solid #00ADD8;
+  padding:10px 5px;
+}
+.timeline ul li{
+  padding:20px 20px;
+  position:relative;
+  transition:.5s;
+}
+.timeline ul li span{
+  display:inline-block;
+  background-color:#5EC9E3;
+  border-radius:25px;
+  position: absolute;
+  padding:2px 5px;
+  font-size:15px;
+  text-align:center;
+  left: 5px;
+  top: 17px;
+}
+.timeline ul li .content h3{
+  color:#5EC9E3;
+  font-weight: bold;
+  font-size:19px;
+}
+.timeline ul li .content p{
+  padding:-60px 0px 15px 0px;
+  font-size:12px;
+}
+.timeline ul li:before{
+  position:absolute;
+  content:'';
+  width:10px;
+  height:10px;
+  background-color:#34ace0;
+  border-radius:50%;
+  left:-11px;
+  top:28px;
+  transition:.5s;
+}
+.timeline ul li:hover:before{
+  background-color:#0F0;
+  box-shadow:0px 0px 10px 2px #0F0;
+}
+@media (max-width:300px){
+  .timeline{
+    width:100%;
+    padding:10px 5px 30px 10px;
+  }
+  .timeline ul li .content h3{
+    color:#34ace0;
+    font-size:15px;
+  }
+
+}
