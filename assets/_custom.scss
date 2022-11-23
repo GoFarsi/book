@@ -456,3 +456,21 @@ icon-filter: brightness(0) invert(1),
   }
 
 }
+
+.book-menu a.active {
+    color: #5ec9e3;
+}
+
+a.book-btn {
+    display: inline-block;
+    font-size: .875rem;
+    color: #5ec9e3;
+    line-height: 2.5rem;
+    padding: 0 1rem;
+    border: 1px solid #5ec9e3;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5em;
+}
