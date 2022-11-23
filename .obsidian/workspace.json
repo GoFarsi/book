@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "73e8f7bc5c2e7fc1",
+        "id": "eef4b1336dd97da5",
         "type": "tabs",
         "children": [
           {
-            "id": "f49e3d874c43672b",
+            "id": "5f40706af0dfcd09",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 1/1.12-defer-panic-recovery.md",
+                "file": "content/changes-log.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 1/1.12-defer-panic-recovery.md",
+                "file": "content/changes-log.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 1/1.12-defer-panic-recovery.md",
+                "file": "content/changes-log.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 1/1.12-defer-panic-recovery.md"
+                "file": "content/changes-log.md"
               }
             }
           }
@@ -136,17 +136,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "f49e3d874c43672b",
+  "active": "5f40706af0dfcd09",
   "lastOpenFiles": [
-    "content/chapter 1/1.7-array-slice.md",
+    "content/roadmap.md",
+    "content/changes-log.md",
     "content/chapter 1/1.12-defer-panic-recovery.md",
+    "content/chapter 1/1.7-array-slice.md",
     "content/chapter 1/1.2-keywords.md",
     "content/chapter 1/1.1-basic-structure.md",
-    "content/roadmap.md",
     "content/installation.md",
     "content/chapter 1/1.8-map.md",
     "content/chapter 5/5.1-http-server-begginer.md",
-    "content/chapter 5/5.2-http-server-advanced.md",
-    "content/chapter 5/5.3-http-client-begginer.md"
+    "content/chapter 5/5.2-http-server-advanced.md"
   ]
 }
