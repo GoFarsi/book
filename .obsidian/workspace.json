@@ -4,59 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "eef4b1336dd97da5",
+        "id": "0c64b057008d00e5",
         "type": "tabs",
         "children": [
           {
-            "id": "5f40706af0dfcd09",
+            "id": "9a533b1d157edbf8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 9/behavioral patterns/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6dea153505bcd599",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 4/oop/_index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a0a69449c88206b8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 4/oop/4.20.1-inheritance.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "76d041ce0ba91d13",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/chapter 4/oop/4.20.3-polymorphism.md",
+                "file": "content/chapter 2/2.2-struct.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -122,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 4/oop/4.20.3-polymorphism.md",
+                "file": "content/chapter 2/2.2-struct.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 4/oop/4.20.3-polymorphism.md",
+                "file": "content/chapter 2/2.2-struct.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 4/oop/4.20.3-polymorphism.md"
+                "file": "content/chapter 2/2.2-struct.md"
               }
             }
           }
@@ -173,14 +136,14 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "76d041ce0ba91d13",
+  "active": "9a533b1d157edbf8",
   "lastOpenFiles": [
+    "content/chapter 4/oop/4.20.1-inheritance.md",
+    "content/chapter 4/oop/4.20.3-polymorphism.md",
     "content/chapter 4/oop/4.20.2-encapsulation.md",
     "content/chapter 2/2.2-struct.md",
     "content/chapter 1/1.12-defer-panic-recovery.md",
     "content/chapter 1/1.7-array-slice.md",
-    "content/chapter 4/oop/4.20.3-polymorphism.md",
-    "content/chapter 4/oop/4.20.1-inheritance.md",
     "content/chapter 4/oop/_index.md",
     "content/chapter 9/structural patterns/9.2.2-bridge.md",
     "content/chapter 4/4.3-go-mod.md",
