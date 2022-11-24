@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 2/2.2-struct.md",
+                "file": "content/chapter 4/oop/4.20.3-polymorphism.md",
                 "mode": "source",
                 "source": false
               }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 2/2.2-struct.md",
+                "file": "content/chapter 4/oop/4.20.3-polymorphism.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 2/2.2-struct.md",
+                "file": "content/chapter 4/oop/4.20.3-polymorphism.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 2/2.2-struct.md"
+                "file": "content/chapter 4/oop/4.20.3-polymorphism.md"
               }
             }
           }
@@ -176,9 +176,9 @@
   "active": "76d041ce0ba91d13",
   "lastOpenFiles": [
     "content/chapter 4/oop/4.20.2-encapsulation.md",
+    "content/chapter 2/2.2-struct.md",
     "content/chapter 1/1.12-defer-panic-recovery.md",
     "content/chapter 1/1.7-array-slice.md",
-    "content/chapter 2/2.2-struct.md",
     "content/chapter 4/oop/4.20.3-polymorphism.md",
     "content/chapter 4/oop/4.20.1-inheritance.md",
     "content/chapter 4/oop/_index.md",
