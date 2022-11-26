@@ -1,5 +1,5 @@
 ---
-title: 'الگوهای طراحی سازنده'
+title: '9.1 الگوهای طراحی سازنده'
 weight: 17200
 bookCollapseSection: true
 ---
