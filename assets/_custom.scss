@@ -387,15 +387,6 @@ icon-filter: brightness(0) invert(1),
   opacity: .45;
 }
 
-*, html,body{
-  padding:0px;
-  margin:0px;
-  box-sizing:border-box;
-  font-family: Vazir, sans-serif;
-  perspective:100%;
-}
-
-
 .timeline {
     width: 100%;
     padding: 0px 20px;
@@ -405,6 +396,7 @@ icon-filter: brightness(0) invert(1),
   list-style-type:none;
   border-left:2px solid #00ADD8;
   padding:10px 5px;
+  margin:0px;
 }
 .timeline ul li{
   padding:20px 20px;
