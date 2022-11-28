@@ -37,8 +37,9 @@ tags:
 
 ## مشارکت کنندگان
 <p>
-{{< author githubUrl="https://github.com/Ja7ad" githubImg="https://avatars.githubusercontent.com/u/56496801?v=4" name="Javad Rajabzadeh" >}}
-{{< author githubUrl="https://github.com/Miraddo" githubImg="https://avatars.githubusercontent.com/u/14594374?v=4" name="Milad Poshtdari" >}}
-{{< author githubUrl="https://github.com/ar-mokhtari" githubImg="https://avatars.githubusercontent.com/u/49469395?v=4" name="Alireza Mokhtari Garakani" >}}
-{{< author githubUrl="https://github.com/alirezanqp" githubImg="https://avatars.githubusercontent.com/u/61993445?v=4" name="Alireza Naghdipour" >}}
+{{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
+{{< author githubUrl="https://github.com/Miraddo" githubImg="../assets/img/author/2.jpg" name="Milad Poshtdari" >}}
+{{< author githubUrl="https://github.com/ar-mokhtari" githubImg="../assets/img/author/3.jpg" name="Alireza Mokhtari Garakani" >}}
+{{< author githubUrl="https://github.com/alirezanqp" githubImg="../assets/img/author/4.jpg" name="Alireza Naghdipour" >}}
+{{< author githubUrl="https://github.com/mahdimehrabi" githubImg="../assets/img/author/5.jpg" name="Mahdi Mehrabi" >}}
 </p>
