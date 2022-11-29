@@ -16,6 +16,7 @@ _book
 *.pdf
 build/*
 .trash/
+.obsidian
 
 #IDE and code editor(s) setting
 .idea/
