@@ -46,4 +46,5 @@ tags:
 {{< author githubUrl="https://github.com/ar-mokhtari" githubImg="../assets/img/author/3.jpg" name="Alireza Mokhtari Garakani" >}}
 {{< author githubUrl="https://github.com/alirezanqp" githubImg="../assets/img/author/4.jpg" name="Alireza Naghdipour" >}}
 {{< author githubUrl="https://github.com/mahdimehrabi" githubImg="../assets/img/author/5.jpg" name="Mahdi Mehrabi" >}}
+{{< author githubUrl="https://github.com/akbariandev" githubImg="../assets/img/author/6.jpg" name="Mohammad Javad Akbarian" >}}
 </p>
