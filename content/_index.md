@@ -33,6 +33,10 @@ tags:
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
 
+### دانلود اپلیکیشن کتاب
+
+[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
+
 {{</ columns >}}
 
 ## مشارکت کنندگان
