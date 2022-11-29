@@ -35,7 +35,7 @@ tags:
 
 ### دانلود اپلیکیشن کتاب
 
-[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
+[![direct download](../assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](../assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
 
 {{</ columns >}}
 
