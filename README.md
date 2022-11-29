@@ -4,6 +4,12 @@
 
 این کتاب برای کسانی که تازه میخواهند زبان گو را یادبگیرند یا اینکه افراد با تجربه در زبان گو هستند مناسب می باشد و همچنین اگر قصد دارید زبان گو را به عنوان استک جدید شروع کنید این کتاب یه راهنمای کلی برای یادگیری زبان گو خواهد بود.
 
+## دانلود اپلیکیشن کتاب
+
+- **نسخه اندروید**
+
+[![direct download](assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases)[![bazzar](assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)[![myket](assets/img/dl/myket.png)](https://github.com/GoFarsi/android-book/releases)
+
 ## مشارکت در بهبود کتاب
 
 اگر قصد دارید برای بهبود یا اشتراک گذاری تجربه خود در کتاب مشارکت کنید کافیه [توضیحات و راهنمای مشارکت](https://github.com/GoFarsi/book/blob/main/COUNTRIBUTING.md) را حتما مطالعه کنید.
