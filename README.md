@@ -8,7 +8,7 @@
 
 - **نسخه اندروید**
 
-[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![bazzar](static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book) [![myket](static/assets/img/dl/myket.png)](https://github.com/GoFarsi/android-book/releases)
+[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![bazzar](static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
 
 ## مشارکت در بهبود کتاب
 
