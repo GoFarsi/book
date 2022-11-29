@@ -33,12 +33,6 @@ tags:
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
 
-### دانلود اپلیکیشن کتاب
-
-[![direct download](../assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![bazzar](../assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book) [![myket](../assets/img/dl/myket.png)](https://github.com/GoFarsi/android-book/releases)
-
-{{</ columns >}}
-
 ## مشارکت کنندگان
 <p>
 {{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
