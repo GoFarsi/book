@@ -33,6 +33,8 @@ tags:
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
 
+{{</ columns >}}
+
 ## مشارکت کنندگان
 <p>
 {{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
