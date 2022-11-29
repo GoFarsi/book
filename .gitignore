@@ -16,7 +16,7 @@ _book
 *.pdf
 build/*
 .trash/
-workspace.json
+.obsidian
 
 #IDE and code editor(s) setting
 .idea/
