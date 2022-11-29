@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 9/structural patterns/_index.md",
+                "file": "content/chapter 1/1.10-for.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/chapter 9/structural patterns/_index.md",
+                "file": "content/chapter 1/1.10-for.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/chapter 9/structural patterns/_index.md",
+                "file": "content/chapter 1/1.10-for.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/chapter 9/structural patterns/_index.md"
+                "file": "content/chapter 1/1.10-for.md"
               }
             }
           }
@@ -163,6 +163,7 @@
   },
   "active": "cd30f653ef790594",
   "lastOpenFiles": [
+    "content/chapter 9/structural patterns/_index.md",
     "content/chapter 9/creational patterns/_index.md",
     "content/chapter 9/behavioral patterns/_index.md",
     "content/chapter 4/oop/_index.md",
@@ -171,7 +172,6 @@
     "content/chapter 1/1.3-types.md",
     "content/chapter 1/1.2-keywords.md",
     "content/builtin.md",
-    "content/toolchain.md",
-    "content/preface.md"
+    "content/toolchain.md"
   ]
 }
