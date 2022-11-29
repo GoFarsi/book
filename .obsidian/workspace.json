@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/chapter 2/2.2-struct.md",
+                "file": "content/_index.md",
                 "mode": "source",
                 "source": false
               }
@@ -37,14 +37,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "content/installation.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "content/_index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "content/_index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "content/_index.md"
               }
             }
           }
@@ -161,17 +160,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "cd30f653ef790594",
+  "active": "9a533b1d157edbf8",
   "lastOpenFiles": [
+    "content/chapter 2/2.2-struct.md",
+    "content/chapter 1/1.3-types.md",
     "content/installation.md",
+    "content/_index.md",
+    "content/chapter 4/_index.md",
     "README.md",
     "content/chapter 1/1.10-for.md",
     "content/chapter 9/structural patterns/_index.md",
     "content/chapter 9/creational patterns/_index.md",
-    "content/chapter 9/behavioral patterns/_index.md",
-    "content/chapter 4/oop/_index.md",
-    "content/chapter 1/1.13-builtin.md",
-    "content/chapter 1/1.12-defer-panic-recovery.md",
-    "content/chapter 1/1.3-types.md"
+    "content/chapter 9/behavioral patterns/_index.md"
   ]
 }
