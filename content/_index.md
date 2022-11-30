@@ -39,6 +39,8 @@ tags:
 ### لیست سرورهای کمکی
 
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS بلاکچین :  https://ipfs-book.gofarsi.ir
+<br>
+<span class="fas fa-sharp fa-solid fa-server"></span>  سرور دیتاکمپ :  https://book.m1.gofarsi.ir
 
 
 {{</ columns >}}
