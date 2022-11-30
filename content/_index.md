@@ -34,7 +34,7 @@ tags:
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود اپلیکیشن کتاب
 
 
-[![direct download](../assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](../assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
+[![direct download](../assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases/download/v1.0.0/gofarsi_online_1.0.0.apk) [![myket](../assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
 
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
