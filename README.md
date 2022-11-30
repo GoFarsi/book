@@ -4,9 +4,12 @@
 
 این کتاب برای کسانی که تازه میخواهند زبان گو را یادبگیرند یا اینکه افراد با تجربه در زبان گو هستند مناسب می باشد و همچنین اگر قصد دارید زبان گو را به عنوان استک جدید شروع کنید این کتاب یه راهنمای کلی برای یادگیری زبان گو خواهد بود.
 
-## دانلود اپلیکیشن کتاب
+### لیست سرورهای کمکی
 
-- **نسخه اندروید**
+- شبکه IPFS بلاکچین : https://ipfs-book.gofarsi.ir
+
+
+### دانلود اپلیکیشن کتاب
 
 [![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
 

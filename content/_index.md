@@ -29,13 +29,17 @@ tags:
 
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
 
+### دانلود اپلیکیشن کتاب
+
+[![direct download](../assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](../assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
 
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
 
-### دانلود اپلیکیشن کتاب
+### لیست سرورهای کمکی
 
-[![direct download](../assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](../assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
+<span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS بلاکچین :  https://ipfs-book.gofarsi.ir
+
 
 {{</ columns >}}
 
