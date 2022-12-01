@@ -29,12 +29,6 @@ tags:
 
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
 
-<br><br><br>
-
-### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود اپلیکیشن کتاب
-
-
-[![direct download](../assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases/download/v1.0.0/gofarsi_online_1.0.0.apk) [![myket](../assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book)
 
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
