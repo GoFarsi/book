@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - "main"
+    tags:
+      - "v*.*.*"
+  pull_request:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - run: git fetch --prune --unshallow
+      - name: setup dependencies
+        uses: actions/setup-go@v2
+      - name: release dry run
+        run: make release-dry-run
+      - name: setup release environment
+        run: |-
+          echo 'GITHUB_TOKEN=${{secrets.GORELEASER_ACCESS_TOKEN}}' > .release-env
+      - name: release publish
+        run: make release

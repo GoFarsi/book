@@ -1,3 +1,10 @@
 [submodule "themes/hugo-book"]
 	path = themes/hugo-book
 	url = https://github.com/alex-shpak/hugo-book
+[submodule "app/android"]
+	path = app/android
+	url = https://github.com/GoFarsi/android-book.git
+[submodule "app/desktop/content"]
+	path = app/desktop/content
+	url = https://github.com/GoFarsi/book.git
+	branch = gh-pages
