@@ -28,15 +28,31 @@ tags:
 <br><br>
 
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
-</br>
+
+
+### <span class="fas fa-sharp fa-solid fa-people-group"></span> مشارکت کنندگان
+<p>
+{{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
+{{< author githubUrl="https://github.com/Miraddo" githubImg="../assets/img/author/2.jpg" name="Milad Poshtdari" >}}
+{{< author githubUrl="https://github.com/ar-mokhtari" githubImg="../assets/img/author/3.jpg" name="Alireza Mokhtari Garakani" >}}
+{{< author githubUrl="https://github.com/alirezanqp" githubImg="../assets/img/author/4.jpg" name="Alireza Naghdipour" >}}
+{{< author githubUrl="https://github.com/mahdimehrabi" githubImg="../assets/img/author/5.jpg" name="Mahdi Mehrabi" >}}
+{{< author githubUrl="https://github.com/akbariandev" githubImg="../assets/img/author/6.jpg" name="Mohammad Javad Akbarian" >}}
+</p>
+
+
+<--->
+{{< figure src="cover.png" alt="زبان گو فارسی" >}}
+
+-------
+
 
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود اپلیکیشن کتاب
   
 
-[![direct download](../static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](../static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](../static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  [![docker](../static/assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book)
+[![direct download](assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  [![docker](assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book)
 
-<--->
-{{< figure src="cover.png" alt="زبان گو فارسی" >}}
+-------
 
 ### <span class="fas fa-sharp fa-solid fa-globe"></span> لیست سرورهای کمکی
 
@@ -46,13 +62,3 @@ tags:
 
 
 {{</ columns >}}
-
-## <span class="fas fa-sharp fa-solid fa-people-group"></span> مشارکت کنندگان
-<p>
-{{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
-{{< author githubUrl="https://github.com/Miraddo" githubImg="../assets/img/author/2.jpg" name="Milad Poshtdari" >}}
-{{< author githubUrl="https://github.com/ar-mokhtari" githubImg="../assets/img/author/3.jpg" name="Alireza Mokhtari Garakani" >}}
-{{< author githubUrl="https://github.com/alirezanqp" githubImg="../assets/img/author/4.jpg" name="Alireza Naghdipour" >}}
-{{< author githubUrl="https://github.com/mahdimehrabi" githubImg="../assets/img/author/5.jpg" name="Mahdi Mehrabi" >}}
-{{< author githubUrl="https://github.com/akbariandev" githubImg="../assets/img/author/6.jpg" name="Mohammad Javad Akbarian" >}}
-</p>
