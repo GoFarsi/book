@@ -21,6 +21,6 @@ jobs:
         run: make release-dry-run
       - name: setup release environment
         run: |-
-          echo 'GITHUB_TOKEN=${{secrets.GORELEASER_ACCESS_TOKEN}}' > .release-env
+          echo 'GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}' > .release-env
       - name: release publish
         run: make release
