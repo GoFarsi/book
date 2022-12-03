@@ -25,10 +25,15 @@ tags:
 **کتاب زبان گو فارسی** آموزش زبان گو را به‌طور عمیق از مفاهیم پایه تا مفاهیم کاملاً پیشرفته و تکنیکی مانند: سینتکس، پارادایم ها،  {{< tooltip text="همزمانی" note="Concurrency" >}} (پایه تا پیشرفته)، ساختار داده، {{< tooltip text="الگوهای طراحی" note="Design Patterns" >}} و ... می‌پردازد تا گوفرها درک عمیق و کامل از زبان گو داشته باشند.
 
 این کتاب برای کسانی که تازه می‌خواهند زبان گو را یادبگیرند یا اینکه افراد باتجربه در زبان گو هستند، مناسب می‌باشد و همچنین اگر قصد دارید زبان گو را به عنوان استک جدید شروع کنید، این کتاب یک راهنمای کلی برای یادگیری زبان گو خواهد بود.
-
+<br><br>
 
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
 
+<br>
+### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود اپلیکیشن کتاب
+  
+
+[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  ![docker](static/assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book)
 
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
