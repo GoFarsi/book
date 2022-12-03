@@ -28,12 +28,12 @@ tags:
 <br><br>
 
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
+</br>
 
-<br>
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود اپلیکیشن کتاب
   
 
-[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  ![docker](static/assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book)
+[![direct download](../static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](../static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](../static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  [![docker](../static/assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book)
 
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
