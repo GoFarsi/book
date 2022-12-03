@@ -44,8 +44,6 @@ tags:
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
 
-</br>
-
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود اپلیکیشن کتاب
   
 
