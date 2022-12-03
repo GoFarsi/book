@@ -12,7 +12,7 @@
 
 ### دانلود نسخه های آنلاین و آفلاین کتاب
 
-[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  ![docker](static/assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book)
+[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book) [![docker](static/assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book)
 
 ## مشارکت در بهبود کتاب
 
