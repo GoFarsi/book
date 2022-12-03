@@ -3,6 +3,7 @@
 package main
 
 import (
+	"embed"
 	"flag"
 	"fmt"
 	"io/fs"
@@ -14,6 +15,9 @@ import (
 	"time"
 )
 
+//go:embed content
+var Book embed.FS
+
 func main() {
 	port := flag.Int64("port", 8080, "port for listen and serve example 8080")
 	flag.Parse()
@@ -24,7 +28,7 @@ func main() {
 
 	address := fmt.Sprintf(":%s", strconv.Itoa(int(*port)))
 
-	subFS, err := fs.Sub(book, "content")
+	subFS, err := fs.Sub(Book, "content")
 	if err != nil {
 		log.Fatalln(err)
 	}
