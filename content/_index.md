@@ -30,8 +30,6 @@ tags:
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
 {{< /hint >}}
 
-</br>
-
 ### <span class="fas fa-sharp fa-solid fa-people-group"></span> مشارکت کنندگان
 <p>
 {{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
@@ -45,6 +43,8 @@ tags:
 
 <--->
 {{< figure src="cover.png" alt="زبان گو فارسی" >}}
+
+</br>
 
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود اپلیکیشن کتاب
   
