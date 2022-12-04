@@ -4,6 +4,7 @@
 [submodule "app/android"]
 	path = app/android
 	url = https://github.com/GoFarsi/android-book.git
+        branch = main
 [submodule "app/desktop/content"]
 	path = app/desktop/content
 	url = https://github.com/GoFarsi/book.git
