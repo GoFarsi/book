@@ -30,15 +30,10 @@ tags:
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
 {{< /hint >}}
 
-### <span class="fas fa-sharp fa-solid fa-people-group"></span> مشارکت کنندگان
-<p>
-{{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
-{{< author githubUrl="https://github.com/Miraddo" githubImg="../assets/img/author/2.jpg" name="Milad Poshtdari" >}}
-{{< author githubUrl="https://github.com/ar-mokhtari" githubImg="../assets/img/author/3.jpg" name="Alireza Mokhtari Garakani" >}}
-{{< author githubUrl="https://github.com/alirezanqp" githubImg="../assets/img/author/4.jpg" name="Alireza Naghdipour" >}}
-{{< author githubUrl="https://github.com/mahdimehrabi" githubImg="../assets/img/author/5.jpg" name="Mahdi Mehrabi" >}}
-{{< author githubUrl="https://github.com/akbariandev" githubImg="../assets/img/author/6.jpg" name="Mohammad Javad Akbarian" >}}
-</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is pretty cool. A technical book about <a href="https://twitter.com/hashtag/golang?src=hash&amp;ref_src=twsrc%5Etfw">#golang</a> from <a href="https://twitter.com/Ja7adR?ref_src=twsrc%5Etfw">@Ja7adR</a> written in persian.<a href="https://t.co/YI0dNuU6eD">https://t.co/YI0dNuU6eD</a></p>&mdash; William (Bill) Kennedy (@goinggodotnet) <a href="https://twitter.com/goinggodotnet/status/1585243481685233664?ref_src=twsrc%5Etfw">October 26, 2022</a></blockquote> 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 
 
 <--->
@@ -62,3 +57,13 @@ tags:
 <span class="fas a-sharp fa-solid fa-server"></span>  سرور Heroku اروپا :  https://book.m2.gofarsi.ir
 
 {{</ columns >}}
+
+### <span class="fas fa-sharp fa-solid fa-people-group"></span> مشارکت کنندگان
+<p>
+{{< author githubUrl="https://github.com/Ja7ad" githubImg="../assets/img/author/1.jpg" name="Javad Rajabzadeh" >}}
+{{< author githubUrl="https://github.com/Miraddo" githubImg="../assets/img/author/2.jpg" name="Milad Poshtdari" >}}
+{{< author githubUrl="https://github.com/ar-mokhtari" githubImg="../assets/img/author/3.jpg" name="Alireza Mokhtari Garakani" >}}
+{{< author githubUrl="https://github.com/alirezanqp" githubImg="../assets/img/author/4.jpg" name="Alireza Naghdipour" >}}
+{{< author githubUrl="https://github.com/mahdimehrabi" githubImg="../assets/img/author/5.jpg" name="Mahdi Mehrabi" >}}
+{{< author githubUrl="https://github.com/akbariandev" githubImg="../assets/img/author/6.jpg" name="Mohammad Javad Akbarian" >}}
+</p>
