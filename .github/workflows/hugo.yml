@@ -29,5 +29,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          
+      - name: curl
+        uses: wei/curl@v1
+        with:
+          args: -H 'Authorization: cpanel iwwzcgur:2Y0S63J1UXBEUATMMJALCPFBLTBSNA3W' http://89.39.208.38:2082/execute/VersionControl/update?repository_root=/home3/iwwzcgur/repositories/book
 
       
