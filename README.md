@@ -7,7 +7,8 @@
 ### لیست سرورهای کمکی
 
 - شبکه IPFS بلاکچین : https://ipfs-book.gofarsi.ir
-- سرور دیتاکمپ : https://book.m1.gofarsi.ir
+- سرور آمازون : https://book.m1.gofarsi.ir
+- سرور ایران ۱ : https://book.ir1.gofarsi.ir
 
 
 ### دانلود نسخه های آنلاین و آفلاین کتاب
