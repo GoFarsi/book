@@ -9,3 +9,7 @@
 	path = app/desktop/content
 	url = https://github.com/GoFarsi/book.git
 	branch = gh-pages
+[submodule "app/worker/content"]
+	path = app/worker/content
+	url = https://github.com/GoFarsi/book.git
+	branch = gh-pages
