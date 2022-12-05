@@ -55,6 +55,10 @@ tags:
 <span class="fas a-sharp fa-solid fa-server"></span>  سرور آمازون :  https://aws1-book.gofarsi.ir
 <br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سرور Heroku اروپا :  https://hku1-book.gofarsi.ir
+<br>
+<span class="fas a-sharp fa-solid fa-server"></span>  سرور کلادفلر :  https://cloud-book.gofarsi.ir
+<br>
+<span class="fas a-sharp fa-solid fa-server"></span>  سروریس ورکر کلادفلر :  https://wk-book.gofarsi.ir
 
 {{</ columns >}}
 

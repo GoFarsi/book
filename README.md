@@ -11,6 +11,8 @@
 - سرور ایران ۱ : https://ir1-book.gofarsi.ir
 - سرور آمازون : https://aws1-book.gofarsi.ir
 - سرور Heroku اروپا : https://hku1-book.gofarsi.ir
+- سرور کلادفلر : https://cloud-book.gofarsi.ir
+- سروریس ورکر کلادفلر : https://wk-book.gofarsi.ir
 
 
 ### دانلود نسخه های آنلاین و آفلاین کتاب
