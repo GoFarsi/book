@@ -48,6 +48,8 @@ tags:
 
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS بلاکچین :  https://ipfs-book.gofarsi.ir
 <br>
+<span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS کلادفلر :  https://ipfs2-book.gofarsi.ir
+<br>
 <span class="fas fa-sharp fa-solid fa-server"></span>  سرور ایران ۱ :  https://ir1-book.gofarsi.ir
 <br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سرور آمازون :  https://aws1-book.gofarsi.ir

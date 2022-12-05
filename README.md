@@ -7,6 +7,7 @@
 ### لیست سرورهای کمکی
 
 - شبکه IPFS بلاکچین : https://ipfs-book.gofarsi.ir
+- شبکه IPFS کلادفلر : https://ipfs2-book.gofarsi.ir
 - سرور ایران ۱ : https://ir1-book.gofarsi.ir
 - سرور آمازون : https://aws1-book.gofarsi.ir
 - سرور Heroku اروپا : https://hku1-book.gofarsi.ir
