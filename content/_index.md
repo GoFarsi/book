@@ -30,7 +30,7 @@ tags:
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/) که فعال حوزهٔ تکنولوژی‌های جدید و جامعهٔ نرم‌افزار آزاد و متن‌باز است.
 {{< /hint >}}
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is pretty cool. A technical book about <a href="https://twitter.com/hashtag/golang?src=hash&amp;ref_src=twsrc%5Etfw">#golang</a> from <a href="https://twitter.com/Ja7adR?ref_src=twsrc%5Etfw">@Ja7adR</a> written in persian.<a href="https://t.co/YI0dNuU6eD">https://t.co/YI0dNuU6eD</a></p>&mdash; William (Bill) Kennedy (@goinggodotnet) <a href="https://twitter.com/goinggodotnet/status/1585243481685233664?ref_src=twsrc%5Etfw">October 26, 2022</a></blockquote> 
+<blockquote class="twitter-tweet"><p lang="fa" dir="rtl">This is pretty cool. A technical book about <a href="https://twitter.com/hashtag/golang?src=hash&amp;ref_src=twsrc%5Etfw">#golang</a> from <a href="https://twitter.com/Ja7adR?ref_src=twsrc%5Etfw">@Ja7adR</a> written in persian.<a href="https://t.co/YI0dNuU6eD">https://t.co/YI0dNuU6eD</a></p>&mdash; William (Bill) Kennedy (@goinggodotnet) <a href="https://twitter.com/goinggodotnet/status/1585243481685233664?ref_src=twsrc%5Etfw">October 26, 2022</a></blockquote> 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
@@ -47,6 +47,8 @@ tags:
 -------
 
 ### <span class="fas fa-sharp fa-solid fa-globe"></span> لیست سرورهای کمکی
+
+<span class="fas a-sharp fa-solid fa-server"></span> سرور فعلی : <span id="currentsv"></span>
 
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS بلاکچین :  https://ipfs-book.gofarsi.ir
 <br>
