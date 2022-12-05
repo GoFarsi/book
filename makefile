@@ -4,4 +4,5 @@ test:
 	hugo server --disableKinds=taxonomy,term --baseUrl=http://localhost
 	
 wk:
-	wrangler publish
+	git submodule update --remote --recursive
+	cd app/worker && wrangler publish
