@@ -1,7 +1,7 @@
 ---
 title: "تغییرات نسخه های زبان گو"
 type: chapter
-weight: 7
+weight: 8
 ---
 
  ![gopher](../../assets/img/content/changes/logo.png)
