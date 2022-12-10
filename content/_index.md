@@ -62,7 +62,7 @@ tags:
 <br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سروریس نتلیفای :  https://netlify-book.gofarsi.ir
 <br>
-<span class="fas a-sharp fa-solid fa-server"></span>  سروریس ورکر کلادفلر :  https://gitlab-book.gofarsi.ir
+<span class="fas a-sharp fa-solid fa-server"></span>  سروریس گیت لب :  https://gitlab-book.gofarsi.ir
 
 {{</ columns >}}
 
