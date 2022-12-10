@@ -27,3 +27,4 @@ public/
 resources/
 dist/
 app/worker/node_modules
+node_modules/
