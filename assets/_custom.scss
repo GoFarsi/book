@@ -487,3 +487,13 @@ a.book-btn {
 #myBtn:hover {
   background-color: #01ADD8;
 }
+
+@media print {
+    .book-header img.book-icon {display: none;}
+    b, strong {display: none;}
+    .page-navigation a {display: none;}
+    .book-comments {display: none;}
+    .flex align-center {display: none;}
+    .book-toc .book-toc-content {display: none;}
+    .markdown pre code { white-space: pre-wrap; }
+}
