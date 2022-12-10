@@ -13,6 +13,8 @@
 - سرور Heroku اروپا : https://hku1-book.gofarsi.ir
 - سرور کلادفلر : https://cloud-book.gofarsi.ir
 - سروریس ورکر کلادفلر : https://wk-book.gofarsi.ir
+- سرویس نتلیفای : https://netlify-book.gofarsi.ir
+- سرویس گیت لب : https://gitlab-book.gofarsi.ir
 
 
 ### دانلود نسخه های آنلاین و آفلاین کتاب
