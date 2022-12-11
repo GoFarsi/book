@@ -1,6 +1,6 @@
 builds:
   - id: book
-    main: ./app/desktop/book.go
+    main: ./book.go
     dir: ./app/desktop
     binary: book
     env:
