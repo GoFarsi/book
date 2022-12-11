@@ -1,0 +1,21 @@
+# github.com/Christian1984/go-update-checker v0.0.3
+## explicit; go 1.14
+github.com/Christian1984/go-update-checker
+# github.com/Songmu/prompter v0.5.1
+## explicit; go 1.18
+github.com/Songmu/prompter
+# github.com/hashicorp/go-version v1.3.0
+## explicit
+github.com/hashicorp/go-version
+# github.com/mattn/go-isatty v0.0.16
+## explicit; go 1.15
+github.com/mattn/go-isatty
+# golang.org/x/sys v0.3.0
+## explicit; go 1.17
+golang.org/x/sys/internal/unsafeheader
+golang.org/x/sys/plan9
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+# golang.org/x/term v0.3.0
+## explicit; go 1.17
+golang.org/x/term

@@ -6,9 +6,12 @@ import (
 	"embed"
 	"flag"
 	"fmt"
+	upd "github.com/Christian1984/go-update-checker"
+	"github.com/Songmu/prompter"
 	"io/fs"
 	"log"
 	"net/http"
+	"os"
 	"os/exec"
 	"runtime"
 	"strconv"
@@ -17,6 +20,8 @@ import (
 
 //go:embed content
 var Book embed.FS
+
+const VERSION = "2.2.0"
 
 func main() {
 	port := flag.Int64("port", 8080, "port for listen and serve example 8080")
@@ -38,7 +43,12 @@ func main() {
 
 	http.Handle("/", fileFS)
 
-	log.Printf("start serve on address %s", address)
+	if updateAvailable, downloadLink := isAvailableNewVersion(); updateAvailable {
+		if prompter.YN("Are you want update book to new version?", false) {
+			openBrowser(downloadLink)
+			os.Exit(0)
+		}
+	}
 
 	go func() {
 		<-time.After(100 * time.Millisecond)
@@ -47,7 +57,17 @@ func main() {
 		}
 	}()
 
+	log.Printf("start serve on address %s", address)
 	log.Fatalln(http.ListenAndServe(address, logRequest(http.DefaultServeMux)))
+}
+
+func isAvailableNewVersion() (bool, string) {
+	uc := upd.New("GoFarsi", "book", "Go Programming Language Persian", "https://github.com/GoFarsi/book/releases", 0, false)
+	uc.CheckForUpdate(VERSION)
+	if uc.UpdateAvailable {
+		uc.PrintMessage()
+	}
+	return uc.UpdateAvailable, uc.DownloadLink
 }
 
 func logRequest(handler http.Handler) http.Handler {
@@ -71,6 +91,5 @@ func openBrowser(url string) error {
 		cmd = "xdg-open"
 	}
 	args = append(args, url)
-	log.Printf("start address %s in browser", url)
 	return exec.Command(cmd, args...).Start()
 }
