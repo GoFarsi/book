@@ -4,14 +4,12 @@ builds:
     binary: book
     env:
       - CGO_ENABLED=0
-    flags:
-      - -mod=vendor
-    ldflags: -s -w
     goos:
       - linux
       - windows
       - darwin
     goarch:
+      - "386"
       - amd64
       - arm
       - arm64
