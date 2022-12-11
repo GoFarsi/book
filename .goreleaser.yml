@@ -4,6 +4,8 @@ builds:
     binary: book
     env:
       - CGO_ENABLED=0
+    flags:
+      - -mod=vendor
     ldflags: -s -w
     goos:
       - linux
