@@ -1,6 +1,7 @@
 builds:
   - id: book
     main: ./app/desktop/book.go
+    dir: ./app/desktop
     binary: book
     env:
       - CGO_ENABLED=0
