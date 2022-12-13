@@ -1,3 +1,4 @@
+<center>
 {{ if not (.Page.Scratch.Get "mermaid") }}
 <!-- Include mermaid only first time -->
 <script src="{{ "mermaid.min.js" | relURL }}"></script>
@@ -10,3 +11,4 @@
 <p class="mermaid{{ with .Get "class" }} {{ . }}{{ end }}">
   {{- .Inner -}}
 </p>
+</center>
