@@ -24,10 +24,7 @@ jobs:
 
     # Update references
     - name: Git Sumbodule Update
-      run: |
-        git pull --recurse-submodules
-        git submodule update --remote --recursive
-
+      run: git submodule update --remote --recursive
     - name: Commit update
       run: |
         git config --global user.name 'Git bot'
