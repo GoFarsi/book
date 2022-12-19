@@ -29,3 +29,4 @@ dist/
 app/worker/node_modules
 node_modules/
 app/desktop/latestcheck.json
+app/desktop/book/
