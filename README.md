@@ -26,10 +26,7 @@
 اگر قصد دارید برای بهبود یا اشتراک گذاری تجربه خود در کتاب مشارکت کنید کافیه [توضیحات و راهنمای مشارکت](https://github.com/GoFarsi/book/blob/main/COUNTRIBUTING.md) را حتما مطالعه کنید.
 
 ## مجوز پروژه و سایر مجوزات
-### مجوز پروژه
 
 - مجوز کتاب زبان گو فارسی از نوع[ Creative Commons Zero v1.0 Universal](https://github.com/GoFarsi/book/blob/main/LICENSE) می باشد.
-
-### سایر مجوزات
 - فوت وزیر مجوز OFL
 - فونت Jetbrains mono با مجوز OFL
