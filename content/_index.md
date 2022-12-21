@@ -48,6 +48,8 @@ tags:
 
 <span class="fas fa-sharp fa-solid fa-server"></span>  سرور ایران ۱ :  https://ir1-book.gofarsi.ir
 <br>
+<span class="fas fa-sharp fa-solid fa-server"></span>  سرور ایران ۲ :  https://ir2-book.gofarsi.ir
+<br>
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS بلاکچین :  https://ipfs-book.gofarsi.ir
 <br>
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS کلادفلر :  https://ipfs2-book.gofarsi.ir
@@ -63,6 +65,9 @@ tags:
 <span class="fas a-sharp fa-solid fa-server"></span>  سروریس نتلیفای :  https://netlify-book.gofarsi.ir
 <br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سروریس گیت لب :  https://gitlab-book.gofarsi.ir
+<br>
+<span class="fas a-sharp fa-solid fa-server"></span>  سرور هتزنر :  https://de1-book.gofarsi.ir
+<br>
 
 {{</ columns >}}
 

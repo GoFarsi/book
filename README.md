@@ -7,6 +7,7 @@
 ### لیست سرورهای کمکی
 
 - سرور ایران ۱ : https://ir1-book.gofarsi.ir
+- سرور ایران ۲ : https://ir2-book.gofarsi.ir
 - شبکه IPFS بلاکچین : https://ipfs-book.gofarsi.ir
 - شبکه IPFS کلادفلر : https://ipfs2-book.gofarsi.ir
 - سرور آمازون : https://aws1-book.gofarsi.ir
@@ -15,6 +16,7 @@
 - سروریس ورکر کلادفلر : https://wk-book.gofarsi.ir
 - سرویس نتلیفای : https://netlify-book.gofarsi.ir
 - سرویس گیت لب : https://gitlab-book.gofarsi.ir
+- سرور هتزنر : https://de1-book.gofarsi.ir
 
 
 ### دانلود نسخه های آنلاین و آفلاین کتاب
