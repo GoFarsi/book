@@ -8,6 +8,7 @@
 
 - سرور ایران ۱ : https://ir1-book.gofarsi.ir
 - سرور ایران ۲ : https://ir2-book.gofarsi.ir
+- سرور ایران ۳ : https://ir3-book.gofarsi.ir
 - شبکه IPFS بلاکچین : https://ipfs-book.gofarsi.ir
 - شبکه IPFS کلادفلر : https://ipfs2-book.gofarsi.ir
 - سرور آمازون : https://aws1-book.gofarsi.ir

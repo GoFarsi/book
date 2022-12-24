@@ -50,6 +50,8 @@ tags:
 <br>
 <span class="fas fa-sharp fa-solid fa-server"></span>  سرور ایران ۲ :  https://ir2-book.gofarsi.ir
 <br>
+<span class="fas fa-sharp fa-solid fa-server"></span>  سرور ایران ۳ :  https://ir3-book.gofarsi.ir
+<br>
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS بلاکچین :  https://ipfs-book.gofarsi.ir
 <br>
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS کلادفلر :  https://ipfs2-book.gofarsi.ir
