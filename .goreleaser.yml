@@ -29,6 +29,9 @@ builds:
         goarch: arm
         goarm: "6"
       - goos: android
+        goarch: arm
+        goarm: "7"
+      - goos: android
         goarch: "386"
 
 archives:
