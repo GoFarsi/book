@@ -9,6 +9,7 @@ builds:
       - linux
       - windows
       - darwin
+      - android
     goarch:
       - "386"
       - amd64
