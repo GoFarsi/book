@@ -25,6 +25,8 @@ builds:
       - goos: windows
         goarch: arm
         goarm: "7"
+      - goos: android
+        goarch: "386"
 
 archives:
   - builds:
