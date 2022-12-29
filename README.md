@@ -1,5 +1,11 @@
 # کتاب آزاد زبان گو فارسی
 
+<p align="end">
+  <img alt="Go" src="https://persian-badge.vercel.app/api/badge/گو-00ADD8?logo=go&logoColor=white">
+  <img alt="Star" src="https://persian-badge.vercel.app/api/github/stars/GoFarsi/book?logoColor=white">
+  <img alt="Contributors" src="https://persian-badge.vercel.app/api/github/contributors/GoFarsi/book?logoColor=white">
+</p>
+
 **کتاب زبان گو فارسی** آموزش زبان گو را به بطور عمیق از مفاهیم پایه تا مفاهیم کاملا پیشرفته و تکنیکی مانند: سینتکس, پارادایم ها, همزمانی (پایه تا پیشرفته) و همچنین ساختار داده و الگوهای طراحی (Design Patterns) و ... می پردازد تا گوفرها درک عمیق و کامل از زبان گو داشته باشند.
 
 این کتاب برای کسانی که تازه میخواهند زبان گو را یادبگیرند یا اینکه افراد با تجربه در زبان گو هستند مناسب می باشد و همچنین اگر قصد دارید زبان گو را به عنوان استک جدید شروع کنید این کتاب یه راهنمای کلی برای یادگیری زبان گو خواهد بود.
