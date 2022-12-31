@@ -82,4 +82,6 @@ tags:
 {{< author githubUrl="https://github.com/mahdimehrabi" githubImg="../assets/img/author/5.jpg" name="Mahdi Mehrabi" >}}
 {{< author githubUrl="https://github.com/akbariandev" githubImg="../assets/img/author/6.jpg" name="Mohammad Javad Akbarian" >}}
 {{< author githubUrl="https://github.com/ehsansabet" githubImg="../assets/img/author/7.jpg" name="Ehsan Sabet" >}}
+{{< author githubUrl="https://github.com/kasraghoreyshi" githubImg="../assets/img/author/8.jpg" name="Kasra Ghoreyshi" >}}
+{{< author githubUrl="https://github.com/vashian" githubImg="../assets/img/author/9.jpg" name="MohammadReza" >}}
 </p>
