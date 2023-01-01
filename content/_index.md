@@ -9,6 +9,9 @@ tags:
 - golang persian
 - go farsi
 - golang farsi
+- golang advanced
+- go programming language
+- gofarsi
 - گو
 - گوفر
 - گولنگ
@@ -19,6 +22,7 @@ tags:
 - سینتکس زبان گو
 - آموزش زبان گو فارسی
 - زبان گو فارسی
+- آموزش زبان برنامه نویسی گو
 ---
 {{< columns >}}
 
@@ -70,7 +74,6 @@ tags:
 <br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سرور هتزنر :  https://de1-book.gofarsi.ir
 <br>
-
 {{</ columns >}}
 
 ### <span class="fas fa-sharp fa-solid fa-people-group"></span> مشارکت کنندگان
