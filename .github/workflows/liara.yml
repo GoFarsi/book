@@ -2,7 +2,7 @@ name: CD-Liara
 on:
   push:
     branches:
-      - gh-pages
+      - main
     
 jobs:
   deploy:
@@ -10,6 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          path: gh-pages
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
