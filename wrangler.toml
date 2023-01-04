@@ -1,0 +1,6 @@
+name = "worker"
+main = "src/index.ts"
+compatibility_date = "2022-12-05"
+route = "https://wk-book.gofarsi.ir/*"
+[site]
+bucket = "./"
