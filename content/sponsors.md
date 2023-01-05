@@ -75,10 +75,22 @@ html {
       </div>
     </div>
   </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="../assets/img/sponsors/hamravesh.jpg" alt="hamravesh" style="width:100%">
+      <div class="container">
+        <h2>سرویس ابری دارکوب</h2>
+        <p class="title">سکوی ابری</p>
+        <p>با پلتفرم ابری دارکوب، سریع و آسان از مزایا و امکانات کوبرنتیز استفاده کنید.</p>
+        <p><button class="button" onclick="window.open('https://hamravesh.com/','_blank')" rel="nofollow">مشاهده سرویس</button></p>
+      </div>
+    </div>
+  </div>
 
    <div class="column">
     <div class="card">
-      <img src="../assets/img/home/sponsor.png" alt="FingCloud" style="width:100%">
+      <img src="../assets/img/sponsors/sponsor.png" alt="FingCloud" style="width:100%">
       <div class="container">
         <h2>اسپانسر کتاب شوید</h2>
         <p class="title">اسپانسر</p>
