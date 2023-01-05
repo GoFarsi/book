@@ -77,7 +77,7 @@ a {
 .parent-user .name span {
   color: rgb(15, 20, 25);
   font-weight: 700;
-  width: 170px;
+  width: 180px;
   text-align: right;
 }
 .parent-user .name svg {
