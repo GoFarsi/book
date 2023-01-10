@@ -115,8 +115,9 @@ h2 {
     width: 14rem !important;
 }
 
+
 .book-menu a {
-  line-height: 1.7;
+  line-height: 1.2;
 }
 
 .book-menu .book-menu-content {
@@ -497,3 +498,108 @@ a.book-btn {
     .book-toc .book-toc-content {display: none;}
     .markdown pre code { white-space: pre-wrap; }
 }
+
+.wrapper{
+  text-align: center;
+  }
+  
+  .wrapper .icon {
+  position: relative;
+  border-radius: 50%;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  display: inline-block;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-decoration: none;
+  }
+  
+  .wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1.5;
+  font-size: 12px;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 5px 20px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  width: max-content;
+  z-index: 95959202020 !important;
+  }
+  
+  
+  .wrapper a:first-child .tooltip {
+  right: 0 !important;
+  }
+  .wrapper a:first-child .tooltip::before {
+  right: 7% !important;
+  }
+  
+  .wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #ffffff;
+  bottom: -3px;
+  left: 18%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper .telegram:hover,
+  .wrapper .telegram:hover .tooltip,
+  .wrapper .telegram:hover .tooltip::before {
+  background-color: #229ED9;
+  color: #ffffff;
+  }
+  
+  .wrapper .linkedin:hover,
+  .wrapper .linkedin:hover .tooltip,
+  .wrapper .linkedin:hover .tooltip::before {
+  background-color: #0072b1;
+  color: #ffffff;
+  }
+  
+  .wrapper .twitter:hover,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip::before {
+  background-color: #46c1f6;
+  color: #ffffff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+  background-color: #e1306c;
+  color: #ffffff;
+  }
+  
+  .wrapper .github:hover,
+  .wrapper .github:hover .tooltip,
+  .wrapper .github:hover .tooltip::before {
+  background-color: #333333;
+  color: #ffffff;
+  }
