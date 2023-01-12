@@ -21,7 +21,7 @@ import (
 //go:embed content
 var Book embed.FS
 
-const VERSION = "3.1.4"
+const VERSION = "3.1.5"
 
 func main() {
 	port := flag.Int64("port", 8080, "port for listen and serve example 8080")
