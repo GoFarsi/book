@@ -288,4 +288,7 @@ a {
 {{< author githubUrl="https://github.com/ehsansabet" githubImg="../assets/img/author/7.jpg" name="Ehsan Sabet" >}}
 {{< author githubUrl="https://github.com/kasraghoreyshi" githubImg="../assets/img/author/8.jpg" name="Kasra Ghoreyshi" >}}
 {{< author githubUrl="https://github.com/vashian" githubImg="../assets/img/author/9.jpg" name="MohammadReza" >}}
+
+{{< author githubUrl="https://github.com/faridgh1991" githubImg="../assets/img/author/10.jpg" name="Farid Ghoorchian" >}}
+
 </p>
