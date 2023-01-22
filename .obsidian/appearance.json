@@ -1,9 +1,7 @@
 {
   "accentColor": "",
-  "theme": "system",
-  "interfaceFontFamily": "LMU Vazir,Vazir,Tahoma",
-  "textFontFamily": "LMU Vazir,Vazir,Tahoma",
-  "monospaceFontFamily": "JetBrains Mono",
-  "cssTheme": "Typewriter",
-  "baseFontSize": 18
+  "theme": "moonstone",
+  "interfaceFontFamily": "Vazir,Tahoma",
+  "textFontFamily": "Vazir,Tahoma",
+  "monospaceFontFamily": "JetBrains Mono"
 }
