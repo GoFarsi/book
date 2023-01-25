@@ -9,3 +9,36 @@ function toggleTooltip(el) {
     el.classList.toggle("active");
 }
 </script>
+
+<div id="graphcomment"></div>
+<script type="text/javascript">
+
+  /* - - - CONFIGURATION VARIABLES - - - */
+
+  var __semio__params = {
+    graphcommentId: "book", // obviously you need to create your own ID on graphcomment.com
+
+    behaviour: {
+      // HIGHLY RECOMMENDED
+      //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
+    },
+
+    // configure your variables here
+
+  }
+
+  /* - - - DON'T EDIT BELOW THIS LINE - - - */
+
+  function __semio__onload() {
+    __semio__gc_graphlogin(__semio__params)
+  }
+
+
+  (function() {
+    var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+    gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+  })();
+  
+
+</script>
