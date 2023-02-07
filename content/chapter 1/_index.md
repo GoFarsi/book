@@ -1,4 +1,4 @@
-GoFarsi/book---
+---
 title: 'فصل اول: آشنایی با مفاهیم گو'
 weight: 1000
 bookCollapseSection: true
