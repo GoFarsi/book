@@ -1087,7 +1087,7 @@ background-color: #21998E;
 &lt;td>int&lt;/td>
 &lt;td>بستگی به معماری سیستم عامل که ۳۲ بیت یا ۶۴ بیت باشد&lt;/td>
 &lt;td>0&lt;/td>
-&lt;td>۴ یا 8 بایت&lt;/td>
+&lt;td>۴ یا ۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>int8&lt;/td>
@@ -1111,13 +1111,13 @@ background-color: #21998E;
 &lt;td>int64&lt;/td>
 &lt;td>9223372036854775808- تا 9223372036854775807&lt;/td>
 &lt;td>0&lt;/td>
-&lt;td>8 بایت&lt;/td>
+&lt;td>۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>uint&lt;/td>
 &lt;td>بستگی به معماری سیستم عامل که ۳۲ بیت یا ۶۴ بیت باشد&lt;/td>
 &lt;td>0&lt;/td>
-&lt;td>۴ یا 8 بایت&lt;/td>
+&lt;td>۴ یا ۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>uint8&lt;/td>
@@ -1141,7 +1141,7 @@ background-color: #21998E;
 &lt;td>uint64&lt;/td>
 &lt;td>0 تا 18446744073709551615&lt;/td>
 &lt;td>0&lt;/td>
-&lt;td>8 بایت&lt;/td>
+&lt;td>۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>uintptr&lt;/td>
@@ -1183,7 +1183,7 @@ background-color: #21998E;
 &lt;td>string&lt;/td>
 &lt;td>-&lt;/td>
 &lt;td>&amp;quot; &amp;quot;&lt;/td>
-&lt;td>۸ بایت&lt;/td>
+&lt;td>۱۶ بایت&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
