@@ -1,0 +1,775 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>صفحه اصلی on زبان گو فارسی</title><link>https://book.gofarsi.ir/</link><description>Recent content in صفحه اصلی on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa-IR</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>اسپانسرهای کتاب</title><link>https://book.gofarsi.ir/sponsors/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/sponsors/</guid><description>&lt;style>
+html {
+box-sizing: border-box;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+.column {
+float: left;
+width: 33.3%;
+margin-bottom: 16px;
+padding: 0 8px;
+}
+@media screen and (max-width: 650px) {
+.column {
+width: 100%;
+display: block;
+}
+}
+.card {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.container {
+padding: 0 16px;
+}
+.container::after, .row::after {
+content: "";
+clear: both;
+display: table;
+}
+.title {
+color: grey;
+}
+.button {
+border: none;
+outline: 0;
+display: inline-block;
+padding: 8px;
+color: white;
+background-color: #29beb0;
+text-align: center;
+cursor: pointer;
+width: 100%;
+}
+.button:hover {
+background-color: #21998E;
+}
+&lt;/style>
+&lt;div class="row">
+&lt;div class="column">
+&lt;div class="card">
+&lt;img src="https://fing.ir/images/icon.png" alt="FingCloud" style="width:100%">
+&lt;div class="container">
+&lt;h2>سرویس ابری فینگ&lt;/h2>
+&lt;p class="title">سکوی ابری&lt;/p>
+&lt;p>با سکوی ابری فینگ شما روی کد تمرکز کنید، فینگ آن را اجرا می‌کند.&lt;/p>
+&lt;p>&lt;button class="button" onclick="window.open('https://fing.ir/','_blank')" rel="nofollow">مشاهده سرویس&lt;/button>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="column">
+&lt;div class="card">
+&lt;img src="../assets/img/sponsors/hamravesh.jpg" alt="hamravesh" style="width:100%">
+&lt;div class="container">
+&lt;h2>سرویس ابری دارکوب&lt;/h2>
+&lt;p class="title">سکوی ابری&lt;/p>
+&lt;p>با پلتفرم ابری دارکوب، سریع و آسان از مزایا و امکانات کوبرنتیز استفاده کنید.&lt;/p>
+&lt;p>&lt;button class="button" onclick="window.open('https://hamravesh.com/','_blank')" rel="nofollow">مشاهده سرویس&lt;/button>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="column">
+&lt;div class="card">
+&lt;img src="../assets/img/sponsors/sponsor.png" alt="FingCloud" style="width:100%">
+&lt;div class="container">
+&lt;h2>اسپانسر کتاب شوید&lt;/h2>
+&lt;p class="title">اسپانسر&lt;/p>
+&lt;p>شما هم می توانید با ارایه خدمات خود اسپانسر کتاب شوید.&lt;/p>
+&lt;p>&lt;button class="button" onclick="window.open('mailto:ja7ad@live.com')">درخواست اسپانسر شدن&lt;/button>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>پیشگفتار</title><link>https://book.gofarsi.ir/preface/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/preface/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>چرا از گو استفاده می‌کنیم؟&lt;/p>
+&lt;p>وقتی در نوامبر سال ۲۰۰۹ رابرت گریسیمر، راب پایک و کن تامپسون برای اولین‌بار گو را بصورت عمومی انتشار دادند، خودشان مطمئن نبودند که به‌صورت گسترده مورد استفاده قرار می‌گیرد یا خیر. تا به تاریخ انتشار این مطلب، مشخص شده،‌گو بسیار فراگیرتر و رشد آن در صنعت وسیع‌تر از چیزی بوده‌است که ایجادکنندگان آن حدس می‌زدند.
+این‌ها نمونه‌هایی از کاربرد گو در دنیای امروز تکنولوژی هستند:&lt;/p>
+&lt;ul>
+&lt;li>Google’s Core Data Solutions Team Uses Go
+تیم راهکار هسته‌ی داده گوگل از گو استفاده می‌کند&lt;/li>
+&lt;li>Chrome Content Optimization Service Runs on Go
+سرویس بهینه‌سازی محتوا در گوگل‌کروم توسط گو در حال اجراست&lt;/li>
+&lt;li>Chrome’s user experience strategy, operating in the critical path for users is implemented in Go
+استراتژی حیاتی تجربه کاربری در کروم توسط گو پیاده‌سازی شده است&lt;/li>
+&lt;li>Firebase Hosting Team Scaled With Go
+ابزار قدرتمند فایربیس توسط گو گسترش یافته است
+همچنین در صفحه رسمی گو می‌توانید لیستی از شرکت‌ها از Netflix و PayPal تا Uber و Microsoft رو به‌همراه خدماتی که از گو گرفته‌اند رو ملاحظه کنید.
+&lt;a href="https://go.dev/solutions/#case-studies">https://go.dev/solutions/#case-studies&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>شناخت نیازمندی و ابزارهای پیاده‌سازی وابسته به آن.&lt;/p>
+&lt;ul>
+&lt;li>Cloud &amp;amp; Network Services&lt;/li>
+&lt;li>Command-line Interfaces&lt;/li>
+&lt;li>Web Development&lt;/li>
+&lt;li>DevOps &amp;amp; Site Reliability&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>انواع منابع موجود جهت کسب اطلاعات و مقایسه‌ی آنها.&lt;/p>
+&lt;ul>
+&lt;li>منابع مکتوب.
+&lt;ul>
+&lt;li>سایت رسمی زبان گو. &lt;a href="https://go.dev">https://go.dev&lt;/a> در نسخه حال‌حاضر وب‌سایت رسمی گو، مستندات لازم برای شناخت انواع جزئیات وجود دارد. ضمن‌اینکه یک خودآموز مختصر، جهت آشنایی ابتدایی مفاهیم را می‌توانید پیدا کنید.&lt;/li>
+&lt;li>کتاب‌ها. اصولاً استفاده از کتاب‌ها بدلیل اینکه عمدتاً توسط اساتید، متخصصین شناخته‌شده نگارش می‌شود، توصیه می‌گردد. ضمن اینکه کتاب‌ها معمولاً امکان اصلاحات مستمر و انتشار نسخه‌های جدید و به‌روزتر رو دارا هستند و توسط ناشران معتبر منتشر می‌شوند.&lt;/li>
+&lt;li>مقالات. بدلیل راحت‌تر بودن نشر مقالات، طبیعتاً امکان وجود هرنوع مطلبی با هر سطح و کیفیتی از محتوا وجود دارد. بنابراین، در استفاده از این نوع منابع، احتیاط و حساسیت بالاتری مورد نیاز است.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>منابع صوتی و تصویری. مزیت بزرگ این نوع از منابع، سرعت و امکانات کافی در انتقال مطلب است. اما اشکالی که وجود دارد عدم امکان ساده‌ی اصلاح محتوا و به‌روزرسانی آن است. ضمن‌اینکه این نوع از منابع، مانند مقالات توسط افراد مختلف و با طیفی از انواع کیفیت‌های متفاوت، وجود دارد.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>بررسی وضعیت منابع فارسی زبان گو در زمان تهیه این کتاب.
+درحال‌حاضر منابع نگارشی با کیفیت مناسب به‌زبان فارسی بسیار محدود است. این یکی از دلایل «چرایی» نگارش این کتاب به‌زبان فارسی است. ما امیدواریم با مشارکت همه اساتید و متخصصین این حوزه، این کتاب منبع آموزشی باکیفیت، دردسترس عموم متقاضیان، جهت توسعه ابزارهای حرفه‌ای با زبان گو باشد.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>چرا به زبان فارسی می‌نویسیم.
+دوستان و همکاران بسیاری هستند،‌که این سوال را مطرح می‌کنند که وقتی نیاز به دانش زبان انگلیسی، برای کسب مهارت در این تخصص، یک «باید» محسوب می‌شود، چرا مطلب فارسی؟
+جواب این سوال ساده‌تر از پیجیدگی‌هایی هست که بنظر می‌رسد:
+− ایجاد و رونق جامعه تخصصی فارسی‌زبان توسط موضوع «کتاب»
+− ایجاد فضایی جهت ایحاد پرسش و پاسخ فارسی‌زبان‌ها
+− ارائه یک ترجمه فارسی، از منابع اصلی تخصصی، با امکان مقایسه برداشت افراد مختلف از زبان تخصصی
+− سرعت دادن به یادگیری، حداقل در مفاهیم ابتدایی
+− برای نوجوانان و افرادی که به‌هر دلیل، درحال‌حاضر تسلط کافی روی زبان انگلیسی ندارند و ارائه راهکار جهت تمرین و شروع یادگیری منابع روی زبان تخصصی&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>برای چگونگی نگارش کتاب می‌توان به موارد زیر اشاره کرد:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>چگونه از جامعه تخصصی، می‌توان در آموزش،بهینه‌سازی و رشد دانش متقاضیان این تخصص استفاده کرد.
+یکی از وظایف هر استاد، تربیت «شاگرد» و توسعه دانش است. افراد تازه‌کار با دانش و تجربه پیشکسوتان، با سرعت و کیفیت بالاتر، تبدیل به متخصصین جدید خواهند شد. کیفیت جامعه متخصصین، امکان کنترل مصرف منابع و تولید ابزارهای مفید را تعیین خواهد کرد.
+کار تیمی، به فرهنگ «با هم کار کردن» نیازمند هست.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>چرخ را از نو نسازیم، تجربه‌ها را از نو «تجربه» نکنیم، آموزش ببینیم و آموزش بدهیم.
+با کمی دقت و تجربه، کاملاً بدیهی‌ست در مقام قیاس بین چند جامعه تخصصی همسان، برتری از آن کسانی‌ست که در انتقال دانش-تجربه دست‌و‌دل‌بازتر هستند. جامعه تخصصی با دانش و تجربه عمیق، نیازمند وجود «مبتدیان» با پتانسیل حداکثری است و این میسر نیست مگر با جریان ساده و پایدار آموزش &amp;hellip;
+دانش امروز، در هر رشته و هر سطح برآیند «انتقال» پیشینیان ما هست. بجای غرور ناشی از آن می‌توان از انتقال با احترام آن به دیگران لذت برد.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>«کلمات» قدرت دارند. به درک و استفاده از کلمات احترام بگذاریم. در جامعه تخصصی حتی چند‌برابر !!!
+تا جای ممکن، در استفاده از کلمات تخصصی در محل درست خود دقت شده تا مفهوم نادرست منتقل نشود. از شما خواننده عزیز هم تقاضا داریم، هرکجا ایرادی هرچند کوچک ملاحظه فرمودید، به ما اطلاع دهید یا درخواست اصلاح آن را ارسال کنید.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>تاریخچه</title><link>https://book.gofarsi.ir/history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/history/</guid><description>&lt;p>زبان گو (Go) در سال ۲۰۰۷ (به شمسی: ۱۳۸۶) توسط «شرکت گوگل» با هدف افزایش بهره‌وری برنامه‌نویسی در محیط چندهسته‌ای، رایانه‌های شبکه‌ای و کدبیس‌های بزرگ طراحی شد [&lt;a href="https://fa.wikipedia.org/wiki/%DA%AF%D9%88_%28%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C%29">به نقل از ویکی پدیا&lt;/a>] و سپس به عنوان یک زبان کامپایلری و تایپ استاتیک در نوامبر سال ۲۰۰۹ بصورت عمومی با هدف &lt;span class="tooltip" data-tooltip="efficient compilation" ontouchend="toggleTooltip(this)">کامپایل کارآمد&lt;/span>
+، &lt;span class="tooltip" data-tooltip="efficient execution" ontouchend="toggleTooltip(this)">اجرای کارآمد&lt;/span>
+و&lt;span class="tooltip" data-tooltip="ease of programming" ontouchend="toggleTooltip(this)">سهولت برنامه نویسی&lt;/span>
+معرفی شد که توسط شرکت گوگل توسعه داده شده است و بسیاری از اعضای تیم طراحی و توسعه زبان گو [&lt;a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Robert_Griesemer">Robert Griesemer&lt;/a>] سال ها تجربه در زمینه تحقیق و توسعه زبان برنامه نویسی دارند.&lt;/p>
+&lt;p>زبان گو دارای یک سری ویژگی های منحصر به فرد می باشد و برخی از ویژگی هایش از سایر زبان ها الهام گرفته شده است :&lt;/p>
+&lt;ul>
+&lt;li>پشتیبانی از برنامه نویسی  &lt;span class="tooltip" data-tooltip="Concurrency" ontouchend="toggleTooltip(this)">همزمانی&lt;/span>
+بصورت Built-in &lt;/li>
+&lt;li> &lt;span class="tooltip" data-tooltip="Goroutine" ontouchend="toggleTooltip(this)">گوروتین&lt;/span>
+ها امکان اجرای همزمانی توابع را فراهم می کند و همچنین گوروتین ها واقعا خیلی سبک هستند به طوری که شما می توانید هزاران گوروتین را همزمان در سخت افزارهای مدرن بدون هیچ مشکل عملکردی اجرا کنید.&lt;/li>
+&lt;li>&lt;span class="tooltip" data-tooltip="Channel" ontouchend="toggleTooltip(this)">کانال&lt;/span>
+ها برپایه مدل CSP می باشد که امکان همگام سازی داده ها بین گوروتین ها را فراهم می کند.&lt;/li>
+&lt;li>پشتیبانی از تایپ های map و slice&lt;/li>
+&lt;li>امکان پیاده سازی &lt;span class="tooltip" data-tooltip="Polymorphism" ontouchend="toggleTooltip(this)">پلی مورفیسم&lt;/span>
+با استفاده از &lt;span class="tooltip" data-tooltip="Interface" ontouchend="toggleTooltip(this)">اینترفیس&lt;/span>
+ها&lt;/li>
+&lt;li>پوینترها&lt;/li>
+&lt;li>&lt;span class="tooltip" data-tooltip="Closures" ontouchend="toggleTooltip(this)">کلوژر&lt;/span>
+توابع (یک تابع معمولی که داخل یک تابع دیگر به عنوان &lt;span class="tooltip" data-tooltip="return" ontouchend="toggleTooltip(this)">بازگشت&lt;/span>
+تعریف می شود)&lt;/li>
+&lt;li>&lt;span class="tooltip" data-tooltip="Method" ontouchend="toggleTooltip(this)">متدها&lt;/span>
+&lt;/li>
+&lt;li>امکان defer برای تعویق فراخوانی یک تابع&lt;/li>
+&lt;li>قابلیت &lt;span class="tooltip" data-tooltip="Embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
+تایپ ها&lt;/li>
+&lt;li>ایمنی حافظه در زبان گو&lt;/li>
+&lt;li>قابلیت &lt;span class="tooltip" data-tooltip="Garbage Collector" ontouchend="toggleTooltip(this)">زباله جمع کن&lt;/span>
+خودکار&lt;/li>
+&lt;li>سازگاری کامل با انواع پلتفرم ها نظیر [linux, windows, mac, AIX, android, freeBSD] جهت توسعه و کامپایل&lt;/li>
+&lt;li>امکان Cross-compile با این امکان می توانید در هر پلتفرمی برای سایر پلتفرم ها کامپایل کنید&lt;/li>
+&lt;li>پشتیبانی از &lt;span class="tooltip" data-tooltip="Generics" ontouchend="toggleTooltip(this)">جنریک&lt;/span>
+یا تایپ پارامتر (از نسخه ۱.۱۸)&lt;/li>
+&lt;li>تست نویسی آسان&lt;/li>
+&lt;li>&lt;span class="tooltip" data-tooltip="Interface" ontouchend="toggleTooltip(this)">اینترفیس&lt;/span>
+و &lt;span class="tooltip" data-tooltip="Reflection" ontouchend="toggleTooltip(this)">رفلکشن&lt;/span>
+&lt;/li>
+&lt;li>زبان گو مثل سایر زبان ها نظیر c, cpp یا java نیاز به نقطه ویرگول (Semicolons) ندارد و به نسبت زبان هایی که معرفی کردیم پرانتز کمتری استفاده می کند و همچنین ظاهر سینتکس گو خیلی خواناتر و راحتر می باشد.&lt;/li>
+&lt;/ul>
+&lt;p>علاوه بر ویژگی های که در بالا معرفی کردیم یک سری نکات برجسته در خصوص زبان گو وجود دارد که به شرح زیر می باشند:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>سینتکس زبان گو به گونه ای طراحی شده که خیلی ساده و تمیز می باشد و این باعث می شود خیلی سریع زبان گو را یاد بگیرید و از همه مهم تر توسعه پروژه های مقیاس پذیر &lt;span class="tooltip" data-tooltip="Scale up" ontouchend="toggleTooltip(this)">مقیاس پذیر&lt;/span>
+با زبان گو به دلیل سادگی و آشکار بودن مفاهیم خیلی سریعتر صورت میگیرد.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>زبان گو دارای کلی &lt;span class="tooltip" data-tooltip="Standard packages" ontouchend="toggleTooltip(this)">پکیج های استاندارد&lt;/span>
+و کاربردی جهت توسعه می باشد که همه این پکیج ها در انواع پلتفرم ها جهت توسعه قابل استفاده است.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>زبان گو دارای یک جامعه بزرگ از توسعه دهندگان و انجمن های فعال می باشد که خیلی سریع می توانید به پاسخ سوالات خود برسید.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote class="book-hint info">
+برنامه نویس های زبان گو را &lt;span class="tooltip" data-tooltip="Gopher" ontouchend="toggleTooltip(this)">گوفر&lt;/span>
+صدا میزنند.
+&lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>آموزش نصب</title><link>https://book.gofarsi.ir/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/installation/</guid><description>&lt;p>جهت نصب زبان گو برروی سیستم عامل مورد نظر خود در ابتدا باید نسخه مناسب با پلت فرم خود را &lt;a href="https://go.dev/dl/">دانلود&lt;/a> کنید.&lt;/p>
+&lt;p>&lt;img src="../assets/img/content/installation/1.png" alt="Featured downloads golang" />&lt;/p>
+&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
+&lt;label for="tabs-uniqueid-0">لینوکس&lt;/label>
+&lt;div class="book-tabs-content markdown-inner">&lt;ol>
+&lt;li>در &lt;a href="https://go.dev/dl/">اینجا&lt;/a> نسخه مرتبط با لینوکس خود را دانلود کنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>$ wget -c https://go.dev/dl/go1.xx.x.linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>سپس دستور زیر را بزنید تا اگر نسخه قبلی وجود دارد پاک شود و نسخه جدید در مسیر &lt;code>usr/local/go/&lt;/code> جایگزین شود.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>$ sudo rm -rf /usr/local/go &lt;span style="color:#ff79c6">&amp;amp;&amp;amp;&lt;/span> sudo tar -C /usr/local -xzf go1.xx.x.linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>افزودن مسیر &lt;code>usr/local/go/bin/&lt;/code> به &lt;span class="tooltip" data-tooltip="environment variable" ontouchend="toggleTooltip(this)">متغیرهای محیطی&lt;/span>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">export&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">PATH&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#8be9fd;font-style:italic">$PATH&lt;/span>:/usr/local/go/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
+بهتر است برای اینکه هر بار ترمینال را باز میکنید و فایل go توسط shell شناخته شود دستور فوق را به فایل &lt;code>home/{user}/.profile/&lt;/code> اضافه کنید.
+&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>جهت اطمینان از اینکه زبان گو بدرستی برروی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" />
+&lt;label for="tabs-uniqueid-1">ویندوز&lt;/label>
+&lt;div class="book-tabs-content markdown-inner">&lt;h2 id="روش-اول">
+روش اول
+&lt;a class="anchor" href="#%d8%b1%d9%88%d8%b4-%d8%a7%d9%88%d9%84">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>در &lt;a href="https://go.dev/dl/">اینجا&lt;/a> نسخه مرتبط با ویندوز خود را دانلود کنید.&lt;/li>
+&lt;li>سپس فایل &lt;strong>go1.xx.x.windows-{arch}.msi&lt;/strong> را اجرا کنید.&lt;/li>
+&lt;li>مراحل نصب را بصورت پیش فرض طی کنید تا زبان گو برروی ویندوز نصب شود.&lt;/li>
+&lt;li>پس از نصب جهت اطمینان از نصب بود زبان گو مراحل زیر را انجام دهید:
+&lt;ul>
+&lt;li>وارد منو استارت شوید.&lt;/li>
+&lt;li>در منو استارت کلمه &lt;strong>cmd&lt;/strong> را جستجو کنید و سپس آن را اجرا کنید.&lt;/li>
+&lt;li>داخل &lt;span class="tooltip" data-tooltip="Command prompt" ontouchend="toggleTooltip(this)">خط فرمان&lt;/span>
+دستور زیر را بزنید تا از نصب بودن زبان گو اطمینان حاصل فرمایید.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>go version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="روش-دوم">
+روش دوم
+&lt;a class="anchor" href="#%d8%b1%d9%88%d8%b4-%d8%af%d9%88%d9%85">#&lt;/a>
+&lt;/h2>
+&lt;p>برای نصب گو می‌توانید از &lt;a href="https://community.chocolatey.org/">Chocolatey Package Manager&lt;/a> استفاده کنید.&lt;/p>
+&lt;ol>
+&lt;li>خط فرمان PowerShell را به صورت Administrator باز کنید و دستور زیر را داخل PowerShell بزنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>Set-ExecutionPolicy Bypass -Scope Process -Force; &lt;span style="color:#ff79c6">[&lt;/span>System.Net.ServicePointManager&lt;span style="color:#ff79c6">]&lt;/span>::SecurityProtocol &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#ff79c6">[&lt;/span>System.Net.ServicePointManager&lt;span style="color:#ff79c6">]&lt;/span>::SecurityProtocol -bor 3072; iex &lt;span style="color:#ff79c6">((&lt;/span>New-Object System.Net.WebClient&lt;span style="color:#ff79c6">)&lt;/span>.DownloadString&lt;span style="color:#ff79c6">(&lt;/span>&lt;span style="color:#f1fa8c">&amp;#39;https://community.chocolatey.org/install.ps1&amp;#39;&lt;/span>&lt;span style="color:#ff79c6">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>بعد از نصب می‌توانید از دستور choco برای نصب گو استفاده کنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>choco install golang
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>جهت اطمینان از اینکه زبان گو بدرستی برروی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
+دقت داشته باشید برای نصب برنامه‌های مختلف مثل git و یا ابزارهای دیگر در محیط Administrator باید از دستور choco استفاده کنید.
+&lt;/blockquote>
+&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2" />
+&lt;label for="tabs-uniqueid-2">مکینتاش&lt;/label>
+&lt;div class="book-tabs-content markdown-inner">&lt;h2 id="روش-اول">
+روش اول
+&lt;a class="anchor" href="#%d8%b1%d9%88%d8%b4-%d8%a7%d9%88%d9%84">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>در &lt;a href="https://go.dev/dl/">اینجا&lt;/a> نسخه مرتبط با مکینتاش خود را دانلود کنید.&lt;/li>
+&lt;li>سپس فایل &lt;strong>go1.xx.x.darwin-{arch}.pkg&lt;/strong> را اجرا کنید.&lt;/li>
+&lt;li>مراحل نصب را بصورت پیش فرض طی کنید تا زبان گو برروی مکینتاش نصب شود.&lt;/li>
+&lt;li>پس از نصب اگر ترمینال باز بود آن را کامل ببنید تا تغییرات صورت گیرد.&lt;/li>
+&lt;li>جهت اطمینان از اینکه زبان گو بدرستی برروی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>$ go version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="روش-دوم">
+روش دوم
+&lt;a class="anchor" href="#%d8%b1%d9%88%d8%b4-%d8%af%d9%88%d9%85">#&lt;/a>
+&lt;/h2>
+&lt;p>برای نصب گو میتوانید از &lt;a href="https://brew.sh/">Homebrew Package Manager&lt;/a> استفاده کنید.&lt;/p>
+&lt;ol>
+&lt;li>برای نصب brew می‌توانید ترمینال خود را باز کنید و از دستور زیر استفاده کنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>$ /bin/bash -c &lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>&lt;span style="color:#ff79c6">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style="color:#ff79c6">)&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>بعد از نصب brew از دستور زیر برای نصب گو داخل ترمینال استفاده کنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>$ brew update &lt;span style="color:#ff79c6">&amp;amp;&amp;amp;&lt;/span> brew install golang
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>جهت اطمینان از اینکه زبان گو بدرستی برروی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>ابزارها, دستورات گو و معرفی IDE</title><link>https://book.gofarsi.ir/toolchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/toolchain/</guid><description>&lt;p>پس از اینکه زبان گو را برروی سیستم خود نصب کردید از طریق &lt;span class="tooltip" data-tooltip="Terminal" ontouchend="toggleTooltip(this)">ترمینال&lt;/span>
+و یا &lt;span class="tooltip" data-tooltip="Command prompt" ontouchend="toggleTooltip(this)">خط فرمان&lt;/span>
+ویندوز قابل دسترس است که می‌توانید با زدن کلمه &lt;code>go&lt;/code> یکسری عملیات انجام دهید:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>$ go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>Go is a tool &lt;span style="color:#ff79c6">for&lt;/span> managing Go &lt;span style="color:#8be9fd;font-style:italic">source&lt;/span> code.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4&lt;/a>&lt;/span>&lt;span>Usage:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6&lt;/a>&lt;/span>&lt;span> go &amp;lt;command&amp;gt; &lt;span style="color:#ff79c6">[&lt;/span>arguments&lt;span style="color:#ff79c6">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8&lt;/a>&lt;/span>&lt;span>The commands are:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10&lt;/a>&lt;/span>&lt;span> bug start a bug report
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11&lt;/a>&lt;/span>&lt;span> build compile packages and dependencies
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12&lt;/a>&lt;/span>&lt;span> clean remove object files and cached files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13&lt;/a>&lt;/span>&lt;span> doc show documentation &lt;span style="color:#ff79c6">for&lt;/span> package or symbol
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14&lt;/a>&lt;/span>&lt;span> env print Go environment information
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span> fix update packages to use new APIs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16&lt;/a>&lt;/span>&lt;span> fmt gofmt &lt;span style="color:#ff79c6">(&lt;/span>reformat&lt;span style="color:#ff79c6">)&lt;/span> package sources
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17&lt;/a>&lt;/span>&lt;span> generate generate Go files by processing &lt;span style="color:#8be9fd;font-style:italic">source&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18&lt;/a>&lt;/span>&lt;span> get add dependencies to current module and install them
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19&lt;/a>&lt;/span>&lt;span> install compile and install packages and dependencies
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-20">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-20">20&lt;/a>&lt;/span>&lt;span> list list packages or modules
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-21">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-21">21&lt;/a>&lt;/span>&lt;span> mod module maintenance
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-22">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-22">22&lt;/a>&lt;/span>&lt;span> work workspace maintenance
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23&lt;/a>&lt;/span>&lt;span> run compile and run Go program
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#8be9fd;font-style:italic">test&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">test&lt;/span> packages
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25&lt;/a>&lt;/span>&lt;span> tool run specified go tool
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-26">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-26">26&lt;/a>&lt;/span>&lt;span> version print Go version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-27">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-27">27&lt;/a>&lt;/span>&lt;span> vet report likely mistakes in packages
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-28">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-28">28&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-29">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-29">29&lt;/a>&lt;/span>&lt;span>Use &lt;span style="color:#f1fa8c">&amp;#34;go help &amp;lt;command&amp;gt;&amp;#34;&lt;/span> &lt;span style="color:#ff79c6">for&lt;/span> more information about a command.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-30">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-30">30&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-31">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-31">31&lt;/a>&lt;/span>&lt;span>Additional &lt;span style="color:#8be9fd;font-style:italic">help&lt;/span> topics:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-32">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-32">32&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-33">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-33">33&lt;/a>&lt;/span>&lt;span> buildconstraint build constraints
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-34">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-34">34&lt;/a>&lt;/span>&lt;span> buildmode build modes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-35">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-35">35&lt;/a>&lt;/span>&lt;span> c calling between Go and C
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-36">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-36">36&lt;/a>&lt;/span>&lt;span> cache build and &lt;span style="color:#8be9fd;font-style:italic">test&lt;/span> caching
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-37">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-37">37&lt;/a>&lt;/span>&lt;span> environment environment variables
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-38">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-38">38&lt;/a>&lt;/span>&lt;span> filetype file types
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-39">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-39">39&lt;/a>&lt;/span>&lt;span> go.mod the go.mod file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-40">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-40">40&lt;/a>&lt;/span>&lt;span> gopath GOPATH environment variable
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-41">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-41">41&lt;/a>&lt;/span>&lt;span> gopath-get legacy GOPATH go get
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-42">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-42">42&lt;/a>&lt;/span>&lt;span> goproxy module proxy protocol
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-43">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-43">43&lt;/a>&lt;/span>&lt;span> importpath import path syntax
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-44">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-44">44&lt;/a>&lt;/span>&lt;span> modules modules, module versions, and more
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-45">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-45">45&lt;/a>&lt;/span>&lt;span> module-get module-aware go get
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-46">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-46">46&lt;/a>&lt;/span>&lt;span> module-auth module authentication using go.sum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-47">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-47">47&lt;/a>&lt;/span>&lt;span> packages package lists and patterns
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-48">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-48">48&lt;/a>&lt;/span>&lt;span> private configuration &lt;span style="color:#ff79c6">for&lt;/span> downloading non-public code
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-49">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-49">49&lt;/a>&lt;/span>&lt;span> testflag testing flags
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-50">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-50">50&lt;/a>&lt;/span>&lt;span> testfunc testing functions
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-51">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-51">51&lt;/a>&lt;/span>&lt;span> vcs controlling version control with GOVCS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-52">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-52">52&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-53">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-53">53&lt;/a>&lt;/span>&lt;span>Use &lt;span style="color:#f1fa8c">&amp;#34;go help &amp;lt;topic&amp;gt;&amp;#34;&lt;/span> &lt;span style="color:#ff79c6">for&lt;/span> more information about that topic.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="جدول-دستورات-commands">
+جدول دستورات (Commands)
+&lt;a class="anchor" href="#%d8%ac%d8%af%d9%88%d9%84-%d8%af%d8%b3%d8%aa%d9%88%d8%b1%d8%a7%d8%aa-commands">#&lt;/a>
+&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>دستور&lt;/th>
+&lt;th>توضیحات&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>build&lt;/td>
+&lt;td>با این دستور (&lt;code>go build main.go&lt;/code>) می‌توانید فایل &lt;code>go&lt;/code> را کامپایل کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>clean&lt;/td>
+&lt;td>با این دستور می‌توانید فایل‌های کش‌شده را پاکسازی کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>doc&lt;/td>
+&lt;td>با این دستور (&lt;code>go doc fmt.Println&lt;/code>) می‌توانید داکیومنت هر یک از توابع عمومی را ببینید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>env&lt;/td>
+&lt;td>با این دستور می‌توانید &lt;span class="tooltip" data-tooltip="environment variable" ontouchend="toggleTooltip(this)">متغیرهای محیطی&lt;/span>
+تنظیم شده زبان گو را ببینید و آنها را با دستور &lt;code>go env -w key=value&lt;/code> مقدار دهی کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>fmt&lt;/td>
+&lt;td>با این دستور می‌توانید کدهای خود را مرتب &lt;code>go fmt ./...&lt;/code> کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>install&lt;/td>
+&lt;td>با استفاده از این دستور می‌توانید یکسری پکیج‌های را گرفته و کامپایل کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>list&lt;/td>
+&lt;td>لیست پکیج‌ها و ماژول‌های دانلود شده.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>generate&lt;/td>
+&lt;td>با این دستور می‌توانید از قابلیتGenerator زبان گو استفاده کنید و فایل generate کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>mod&lt;/td>
+&lt;td>برای مدیریت و ایجاد فایل mod به ازای هر پروژه.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>get&lt;/td>
+&lt;td>با این دستور می‌توانید پکیجی را دانلود یا بروز رسانی کنید و همچنین برای استفاده از این دستور نیاز به &lt;code>git&lt;/code> دارید که نصب باشد.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>work&lt;/td>
+&lt;td>با این دستور می‌توانید یک workspace ایجاد کنید و آن را مدیریت کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>run&lt;/td>
+&lt;td>با این دستور (&lt;code>go run main.go&lt;/code>) می‌توانید فایل‌های گو یا پروژه را اجرا کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>test&lt;/td>
+&lt;td>با این دستور (&lt;code>go test example_test.go&lt;/code>) می‌توانید فایل‌های تست را اجرا کنید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>version&lt;/td>
+&lt;td>با این دستور می‌توانید نسخه نصب شده زبان گو را ببینید.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>vet&lt;/td>
+&lt;td>با این دستور می‌توانید اشتباهات کدهای خود را ببینید.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="اجرای-کد-ساده-در-زبان-گو">
+اجرای کد ساده در زبان گو
+&lt;a class="anchor" href="#%d8%a7%d8%ac%d8%b1%d8%a7%db%8c-%da%a9%d8%af-%d8%b3%d8%a7%d8%af%d9%87-%d8%af%d8%b1-%d8%b2%d8%a8%d8%a7%d9%86-%da%af%d9%88">#&lt;/a>
+&lt;/h2>
+&lt;p>در زیر یک نمونه کد ساده قرار دادیم که به سادگی می‌توانید با دستور &lt;code>go run main.go&lt;/code> اجرا کنید و خروجی را ببینید.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;Hello world!!!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">7&lt;/a>&lt;/span>&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span>Hello world!!!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد فوق ما یکسری &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
+نظیر package , import , func استفاده کردیم که در بخش &lt;a href="https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/">1.2 کلید واژه و شناسه‌ها&lt;/a> با آنها آشنا می‌شوید.&lt;/p>
+&lt;h2 id="انواع-نرمافزارهای-محیط-توسعه-ide-و-ویرایشگر-کد-code-editor">
+انواع نرم‌افزارهای محیط توسعه (IDE) و ویرایش‌گر کد (Code Editor)
+&lt;a class="anchor" href="#%d8%a7%d9%86%d9%88%d8%a7%d8%b9-%d9%86%d8%b1%d9%85%d8%a7%d9%81%d8%b2%d8%a7%d8%b1%d9%87%d8%a7%db%8c-%d9%85%d8%ad%db%8c%d8%b7-%d8%aa%d9%88%d8%b3%d8%b9%d9%87-ide-%d9%88-%d9%88%db%8c%d8%b1%d8%a7%db%8c%d8%b4%da%af%d8%b1-%da%a9%d8%af-code-editor">#&lt;/a>
+&lt;/h2>
+&lt;p>در زبان برنامه‌نویسی گو نیز مثل سایر زبان‌ها، می‌توان از ابزارهای کدنویسی مانند &lt;span class="tooltip" data-tooltip="IDE(s)" ontouchend="toggleTooltip(this)">نرم‌افزارهای محیط توسعه&lt;/span>
+و همچنین از &lt;span class="tooltip" data-tooltip="Code Editor(s)" ontouchend="toggleTooltip(this)">ویرایش‌گرهای کد&lt;/span>
+استفاده کرد که محبوب‌ترین‌ها معرفی می‌شوند:&lt;/p>
+&lt;ol>
+&lt;li>نرم‌افزار &lt;a href="https://www.jetbrains.com/go/">Jetbrains Goland&lt;/a> اگر با سایر محصولات جت‌برینز آشنا باشید به‌راحتی می‌توانید از این &lt;span class="tooltip" data-tooltip="IDE" ontouchend="toggleTooltip(this)">نرم‌افزار محیط توسعه&lt;/span>
+استفاده کنید.&lt;/li>
+&lt;li>نرم‌افزار &lt;a href="https://code.visualstudio.com/">VsCode&lt;/a> تقریباً همه برنامه‌نویس‌ها با آن آشنا هستند. یک &lt;span class="tooltip" data-tooltip="Code Editor" ontouchend="toggleTooltip(this)">ویرایش‌گر کد&lt;/span>
+متن باز می‌باشد که بین برنامه‌نویس‌ها خیلی محبوب است و برای استفاده زبان گو در این نرم‌افزار می‌توان افزونه&lt;a href="https://code.visualstudio.com/docs/languages/go"> vscode-go&lt;/a> را نصب کنید.&lt;/li>
+&lt;li>نرم‌افزار &lt;a href="https://www.vim.org/">Vim&lt;/a> یک نرم‌افزار متن باز و معروف می‌باشد که داخل &lt;span class="tooltip" data-tooltip="Terminal" ontouchend="toggleTooltip(this)">ترمینال&lt;/span>
+قابل استفاده است و از آن می‌توانید جهت توسعه با زبان گو استفاده کنید و البته نیازمند &lt;a href="https://github.com/fatih/vim-go">نصب پلاگین&lt;/a> می‌باشد.&lt;/li>
+&lt;/ol></description></item><item><author>Javad Rajabzadeh</author><title>نقشه یادگیری زبان گو</title><link>https://book.gofarsi.ir/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/roadmap/</guid><description>&lt;p>در زیر ما نقشه یادگیری زبان گو را براساس داده های سایت &lt;a href="https://roadmap.sh/">roadmap.sh&lt;/a> قرار دادیم که در ابتدا باید طبق نقشه یادگیری زبان گو شروع کنید و سپس برای افزایش دانش خود به نقشه یادگیری بک اند نگاهی بندازید.&lt;/p>
+&lt;p>&lt;img src="../assets/img/content/roadmap/go.jpg" alt="roadmap go" />
+&lt;img src="../assets/img/content/roadmap/backend.jpg" alt="roadmap backend" />
+&lt;img src="../assets/img/content/roadmap/software-design.jpg" alt="software design" />
+&lt;img src="../assets/img/content/roadmap/software-architect.jpg" alt="software architect" />&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>تغییرات نسخه های زبان گو</title><link>https://book.gofarsi.ir/changes-log/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/changes-log/</guid><description>&lt;p>&lt;img src="../../assets/img/content/changes/logo.png" alt="gopher" />&lt;/p>
+&lt;div class="timeline">
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2022-08-02&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.19&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2022-03-15&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.18&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2021-08-16&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.17&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2021-02-16&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.16&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2020-08-11&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.15&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2020-02-25&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.14&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2019-09-03&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.13&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2019-02-25&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.12&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2018-08-24&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.11&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2018-02-16&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.10&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2017-08-24&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.9&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2017-02-16&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.8&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2016-08-15&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.7&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2016-02-17&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.6&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2015-08-19&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.5&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2014-12-10&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.4&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2014-06-18&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.3&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2013-12-01&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.2&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2013-05-13&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.1&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2012-03-28&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>فصل اول: آشنایی با مفاهیم گو</title><link>https://book.gofarsi.ir/chapter-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/</guid><description>&lt;p>در فصل اول به مفاهیم پایه زبان برنامه‌نویسی گو بطور عمیق می‌پردازیم. این فصل شامل چندین بخش هست :&lt;/p>
+&lt;ul>
+&lt;li>1.1 ساختار کد گو&lt;/li>
+&lt;li>1.2 کلید واژه و شناسه‌ها&lt;/li>
+&lt;li>1.3 تایپ های پایه&lt;/li>
+&lt;li>1.4 عملگرها&lt;/li>
+&lt;li>1.5 متغیرها و constant&lt;/li>
+&lt;li>1.6 مقادیر صفر تایپ ها (zero values)&lt;/li>
+&lt;li>1.7 تابع (function)&lt;/li>
+&lt;li>1.8 آرایه و slice&lt;/li>
+&lt;li>1.9 حلقه ها (for)&lt;/li>
+&lt;li>1.10 نقشه map&lt;/li>
+&lt;li>1.11 شرط (if, switch)&lt;/li>
+&lt;li>1.12 اضافه کردن پکیج در کد (package)&lt;/li>
+&lt;li>1.13 defer, panic, recovery&lt;/li>
+&lt;li>1.14 لیست تایپ ها و توابع Builtin&lt;/li>
+&lt;li>1.15 قالب بندی رشته ها&lt;/li>
+&lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل دوم: مکانیزم های زبان</title><link>https://book.gofarsi.ir/chapter-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-2/</guid><description>&lt;p>در این فصل به مکانزیم های زبان گو میپردازیم و برخی از اصطلاحات زبان گو را آموزش می دهیم.&lt;/p>
+&lt;ul>
+&lt;li>2.1 در خصوص &lt;span class="tooltip" data-tooltip="pointer" ontouchend="toggleTooltip(this)">اشاره گر&lt;/span>
+آموزش خواهیم داد.&lt;/li>
+&lt;li>2.2 به مهم ترین تایپ در زبان گو &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+می پردازیم و آموزش می دهیم چطور با استفاده از ساختار دیتامدل های پروژه های خود را پیاده سازی کنید.&lt;/li>
+&lt;li>2.3 به بحث متدهای می پردازیم که چطور این نوع توابع را پیاده سازی کنید.&lt;/li>
+&lt;li>2.4 در خصوص اینترفیس در زبان گو توضیح می دهیم دقیقا چی هستند و چطور میشه ازش استفاده کرد.&lt;/li>
+&lt;li>2.5 به &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
+ساختار و اینترفیس می پردازیم.&lt;/li>
+&lt;li>2.6 در خصوص مدیریت خطاها در زبان گو می پردازیم که چه ویژگی هایی دارد.&lt;/li>
+&lt;li>2.7 تفاوت castin با conversion را آموزش می دهیم.&lt;/li>
+&lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل سوم: همزمانی (concurrency)</title><link>https://book.gofarsi.ir/chapter-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-3/</guid><description>&lt;p>در این فصل به صورت عمیق به مباحث همزمانی در زبان گو پرداخته شده است که شامل عناوین زیر می‌باشد.&lt;/p>
+&lt;ul>
+&lt;li>۳.۱ آشنایی با مبحث همزمانی.&lt;/li>
+&lt;li>۳.۲ گوروتین چیست.&lt;/li>
+&lt;li>۳.۳ کالبدشکافی پکیج sync و تشریح &lt;span class="tooltip" data-tooltip="Types" ontouchend="toggleTooltip(this)">انواع&lt;/span>
+و توابع کاربردی آن برای مباحث همگام‌سازی همزمانی.&lt;/li>
+&lt;li>۳.۴ آشنایی با پکیج atomic و کاربردهای آن.&lt;/li>
+&lt;li>۳.۵ آشنایی با Data Race و روش‌های پیشگیری از آن.&lt;/li>
+&lt;li>۳.۶ کانال‌ها و روش‌ اشتراک‌گذاری داده از طریق آن.&lt;/li>
+&lt;li>۳.۷ آشنایی با کلید‌واژه select و بررسی کاربردهای متنوع آن.&lt;/li>
+&lt;li>۳.۸ پکیج context و اهمیت آن.&lt;/li>
+&lt;li>۳.۹ تکنیک‌های مورد استفاده در همزمانی.&lt;/li>
+&lt;li>۳.۱۰ الگوهای متداول همزمانی و کاربردهای آن.&lt;/li>
+&lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل چهارم: مباحث پیشرفته</title><link>https://book.gofarsi.ir/chapter-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/</guid><description>&lt;p>در این فصل به مباحث پیشرفته زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل پنجم: برنامه نویسی شبکه با گو</title><link>https://book.gofarsi.ir/chapter-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/</guid><description>&lt;p>در این فصل به مباحث برنامه نویسی شبکه در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل ششم: جنریک (Generics)</title><link>https://book.gofarsi.ir/chapter-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-6/</guid><description>&lt;p>در این فصل به مباحث جنریک در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل هفتم: تست نویسی</title><link>https://book.gofarsi.ir/chapter-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-7/</guid><description>&lt;p>در این فصل به مباحث تست نویسی در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل هشتم: پکیج های استاندارد</title><link>https://book.gofarsi.ir/chapter-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-8/</guid><description>&lt;p>در این فصل به مباحث پکیج های استاندارد در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل نهم: الگوهای طراحی</title><link>https://book.gofarsi.ir/chapter-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/</guid><description>&lt;p>در این فصل به مباحث الگوهای طراحی در زبان گو میپردازیم و سعی می کنیم بطور کلی و با مثال های مناسب به شما هر الگو را آموزش دهیم و همچنین برخی از کاربردهای الگوها را نام ببریم.&lt;/p>
+&lt;blockquote class="book-hint info">
+سعی کنید وقتی از الگوهای طراحی استفاده کنید که واقعا احساس نیاز کنید, خیلی قابل اهمیته که در جای درست از الگوها استفاده کنید.
+&lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>فصل دهم: الگوریتم و ساختار داده</title><link>https://book.gofarsi.ir/chapter-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-10/</guid><description>&lt;p>در این فصل به مباحث الگوریتم و ساختار داده در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل یازدهم: معماری های نرم افزار</title><link>https://book.gofarsi.ir/chapter-11/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-11/</guid><description>&lt;p>در این فصل به مباحث معماری های نرم افزار در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item></channel></rss>

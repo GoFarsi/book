@@ -1,0 +1,91 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل نهم: الگوهای طراحی on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-9/</link><description>Recent content in فصل نهم: الگوهای طراحی on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa-IR</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-9/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>9.1 الگوهای طراحی سازنده</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/</guid><description>&lt;p>الگوهای طراحی سازنده&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>9.2 الگوهای طراحی ساختاری</title><link>https://book.gofarsi.ir/chapter-9/structural-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/structural-patterns/</guid><description>&lt;p>الگوهای طراحی ساختاری&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>9.3 الگوهای طراحی رفتاری</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/</guid><description>&lt;p>الگوهای طراحی رفتاری&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>9.4 الگوهای همزمانی</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>عنوان&lt;/th>
+&lt;th>توضیحات&lt;/th>
+&lt;th>وضعیت&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-result">Wait For Result&lt;/a>&lt;/td>
+&lt;td>با استفاده از الگو Wait For Result می توانید یک عملیاتی را بصورت همزمانی انجام دهید و سپس منتظر نتیجه عملیات صورت گرفته بمانید. برای اینکار از کانال استفاده می شود.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-fan-out-in">Fan Out/In&lt;/a>&lt;/td>
+&lt;td>الگو Fan Out/In یک تکنیک همزمانی در زبان گو می باشد که به شما اجازه می دهد چندین کار را با گوروتین همزمان انجام دهید و در نتیجه خروجی این کارها را با هم ترکیب کنید و به عنوان نتیجه نهایی دریافت کنید.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-task">Wait For Task&lt;/a>&lt;/td>
+&lt;td>الگو wait for task یکی از الگوهای رایج در زبان گو می باشد و انتظار برای تکمیل یک تسک یا فرآیند استفاده می شود. یک تسک با استفاده از گوروتین اجرا می شود و پس اتمامش کار تسک از طریق کانال سیگنال انجام می فرستد.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-drop">Drop&lt;/a>&lt;/td>
+&lt;td>الگو Drop یک الگو مهم برای انجام خدمات سنگین می باشد. خدماتی که مواقعی باعث می شود حجم درخواست هایش بیش از ظرفیت موجود باشد و این درخواست ها بواسطه این الگو می تواند Drop شود. به عنوان مثال سرویس های DNS باید از این الگو استفاده کنند.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation">Cancellation&lt;/a>&lt;/td>
+&lt;td>الگو cancellation که حرکت تکنیکی هست برای ارسال سینگال به گوروتین ها استفاده می شود که باید اجرای کاری را متوقف کند و ایده اصلی این کار با استفاده بستن کانال صورت میگیرد.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-semaphore">Semaphore&lt;/a>&lt;/td>
+&lt;td>الگو Semaphore برای مدیریت کنترل دسترسی به منابع مشترک در همزمانی استفاده می شود. فرض کنید بصورت موازی ۱۰۰ درخواست HTTP سمت سرور میاد و I/O شبکه برای پردازش همزمان این ۱۰۰ درخواست درگیر میشود و به مرور عملکرد کاهش می یابد. حال اگر ما بیایم این ۱۰۰ درخواست موازی را تقسیم کنیم به ۵ دسته ۲۰ تایی که بصورت همزمانی انجام شود باعث می شود I/O شبکه کاهش یابد و عملکرد بهتری را خواهیم داشت.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-bounded-work-pooling">Bounded Work Pooling&lt;/a>&lt;/td>
+&lt;td>با استفاده از الگو Bounded Work Pooling امکان محدود سازی تعداد گوروتین ها را براساس کار مشخصی دارید و گوروتین ها را محدود به تعداد دفعات کار مشخص شده محدود می شود. این الگو برای وقت مفید است که شما می خواهید منابع را به یک کار خاص محدود کنید.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout">Retry Timeout&lt;/a>&lt;/td>
+&lt;td>شما از الگو Retry Timeout برای تلاش مجدد یکسری عملیات استفاده کنید. برای اینکار شما می توانید از حلقه و تابع After در پکیج time کمک بگیرید و برای هرتلاش یک timeout مشخص کنید.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-channel-cancellation">Channel Cancellation&lt;/a>&lt;/td>
+&lt;td>از کانال ها برای ارتباط بین گوروتین ها و هماهنگ کردن اجرا استفاده می شود. حال گاهی اوقات نیاز است که ما یکسری فرآیند را داخل گوروتین لغو کنیم. در اینجا می توانیم با استفاده از کانال سیگنال لغو کردن بفرستید تا عملیات هایی که گوروتین مورد نظر انجام می داد لغو شود.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer">Producer-Consumer&lt;/a>&lt;/td>
+&lt;td>الگو producer-consumer یکی از کاربردی ترین الگوها در زبان گو می باشد که با استفاده از الگو می توانید بطور همزمان یکسری اطلاعات تولید کنید و بفرستید داخل کانال و این اطلاعات توسط مصرف کننده بواسطه کانال دریافت شود.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-monitor">Monitor&lt;/a>&lt;/td>
+&lt;td>الگوی مانیتور به گروتین‌ ها اجازه می‌دهد هنگام ورود به حالت خواب بدون مسدود کردن اجرا یا مصرف منابع، منتظر شرایط خاصی باشند.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-future">Future&lt;/a>&lt;/td>
+&lt;td>در زبان گو الگو Future راهی برای نمایش نتیجه یک عملیات ناهمزمان (asynchronous) است که ممکن است آن عملیات هنوز تکمیل نشده باشد اما این الگو به شما این امکان را می دهد کدی بنویسید که طوری رفتار کند که گویی نتیجه یک عملیات فورا در دسترس است. حتی اگر عملیات در پس زمینه در حال اجرا باشد.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-pipeline">Pipeline&lt;/a>&lt;/td>
+&lt;td>الگو خط لوله (Pipeline) یکی از پرکاربردی ترین الگوها در همزمانی می باشد شما با استفاده از این الگو می توانید تسک های بزرگ را به تسک های کوچکتر و مستقل تقسیم کنید که می توانند بطور همزمان کار کنند. هر stage داخل یک گوروتین انجام می شود و بواسطه کانال داده ها بین stage های مختلف منتقل می شود.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-subscription">Subscription&lt;/a>&lt;/td>
+&lt;td>الگو Subscription یکی از الگوهای کاربردی برای پیاده سازی consumer می باشد که به یک آدرسی مشترک شوید و در بازده زمانی مختلف درخواست دهید و یکسری اطلاعات دریافت کنید.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-brdige-channel">Bridge Channel&lt;/a>&lt;/td>
+&lt;td>با استفاده از الگو Bridge Channel می توانید بین ۲ کانال داده ای را منتقل کنید فرض کنید یک داده را به کانال input میفرستید و از دریافت داده آن را می توانید به کانال دیگری منتقل کنید و عملا شما یک پل برای انتقال داده ایجاد کردید.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-queuing">Queuing&lt;/a>&lt;/td>
+&lt;td>الگوی &amp;ldquo;صف&amp;rdquo; در زبان گو الگویی است که در آن از یک گوروتین برای بافر کردن و مدیریت ترتیب مقادیر ارسال شده و دریافت شده از یک کانال استفاده می شود.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><author>Javad Rajabzadeh</author><title>9.5 الگوهای Cloud Native</title><link>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</guid><description>&lt;p>الگوهای cloud native&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>9.6 ضد الگوها (Anti-Patterns)</title><link>https://book.gofarsi.ir/chapter-9/anti-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/anti-pattern/</guid><description>&lt;p>ضد الگوها&lt;/p></description></item></channel></rss>
