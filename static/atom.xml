@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://book.gofarsi.ir/</id>
+    <title>صفحه اصلی | زبان گو فارسی via rss-proxy</title>
+    <updated>2023-03-29T08:40:42.206Z</updated>
+    <generator>rss-proxy 1.0.3</generator>
+    <link rel="alternate" href="https://book.gofarsi.ir/"/>
+    <entry>
+        <title type="html"><![CDATA[1.1 ساختار کد گو]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/structure-of-go-code/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/structure-of-go-code/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/structure-of-go-code/">1.1 ساختار کد گو</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.2 کلید واژه و شناسه‌ها]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/">1.2 کلید واژه و شناسه‌ها</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.3 تایپ های پایه]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-basic-types/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-basic-types/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-basic-types/">1.3 تایپ های پایه</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.4 عملگرها]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-operators/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-operators/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-operators/">1.4 عملگرها</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.5 متغیرها و constant]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-variables-and-consts/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-variables-and-consts/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-variables-and-consts/">1.5 متغیرها و constant</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.6 مقادیر صفر تایپ ها (zero values)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-zero-values/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-zero-values/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-zero-values/">1.6 مقادیر صفر تایپ ها (zero values)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.7 تابع (function)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-function/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-function/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-function/">1.7 تابع (function)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.8 آرایه و slice]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-array/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-array/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-array/">1.8 آرایه و slice</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.9 حلقه ها (for)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-for/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-for/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-for/">1.9 حلقه ها (for)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.10 نقشه map]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-map/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-map/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-map/">1.10 نقشه map</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.11 شرط (if, switch)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-if-switch/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-if-switch/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-if-switch/">1.11 شرط (if, switch)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.12 اضافه کردن پکیج در کد (package)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-package/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-package/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-package/">1.12 اضافه کردن پکیج در کد (package)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.13 defer, panic, recovery]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/">1.13 defer, panic, recovery</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.14 لیست تایپ ها و توابع Builtin]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-builtins/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-builtins/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-builtins/">1.14 لیست تایپ ها و توابع Builtin</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.15 قالب بندی رشته ها]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-1/go-string-formatting/</id>
+        <link href="https://book.gofarsi.ir/chapter-1/go-string-formatting/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-1/go-string-formatting/">1.15 قالب بندی رشته ها</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.1 اشاره گر (Pointer)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-2/pointer/</id>
+        <link href="https://book.gofarsi.ir/chapter-2/pointer/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-2/pointer/">2.1 اشاره گر (Pointer)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.2 ساختار (struct)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-2/struct/</id>
+        <link href="https://book.gofarsi.ir/chapter-2/struct/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-2/struct/">2.2 ساختار (struct)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.3 متد (Method)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-2/method/</id>
+        <link href="https://book.gofarsi.ir/chapter-2/method/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-2/method/">2.3 متد (Method)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.4 اینترفیس (Interface)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-2/interface/</id>
+        <link href="https://book.gofarsi.ir/chapter-2/interface/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-2/interface/">2.4 اینترفیس (Interface)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.5 جاسازی تایپ (type embedding)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-2/type-embedding/</id>
+        <link href="https://book.gofarsi.ir/chapter-2/type-embedding/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-2/type-embedding/">2.5 جاسازی تایپ (type embedding)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.6 مدیریت خطاها]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-2/error-handling/</id>
+        <link href="https://book.gofarsi.ir/chapter-2/error-handling/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-2/error-handling/">2.6 مدیریت خطاها</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2.7 فرق casting با conversion]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-2/casting-vs-conversion/</id>
+        <link href="https://book.gofarsi.ir/chapter-2/casting-vs-conversion/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-2/casting-vs-conversion/">2.7 فرق casting با conversion</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.1 آشنایی با همزمانی]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-concurrency/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-concurrency/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-concurrency/">3.1 آشنایی با همزمانی</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.2 گوروتین (goroutine)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/goroutine/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/goroutine/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/goroutine/">3.2 گوروتین (goroutine)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.3 پکیج sync]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-sync-package/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-sync-package/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-sync-package/">3.3 پکیج sync</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.4 پکیج atomic]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-atomic/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-atomic/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-atomic/">3.4 پکیج atomic</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.5 آموزش مقابله با data race]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/goroutine-data-race/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/goroutine-data-race/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/goroutine-data-race/">3.5 آموزش مقابله با data race</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.6 کانال (channel)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-channel/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-channel/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-channel/">3.6 کانال (channel)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.7 آموزش استفاده از select]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-select/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-select/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-select/">3.7 آموزش استفاده از select</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.8 پکیج context]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-context/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-context/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-context/">3.8 پکیج context</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.9 تکنیک های همزمانی]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-concurrency-teqniques/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-concurrency-teqniques/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-concurrency-teqniques/">3.9 تکنیک های همزمانی</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[3.10 الگو های همزمانی]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-3/go-concurrency-patterns/</id>
+        <link href="https://book.gofarsi.ir/chapter-3/go-concurrency-patterns/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-3/go-concurrency-patterns/">3.10 الگو های همزمانی</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.1 آموزش Build پروژه]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/build-go-file/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/build-go-file/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/build-go-file/">4.1 آموزش Build پروژه</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.2 آموزش کار با Debugging]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/debugging-go-code/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/debugging-go-code/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/debugging-go-code/">4.2 آموزش کار با Debugging</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.3 آموزش کار با go mod]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-mod/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-mod/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-mod/">4.3 آموزش کار با go mod</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.4 آموزش کار با workspace]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/workspace/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/workspace/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/workspace/">4.4 آموزش کار با workspace</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.5 آموزش کار با Vendor]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/vendor/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/vendor/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/vendor/">4.5 آموزش کار با Vendor</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.6 آموزش نوشتن برنامه command line]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/command-line-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/command-line-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/command-line-go/">4.6 آموزش نوشتن برنامه command line</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.7 آموزش کار با فایل]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/work-with-file-in-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/work-with-file-in-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/work-with-file-in-go/">4.7 آموزش کار با فایل</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.8 آموزش کار با json]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/">4.8 آموزش کار با json</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.9 آموزش کار با toml]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/work-with-toml-file-in-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/work-with-toml-file-in-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/work-with-toml-file-in-go/">4.9 آموزش کار با toml</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.10 آموزش کار با yaml]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/work-with-yaml-file-in-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/work-with-yaml-file-in-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/work-with-yaml-file-in-go/">4.10 آموزش کار با yaml</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.11 آموزش کار با csv]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/work-with-csv-file-in-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/work-with-csv-file-in-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/work-with-csv-file-in-go/">4.11 آموزش کار با csv</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.12 آموزش کار با ini]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/work-with-ini-file-in-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/work-with-ini-file-in-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/work-with-ini-file-in-go/">4.12 آموزش کار با ini</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.13 آموزش کار با environment variable]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/work-with-environment-variable/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/work-with-environment-variable/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/work-with-environment-variable/">4.13 آموزش کار با environment variable</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.14 آموزش کار با regexp]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-regular-expressions/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-regular-expressions/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-regular-expressions/">4.14 آموزش کار با regexp</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.15 آموزش reflection]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-reflection/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-reflection/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-reflection/">4.15 آموزش reflection</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.16 آموزش generator]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-generator/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-generator/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-generator/">4.16 آموزش generator</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.17 آموزش stringer]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-stringer/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-stringer/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-stringer/">4.17 آموزش stringer</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.18 تکنیک های کدنویسی زبان گو]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/effective-go/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/effective-go/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/effective-go/">4.18 تکنیک های کدنویسی زبان گو</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.19 اصول کامنت نویسی]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-commentry/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-commentry/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-commentry/">4.19 اصول کامنت نویسی</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.20 قوانین کدنویسی در گو]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-code-rules/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-code-rules/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-code-rules/">4.20 قوانین کدنویسی در گو</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4.21 زباله جمع کن (garbage collector)]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-4/go-garbage-collector/</id>
+        <link href="https://book.gofarsi.ir/chapter-4/go-garbage-collector/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-4/go-garbage-collector/">4.21 زباله جمع کن (garbage collector)</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[5.1 کتابخانه http سمت سرور مقدماتی]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</id>
+        <link href="https://book.gofarsi.ir/chapter-5/go-http-server-begginer/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-5/go-http-server-begginer/">5.1 کتابخانه http سمت سرور مقدماتی</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[5.2 کتابخانه http سمت سرور پیشرفته]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</id>
+        <link href="https://book.gofarsi.ir/chapter-5/go-http-server-advanced/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-5/go-http-server-advanced/">5.2 کتابخانه http سمت سرور پیشرفته</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[5.3 کتابخانه http سمت کلاینت مقدماتی]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</id>
+        <link href="https://book.gofarsi.ir/chapter-5/go-http-client-begginer/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-5/go-http-client-begginer/">5.3 کتابخانه http سمت کلاینت مقدماتی</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[5.4 کتابخانه http سمت کلاینت پیشرفته]]></title>
+        <id>tag:rss-proxy.migor.org:https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</id>
+        <link href="https://book.gofarsi.ir/chapter-5/go-http-client-advanced/"/>
+        <updated>2023-03-29T08:40:42.205Z</updated>
+        <content type="html"><![CDATA[<div><li><a href="https://book.gofarsi.ir/chapter-5/go-http-client-advanced/">5.4 کتابخانه http سمت کلاینت پیشرفته</a></li></div>]]></content>
+        <published>2023-03-29T08:40:42.205Z</published>
+    </entry>
+</feed>
