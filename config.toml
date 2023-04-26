@@ -11,6 +11,19 @@ enableRobotsTXT = true
 
 
 defaultContentLanguage = 'fa'
+
+rssLimit = 1000
+copyright = "2023 GoFarsi All rights reserved"
+
+[author]
+	name = "Javad Rajabzadeh"
+	email = "ja7ad@live.com"
+
+[outputFormats]
+    [outputFormats.RSS]
+        mediaType = "application/rss+xml"
+        baseName = "feed"
+
 [languages]
 [languages.fa]
 languagedirection = 'rtl'

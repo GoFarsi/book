@@ -290,4 +290,6 @@ a {
 {{< author githubUrl="https://github.com/vashian" githubImg="../assets/img/author/9.jpg" name="MohammadReza" >}}
 {{< author githubUrl="https://github.com/faridgh1991" githubImg="../assets/img/author/10.jpg" name="Farid Ghoorchian" >}}
 {{< author githubUrl="https://github.com/farmani" githubImg="../assets/img/author/11.jpg" name="Ramin Farmani" >}}
+{{< author githubUrl="https://github.com/a-jahanshahlo" githubImg="../assets/img/author/12.jpg" name="Alireza Jahanshahlou" >}}
+{{< author githubUrl="https://github.com/rezahili" githubImg="../assets/img/author/13.jpg" name="Reza Ghasemi" >}}
 </p>
