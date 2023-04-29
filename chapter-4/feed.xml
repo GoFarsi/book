@@ -913,7 +913,9 @@ key, err := cfg.Section(&amp;#34;&amp;#34;).NewKey(&amp;#34;name&amp;#34;, &amp;
 در این مرحله GC به دنبال اشیاء و متغیرهای مرده دربرنامه که بخشی از حافظه را اشغال کرده اند جستجو و شناسایی می کند.&lt;/p>
 &lt;p>2- &lt;strong>مرحله Sweep phase&lt;/strong>
 در این مرحله اشیائی که در فاز قبل نشانه گذاری شده اند بصورت فیزیکی از حافظه دور ریخته می شود.&lt;/p>
-&lt;p>![[GC.jpg]]
+&lt;p>&lt;center>&lt;a href="#">
+&lt;img src="../../assets/img/content/chapter4/gc/GC.jpg" alt="GC">
+&lt;/a>&lt;/center>
 تصویر بالا مراحل مختلف شناسایی و پاکسازی را نشان می دهد&lt;/p>
 &lt;p>در ادامه قطعه کد ذیل را داریم که در واقع یک عمل ساده درخواست و پاسخ به یک آدرس وب است&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-GO" data-lang="GO">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>http.&lt;span style="color:#50fa7b">HandleFunc&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;/allocate-memory-and-run-gc&amp;#34;&lt;/span>, &lt;span style="color:#8be9fd;font-style:italic">func&lt;/span>(w http.ResponseWriter, r &lt;span style="color:#ff79c6">*&lt;/span>http.Request) {
@@ -960,8 +962,11 @@ key, err := cfg.Section(&amp;#34;&amp;#34;).NewKey(&amp;#34;name&amp;#34;, &amp;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span>Generated string array with &lt;span style="color:#bd93f9">200&lt;/span> bytes of data
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span>Ran garbage collector
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>پس از اجرای کوئری بالا بر روی آدرس برنامه خود نتایج ذیل حاصل می شود&lt;/p>
-&lt;p>![[gcevents.png]]&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>پس از اجرای کوئری بالا بر روی آدرس برنامه خود نتایج ذیل حاصل می شود
+&lt;center>&lt;a href="#">
+&lt;img src="../../assets/img/content/chapter4/gc/gcevents.png" alt="table">
+&lt;/a>&lt;/center>
+&lt;/p>
 &lt;p>نکته قابل توجه اینجاست که تابع gcWaitOnMark دو بار در طول عملیات پاکسازی اجار می شود که بار اول جهت اعتبار سنجی منابع نشانه گذاری شده قسمت قبل است.&lt;/p>
 &lt;p>با این توضیحات حال می خواهیم به بررسی چند مثال ساده بپردازیم تا ببینیم در چه مواقعی بهتر است برنامه نویس در بخش های مناسب خود اقدام به پاکسازی حافظه نماید&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1&lt;/a>&lt;/span>&lt;span>
