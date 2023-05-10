@@ -42,5 +42,5 @@
 ## مجوز پروژه و سایر مجوزات
 
 - مجوز کتاب زبان گو فارسی از نوع[ Creative Commons Zero v1.0 Universal](https://github.com/GoFarsi/book/blob/main/LICENSE) می باشد.
-- فوت وزیر مجوز OFL
+- فونت وزیر مجوز OFL
 - فونت Jetbrains mono با مجوز OFL
