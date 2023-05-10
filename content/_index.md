@@ -273,8 +273,6 @@ a {
 <br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سروریس گیت لب :  https://gitlab-book.gofarsi.ir
 <br>
-<span class="fas a-sharp fa-solid fa-server"></span>  سرور هتزنر :  https://de1-book.gofarsi.ir
-<br>
 {{</ columns >}}
 
 ### <span class="fas fa-sharp fa-solid fa-people-group"></span> مشارکت کنندگان
@@ -292,4 +290,12 @@ a {
 {{< author githubUrl="https://github.com/farmani" githubImg="../assets/img/author/11.jpg" name="Ramin Farmani" >}}
 {{< author githubUrl="https://github.com/a-jahanshahlo" githubImg="../assets/img/author/12.jpg" name="Alireza Jahanshahlou" >}}
 {{< author githubUrl="https://github.com/rezahili" githubImg="../assets/img/author/13.jpg" name="Reza Ghasemi" >}}
+
+{{< author githubUrl="https://github.com/kavehkm" githubImg="../assets/img/author/14.jpg" name="Kaveh Mehrabanian" >}}
+
+{{< author githubUrl="https://github.com/MNouriWork" githubImg="../assets/img/author/15.jpg" name="Mohammad Nouri" >}}
+
+{{< author githubUrl="https://github.com/Solymani-Hossein" githubImg="../assets/img/author/16.jpg" name="Hossein Soleymani" >}}
+
+{{< author githubUrl="https://github.com/PouriaSeyfi" githubImg="../assets/img/author/17.jpg" name="Pouria Seyfi" >}}
 </p>
