@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل هفتم: تست نویسی on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-7/</link><description>Recent content in فصل هفتم: تست نویسی on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa-IR</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-7/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>8.1 testify</title><link>https://book.gofarsi.ir/chapter-7/go-test/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-7/go-test/</guid><description>&lt;p>یک کتابخانه مهم برای تست نویسی در زبان گو Testify هست که در زیر به توضیح اون می‌پردازیم.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل هفتم: تست نویسی on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-7/</link><description>Recent content in فصل هفتم: تست نویسی on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa-IR</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-7/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>7.1 پکیج testify</title><link>https://book.gofarsi.ir/chapter-7/go-test/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-7/go-test/</guid><description>&lt;p>یک کتابخانه مهم برای تست نویسی در زبان گو Testify هست که در زیر به توضیح اون می‌پردازیم.
 آدرس این کتابخانه در این &lt;a href="https://github.com/stretchr/testify">لینک&lt;/a> هست.
 به طور کلی زبان برنامه نویسی Go دارای یک framework تست سبک وزن است که از دستور go test و &lt;code>testing&lt;/code>  package تشکیل شده است.&lt;/p>
 &lt;p>شما با ایجاد یک فایل با نامی که به test.goـ ختم می شود، یک test می نویسید که حاوی توابعی به نام TestXXX با signature func به صورت (t *testing.T) است. framework تست هر یک از این تابع ها را اجرا می کند. اگر تابع یک تابع شکست مانند t.Error یا t.Fail را فراخوانی کند، آزمایش ناموفق در نظر گرفته می شود. با ایجاد فایل HOME/hello/morestrings/reverse_test.go حاوی کد Go زیر، یک تست به پکیج morestrings اضافه کنید.&lt;/p>
@@ -69,10 +69,10 @@ Installation
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-12">12&lt;/a>&lt;/span>&lt;span>assert.&lt;span style="color:#50fa7b">True&lt;/span>(t, &lt;span style="color:#ff79c6">true&lt;/span>, &lt;span style="color:#f1fa8c">&amp;#34;True is true!&amp;#34;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-13">13&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-14">14&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="assertpackage">
-assert package
-&lt;a class="anchor" href="#assertpackage">#&lt;/a>
-&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="711-assertpackage">
+7.1.1 assert package
+&lt;a class="anchor" href="#711-assertpackage">#&lt;/a>
+&lt;/h2>
 &lt;p>ابزار assert روش‌های مفیدی را ارائه می‌کند که به شما امکان می‌دهد کد تست بهتری را در Go بنویسید.
 به عنوان مثال:&lt;/p>
 &lt;ul>
@@ -182,16 +182,16 @@ assert package
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-51">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-51">51&lt;/a>&lt;/span>&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-52">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-52">52&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-53">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-53">53&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="require-package">
-require package
-&lt;a class="anchor" href="#require-package">#&lt;/a>
-&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="712-require-package">
+7.1.2 require package
+&lt;a class="anchor" href="#712-require-package">#&lt;/a>
+&lt;/h2>
 &lt;p>بسته require همان توابع سراسری را ارائه می‌کند که بسته assert داراست، اما به جای برگرداندن یک نتیجه boolean، تست فعلی را terminate می‌کند.&lt;/p>
 &lt;p>برای توضیح بیشتر در این مورد باید گزینه &lt;a href="http://golang.org/pkg/testing/#T.FailNow">t.FailNow&lt;/a> را برررسی کنی. FailNow عملکرد را به‌عنوان ناموفق علامت‌گذاری می‌کند و اجرای آن را با فراخوانی runtime.Goexit متوقف می‌کند (که سپس همه calls معوق را در گوروتین فعلی اجرا می‌کند). &lt;strong>همینطور اجرای تست‌های بعد از این مورد ادامه خواهد داشت.&lt;/strong> FailNow باید از گوروتینی که تست یا تابع benchmark را اجرا می کند فراخوانی شود، نه از دیگر گوروتین های ایجاد شده در طول تست. فراخوانی FailNow دیگر برنامه‌ها را متوقف نمی‌کند.&lt;/p>
-&lt;h3 id="mock-package">
-mock package
-&lt;a class="anchor" href="#mock-package">#&lt;/a>
-&lt;/h3>
+&lt;h2 id="713-mock-package">
+7.1.3 mock package
+&lt;a class="anchor" href="#713-mock-package">#&lt;/a>
+&lt;/h2>
 &lt;p>به طور کلی Mock یا Mocking یک تکنیک تست نویسی است که در آن قسمتی از کد را با یک پیاده سازی دلخواه جایگزین میشه و باعث شبیه سازی قسمت هایی از برنامه به جای اجرای حالت های واقعی بشه.&lt;/p>
 &lt;p>همیشه Mocking زمانی استفاده میشه که یک متد یا کلاس، وابستگی یا وابستگی هایی داره که توی تست‌ها ایجاد مشکل میکنه.&lt;/p>
 &lt;p>مثلا یک سرویس رو باید تست کنیم که داخل اون از سرویس notification_sender استفاده شده یعنی به سرویس یا کلاس notification_sender وابستگی داره، درنتیجه هربار که اون تست رو انجام میدید یه notification هم ارسال میشه که این کار درست نیست&lt;/p>
@@ -425,10 +425,10 @@ mock package
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-197">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-197">197&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>برای اطلاعات بیشتر در مورد نحوه نوشتن کد mock، اسناد API را برای &lt;code>[mock&lt;/code> package](&lt;a href="http://godoc.org/github.com/stretchr/testify/mock">http://godoc.org/github.com/stretchr/testify/mock&lt;/a>) بررسی کنید.&lt;/p>
 &lt;p>می‌توانید از &lt;a href="http://github.com/vektra/mockery">mockery tool&lt;/a> برای تولید خودکار کد ساختگی در برابر یک interface نیز استفاده کنید و استفاده از mockها را بسیار سریع‌تر کنید.&lt;/p>
-&lt;h3 id="suite-package">
-suite package
-&lt;a class="anchor" href="#suite-package">#&lt;/a>
-&lt;/h3>
+&lt;h2 id="714-suite-package">
+7.1.4 suite package
+&lt;a class="anchor" href="#714-suite-package">#&lt;/a>
+&lt;/h2>
 &lt;p>بسته‌ی suite قابلیت‌هایی را فراهم می‌کند که شما ممکن است از زبان‌های شی گرا متداول آنها را استفاده کنید. با استفاده از این بسته، شما می‌توانید یک مجموعه test را به عنوان یک ساختار بسازید، روش‌های setup/teardown را برای ساختار خود بسازید و روش‌های test را روی ساختار خود اجرا کنید و با استفاده از &amp;lsquo;go test&amp;rsquo; به طور معمول اجرا کنید.&lt;/p>
 &lt;p>یک مثال از مجموعه آزمون به شرح زیر است:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// Basic imports
