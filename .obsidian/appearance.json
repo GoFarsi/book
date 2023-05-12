@@ -1,7 +1,8 @@
 {
   "accentColor": "",
-  "theme": "moonstone",
+  "theme": "obsidian",
   "interfaceFontFamily": "Vazir,Tahoma",
   "textFontFamily": "Vazir,Tahoma",
-  "monospaceFontFamily": "JetBrains Mono"
+  "monospaceFontFamily": "JetBrains Mono",
+  "baseFontSize": 18
 }
