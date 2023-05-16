@@ -23,7 +23,6 @@
 - سروریس ورکر کلادفلر : https://wk-book.gofarsi.ir
 - سرویس نتلیفای : https://netlify-book.gofarsi.ir
 - سرویس گیت لب : https://gitlab-book.gofarsi.ir
-- سرور هتزنر : https://de1-book.gofarsi.ir
 
 
 ### دانلود نسخه های آنلاین و آفلاین کتاب
