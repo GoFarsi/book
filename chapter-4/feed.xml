@@ -897,7 +897,128 @@ key, err := cfg.Section(&amp;#34;&amp;#34;).NewKey(&amp;#34;name&amp;#34;, &amp;
 4.18.5 بهینه سازی
 &lt;a class="anchor" href="#4185-%d8%a8%d9%87%db%8c%d9%86%d9%87-%d8%b3%d8%a7%d8%b2%db%8c">#&lt;/a>
 &lt;/h2>
-&lt;p>در زیر به بهینه سازی در زبان گو می پردازیم.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.19 اصول کامنت نویسی</title><link>https://book.gofarsi.ir/chapter-4/go-commentry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-commentry/</guid><description>&lt;p>اصول کامنت نویسی در زبان گو&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.20 قوانین کدنویسی در گو</title><link>https://book.gofarsi.ir/chapter-4/go-code-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-code-rules/</guid><description>&lt;p>قوانین کدنویسی در گو&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.21 زباله جمع کن (garbage collector)</title><link>https://book.gofarsi.ir/chapter-4/go-garbage-collector/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-garbage-collector/</guid><description>&lt;p>یکی از جذابیت های زبان های برنامه نویسی جدید قابلیت زباله جمع کن (garbage collector) ایجاد شده در آنها است. بطور خلاصه مدیریت و آزاد سازی منابع اختصاص داده شده از حافظه را که بصورت خودکار در زبان های برنامه نویسی مدرن انجام می شود را garbage collector می شناسیم.&lt;/p>
+&lt;p>در زیر به بهینه سازی در زبان گو می پردازیم.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.19 اصول کامنت نویسی</title><link>https://book.gofarsi.ir/chapter-4/go-commentry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-commentry/</guid><description>&lt;p>اصول کامنت‌نویسی در زبان گو&lt;/p>
+&lt;h1 id="تعریف">
+تعریف
+&lt;a class="anchor" href="#%d8%aa%d8%b9%d8%b1%db%8c%d9%81">#&lt;/a>
+&lt;/h1>
+&lt;p>«کامنت» به توضیحات‌ی گفته می‌شود که داخل کد، به‌قصد «یادآوری»، «جلب‌توجه مخاطب به موضوع‌(ها)ی خاص»، کمک به onboard شدن اعضاء جدید تیم و مانند اون نگارش می‌شود. در زبان گو، به شیوه‌های زیر کامنت می‌گذاریم:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>قرار دادن &lt;code>//&lt;/code> در ابتدای سطر.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// defined to store multi string
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>&lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> sliceVar []&lt;span style="color:#8be9fd">string&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>قراردادن متن کامنت داخل یک بلوک که با &lt;code>*/&lt;/code> شروع می‌شود و &lt;code>/*&lt;/code> تمام می‌شود.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">for&lt;/span> index, row &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#ff79c6">range&lt;/span> sliceVar {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>&lt;/span>&lt;span> row &lt;span style="color:#6272a4">/* for loop lifetime */&lt;/span> = &lt;span style="color:#f1fa8c">&amp;#34;new_val&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span> sliceVar[index] &lt;span style="color:#6272a4">/* apply to sliceVar out of loop */&lt;/span> = &lt;span style="color:#f1fa8c">&amp;#34;new_val&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(row) &lt;span style="color:#6272a4">// hint to sliceVar large len
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;blockquote class="book-hint warning">
+&lt;p>دستور ‍&lt;code>gofmt&lt;/code> کامنت‌ها را مانند سایر فرمت‌ها، مرتب می‌نماید. اما روش بهتر درصورت امکان، نظم آنها توسط خود توسعه‌دهنده جهت رعایت الگوها و ساختار خاص هر پروژه است.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>gofmt &lt;span style="color:#ff79c6">-&lt;/span>w main.&lt;span style="color:#ff79c6">go&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/blockquote>
+&lt;h1 id="دیدگاهها-درباره-کامنت">
+دیدگاه‌ها درباره «کامنت»
+&lt;a class="anchor" href="#%d8%af%db%8c%d8%af%da%af%d8%a7%d9%87%d9%87%d8%a7-%d8%af%d8%b1%d8%a8%d8%a7%d8%b1%d9%87-%da%a9%d8%a7%d9%85%d9%86%d8%aa">#&lt;/a>
+&lt;/h1>
+&lt;p>با توجه به این موضوع که در جوامع‌تخصصی توسعه نرم‌افزار، درارتباط با اصل وجود کامنت، مزایا/معایب و چگونگی استفاده از آن، مطالب گوناگون و بعضاً متضادی، حتی از جانب متخصصین، وجود دارد، در این قسمت سعی خواهیم کرد، تاجای‌ممکن پاسخ حساب‌شده‌ای به نیازمندی‌های مختلف در ارتباط با «کامنت‌گذاری» بدهیم.&lt;/p>
+&lt;h1 id="کامنت-خوب-بد-زشت">
+کامنت؛ خوب، بد، زشت
+&lt;a class="anchor" href="#%da%a9%d8%a7%d9%85%d9%86%d8%aa-%d8%ae%d9%88%d8%a8-%d8%a8%d8%af-%d8%b2%d8%b4%d8%aa">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>&lt;code>در کدهایی که بارها نسخه‌های متفاوتی از آن ایجاد شده و در طول زمان، نیازمندی‌ها عوض شده، کیفیت، کارایی و سرعت اجرا بهبود پیدا کرده، «کامنت» گزارش «چرایی» کد هست برای این: نیاز/کیفیت/کارایی/سرعت اجرا، برای اینکه همه این‌ها رو دوباره تجربه نکنند ...&lt;/code>&lt;/li>
+&lt;li>&lt;code>یک کد خوب، هیچ نیازی به کامنت ندارد، به‌زبان‌دیگر، اگر نیاز می‌بینید که برای کدی «کامنت» بنویسید، احتمالاً، کد خوبی ننوشتید ...&lt;/code>
+&lt;ul>
+&lt;li>&lt;code>یک ساختار جدید، ناشناخته و احتمالاً حجیم، به‌قدر‌کافی ماهیتاً اینقدر پیچیدگی دارد که اضافه شدن، یک توضیح به زبان کاملاً انسانی (داخل زبان کامپایلر/مفسری برای زبان ماشین)، نه‌تنها باعث روشن‌تر شدن آن نمی‌شود بلکه مسئله‌ی فهم منظور نگارنده «کامنت» به مجموعه مسائل قبلی اضافه می‌گردد. هیچ‌چیز بیشتر از یک کد پیچیده با کلی «کامنت‌های» پیچیده برای مخاطبی که انتظار روشن بودن چرایی و چگونگی کد را دارد، عذاب‌آور نیست ... &lt;/code>
+همه این‌ها پاسخ‌های متفاوت‌ی است که توسعه‌دهندگان به موضوع «کامنت» می‌دهند. اما «اصولاً» کامنت پرفایده است یا بی‌فایده؟&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="آنالیز-محصول-و-محیط-توسعه">
+آنالیز محصول و محیط توسعه
+&lt;a class="anchor" href="#%d8%a2%d9%86%d8%a7%d9%84%db%8c%d8%b2-%d9%85%d8%ad%d8%b5%d9%88%d9%84-%d9%88-%d9%85%d8%ad%db%8c%d8%b7-%d8%aa%d9%88%d8%b3%d8%b9%d9%87">#&lt;/a>
+&lt;/h1>
+&lt;p>وقتی در ارتباط با کامنت صحبت می‌کنیم این خیلی مهم است که ما به‌تنهایی مشغول توسعه یک محصول هستیم یا در یک دپارتمان کوچک یا در یک ابَرپروژه &amp;hellip; آیا ما مجبور به تبعیت از یک‌سری دستورالعمل‌های کدنویسی هستیم یا می‌توانیم سلیقه‌شخصی خود را داشته باشیم؟ &amp;hellip;&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>شرایط تیم توسعه&lt;/strong>.
+&lt;ul>
+&lt;li>نحوه مدیریت(افراد/روش‌ها) پروژه در فرآیند توسعه کد.&lt;/li>
+&lt;li>تعداد زیرمجموعه‌ها و تعداد توسعه‌دهندگان در بخش‌های مختلف.&lt;/li>
+&lt;li>میزان &lt;strong>ارتباط&lt;/strong> و &lt;strong>حساسیت&lt;/strong> کدها بین واحدها و توسعه‌دهندگان.&lt;/li>
+&lt;li>سرعت تغییرات جابجایی توسعه‌دهندگان در پروژه.&lt;/li>
+&lt;li>و موارد مشابه دیگر.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>تحلیل نیازمندی‌های محصول&lt;/strong>.
+&lt;ul>
+&lt;li>مقیاس پروژه.&lt;/li>
+&lt;li>زمان توسعه پروژه.&lt;/li>
+&lt;li>زمان تغییرات همزمان با نسخه‌های ریلیز شده.&lt;/li>
+&lt;li>پیچیدگی و ماهیت نیازهای محصول.&lt;/li>
+&lt;li>و موارد مانند این‌ها.
+&lt;blockquote class="book-hint warning">
+نتیجه اینکه: ابتدا نیازمندی، توانایی و شرایط تیم/محصول را مشخص کنیم، و بعد تصمیم به چرایی و چگونگی کامنت‌نویسی اصولی نمائیم.
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="انواع-کامنت">
+انواع کامنت
+&lt;a class="anchor" href="#%d8%a7%d9%86%d9%88%d8%a7%d8%b9-%da%a9%d8%a7%d9%85%d9%86%d8%aa">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>کامنت فایل/پکیج (Doc Comment)
+این‌نوع کامنت‌ها درباره «چیستی» کل فایل یا پکیج توضیح دارد.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// Copyright 2011 The Go Authors. All rights reserved.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// Use of this source code is governed by a BSD-style
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// license that can be found in the LICENSE file.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">/*
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">Package builtin provides documentation for Go&amp;#39;s predeclared identifiers.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">The items documented here are not actually in package builtin
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">but their descriptions here allow godoc to present documentation
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">for the language&amp;#39;s special identifiers.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">*/&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> builtin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>مثال بالا از پکیج &lt;code>builtin&lt;/code> درباره حق‌چاپ / تعریف اولیه پکیج و اینکه مستندات در &lt;code>godoc&lt;/code> ارائه می‌شود، توضیح داده است.&lt;/p>
+&lt;ul>
+&lt;li>کامنت داخلی فانکشن/متد/بلوک/تایپ/متغیر/دستور و مانند آن (Ordinary Comments)
+این‌نوع کامنت درباره «چرایی» آن قسمتِ خاص اشاره دارد.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// The delete built-in function deletes the element with the specified key
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// (m[key]) from the map. If m is nil or there is no such element, delete
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// is a no-op.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4">4&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">delete&lt;/span>(m &lt;span style="color:#8be9fd;font-style:italic">map&lt;/span>[Type]Type1, key Type)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در مثال بالا، توسط کامنت توضیح داده شده که وظیفه فانکشن-داخلی &lt;code>delete&lt;/code> حذف المنت با کلید مشخص هست، و توضیح دقیق‌تر اینکه اگر المنت مربوط به کلید &lt;code>nil&lt;/code> باشد یا وجود نداشته باشد، فانکشن &lt;code>delete&lt;/code> هیچ عملیاتی انجام نمی‌دهد. (مثلاً خطا باز نمی‌گرداند − گزارش نمی‌کند و &amp;hellip;)&lt;/p>
+&lt;h1 id="اصول-کامنتنویسی">
+اصول کامنت‌نویسی
+&lt;a class="anchor" href="#%d8%a7%d8%b5%d9%88%d9%84-%da%a9%d8%a7%d9%85%d9%86%d8%aa%d9%86%d9%88%db%8c%d8%b3%db%8c">#&lt;/a>
+&lt;/h1>
+&lt;p>یک کامنت خوب:&lt;/p>
+&lt;ol>
+&lt;li>توضیح واضحات را نمی‌دهد.&lt;/li>
+&lt;li>در حداقل مقدار «لازم» و «کافی» نگارش می‌شود.&lt;/li>
+&lt;li>بیشتر درباره «چیستی/چرایی» اشاره دارد و نه «چگونگی».&lt;/li>
+&lt;li>دارای یک الگو و دستورالعمل نگارشی واحد برای نظم و سرعت ارتباط مخاطب است.&lt;/li>
+&lt;/ol>
+&lt;h1 id="به-پرتگاه-نزدیک-میشوید">
+به پرتگاه نزدیک می‌شوید!
+&lt;a class="anchor" href="#%d8%a8%d9%87-%d9%be%d8%b1%d8%aa%da%af%d8%a7%d9%87-%d9%86%d8%b2%d8%af%db%8c%da%a9-%d9%85%db%8c%d8%b4%d9%88%db%8c%d8%af">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>زامبی کد: به کدی می‌گویند که به دلیل عدم کارایی، اصلاح با کد جدید، و یا مشابه این موارد، بجای «حذف»، «کامنت» می‌شوند.&lt;/li>
+&lt;li>کامنت اسپاگتی کد: به کامنت‌های دنباله‌داری گفته می‌شود که برای توضیح یک کدی که ساختار منظم و مشخصی ندارد، نگارش می‌شود.&lt;/li>
+&lt;/ul>
+&lt;p>‍&lt;code>این متن اصلاح و تکمیل خواهد شد&lt;/code>&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.20 قوانین کدنویسی در گو</title><link>https://book.gofarsi.ir/chapter-4/go-code-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-code-rules/</guid><description>&lt;p>قوانین کدنویسی در گو&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.21 زباله جمع کن (garbage collector)</title><link>https://book.gofarsi.ir/chapter-4/go-garbage-collector/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-garbage-collector/</guid><description>&lt;p>یکی از جذابیت های زبان های برنامه نویسی جدید قابلیت زباله جمع کن (garbage collector) ایجاد شده در آنها است. بطور خلاصه مدیریت و آزاد سازی منابع اختصاص داده شده از حافظه را که بصورت خودکار در زبان های برنامه نویسی مدرن انجام می شود را garbage collector می شناسیم.&lt;/p>
 &lt;p>مدیریت منابع حافظه که بسیار حساس و در مواقعی زمان بر است توسط برخی زبان ها بصورت توکار پشتیبانی می شود و این به نوبه خود کمک به سرعت و کاهش خطا در پروسه و زمان تولید نرم افزار می شود. با تمام این تفاسیر مواقعی است که برنامه نویس می باید خودش مدیریت حافظه را در دست گرفته و پیش از بروز شرایط بحرانی اقدام به آزاد سازی حافظه و یا منابع اختصاص یافته نماید. خبر خوب اینکه در زبان Go مدیریت منابع حافظه نسبت به زبان های دیگر ساده تر و راحتر است ولی در این نوشته سعی می کنیم تا درک خوبی از مدیریت منابع و نحوه عملکرد آن داشته باشید بنابر این در ادامه با یک مثال که نیاز به بررسی کد در سطوح پایین دارد می پردازیم.&lt;/p>
 &lt;h2 id="استفاده-از-uprobes">
 استفاده از uprobes
