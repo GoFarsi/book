@@ -4,6 +4,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" crossorigin="anonymous">
 <link rel="alternate" type="application/rss+xml" href="{{.Site.BaseURL }}/feed.xml" title="{{ .Site.Title }}">
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-235734076-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-235734076-1');
+</script>
+
+
 <script>
     var html = document.documentElement;  
     //Check Storage. Keep user preference on page reload
@@ -14,3 +25,4 @@
       html.setAttribute("data-theme","light");
     }
   </script>
+ 
