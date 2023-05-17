@@ -32,3 +32,4 @@ app/worker/node_modules
 node_modules/
 latestcheck.json
 app/desktop/book/
+.obsidian/
