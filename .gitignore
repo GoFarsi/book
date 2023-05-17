@@ -33,3 +33,4 @@ node_modules/
 latestcheck.json
 app/desktop/book/
 .obsidian/
+.hugo_build.lock
