@@ -659,7 +659,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7">7&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span> f &lt;span style="color:#ff79c6">:=&lt;/span> a &lt;span style="color:#ff79c6">/&lt;/span> b &lt;span style="color:#6272a4">// 0
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8">8&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span> g &lt;span style="color:#ff79c6">:=&lt;/span> a &lt;span style="color:#ff79c6">%&lt;/span> b &lt;span style="color:#6272a4">// 1
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
-در کد نمونه بالا ما &lt;code>:=&lt;/code> که متغیر کوتاه است استفاده کردیم که در بhttps://book.gofarsi.ir/chapter-1/go-variables-and-consts/خش &lt;a href="https://book.gofarsi.ir/chapter-1/go-variables-and-consts/">1.5 متغیرها و ثابت ها معرفی&lt;/a> خواهیم کرد.
+در نمونه کد بالا مااز عملگر &lt;code>:=&lt;/code> که شیوه ی تعریف متغیر به روش کوتاه است استفاده کردیم که در بخش &lt;a href="https://book.gofarsi.ir/chapter-1/go-variables-and-consts/">1.5 متغیرها و ثابت ها معرفی&lt;/a> خواهیم کرد.
 &lt;/blockquote>
 &lt;h2 id="142-عملگرهای-مقایسه-ای">
 1.4.2 عملگرهای مقایسه ای
@@ -684,11 +684,11 @@
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>&amp;gt;&lt;/code>&lt;/td>
-&lt;td>کمتر از&lt;/td>
+&lt;td>کوچکتر از&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>=&amp;gt;&lt;/code>&lt;/td>
-&lt;td>کمتر یا مساوی&lt;/td>
+&lt;td>کوچکتر یا مساوی&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>&amp;lt;&lt;/code>&lt;/td>
