@@ -1255,7 +1255,7 @@
 &lt;li>از آنجایی که ثابت ها فقط امکان read یا همان خواندن را می‌دهند ممکن است در قسمت های مختلف به آن مقادیر نیاز داشته باشیم.&lt;/li>
 &lt;li>به دلیل اینکه با هر بار فراخوانی &lt;code>تابع&lt;/code>, کامپایلر عملیات مقدار دهی ثابت را دوباره انجام میدهد, بهتر است آن را خارج از تابع تعریف کنیم.&lt;/li>
 &lt;/ul>
-&lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>1.6 مقادیر صفر تایپ ها (zero values)</title><link>https://book.gofarsi.ir/chapter-1/go-zero-values/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-zero-values/</guid><description>&lt;p>در زیر لیست تمامی تایپ ها با مقادیر صفرشان قرار دادیم :&lt;/p>
+&lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>1.6 مقادیر صفر تایپ ها (zero values)</title><link>https://book.gofarsi.ir/chapter-1/go-zero-values/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-zero-values/</guid><description>&lt;p>در جدول زیر لیست تمامی تایپ ها را با مقادیر صفرشان &lt;code>(پیشفرض)&lt;/code> قرار دادیم :&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
