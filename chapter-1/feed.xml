@@ -1375,13 +1375,13 @@
 &lt;ul>
 &lt;li>با استفاده از توابع، می توانیم یک قطعه کد را یک بار بنویسیم و چندین بار از آن در برنامه استفاده کنیم.&lt;/li>
 &lt;li>با استفاده از توابع، حجم کدنویسی ما کم تر میشه و سرعت توسعه نرم افزار بیشتر می شود.&lt;/li>
-&lt;li>توابع به ما کمک می کنند تا کد خود را به تکه هایی تقسیم کنیم تا برنامه ما خوانا و قابل درک باشد. همچنین نگهداری و اشکال زدایی کد را آسان تر می کند.&lt;/li>
+&lt;li>توابع به ما کمک می کنند تا کد خود را به تکه هایی کوچک تر تقسیم کنیم تا برنامه ما خوانا و قابل درک تر باشد. همچنین نگهداری و اشکال زدایی کد را آسان تر می کند.&lt;/li>
 &lt;/ul>
 &lt;h2 id="172-توابع-در-زبان-گولنگ">
 1.7.2 توابع در زبان گولنگ
 &lt;a class="anchor" href="#172-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%d8%af%d8%b1-%d8%b2%d8%a8%d8%a7%d9%86-%da%af%d9%88%d9%84%d9%86%da%af">#&lt;/a>
 &lt;/h2>
-&lt;p>توابع یکی از قابلیت های مهم هر زبانی محسوب می شود. توابع در زبان برنامه نویسی گولنگ داری سینتکس ساده ای هستند.&lt;/p>
+&lt;p>توابع یکی از قابلیت های مهم هر زبانی محسوب می شوند. توابع در زبان برنامه نویسی گولنگ داری سینتکس ساده ای هستند.&lt;/p>
 &lt;h3 id="1721-تعریف-یک-تابع">
 1.7.2.1 تعریف یک تابع
 &lt;a class="anchor" href="#1721-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%db%8c%da%a9-%d8%aa%d8%a7%d8%a8%d8%b9">#&lt;/a>
@@ -1416,9 +1416,9 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>$ go run func.go
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#bd93f9">17&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
-&lt;li>در اینجا یک تابع یا نام plus تعریف کردیم که دو پارامتر a, b را با نوع داده int را دریافت می کند و جمع دو عدد را حساب می کند. توجه کنید که همیشه باید نوع داده را مشخص کنیم.&lt;/li>
-&lt;li>بعد از تعریف پارامترهای ورودی و قبل از قرار دادن کد داخل براکت int را می بینید که نوع خروجی داده را مشخص می کند و باید از نوع int باشد.&lt;/li>
-&lt;li>برای صدا زدن توابع از کلیدواژه name(args) استفاده می کنیم.&lt;/li>
+&lt;li>در اینجا یک تابع با نام plus تعریف کردیم که دو پارامتر a, b را با نوع داده int دریافت می کند و جمع این دو عدد را حساب می کند. توجه کنید که همیشه باید نوع داده را مشخص کنیم.&lt;/li>
+&lt;li>بعد از تعریف پارامترهای ورودی و قبل از قرار دادن کد داخل براکت int را می بینید که نوع خروجی داده را مشخص می کند, یعنی خروجی این تابع باید از نوع int باشد.&lt;/li>
+&lt;li>برای صدا زدن توابع کافی است نام تابع رو همراه با پرانتز باز و بسته تایپ کنید, برای مثال ()plus.&lt;/li>
 &lt;/ol>
 &lt;blockquote class="book-hint info">
 &lt;p>در صورتی که نوع پارامترهای ورودی از یک نوع باشند بجای تعریف تک تک نوع داده ها می توانیم نوع داده را در آخر همه پارامترهای هم نوع مشخص کنیم.&lt;/p>
@@ -1450,13 +1450,13 @@
 &lt;ul>
 &lt;li>نام تابع باید با یک حرف شروع شود.&lt;/li>
 &lt;li>نام تابع فقط می تواند شامل حروف-عدد و underscores باشد.  (&lt;code>A-z&lt;/code>, &lt;code>0-9&lt;/code>,  &lt;code>_&lt;/code> )&lt;/li>
-&lt;li>نام توابع به حروف کوچک و بزرگ حساس می باشد.&lt;/li>
-&lt;li>در نام گذاری توابع از فاصله نمی توانیم استفاده کنیم.&lt;/li>
+&lt;li>نام تابع به حروف کوچک و بزرگ حساس می باشد.&lt;/li>
+&lt;li>در نام گذاری تابع از فاصله نمی توانیم استفاده کنیم.&lt;/li>
 &lt;/ul>
 &lt;br/>
-&lt;h2 id="174-چند-بازگشتی-مقادیر-در-گولنگ-multiple-results">
-‬1.7.4 چند بازگشتی مقادیر در گولنگ (Multiple results)
-&lt;a class="anchor" href="#174-%da%86%d9%86%d8%af-%d8%a8%d8%a7%d8%b2%da%af%d8%b4%d8%aa%db%8c-%d9%85%d9%82%d8%a7%d8%af%db%8c%d8%b1-%d8%af%d8%b1-%da%af%d9%88%d9%84%d9%86%da%af-multiple-results">#&lt;/a>
+&lt;h2 id="174-توابع-چند-بازگشتی-در-گولنگ-multiple-results">
+‬1.7.4 توابع چند بازگشتی در گولنگ (Multiple results)
+&lt;a class="anchor" href="#174-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%da%86%d9%86%d8%af-%d8%a8%d8%a7%d8%b2%da%af%d8%b4%d8%aa%db%8c-%d8%af%d8%b1-%da%af%d9%88%d9%84%d9%86%da%af-multiple-results">#&lt;/a>
 &lt;/h2>
 &lt;p>همچنین در گولنگ توابع می توانند چندین مقادیر را برگردانند.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
@@ -1519,7 +1519,7 @@
 1.7.5 توابع متنوع در گولنگ (Variadic Functions)
 &lt;a class="anchor" href="#175-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d9%86%d9%88%d8%b9-%d8%af%d8%b1-%da%af%d9%88%d9%84%d9%86%da%af-variadic-functions">#&lt;/a>
 &lt;/h2>
-&lt;p>یکی از قابلیت های گو وجود توابع متنوع هاست که به شما اجازه می دهد هر چقدر پارامتر نیاز دارید بدون تعریف وارد تابع کنید.
+&lt;p>یکی از قابلیت های گو وجود توابع متنوع است. منظور از توابع متنوع توابعی هستند که بدون محدودیت پارامتر دریافت میکنند &lt;code>(این نکته رو در نظر بگیرین که نباید نوع یا همون &lt;/code>تایپ&lt;code> ورودی ها با هم دیگه فرق کنه, برای مثال همشون باید int باشن)&lt;/code>.
 ‍‍&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -1548,9 +1548,9 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">[&lt;/span>&lt;span style="color:#bd93f9">1&lt;/span> &lt;span style="color:#bd93f9">2&lt;/span> 3&lt;span style="color:#ff79c6">]&lt;/span> &lt;span style="color:#bd93f9">6&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-4">4&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">[&lt;/span>&lt;span style="color:#bd93f9">1&lt;/span> &lt;span style="color:#bd93f9">2&lt;/span> &lt;span style="color:#bd93f9">3&lt;/span> 4&lt;span style="color:#ff79c6">]&lt;/span> &lt;span style="color:#bd93f9">10&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
-&lt;li>در اینجا تابعی تعریف کردیم که تعداد دلخواهی از آرگومان ها از نوع int را به کمک &amp;hellip; که قبل از نوع داده قرار گرفته به داخل تابع منتقل می کند.&lt;/li>
+&lt;li>در اینجا تابعی تعریف کردیم که تعداد دلخواهی از آرگومان ها از نوع int را به کمک &amp;hellip; &lt;code>(بهش میگن Ellipsis)&lt;/code> که قبل از نوع داده قرار گرفته به داخل تابع منتقل می کند.&lt;/li>
 &lt;li>برای صدا زدن این توابع میتوان به روش sum(num1, num2, &amp;hellip;) عمل کرد.&lt;/li>
-&lt;li>اگر شما داده ای با نوع slice دارید می توانید آن را به کمک اپراتور &amp;hellip; به صورت sum(nums&amp;hellip;) به داخل تابع انتقال بدید.&lt;/li>
+&lt;li>اگر شما داده ای با نوع slice دارید می توانید آن را به کمک اپراتور &amp;hellip;&lt;code>(Ellipsis)&lt;/code> به صورت sum(nums&amp;hellip;) به داخل تابع انتقال بدید.&lt;/li>
 &lt;/ol>
 &lt;br/>
 &lt;h2 id="176-توابع-نانشناس-در-گولنگ-anonymous-functions">
