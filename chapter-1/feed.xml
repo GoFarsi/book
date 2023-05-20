@@ -1611,19 +1611,19 @@
 &lt;/h2>
 &lt;p>در گولنگ علاوه بر تابع هایی که توسط کابر تعریف میشه. یکسری توابع وجود دارد که از قبل تعریف شده اند که طراحان این زبان برای سهولت کار برنامه نویسان این توابع را نوشته اند و آن را همراه زبان گولنگ ارائه می دهند.&lt;/p>
 &lt;p>&lt;a href="https://book.gofarsi.ir/chapter-1/go-builtins/">https://book.gofarsi.ir/chapter-1/go-builtins/&lt;/a>&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>1.8 آرایه و slice</title><link>https://book.gofarsi.ir/chapter-1/go-array/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-array/</guid><description>&lt;p>&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
-و slice دو نوع تایپ با یک وجه اشتراک در زبان گو می باشند ولی این دو نوع تایپ یکسری تفاوت هایی با هم دارند که در ادامه به این دو تایپ می پردازیم.&lt;/p>
+و slice دو نوع تایپ با یک وجه اشتراک در زبان گو می باشند ولی این دو نوع تایپ یکسری تفاوت هایی نیز با هم دارند که در ادامه بهشون مپردازیم.&lt;/p>
 &lt;h2 id="181-تعریف-آرایه">
 1.8.1 تعریف آرایه
 &lt;a class="anchor" href="#181-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87">#&lt;/a>
 &lt;/h2>
 &lt;p>&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
-یکی از عمومی ترین تایپ ها در زبان های برنامه نویسی می باشد که برای نگه داری گروهی مقادیر از یک نوع تایپ استفاده می شود.
+یکی از عمومی ترین تایپ ها در زبان های برنامه نویسی می آرابه هاهستند که برای نگه داری گروهی مقادیر از یک نوع تایپ استفاده می شود.
 برای دسترسی به هرکدام از مقادیر درون آرایه باید از &lt;span class="tooltip" data-tooltip="Index" ontouchend="toggleTooltip(this)">اندیس&lt;/span>
 استفاده کرد.
-معمولا برای آرایه شما تعداد مشخص و ثابتی را برای تعداد خانه های آرایه مشخص کنید که این آرایه قرار است چندتا مقدار نگه داری کند.&lt;/p>
+معمولا برای تعریف آرایه شما تعداد مشخص و ثابتی را برای تعداد مقادیر مشخص میکنید. یعنی این آرایه قرار است چندتا مقدار نگه داری کند.&lt;/p>
 &lt;p>&lt;img src="../../assets/img/content/chapter1/array-slice/1.png" alt="array" />&lt;/p>
-&lt;p>در زیر یک نمونه کد در خصوص &lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
-قرار دادیم :&lt;/p>
+&lt;p>در مثال زیر یک نمونه کد در خصوص چگونگی تعریف &lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
+قرار داده ایم :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -1643,7 +1643,7 @@
 &lt;li>یک متغیر کوتاه از نوع آرایه با نام &lt;strong>arrayInts&lt;/strong> تعریف کردیم.&lt;/li>
 &lt;li>ظرفیت آرایه را با عدد &lt;strong>۵&lt;/strong> تعیین کردیم (یعنی این آرایه فقط ۵ تا مقدار بیشتر نگه داری نمی کند)&lt;/li>
 &lt;li>سپس تایپ آرایه را از نوع &lt;strong>int&lt;/strong> مشخص کردیم.&lt;/li>
-&lt;li>در نهایت در همانجا آرایه را مقدار دهی کردیم.&lt;/li>
+&lt;li>در نهایت در همانجا آرایه را مقدار دهی کردیم. در زبان گو مقدار دهی با باز کردن &lt;code>{}&lt;/code> به انگلیسی &lt;code>curly bracket&lt;/code> انجام میشود.&lt;/li>
 &lt;/ol>
 &lt;h2 id="182-مفهوم-اندازه-و-ظرفیت-size-capacity">
 1.8.2 مفهوم اندازه و ظرفیت (size, capacity)
@@ -1668,14 +1668,14 @@
 &lt;input type="submit" value="اجرای کد فوق در playground" class="goplay-btn" />
 &lt;/form>
 &lt;/div>
-&lt;p>در کد فوق ما یک آرایه با اندازه ۳ تعریف کردیم و ۴ تا مقدار قرار دادیم و پس اجرا با خطای تعداد مقادیر بیشتر از اندازه و ظرفیت می باشد مواجه شدیم.&lt;/p>
+&lt;p>در کد فوق ما یک آرایه با اندازه ۳ تعریف کردیم و ۴ تا مقدار داخلش قرار دادیم و پس از اجرا, با خطای &lt;code>تعداد مقادیر بیشتر از اندازه و ظرفیت می باشد&lt;/code> مواجه شدیم.&lt;/p>
 &lt;h3 id="1821-تابع-len-و-cap">
 1.8.2.1 تابع len و cap
 &lt;a class="anchor" href="#1821-%d8%aa%d8%a7%d8%a8%d8%b9-len-%d9%88-cap">#&lt;/a>
 &lt;/h3>
 &lt;p>برای آرایه و slice ما ۲ تا تابع داریم که می توانیم اندازه و ظرفیت یک آرایه یا slice را بگیریم.&lt;/p>
 &lt;ul>
-&lt;li>تابع &lt;strong>len&lt;/strong> یکی از توابعی می باشد خیلی کاربردی و پراستفاده هنگام کار با آرایه یا slice می باشد که می توانید اندازه آرایه یا slice را بگیرید.&lt;/li>
+&lt;li>تابع &lt;strong>len&lt;/strong> یکی از توابع بسیار کاربردی و پراستفاده هنگام کار با آرایه یا slice می باشد که می توانید اندازه آرایه یا slice را بگیرید.&lt;/li>
 &lt;li>تابع &lt;strong>cap&lt;/strong> ظرفیت آرایه و slice را نمایش می دهد.&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
@@ -1697,7 +1697,7 @@
 1.8.3 تعریف آرایه و مقدارهی
 &lt;a class="anchor" href="#183-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87-%d9%88-%d9%85%d9%82%d8%af%d8%a7%d8%b1%d9%87%db%8c">#&lt;/a>
 &lt;/h2>
-&lt;p>در زیر ما یک آرایه با مقدار پیش فرض و اندازه مشخص تعریف کردیم و قصد داریم در ادامه کد مقداردهی کنیم.&lt;/p>
+&lt;p>در مثال زیر ما یک آرایه با مقدار 5 تعریف کردیم و قصد داریم در ادامه کد, آرایه رو مقداردهی کنیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -1726,13 +1726,13 @@
 &lt;ol>
 &lt;li>در کد فوق در ابتدا ما یک آرایه بدون مقدار تعریف کردیم.&lt;/li>
 &lt;li>سپس با استفاده از &lt;span class="tooltip" data-tooltip="Index" ontouchend="toggleTooltip(this)">اندیس&lt;/span>
-مقدار را خانه مشخص قرار دادیم.&lt;/li>
+مقدار را در خانه مشخص قرار دادیم.&lt;/li>
 &lt;/ol>
-&lt;h3 id="1831-تعریف-آرایه-با-اندازه-تعیین-شده-توسط-کامپایلر">
-1.8.3.1 تعریف آرایه با اندازه تعیین شده توسط کامپایلر
-&lt;a class="anchor" href="#1831-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87-%d8%a8%d8%a7-%d8%a7%d9%86%d8%af%d8%a7%d8%b2%d9%87-%d8%aa%d8%b9%db%8c%db%8c%d9%86-%d8%b4%d8%af%d9%87-%d8%aa%d9%88%d8%b3%d8%b7-%da%a9%d8%a7%d9%85%d9%be%d8%a7%db%8c%d9%84%d8%b1">#&lt;/a>
+&lt;h3 id="1831-تعریف-آرایه-با-اندازه-تعیین-شده-توسط-کامپایلر-شما-اندازه-رو-بهش-نمیدین">
+1.8.3.1 تعریف آرایه با اندازه تعیین شده توسط کامپایلر &lt;code>(شما اندازه رو بهش نمیدین.)&lt;/code>
+&lt;a class="anchor" href="#1831-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87-%d8%a8%d8%a7-%d8%a7%d9%86%d8%af%d8%a7%d8%b2%d9%87-%d8%aa%d8%b9%db%8c%db%8c%d9%86-%d8%b4%d8%af%d9%87-%d8%aa%d9%88%d8%b3%d8%b7-%da%a9%d8%a7%d9%85%d9%be%d8%a7%db%8c%d9%84%d8%b1-%d8%b4%d9%85%d8%a7-%d8%a7%d9%86%d8%af%d8%a7%d8%b2%d9%87-%d8%b1%d9%88-%d8%a8%d9%87%d8%b4-%d9%86%d9%85%db%8c%d8%af%db%8c%d9%86">#&lt;/a>
 &lt;/h3>
-&lt;p>شما در زبان گو می توانید با استفاده از &lt;code>...&lt;/code> یک آرایه با اندازه مشخص شده توسط کامپایلر تعریف کنید.&lt;/p>
+&lt;p>شما در زبان گو می توانید با استفاده از &lt;code>...&lt;/code> بهش میگن &lt;code>Ellipsis&lt;/code> یک آرایه با اندازه مشخص شده توسط کامپایلر تعریف کنید.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -1749,7 +1749,7 @@
 &lt;/form>
 &lt;/div>
 &lt;blockquote class="book-hint danger">
-توجه کنید زمانیکه &lt;code>...&lt;/code> برای تعریف آرایه استفاده می کنید فقط در همان لحظه تعریف می توانید مقدار دهی کنید.
+توجه کنید زمانیکه &lt;code>...&lt;/code> &lt;code>(Ellipsis)&lt;/code> برای تعریف آرایه استفاده می کنید فقط در همان لحظه تعریف می توانید آرایه رو مقدار دهی کنید.
 &lt;/blockquote>
 &lt;h3 id="1832-تعریف-آرایه-دوبعدی-یا-چندبعدی">
 1.8.3.2 تعریف آرایه دوبعدی یا چندبعدی
