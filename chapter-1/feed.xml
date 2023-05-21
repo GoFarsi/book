@@ -2103,7 +2103,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.2 حلقه سه بخشی
 &lt;a class="anchor" href="#192-%d8%ad%d9%84%d9%82%d9%87-%d8%b3%d9%87-%d8%a8%d8%ae%d8%b4%db%8c">#&lt;/a>
 &lt;/h2>
-&lt;p>این نمونه از حلقه‌ها که متداول‌ترین نوع حلقه است با استفاده از سه‌بخش:&lt;/p>
+&lt;p>این نمونه که متداول‌ترین نوع حلقه &lt;code>for&lt;/code> نیز هستند با استفاده از سه‌بخش:&lt;/p>
 &lt;ul>
 &lt;li>مقداردهی&lt;/li>
 &lt;li>شرط&lt;/li>
@@ -2113,7 +2113,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">for&lt;/span> initialization ; condition ; counter {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">//loop codes
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد زیر نمونه‌ای از این حلقه‌ها قابل مشاهده و اجرا است.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در مثال زیر نمونه‌ای از این حلقه‌ قابل مشاهده و اجرا است.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -2137,7 +2137,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.3 حلقه while
 &lt;a class="anchor" href="#193-%d8%ad%d9%84%d9%82%d9%87-while">#&lt;/a>
 &lt;/h2>
-&lt;p>این مدل حلقه تماماً شبیه به رفتار while در زبان C را دارد با این تفاوت که پیاده‌سازی آن، تنها با کلیدواژه‌ی &lt;code>for&lt;/code> و با حذف بخش مقداردهی و شمارنده حلقه سه‌بخشی انجام می‌گیرد. در واقع در این حلقه تنها با تعریف یک شرط کدهای داخل حلقه تا زمان برقراری آن شرط اجرا می‌شوند.&lt;/p>
+&lt;p>این مدل حلقه تماماً شبیه به رفتار while در زبان C را دارد با این تفاوت که پیاده‌سازی آن، تنها با کلیدواژه‌ی &lt;code>for&lt;/code> و با حذف بخش مقداردهی و شمارنده حلقه سه‌بخشی انجام می‌گیرد. در واقع در این حلقه تنها یک شرط تعریف میشود و تا برقرار بودن آن شرط حلقه اجرا میشود. به مثال زیر توجه کنید:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -2169,7 +2169,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.4 حلقه بی‌نهایت
 &lt;a class="anchor" href="#194-%d8%ad%d9%84%d9%82%d9%87-%d8%a8%db%8c%d9%86%d9%87%d8%a7%db%8c%d8%aa">#&lt;/a>
 &lt;/h2>
-&lt;p>اگر از حلقه‌ی &lt;code>while&lt;/code> بخش شرط را حذف کنیم چه اتفاقی می‌افتد؟ در این حالت ما یک شرط بی نهایت ساخته‌ایم (شبیه به while(1)) که تا زمانی‌ که برنامه متوقف نشود و یا کدهای داخل حلقه، فرمان خروج از حلقه را ندهند، چرخه زندگی حلقه ادامه خواهد داشت.&lt;/p>
+&lt;p>اگر از حلقه‌ی &lt;code>while&lt;/code> که در مثال بالا تعریف کردیم بخش شرط را حذف کنیم چه اتفاقی می‌افتد؟ در این حالت ما یک شرط بی نهایت ساخته‌ایم (شبیه به while(1)) که تا زمانی‌ که برنامه متوقف نشود و یا کدهای داخل حلقه، فرمان خروج از حلقه را ندهند، چرخه ی اجرای حلقه ادامه خواهد یافت.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -2187,7 +2187,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;input type="submit" value="اجرای کد فوق در playground" class="goplay-btn" />
 &lt;/form>
 &lt;/div>
-&lt;p>با اجرای کد بالا خطای تایم‌اوت دریافت خواهید کرد، به‌دلیل اینکه حلقه هیچگاه پایان نمی‌پذیرد.&lt;/p>
+&lt;p>با اجرای کد بالا خطای تایم‌اوت دریافت خواهید کرد &lt;code>(اگر در playground سایت گو اجراش کنین)&lt;/code>، به‌دلیل اینکه حلقه هیچگاه پایان تمام نمیشود.&lt;/p>
 &lt;h2 id="195-حلقه-for-range">
 1.9.5 حلقه for-range
 &lt;a class="anchor" href="#195-%d8%ad%d9%84%d9%82%d9%87-for-range">#&lt;/a>
