@@ -105,16 +105,16 @@
 &lt;li>&lt;span class="tooltip" data-tooltip="Interface" ontouchend="toggleTooltip(this)">اینترفیس&lt;/span>
 و &lt;span class="tooltip" data-tooltip="Reflection" ontouchend="toggleTooltip(this)">رفلکشن&lt;/span>
 &lt;/li>
-&lt;li>زبان گو مثل سایر زبان ها نظیر c, cpp یا java نیاز به نقطه ویرگول (Semicolons) ندارد و به نسبت زبان هایی که معرفی کردیم پرانتز کمتری استفاده می کند و همچنین ظاهر سینتکس گو خیلی خواناتر و راحتر می باشد.&lt;/li>
+&lt;li>زبان گو برخلاف زبان هایی نظیر c, cpp یا java نیاز به نقطه ویرگول (Semicolons) ندارد و به نسبت زبان هایی که معرفی کردیم پرانتز کمتری استفاده می کند و همچنین ظاهر سینتکس گو خیلی خواناتر و راحتر می باشد.&lt;/li>
 &lt;/ul>
 &lt;p>علاوه بر ویژگی های که در بالا معرفی کردیم یک سری نکات برجسته در خصوص زبان گو وجود دارد که به شرح زیر می باشند:&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>سینتکس زبان گو به گونه ای طراحی شده که خیلی ساده و تمیز می باشد و این باعث می شود خیلی سریع زبان گو را یاد بگیرید و از همه مهم تر توسعه پروژه های مقیاس پذیر &lt;span class="tooltip" data-tooltip="Scale up" ontouchend="toggleTooltip(this)">مقیاس پذیر&lt;/span>
+&lt;p>سینتکس این زبان به گونه ای ساده و تمیز طراحی شده که فرآیند یادگیری آن را آسان تر می کند و از همه مهم تر توسعه پروژه های مقیاس پذیر &lt;span class="tooltip" data-tooltip="Scale up" ontouchend="toggleTooltip(this)">مقیاس پذیر&lt;/span>
 با زبان گو به دلیل سادگی و آشکار بودن مفاهیم خیلی سریعتر صورت میگیرد.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>زبان گو دارای کلی &lt;span class="tooltip" data-tooltip="Standard packages" ontouchend="toggleTooltip(this)">پکیج های استاندارد&lt;/span>
+&lt;p>زبان گو دارای تعداد زیادی &lt;span class="tooltip" data-tooltip="Standard packages" ontouchend="toggleTooltip(this)">پکیج های استاندارد&lt;/span>
 و کاربردی جهت توسعه می باشد که همه این پکیج ها در انواع پلتفرم ها جهت توسعه قابل استفاده است.&lt;/p>
 &lt;/li>
 &lt;li>
