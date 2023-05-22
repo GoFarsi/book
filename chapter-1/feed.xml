@@ -2187,7 +2187,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;input type="submit" value="اجرای کد فوق در playground" class="goplay-btn" />
 &lt;/form>
 &lt;/div>
-&lt;p>با اجرای کد بالا خطای تایم‌اوت دریافت خواهید کرد &lt;code>(اگر در playground سایت گو اجراش کنین)&lt;/code>، به‌دلیل اینکه حلقه هیچگاه پایان تمام نمیشود.&lt;/p>
+&lt;p>با اجرای کد بالا خطای تایم‌اوت دریافت خواهید کرد &lt;code>(اگر در playground سایت گو اجراش کنین)&lt;/code>، به‌دلیل اینکه حلقه هیچگاه تمام نمیشود.&lt;/p>
 &lt;h2 id="195-حلقه-for-range">
 1.9.5 حلقه for-range
 &lt;a class="anchor" href="#195-%d8%ad%d9%84%d9%82%d9%87-for-range">#&lt;/a>
@@ -2199,12 +2199,12 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.5.1 حلقه for-range برای slice و آرایه
 &lt;a class="anchor" href="#1951-%d8%ad%d9%84%d9%82%d9%87-for-range-%d8%a8%d8%b1%d8%a7%db%8c-slice-%d9%88-%d8%a2%d8%b1%d8%a7%db%8c%d9%87">#&lt;/a>
 &lt;/h3>
-&lt;p>شما با استفاده از حلقه for-range می توانید به المنت های آرایه و slice و همچنین اندیس شان دسترسی پیدا کنید. و دقت کنید ۲ حالت وجود دارد :&lt;/p>
+&lt;p>شما با استفاده از حلقه for-range می توانید به المنت های آرایه یا slice و همچنین اندیس شان &lt;code>(Index)&lt;/code> دسترسی پیدا کنید. دقت کنید ۲ حالت وجود دارد :&lt;/p>
 &lt;h4 id="19511-دسترسی-با-استفاده-از-یک-کپی-از-المنت">
 1.9.5.1.1 دسترسی با استفاده از یک کپی از المنت
 &lt;a class="anchor" href="#19511-%d8%af%d8%b3%d8%aa%d8%b1%d8%b3%db%8c-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%db%8c%da%a9-%da%a9%d9%be%db%8c-%d8%a7%d8%b2-%d8%a7%d9%84%d9%85%d9%86%d8%aa">#&lt;/a>
 &lt;/h4>
-&lt;p>در کد زیر ما با استفاده از for-range به یک کپی از المنت های slice letter دسترسی پیدا کردیم.&lt;/p>
+&lt;p>در کد زیر ما با استفاده از for-range به یک کپی از المنت های اسلایس &lt;code>letter&lt;/code> دسترسی پیدا کردیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -2238,7 +2238,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.5.1.2 دسترسی مستقیم به خانه حافظه المنت
 &lt;a class="anchor" href="#19512-%d8%af%d8%b3%d8%aa%d8%b1%d8%b3%db%8c-%d9%85%d8%b3%d8%aa%d9%82%db%8c%d9%85-%d8%a8%d9%87-%d8%ae%d8%a7%d9%86%d9%87-%d8%ad%d8%a7%d9%81%d8%b8%d9%87-%d8%a7%d9%84%d9%85%d9%86%d8%aa">#&lt;/a>
 &lt;/h4>
-&lt;p>شما با استفاده از اندیس (index) می توانید مستقیما به خانه حافظه المنت دسترسی پیدا کنید و برروی آن المنت در همان خانه حافظه تغییرات ایجاد کنید.&lt;/p>
+&lt;p>شما با استفاده از اندیس (index) می توانید مستقیما به خانه حافظه المنت دسترسی پیدا کنید و آن المنت رو با استفاده از اندیس &lt;code>(Index)&lt;/code> نمایش بدید. به مثال زیر توجه کنید :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -2260,7 +2260,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.1.2 حلقه for-range برای map
 &lt;a class="anchor" href="#1912-%d8%ad%d9%84%d9%82%d9%87-for-range-%d8%a8%d8%b1%d8%a7%db%8c-map">#&lt;/a>
 &lt;/h3>
-&lt;p>شما با استفاده از حلقه for-range می توانید برروی map به کلید و مقدار هر یک از مقادیر map دسترسی پیدا کنید.&lt;/p>
+&lt;p>شما با استفاده از حلقه for-range برروی map, میتوانید به کلید و مقدار هر یک از مقادیر map دسترسی پیدا کنید.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -2354,7 +2354,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.6 کلید واژه break
 &lt;a class="anchor" href="#196-%da%a9%d9%84%db%8c%d8%af-%d9%88%d8%a7%da%98%d9%87-break">#&lt;/a>
 &lt;/h2>
-&lt;p>با استفاده از &lt;code>break&lt;/code> می‌توان چرخه‌ی اجرای یک حلقه را پایان داد. به عنوان مثال در حلقه بی‌نهایت بالا می‌توان با تعریف یک شرط خاص از حلقه خارج شد. کد زیر نمونه استفاده از &lt;code>break&lt;/code> را نمایش می‌دهد.&lt;/p>
+&lt;p>با استفاده از &lt;code>break&lt;/code> می‌توان چرخه‌ی اجرای یک حلقه را پایان داد. به عنوان مثال در حلقه بی‌نهایتی که در بخش &lt;code>1.9.4&lt;/code> مشاهده کردید, می‌توان با تعریف یک شرط خاص از حلقه خارج شد. کد زیر نمونه استفاده از &lt;code>break&lt;/code> را نمایش می‌دهد.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
