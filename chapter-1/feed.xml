@@ -2882,8 +2882,8 @@ Cap: 5 - 1 = 4&lt;/p>
 1.11.1 شرط (if-else)
 &lt;a class="anchor" href="#1111-%d8%b4%d8%b1%d8%b7-if-else">#&lt;/a>
 &lt;/h2>
-&lt;p>زبان گو همانند ساز سایر زبان ها دارای &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
-می باشد که خیلی ساده می توانید از آن استفاده کنید و در زیر ما فرمت استاندارد &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
+&lt;p>زبان گو همانند سایر زبان ها دارای &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شروط&lt;/span>
+می باشد و شما خیلی ساده می توانید از آن استفاده کنید. در مثال زیر ما فرمت استاندارد &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شروط&lt;/span>
 در زبان گو را قرار دادیم :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> condition {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">//Do something
@@ -2892,10 +2892,10 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>} &lt;span style="color:#ff79c6">else&lt;/span> {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6">6&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">//Do something
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7">7&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در بالا &lt;strong>condition&lt;/strong> عبارتی است که قرار است وضعیت شرط را مشخص کند و در صورت &lt;strong>true&lt;/strong> شدن شرط بر قرار می شود و در صورت برقرار نشدن شرط اول وارد else if می شود و مجدد یک &lt;strong>condition&lt;/strong> دیگری را چک می کنیم که وضعیتش true &lt;strong>می&lt;/strong> شود یا خیر و در نهایت منتهی می شود به &lt;strong>else&lt;/strong>.&lt;/p>
-&lt;p>در &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
-ما یک یا چندتا condition می توانیم داشته باشیم که این condition ها برای تعیین وضعیت از یکسری عملگرها نظیر &lt;code>&amp;amp;&amp;amp; , || , &amp;gt; , &amp;lt; , &amp;lt;= , =&amp;gt; , !&lt;/code> و &amp;hellip; استفاده می کند.&lt;/p>
-&lt;p>زبان گو از فرمت های زیر برای ایجاد &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در بالا &lt;strong>condition&lt;/strong> عبارتی است که قرار است وضعیت شرط را مشخص کند و در صورت &lt;strong>true&lt;/strong> شدن, شرط بر قرار می شود. در صورت برقرار نشدن شرط اول برنامه وارد else if می شود و مجدد یک &lt;strong>condition&lt;/strong> دیگری را چک می کند که آیا وضعیتش true &lt;strong>می&lt;/strong> شود یا خیر و در نهایت منتهی می شود به &lt;strong>else&lt;/strong>. &lt;code>در مثال بالا اگر یکی از شروط **true** باشد شروط دیگر اجرا نخاهند شد. یعنی اگر شرط اول درست باشد دو شرط بعدی اجرا نخاهند شد و برنامه از آنها عبور خواهد کرد.&lt;/code>&lt;/p>
+&lt;p>در &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شروط&lt;/span>
+ما یک یا چندتا condition می توانیم داشته باشیم که این condition ها برای تعیین وضعیت از یکسری عملگر نظیر &lt;code>&amp;amp;&amp;amp; , || , &amp;gt; , &amp;lt; , &amp;lt;= , =&amp;gt; , !&lt;/code> و &amp;hellip; استفاده می کند.&lt;/p>
+&lt;p>زبان گو از فرمت های زیر برای ایجاد &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شروط&lt;/span>
 استفاده می کند :&lt;/p>
 &lt;ul>
 &lt;li>فقط if&lt;/li>
