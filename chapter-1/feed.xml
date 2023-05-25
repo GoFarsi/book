@@ -3164,20 +3164,20 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;blockquote class="book-hint info">
 کدها در زمان اجرا یا پیش از آن، در برخی IDE یا Code Editor(ها) فرمت می‌شوند.
 هدف این خودآزمون دقت به ساختار ابزار switch است.
-&lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>1.12 اضافه کردن پکیج در کد (package)</title><link>https://book.gofarsi.ir/chapter-1/go-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-package/</guid><description>&lt;p>زبان برنامه نویسی گو به شکلی طراحی شده است تا بتوانیم شیو‌ه های خوب مهندسی نرم افزار را به خوبی و ساده پیاده سازی کنیم. یکی از الگوهای مهم برای ارتقای کیفیت یک نرم افزار استفاده از DRY principle است. کلمه DRY مخفف &lt;strong>D&lt;/strong>on’t &lt;strong>R&lt;/strong>epeat &lt;strong>Y&lt;/strong>ourself است. که به صورت خیلی ساده یعنی کدی که خواهید نوشت را دوبار تکرار نکنید. تا جایی که امکان دارد باید از کدهای قبلی که نوشته اید بتوانید استفاده کنید. پکیج‌ها امکاناتی از جمله:&lt;/p>
+&lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>1.12 اضافه کردن پکیج در کد (package)</title><link>https://book.gofarsi.ir/chapter-1/go-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-package/</guid><description>&lt;p>زبان برنامه نویسی گو به شکلی طراحی شده است تا بتوانیم شیو‌ه های خوب مهندسی نرم افزار را به سادگی پیاده سازی کنیم. یکی از الگوهای مهم برای ارتقای کیفیت یک نرم افزار استفاده از DRY principle است. کلمه DRY مخفف &lt;strong>D&lt;/strong>on’t &lt;strong>R&lt;/strong>epeat &lt;strong>Y&lt;/strong>ourself &lt;code>همون چرخ رو دوباره اختراع نکن خودمون&lt;/code> است, که اگر به صورت خیلی ساده بیانش کنیم یعنی, کدی که خواهید نوشت را دوبار تکرار نکنید. تا جایی که امکان دارد باید بتوانید از کدهای قبلی که نوشته اید استفاده کنید. پکیج‌ها امکاناتی از جمله:&lt;/p>
 &lt;ul>
 &lt;li>قابلیت استفاده مجدد از کد را به ما میدهند.&lt;/li>
-&lt;li>امکان ماژولار، و قابل نگهداری را فراهم می‌کنند.&lt;/li>
+&lt;li>امکان ماژولار، و قابل نگهداری بودن کد را فراهم می‌کنند.&lt;/li>
 &lt;li>امکان مدیریت بهتر فایل‌ها را در یک واحد ایجاد می‌کنند.&lt;/li>
 &lt;/ul>
 &lt;h2 id="1121-پکیجها-در-زبان-گو">
 1.12.1 پکیج‌ها در زبان گو
 &lt;a class="anchor" href="#1121-%d9%be%da%a9%db%8c%d8%ac%d9%87%d8%a7-%d8%af%d8%b1-%d8%b2%d8%a8%d8%a7%d9%86-%da%af%d9%88">#&lt;/a>
 &lt;/h2>
-&lt;p>پکیج در اصل یک یا مجموعه از سورس فایل های شما است که داخل یک فولدر ممکن است قرار بگیرد. هر سورس فایلی که دارید در زبان گو متعلق به یک پکیج است. برای تعریف یک پکیج از دستور زیر استفاده میکنیم:&lt;/p>
+&lt;p>پکیج در اصل یک یا مجموعه ای از سورس فایل های شما است که ممکن است داخل یک فولدر قرار بگیرد. هر سورس فایلی که در زبان گو دارید متعلق به یک پکیج است. برای تعریف یک پکیج از دستور زیر استفاده میکنیم:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> &amp;lt;packagename&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>برای تعریف پکیج باید در اولین خط فایل آن را با کلید واژه package تعریف کنید.
-داخل این پکیج شما می‌توانید کد‌هایی که لازم دارید را بنویسید و تصمیم بگیرید کدام متغییر، فانکشن یا تایپ باید به صورت عمومی باشد یا باید به صورت خصوصی فقط داخل پکیج مورد استفاده قرار بگیرد.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>برای تعریف پکیج باید در اولین خط فایل, آن را با کلید واژه package تعریف کنید.
+داخل این پکیج شما می‌توانید کد‌هایی که لازم دارید را بنویسید و تصمیم بگیرید کدام متغییر، فانکشن یا تایپ باید به صورت عمومی باشد و یا باید به صورت خصوصی فقط داخل پکیج مورد استفاده قرار بگیرد.&lt;/p>
 &lt;p>قطعا میدانیم بعد از نوشتن پکیج اگر بخواهیم از آن پکیج داخل پکیج‌های دیگر استفاده کنیم باید از کلید واژه import استفاده کنیم.&lt;/p>
 &lt;h2 id="1122-اضافه-کردن-پکیج">
 1.12.2 اضافه کردن پکیج
@@ -3185,7 +3185,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/h2>
 &lt;p>برای اضافه کردن پکیج‌های مختلف ما از کلید واژه import استفاده می‌کنیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>برای مثال در کد بالا ما از پکیج استاندارد هسته گو استفاده کریدم. این به این معنی است همراه با تعریف کلمه fmt میتوانیم از توابعی که داخل این پکیج استفاده شده است استفاده کنیم. در مثال زیر ما از تابع Println برای چاپ مقدار&lt;code>Hello GoFarsi!‍&lt;/code> استفاده کردیم.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>برای مثال, در کد بالا ما از پکیج &lt;code>fmt&lt;/code> که در کتابخانه استاندارد گو وجود دارد استفاده کریدم. این به این معنی است همراه با تعریف کلمه fmt میتوانیم از توابعی که داخل این پکیج نوشته شده است استفاده کنیم. در مثال زیر ما از تابع Println برای چاپ مقدار&lt;code>Hello GoFarsi!‍&lt;/code> استفاده کردیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
