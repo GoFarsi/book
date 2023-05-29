@@ -3295,8 +3295,9 @@ Cap: 5 - 1 = 4&lt;/p>
 1.13.1 تعویق (defer)
 &lt;a class="anchor" href="#1131-%d8%aa%d8%b9%d9%88%db%8c%d9%82-defer">#&lt;/a>
 &lt;/h2>
-&lt;p>کلمه کلیدی defer یکی از کاربردی ترین امکانات زبان گو می باشد که شما می توانید اجرای یک تابع را به تعویق بندازید و در آخر تابع فعلی اجرا کنید. عموما defer برای توابعی کاربرد دارد که قصد دارد پاکسازی یا بستن عملیات های صورت گرفته را انجام دهد نظیر توابع Close در برخی از جاها.&lt;/p>
+&lt;p>کلمه کلیدی defer یکی از کاربردی ترین امکانات زبان گو را برای ما فراهم میسازد. شما می توانید اجرای یک تابع را به تعویق بندازید‍‍. عموما defer برای توابعی کاربرد دارد که قصد پاکسازی یا بستن عملیات های صورت گرفته را دارند, نظیر توابع Close در برخی از جاها.&lt;/p>
 &lt;p>&lt;img src="../../assets/img/content/chapter1/defer-panic-recovery/1.png" alt="defer" />&lt;/p>
+&lt;p>به مثال زیر توجه کنید:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
