@@ -3348,7 +3348,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#bd93f9">3&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#bd93f9">2&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4">4&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#bd93f9">1&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>دقت داشته باشید که مقداردهی پارامترهای ورودی, برای تابعی که آن را difer کردیم در همان لحظه call شدن آن انجام میشود. به مثال زیر توجه کنید:&lt;/strong>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>دقت داشته باشید که مقداردهی پارامترهای ورودی, برای تابعی که آن را defer کردیم در همان لحظه call شدن آن انجام میشود. به مثال زیر توجه کنید:&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1"> 1&lt;/a>&lt;/span>&lt;span>package main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3"> 3&lt;/a>&lt;/span>&lt;span>import &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -3365,20 +3365,20 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3&lt;/a>&lt;/span>&lt;span>First
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4">4&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#bd93f9">1&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در این مرحله شما باید پی برده باشید که &lt;strong>defer&lt;/strong> در همان خطی که نوشته شده است صدا زده میشود, ولی اجرای آن دقیقا به قبل از &lt;strong>return&lt;/strong> در تابع موکول میشود.&lt;/p>
-&lt;h2 id="1132-پانیک-panic">
-1.13.2 پانیک (panic)
-&lt;a class="anchor" href="#1132-%d9%be%d8%a7%d9%86%db%8c%da%a9-panic">#&lt;/a>
+&lt;h2 id="1132-پنیک-panic">
+1.13.2 پنیک (panic)
+&lt;a class="anchor" href="#1132-%d9%be%d9%86%db%8c%da%a9-panic">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان گو panic همانند exception به معنای خروج از برنامه در شرایط غیر عادی می باشد. panic در ۲ حالت زیر پیش می آید:&lt;/p>
 &lt;ul>
-&lt;li>خطاهای &lt;span class="tooltip" data-tooltip="runtime" ontouchend="toggleTooltip(this)">در زمان اجرا&lt;/span>
+&lt;li>خطاهای &lt;span class="tooltip" data-tooltip="runtime" ontouchend="toggleTooltip(this)">در زمان اجرای&lt;/span>
 برنامه&lt;/li>
 &lt;li>فراخوانی تابع panic توسط برنامه نویس در بخش های مختلف برنامه&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">panic&lt;/span>(v &lt;span style="color:#8be9fd;font-style:italic">interface&lt;/span>{})
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>از تابع فوق شما می توانید برای ایجاد panic استفاده کنید و به عنوان ورودی دلیل panic را می توانید در قالب خطا یه یک متن مشخص کنید.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>شما میتوانید با استفاده از تابع فوق که در توابع &lt;code>built-in&lt;/code> گولنگ وجود دارد, panic ایجاد کنید و به عنوان ورودی دلیل panic را در قالب یک رشته به تابع ارسال کنید.&lt;/p>
 &lt;blockquote class="book-hint info">
-&lt;p>تایپ &lt;code>{}interface&lt;/code> یک تایپ خیلی کاربردی می باشد برای مواقعی نمی دانیم ورودی یا خروجی تابع یا تایپ متغیر چی میخواهد باشد از اینترفیس استفاده می کنیم.&lt;/p>
+&lt;p>تایپ &lt;code>{}interface&lt;/code> یک تایپ بسیار کاربردی است. ما از این تایپ مواقعی استفاده میکنیم که نمیدانیم ورودی تابع چه خواهد بود. به مثال زیر توجه کنید:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -3398,7 +3398,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>&lt;/span>&lt;span>123, int
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span>abcd, string
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span>2.5, float64
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>و به عنوان یک تایپ ضمنی می باشد که در ادامه فصل بعدی بیشتر آشنا خواهیم شد.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>همونطور که در مثال بالا دیدید, ما به تایپ &lt;code>interface&lt;/code> چندین نوع دیتا تایپ رو دادیم و خود کامپایلر زبان گو متوجه نوع اون تایپ ها شد. در فصل بعدی بیشتر با تایپ ها آشنا خواهید شد.&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="11321-خطای-panic-در-زمان-اجرا-runtime">
 1.13.2.1 خطای panic در زمان اجرا (runtime)
@@ -3407,7 +3407,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;p>خطاهای panic در زمان اجرا به دلایل زیر می تواند رخ دهد :&lt;/p>
 &lt;ul>
 &lt;li>خطای Out of bounds/range array/slice&lt;/li>
-&lt;li>فراخوانی تابع که nil pointer باشد&lt;/li>
+&lt;li>فراخوانی متغیری که nil pointer باشد &lt;code>یعنی به هیچ آدرسی از حافظه &lt;/code> &lt;strong>memory&lt;/strong> &lt;code>اشاره نمیکند&lt;/code>&lt;/li>
 &lt;li>ارسال داده برروی کانال های بسته شده&lt;/li>
 &lt;li>type assertion نادرست&lt;/li>
 &lt;/ul>
@@ -3433,10 +3433,11 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-7">7&lt;/a>&lt;/span>&lt;span>main.main&lt;span style="color:#ff79c6">()&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-8">8&lt;/a>&lt;/span>&lt;span> /main.go:8 +0x1b
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-9">9&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">exit&lt;/span> status &lt;span style="color:#bd93f9">2&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در تابع فوق ما یک تابع جهت چاپ یک المنت در داخل slice نوشتیم و به عنوان ورودی a و اندیس ۲ را می دهیم در صورتیکه slice ما فقط ۲ تا المنت بیشتر ندارد 0 و 1 ما به اندیس ۲ اشاره کردیم که باعث بروز panic شده است.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در تابع فوق ما یک تابع نوشتیم که به عنوان ورودی یک اسلایس از نوع رشته و یک ایندکس از نوع عدد از ما دریافت میکند و المنت &lt;strong>ایندکسم&lt;/strong>‌ اون اسلایس را برای ما چاپ میکند &lt;code>در مثال بالا اندیس شماره 2. یعنی اندیس شماره 2 از اسلایسی که به عنوان ورودی گرفته است&lt;/code>. این کار ما باعث بروز یک &lt;strong>panic&lt;/strong> میشود, فکر میکنید به چه دلیل ؟ بله به این دلیل که اسلایس ما اندیس شماره 2 ندارد. دلیل آن هم این است که اندیس از 0 شروع میشود.&lt;/p>
+&lt;p>پنیک یک سری اطلاعات در مورد چرایی بوجود امدنش به ما میدهد که در ادامه آنهارو توضیح دادیم:&lt;/p>
 &lt;ul>
 &lt;li>پانیک رخ داده شامل متن خطا&lt;/li>
-&lt;li>محل رخ دادن panic در قالب stacktrace می باشد&lt;/li>
+&lt;li>محل رخ دادن panic در قالب stacktrace&lt;/li>
 &lt;/ul>
 &lt;h3 id="11322-خطای-panic-از-قبل-تعیین-شده-توسط-برنامه-نویس">
 1.13.2.2 خطای panic از قبل تعیین شده توسط برنامه نویس
