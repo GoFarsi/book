@@ -3821,20 +3821,20 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-262">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-262">262&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>&lt;span style="color:#8be9fd;font-style:italic">type&lt;/span> &lt;span style="color:#8be9fd">error&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">interface&lt;/span> {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-263">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-263">263&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#50fa7b">Error&lt;/span>() &lt;span style="color:#8be9fd">string&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-264">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-264">264&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>1.15 قالب بندی رشته ها</title><link>https://book.gofarsi.ir/chapter-1/go-string-formatting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-string-formatting/</guid><description>&lt;p>در زبان گو مانند سایر زبان ها یکسری عناوین برای قالب بندی رشته وجود دارد که برخی از این عناوین مشترک بین همه زبان ها می باشد و برخی مختص زبان گو است.&lt;/p>
-&lt;h2 id="1151-قالب-بندی-با-تابع-printf-و-sprintf">
-1.15.1 قالب بندی با تابع Printf و Sprintf
-&lt;a class="anchor" href="#1151-%d9%82%d8%a7%d9%84%d8%a8-%d8%a8%d9%86%d8%af%db%8c-%d8%a8%d8%a7-%d8%aa%d8%a7%d8%a8%d8%b9-printf-%d9%88-sprintf">#&lt;/a>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>1.15 قالب بندی رشته ها</title><link>https://book.gofarsi.ir/chapter-1/go-string-formatting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-string-formatting/</guid><description>&lt;p>در زبان گو مانند سایر زبان ها یکسری عناوین برای قالب بندی رشته وجود دارد که برخی از این عناوین مشترک بین همه زبان ها می باشد و برخی مختص زبان گو.&lt;/p>
+&lt;h2 id="1151-قالب-بندی-با-توابع-printf-و-sprintf">
+1.15.1 قالب بندی با توابع Printf و Sprintf
+&lt;a class="anchor" href="#1151-%d9%82%d8%a7%d9%84%d8%a8-%d8%a8%d9%86%d8%af%db%8c-%d8%a8%d8%a7-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-printf-%d9%88-sprintf">#&lt;/a>
 &lt;/h2>
-&lt;p>زمانیکه شما از تابع Printf یا Sprintf استفاده می کنید می توانید رشته خروجی را با استفاده از پارامترهای بعد از رشته قالب بندی کنید و در نهایت بصورت یک رشته نمایش دهید.&lt;/p>
+&lt;p>زمانیکه شما از تابع Printf یا Sprintf استفاده می کنید می توانید رشته خروجی را با استفاده از پارامترهای بعد از رشته قالب بندی کنید, و در نهایت بصورت یک رشته نمایش دهید.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>fmt.&lt;span style="color:#50fa7b">Printf&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;{{Verb}}&amp;#34;&lt;/span>, value1, value2, value3, &lt;span style="color:#ff79c6">...&lt;/span>, valueN)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>fmt.&lt;span style="color:#50fa7b">Sprintf&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;{{Verb}}&amp;#34;&lt;/span>, value1, value2, value3, &lt;span style="color:#ff79c6">...&lt;/span>, valueN)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
-&lt;p>توجه کنید هر دو تابع فوق خیلی کاربردی و پر استفاده هستند ولی این ۲ تابع کارکردشان مشترک ولی خروجی متفاوت می باشد.&lt;/p>
+&lt;p>توجه کنید هر دو تابع فوق خیلی کاربردی و پر استفاده هستند. این ۲ تابع کارکردشان مشترک است ولی خروجی متفاوتی دارند.&lt;/p>
 &lt;p>به عنوان مثال :&lt;/p>
 &lt;ul>
 &lt;li>شما با استفاده از Printf می توانید یک رشته را قالب بندی کنید و در نهایت به عنوان خروجی چاپ کنید.&lt;/li>
-&lt;li>ولی با استفاده از Sprintf می توانید یک رشته را قالب بندی کنید و در نهایت می توانید مقدار خروجی را داخل یک متغیر قرار دهید.&lt;/li>
+&lt;li>ولی با استفاده از Sprintf می توانید یک رشته را قالب بندی کنید و در نهایت به جای اینکه مقدار خروجی را چاپ کنید, اون رو داخل یک متغیر قرار بریزید. به مثال زیر توجه کنید:&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>x &lt;span style="color:#ff79c6">:=&lt;/span> fmt.&lt;span style="color:#50fa7b">Sprintf&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;age %s is %d years&amp;#34;&lt;/span>, &lt;span style="color:#f1fa8c">&amp;#34;Javad&amp;#34;&lt;/span>, &lt;span style="color:#bd93f9">30&lt;/span>)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
@@ -3870,7 +3870,7 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;blockquote class="book-hint info">
-توجه کنید &lt;code>v%&lt;/code> یکی از پرکاربرد ترین Verb ها می باشد که برای مواقعی که قصد دارید یک مقدار را داخل رشته بزارید ولی از تایپ اون مقدار خبر ندارید می توانید &lt;code>v%&lt;/code> کنید که هر نوع داده ای را قرار می دهد.
+توجه کنید &lt;code>v%&lt;/code> یکی از پرکاربرد ترین Verb ها در گولنگ است و مواقعی مورد استفاده قرار میگیرد که شما قصد دارید یک مقدار را داخل رشته بزارید, ولی از تایپ اون مقدار خبر ندارید.
 &lt;/blockquote>
 &lt;h3 id="11512-قالب-بندی-اعداد-صحیح">
 1.15.1.2 قالب بندی اعداد صحیح
@@ -4106,7 +4106,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.15.2 مقادیر خاص در رشته
 &lt;a class="anchor" href="#1152-%d9%85%d9%82%d8%a7%d8%af%db%8c%d8%b1-%d8%ae%d8%a7%d8%b5-%d8%af%d8%b1-%d8%b1%d8%b4%d8%aa%d9%87">#&lt;/a>
 &lt;/h2>
-&lt;p>همانطور که گفتیم زبان گو یکسری کارکترهای خاص دارد که باعث تغییراتی در خروجی رشته خواهد شد و این کارکترهای خاص بین همه زبان ها مشترک است.&lt;/p>
+&lt;p>همانطور که گفتیم زبان گو یکسری کارکترهای خاص دارد که باعث تغییراتی در خروجی رشته خواهد شد و این کارکترهای خاص بین همه زبان ها مشترک هستند. در ادامه لیست این کاراکتر ها را آورده ایم:&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
