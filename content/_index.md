@@ -302,4 +302,10 @@ a {
 {{< author githubUrl="https://github.com/r3a70" githubImg="../assets/img/author/18.jpg" name="r3a70" >}}
 
 {{< author githubUrl="https://github.com/OmidHekayati" githubImg="../assets/img/author/19.jpg" name="Omid Hekayati" >}}
+
+{{< author githubUrl="https://github.com/DannyRavi" githubImg="../assets/img/author/20.jpg" name="Danny Khosravi" >}}
+
+{{< author githubUrl="https://github.com/mhyrzt" githubImg="../assets/img/author/21.jpg" name="Mahyar" >}}
+
+{{< author githubUrl="https://github.com/mar-coding" githubImg="../assets/img/author/22.jpg" name="Amin Rahimi" >}}
 </p>
