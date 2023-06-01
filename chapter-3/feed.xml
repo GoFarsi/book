@@ -1545,6 +1545,9 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;audio controls>
 &lt;source src="../../assets/audio/chapter3/context/context.mp3" type="audio/mpeg">
 &lt;/audio>
+&lt;a href="https://book.gofarsi.ir/assets/audio/chapter3/context/context.mp3" target="_blank" rel="noopener" class="book-btn">
+دانلود فایل صوت
+&lt;/a>
 &lt;/blockquote>
 &lt;h3 id="3811-کاربردهای-context">
 3.8.1.1 کاربردهای context
