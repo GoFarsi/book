@@ -175,9 +175,9 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>&lt;/span>&lt;span>invalid operation: b + &lt;span style="color:#bd93f9">1&lt;/span> &lt;span style="color:#ff79c6">(&lt;/span>mismatched types *int and int&lt;span style="color:#ff79c6">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>2.2 ساختار (struct)</title><link>https://book.gofarsi.ir/chapter-2/struct/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-2/struct/</guid><description>&lt;p>در زبان گو &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
-به کالکشنی از فیلدها با تایپ های مختلف می گویند. شما با استفاده &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
-می توانید ساختار یا مدل کلی از بدنه پروژه خود را بنویسید. برای نمونه ما یک &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
-employee مثال زدیم تا با &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+کالکشنی از فیلدها با تایپ های مختلف است. شما با استفاده &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+می توانید یک مدل کلی از بدنه پروژه خود را تعریف کنید. برای نمونه ما در مثال زیر یک نمونه از &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+employee &lt;code>کارمند&lt;/code> را مثال زدیم تا شما کمی با مفهوم &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
 آشنا شوید.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">type&lt;/span> employee &lt;span style="color:#8be9fd;font-style:italic">struct&lt;/span> {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span> name &lt;span style="color:#8be9fd">string&lt;/span>
@@ -185,17 +185,17 @@ employee مثال زدیم تا با &lt;span class="tooltip" data-tooltip="stru
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4&lt;/a>&lt;/span>&lt;span> salary &lt;span style="color:#8be9fd">int&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint warning">
-&lt;p>نکته: ساختار می‌تواند بصورت خالی نیز جهت برخی اهداف ایجاد گردد.&lt;/p>
+&lt;p>نکته: ساختار می‌تواند بصورت خالی جهت برخی اهداف ایجاد گردد. به مثال زیر دقت کنید:‌&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">type&lt;/span> sample &lt;span style="color:#8be9fd;font-style:italic">struct&lt;/span> {}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://book.gofarsi.ir/chapter-2/method/">متدها روی ساختار&lt;/a>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>اگر میخواهید در مورد متود ها اطلاعات کسب کنید به بخش &lt;a href="https://book.gofarsi.ir/chapter-2/method/">متدها روی ساختار&lt;/a> سر بزنید, هر چند توصیه میکنم اول این قسمت رو بخونید و تمرین کنید و بعد به قسمت متود ها بروید.&lt;/p>
 &lt;/blockquote>
 &lt;ul>
 &lt;li>
 &lt;p>برای ایجاد &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
-باید از کلمه کلیدی &lt;code>type &lt;/code> استفاده کنید.&lt;/p>
+باید از کلمه کلیدی &lt;code>type&lt;/code> اسم ساختار و در ادمه کلمه ی کلیدی &lt;code>struct&lt;/code> استفاده کنید.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>داخل بدنه &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+&lt;p>سپس داخل بدنه &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
 فیلدها را تعریف کنید.&lt;/p>
 &lt;ul>
 &lt;li>فیلد name از نوع string&lt;/li>
@@ -206,7 +206,7 @@ employee مثال زدیم تا با &lt;span class="tooltip" data-tooltip="stru
 &lt;/ul>
 &lt;blockquote class="book-hint info">
 &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
-زبان گو را با class در سایر زبان ها مقایسه می کنند.
+را در زبان گو, با class در سایر زبان ها مقایسه می کنند. هرچند زبان گو یک زبان شی گرا محسوب نمیشود
 &lt;/blockquote>
 &lt;h2 id="221-تعریف-تایپ-struct">
 2.2.1 تعریف تایپ struct
