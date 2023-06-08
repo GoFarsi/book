@@ -3,8 +3,6 @@ languageCode = 'fa-IR'
 title = 'زبان گو فارسی'
 theme = 'hugo-book'
 
-
-
 enableRobotsTXT = true
 
 

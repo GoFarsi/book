@@ -1,6 +1,6 @@
 ---
-title: '4.22 شی گرایی در زبان گو'
-weight: 7900
+title: '4.23 شی گرایی در زبان گو'
+weight: 7950
 bookCollapseSection: true
 ---
 
