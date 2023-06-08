@@ -8,7 +8,7 @@ bookCollapseSection: true
 
 - 1.1[ ساختار کد گو](structure-of-go-code)
 - 1.2[ کلید واژه و شناسه‌ها](go-built-in-keywords-identifiers)
-- 1.3 [تایپ های پایه](chapter-1/go-basic-types)
+- 1.3 [تایپ های پایه](go-basic-types)
 - 1.4 [عملگرها](go-operators)
 - 1.5 [متغیرها و constant](go-variables-and-consts)
 - 1.6 [مقادیر صفر تایپ ها (zero values)](go-zero-values)
