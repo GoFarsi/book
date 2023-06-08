@@ -746,16 +746,16 @@ background-color: #21998E;
 &lt;li>1.15&lt;a href="go-string-formatting">قالب بندی رشته ها&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل دوم: مکانیزم های زبان</title><link>https://book.gofarsi.ir/chapter-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-2/</guid><description>&lt;p>در این فصل به مکانیزیم های زبان گو میپردازیم و برخی از اصطلاحات زبان گو را با هم برسی میکنیم.&lt;/p>
 &lt;ul>
-&lt;li>در بخش 2.1 در خصوص &lt;span class="tooltip" data-tooltip="pointer" ontouchend="toggleTooltip(this)">اشاره گر&lt;/span>
-آموزش خواهیم داد.&lt;/li>
-&lt;li>در بخش 2.2 به مهم ترین تایپ در زبان گو, یعنی &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
-می پردازیم و آموزش می دهیم چطور با استفاده از ساختار دیتامدل های پروژه های خود را پیاده سازی کنید.&lt;/li>
-&lt;li>در بخش 2.3 به بحث متدها می پردازیم و برسی میکنیم که &lt;code>چطور این نوع توابع را پیاده سازی کنیم&lt;/code>.&lt;/li>
-&lt;li>در بخش 2.4 در خصوص اینترفیس در زبان گو توضیح می دهیم. &lt;code>دقیقا چی هستند و چطور میشه ازشون استفاده کرد&lt;/code>.&lt;/li>
-&lt;li>در بخش 2.5 به &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
-ساختار و اینترفیس می پردازیم.&lt;/li>
-&lt;li>در بخش 2.6 به مدیریت خطاها در زبان گو می پردازیم و برسی میکنیم که چه ویژگی هایی دارد.&lt;/li>
-&lt;li>2.7 تفاوت castin با conversion را آموزش می دهیم.&lt;/li>
+&lt;li>&lt;a href="pointer">در بخش 2.1 در خصوص &lt;span class="tooltip" data-tooltip="pointer" ontouchend="toggleTooltip(this)">اشاره گر&lt;/span>
+آموزش خواهیم داد.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="struct">در بخش 2.2 به مهم ترین تایپ در زبان گو, یعنی &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+می پردازیم و آموزش می دهیم چطور با استفاده از ساختار دیتامدل های پروژه های خود را پیاده سازی کنید.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="method">در بخش 2.3 به بحث متدها می پردازیم و برسی میکنیم که &lt;code>چطور این نوع توابع را پیاده سازی کنیم&lt;/code>.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="interface">در بخش 2.4 در خصوص اینترفیس در زبان گو توضیح می دهیم. &lt;code>دقیقا چی هستند و چطور میشه ازشون استفاده کرد&lt;/code>.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="type-embedding">در بخش 2.5 به &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
+ساختار و اینترفیس می پردازیم.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="error-handling">در بخش 2.6 به مدیریت خطاها در زبان گو می پردازیم و برسی میکنیم که چه ویژگی هایی دارد.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="casting-vs-conversion">2.7 تفاوت castin با conversion را آموزش می دهیم.&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل سوم: همزمانی (concurrency)</title><link>https://book.gofarsi.ir/chapter-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-3/</guid><description>&lt;p>در این فصل به صورت عمیق به مباحث همزمانی در زبان گو پرداخته شده است که شامل عناوین زیر می‌باشد.&lt;/p>
 &lt;ul>
 &lt;li>۳.۱ آشنایی با مبحث همزمانی.&lt;/li>
