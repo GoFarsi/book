@@ -729,21 +729,21 @@ background-color: #21998E;
 &lt;/div>
 &lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>فصل اول: آشنایی با مفاهیم گو</title><link>https://book.gofarsi.ir/chapter-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/</guid><description>&lt;p>در فصل اول به مفاهیم پایه زبان برنامه‌نویسی گو بطور عمیق می‌پردازیم. این فصل شامل چندین بخش هست :&lt;/p>
 &lt;ul>
-&lt;li>1.1 ساختار کد گو&lt;/li>
-&lt;li>1.2 کلید واژه و شناسه‌ها&lt;/li>
-&lt;li>1.3 تایپ های پایه&lt;/li>
-&lt;li>1.4 عملگرها&lt;/li>
-&lt;li>1.5 متغیرها و constant&lt;/li>
-&lt;li>1.6 مقادیر صفر تایپ ها (zero values)&lt;/li>
-&lt;li>1.7 تابع (function)&lt;/li>
-&lt;li>1.8 آرایه و slice&lt;/li>
-&lt;li>1.9 حلقه ها (for)&lt;/li>
-&lt;li>1.10 نقشه map&lt;/li>
-&lt;li>1.11 شرط (if, switch)&lt;/li>
-&lt;li>1.12 اضافه کردن پکیج در کد (package)&lt;/li>
-&lt;li>1.13 defer, panic, recovery&lt;/li>
-&lt;li>1.14 لیست تایپ ها و توابع Builtin&lt;/li>
-&lt;li>1.15 قالب بندی رشته ها&lt;/li>
+&lt;li>1.1&lt;a href="1.1-basic-structure"> ساختار کد گو&lt;/a>&lt;/li>
+&lt;li>1.2&lt;a href="1.2-keywords"> کلید واژه و شناسه‌ها&lt;/a>&lt;/li>
+&lt;li>1.3 &lt;a href="1.3-types">تایپ های پایه&lt;/a>&lt;/li>
+&lt;li>1.4 &lt;a href="1.4-operators">عملگرها&lt;/a>&lt;/li>
+&lt;li>1.5 &lt;a href="1.5-variables">متغیرها و constant&lt;/a>&lt;/li>
+&lt;li>1.6 &lt;a href="1.6-zero-values">مقادیر صفر تایپ ها (zero values)&lt;/a>&lt;/li>
+&lt;li>1.7 &lt;a href="1.7-function">تابع (function)&lt;/a>&lt;/li>
+&lt;li>1.8 &lt;a href="1.8-array-slice">آرایه و slice&lt;/a>&lt;/li>
+&lt;li>1.9 &lt;a href="1.9-for">حلقه ها (for)&lt;/a>&lt;/li>
+&lt;li>1.10 &lt;a href="1.10-map">نقشه map&lt;/a>&lt;/li>
+&lt;li>1.11 &lt;a href="1.11-if-switch">شرط (if, switch)&lt;/a>&lt;/li>
+&lt;li>1.12 &lt;a href="1.12-packages-import">اضافه کردن پکیج در کد (package)&lt;/a>&lt;/li>
+&lt;li>1.13 &lt;a href="1.13-defer-panic-recovery">defer, panic, recovery&lt;/a>&lt;/li>
+&lt;li>1.14 &lt;a href="1.14-builtin">لیست تایپ ها و توابع Builtin&lt;/a>&lt;/li>
+&lt;li>1.15&lt;a href="1.15-formatting">قالب بندی رشته ها&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل دوم: مکانیزم های زبان</title><link>https://book.gofarsi.ir/chapter-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-2/</guid><description>&lt;p>در این فصل به مکانیزیم های زبان گو میپردازیم و برخی از اصطلاحات زبان گو را با هم برسی میکنیم.&lt;/p>
 &lt;ul>
 &lt;li>در بخش 2.1 در خصوص &lt;span class="tooltip" data-tooltip="pointer" ontouchend="toggleTooltip(this)">اشاره گر&lt;/span>
