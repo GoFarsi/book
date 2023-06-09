@@ -758,17 +758,17 @@ background-color: #21998E;
 &lt;li>&lt;a href="casting-vs-conversion">2.7 تفاوت castin با conversion را آموزش می دهیم.&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل سوم: همزمانی (concurrency)</title><link>https://book.gofarsi.ir/chapter-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-3/</guid><description>&lt;p>در این فصل به صورت عمیق به مباحث همزمانی در زبان گو پرداخته شده است که شامل عناوین زیر می‌باشد.&lt;/p>
 &lt;ul>
-&lt;li>۳.۱ آشنایی با مبحث همزمانی.&lt;/li>
-&lt;li>۳.۲ گوروتین چیست.&lt;/li>
-&lt;li>۳.۳ کالبدشکافی پکیج sync و تشریح &lt;span class="tooltip" data-tooltip="Types" ontouchend="toggleTooltip(this)">انواع&lt;/span>
-و توابع کاربردی آن برای مباحث همگام‌سازی همزمانی.&lt;/li>
-&lt;li>۳.۴ آشنایی با پکیج atomic و کاربردهای آن.&lt;/li>
-&lt;li>۳.۵ آشنایی با Data Race و روش‌های پیشگیری از آن.&lt;/li>
-&lt;li>۳.۶ کانال‌ها و روش‌ اشتراک‌گذاری داده از طریق آن.&lt;/li>
-&lt;li>۳.۷ آشنایی با کلید‌واژه select و بررسی کاربردهای متنوع آن.&lt;/li>
-&lt;li>۳.۸ پکیج context و اهمیت آن.&lt;/li>
-&lt;li>۳.۹ تکنیک‌های مورد استفاده در همزمانی.&lt;/li>
-&lt;li>۳.۱۰ الگوهای متداول همزمانی و کاربردهای آن.&lt;/li>
+&lt;li>&lt;a href="go-concurrency">۳.۱ آشنایی با مبحث همزمانی.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="goroutine">۳.۲ گوروتین چیست.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-sync-package">۳.۳ کالبدشکافی پکیج sync و تشریح &lt;span class="tooltip" data-tooltip="Types" ontouchend="toggleTooltip(this)">انواع&lt;/span>
+و توابع کاربردی آن برای مباحث همگام‌سازی همزمانی.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-atomic">۳.۴ آشنایی با پکیج atomic و کاربردهای آن.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="goroutine-data-race">۳.۵ آشنایی با Data Race و روش‌های پیشگیری از آن.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-channel">۳.۶ کانال‌ها و روش‌ اشتراک‌گذاری داده از طریق آن.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-select">۳.۷ آشنایی با کلید‌واژه select و بررسی کاربردهای متنوع آن.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-context">۳.۸ پکیج context و اهمیت آن.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-concurrency-teqniques">۳.۹ تکنیک‌های مورد استفاده در همزمانی.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-concurrency-patterns">۳.۱۰ الگوهای متداول همزمانی و کاربردهای آن.&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل چهارم: مباحث پیشرفته</title><link>https://book.gofarsi.ir/chapter-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/</guid><description>&lt;p>در این فصل به مباحث پیشرفته زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل پنجم: برنامه نویسی شبکه با گو</title><link>https://book.gofarsi.ir/chapter-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/</guid><description>&lt;p>در این فصل به مباحث برنامه نویسی شبکه در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل ششم: جنریک (Generics)</title><link>https://book.gofarsi.ir/chapter-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-6/</guid><description>&lt;p>در این فصل به مباحث جنریک در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل هفتم: تست نویسی</title><link>https://book.gofarsi.ir/chapter-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-7/</guid><description>&lt;p>در این فصل به مباحث تست نویسی در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل هشتم: پکیج های استاندارد</title><link>https://book.gofarsi.ir/chapter-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-8/</guid><description>&lt;p>در این فصل به مباحث پکیج های استاندارد در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل نهم: الگوهای طراحی</title><link>https://book.gofarsi.ir/chapter-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-9/</guid><description>&lt;p>در این فصل به مباحث الگوهای طراحی در زبان گو میپردازیم و سعی می کنیم بطور کلی و با مثال های مناسب به شما هر الگو را آموزش دهیم و همچنین برخی از کاربردهای الگوها را نام ببریم.&lt;/p>
 &lt;blockquote class="book-hint info">
 سعی کنید وقتی از الگوهای طراحی استفاده کنید که واقعا احساس نیاز کنید, خیلی قابل اهمیته که در جای درست از الگوها استفاده کنید.
