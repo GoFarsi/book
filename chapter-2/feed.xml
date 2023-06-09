@@ -409,30 +409,30 @@ employee تعریف کردیم.&lt;/p>
 2.2.5 چاپ یک متغیر ساختار (struct)
 &lt;a class="anchor" href="#225-%da%86%d8%a7%d9%be-%db%8c%da%a9-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-struct">#&lt;/a>
 &lt;/h2>
-&lt;p>برای اینکه بتوانید یک متغیر را چاپ کنید از دو روش زیر می توانید استفاده کنید و توجه کنید متغیر ساختار بصورت key/value هستش.&lt;/p>
+&lt;p>برای اینکه بتوانید یک متغیر ساختار &lt;code>struct&lt;/code> را چاپ کنید, از دو روش زیر می توانید استفاده کنید. توجه کنید متغیر ساختار بصورت key/value هست.&lt;/p>
 &lt;ul>
 &lt;li>با استفاده از پکیج &lt;strong>fmt&lt;/strong>&lt;/li>
-&lt;li>چاپ متغیر ساختار با استفاده از پکیج &lt;strong>json/encoding&lt;/strong>&lt;/li>
+&lt;li>با استفاده از پکیج &lt;strong>json/encoding&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;h3 id="2251-چاپ-با-استفاده-از-fmt">
 2.2.5.1 چاپ با استفاده از fmt
 &lt;a class="anchor" href="#2251-%da%86%d8%a7%d9%be-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-fmt">#&lt;/a>
 &lt;/h3>
-&lt;p>در پکیج fmt ۲ تا تابع کاربردی جهت چاپ وجود دارد که اکثر اوقات استفاده می کنیم :&lt;/p>
+&lt;p>در پکیج fmt ما 2 تا تابع کاربردی جهت چاپ داریم که اکثر اوقات از این دو تابع استفاده می کنیم :&lt;/p>
 &lt;ul>
-&lt;li>تابع &lt;code>Println&lt;/code> ورودی را با فرمت پیش فرض چاپ و در نهایت خط جدید در نظر میگیرد.&lt;/li>
-&lt;li>تابع &lt;code>Printf&lt;/code> ورودی را با فرمت مشخص شده چاپ می کند و دست شما برای تعیین فرمت باز می باشد.&lt;/li>
+&lt;li>تابع &lt;code>Println&lt;/code> ورودی را با فرمت پیش فرض چاپ میکند.&lt;/li>
+&lt;li>تابع &lt;code>Printf&lt;/code> ورودی را با فرمت مشخص شده چاپ می کند &lt;code>فرمت رو حود ما مشخص میکنیم&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;p>در زیر ما یک نمونه از employee ایجاد کردیم :&lt;/p>
+&lt;p>در مثال زیر ما یک نمونه از ساختار employee را ایجاد کردیم :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-1">1&lt;/a>&lt;/span>&lt;span>emp &lt;span style="color:#ff79c6">:=&lt;/span> employee{name: &lt;span style="color:#f1fa8c">&amp;#34;Sam&amp;#34;&lt;/span>, age: &lt;span style="color:#bd93f9">31&lt;/span>, salary: &lt;span style="color:#bd93f9">2000&lt;/span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>حال به شیوه های زیر با استفاده از تابع &lt;code>Printf&lt;/code> ساختار را چاپ کردیم :&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>حال با استفاده از تابع &lt;code>Printf&lt;/code> ساختار را با فرمت دلخواه خودمون چاپ کردیم :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-1">1&lt;/a>&lt;/span>&lt;span>fmt.&lt;span style="color:#50fa7b">Printf&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;%v&amp;#34;&lt;/span>, emp) &lt;span style="color:#ff79c6">-&lt;/span> {Sam &lt;span style="color:#bd93f9">31&lt;/span> &lt;span style="color:#bd93f9">2000&lt;/span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-1">1&lt;/a>&lt;/span>&lt;span>fmt.&lt;span style="color:#50fa7b">Printf&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;%+v&amp;#34;&lt;/span>, emp) &lt;span style="color:#ff79c6">-&lt;/span> {name:Sam age:&lt;span style="color:#bd93f9">31&lt;/span> salary:&lt;span style="color:#bd93f9">2000&lt;/span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>%v - مقدار هر کدام از فیلدهای ساختار چاپ می کند.&lt;/li>
-&lt;li>%+v - مقدار هرکدام از فیلدها به همراه اسم فیلد چاپ می کند.&lt;/li>
+&lt;li>%v - مقدار &lt;code>value&lt;/code> هر کدام از فیلدهای ساختار را چاپ می کند.&lt;/li>
+&lt;li>%+v - مقدار هرکدام از فیلدها به همراه اسم فیلد &lt;code>key-value&lt;/code> را چاپ می کند.&lt;/li>
 &lt;/ul>
-&lt;p>در زیر با استفاده از از تابع &lt;code>Println&lt;/code> ساختار را چاپ کردیم :&lt;/p>
+&lt;p>در مثال زیر ما با استفاده از از تابع &lt;code>Println&lt;/code> ساختار را چاپ کردیم :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-25-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-25-1">1&lt;/a>&lt;/span>&lt;span>fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(emp) &lt;span style="color:#ff79c6">-&lt;/span> {Sam &lt;span style="color:#bd93f9">31&lt;/span> &lt;span style="color:#bd93f9">2000&lt;/span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در نهایت کد زیر یک مثال کلی از چاپ با استفاده از پکیج fmt می باشد :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-26-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-26-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
