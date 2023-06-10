@@ -3123,9 +3123,9 @@ API_KEY=AbCdEfGhIjKlMnOp
 شرکت های بزرگی نظیر hashicorp برای اکثر پروژهایش نظیر terraform یا consul از این قابلیت استفاده کرده است.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.23 شی گرایی در زبان گو</title><link>https://book.gofarsi.ir/chapter-4/oop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/oop/</guid><description>&lt;p>گو یک زبان statically-typed است و بطور کلی امکانات شی گرایی را به شیوه قدیم و مرسوم پشتیبانی نمی کند. اما در عوض یک شیوه قرار دادی وجود دارد که به شما کمک می کند برخی از مفاهیم شی گرایی را با کمک اینترفیس, composition, متد و type embedding پیاده سازی کنید.&lt;/p>
 &lt;p>&lt;strong>این مفاهیم شامل :&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>کپسوله سازی&lt;/li>
-&lt;li>ارث بری&lt;/li>
-&lt;li>پلی مورفیسم&lt;/li>
-&lt;li>overriding&lt;/li>
-&lt;li>abstraction&lt;/li>
+&lt;li>&lt;a href="go-encapsulation">کپسوله سازی&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-inheritance">ارث بری&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-polymorphism">پلی مورفیسم&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-overriding">overriding&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-abstraction">abstraction&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
