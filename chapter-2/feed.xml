@@ -561,14 +561,14 @@ employee تعریف کردیم.&lt;/p>
 2.2.7 تعریف فیلد ناشناس در ساختار (struct)
 &lt;a class="anchor" href="#227-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d9%81%db%8c%d9%84%d8%af-%d9%86%d8%a7%d8%b4%d9%86%d8%a7%d8%b3-%d8%af%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-struct">#&lt;/a>
 &lt;/h2>
-&lt;p>در ساختار امکان تعریف فیلدهای &lt;span class="tooltip" data-tooltip="anonymous" ontouchend="toggleTooltip(this)">ناشناس&lt;/span>
-را دارید و می توانید فیلد ناشناس را مقدار دهی کنید.&lt;/p>
+&lt;p>شما در ساختار &lt;code>struct&lt;/code> امکان تعریف فیلدهای &lt;span class="tooltip" data-tooltip="anonymous" ontouchend="toggleTooltip(this)">ناشناس&lt;/span>
+را دارید و همینطور می توانید فیلدهای ناشناس را نیز مقدار دهی کنید.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">type&lt;/span> employee &lt;span style="color:#8be9fd;font-style:italic">struct&lt;/span> {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-2">2&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#8be9fd">string&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-3">3&lt;/a>&lt;/span>&lt;span> age &lt;span style="color:#8be9fd">int&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-4">4&lt;/a>&lt;/span>&lt;span> salary &lt;span style="color:#8be9fd">int&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-36-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-36-5">5&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در زیر یک مثال ساده در خصوص فیلد ناشناس زدیم :&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد زیر یک مثال ساده در خصوص تعریف و مقدار دهی فیلد های ناشناس زده ایم :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-37-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-37-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-37-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-37-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-37-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-37-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -596,7 +596,7 @@ employee تعریف کردیم.&lt;/p>
 &lt;a class="anchor" href="#228-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%aa%d9%88-%d8%af%d8%b1-%d8%aa%d9%88-nested">#&lt;/a>
 &lt;/h2>
 &lt;p>یکی دیگر از امکانات ساختار در زبان گو بحث ساختار &lt;span class="tooltip" data-tooltip="nested" ontouchend="toggleTooltip(this)">تو در تو&lt;/span>
-می باشد. که در زیر مثالی که زدیم ساختار address را داخل employee قرار دادیم :&lt;/p>
+است. در مثالی که در ادامه زدیم ساختار address را داخل employee قرار دادیم :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-39-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-39-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -632,7 +632,7 @@ employee تعریف کردیم.&lt;/p>
 2.2.9 تعریف یک ساختار عمومی یا خصوصی (Public/Private)
 &lt;a class="anchor" href="#229-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%db%8c%da%a9-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%b9%d9%85%d9%88%d9%85%db%8c-%db%8c%d8%a7-%d8%ae%d8%b5%d9%88%d8%b5%db%8c-publicprivate">#&lt;/a>
 &lt;/h2>
-&lt;p>در زبان گو چیزی به عنوان کلمه کلیدی public یا private جهت تعیین وضعیت دسترسی به بیرون ندارد ولی در عوض کامپایلر گو براساس حرف بزرگ یا کوچک عنوان ساختار یا سایر تایپ ها تشخیص می دهد تایپ شما عمومی است یا خصوصی و در صورتیکه شما حرف اول را کوچک قرار دهید به کامپایلر دارید میگید این تایپ از بیرون این پکیج دسترسی ندارد.&lt;/p>
+&lt;p>در زبان گو چیزی به عنوان کلمه کلیدی public یا private جهت تعیین وضعیت دسترسی &lt;code>struct&lt;/code> به بیرون وجود ندارد, در عوض کامپایلر گو براساس حرف بزرگ یا کوچک عنوان ساختار یا سایر تایپ ها, تشخیص می دهد تایپ شما عمومی است یا خصوصی. در صورتیکه شما حرف اول را کوچک قرار دهید تایپ شما بیرون از پکیج قابل دسترس نخواهد بود مثل مثال های بالا, و اگر حرف اول تایپ رو بزرگ قرار دهید, تایپ یا تابع شما بیرون از پکیج نیز در دسترس خواهد بود. مثال تابع &lt;code>fmt.Println&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-41-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-41-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">type&lt;/span> Person &lt;span style="color:#8be9fd;font-style:italic">struct&lt;/span> {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-41-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-41-2">2&lt;/a>&lt;/span>&lt;span> Name &lt;span style="color:#8be9fd">string&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-41-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-41-3">3&lt;/a>&lt;/span>&lt;span> age &lt;span style="color:#8be9fd">int&lt;/span>
@@ -648,7 +648,7 @@ employee تعریف کردیم.&lt;/p>
 2.2.10 مقایسه ساختارها
 &lt;a class="anchor" href="#2210-%d9%85%d9%82%d8%a7%db%8c%d8%b3%d9%87-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
-&lt;p>در زبان گو خیلی ساده می توانید ساختارها را بر اساس عنوان فیلد و تایپ و مقدارشان مقایسه کنید. اما باید توجه کنید ساختارها فقط براساس تایپ هایی که در زیر معرفی کردیم امکان مقایسه را خواهند داشت :&lt;/p>
+&lt;p>شما در زبان گو می توانید ساختارها را بر اساس عنوان فیلد, تایپ و مقدارشان مقایسه کنید. اما باید توجه کنید ساختار ها فقط براساس تایپ هایی که در ادامه معرفی کردیم, امکان مقایسه را خواهند داشت :&lt;/p>
 &lt;ul>
 &lt;li>boolean&lt;/li>
 &lt;li>numeric&lt;/li>
@@ -659,7 +659,7 @@ employee تعریف کردیم.&lt;/p>
 &lt;li>structs&lt;/li>
 &lt;li>array&lt;/li>
 &lt;/ul>
-&lt;p>اما ۳ تایپ زیر امکان مقایسه را از بین می برد :&lt;/p>
+&lt;p>و اما ۳ تایپ زیر امکان مقایسه را به شما نمیدهند :&lt;/p>
 &lt;ul>
 &lt;li>Slice&lt;/li>
 &lt;li>Map&lt;/li>
