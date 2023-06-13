@@ -246,7 +246,7 @@
 &lt;p>کلمات کلیدی فوق به ۴ دسته تقسیم می‌شوند که به شرح زیر می‌باشد:&lt;/p>
 &lt;ul>
 &lt;li>کلمات کلیدی که بصورت گلوبال در بدنه قرار می‌گیرند «&lt;code>package, import, type, var, const, func&lt;/code>»&lt;/li>
-&lt;li>کلمات کلیدی کامپوزیت «&lt;code>struct, inteface, map, chan&lt;/code>»&lt;/li>
+&lt;li>کلمات کلیدی کامپوزیت «&lt;code>struct, interface, map, chan&lt;/code>»&lt;/li>
 &lt;li>کلمات کلیدی که در جریان کنترل کد استفاده می‌شوند «&lt;code>break, case, continue, default, if, else, for, fallthrough, goto, range, return, switch, select&lt;/code>»&lt;/li>
 &lt;/ul>
 &lt;blockquote class="book-hint warning">
