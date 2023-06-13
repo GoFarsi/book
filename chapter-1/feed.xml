@@ -1611,7 +1611,7 @@
 &lt;/h2>
 &lt;p>در گولنگ علاوه بر تابع هایی که توسط کابر تعریف میشه. یکسری توابع وجود دارد که از قبل تعریف شده اند که طراحان این زبان برای سهولت کار برنامه نویسان این توابع را نوشته اند و آن را همراه زبان گولنگ ارائه می دهند.&lt;/p>
 &lt;p>&lt;a href="https://book.gofarsi.ir/chapter-1/go-builtins/">https://book.gofarsi.ir/chapter-1/go-builtins/&lt;/a>&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>1.8 آرایه و slice</title><link>https://book.gofarsi.ir/chapter-1/go-array/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/go-array/</guid><description>&lt;p>&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
-و slice دو نوع تایپ با یک وجه اشتراک در زبان گو می باشند ولی این دو نوع تایپ یکسری تفاوت هایی نیز با هم دارند که در ادامه بهشون مپردازیم.&lt;/p>
+و slice دو نوع تایپ با یک وجه اشتراک در زبان گو می باشند ولی این دو نوع تایپ یکسری تفاوت هایی نیز با هم دارند که در ادامه بهشون میپردازیم.&lt;/p>
 &lt;h2 id="181-تعریف-آرایه">
 1.8.1 تعریف آرایه
 &lt;a class="anchor" href="#181-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87">#&lt;/a>
