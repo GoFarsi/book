@@ -1,4 +1,32 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-5/</link><description>Recent content in فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-5/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>5.1 شبکه چیست</title><link>https://book.gofarsi.ir/chapter-5/network-basic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/network-basic/</guid><description>&lt;p>شبکه چیست؟؟؟&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.2 سرور tcp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</guid><description>&lt;p>ما میتوانیم در گو با استفاده از کتابخانه net یک سرور &lt;a href="https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D9%88%D8%AA%DA%A9%D9%84_%D9%87%D8%AF%D8%A7%DB%8C%D8%AA_%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D9%84">tcp&lt;/a> ایجاد کنیم
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-5/</link><description>Recent content in فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-5/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>5.1 شبکه چیست</title><link>https://book.gofarsi.ir/chapter-5/network-basic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/network-basic/</guid><description>&lt;p>شبکه چیست؟؟؟&lt;/p>
+&lt;p>به زبان ساده شبکه در دنیای کامپیوتر به مجموعه ای از دستگاه هایی که منابع نرم افزاری و سخت افزاری خود را به اشتراک میگذارند گفته میشود.&lt;/p>
+&lt;p>چند تعریف و مغهوم کلی در شبکه:&lt;/p>
+&lt;h2 id="پروتوکول">
+پروتوکول:
+&lt;a class="anchor" href="#%d9%be%d8%b1%d9%88%d8%aa%d9%88%da%a9%d9%88%d9%84">#&lt;/a>
+&lt;/h2>
+&lt;p>پروتوکول های شبکه مجموعه قواعد و روش هایی از پیش تعریف شده برای ارتباط دو کامپیوتر در یک شبکه هستند&lt;/p>
+&lt;h2 id="هسته-node">
+هسته (node):
+&lt;a class="anchor" href="#%d9%87%d8%b3%d8%aa%d9%87-node">#&lt;/a>
+&lt;/h2>
+&lt;p>هر دستگاه متصل به شبکه که توانایی ارسال و دریافت داده را بستر شبکه داشته باشد یک هسته به حساب می آید&lt;/p>
+&lt;h2 id="پرتوکول-اینترنت-ip">
+پرتوکول اینترنت IP:
+&lt;a class="anchor" href="#%d9%be%d8%b1%d8%aa%d9%88%da%a9%d9%88%d9%84-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%86%d8%aa-ip">#&lt;/a>
+&lt;/h2>
+&lt;p>پرتوکول اینترنت یا (internet protocol) یک ادرس منحصر بفرد برای هر دستگاه متصل به اینترنت است
+هر ایپی (v4) شامل چهار بخش یا octet است که هر بخش را عددی بین ۰ تا ۲۵۵ تشکیل می دهد.&lt;/p>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Network_packet.jpg">&lt;/img>&lt;/p>
+&lt;h1 id="برنامه-نویسی-شبکه">
+برنامه نویسی شبکه؟
+&lt;a class="anchor" href="#%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87-%d9%86%d9%88%db%8c%d8%b3%db%8c-%d8%b4%d8%a8%da%a9%d9%87">#&lt;/a>
+&lt;/h1>
+&lt;p>برنامه نویسی شبکه یا به عبارتی network programming به فرایند نوشتن کدهایی که برای ایجاد و مدیریت و اتصال به شبکه صورت میگیرد گفته می شود
+برنامه نویسان شبکه می توانند از زبان های go, c, cpp, java, python and&amp;hellip; استفاده کنند
+کد های مربوط به برنامه نویسی شبکه میتواند پیاده سازی سرور و کلاینت های پروتوکل FTP, http, tcp, smtp and.. باشد.
+زیان گولنگ یکی از بهترین گزینه ها برای توسعه شبکه است.
+در قسمت های بعد به برنامه نویسی شبکه در گولنگ میپردازیم.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.2 سرور tcp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</guid><description>&lt;p>ما میتوانیم در گو با استفاده از کتابخانه net یک سرور &lt;a href="https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D9%88%D8%AA%DA%A9%D9%84_%D9%87%D8%AF%D8%A7%DB%8C%D8%AA_%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D9%84">tcp&lt;/a> ایجاد کنیم
 بعد از تکمیل شدن سرور با استفاده از دستور &lt;code>telnet&lt;/code> به آن متصل میشویم&lt;/p>
 &lt;p>در قطعه کد زیر
 با تایع &lt;code>acceptLoop()&lt;/code> درخواست های اتصال را مپذیریم
