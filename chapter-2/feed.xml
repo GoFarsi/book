@@ -335,15 +335,15 @@ employee تعریف کردیم.&lt;/p>
 &lt;li>با استفاده از عملگر &lt;code>&amp;amp;&lt;/code> که اشاره به خانه حافظه دارد&lt;/li>
 &lt;li>با استفاده از تابع &lt;code>new&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h3 id="2241-ایجاد-ساختار-با-استفاده-عملگر-">
-2.2.4.1 ایجاد ساختار با استفاده عملگر &amp;amp;
-&lt;a class="anchor" href="#2241-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%b9%d9%85%d9%84%da%af%d8%b1-">#&lt;/a>
+&lt;h3 id="2241-ایجاد-ساختار-با-استفاده-از-عملگر-">
+2.2.4.1 ایجاد ساختار با استفاده از عملگر &amp;amp;
+&lt;a class="anchor" href="#2241-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%b9%d9%85%d9%84%da%af%d8%b1-">#&lt;/a>
 &lt;/h3>
 &lt;p>برای اینکه بتوانید یک ساختار از نوع &lt;span class="tooltip" data-tooltip="Pointer" ontouchend="toggleTooltip(this)">اشاره گر&lt;/span>
 ایجاد کنید می توانید از عملگر &lt;code>&amp;amp;&lt;/code> استفاده کنید. به مثال زیر توجه کنید:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1&lt;/a>&lt;/span>&lt;span>emp &lt;span style="color:#ff79c6">:=&lt;/span> employee{name: &lt;span style="color:#f1fa8c">&amp;#34;Sam&amp;#34;&lt;/span>, age: &lt;span style="color:#bd93f9">31&lt;/span>, salary: &lt;span style="color:#bd93f9">2000&lt;/span>}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-2">2&lt;/a>&lt;/span>&lt;span>empP &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>emp
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>حتی شما میتوانید یک ساختار اشاره گر را مستقیما ایجاد کنید &lt;strong>این روش پینهاد میشود&lt;/strong>. به مثال زیر توجه کنید:&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>حتی شما میتوانید یک ساختار اشاره گر را مستقیما ایجاد کنید &lt;strong>این روش پیشنهاد میشود&lt;/strong>. به مثال زیر توجه کنید:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1">1&lt;/a>&lt;/span>&lt;span>empP &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>employee{name: &lt;span style="color:#f1fa8c">&amp;#34;Sam&amp;#34;&lt;/span>, age: &lt;span style="color:#bd93f9">31&lt;/span>, salary: &lt;span style="color:#bd93f9">2000&lt;/span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در مثال زیر هر دو روش رو برای شما توضیح دادیم. با دقت به کد و خروجی کد نگاه کنید:‌&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
