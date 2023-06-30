@@ -155,6 +155,10 @@ background-color: #21998E;
 ، &lt;span class="tooltip" data-tooltip="efficient execution" ontouchend="toggleTooltip(this)">اجرای کارآمد&lt;/span>
 و&lt;span class="tooltip" data-tooltip="ease of programming" ontouchend="toggleTooltip(this)">سهولت برنامه نویسی&lt;/span>
 معرفی شد که توسط شرکت گوگل توسعه داده شده است و بسیاری از اعضای تیم طراحی و توسعه زبان گو [&lt;a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Robert_Griesemer">Robert Griesemer&lt;/a>] سال ها تجربه در زمینه تحقیق و توسعه زبان برنامه نویسی دارند.&lt;/p>
+&lt;p>تاریخچه زبان گولنگ به سال ۲۰۰۷ میلادی برمیگردد.وقتی که سه برنامه‌نویس تصمیم گرفتند یک زبان برنامه‌نویسی جدید با ترکیبی از ویژگی‌های مختلف را توسعه دهند. آنها هدف خود را در نظر داشتند که زبانی سریع، ساده، قابل استفاده و موثر برای توسعه نرم‌افزارهای همزمان و مقیاس‌پذیر بسازند.&lt;/p>
+&lt;p>گولنگ از زبان هایی چون pascal, c and oberon الهام گرفته است. هدف توسعه دهندگان گولنگ ساده تر کردن فرایند طراحی و ساخت نرم افزار های مقایس پذیر بوده.
+آنها در طراحی گولنگ تلاش کردند تا عملکرد زبان را بهبود بخشند و یک سینتکس ساده و خوانا ارائه دهند.&lt;/p>
+&lt;p>از آن زمان تا به امروز، گولنگ رشد و پیشرفت چشمگیری کرده است و استفاده از آن در صنعت نرم‌افزار روز به روز بیشتر می‌شود. شرکت‌های بزرگی مانند Google، Dropbox، YouTube و Docker از گولنگ به عنوان یکی از زبان‌های اصلی خود استفاده می‌کنند. همچنین جامعه برنامه‌نویسی گولنگ به طور فزاینده‌ای در حال رشد است و ابزارها و کتابخانه‌های زیادی با استقاده از گولنگ توسعه داده شده است.&lt;/p>
 &lt;p>زبان گو دارای یک سری ویژگی های منحصر به فرد می باشد و برخی از ویژگی هایش از سایر زبان ها الهام گرفته شده است :&lt;/p>
 &lt;ul>
 &lt;li>پشتیبانی از برنامه نویسی  &lt;span class="tooltip" data-tooltip="Concurrency" ontouchend="toggleTooltip(this)">همزمانی&lt;/span>
@@ -206,6 +210,7 @@ background-color: #21998E;
 &lt;blockquote class="book-hint info">
 برنامه نویس های زبان گو را &lt;span class="tooltip" data-tooltip="Gopher" ontouchend="toggleTooltip(this)">گوفر&lt;/span>
 صدا میزنند.
+گوفر نام یک نوع موش و همچنین mascot گولنگ است.
 &lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>آموزش نصب</title><link>https://book.gofarsi.ir/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/installation/</guid><description>&lt;p>جهت نصب زبان گو برروی سیستم عامل مورد نظر خود در ابتدا باید نسخه مناسب با پلت فرم خود را &lt;a href="https://go.dev/dl/">دانلود&lt;/a> کنید.&lt;/p>
 &lt;p>&lt;img src="../assets/img/content/installation/1.png" alt="Featured downloads golang" />&lt;/p>
 &lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
@@ -474,7 +479,6 @@ background-color: #21998E;
 &lt;div class="content">
 &lt;h3>نسخه 1.19&lt;/h3>
 &lt;p>
-&lt;p>بزودی تکمیل می شود&lt;/p>
 &lt;/p>
 &lt;/div>
 &lt;/li>
@@ -721,7 +725,8 @@ background-color: #21998E;
 &lt;div class="content">
 &lt;h3>نسخه 1&lt;/h3>
 &lt;p>
-&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;p>گو 1 یک نسخه اصلی از زبان برنامه‌نویسی Go است که در طولانی مدت پایدار خواهد بود. برای کسب اطلاعات بیشتر، به &lt;a href="https://go.dev/doc/go1.html">یادداشت‌های انتشار&lt;/a> Go 1 مراجعه کنید.&lt;/p>
+&lt;p>هدف این است که برنامه‌های نوشته شده برای Go 1 بدون تغییر، در نسخه‌های آینده از Go 1 به درستی کامپایل و اجرا شوند. برای اطلاعات بیشتر درباره آینده Go 1، &lt;a href="https://go.dev/doc/go1compat.html">مستندات سازگاری&lt;/a> Go 1 را مطالعه کنید.&lt;/p>
 &lt;/p>
 &lt;/div>
 &lt;/li>
