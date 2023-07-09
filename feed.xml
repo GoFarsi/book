@@ -453,16 +453,16 @@ background-color: #21998E;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد فوق ما یکسری &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
 نظیر package , import , func استفاده کردیم که در بخش &lt;a href="https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/">1.2 کلید واژه و شناسه‌ها&lt;/a> با آنها آشنا می‌شوید.&lt;/p>
 &lt;h2 id="انواع-نرمافزارهای-محیط-توسعه-ide-و-ویرایشگر-کد-code-editor">
-انواع نرم‌افزارهای محیط توسعه (IDE) و ویرایش‌گر کد (Code Editor)
+انواع نرم‌افزارهای محیط توسعه (IDE) و ویرایشگر کد (Code Editor)
 &lt;a class="anchor" href="#%d8%a7%d9%86%d9%88%d8%a7%d8%b9-%d9%86%d8%b1%d9%85%d8%a7%d9%81%d8%b2%d8%a7%d8%b1%d9%87%d8%a7%db%8c-%d9%85%d8%ad%db%8c%d8%b7-%d8%aa%d9%88%d8%b3%d8%b9%d9%87-ide-%d9%88-%d9%88%db%8c%d8%b1%d8%a7%db%8c%d8%b4%da%af%d8%b1-%da%a9%d8%af-code-editor">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان برنامه‌نویسی گو نیز مثل سایر زبان‌ها، می‌توان از ابزارهای کدنویسی مانند &lt;span class="tooltip" data-tooltip="IDE(s)" ontouchend="toggleTooltip(this)">نرم‌افزارهای محیط توسعه&lt;/span>
-و همچنین از &lt;span class="tooltip" data-tooltip="Code Editor(s)" ontouchend="toggleTooltip(this)">ویرایش‌گرهای کد&lt;/span>
+و همچنین از &lt;span class="tooltip" data-tooltip="Code Editor(s)" ontouchend="toggleTooltip(this)">ویرایشگرهای کد&lt;/span>
 استفاده کرد که محبوب‌ترین‌ها معرفی می‌شوند:&lt;/p>
 &lt;ol>
 &lt;li>نرم‌افزار &lt;a href="https://www.jetbrains.com/go/">Jetbrains Goland&lt;/a> اگر با سایر محصولات جت‌برینز آشنا باشید به‌راحتی می‌توانید از این &lt;span class="tooltip" data-tooltip="IDE" ontouchend="toggleTooltip(this)">نرم‌افزار محیط توسعه&lt;/span>
 استفاده کنید.&lt;/li>
-&lt;li>نرم‌افزار &lt;a href="https://code.visualstudio.com/">VsCode&lt;/a> تقریباً همه برنامه‌نویس‌ها با آن آشنا هستند. یک &lt;span class="tooltip" data-tooltip="Code Editor" ontouchend="toggleTooltip(this)">ویرایش‌گر کد&lt;/span>
+&lt;li>نرم‌افزار &lt;a href="https://code.visualstudio.com/">VsCode&lt;/a> تقریباً همه برنامه‌نویس‌ها با آن آشنا هستند. یک &lt;span class="tooltip" data-tooltip="Code Editor" ontouchend="toggleTooltip(this)">ویرایشگر کد&lt;/span>
 متن باز می‌باشد که بین برنامه‌نویس‌ها خیلی محبوب است و برای استفاده زبان گو در این نرم‌افزار می‌توان افزونه&lt;a href="https://code.visualstudio.com/docs/languages/go"> vscode-go&lt;/a> را نصب کنید.&lt;/li>
 &lt;li>نرم‌افزار &lt;a href="https://www.vim.org/">Vim&lt;/a> یک نرم‌افزار متن باز و معروف می‌باشد که داخل &lt;span class="tooltip" data-tooltip="Terminal" ontouchend="toggleTooltip(this)">ترمینال&lt;/span>
 قابل استفاده است و از آن می‌توانید جهت توسعه با زبان گو استفاده کنید و البته نیازمند &lt;a href="https://github.com/fatih/vim-go">نصب پلاگین&lt;/a> می‌باشد.&lt;/li>
