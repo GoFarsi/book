@@ -107,7 +107,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2&lt;/a>&lt;/span>&lt;span>$ ./goFarsi
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3">3&lt;/a>&lt;/span>&lt;span>Result: Hello GoFarsi!
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
-دقت کنید اگر از سیستم عامل ویندوز استفاده میکنید بعد از وارد کردن اسم پسوند &lt;code>exe&lt;/code> را نیز اضافه کنید.
+دقت کنید اگر از سیستم عامل ویندوز استفاده میکنید بعد از وارد کردن اسم، پسوند &lt;code>.exe&lt;/code> را نیز اضافه کنید.
 &lt;/blockquote>
 &lt;blockquote class="book-hint info">
 برای راحتی و سرعت بخشیدن هنگام توسعه ما از دستور &lt;code>go run&lt;/code> استفاده می‌کنیم.
