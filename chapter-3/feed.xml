@@ -180,12 +180,12 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>روی سیستم من عدد 8 را چاپ کرد یعنی سیستم من ۴ هسته که هر هسته دارای ۲ threads است. که قابل استفاده برای برنامه گو روی سیستم من می باشد.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>3.3 پکیج sync</title><link>https://book.gofarsi.ir/chapter-3/go-sync-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-3/go-sync-package/</guid><description>&lt;p>پکیج &lt;code>sync&lt;/code> یکی از کاربردی ترین پکیج ها در زمینه همزمانی می باشد و یکسری تایپ و توابع برای &lt;span class="tooltip" data-tooltip="synchronize" ontouchend="toggleTooltip(this)">همگام سازی&lt;/span>
 و کنترل دسترسی همزمان به داده مشترک ارائه می دهد. که پرکاربردترین آن ها شامل موارد زیر است:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>Mutex&lt;/code> : با استفاده از این می توانید آن بخش از داده ای که گوروتین ها بطور همزمان قصد دارند دسترسی داشته باشند را قفل کنید.&lt;/li>
-&lt;li>&lt;code>RWMutex&lt;/code> : با استفاده از این می توانید به چند گوروتین در یک زمان اجازه خواندن دهید ولی فقط یک گوروتین می تواند بنویسد.&lt;/li>
+&lt;li>&lt;code>Mutex&lt;/code>: با استفاده از این می توانید آن بخش از داده ای که گوروتین ها بطور همزمان قصد دارند دسترسی داشته باشند را قفل کنید.&lt;/li>
+&lt;li>&lt;code>RWMutex&lt;/code>: با استفاده از این می توانید به چند گوروتین در یک زمان اجازه خواندن دهید ولی فقط یک گوروتین می تواند بنویسد.&lt;/li>
 &lt;li>&lt;code>WaitGroup&lt;/code>: یک هماهنگ کننده گوروتین می باشد برای اینکه ترتیب عملیات ها در هنگام همزمانی رعایت شود.&lt;/li>
 &lt;li>&lt;code>Once&lt;/code>: این اجازه می دهد یک تابع حداکثر یک بار اجرا شود.&lt;/li>
-&lt;li>&lt;code>Pool:&lt;/code> مجموعه از آبجکت های موقت که امکان ذخیره و دریافت دارند بدون اینکه بخشی از حافظه را اشتغال کنند.&lt;/li>
-&lt;li>&lt;code>Cond:&lt;/code>با استفاده از Cond می توانید چندین گوروتین ایجاد کنید و اجرای فرآیند آن ها را منتظر وقوع یک رویداد قرار دهید.&lt;/li>
+&lt;li>&lt;code>Pool&lt;/code>: مجموعه از آبجکت های موقت که امکان ذخیره و دریافت دارند بدون اینکه بخشی از حافظه را اشتغال کنند.&lt;/li>
+&lt;li>&lt;code>Cond&lt;/code>:با استفاده از Cond می توانید چندین گوروتین ایجاد کنید و اجرای فرآیند آن ها را منتظر وقوع یک رویداد قرار دهید.&lt;/li>
 &lt;/ul>
 &lt;blockquote class="book-hint info">
 توجه کنید که پکیج &lt;code>sync&lt;/code> فقط و فقط برای مدیریت و همگام سازی دسترسی های گوروتین ها به یک داده مشترک استفاده می شود.
@@ -195,7 +195,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;a class="anchor" href="#331-mutex">#&lt;/a>
 &lt;/h2>
 &lt;p>در پکیج &lt;code>sync&lt;/code> یک تایپ به نام &lt;code>Mutex&lt;/code> وجود دارد که به شما این امکان را می دهد دسترسی به داده مشترک را &lt;span class="tooltip" data-tooltip="synchronize" ontouchend="toggleTooltip(this)">همگام سازی&lt;/span>
-کنید. زمانیکه از تایپ Mutex استفاده می کند ۲ حالت دارد Lock یا Unlock. وقتی شما Lock می کند فقط و فقط یک گوروتین می تواند برروی آن بخش از داده کار کند و تا زمانیکه شما Unlock نکنید سایر گوروتین ها نمی توانند دسترسی داشته باشند و تا زمانیکه Unlock صورت گیرد سایر گوروتین ها تلاش می کنند تا بتوانند دسترسی پیدا کنند.&lt;/p>
+کنید. زمانیکه از تایپ Mutex استفاده می کند ۲ حالت دارد؛ Lock یا Unlock. وقتی شما Lock می کنید فقط و فقط یک گوروتین می تواند برروی آن بخش از داده کار کند و تا زمانیکه شما Unlock نکنید سایر گوروتین ها نمی توانند دسترسی داشته باشند و باید منتظر بمانند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -234,7 +234,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;img src="../../assets/img/content/chapter3/sync/1.jpg" alt="sync mutex">
 &lt;/a>&lt;/center>
 &lt;p>در بالا ما یک تابع به نام increment ایجاد کردیم و به عنوان ورودی تایپ Mutex را بصورت پوینتر پاس دادیم. سپس با استفاده از توابع Lock و Unlock برای افزایش مقدار count یک قفل گذاشتیم.&lt;/p>
-&lt;p>حال ۴ تا گوروتین داریم که قصد دارند همزمان روی بخش مشترک از حافظه عملیاتی را انجام دهند در اینجا ما با استفاده Mutex جلوی اینکه همزمان دسترسی داشته باشند به اون داده از حافظه را گرفتیم و فقط یک گوروتین می تواند عملیات انجام دهد و تا زمانیکه شما Unlock نکنید سایر گوروتین ها منتظر می مانند.&lt;/p>
+&lt;p>حال ۴ تا گوروتین داریم که قصد دارند همزمان روی بخش مشترک از حافظه عملیاتی را انجام دهند در اینجا ما با استفاده Mutex جلوی دسترسی همزمان گوروتین ها به حافظه را گرفتیم و فقط یک گوروتین می تواند عملیات انجام دهد و تا زمانیکه شما Unlock نکنید سایر گوروتین ها منتظر می مانند.&lt;/p>
 &lt;h3 id="3311-سناریوهای-استفاده">
 3.3.1.1 سناریوهای استفاده
 &lt;a class="anchor" href="#3311-%d8%b3%d9%86%d8%a7%d8%b1%db%8c%d9%88%d9%87%d8%a7%db%8c-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87">#&lt;/a>
@@ -279,7 +279,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12&lt;/a>&lt;/span>&lt;span> rand.&lt;span style="color:#50fa7b">Seed&lt;/span>(time.&lt;span style="color:#50fa7b">Now&lt;/span>().&lt;span style="color:#50fa7b">Unix&lt;/span>())
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13">13&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">sleep&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span> time.&lt;span style="color:#50fa7b">Sleep&lt;/span>(time.&lt;span style="color:#50fa7b">Duration&lt;/span>(rand.&lt;span style="color:#50fa7b">Intn&lt;/span>(&lt;span style="color:#bd93f9">1000&lt;/span>)) &lt;span style="color:#ff79c6">*&lt;/span> time.Millisecond)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span> time.&lt;span style="color:#50fa7b">Sleep&lt;/span>(time.&lt;span style="color:#50fa7b">Duration&lt;/span>(rand.&lt;span style="color:#50fa7b">Intn&lt;/span>(&lt;span style="color:#bd93f9">1000&lt;/span>))&lt;span style="color:#ff79c6">*&lt;/span>time.Millisecond)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-16">16&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-17">17&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">reader&lt;/span>(c &lt;span style="color:#8be9fd;font-style:italic">chan&lt;/span> &lt;span style="color:#8be9fd">int&lt;/span>, m &lt;span style="color:#ff79c6">*&lt;/span>sync.RWMutex, wg &lt;span style="color:#ff79c6">*&lt;/span>sync.WaitGroup) {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-18">18&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#50fa7b">sleep&lt;/span>()
@@ -353,13 +353,13 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 3.3.3 WaitGroup
 &lt;a class="anchor" href="#333-waitgroup">#&lt;/a>
 &lt;/h2>
-&lt;p>یک ساختاری داخل پکیج &lt;code>sync&lt;/code> داریم به نام &lt;code>WaitGroup&lt;/code> است. معمولا برای منتظر ماندن برای پایان اجرای گروهی از گوروتین ها استفاده می شود. این ساختار ۳ متد دارد که به شرح زیر می باشد :&lt;/p>
+&lt;p>یک ساختاری داخل پکیج &lt;code>sync&lt;/code> به نام &lt;code>WaitGroup&lt;/code> وجود دارد. معمولا برای منتظر ماندن برای پایان اجرای گروهی از گوروتین ها استفاده می شود. این ساختار ۳ متد دارد که به شرح زیر می باشد:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Add&lt;/strong> این متد که به عنوان ورودی عدد می گیرد تعداد گوروتین هایی که قرار است منتظر بمانند را تعیین میکند.&lt;/li>
-&lt;li>&lt;strong>Done&lt;/strong> این تابع زمانی استفاده می شود فرآیند داخل هریک از گوروتین ها اتمام شود.&lt;/li>
-&lt;li>&lt;strong>Wait&lt;/strong> این متد گوروتین ها را بلاک می کند تا زمانیکه سیگنال Done از تمامی گوروتین ها دریافت کند.&lt;/li>
+&lt;li>&lt;strong>Add:&lt;/strong> این متد که به عنوان ورودی عدد می گیرد تعداد گوروتین هایی که قرار است منتظر بمانند را تعیین میکند.&lt;/li>
+&lt;li>&lt;strong>Done:&lt;/strong> این تابع زمانی استفاده می شود فرآیند داخل هریک از گوروتین ها اتمام شود.&lt;/li>
+&lt;li>&lt;strong>Wait:&lt;/strong> این متد گوروتین ها را بلاک می کند تا زمانیکه سیگنال Done از تمامی گوروتین ها دریافت کند.&lt;/li>
 &lt;/ul>
-&lt;p>بذارید به مثال توضیح دهیم :&lt;/p>
+&lt;p>بگذارید با یک مثال توضیح دهیم:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
@@ -406,7 +406,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;a class="anchor" href="#334-once">#&lt;/a>
 &lt;/h2>
 &lt;p>در پکیج &lt;code>sync&lt;/code> ما یک تایپ داریم به نام &lt;code>Once&lt;/code> که برای اطمینان از اینکه یک تابع فقط یکبار فراخوانی می شود استفاده می شود. شما فرض کنید قصد دارید در طول برنامه از یک آبجکت فقط یک instance داشته باشید می توانید با استفاده از Once این کار را انجام دهید (شما با استفاده از Once می توانید الگو طراحی &lt;a href="https://book.gofarsi.ir/chapter-9/creational-patterns/go-singleton-pattern/">Singleton&lt;/a> را پیاده سازی کنید.)&lt;/p>
-&lt;p>به مثال زیر توجه کنید :&lt;/p>
+&lt;p>به مثال زیر توجه کنید:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
@@ -549,7 +549,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;/h3>
 &lt;p>&lt;strong>مثال اول :&lt;/strong>&lt;/p>
 &lt;p>فرض کنید شما می خواهید یک فایل csv را با کلی رکورد parse کنید. هر رکورد نیازمند این است که داخل یک ساختاری قرار بگیرد و ایجاد یک ساختار باعث می شود بخشی از حافظه اختصاص یابد به آن ساختار. حالا فکر کنید میلیون ها رکورد داشته باشید و این تخصیص حافظه می تواند باعث توقف برنامه شود.&lt;/p>
-&lt;p>حالا برای اینکه بخواهیم جلوی این اتفاق را بگیریم و سربار را کاهش دهیم بهتر است ما از sync.Pool استفاده کنیم و ساختارها را داخل استخر قرار دهیم. و زمانیکه هرکدام از ساختارها مورد نیاز نباشد می توانند داخل استخر قرار گیرند و مجدد استفاده شود. اینکار باعث می شود بطور خیلی قابل توجهی تعداد تخصیص حافظه کاهش یابد و عملکرد برنامه چند برابر شود.&lt;/p>
+&lt;p>حالا برای اینکه بخواهیم جلوی این اتفاق را بگیریم و سربار را کاهش دهیم بهتر است ما از sync.Pool استفاده کنیم و ساختارها را داخل استخر قرار دهیم. و زمانیکه هرکدام از ساختارها مورد نیاز نباشد می توانند داخل استخر قرار گیرند و مجدد استفاده شوند. اینکار باعث می شود بطور خیلی قابل توجهی تعداد تخصیص حافظه کاهش یابد و عملکرد برنامه چند برابر شود.&lt;/p>
 &lt;p>&lt;strong>مثال دوم :&lt;/strong>&lt;/p>
 &lt;p>موارد استفاده دیگر از sync.Pool برای ذخیره کردن آبجکت های پرکاربرد نظیر کانکشن دیتابیس یا شبکه و همچنین آبجکت هایی که قصد داریم برروی آن عملیات serialize و deserialize انجام دهیم.&lt;/p>
 &lt;h2 id="336-cond">
@@ -561,7 +561,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;ul>
 &lt;li>&lt;strong>Broadcast:&lt;/strong> با استفاده از این متد می توانید تمامی گوروتین هایی که در حالت منتظر هستند را آزاد کنید تا به فرآیند خود ادامه دهند.&lt;/li>
 &lt;li>&lt;strong>Signal:&lt;/strong> با استفاده از این متد می توانید به گوروتین سیگنال بفرستید تا از حالت منتظر خارج شود و به فرآیند خود ادامه دهد.&lt;/li>
-&lt;li>Wait: این متد بصورت atomic منتظر می ماند تا زمانیکه unlocks صورت گیرد و تا اون موقع گوروتین ها را در حالت تعلیق نگه می دارد.&lt;/li>
+&lt;li>&lt;strong>Wait:&lt;/strong> این متد بصورت atomic منتظر می ماند تا زمانیکه unlocks صورت گیرد و تا اون موقع گوروتین ها را در حالت تعلیق نگه می دارد.&lt;/li>
 &lt;/ul>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
