@@ -312,4 +312,10 @@ a {
 {{< author githubUrl="https://github.com/armineyvazi" githubImg="../assets/img/author/23.jpg" name="Armin Eyvazi" >}}
 
 {{< author githubUrl="https://github.com/kehiy" githubImg="../assets/img/author/24.jpg" name="Keyhan Alizadeh" >}}
+
+{{< author githubUrl="https://github.com/ErfanTech" githubImg="../assets/img/author/25.jpg" name="ErfanTech" >}}
+
+{{< author githubUrl="https://github.com/ezzoddin" githubImg="../assets/img/author/26.jpg" name="Mobina Ezzoddin" >}}
+
+{{< author githubUrl="https://github.com/keyvangholami" githubImg="../assets/img/author/27.jpg" name="Keyvan Gholami" >}}
 </p>
