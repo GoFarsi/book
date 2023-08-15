@@ -832,7 +832,7 @@ background-color: #21998E;
 &lt;li>برای مثال زمانی که در یک برنامه با سروری ارتباط داریم و ارتباط قطع می‌شود ما قادر به ادامه دادن برنامه نیستیم و می‌توانیم از این تابع استفاده کنیم.&lt;/li>
 &lt;/ul>
 &lt;/div>
-&lt;/details></description></item><item><author>Javad Rajabzadeh</author><title>فصل اول: آشنایی با مفاهیم گو</title><link>https://book.gofarsi.ir/chapter-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/</guid><description>&lt;p>در فصل اول به مفاهیم پایه زبان برنامه‌نویسی گو بطور عمیق می‌پردازیم. این فصل شامل چندین بخش هست :&lt;/p>
+&lt;/details></description></item><item><author>Javad Rajabzadeh</author><title>فصل اول: آشنایی با مفاهیم گو</title><link>https://book.gofarsi.ir/chapter-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-1/</guid><description>&lt;p>در فصل اول به مفاهیم پایه زبان برنامه‌نویسی گو بطور عمیق می‌پردازیم. این فصل شامل چندین بخش هست:&lt;/p>
 &lt;ul>
 &lt;li>1.1&lt;a href="structure-of-go-code"> ساختار کد گو&lt;/a>&lt;/li>
 &lt;li>1.2&lt;a href="go-built-in-keywords-identifiers"> کلید واژه و شناسه‌ها&lt;/a>&lt;/li>
