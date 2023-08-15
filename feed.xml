@@ -127,7 +127,7 @@ background-color: #21998E;
 &lt;li>
 &lt;p>چرا به زبان فارسی می‌نویسیم.
 دوستان و همکاران بسیاری هستند،‌که این سوال را مطرح می‌کنند که وقتی نیاز به دانش زبان انگلیسی، برای کسب مهارت در این تخصص، یک «باید» محسوب می‌شود، چرا مطلب فارسی؟
-جواب این سوال ساده‌تر از پیجیدگی‌هایی هست که بنظر می‌رسد:
+جواب این سوال ساده‌تر از پیچیدگی‌هایی هست که بنظر می‌رسد:
 − ایجاد و رونق جامعه تخصصی فارسی‌زبان توسط موضوع «کتاب»
 − ایجاد فضایی جهت ایجاد پرسش و پاسخ فارسی‌زبان‌ها
 − ارائه یک ترجمه فارسی، از منابع اصلی تخصصی، با امکان مقایسه برداشت افراد مختلف از زبان تخصصی
@@ -144,8 +144,8 @@ background-color: #21998E;
 &lt;/li>
 &lt;li>
 &lt;p>چرخ را از نو نسازیم، تجربه‌ها را از نو «تجربه» نکنیم، آموزش ببینیم و آموزش بدهیم.
-با کمی دقت و تجربه، کاملاً بدیهی‌ست در مقام قیاس بین چند جامعه تخصصی همسان، برتری از آن کسانی‌ست که در انتقال دانش-تجربه دست‌و‌دل‌بازتر هستند. جامعه تخصصی با دانش و تجربه عمیق، نیازمند وجود «مبتدیان» با پتانسیل حداکثری است و این میسر نیست مگر با جریان ساده و پایدار آموزش &amp;hellip;
-دانش امروز، در هر رشته و هر سطح برآیند «انتقال» پیشینیان ما است. بجای غرور ناشی از آن می‌توان از انتقال با احترام آن به دیگران لذت برد.&lt;/p>
+با کمی دقت و تجربه، کاملاً بدیهی‌ست در مقام قیاس بین چند جامعه تخصصی همسان، برتری از آن کسانی‌ست که در انتقال دانش-تجربه دست‌و‌دل‌بازتر هستند. جامعه تخصصی با دانش و تجربه عمیق، نیازمند وجود «مبتدیان» با پتانسیل حداکثری است و این میسر نیست مگر با جریان ساده و پایدار آموزش.
+دانش امروز، در هر رشته و هر سطح برآیند «انتقال» پیشینیان ما است. به جای غرور ناشی از آن می‌توان از انتقال آن به دیگران لذت برد.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>«کلمات» قدرت دارند. به درک و استفاده از کلمات احترام بگذاریم. در جامعه تخصصی حتی چند‌برابر !!!
@@ -154,9 +154,9 @@ background-color: #21998E;
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>تاریخچه</title><link>https://book.gofarsi.ir/history/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/history/</guid><description>&lt;p>زبان گو (Go) در سال ۲۰۰۷ (به شمسی: ۱۳۸۶) توسط «شرکت گوگل» با هدف افزایش بهره‌وری برنامه‌نویسی در محیط چندهسته‌ای، رایانه‌های شبکه‌ای و کدبیس‌های بزرگ طراحی شد [&lt;a href="https://fa.wikipedia.org/wiki/%DA%AF%D9%88_%28%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C%29">به نقل از ویکی پدیا&lt;/a>] و سپس به عنوان یک زبان کامپایلری و تایپ استاتیک در نوامبر سال ۲۰۰۹ بصورت عمومی با هدف &lt;span class="tooltip" data-tooltip="efficient compilation" ontouchend="toggleTooltip(this)">کامپایل کارآمد&lt;/span>
 ، &lt;span class="tooltip" data-tooltip="efficient execution" ontouchend="toggleTooltip(this)">اجرای کارآمد&lt;/span>
 و&lt;span class="tooltip" data-tooltip="ease of programming" ontouchend="toggleTooltip(this)">سهولت برنامه‌نویسی&lt;/span>
-معرفی شد که توسط شرکت گوگل توسعه داده شده است و بسیاری از اعضای تیم طراحی و توسعه زبان گو [&lt;a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Robert_Griesemer">Robert Griesemer&lt;/a>] سال‌ها تجربه در زمینه تحقیق و توسعه زبان برنامه‌نویسی دارند.&lt;/p>
-&lt;p>تاریخچه زبان گولنگ به سال ۲۰۰۷ میلادی برمیگردد.وقتی که سه برنامه‌نویس تصمیم گرفتند یک زبان برنامه‌نویسی جدید با ترکیبی از ویژگی‌های مختلف را توسعه دهند. آن‌ها هدف خود را در نظر داشتند که زبانی سریع، ساده، قابل استفاده و موثر برای توسعه نرم‌افزارهای همزمان و مقیاس‌پذیر بسازند.&lt;/p>
-&lt;p>گولنگ از زبان‌هایی چون pascal, c and oberon الهام گرفته است. هدف توسعه دهندگان گولنگ ساده‌تر کردن فرایند طراحی و ساخت نرم افزارهای مقایس‌پذیر بوده.
+. بسیاری از اعضای تیم طراحی و توسعه زبان گو [&lt;a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Robert_Griesemer">Robert Griesemer&lt;/a>] سال‌ها تجربه در زمینه تحقیق و توسعه زبان برنامه‌نویسی دارند.&lt;/p>
+&lt;p>تاریخچه زبان گولنگ به سال ۲۰۰۷ میلادی برمیگردد.وقتی که سه برنامه‌نویس تصمیم گرفتند یک زبان برنامه‌نویسی جدید با ترکیبی از ویژگی‌های مختلف را توسعه دهند. هدف آنها این بود که که زبانی سریع، ساده، قابل استفاده و موثر برای توسعه نرم‌افزارهای همزمان و مقیاس‌پذیر بسازند.&lt;/p>
+&lt;p>گولنگ از زبان‌هایی چون pascal، c و oberon الهام گرفته است. هدف توسعه دهندگان گولنگ ساده‌تر کردن فرایند طراحی و ساخت نرم افزارهای مقایس‌پذیر بوده.
 آن‌ها در طراحی گولنگ تلاش کردند تا عملکرد زبان را بهبود بخشند و یک سینتکس ساده و خوانا ارائه دهند.&lt;/p>
 &lt;p>از آن زمان تا به امروز، گولنگ رشد و پیشرفت چشمگیری کرده است و استفاده از آن در صنعت نرم‌افزار روز به روز بیشتر می‌شود. شرکت‌های بزرگی مانند Google، Dropbox، YouTube و Docker از گولنگ به عنوان یکی از زبان‌های اصلی خود استفاده می‌کنند. همچنین جامعه برنامه‌نویسی گولنگ به طور فزاینده‌ای در حال رشد است و ابزارها و کتابخانه‌های زیادی با استقاده از گولنگ توسعه داده شده است.&lt;/p>
 &lt;p>زبان گو دارای یک سری ویژگی‌های منحصر به فرد می‌باشد و برخی از ویژگی‌هایش از سایر زبان‌ها الهام گرفته شده است :&lt;/p>
@@ -466,7 +466,7 @@ background-color: #21998E;
 متن‌باز می‌باشد که بین برنامه‌نویس‌ها خیلی محبوب است و برای استفاده زبان گو در این نرم‌افزار می‌توان افزونه&lt;a href="https://code.visualstudio.com/docs/languages/go"> vscode-go&lt;/a> را نصب کنید.&lt;/li>
 &lt;li>نرم‌افزار &lt;a href="https://www.vim.org/">Vim&lt;/a> یک نرم‌افزار متن‌باز و معروف می‌باشد که داخل &lt;span class="tooltip" data-tooltip="Terminal" ontouchend="toggleTooltip(this)">ترمینال&lt;/span>
 قابل استفاده است و از آن می‌توانید جهت توسعه با زبان گو استفاده کنید و البته نیازمند &lt;a href="https://github.com/fatih/vim-go">نصب پلاگین&lt;/a> می‌باشد.&lt;/li>
-&lt;/ol></description></item><item><author>Javad Rajabzadeh</author><title>نقشه یادگیری زبان گو</title><link>https://book.gofarsi.ir/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/roadmap/</guid><description>&lt;p>در زیر ما نقشه یادگیری زبان گو را براساس داده‌های سایت &lt;a href="https://roadmap.sh/">roadmap.sh&lt;/a> قرار دادیم که در ابتدا باید طبق نقشه یادگیری زبان گو شروع کنید و سپس برای افزایش دانش خود به نقشه یادگیری بک اند نگاهی بندازید.&lt;/p>
+&lt;/ol></description></item><item><author>Javad Rajabzadeh</author><title>نقشه یادگیری زبان گو</title><link>https://book.gofarsi.ir/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/roadmap/</guid><description>&lt;p>نقشه یادگیری زیر &lt;a href="https://roadmap.sh/">roadmap.sh&lt;/a> به ترتیب مسیر توصیه شده ی یادگیری ابزارها و مفاهیم اولیه گو، سپس سمت سرور و در نهایت معماری نرم افزار را نشان می‌دهد.&lt;/p>
 &lt;p>&lt;img src="../assets/img/content/roadmap/go.jpg" alt="roadmap go" />
 &lt;img src="../assets/img/content/roadmap/backend.jpg" alt="roadmap backend" />
 &lt;img src="../assets/img/content/roadmap/software-design.jpg" alt="software design" />
