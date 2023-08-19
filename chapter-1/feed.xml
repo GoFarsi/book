@@ -1513,23 +1513,23 @@
 1.7.1 تابع چیست؟
 &lt;a class="anchor" href="#171-%d8%aa%d8%a7%d8%a8%d8%b9-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
 &lt;/h2>
-&lt;p>در برنامه‌نویسی، &lt;strong>تابع&lt;/strong> به تکه کدهایی سازمان یافته گفته می‌شود که برای انجام عملی خاص استفاده می‌شوند. به کمک توابع می‌توانیم تکه کدها را از یکدیگر جدا کنیم و از تکرار کدهای تکراری جلوگیری کنیم و به برنامه نظم بیشتری داد.&lt;/p>
-&lt;p>همانند شکل زیر تابع مانند یک جعبه (یا قطعه کد) است. که یک مقدار ورودی گرفته و روی آن پردازش‌هایی انجام می‌دهد و یک خروجی تولید می‌کند. در برنامه‌نویسی تابع می‌تواند یک یا چند ورودی و خروجی داشته باشد، و ممکن است یک تابع هیچ ورودی نداشته باشد و خروجی داشته باشد یا بلعکس.&lt;br>
+&lt;p>در برنامه‌نویسی، &lt;strong>تابع&lt;/strong> به تکه کدهایی گفته می‌شود که برای انجام عملی خاص استفاده می‌شوند. به کمک توابع می‌توانیم تکه کدها را از یکدیگر جدا کنیم و از تکرار کدها جلوگیری کنیم.&lt;/p>
+&lt;p>همانند شکل زیر تابع مانند یک جعبه (یا قطعه کد) است. که یک مقدار ورودی گرفته و روی آن پردازش‌هایی انجام می‌دهد و یک خروجی تولید می‌کند. تابع می‌تواند هر چندتا ورودی یا خروجی داشته باشد.
 &lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--iCkOfD0L--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/1024/1%2A709ugF12LLkYxvb839YNlg.png" alt="" />&lt;/p>
 &lt;h3 id="1711-چرا-از-توابع-در-برنامه-نویسی-استفاده-میکنیم">
 1.7.1.1 چرا از توابع در برنامه نویسی استفاده می‌کنیم؟
 &lt;a class="anchor" href="#1711-%da%86%d8%b1%d8%a7-%d8%a7%d8%b2-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%d8%af%d8%b1-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87-%d9%86%d9%88%db%8c%d8%b3%db%8c-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d9%85%db%8c%da%a9%d9%86%db%8c%d9%85">#&lt;/a>
 &lt;/h3>
 &lt;ul>
-&lt;li>با استفاده از توابع، می‌توانیم یک قطعه کد را یک بار بنویسیم و چندین بار از آن در برنامه استفاده کنیم.&lt;/li>
-&lt;li>با استفاده از توابع، حجم کدنویسی ما کم‌تر میشه و سرعت توسعه نرم‌افزار بیشتر می‌شود.&lt;/li>
-&lt;li>توابع به ما کمک می‌کنند تا کد خود را به تکه‌هایی کوچک‌تر تقسیم کنیم تا برنامه ما خوانا و قابل درک‌تر باشد. همچنین نگهداری و اشکال زدایی کد را آسان‌تر می‌کند.&lt;/li>
+&lt;li>با استفاده از توابع، می‌توانیم یک قطعه کد را یک بار بنویسیم و چندین بار از آن استفاده کنیم.&lt;/li>
+&lt;li>با استفاده از توابع، حجم کدنویسی ما کم‌تر می‌شود و سرعت توسعه نرم‌افزار بیشتر می‌شود.&lt;/li>
+&lt;li>توابع به ما کمک می‌کنند تا کد خود را به تکه‌هایی کوچک‌تر تقسیم کنیم تا برنامه ی ما خوانا و قابل درک‌تر باشد. همچنین نگهداری و اشکال زدایی کد را آسان‌تر می‌کند.&lt;/li>
 &lt;/ul>
 &lt;h2 id="172-توابع-در-زبان-گولنگ">
 1.7.2 توابع در زبان گولنگ
 &lt;a class="anchor" href="#172-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%d8%af%d8%b1-%d8%b2%d8%a8%d8%a7%d9%86-%da%af%d9%88%d9%84%d9%86%da%af">#&lt;/a>
 &lt;/h2>
-&lt;p>توابع یکی از قابلیت‌های مهم هر زبانی محسوب است. توابع در زبان برنامه‌نویسی گولنگ داری سینتکس ساده‌ای هستند.&lt;/p>
+&lt;p>توابع یکی از قابلیت‌های مهم هر زبانی محسوب می‌شوند. توابع در گولنگ داری سینتکس ساده‌ای هستند.&lt;/p>
 &lt;h3 id="1721-تعریف-یک-تابع">
 1.7.2.1 تعریف یک تابع
 &lt;a class="anchor" href="#1721-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%db%8c%da%a9-%d8%aa%d8%a7%d8%a8%d8%b9">#&lt;/a>
@@ -1541,7 +1541,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>&lt;strong>func&lt;/strong> - با این کلید واژه یک تابع تعریف می‌کنیم.&lt;/li>
-&lt;li>&lt;strong>function_name&lt;/strong> - نام تابع باید یکتا و در طول برنامه منحصر به فرد باشد. همچنین معمولاً نمی‌توان تابعی با نام توابع از پیش تعریف شده داشت.&lt;/li>
+&lt;li>&lt;strong>function_name&lt;/strong> - نام تابع باید یکتا و در طول برنامه منحصر به فرد باشد.&lt;/li>
 &lt;li>&lt;strong>Parameter-list&lt;/strong> - پارامترهای ورودی در این قسمت تعریف می‌شوند. پارامترها اختیاری هستند یعنی ممکن است یک تابع هیچ پارامتری نداشته باشد.&lt;/li>
 &lt;li>&lt;strong>Return_type&lt;/strong> - نوع داده‌های بازگشتی را در این قسمت مشخص می‌کنیم و در برخی توابع عملیات موردنظر را بدون بازگرداندن مقداری انجام می‌دهند در این توابع نیازی به تعیین return_type نیست.&lt;/li>
 &lt;li>&lt;strong>Function Body&lt;/strong> - این قسمت شامل کدهایی است که نشان می‌دهد تابع چه کارهایی انجام می‌دهد.&lt;/li>
@@ -2226,11 +2226,9 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-29-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-2">2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-29-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-3">3&lt;/a>&lt;/span>&lt;span>slice &lt;span style="color:#ff79c6">:=&lt;/span> []&lt;span style="color:#8be9fd">int&lt;/span>{&lt;span style="color:#bd93f9">10&lt;/span>, &lt;span style="color:#bd93f9">20&lt;/span>, &lt;span style="color:#bd93f9">30&lt;/span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
-&lt;li>فرق بین &lt;span class="tooltip" data-tooltip="nil" ontouchend="toggleTooltip(this)">خالی بودن&lt;/span>
-آرایه و slice
+&lt;li>فرق بین مقدار صفر آرایه و slice
 &lt;ul>
-&lt;li>مقدار خالی یک slice هست &lt;span class="tooltip" data-tooltip="در زبان گو از nil مقدار خالی بودن برخی از تایپ‌ها می‌باشد که فصل بعدی می‌پردازیم." ontouchend="toggleTooltip(this)">nil&lt;/span>
-&lt;/li>
+&lt;li>مقدار خالی slice ها nil است.&lt;/li>
 &lt;li>مقدار خالی یک آرایه، همان آرایه با المنت‌های مقدار پیش‌فرض است.&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -2286,7 +2284,7 @@ Cap: 5 - 1 = 4&lt;/p>
 1.9.3 حلقه while
 &lt;a class="anchor" href="#193-%d8%ad%d9%84%d9%82%d9%87-while">#&lt;/a>
 &lt;/h2>
-&lt;p>این مدل حلقه تماماً شبیه به رفتار while در زبان C را دارد با این تفاوت که پیاده‌سازی آن، تنها با کلیدواژه‌ی &lt;code>for&lt;/code> و با حذف بخش مقداردهی و شمارنده حلقه سه‌بخشی انجام می‌گیرد. در واقع در این حلقه تنها یک شرط تعریف می‌شود و تا برقرار بودن آن شرط حلقه اجرا می‌شود. به مثال زیر توجه کنید:&lt;/p>
+&lt;p>این مدل حلقه شبیه while در بیشتر زبان ها مثل پایتون و C است. با این تفاوت که پیاده‌سازی آن، تنها با کلیدواژه‌ی &lt;code>for&lt;/code> و با حذف بخش مقداردهی و شمارنده حلقه سه‌بخشی انجام می‌گیرد. در واقع در این حلقه تنها یک شرط تعریف می‌شود و تا برقرار بودن آن شرط حلقه اجرا می‌شود. به مثال زیر توجه کنید:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
