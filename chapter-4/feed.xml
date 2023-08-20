@@ -3332,8 +3332,9 @@ API_KEY=AbCdEfGhIjKlMnOp
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-17">17&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد فوق ما یک directive comment اضافه کردیم حال کافیه با استفاده از دستور go generate متد استرینگ تایپ را جنریت کنیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1&lt;/a>&lt;/span>&lt;span>$ go generate ./...
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>4.20 قوانین کدنویسی در گو</title><link>https://book.gofarsi.ir/chapter-4/go-code-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-code-rules/</guid><description>&lt;p>قوانین در زبان گو همانند دیگر زبان های برنامه نویسی به دو دسته تقسیم می شوند. بخشی از قوانین در سطح سینتکس زبان مطرح می شوند، لذا رعایت آنها مهم هست، در غیر اینصورت کامپایلر قادر به کامپایل درست کدهای شما نخواهد بود و در بعضی شرایط ممکن است به صورت خاموش خطا به محیط اجرا (runtime) نیز برده شود. بخشی از قوانین به عنوان پیشنهاد و ترجیح مطرح هستند که عموما توسط لینتر بررسی می شوند و تاثیر اصلی بر خوانایی منطق کدها دارند. یعنی رعایت آنها الزام قطعی ندارد. به طور مثال استفاده از &lt;code>_&lt;/code> در نام گذاری ها در گو توصیه نمی شود ولی در کتابخانه استاندارد (الحاقی به زبان گو) به وفور عدم رعایت این موضوع دیده می شود.&lt;/p>
-&lt;p>لازم به ذکر است که سازمان ها می توانند قوانین پیشنهادی خود را توسعه دهند و با توسعه لینتر اختصصای در فرآیند توسعه نرم افزار خود با روش هایی مانند CI/CD از رعایت قوانین خود توسط توسعه دهندگان پروژه های نرم افزاری خود اطمینان حاصل نمایند.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>4.20 قوانین کدنویسی در گو</title><link>https://book.gofarsi.ir/chapter-4/go-code-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/go-code-rules/</guid><description>&lt;p>قوانین در زبان گو همانند دیگر زبان های برنامه نویسی به دو دسته تقسیم می شود. بخشی از قوانین در سطح &lt;span class="tooltip" data-tooltip="Syntax" ontouchend="toggleTooltip(this)">سینتکس&lt;/span>
+زبان مطرح می شوند، لذا رعایت آنها مهم هست، در غیر اینصورت کامپایلر قادر به کامپایل درست کدهای شما نخواهد بود و در بعضی شرایط ممکن است به صورت خاموش خطا به محیط اجرا (runtime) نیز برده شود. بخشی از قوانین به عنوان پیشنهاد و ترجیح مطرح هستند که عموما توسط لینتر بررسی می شوند و تاثیر اصلی بر خوانایی منطق کدها دارند. یعنی رعایت آنها الزام قطعی ندارد. به طور مثال استفاده از &lt;code>_&lt;/code> در نام گذاری ها در گو توصیه نمی شود ولی در کتابخانه استاندارد (الحاقی به زبان گو) به وفور عدم رعایت این موضوع دیده می شود.&lt;/p>
+&lt;p>لازم به ذکر است که سازمان ها می توانند قوانین پیشنهادی خود را توسعه دهند و با توسعه لینتر اختصاصی در فرآیند توسعه نرم افزار خود با روش هایی مانند CI/CD از رعایت قوانین خود توسط توسعه دهندگان پروژه های نرم‌افزاری خود اطمینان حاصل نمایند.&lt;/p>
 &lt;h2 id="4201-قوانین-نام-گذاری">
 4.20.1 قوانین نام گذاری
 &lt;a class="anchor" href="#4201-%d9%82%d9%88%d8%a7%d9%86%db%8c%d9%86-%d9%86%d8%a7%d9%85-%da%af%d8%b0%d8%a7%d8%b1%db%8c">#&lt;/a>
@@ -3343,12 +3344,12 @@ API_KEY=AbCdEfGhIjKlMnOp
 4.20.1.1 نام توابع
 &lt;a class="anchor" href="#42011-%d9%86%d8%a7%d9%85-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9">#&lt;/a>
 &lt;/h3>
-&lt;p>نام توابع باید با حروف بزرگ یا کوچک شروع شود. توابعی که با حروف بزرگ شروع می‌شوند، به عنوان public تلقی می‌شوند و از سمت بیرون برای دیگران قابل دسترس هستند. توابعی که با حروف کوچک شروع می‌شوند، به عنوان private تلقی می‌شوند و فقط در داخل پکیج موجود هستند.&lt;/p>
+&lt;p>نام توابع باید با حروف بزرگ یا کوچک شروع شود. توابعی که با حروف بزرگ شروع می‌شوند، به عنوان public تلقی می‌شوند و از سمت بیرون پکیج برای دیگران قابل دسترس هستند. توابعی که با حروف کوچک شروع می‌شوند، به عنوان private تلقی می‌شوند و فقط در داخل پکیج موجود هستند.&lt;/p>
 &lt;ul>
 &lt;li>نام توابع public بصورت Pascal Case هستند مانند: ()CalculateInterestRate&lt;/li>
 &lt;li>نام توابع private بصورت camel Case هستند مانند: ()calculateInterestRate&lt;/li>
 &lt;/ul>
-&lt;p>برای اطلاعات بیشتر درخصوص public یا private میتوانید به بخش Encapsulation مراجعه کنید.&lt;/p>
+&lt;p>برای اطلاعات بیشتر درخصوص public یا private میتوانید به بخش &lt;a href="https://book.gofarsi.ir/chapter-4/oop/go-encapsulation/">Encapsulation&lt;/a> مراجعه کنید.&lt;/p>
 &lt;h3 id="42012-نام-فایل-های-پسوند-go">
 4.20.1.2 نام فایل های پسوند go.
 &lt;a class="anchor" href="#42012-%d9%86%d8%a7%d9%85-%d9%81%d8%a7%db%8c%d9%84-%d9%87%d8%a7%db%8c-%d9%be%d8%b3%d9%88%d9%86%d8%af-go">#&lt;/a>
@@ -3382,12 +3383,12 @@ API_KEY=AbCdEfGhIjKlMnOp
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">// function code here
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در این مثال، تمامی پارامترهای تابع با حروف کوچک، با CamelCase نام‌گذاری شده‌اند.&lt;/p>
-&lt;p>به طور کلی، هدف از این قوانین نام‌گذاری، رعایت استانداردهایی برای نام‌گذاری است تا کد بیشتری خوانا و قابل فهم باشد و همچنین بتواند قابلیت نگهداری و توسعه را بهتر ارائه دهد.&lt;/p>
+&lt;p>به طور کلی، هدف از این قوانین نام‌گذاری، رعایت استانداردهایی برای نام‌گذاری است تا کد خواناتر و قابل فهم باشد و همچنین قابلیت نگهداری و توسعه را بهتری داشته باشد.&lt;/p>
 &lt;h3 id="42015-نام-پکیج">
 4.20.1.5 نام پکیج
 &lt;a class="anchor" href="#42015-%d9%86%d8%a7%d9%85-%d9%be%da%a9%db%8c%d8%ac">#&lt;/a>
 &lt;/h3>
-&lt;p>نام پکیج در Go باید با حرف کوچک شروع شود و نام پکیج باید شامل تنها حروف کوچک انگلیسی، اعداد و خط فاصله (-) باشد. همچنین در نام پکیج از حروف بزرگ استفاده نشود و اسم پکیج باید توصیفی از محتوای آن باشد. برای نام‌گذاری پکیج، معمولاً از نام اصلی محصول یا سرویسی که پُیاده‌سازی می‌شود، یا نام ماژول یا قسمتی از نرم‌افزار استفاده می‌شود.&lt;/p>
+&lt;p>نام پکیج در Go باید با حرف کوچک شروع شود و نام پکیج باید شامل تنها حروف کوچک انگلیسی، اعداد و خط فاصله (-) باشد. همچنین در نام پکیج از حروف بزرگ استفاده نشود، همچنین اسم پکیج باید توصیفی از محتوای آن باشد. برای نام‌گذاری پکیج، معمولاً از نام اصلی محصول یا سرویسی که پیاده‌سازی می‌شود، یا نام ماژول یا قسمتی از نرم‌افزار استفاده می‌شود.&lt;/p>
 &lt;p>مثلاً اگر یک پروژه برای پردازش تصویر داریم، نام پکیج می‌تواند &amp;ldquo;imageprocessing&amp;rdquo; باشد. همچنین اگر می‌خواهیم یک کتابخانه بخشی از پروژه خود را به اشتراک بگذاریم، می‌توانیم از نام پروژه یا نام ماژول استفاده کنیم.&lt;/p>
 &lt;p>توجه داشته باشید که نام پکیج باید با نام پوشه‌ای که فایل‌های پروژه در آن هستند همخوانی داشته باشد. برای مثال، اگر فایل‌های پروژه در پوشه imageprocessing قرار دارند، نام پکیج باید imageprocessing باشد.&lt;/p>
 &lt;h3 id="42016-نام-متغیر-و-const">
@@ -3399,8 +3400,8 @@ API_KEY=AbCdEfGhIjKlMnOp
 &lt;ul>
 &lt;li>نام متغیر باید با حرف کوچک شروع شود.&lt;/li>
 &lt;li>نام متغیر باید جهت نمایش نوع متغیر در نام آن و حاوی توضیح مختصر در مورد نام متغیر باشد.&lt;/li>
-&lt;li>نام متغیر باید با CamelCase باشد.&lt;/li>
-&lt;li>نام متغیر باید کاملاً توصیفی باشد و نیازی به توضیحات اضافی در مورد آن نداشته باشد.&lt;/li>
+&lt;li>نام متغیر باید با camelCase باشد.&lt;/li>
+&lt;li>نام متغیر باید کاملاً توصیفی باشد و نیازی به توضیحات اضافی در مورد آن نباشد.&lt;/li>
 &lt;/ul>
 &lt;p>برای مثال، به جای تعریف متغیر x برای نگهداری مقدار سن، می‌توان از نام age استفاده کرد:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> age &lt;span style="color:#8be9fd">int&lt;/span> &lt;span style="color:#6272a4">// تعریف متغیر برای سن شخص
@@ -3409,7 +3410,7 @@ API_KEY=AbCdEfGhIjKlMnOp
 &lt;li>نام ثابت باید با حروف بزرگ شروع شود.&lt;/li>
 &lt;li>نام ثابت باید جهت نمایش نوع ثابت در نام آن و حاوی توضیح مختصر در مورد مقدار ثابت باشد.&lt;/li>
 &lt;li>نام ثابت باید با Snake_case باشد.&lt;/li>
-&lt;li>نام ثابت باید کاملاً توصیفی باشد و نیازی به توضیحات اضافی در مورد آن نداشته باشد.&lt;/li>
+&lt;li>نام ثابت باید کاملاً توصیفی باشد و نیازی به توضیحات اضافی در مورد آن نباشد.&lt;/li>
 &lt;/ul>
 &lt;p>برای مثال، برای تعریف ثابت مقدار پاییز در فصل های سال، می‌توانیم از نام SEASON_AUTUMN استفاده کنیم:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">const&lt;/span> SEASON_AUTUMN = &lt;span style="color:#f1fa8c">&amp;#34;پاییز&amp;#34;&lt;/span>
