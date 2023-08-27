@@ -1701,9 +1701,9 @@
 &lt;li>اگر شما داده‌ای با نوع slice دارید می‌توانید آن را به کمک اپراتور &amp;hellip;&lt;code>(Ellipsis)&lt;/code> به صورت sum(nums&amp;hellip;) به داخل تابع انتقال بدید.&lt;/li>
 &lt;/ol>
 &lt;br/>
-&lt;h2 id="176-توابع-نانشناس-در-گولنگ-anonymous-functions">
-1.7.6 توابع نانشناس در گولنگ (Anonymous Functions)
-&lt;a class="anchor" href="#176-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%d9%86%d8%a7%d9%86%d8%b4%d9%86%d8%a7%d8%b3-%d8%af%d8%b1-%da%af%d9%88%d9%84%d9%86%da%af-anonymous-functions">#&lt;/a>
+&lt;h2 id="176-توابع-ناشناس-در-گولنگ-anonymous-functions">
+1.7.6 توابع ناشناس در گولنگ (Anonymous Functions)
+&lt;a class="anchor" href="#176-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%d9%86%d8%a7%d8%b4%d9%86%d8%a7%d8%b3-%d8%af%d8%b1-%da%af%d9%88%d9%84%d9%86%da%af-anonymous-functions">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان گولنگ می‌توانیم تابع بدون نام تعریف کنیم، که به عنوان توابع ناشناس شناخته می‌شوند.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
