@@ -192,7 +192,7 @@ employee &lt;code>کارمند&lt;/code> را مثال زدیم تا شما کم
 &lt;ul>
 &lt;li>
 &lt;p>برای ایجاد &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
-باید از کلمه کلیدی &lt;code>type&lt;/code> اسم ساختار و در ادمه کلمه کلیدی &lt;code>struct&lt;/code> استفاده کنید.&lt;/p>
+باید از کلمه کلیدی &lt;code>type&lt;/code> اسم ساختار و در ادامه کلمه کلیدی &lt;code>struct&lt;/code> استفاده کنید.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>سپس داخل بدنه &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
@@ -372,7 +372,7 @@ employee تعریف کردیم.&lt;/p>
 &lt;a class="anchor" href="#2242-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%aa%d8%a7%d8%a8%d8%b9-new">#&lt;/a>
 &lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">new&lt;/span>(Type) &lt;span style="color:#ff79c6">*&lt;/span>Type
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>همینطور که در تعریف تابع &lt;code>new&lt;/code> هم می‌بینید، این تابع یک تایپ از ما می‌گیرد و مقدار دهی می‌کنید، و در آخر هم تایپ را از نوع اشاره‌گر برای ما بر می‌گرداند.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>همینطور که در تعریف تابع &lt;code>new&lt;/code> هم می‌بینید، این تابع یک تایپ از ما می‌گیرد و مقدار دهی می‌کند، و در آخر هم تایپ را از نوع اشاره‌گر برای ما بر می‌گرداند.&lt;/p>
 &lt;p>با استفاده از تابع &lt;code>new &lt;/code>:&lt;/p>
 &lt;ul>
 &lt;li>شما یک ساختار ایجاد می‌کنید.&lt;/li>
