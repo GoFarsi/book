@@ -477,8 +477,35 @@ background-color: #21998E;
 &lt;li>
 &lt;span>2022-08-02&lt;/span>
 &lt;div class="content">
+&lt;h3>نسخه 1.21&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2022-08-02&lt;/span>
+&lt;div class="content">
+&lt;h3>نسخه 1.20&lt;/h3>
+&lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
+&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="timeline">
+&lt;ul>
+&lt;li>
+&lt;span>2022-08-02&lt;/span>
+&lt;div class="content">
 &lt;h3>نسخه 1.19&lt;/h3>
 &lt;p>
+&lt;p>بزودی تکمیل می شود&lt;/p>
 &lt;/p>
 &lt;/div>
 &lt;/li>
