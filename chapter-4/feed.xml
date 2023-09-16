@@ -4,7 +4,7 @@
 &lt;a class="anchor" href="#411-%d9%86%d8%ad%d9%88%d9%87-build-%db%8c%da%a9-%d9%81%d8%a7%db%8c%d9%84-%da%af%d9%88">#&lt;/a>
 &lt;/h2>
 &lt;p>معمولا شما باید برای build فایلی که دارای package main هست را برای build استفاده کنید مانند مثال زیر :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>$ go build main,go
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>$ go build main.go
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>پس از build در محل همان فایل یک فایل با نام main ایجاد می شود.&lt;/p>
 &lt;blockquote class="book-hint info">
 &lt;p>اگر فایل main شما در روت پروژه باشد نیازی نیست به دستور go build نام فایل را بدهید کافیه مانند دستور زیر پروژه را build کنید.&lt;/p>
