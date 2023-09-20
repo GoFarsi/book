@@ -1,13 +1,13 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل ششم: جنریک (Generics) on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-6/</link><description>Recent content in فصل ششم: جنریک (Generics) on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-6/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>6.1 جنریک مقدماتی</title><link>https://book.gofarsi.ir/chapter-6/go-generic-simple/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-6/go-generic-simple/</guid><description>&lt;h3 id="611-مقدمه">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل ششم: جنریک (Generics) on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-6/</link><description>Recent content in فصل ششم: جنریک (Generics) on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-6/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>6.1 جنریک مقدماتی</title><link>https://book.gofarsi.ir/chapter-6/go-generic-simple/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-6/go-generic-simple/</guid><description>&lt;h2 id="611-مقدمه">
 6.1.1 مقدمه
 &lt;a class="anchor" href="#611-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>این آموزش اصول اولیه generics در Go را معرفی می کند. با generics، می توانید functions یا types را که برای کار با هر یک از set of types ارائه شده با فراخوانی کد نوشته شده اند، اعلام و استفاده کنید. همینطور این قسمت فقط یک چشم انداز در استفاده از generic است و موارد بیشتر مثل Struct Types و Field Access به زودی به این کتاب اضافه خواهد شد.
 همینطور قسمت بیشتر این سند بر اساس مستندات go در این &lt;a href="https://go.dev/doc/tutorial/generics">لینک&lt;/a> نوشته شده است.&lt;/p>
-&lt;h3 id="612-تاریخچه-و-کاربرد">
+&lt;h2 id="612-تاریخچه-و-کاربرد">
 6.1.2 تاریخچه و کاربرد
 &lt;a class="anchor" href="#612-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae%da%86%d9%87-%d9%88-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>در Go 1.18، این زبان ویژگی جدیدی به نام انواع عمومی (که معمولاً با به صورت اختصار ، generic شناخته می‌شود) معرفی کرد که برای مدتی در لیست انتظارات توسعه‌دهندگان Go قرار داشت. در برنامه نویسی،generic type در واقع type ای است که می تواند همراه با چندین type دیگر استفاده شود. معمولاً در Go، اگر می‌خواهید بتوانید از دو مختلف برای یک متغیر استفاده کنید، باید از یک interface خاص مانند io.Reader یا interface{} استفاده کنید که امکان استفاده از هر value را فراهم می‌کند. استفاده از interface{} می‌تواند کار با آن typeها را جالب‌تر کند، زیرا برای تعامل با آن متغیرها باید بین چندین type دیگر translate کنید. استفاده از generic typeها به شما این امکان را می دهد که مستقیماً با typeها خود تعامل داشته باشید که منجر به کدهای تمیزتر و خواناتر می شود.&lt;/p>
 &lt;p>در این آموزش، شما دو تابع ساده non-generic را اعلام می‌کنید، سپس همان منطق را در یک تابع single generic ثبت می‌کنید.
 از طریق بخش های زیر ادامه می دهیم:
@@ -18,19 +18,19 @@
 5- یک محدودیت type را اعلام کنید.
 نکته: برای سایر آموزش ها به این لینک مراجعه کنید.
 نکته: اگر ترجیح می دهید، می توانید از Go playground in “Go dev branch” mode برای ویرایش و اجرای برنامه خود استفاده کنید.&lt;/p>
-&lt;h3 id="613-پیش-نیازها">
+&lt;h2 id="613-پیش-نیازها">
 6.1.3 پیش نیازها
 &lt;a class="anchor" href="#613-%d9%be%db%8c%d8%b4-%d9%86%db%8c%d8%a7%d8%b2%d9%87%d8%a7">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>نصب Go 1.18 یا بالاتر&lt;/strong>. برای دستورالعمل‌های نصب، به &lt;a href="https://go.dev/doc/install">راهنمای نصب Go&lt;/a> مراجعه کنید.&lt;/li>
 &lt;li>&lt;strong>ابزاری برای ویرایش کد:&lt;/strong> هر ویرایشگر متنی که داشته باشید به خوبی کار خواهد کرد.&lt;/li>
 &lt;li>&lt;strong>یک ترمینال فرمان Go:&lt;/strong> با استفاده از هر ترمینال در لینوکس و مک و در PowerShell یا cmd در ویندوز به خوبی کار می کند.&lt;/li>
 &lt;/ul>
-&lt;h3 id="614-ساخت-فولدر-پروژه">
+&lt;h2 id="614-ساخت-فولدر-پروژه">
 6.1.4 &lt;strong>ساخت فولدر پروژه&lt;/strong>
 &lt;a class="anchor" href="#614-%d8%b3%d8%a7%d8%ae%d8%aa-%d9%81%d9%88%d9%84%d8%af%d8%b1-%d9%be%d8%b1%d9%88%da%98%d9%87">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>برای شروع ، یک پوشه برای کدی که می نویسید ایجاد کنید.&lt;/p>
 &lt;p>1- یک command prompt را باز کنید و به مسیر دلخواه خود تغییر دهید.&lt;/p>
 &lt;p>در لینوکس یا مک:On Linux or Mac:&lt;/p>
@@ -47,10 +47,10 @@ $ cd generics
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">go&lt;/span>: creating new &lt;span style="color:#ff79c6">go&lt;/span>.mod: module example&lt;span style="color:#ff79c6">/&lt;/span>generics
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>نکته: برای کد production، یک مسیر ماژول را مشخص می‌کنید که بیشتر به نیازهای شما اختصاص دارد. برای اطلاعات بیشتر، حتما به &lt;a href="https://go.dev/doc/modules/managing-dependencies">مدیریت وابستگی ها&lt;/a> مراجعه کنید.&lt;/strong>&lt;/p>
 &lt;p>در مرحله بعد، چند کد ساده برای کار با maps اضافه می کنید.&lt;/p>
-&lt;h3 id="615-اضافه-کردن-توابع-non-generic">
+&lt;h2 id="615-اضافه-کردن-توابع-non-generic">
 6.1.5 اضافه کردن توابع non-generic
 &lt;a class="anchor" href="#615-%d8%a7%d8%b6%d8%a7%d9%81%d9%87-%da%a9%d8%b1%d8%af%d9%86-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-non-generic">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>در این مرحله، دو تابع اضافه می‌کنید که هر کدام مقادیر یک map را با هم جمع کرده و مقدار کل را برمی‌گرداند. شما به جای یکی، دو تابع را declaration می کنید زیرا با دو نوع مختلف map کار می کنید: یکی که مقادیر int64 را ذخیره می کند و دیگری که مقادیر float64 را ذخیره می‌کند.&lt;/p>
 &lt;p>نوشتن کد:&lt;/p>
 &lt;p>1- با استفاده از ویرایشگر متن خود، فایلی به نام main.go در دایرکتوری generic ایجاد کنید. شما کد Go خود را در این فایل می نویسید.&lt;/p>
@@ -115,10 +115,10 @@ import &amp;#34;fmt&amp;#34;
 &lt;pre tabindex="0">&lt;code>$ go run .
 Non-Generic Sums: 46 and 62.97
 &lt;/code>&lt;/pre>&lt;p>با جنریک، می توانید به جای دو تابع، یک تابع را در اینجا بنویسید. در مرحله بعد، یک تابع کلی برای نقشه‌های حاوی مقادیر صحیح یا شناور اضافه می‌کنید.&lt;/p>
-&lt;h3 id="616-اضافه-کردن-تابع-جنریک-برای-استفاده-از-تایپهای-مختلف">
+&lt;h2 id="616-اضافه-کردن-تابع-جنریک-برای-استفاده-از-تایپهای-مختلف">
 6.1.6 اضافه کردن تابع جنریک برای استفاده از تایپ‌های مختلف
 &lt;a class="anchor" href="#616-%d8%a7%d8%b6%d8%a7%d9%81%d9%87-%da%a9%d8%b1%d8%af%d9%86-%d8%aa%d8%a7%d8%a8%d8%b9-%d8%ac%d9%86%d8%b1%db%8c%da%a9-%d8%a8%d8%b1%d8%a7%db%8c-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%aa%d8%a7%db%8c%d9%be%d9%87%d8%a7%db%8c-%d9%85%d8%ae%d8%aa%d9%84%d9%81">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>با generics، می توانید به جای دو تابع، یک تابع را در اینجا بنویسید. در مرحله بعد، یک تابع کلی برای mapهای حاوی مقادیر صحیح یا شناور اضافه می‌کنید.&lt;/p>
 &lt;p>برای پشتیبانی از مقادیر هر type، آن تابع منفرد به روشی نیاز دارد تا type هایی را که پشتیبانی می کند، اعلام یا declare کند. از سوی دیگر، کد فراخوانی به روشی نیاز دارد تا مشخص کند که آیا با یک map عدد صحیح یا شناور ارتباط می‌گیرد.&lt;/p>
 &lt;p>برای این منظور تابعی می نویسید که علاوه بر پارامترهای تابع معمولی، پارامترهای type را نیز اعلام می کند. این پارامترهای type، تابع را generic می‌کنند و آن را قادر می‌سازند با آرگومان‌هایی از typeهای مختلف کار کند درنهایت شما تابع را با آرگومان های type و آرگومان های تابع معمولی(ordinary) فراخوانی خواهید کرد.&lt;/p>
@@ -160,10 +160,10 @@ Non-Generic Sums: 46 and 62.97
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-3">3&lt;/a>&lt;/span>&lt;span>Generic Sums: &lt;span style="color:#bd93f9">46&lt;/span> and 62.97
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>برای اجرای کد باید در هر فراخوانی، کامپایلر type parameters را با typeهای مشخص شده در آن فراخوانی جایگزین می‌کند.&lt;/p>
 &lt;p>در فراخوانی generic function که نوشته‌اید، type arguments را مشخص کرده‌اید که به کامپایلر می‌گویند از چه typeهایی به جای type parameterهای تابع استفاده کند. همانطور که در بخش بعدی خواهید دید، در بسیاری از موارد می توانید این نوع آرگومان ها را حذف کنید زیرا کامپایلر می تواند آنها را پیش‌بینی کند.&lt;/p>
-&lt;h3 id="617-حذف-تایپ-آرگومان-تابع-در-زمان-استفاده-از-تابع-جنریک">
+&lt;h2 id="617-حذف-تایپ-آرگومان-تابع-در-زمان-استفاده-از-تابع-جنریک">
 6.1.7 حذف تایپ آرگومان تابع در زمان استفاده از تابع جنریک
 &lt;a class="anchor" href="#617-%d8%ad%d8%b0%d9%81-%d8%aa%d8%a7%db%8c%d9%be-%d8%a2%d8%b1%da%af%d9%88%d9%85%d8%a7%d9%86-%d8%aa%d8%a7%d8%a8%d8%b9-%d8%af%d8%b1-%d8%b2%d9%85%d8%a7%d9%86-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%aa%d8%a7%d8%a8%d8%b9-%d8%ac%d9%86%d8%b1%db%8c%da%a9">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;p>در این بخش، یک نسخه تغییر یافته از فراخوانی تابع generic را اضافه می‌کنید و یک تغییر کوچک برای ساده کردن کد فراخوانی ایجاد می‌کنید. شما type arguments را که در این مورد مورد نیاز نیستند، حذف خواهید کرد.&lt;/p>
 &lt;p>وقتی کامپایلر Go می تواند typeهای را که می خواهید استفاده کنید پیش‌بینی کند، می توانید type argumentsها را در فراخوانی کد حذف کنید. کامپایلر type arguments را از typeهای function argument پیش بینی می کند.&lt;/p>
 &lt;p>توجه داشته باشید که این همیشه امکان پذیر نیست. به عنوان مثال، اگر شما نیاز به فراخوانی یک تابع generic دارید که هیچ آرگومان ندارد، باید type argumentها را در فراخوانی تابع قرار دهید.&lt;/p>
