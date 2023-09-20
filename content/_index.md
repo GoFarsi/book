@@ -318,4 +318,15 @@ a {
 {{< author githubUrl="https://github.com/ezzoddin" githubImg="../assets/img/author/26.jpg" name="Mobina Ezzoddin" >}}
 
 {{< author githubUrl="https://github.com/keyvangholami" githubImg="../assets/img/author/27.jpg" name="Keyvan Gholami" >}}
+
+{{< author githubUrl="https://github.com/nigorita" githubImg="../assets/img/author/28.jpg" name="Negar Rahbar" >}}
+
+{{< author githubUrl="https://github.com/ArefTurkmenia" githubImg="../assets/img/author/29.jpg" name="Aref Turkmenia" >}}
+
+{{< author githubUrl="https://github.com/maverick0o0" githubImg="../assets/img/author/30.jpg" name="Erfan" >}}
+
+{{< author githubUrl="https://github.com/rezacloner1372" githubImg="../assets/img/author/31.jpg" name="Mamreza" >}}
+
+{{< author githubUrl="https://github.com/ErfanMomeni" githubImg="../assets/img/author/32.jpg" name="Erfan Momeni" >}}
+
 </p>
