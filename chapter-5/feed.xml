@@ -334,8 +334,7 @@
 &lt;p>و با دستور زیر در یک ترمینال مجزا به سرور متصل میشویم:
 &lt;code>telnet localhost 3000&lt;/code>&lt;/p>
 &lt;p>حال با نوشتن پیام و ارسال آن در ترمینال &lt;code>telnet&lt;/code> متن پیام و ادرس اتصال در ترمینال سرور قابل مشاهده است.&lt;/p>
-&lt;p>توجه داشته باشید که دستور ‍&lt;code>telnet&lt;/code> در ویندوز نیاز به فعال سازی دارد.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.3 سرور tcp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</guid><description>&lt;p>شبکه tcp پیشرفته&lt;/p>
-&lt;p>در این قسمت به طراحی و ساخت یک سرور tcp بصورت پیشرفته میپردازیم.
+&lt;p>توجه داشته باشید که دستور ‍&lt;code>telnet&lt;/code> در ویندوز نیاز به فعال سازی دارد.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.3 سرور tcp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</guid><description>&lt;p>در این قسمت به طراحی و ساخت یک سرور tcp بصورت پیشرفته میپردازیم.
 در قسمت قبل بعد از ایجاد سرور TCP ساده با استفاده از کلاینت telnet به آن متصل شدیم و دیتایی را انتقال دادیم.&lt;/p>
 &lt;p>در این قسمت یک سرور tcp را با هدف انتقال فایل های &lt;span class="tooltip" data-tooltip="large file" ontouchend="toggleTooltip(this)">حجیم&lt;/span>
 بصورت &lt;span class="tooltip" data-tooltip="stream" ontouchend="toggleTooltip(this)">جریان&lt;/span>
@@ -451,12 +450,11 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-103">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-103">103&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Printf&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;written %d byte over the network\n&amp;#34;&lt;/span>, n)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-104">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-104">104&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> &lt;span style="color:#ff79c6">nil&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-105">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-105">105&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>بعد از پایان نوشتن کد شما میتوانید با اجرا کردن کد خود (ترجیحا انتخاب یک عدد بزرگ برای حجم فایل یا همان ورودی تابع sendFile) میتوانید استریم شدن بایت هارا بصورت چانک چانک در لاگ های سمت سرور ببینید.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.4 سرور udp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</guid><description>&lt;p>شبکه udp مقدماتی&lt;/p>
-&lt;p>در این قسمت به طراحی و ساخت یک سرور UDP مقدماتی با گولنگ می پردازیم.&lt;/p>
-&lt;h1 id="معرفی-udp">
-معرفی UDP
-&lt;a class="anchor" href="#%d9%85%d8%b9%d8%b1%d9%81%db%8c-udp">#&lt;/a>
-&lt;/h1>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>بعد از پایان نوشتن کد شما میتوانید با اجرا کردن کد خود (ترجیحا انتخاب یک عدد بزرگ برای حجم فایل یا همان ورودی تابع sendFile) میتوانید استریم شدن بایت هارا بصورت چانک چانک در لاگ های سمت سرور ببینید.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.4 سرور udp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</guid><description>&lt;p>در این قسمت به طراحی و ساخت یک سرور UDP مقدماتی با گولنگ می پردازیم.&lt;/p>
+&lt;h2 id="541-معرفی-udp">
+5.4.1 معرفی UDP
+&lt;a class="anchor" href="#541-%d9%85%d8%b9%d8%b1%d9%81%db%8c-udp">#&lt;/a>
+&lt;/h2>
 &lt;p>پروتکل(User Datagram Protocol)
 یک پروتکل &lt;span class="tooltip" data-tooltip="connectionless" ontouchend="toggleTooltip(this)">فاقد اتصال&lt;/span>
 است.
@@ -464,10 +462,10 @@
 های این پروتکل بدون اتصال قبلی و بررسی اینکه ایا همه بسته ها به درستی ارسال شده اند به دستگاه مورد نظر ارسال میشود.
 به همین دلیل سرعت در این پروتکل از پروتکل tcp پایین تر است اما تظمین ارسال کامل و سالم داده وجود ندارد.
 از موارد استفاده این پروتکل میتوان سرور بازی های انلاین را مثال زد.&lt;/p>
-&lt;h1 id="پیاده-سازی">
-پیاده سازی
-&lt;a class="anchor" href="#%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c">#&lt;/a>
-&lt;/h1>
+&lt;h2 id="542-پیاده-سازی">
+5.4.2 پیاده سازی
+&lt;a class="anchor" href="#542-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c">#&lt;/a>
+&lt;/h2>
 &lt;p>برای پیاده سازی یک سرور udp در گولنگ و اتصال به آن همچنان از کتابخانه net استفاده میکنیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -507,10 +505,10 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-36">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-36">36&lt;/a>&lt;/span>&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-37">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-37">37&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>بعد از انجام مراحل بالا با دستور ‍&lt;code>go run main.go&lt;/code> کد خود را اجرا میکنیم.&lt;/p>
-&lt;h1 id="کد-کلاینت-برای-اتصال-به-سرور-ساخته-شده">
-کد کلاینت برای اتصال به سرور ساخته شده
-&lt;a class="anchor" href="#%da%a9%d8%af-%da%a9%d9%84%d8%a7%db%8c%d9%86%d8%aa-%d8%a8%d8%b1%d8%a7%db%8c-%d8%a7%d8%aa%d8%b5%d8%a7%d9%84-%d8%a8%d9%87-%d8%b3%d8%b1%d9%88%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87">#&lt;/a>
-&lt;/h1>
+&lt;h2 id="543-کد-کلاینت-برای-اتصال-به-سرور-ساخته-شده">
+5.4.3 کد کلاینت برای اتصال به سرور ساخته شده
+&lt;a class="anchor" href="#543-%da%a9%d8%af-%da%a9%d9%84%d8%a7%db%8c%d9%86%d8%aa-%d8%a8%d8%b1%d8%a7%db%8c-%d8%a7%d8%aa%d8%b5%d8%a7%d9%84-%d8%a8%d9%87-%d8%b3%d8%b1%d9%88%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87">#&lt;/a>
+&lt;/h2>
 &lt;p>اکنون با چند خط کد در زبان گولنگ به سرور خود متصل میشویم پیامی را به آن ارسال میکنیم&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -528,8 +526,7 @@
 ‍‍&lt;code>go run client.go&lt;/code>
 اجرا میکنیم (بسته به اسمی که برای فایل انتخاب کرده اید)&lt;/p>
 &lt;p>خروجی در کنسول کد سرور به این صورت خواهد بود:
-&lt;code>received: hello, gofarsi! from 127.0.0.1:54960&lt;/code>&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.5 سرور udp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</guid><description>&lt;p>شبکه udp پیشرفته&lt;/p>
-&lt;p>در قسمت قبل به ایجاد یک سرور udp ساده و ارسال پکت به آن پرداختیم.
+&lt;code>received: hello, gofarsi! from 127.0.0.1:54960&lt;/code>&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.5 سرور udp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</guid><description>&lt;p>در قسمت قبل به ایجاد یک سرور udp ساده و ارسال پکت به آن پرداختیم.
 در این قسمت با استفاده از یک سرور و کلاینت udp یک پیام رسان بصورت feed میسازیم.
 عملکرد سرور و کلاینت:
 یک سرور udp ایجاد میکنیم که تمام کانکشن های موجود را ذخیره میکند و به محض دریافت پیام از هر یک از کانکشن ها پیام را برای تمام کانکشن های دیگر بجر کانکشن ارسال کننده پیام ارسال میکند.&lt;/p>
@@ -642,8 +639,7 @@
 و در یکی از سرور ها فایل &lt;code>server.go&lt;/code> و در دو ترمینال دیگر فایل &lt;code>client.go&lt;/code> را اجرا میکنیم.&lt;/p>
 &lt;p>هر پیامی که توسط هر کلاینتی ارسال شود برای دیگر کلاینت ها قابل مشاهده است.&lt;/p>
 &lt;p>توجه کنید اسم فایل ها بر اساس اسم انتخابی شما است.
-همچنین توجه داشته باشید که شما میتوانید هر تعداد دلخواهی کلاینت را اجرا کنید.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.6 کتابخانه http سمت سرور مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</guid><description>&lt;p>آموزش کتابخانه http سمت سرور مقدماتی&amp;hellip;&lt;/p>
-&lt;p>یکی از قابلیت های زبان گو این است که می توان با استفاده از کتابخانه http داخلی گو استفاده کرده و وب سرور پیاده سازی کرد.&lt;/p>
+همچنین توجه داشته باشید که شما میتوانید هر تعداد دلخواهی کلاینت را اجرا کنید.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.6 کتابخانه http سمت سرور مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</guid><description>&lt;p>یکی از قابلیت های زبان گو این است که می توان با استفاده از کتابخانه http داخلی گو استفاده کرده و وب سرور پیاده سازی کرد.&lt;/p>
 &lt;p>برای پیاده سازی یک وب سرور حداقل به 3 چیز نیاز داریم: 1) مسیر 2) درگاه وب سرور 3) مقدار برگشتی&lt;/p>
 &lt;p>مسیر: عبارت است از URL منحصر به فرد برای ارسال و دریافت اطلاعات ورودی&lt;/p>
 &lt;p>درگاه وب سرور: هر وب سرور نیاز دارد که درگاه (Port) خاصی را در اختیار داشته باشد و همواره به آن درگاه گوش بسپارد.&lt;/p>
@@ -674,8 +670,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23&lt;/a>&lt;/span>&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>با وارد شدن به آدرس &lt;code>localhost:3000&lt;/code> مقدار برگشته شده در ‍&lt;code>handleFunc&lt;/code> را مشاهده خواهید کرد.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.7 کتابخانه http سمت سرور پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</guid><description>&lt;p>آموزش کتابخانه http سمت سرور پیشرفته&amp;hellip;&lt;/p>
-&lt;p>در قسمت قبل با استفاده از کتابخانه &lt;code>net/http&lt;/code> یک api ساده ایجاد کردیم.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>با وارد شدن به آدرس &lt;code>localhost:3000&lt;/code> مقدار برگشته شده در ‍&lt;code>handleFunc&lt;/code> را مشاهده خواهید کرد.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>5.7 کتابخانه http سمت سرور پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</guid><description>&lt;p>در قسمت قبل با استفاده از کتابخانه &lt;code>net/http&lt;/code> یک api ساده ایجاد کردیم.&lt;/p>
 &lt;p>در این قسمت به پیاده سازی یک سرور http برای مدیریت لیست TODO های خود میپردازیم و از چهار متد GET, POST, DELET and PATCH استفاده میکنیم.&lt;/p>
 &lt;p>در این پروژه از دیتابیس استفاده نمیشود. روش ذخیره سازی اطلاعات درون متغییر هاست دلیل استفاده نکردن از یک دیتابیس تمرکز این قسمت روی کتابخانه و پروتکل http است.&lt;/p>
 &lt;p>در ادامه به ایجاد سرور خود میپردازیم.&lt;/p>
@@ -770,10 +765,10 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-89">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-89">89&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>بعد از اتمام نوشتن سرور با استفاده از یک کلاینت &lt;code>http&lt;/code> مثل postman سرور خود را به روش زیر تست میکنیم:&lt;/p>
 &lt;p>نکته: شما می توانید کلاینت خود را خودتان با استفاده از اموزش کلاینت http در قسمت های دیگر بنویسید!&lt;/p>
-&lt;h2 id="add-todo">
+&lt;h3 id="add-todo">
 add todo
 &lt;a class="anchor" href="#add-todo">#&lt;/a>
-&lt;/h2>
+&lt;/h3>
 &lt;p>endpoint: &lt;code>localhost:8080/todos/add&lt;/code>&lt;/p>
 &lt;p>method:&lt;code>POST&lt;/code>&lt;/p>
 &lt;p>request:&lt;/p>
@@ -786,10 +781,10 @@ add todo
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">&amp;#34;title&amp;#34;&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;todo1 test&amp;#34;&lt;/span>,
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">4&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">&amp;#34;status&amp;#34;&lt;/span>: &lt;span style="color:#ff79c6">false&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5">5&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="get-todos">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="get-todos">
 get todo&amp;rsquo;s
 &lt;a class="anchor" href="#get-todos">#&lt;/a>
-&lt;/h2>
+&lt;/h3>
 &lt;p>endpoint: &lt;code>localhost:8080/todos&lt;/code>&lt;/p>
 &lt;p>method:&lt;code>GET&lt;/code>&lt;/p>
 &lt;p>request:&lt;/p>
@@ -802,10 +797,10 @@ get todo&amp;rsquo;s
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6">6&lt;/a>&lt;/span>&lt;span> },
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-7">7&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">//...
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-8">8&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="update-todo">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="update-todo">
 update todo
 &lt;a class="anchor" href="#update-todo">#&lt;/a>
-&lt;/h2>
+&lt;/h3>
 &lt;p>endpoint: &lt;code>localhost:8080/todos/update&lt;/code>&lt;/p>
 &lt;p>method:&lt;code>PATCH&lt;/code>&lt;/p>
 &lt;p>request:&lt;/p>
@@ -819,10 +814,10 @@ update todo
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3">3&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">&amp;#34;title&amp;#34;&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;todo1 test&amp;#34;&lt;/span>,
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-4">4&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">&amp;#34;status&amp;#34;&lt;/span>: &lt;span style="color:#ff79c6">true&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-5">5&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="delete-todo">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="delete-todo">
 delete todo
 &lt;a class="anchor" href="#delete-todo">#&lt;/a>
-&lt;/h2>
+&lt;/h3>
 &lt;p>endpoint: &lt;code>localhost:8080/todos/delete&lt;/code>&lt;/p>
 &lt;p>method:&lt;code>DELETE&lt;/code>&lt;/p>
 &lt;p>request:&lt;/p>
@@ -833,18 +828,17 @@ delete todo
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1&lt;/a>&lt;/span>&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2">2&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">&amp;#34;message&amp;#34;&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;TODO deleted&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3">3&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>5.8 کتابخانه http سمت کلاینت مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</guid><description>&lt;p>آموزش کتابخانه http سمت کلاینت مقدماتی&amp;hellip;&lt;/p>
-&lt;p>برای ایجاد کلاینت http در گولنگ نیاز به کتابخانه &lt;code>net/http&lt;/code> داریم.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>5.8 کتابخانه http سمت کلاینت مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</guid><description>&lt;p>برای ایجاد کلاینت http در گولنگ نیاز به کتابخانه &lt;code>net/http&lt;/code> داریم.
 قبل از شروع به نوشتن کلاینت خود چند مفهوم کلی راه بررسی میکنیم.&lt;/p>
-&lt;h2 id="سرور-">
-سرور :
-&lt;a class="anchor" href="#%d8%b3%d8%b1%d9%88%d8%b1-">#&lt;/a>
+&lt;h2 id="581-سرور">
+5.8.1 سرور
+&lt;a class="anchor" href="#581-%d8%b3%d8%b1%d9%88%d8%b1">#&lt;/a>
 &lt;/h2>
 &lt;p>همانطور که میدانیم سرور های http برای تعریف مسیر ها منطق سرور و دریافت درخواست ها طراحی و ساخته میشوند.
 (در قسمت های قبل ایجاد سرور http بصورت کامل یادگرفتیم)&lt;/p>
-&lt;h2 id="کلاینت-">
-کلاینت :
-&lt;a class="anchor" href="#%da%a9%d9%84%d8%a7%db%8c%d9%86%d8%aa-">#&lt;/a>
+&lt;h2 id="582-کلاینت">
+5.8.2 کلاینت
+&lt;a class="anchor" href="#582-%da%a9%d9%84%d8%a7%db%8c%d9%86%d8%aa">#&lt;/a>
 &lt;/h2>
 &lt;p>کلاینت های در پروتوکول http برای صدا کردن (call) و ارسال درخواست به سرور ها طراحی و ساخته میشوند.
 در ادامه یک کلاینت مقدماتی و ساده را در زبان گولنگ ایجاد میکنیم.&lt;/p>
@@ -921,16 +915,15 @@ delete todo
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-44">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-44">44&lt;/a>&lt;/span>&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">div&lt;/span>&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-45">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-45">45&lt;/a>&lt;/span>&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">body&lt;/span>&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-46">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-46">46&lt;/a>&lt;/span>&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">html&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>5.9 کتابخانه http سمت کلاینت پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</guid><description>&lt;p>آموزش کتابخانه http سمت کلاینت پیشرفته&amp;hellip;&lt;/p>
-&lt;p>در قسمت قبل به ایجاد یک کلاینت http ساده و ارسال یک درخواست با متد get پرداختیم.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>5.9 کتابخانه http سمت کلاینت پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</guid><description>&lt;p>در قسمت قبل به ایجاد یک کلاینت http ساده و ارسال یک درخواست با متد get پرداختیم.&lt;/p>
 &lt;p>در این قسمت به موارد کامل تر و جزیی تر کلاینت http میپردازیم.&lt;/p>
 &lt;p>برای انجام تمرین های این قسمت از یک api تستی که جهت یادگیری ساخته شده است استفاده میکنیم (شما میتوانید از هر api یا سروری استفاده کنید حتی سرور http که خودتان نوشته باشید.)&lt;/p>
 &lt;p>در این آموزش ما از api زیر استفاده میکنیم:
 &lt;a href="https://fakestoreapi.com/docs">api docs&lt;/a>&lt;/p>
-&lt;h4 id="نوع-درخواست-های-یک-سرور-http">
-نوع درخواست های یک سرور http
-&lt;a class="anchor" href="#%d9%86%d9%88%d8%b9-%d8%af%d8%b1%d8%ae%d9%88%d8%a7%d8%b3%d8%aa-%d9%87%d8%a7%db%8c-%db%8c%da%a9-%d8%b3%d8%b1%d9%88%d8%b1-http">#&lt;/a>
-&lt;/h4>
+&lt;h2 id="591-نوع-درخواست-های-یک-سرور-http">
+5.9.1 نوع درخواست های یک سرور http
+&lt;a class="anchor" href="#591-%d9%86%d9%88%d8%b9-%d8%af%d8%b1%d8%ae%d9%88%d8%a7%d8%b3%d8%aa-%d9%87%d8%a7%db%8c-%db%8c%da%a9-%d8%b3%d8%b1%d9%88%d8%b1-http">#&lt;/a>
+&lt;/h2>
 &lt;p>یکی از مواردی که حین اتصال به یک سرور http باید مورد توجه قرار بگیرد متد یا نوع درخواست است.&lt;/p>
 &lt;p>انواع متد ها:
 GET : پیام هایی که در این روش ارسال می‌شوند تنها برای دریافت اطلاعات از سرور میباشد.&lt;/p>
@@ -939,10 +932,10 @@ GET : پیام هایی که در این روش ارسال می‌شوند تن�
 &lt;p>DELETE : از این روش برای حذف مقداری از روی سرور استفاده میشود&lt;/p>
 &lt;p>PATCH : این روش برای ویرایش جزیی استفاده میشود.&lt;/p>
 &lt;p>این موارد ۵ تا از پرکابرد ترین نوع درخواست های http هستند.&lt;/p>
-&lt;h4 id="نوع-پاسخ-های-یک-سرور-http">
-نوع پاسخ های یک سرور http
-&lt;a class="anchor" href="#%d9%86%d9%88%d8%b9-%d9%be%d8%a7%d8%b3%d8%ae-%d9%87%d8%a7%db%8c-%db%8c%da%a9-%d8%b3%d8%b1%d9%88%d8%b1-http">#&lt;/a>
-&lt;/h4>
+&lt;h2 id="592-نوع-پاسخ-های-یک-سرور-http">
+5.9.2 نوع پاسخ های یک سرور http
+&lt;a class="anchor" href="#592-%d9%86%d9%88%d8%b9-%d9%be%d8%a7%d8%b3%d8%ae-%d9%87%d8%a7%db%8c-%db%8c%da%a9-%d8%b3%d8%b1%d9%88%d8%b1-http">#&lt;/a>
+&lt;/h2>
 &lt;p>در پاسخ یک سرور http یکی از موارد پر اهمیت کد وضعیت یا status code است.
 این کد ها اعدادی بین ۱۰۰ تا ۵۹۹ هستند که نشان دهنده وضعیت درخوایت از سمت سرور میباشند.&lt;/p>
 &lt;p>انواع کد وضعیت:
@@ -960,10 +953,10 @@ GET : پیام هایی که در این روش ارسال می‌شوند تن�
 &lt;li>401 Unauthorized : این کد وضعیت نشانگر این است که درخواست ارسال شده نیاز به احراز هویت دارد&lt;/li>
 &lt;li>403 Forbidden : این کد وضعیت نشانگر این است که دسترسی به URL مورد نظر نیازمند سطح دسترسی متفاوتی است(این مورد با ۴۰۱ متفاوت است)&lt;/li>
 &lt;/ol>
-&lt;h1 id="get-request">
-GET request
-&lt;a class="anchor" href="#get-request">#&lt;/a>
-&lt;/h1>
+&lt;h2 id="593-get-request">
+5.9.3 GET request
+&lt;a class="anchor" href="#593-get-request">#&lt;/a>
+&lt;/h2>
 &lt;p>در مرحله اول به ایجاد یک درخواست GET به سرور میپردازیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -1007,10 +1000,10 @@ GET request
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9"> 9&lt;/a>&lt;/span>&lt;span>},
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10">10&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// .....
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-11">11&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="post-request">
-POST request
-&lt;a class="anchor" href="#post-request">#&lt;/a>
-&lt;/h1>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="594-post-request">
+5.9.4 POST request
+&lt;a class="anchor" href="#594-post-request">#&lt;/a>
+&lt;/h2>
 &lt;p>در مرحله بعد با استفاده از متد POST یک محصول جدید به سرور اضافه میکنیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -1053,10 +1046,10 @@ POST request
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-39">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-39">39&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;Response:&amp;#34;&lt;/span>, resp)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-40">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-40">40&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در صورت برابر بودن کد وضعیت با ۲۰۰ محصول ایجاد شده توسط شما با موفقیت ثبت شده است.&lt;/p>
-&lt;h1 id="delete-request">
-DELETE request
-&lt;a class="anchor" href="#delete-request">#&lt;/a>
-&lt;/h1>
+&lt;h2 id="595-delete-request">
+5.9.5 DELETE request
+&lt;a class="anchor" href="#595-delete-request">#&lt;/a>
+&lt;/h2>
 &lt;p>در مرحله بعد به ایجاد یک درخواست DELETE و پاک کردن یک محصول از سرور میپردازیم:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -1083,10 +1076,10 @@ DELETE request
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-23">23&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">// درصورت موفقیت آمیز بودن درخواست خروجی عدد 200 است
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-24">24&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;Status:&amp;#34;&lt;/span>, resp.Status)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-25">25&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="put-request">
-PUT request
-&lt;a class="anchor" href="#put-request">#&lt;/a>
-&lt;/h1>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="596-put-request">
+5.9.6 PUT request
+&lt;a class="anchor" href="#596-put-request">#&lt;/a>
+&lt;/h2>
 &lt;p>در مرحله بعد به ایجاد یک درخواست PUT و اپدیت کردن اطلاعات یک محصول میپردازیم:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2"> 2&lt;/a>&lt;/span>&lt;span>
