@@ -2528,11 +2528,11 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;input type="submit" value="اجرای کد فوق در playground" class="goplay-btn" />
 &lt;/form>
 &lt;/div>
-&lt;h1 id="197-lable-در-حلقه-ها">
-1.9.7 lable در حلقه ها
-&lt;a class="anchor" href="#197-lable-%d8%af%d8%b1-%d8%ad%d9%84%d9%82%d9%87-%d9%87%d8%a7">#&lt;/a>
+&lt;h1 id="197-label-در-حلقه-ها">
+1.9.7 label در حلقه ها
+&lt;a class="anchor" href="#197-label-%d8%af%d8%b1-%d8%ad%d9%84%d9%82%d9%87-%d9%87%d8%a7">#&lt;/a>
 &lt;/h1>
-&lt;p>شما با قابلیت lable در زبان گو می‌توانید لیبلی را به یک حلقه خاص اختصاص دهید و بعد از چند حلقه تو در تو حلقه مورد نظر را break کنید.&lt;/p>
+&lt;p>شما با قابلیت label در زبان گو می‌توانید لیبلی را به یک حلقه خاص اختصاص دهید و بعد از چند حلقه تو در تو حلقه مورد نظر را break کنید.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
