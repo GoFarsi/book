@@ -2,7 +2,7 @@ name: CD-Liara
 on:
   push:
     branches:
-      - main
+      - gh-pages
 jobs:
   deploy:
     runs-on: ubuntu-latest
