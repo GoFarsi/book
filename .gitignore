@@ -34,3 +34,4 @@ latestcheck.json
 app/desktop/book/
 .obsidian/
 .hugo_build.lock
+Thumbs.db
