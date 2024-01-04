@@ -1,6 +1,6 @@
 ---
-title: '12.1 بلاکچین با گو'
-weight: 25100
+title: 12.1 بلاکچین
+weight: 25000
 bookCollapseSection: true
 ---
 
