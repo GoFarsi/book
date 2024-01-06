@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>12.1 بلاکچین on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-12/blockchain/</link><description>Recent content in 12.1 بلاکچین on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-12/blockchain/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>12.1.1 بلاکچین چیست</title><link>https://book.gofarsi.ir/chapter-12/blockchain/blockchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/blockchain/blockchain/</guid><description>&lt;center>&lt;a href="#">
-&lt;img src="../../assets/img/content/chapter12/blockchain/12.1-0.png" alt="Blockchain">
+&lt;img src="../../../assets/img/content/chapter12/blockchain/12.1-0.png" alt="Blockchain">
 &lt;/a>&lt;/center>
 &lt;p>بلاکچین (زنجیره بلوک) در واقع یک سیستم توزیع شده &lt;span class="tooltip" data-tooltip="P2P" ontouchend="toggleTooltip(this)">همتا به همتا&lt;/span>
 (Peer to Peer) &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> می باشد که هیچ سرور مرکزی وجود ندارد و این شبکه با افزایش تعداد بلوک ها, تراکنش ها و کلاینت ها رشد می کند و در این شبکه تمامی اطلاعات بصورت رمزنگاری شده رد و بدل می شود و از انواع رمزنگاری متقارن و نامتقارن برای افزایش امنیت شبکه استفاده می شود.&lt;/p>
 &lt;p>هدف اصلی بلاکچین بوجود آمدن یک سیستم شفاف و غیرمرکزی هست که دولت ها یا شرکت ها هیچ دسترسی مستقیمی برروی اطلاعات موجود در شبکه نداشته باشند و تمامی اطلاعات بصورت رمزنگاری شده داخل شبکه رد و بدل شود, منظور از سیستم غیرمرکزی یعنی کلاینت هایی که به شبکه متصل می شوند یکدیگر را به هیچ عنوان نمی شناسند و ممکن است یکی از کلاینت ها سیستم شخصی شما باشد یا اینکه یک سرور مجازی و&amp;hellip; باشد و این کلاینت ها با متصل شدن به یکدیگر و انتشار اطلاعات برای سایر اعضای مجموعه خود باعث بروز شدن اطلاعات شبکه می باشد.&lt;/p>
 &lt;center>&lt;a href="#">
-&lt;img src="../../assets/img/content/chapter12/blockchain/12.1-1.png" alt="P2P Network">
+&lt;img src="../../../assets/img/content/chapter12/blockchain/12.1-1.png" alt="P2P Network">
 &lt;/a>&lt;/center>
 &lt;p>بلاکچین عموما توسط کامپیوترهای داخل شبکه &lt;span class="tooltip" data-tooltip="P2P" ontouchend="toggleTooltip(this)">همتا به همتا&lt;/span>
 مدیریت می شود و جایی که هر &lt;span class="tooltip" data-tooltip="Node" ontouchend="toggleTooltip(this)">گره&lt;/span>
