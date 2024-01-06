@@ -156,6 +156,10 @@ a.book-btn.gray {
   direction: ltr !important;
 }
 
+.markdown ol {
+    direction: rtl;
+}
+
 .markdown pre code > span {
   overflow-x: auto;
 }
@@ -603,3 +607,4 @@ a.book-btn {
   background-color: #333333;
   color: #ffffff;
   }
+
