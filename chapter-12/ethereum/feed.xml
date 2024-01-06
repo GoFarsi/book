@@ -54,12 +54,18 @@
 &lt;a class="anchor" href="#123112--world-state">#&lt;/a>
 &lt;/h2>
 &lt;p>در شبکه اتریم یک استیت جهانی (شبیه به دفتر کل بیتکوین) وجود دارد. اطلاعاتی که تمامی نود ها بصورت یکپارچه از وضعیت ماشین مجازی اتریوم و حساب ها نگهداری میکنند همان ورلد استیت اتریوم است.&lt;/p>
-&lt;p>&lt;img src="../../../assets/img/content/chapter-12/world-state.png" alt="world state" />&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter-12/world-state.png" alt="world state">
+&lt;/a>&lt;/center>
 &lt;p>تغییرت و تراکنش های اعمال شده در اطلاعات یک نود با دیگر نود ها در یک شبکه همتا به همتا صورت میگیرد (در ادامه به جزییات این شبکه بیشتر خواهیم پرداخت).&lt;/p>
-&lt;p>&lt;img src="../../../assets/img/content/chapter-12/p2p-net.png" alt="P2P" />&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter-12/p2p-net.png" alt="P2P">
+&lt;/a>&lt;/center>
 &lt;p>گفتنی است که این تغییرات نیاز دارند تا در مرحله اجماع به تایید اکثریت نود ها برسند تا در استیت جهانی اعمال شوند. و پیام های رد و بدل شد در فرایند اجماع در همین شبکه همتا به همتا منتقل میشوند.&lt;/p>
-&lt;p>راه ارتباطی کابر با نود های شبکه برای خواندن و نوشتن اطلاعات بر ورلد استیت یک API وب ۳ است.
-&lt;img src="../../../assets/img/content/chapter-12/web3-API.png" alt="web3 API" />&lt;/p>
+&lt;p>راه ارتباطی کابر با نود های شبکه برای خواندن و نوشتن اطلاعات بر ورلد استیت یک API وب ۳ است.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter-12/web3-API.png" alt="web3 API">
+&lt;/a>&lt;/center>
 &lt;p>شما برای هر مدل از عملیات نوشتن نیاز به ایجاد یک تراکنش دارید که بسته به تراکنش و بار شبکه کارمزدی متفاوت دارد.
 اما برای خواندن اطلاعات از شبکه مثل اطلاعات یک بلاک یا حافظه یک قرارداد هوشمند کارمزدی در نظر گرفته نمیشود و نیازی به ایجاد تراکنش نیست و RPC هایی جهت اینکار اراعه میشود.&lt;/p>
 &lt;blockquote>
@@ -75,7 +81,9 @@
 &lt;p>حساب های کنترل شده توسط افراد خارجی یا کنترل شده توسط شخص، حساب هایی معمولی هستند که توانایی نگهداری ارز اتر و انتقال ان با استفاده از ایجاد تراکنش بر روی شبکه را دارند.&lt;/p>
 &lt;p>این اکانت ها با یک کلید خصوصی کنترل میشوند.&lt;/p>
 &lt;p>این اکانت های دارای دو بخش هستند (هر ادرس یا کلید عمومی به یک فیلد دو بخشی از این اطلاعات در ورلد استیت اتریوم اشاره دارد.)&lt;/p>
-&lt;p>&lt;img src="../../../assets/img/content/chapter-12/EOA.png" alt="EOA" />&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter-12/EOA.png" alt="EOA">
+&lt;/a>&lt;/center>
 &lt;h2 id="123411-nonce">
 12.3.4.1.1 nonce
 &lt;a class="anchor" href="#123411-nonce">#&lt;/a>
@@ -87,27 +95,64 @@
 12.3.4.1.2 balance
 &lt;a class="anchor" href="#123412-balance">#&lt;/a>
 &lt;/h2>
-&lt;p>مقدار دوم یک بالانس یا موجودی است که بطور خلاصه این بالانس مقدار موجودی اتر یک حساب را نمایش میدهد و نگهداری میکند.&lt;/p>
+&lt;p>مقدار دوم یک بالانس یا موجودی است که بطور خلاصه این بالانس مقدار موجودی یک حساب را به وی (wei) نمایش میدهد و نگهداری میکند.&lt;/p>
 &lt;h1 id="12342-contract-accounts-ca">
 12.3.4.2 contract accounts (CA)
 &lt;a class="anchor" href="#12342-contract-accounts-ca">#&lt;/a>
 &lt;/h1>
 &lt;p>نوع دوم اکانت های اتریوم اکانت های قرار داد هوشمند است. این حساب ها قابلیت پردازش تراکنش و ایجاد تغییر در ورلد استیت را دارا هستند.
-در ادامه به جزییات اسن حساب ها میپردازیم.&lt;/p>
-&lt;p>&lt;img src="../../../assets/img/content/chapter-12/CA.png" alt="CA" />&lt;/p>
+این حساب ها بجای یک کلید خصوصی توسط یک کد EVM کنترل میشوند.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter-12/CA.png" alt="CA">
+&lt;/a>&lt;/center>
 &lt;h2 id="123421-nonce">
 12.3.4.2.1 nonce
 &lt;a class="anchor" href="#123421-nonce">#&lt;/a>
 &lt;/h2>
+&lt;p>نانس در کانترکت ها با عدد صفر شروع میشد که طی EIP-161 این عدد به یک تغییر کرد.
+بر خلاف حساب های عادی در حساب های کانترکت تنها زمانی نانس افزایش پیدا میکند که کانترکت یک کانترکت جدید بسازد.&lt;/p>
+&lt;blockquote>
+&lt;p>کانترکت ها میتوانند کانترکت های جدیدی بر روی شبکه مستقر کنند.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>هیچ کانترکتی نمیتواند مالک کانترکت دیگری باشد. اما زمانی که کاربری با یک تراکنش تابعی از یک کانترکت ایجاد میکند که کانترکتی دیگر ایجاد شود. نانس کانترکت افزایش پیدا میکند. و مالک کانترکت حساب ایجاد کننده تراکنش خواهد بود.&lt;/p>
+&lt;/blockquote>
+&lt;p>همچنین خوب است نگاهی به این رشته در وبسایت استک اکسچنج اتریوم بیندازید:
+&lt;a href="https://ethereum.stackexchange.com/questions/764/do-contracts-also-have-a-nonce">https://ethereum.stackexchange.com/questions/764/do-contracts-also-have-a-nonce&lt;/a>&lt;/p>
 &lt;h2 id="123422-balance">
 12.3.4.2.2 balance
 &lt;a class="anchor" href="#123422-balance">#&lt;/a>
 &lt;/h2>
-&lt;h2 id="123423-storage-hash">
-12.3.4.2.3 storage hash
-&lt;a class="anchor" href="#123423-storage-hash">#&lt;/a>
+&lt;p>حساب های کانترکت هم مثل حساب های شخصی یا EOA دارای موجودی هستند. که موجودی انها به واحد wei نگهداری میشود.&lt;/p>
+&lt;h2 id="123423-code-hash">
+12.3.4.2.3 code hash
+&lt;a class="anchor" href="#123423-code-hash">#&lt;/a>
 &lt;/h2>
-&lt;h2 id="123424-code-hash">
-12.3.4.2.4 code hash
-&lt;a class="anchor" href="#123424-code-hash">#&lt;/a>
-&lt;/h2></description></item><item><author>Javad Rajabzadeh</author><title>12.3.5 تراکنش ها و پیغام ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-transactions-and-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-transactions-and-messages/</guid><description>&lt;p>تراکنش ها و پیغام ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.6 ماشین مجازی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</guid><description>&lt;p>ماشین مجازی اتریوم&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.7 بلاک ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</guid><description>&lt;p>بلاک ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.8 الگوریتم اجماع</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</guid><description>&lt;p>الگوریتم اجماع&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.9 نودها و ماینرها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</guid><description>&lt;p>نودها و ماینرها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.10 شبکه</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</guid><description>&lt;p>شبکه&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.11 قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</guid><description>&lt;p>قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.12 والت ها و کلاینت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</guid><description>&lt;p>والت ها و کلاینت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.13 معرفی go-ethereum</title><link>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</guid><description>&lt;p>معرفی go-ethereum&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.14 کار با اکانت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</guid><description>&lt;p>کار با اکانت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.15 تراکنش برروی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</guid><description>&lt;p>تراکنش برروی اتریوم&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.16 نوشتن و ارتباط با قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</guid><description>&lt;p>نوشتن و ارتباط با قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.17 آشنایی با فایل ABI و bytecode</title><link>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</guid><description>&lt;p>آشنایی با فایل ABI و bytecode&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.18 خواندن و دریافت لحظه ای لاگ های کانترکت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</guid><description>&lt;p>خواندن و دریافت لحظه ای لاگ های کانترکت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.19 ایجاد و تایید امضا</title><link>https://book.gofarsi.ir/chapter-12/ethereum/signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/signature/</guid><description>&lt;p>ایجاد و تایید امضا&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.20 کار با geth</title><link>https://book.gofarsi.ir/chapter-12/ethereum/geth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/geth/</guid><description>&lt;p>کار با geth&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.21 کار با پروتکل whisper و swarm</title><link>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</guid><description>&lt;p>کار با پروتکل whisper و swarm&lt;/p></description></item></channel></rss>
+&lt;p>همانطور که میدانید حساب های کانترکت شامل یک کد که توسط ماشین مجازی اتریوم قابل اجرا هستند را هم شامل میشوند.
+خود مقدار بایت کد های کانترکت در دیتابیس نود ها بصورت کلید و مقدار نگهداری میشود. در مقدار خود حساب در استیت جهانی یک هش از حساب نگهداری میشود. دلیل نگهداری شدن هش این است که زمانی که با تغییر نانس یا موجودی نیاز به محاسبه دوباره ریشه هش حساب (درخت مرکل) می باشد این محاسبه ارزان تر از محاسبه کل مقدار کد خواهد بود.&lt;/p>
+&lt;p>با این روش ما کد مربوط به حساب را میتوانیم در دیتابیس نود پیدا کنیم. انرا اعبتار سنجی کنیم که یک کد مربوط به ان حساب اجرا خواهد شد. و در نهایت حین محسابیه ریشه هش درخت مرکل حساب هزینه کمی صرف خواهیم کرد.&lt;/p>
+&lt;h2 id="123424-storage-root">
+12.3.4.2.4 storage root
+&lt;a class="anchor" href="#123424-storage-root">#&lt;/a>
+&lt;/h2>
+&lt;p>همانطور که اشاره کردیم هر کانترکت به یک دیتابیس با مدل مقدار و کلید (key/value) دسترسی دارد.
+این مقادیر در دیتابیس نود ها نگهداری میشوند. ریشه درخت مرکل این دیتا ها (مربوط به همان کانترکت خاص فقط) در این بخش نگهداری میشود. علت نگهداری این هش مشابه نگهداری هش کد کانترکت است.&lt;/p>
+&lt;p>با این روت هش میتوان فضای ذخیره سازی کانترکت را اعتبار سنجی کرد. تغییر ان را تشخیص داد و همچنین از جایی که یک روت هش از ان داریم محسابه روت هش خود حساب را ارزان نگه میدارد.&lt;/p>
+&lt;h1 id="12343-address">
+12.3.4.3 address
+&lt;a class="anchor" href="#12343-address">#&lt;/a>
+&lt;/h1>
+&lt;p>آدرس های حساب های شخصی و کانترکت تفاوت هایی دارند. در بخش کلید ها و ادرس بصورت جزیی انهارا بررسی کرده ایم. اما در این بخش هم توضیحی خلاصه جهت تکمیل مطلب خواهیم داشت.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter-12/address.png" alt="address">
+&lt;/a>&lt;/center>
+&lt;h2 id="123431-eoa">
+12.3.4.3.1 EOA
+&lt;a class="anchor" href="#123431-eoa">#&lt;/a>
+&lt;/h2>
+&lt;p>ادرس در اکانت های شخصی از هش شدن کلید عمومی بدست می آید. که طول ان ۶۴ کاراکتر بر مبنای ۱۶ است.&lt;/p>
+&lt;h2 id="123432-ca">
+12.3.4.3.2 CA
+&lt;a class="anchor" href="#123432-ca">#&lt;/a>
+&lt;/h2>
+&lt;p>ادرس حساب های کانترکت از هش ادرس حساب مالک (حساب شخصی که تراکنش استقرار کانترکت را ایجاد میکند.) و عدد نانس همان حساب بدست می اید که طول ان ۴۲ کاراکتر بر مبنای ۱۶ است.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.5 تراکنش ها و پیغام ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-transactions-and-messages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-transactions-and-messages/</guid><description>&lt;p>تراکنش ها و پیغام ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.6 ماشین مجازی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</guid><description>&lt;p>ماشین مجازی اتریوم&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.7 بلاک ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</guid><description>&lt;p>بلاک ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.8 الگوریتم اجماع</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</guid><description>&lt;p>الگوریتم اجماع&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.9 نودها و ماینرها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</guid><description>&lt;p>نودها و ماینرها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.10 شبکه</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</guid><description>&lt;p>شبکه&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.11 قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</guid><description>&lt;p>قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.12 والت ها و کلاینت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</guid><description>&lt;p>والت ها و کلاینت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.13 معرفی go-ethereum</title><link>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</guid><description>&lt;p>معرفی go-ethereum&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.14 کار با اکانت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</guid><description>&lt;p>کار با اکانت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.15 تراکنش برروی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</guid><description>&lt;p>تراکنش برروی اتریوم&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.16 نوشتن و ارتباط با قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</guid><description>&lt;p>نوشتن و ارتباط با قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.17 آشنایی با فایل ABI و bytecode</title><link>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</guid><description>&lt;p>آشنایی با فایل ABI و bytecode&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.18 خواندن و دریافت لحظه ای لاگ های کانترکت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</guid><description>&lt;p>خواندن و دریافت لحظه ای لاگ های کانترکت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.19 ایجاد و تایید امضا</title><link>https://book.gofarsi.ir/chapter-12/ethereum/signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/signature/</guid><description>&lt;p>ایجاد و تایید امضا&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.20 کار با geth</title><link>https://book.gofarsi.ir/chapter-12/ethereum/geth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/geth/</guid><description>&lt;p>کار با geth&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.21 کار با پروتکل whisper و swarm</title><link>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</guid><description>&lt;p>کار با پروتکل whisper و swarm&lt;/p></description></item></channel></rss>
