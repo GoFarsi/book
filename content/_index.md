@@ -339,4 +339,8 @@ a {
 
 {{< author githubUrl="https://github.com/ErfanMomeni" githubImg="../assets/img/author/32.jpg" name="Erfan Momeni" >}}
 
+{{< author githubUrl="https://github.com/alireza-fa" githubImg="../assets/img/author/33.jpg" name="Alireza Feizi" >}}
+
+{{< author githubUrl="https://github.com/kehiy" githubImg="../assets/img/author/34.jpg" name="Keyhan Alizadeh" >}}
+
 </p>
