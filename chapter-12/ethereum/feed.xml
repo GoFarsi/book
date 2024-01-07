@@ -3,7 +3,7 @@
 &lt;a class="anchor" href="#12311-%d8%a7%d8%aa%d8%b1%db%8c%d9%88%d9%85">#&lt;/a>
 &lt;/h1>
 &lt;center>&lt;a href="#">
-&lt;img src="../../../static/assets/img/content/chapter-12/ethereum/ethereum-logo.png" alt="Ethereum logo">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/ethereum-logo.png" alt="Ethereum logo">
 &lt;/a>&lt;/center>
 &lt;p>بعد از حل مشکلاتی که برای ایجاد یک ارز یا سکه دیجیتالی یا مجازی وجود داشت توسط بیتکوین، با استفاده از ایجاد یک دفتر کل غیر متمرکز، دیتا مدل بلاکچین و سیستم غیرمتمرکز آن موقعیتی برای ایجاد و حل مشکلات دیگه فراهم کرد.&lt;/p>
 &lt;p>ویتالیک بوترین ایده اتریوم و وایت پیپر ان را اولین بار در سال ۲۰۱۳ منتشر کرد. او یک فعال در مجله بیتکوین بود و اعتقاد داشت بیتکوین دارای مشکلاتی است که باید برطرف شود. او در سال ۲۰۱۴ با چند توسعه دهنده دیگر در ماه اوت همان سال برای اجرای ایده خود شروع به جذب سرمایه کرد.&lt;/p>
@@ -58,16 +58,16 @@
 &lt;/h2>
 &lt;p>در شبکه اتریم یک استیت جهانی (شبیه به دفتر کل بیتکوین) وجود دارد. اطلاعاتی که تمامی نود ها بصورت یکپارچه از وضعیت ماشین مجازی اتریوم و حساب ها نگهداری میکنند همان ورلد استیت اتریوم است.&lt;/p>
 &lt;center>&lt;a href="#">
-&lt;img src="../../../static/assets/img/content/chapter-12/ethereum/world-state.png" alt="world state">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/world-state.png" alt="world state">
 &lt;/a>&lt;/center>
 &lt;p>تغییرت و تراکنش های اعمال شده در اطلاعات یک نود با دیگر نود ها در یک شبکه همتا به همتا صورت میگیرد (در ادامه به جزییات این شبکه بیشتر خواهیم پرداخت).&lt;/p>
 &lt;center>&lt;a href="#">
-&lt;img src="../../../static/assets/img/content/chapter-12/ethereum/p2p-net.png" alt="P2P">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/p2p-net.png" alt="P2P">
 &lt;/a>&lt;/center>
 &lt;p>گفتنی است که این تغییرات نیاز دارند تا در مرحله اجماع به تایید اکثریت نود ها برسند تا در استیت جهانی اعمال شوند. و پیام های رد و بدل شد در فرایند اجماع در همین شبکه همتا به همتا منتقل میشوند.&lt;/p>
 &lt;p>راه ارتباطی کابر با نود های شبکه برای خواندن و نوشتن اطلاعات بر ورلد استیت یک API وب ۳ است.&lt;/p>
 &lt;center>&lt;a href="#">
-&lt;img src="../../../static/assets/img/content/chapter-12/ethereum/web3-API.png" alt="web3 API">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/web3-API.png" alt="web3 API">
 &lt;/a>&lt;/center>
 &lt;p>شما برای هر مدل از عملیات نوشتن نیاز به ایجاد یک تراکنش دارید که بسته به تراکنش و بار شبکه کارمزدی متفاوت دارد.
 اما برای خواندن اطلاعات از شبکه مثل اطلاعات یک بلاک یا حافظه یک قرارداد هوشمند کارمزدی در نظر گرفته نمیشود و نیازی به ایجاد تراکنش نیست و RPC هایی جهت اینکار اراعه میشود.&lt;/p>
