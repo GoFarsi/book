@@ -261,7 +261,7 @@ a {
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود نسخه های آفلاین و آنلاین کتاب
   
 
-[![myket](assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  [![docker](assets/img/dl/docker.png)](https://hub.docker.com/r/gofarsi/book) [![linux](assets/img/dl/linux.png)](https://github.com/GoFarsi/book/releases) [![windows](assets/img/dl/windows.png)](https://github.com/GoFarsi/book/releases) [![mac](assets/img/dl/mac.png)](https://github.com/GoFarsi/book/releases)
+[![direct download](static/assets/img/dl/dl.png)](https://github.com/GoFarsi/android-book/releases) [![myket](static/assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](static/assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book) [![docker](static/assets/img/dl/docker.png)](https://github.com/GoFarsi/book/pkgs/container/book) [![linux](static/assets/img/dl/linux.png)](https://github.com/GoFarsi/book/releases) [![windows](static/assets/img/dl/windows.png)](https://github.com/GoFarsi/book/releases) [![mac](static/assets/img/dl/mac.png)](https://github.com/GoFarsi/book/releases)
 
 -------
 
