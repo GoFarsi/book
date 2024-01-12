@@ -213,6 +213,8 @@ background-color: #21998E;
 گوفر نام یک نوع موش و همچنین mascot گولنگ است.
 &lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>آموزش نصب</title><link>https://book.gofarsi.ir/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/installation/</guid><description>&lt;p>جهت نصب زبان گو بر روی سیستم عامل مورد نظر خود در ابتدا باید نسخه مناسب با پلت‌فرم خود را &lt;a href="https://go.dev/dl/">دانلود&lt;/a> کنید.&lt;/p>
 &lt;p>&lt;img src="../assets/img/content/installation/1.png" alt="Featured downloads golang" />&lt;/p>
+&lt;p>نکته:&lt;/p>
+&lt;p>وب سایت گولنگ ایران را تحریم کرده است و احتمالا برای دانلود کردن گولنگ با مشکل مواجه می شوید. برای اینکه بتوانید تحریم ها را دور بزنید، روش های زیادی وجود دارد. یکی از مرسوم ترین روش ها استفاده از یک سرویس دی ان اس مانند &lt;a href="https://shecan.ir/">شکن&lt;/a> است.&lt;/p>
 &lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
 &lt;label for="tabs-uniqueid-0">لینوکس&lt;/label>
 &lt;div class="book-tabs-content markdown-inner">&lt;ol>
@@ -231,7 +233,7 @@ background-color: #21998E;
 بهتر است برای اینکه هر بار ترمینال را باز می‌کنید و فایل go توسط shell شناخته شود دستور فوق را به فایل &lt;code>home/{user}/.profile/&lt;/code> اضافه کنید.
 &lt;/blockquote>
 &lt;ol start="4">
-&lt;li>جهت اطمینان از اینکه زبان گو بدرستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" />
@@ -243,7 +245,7 @@ background-color: #21998E;
 &lt;ol>
 &lt;li>در &lt;a href="https://go.dev/dl/">اینجا&lt;/a> نسخه مرتبط با ویندوز خود را دانلود کنید.&lt;/li>
 &lt;li>سپس فایل &lt;strong>go1.xx.x.windows-{arch}.msi&lt;/strong> را اجرا کنید.&lt;/li>
-&lt;li>مراحل نصب را بصورت پیش فرض طی کنید تا زبان گو برروی ویندوز نصب شود.&lt;/li>
+&lt;li>مراحل نصب را به‌صورت پیش فرض طی کنید تا زبان گو برروی ویندوز نصب شود.&lt;/li>
 &lt;li>پس از نصب، جهت اطمینان از نصب بودن زبان گو، مراحل زیر را انجام دهید:
 &lt;ul>
 &lt;li>وارد منو استارت شوید.&lt;/li>
@@ -268,7 +270,7 @@ background-color: #21998E;
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>choco install golang
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
-&lt;li>جهت اطمینان از اینکه زبان گو بدرستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
@@ -282,9 +284,9 @@ background-color: #21998E;
 &lt;ol>
 &lt;li>در &lt;a href="https://go.dev/dl/">اینجا&lt;/a> نسخه مرتبط با مکینتاش خود را دانلود کنید.&lt;/li>
 &lt;li>سپس فایل &lt;strong>go1.xx.x.darwin-{arch}.pkg&lt;/strong> را اجرا کنید.&lt;/li>
-&lt;li>مراحل نصب را بصورت پیش فرض طی کنید تا زبان گو برروی مکینتاش نصب شود.&lt;/li>
-&lt;li>پس از نصب اگر ترمینال باز بود آن را کامل ببنید تا تغییرات صورت گیرد.&lt;/li>
-&lt;li>جهت اطمینان از اینکه زبان گو بدرستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;li>مراحل نصب را به‌صورت پیش فرض طی کنید تا زبان گو برروی مکینتاش نصب شود.&lt;/li>
+&lt;li>پس از نصب اگر ترمینال باز بود آن را کامل ببندید تا تغییرات صورت گیرد.&lt;/li>
+&lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>$ go version
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="روش-دوم">
@@ -301,7 +303,7 @@ background-color: #21998E;
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>$ brew update &lt;span style="color:#ff79c6">&amp;amp;&amp;amp;&lt;/span> brew install golang
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
-&lt;li>جهت اطمینان از اینکه زبان گو بدرستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
+&lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است، دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>ابزارها, دستورات گو و معرفی IDE</title><link>https://book.gofarsi.ir/toolchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/toolchain/</guid><description>&lt;p>پس از اینکه زبان گو را برروی سیستم خود نصب کردید از طریق &lt;span class="tooltip" data-tooltip="Terminal" ontouchend="toggleTooltip(this)">ترمینال&lt;/span>
