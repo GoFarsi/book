@@ -20,4 +20,4 @@ bookCollapseSection: true
 - 1.12 [اضافه کردن پکیج در کد (package)](go-package)
 - 1.13 [defer, panic, recovery](go-defer-panic-recovery)
 - 1.14 [لیست تایپ ها و توابع Builtin](go-builtins)
-- 1.15[قالب بندی رشته ها](go-string-formatting)
+- 1.15[آشنایی با رشته و توابع آن](go-string-formatting)
