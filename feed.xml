@@ -908,7 +908,7 @@ Error handling در Go اغلب از طریق بازگرداندن ارور از
 &lt;li>1.12 &lt;a href="go-package">اضافه کردن پکیج در کد (package)&lt;/a>&lt;/li>
 &lt;li>1.13 &lt;a href="go-defer-panic-recovery">defer, panic, recovery&lt;/a>&lt;/li>
 &lt;li>1.14 &lt;a href="go-builtins">لیست تایپ ها و توابع Builtin&lt;/a>&lt;/li>
-&lt;li>1.15&lt;a href="go-string-formatting">قالب بندی رشته ها&lt;/a>&lt;/li>
+&lt;li>1.15&lt;a href="go-string-formatting">آشنایی با رشته و توابع آن&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل دوم: مکانیزم‌های زبان</title><link>https://book.gofarsi.ir/chapter-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-2/</guid><description>&lt;p>در این فصل به مکانیزیم‌های زبان گو می‌پردازیم و برخی از اصطلاحات زبان گو را با هم برسی می‌کنیم.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="pointer">در بخش 2.1 در خصوص &lt;span class="tooltip" data-tooltip="pointer" ontouchend="toggleTooltip(this)">اشاره‌گر&lt;/span>
