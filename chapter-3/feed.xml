@@ -1269,9 +1269,9 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-26">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-26">26&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span>From goOne goroutine
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد فوق ما ۲ تا کانال تعریف کردیم و کانال ها را به توابع goOne و goTwo پاس دادیم سپس داخل تابع به هرکدام از کانال مقداری ارسال شد. حالا در ادامه بدنه main یک select قرار دادیم که هر یک از case ها منتظر دریافت اطلاعات از کانال مشخص شده براش است.&lt;/p>
-&lt;p>پس از اینکه یکی یا هر دو از کانال داده را آماده کردند بصورت تصادفی یکی از case ها انتخاب می شود تا عملیات را تکمیل کند.&lt;/p>
-&lt;p>که در خروجی مقداری که از ch1 آماده را نمایش می دهد. اما اگر بخواهیم خروجی هر دو کانال را ببینیم می توانیم از حلقه استفاده کنیم. به مثال زیر توجه کنید :&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد فوق ما ۲ تا کانال تعریف کردیم و کانال ها را به توابع goOne و goTwo پاس دادیم سپس داخل تابع به هرکدام از کانال مقداری ارسال شد. حالا در ادامه بدنه main یک select قرار دادیم که هر یک از case ها منتظر دریافت اطلاعات از کانال مشخص شده‌اش است.&lt;/p>
+&lt;p>بلافاصله پس از‌اینکه یکی از کانال ها آماده ارسال داده شود، کیس آن اجرا می شود. اگر هر دوی کانال ها همزمان آماده ارسال داده شوند، به‌صورت تصادفی یکی از case ها انتخاب می شود تا عملیات را تکمیل کند.&lt;/p>
+&lt;p>که در خروجی مقداری که از ch1 آمده را نمایش می دهد. اما اگر بخواهیم خروجی هر دو کانال را ببینیم می توانیم از حلقه استفاده کنیم. به مثال زیر توجه کنید :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
@@ -1316,12 +1316,12 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-11">11&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2&lt;/a>&lt;/span>&lt;span>fatal error: all goroutines are asleep - deadlock!
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>اتفاقی که در کد فوق رخ داد ما یک کانال ایجاد کردیم و سپس داخل select یک case قرار دادیم که منتظر دریافت داده از کانال می باشد. اما چون هیچ داده به کانال ارسال نمی شود برنامه بطور کلی در همان تیکه از کد بلاک می شود و در نهایت شما با خطای داخل خروجی مواجه خواهید شد.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>اتفاقی که در کد فوق رخ داد ما یک کانال ایجاد کردیم و سپس داخل select یک case قرار دادیم که منتظر دریافت داده از کانال می باشد. اما چون هیچ داده‌ای به کانال ارسال نمی شود برنامه بطور کلی در همان تیکه از کد بلاک می شود و در نهایت شما با این خطا مواجه خواهید شد.&lt;/p>
 &lt;h2 id="371-نحوه-کنترل-عملیات-های-کانال-با-select">
 3.7.1 نحوه کنترل عملیات های کانال با select
 &lt;a class="anchor" href="#371-%d9%86%d8%ad%d9%88%d9%87-%da%a9%d9%86%d8%aa%d8%b1%d9%84-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa-%d9%87%d8%a7%db%8c-%da%a9%d8%a7%d9%86%d8%a7%d9%84-%d8%a8%d8%a7-select">#&lt;/a>
 &lt;/h2>
-&lt;p>در بالا در خصوص select توضیح دادیم که چه کاربردی هایی دارد اما بزارید توضیحات را تکمیل کنیم. وقتی شما قصد دارید از گوروتین و کانال استفاده کنید در اینجا select نقش خیلی پررنگی در کنترل عملیات کانال ها دارد. اینجاست که بحث همزمانی در زبان گو خیلی زیبا می شود. select می تواند بطور همزمان داده را از کانال دریافت کند و برای اجرا سایر عملیات آماده کند. بنابراین select همراه با کانال و گوروتین خیلی ابزار قدرتمندی برای کنترل و مدیریت همگام سازی و همزمانی می شود.&lt;/p>
+&lt;p>در بالا در خصوص select توضیح دادیم که چه کاربردی هایی دارد اما بذارید توضیحات را تکمیل کنیم. وقتی شما قصد دارید از گوروتین و کانال استفاده کنید در اینجا select نقش خیلی پررنگی در کنترل عملیات کانال ها دارد. اینجاست که بحث همزمانی در زبان گو خیلی زیبا می شود. select می تواند بطور همزمان داده را از کانال دریافت کند و برای اجرا سایر عملیات آماده کند. بنابراین select همراه با کانال و گوروتین خیلی ابزار قدرتمندی برای کنترل و مدیریت همگام سازی و همزمانی می باشد.&lt;/p>
 &lt;h3 id="3711-عملیات-ارسال-با-select">
 3.7.1.1 عملیات ارسال با select
 &lt;a class="anchor" href="#3711-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa-%d8%a7%d8%b1%d8%b3%d8%a7%d9%84-%d8%a8%d8%a7-select">#&lt;/a>
@@ -1410,12 +1410,12 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-23">23&lt;/a>&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-2">2&lt;/a>&lt;/span>&lt;span>Timeout
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>کد کد فوق ما در یکی از case های select تابع After را به عنوان کانال دریافت کننده قرار دادیم و سپس مقدار ۱ ثانیه به تابع After پاس دادیم و پس از ۱ ثانیه select از مسدودی خارج شد.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد فوق ما در یکی از case های select تابع After را به عنوان کانال دریافت کننده قرار دادیم و سپس مقدار ۱ ثانیه به تابع After پاس دادیم و پس از ۱ ثانیه select از مسدودی خارج شد.&lt;/p>
 &lt;h2 id="374-select-خالی">
 3.7.4 select خالی
 &lt;a class="anchor" href="#374-select-%d8%ae%d8%a7%d9%84%db%8c">#&lt;/a>
 &lt;/h2>
-&lt;p>یک select خالی و بدون case می تواند برنامه شما بطور کلی بلاک کند و باعث بروز خطای deadlock شود. اگر select خالی داخل یک گوروتین دیگری قرار گیرد آن گوروتین بطور کلی برای همیشه بلاک خواهد شد اما اگر داخل تابع main قرار دهید باعث بروز deadlock خواهد شد.&lt;/p>
+&lt;p>یک select خالی و بدون case می تواند برنامه شما را به‌طور کلی بلاک کند و باعث بروز خطای deadlock شود. اگر select خالی داخل یک گوروتین دیگری قرار گیرد آن گوروتین بطور کلی برای همیشه بلاک خواهد شد اما اگر داخل تابع main قرار دهید باعث بروز deadlock خواهد شد.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-2">2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
@@ -1427,7 +1427,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 3.7.5 استفاده از select در حلقه بینهایت
 &lt;a class="anchor" href="#375-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-select-%d8%af%d8%b1-%d8%ad%d9%84%d9%82%d9%87-%d8%a8%db%8c%d9%86%d9%87%d8%a7%db%8c%d8%aa">#&lt;/a>
 &lt;/h2>
-&lt;p>ما می توانیم select را داخل یک حلقه بینهایت قرار دهیم تا برای همیشه از case ها چندتا داده را بواسطه کانال دریافت کنیم و عملیاتی را انجام دهیم یا اینکه اگر قصد داریم که از هر یک از case ها داده‌ای را دریافت کردیم حلقه را متوقف کنیم اینکار را هم بواسطه return می توانیم انجام دهیم.&lt;/p>
+&lt;p>ما می توانیم select را داخل یک حلقه بینهایت قرار دهیم تا برای همیشه از case ها چندتا داده را بواسطه کانال دریافت کنیم و عملیاتی را انجام دهیم. همچنین اگر قصد داریم که آنقدر کیس ها چک شوند تا یکی از کانال ها برای ارسال و یا دریافت داده آماده باشد، می توانیم از این روش استفاده کنیم و در نهایت با return کردن از حلقه بینهایت خارج شویم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
@@ -1513,7 +1513,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 3.7.7 استفاده از break در select
 &lt;a class="anchor" href="#377-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-break-%d8%af%d8%b1-select">#&lt;/a>
 &lt;/h2>
-&lt;p>شما می توانید break داخل هر یک از case های select استفاده کنید.&lt;/p>
+&lt;p>شما می توانید break را داخل هر یک از case های select استفاده کنید.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-2"> 2&lt;/a>&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
@@ -1537,15 +1537,15 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;img src="../../assets/img/content/chapter3/context/1.png" alt="context">
 &lt;/a>&lt;/center>
 &lt;p>پکیج &lt;a href="https://pkg.go.dev/context">context&lt;/a> یک پکیج built-in است که یکی از پرکاربرد ترین پکیج های زبان گو می باشد. کار اصلی این پکیج فراهم کردن بستری است که بتوان به داده های مشترک دسترسی داشت و یا بتوان آنها را به اشتراک گذاشت و مدیریت کرد. حتی اگر شما نخواسته باشید سمت این پکیج بروید به مرور زمان که جلوتر می روید با این پکیج رو به رو خواهید شد و مجبور خواهید بود این پکیج را یاد بگیرید.&lt;/p>
-&lt;p>این پکیج چندان بزرگ نیست و شاید بتوانید توابع و مفاهیم آن را حیلی زود یاد بگیرید اما دقت کنید یک روزی این پکیج میشه تبدیل به بنیادی ترین قسمت از کدهایتان خواهد شد.&lt;/p>
-&lt;p>در این بخش از کتاب سعی خواهد شد مفاهیم context به صورت ساده و قابل درکی بیان شود.&lt;/p>
+&lt;p>این پکیج چندان بزرگ نیست و شاید بتوانید توابع و مفاهیم آن را خیلی زود یاد بگیرید اما حتما یک روزی این پکیج تبدیل به یکی از بنیادی ترین قسمت های کدتان خواهد شد.&lt;/p>
+&lt;p>در این بخش از کتاب سعی خواهد شد مفاهیم context به صورت ساده و قابل درک، بیان شود.&lt;/p>
 &lt;h2 id="381-context-چیست">
 3.8.1 context چیست؟
 &lt;a class="anchor" href="#381-context-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
 &lt;/h2>
 &lt;p>در واقع context مانند یک درخت می باشد که کلی شاخه دارد و هر شاخه به شاخه های ریزتری تقسیم شده و در نهایت به برگ ها و میوه های درخت منتهی می شوند. حال شما می توانید در هر ناحیه شاخه والد را قطع کنید تا شاخه های فرزند از بین برود.
 در زبان گو &lt;code>context&lt;/code> یک اینترفیس است که یکسری متد دارد که هریک از متدها می تواند عملیاتی را انجام دهد و این امکان را فراهم می کند هر وقت یک درخواست از سمت کلاینت به سرور می آید این درخواست می تواند در لایه های مختلف منتهی شود و داخل context می تواند یکسری key/value های مهم باشد که شما بتوانید در هر لایه، به آنها دسترسی داشته باشید و همچنین در صورت لزوم می توانید سیگنال cancel بفرستید که درخواستی که تا هرجا رفته است کنسل شود.&lt;/p>
-&lt;p>در ادامه با یک طرح یم مثال ساده به درک بهتر این موضوع کمک می کنیم :&lt;/p>
+&lt;p>در ادامه با طرح یک مثال ساده به درک بهتر این موضوع کمک می کنیم :&lt;/p>
 &lt;center>&lt;a href="#">
 &lt;img src="../../assets/img/content/chapter3/context/3.jpg" alt="context diagram">
 &lt;/a>&lt;/center>
@@ -1605,7 +1605,7 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 context.Background() :
 &lt;a class="anchor" href="#contextbackground-">#&lt;/a>
 &lt;/h4>
-&lt;p>داخل پکیج context ما یک تابع داریم به نام Background یک اولین context خام و والد را میسازد و به شما یک اینترفیس از نوع Context می دهد.&lt;/p>
+&lt;p>داخل پکیج context ما یک تابع داریم به نام Background که اولین context خام و والد را میسازد و به شما یک اینترفیس از نوع Context می دهد.&lt;/p>
 &lt;ol>
 &lt;li>این context ایجاد شده هیچ مقداری داخلش ندارد.&lt;/li>
 &lt;li>هیچ وقت نمی تواند کنسل شود.&lt;/li>
