@@ -228,4 +228,138 @@
 ارجاعات
 &lt;a class="anchor" href="#%d8%a7%d8%b1%d8%ac%d8%a7%d8%b9%d8%a7%d8%aa">#&lt;/a>
 &lt;/h4>
-&lt;p>1- &lt;a href="https://cryptocurrency.medium.com/messages-and-transactions-on-ethereum-3c4dadfe7986">Messages and Transactions on Ethereum&lt;/a>&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.6 ماشین مجازی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</guid><description>&lt;p>ماشین مجازی اتریوم&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.7 بلاک ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</guid><description>&lt;p>بلاک ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.8 الگوریتم اجماع</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</guid><description>&lt;p>الگوریتم اجماع&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.9 نودها و ماینرها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</guid><description>&lt;p>نودها و ماینرها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.10 شبکه</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</guid><description>&lt;p>شبکه&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.11 قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</guid><description>&lt;p>قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.12 والت ها و کلاینت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</guid><description>&lt;p>والت ها و کلاینت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.13 معرفی go-ethereum</title><link>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</guid><description>&lt;p>معرفی go-ethereum&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.14 کار با اکانت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</guid><description>&lt;p>کار با اکانت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.15 تراکنش برروی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</guid><description>&lt;p>تراکنش برروی اتریوم&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.16 نوشتن و ارتباط با قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</guid><description>&lt;p>نوشتن و ارتباط با قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.17 آشنایی با فایل ABI و bytecode</title><link>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</guid><description>&lt;p>آشنایی با فایل ABI و bytecode&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.18 خواندن و دریافت لحظه ای لاگ های کانترکت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</guid><description>&lt;p>خواندن و دریافت لحظه ای لاگ های کانترکت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.19 ایجاد و تایید امضا</title><link>https://book.gofarsi.ir/chapter-12/ethereum/signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/signature/</guid><description>&lt;p>ایجاد و تایید امضا&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.20 کار با geth</title><link>https://book.gofarsi.ir/chapter-12/ethereum/geth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/geth/</guid><description>&lt;p>کار با geth&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.21 کار با پروتکل whisper و swarm</title><link>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</guid><description>&lt;p>کار با پروتکل whisper و swarm&lt;/p></description></item></channel></rss>
+&lt;p>1- &lt;a href="https://cryptocurrency.medium.com/messages-and-transactions-on-ethereum-3c4dadfe7986">Messages and Transactions on Ethereum&lt;/a>&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.6 ماشین مجازی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-virtual-machine/</guid><description>&lt;h1 id="12361-ماشین-مجازی">
+12.3.6.1 ماشین مجازی
+&lt;a class="anchor" href="#12361-%d9%85%d8%a7%d8%b4%db%8c%d9%86-%d9%85%d8%ac%d8%a7%d8%b2%db%8c">#&lt;/a>
+&lt;/h1>
+&lt;p>قبل از شروع بررسی ماشین مجازی اتریوم به مفهوم ماشین مجازی میپردازیم. همانطور که در قسمت های قبل به ورلد استیت اتریوم اشاره کردیم و فهمیدیم که تمام نود های اتریوم یک حافظه وضعیت و یا حالت کلی دارند که همیشه باهم برابر است و در حالت یکسانی قرار دارد و تغییرات بر ورلد استیت با تراکنش ها اعمال میشوند.&lt;/p>
+&lt;p>اما تمام شبکه اتریوم به خودی خود یه ورلد کامپیوتر هم میباشد که باید بتواند تمام تراکنش ها را اجرا کند و تغییرات انها را بر روی ورلد استیت اعمال کند. پس اصلی ترین رکن این ورلد کامپیوتر این است که در هر زمان توسط هر کدام از نود ها که اجرا شد خروجی برابری بدهد. (این مساله یکی از دلایلی است که با عدد نانس ترتیب تراکنش ها حفظ میشود و ماشین مجازی اتریوم قابلیت همزمانی را ندارد.)&lt;/p>
+&lt;p>یک ماشین مجازی به زبان ساده یک محیط ایزوله درون یک سیستم عامل در حال اجرا بر روی یک کامپیوتر واقعی است که منابع اختصاصی خود را دارد و بدون گرفتن تاثیر از بقیه نرم افزار ها یا شرایط کامپیوتر اجرا میشود.&lt;/p>
+&lt;p>با این شرایط بهترین انتخاب ما برای اجرای کد ها بر بستر بلاکچین ماشین های مجازی هستند. با استفاده از یک ماشین مجازی قرارداد های هوشمند تنها نیاز دارند به بایت کد های قابل درک برای evm کامپایل شوند نه بایت کد های مربوط به هر معماری پردازشگری که در لحظه نود اتریوم را اجرا میکند.
+همچنین اطمینان داریم که اگر یک تراکنش توسط دو نود مختلف با شرایط مختلف اجرا شد خروجی ورلد استیت انها یکی خواهد بود.&lt;/p>
+&lt;h1 id="12362-ماشین-مجازی-اتریوم">
+12.3.6.2 ماشین مجازی اتریوم
+&lt;a class="anchor" href="#12362-%d9%85%d8%a7%d8%b4%db%8c%d9%86-%d9%85%d8%ac%d8%a7%d8%b2%db%8c-%d8%a7%d8%aa%d8%b1%db%8c%d9%88%d9%85">#&lt;/a>
+&lt;/h1>
+&lt;p>اتریوم یک ماشین مجازی مختص خود دارد که وظیفه اجرا و اعمال تغییرات تراکنش هارا دارد. این ماشین مجازی را میتوان به JVM یا ماشین مجازی جاوا هم تشبیه کرد. که بایت کد های مخصوص خود را دارد و هر محیط که ماشین مجازی مورد نظر را داشته باشد میتواند ان کد را بدون نیاز به بایت کد های متفاوت اجرا کند.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm1.png" alt="evm">
+&lt;/a>&lt;/center>
+&lt;p>ماشین مجازی اتریوم یک ماشین مجازی استک بیس است.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm-stack.png" alt="evm stack machine">
+&lt;/a>&lt;/center>
+&lt;p>حافظه های در دسترسی یک ماشین مجازی اتریوم حین اجرا هر کانترکت به سه دسته تقسیم میشوند. مموری. استک و استورج.&lt;/p>
+&lt;p>مموری یک حافظه موقت در حین اجرا کانترکت است. استورج یک حافظه داعمی است که نوشتن اطلاعات در استورج هزینه بالاتری دارد.(استورج بصورت کلید و مقدار است)&lt;/p>
+&lt;p>و در نهایت استک یک حافظه موقت استیک بیس است که توسط کامپایلر استفاده میشود.&lt;/p>
+&lt;p>&lt;a href="https://ethereum.stackexchange.com/questions/23720/usage-of-memory-storage-and-stack-areas-in-evm">بیشتر&lt;/a>&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm-spaces.png" alt="evm spaces">
+&lt;/a>&lt;/center>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm-stack-space.png" alt="evm stack spaces">
+&lt;/a>&lt;/center>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm-memory.png" alt="evm memory">
+&lt;/a>&lt;/center>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm-storage.png" alt="evm storage">
+&lt;/a>&lt;/center>
+&lt;h2 id="123621-کد-های-قابل-اجرا">
+12.3.6.2.1 کد های قابل اجرا
+&lt;a class="anchor" href="#123621-%da%a9%d8%af-%d9%87%d8%a7%db%8c-%d9%82%d8%a7%d8%a8%d9%84-%d8%a7%d8%ac%d8%b1%d8%a7">#&lt;/a>
+&lt;/h2>
+&lt;p>ماشین مجازی اتریوم بایت کد های مربوط به خود را دارد. در بخش های اینده به این بایت کد ها در جزییات میپردازیم. اما بصورت کلی این بایت کد ها همان کد هایی هستند که بر بستر شبکه اتریوم دیپلوی و اجرا میشوند.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm-bytecode.png" alt="evm bytecode">
+&lt;/a>&lt;/center>
+&lt;p>این بایت کد ها در حالت اسمبلی بصورت مجموعه ای از OP code ها یا اوپریشن کد ها نوشته میشوند که هر اوپریشن کد با یک عدد مشخص میشود.
+بایت کد های اتریوم شماره اوپریشن کد ها و ورودی انها بصورت هگزادسیمال است. که توسط ماشین مجازی اتریوم قابل درک و اجرا میباشد. در بخش مربوط به بایت کد ها به جزییاتشان خواهیم پرداخت.&lt;/p>
+&lt;p>نمونه ای از اوپریشن کد ها یک کانترکت ERC-20:&lt;/p>
+&lt;p>‍‍```asm
+PUSH1 0x80
+PUSH1 0x40
+MSTORE
+CALLVALUE
+DUP1
+ISZERO
+PUSH2 0x000f
+JUMPI
+PUSH0 0x
+DUP1
+REVERT
+JUMPDEST
+POP
+PUSH1 0x04
+CALLDATASIZE
+LT
+PUSH2 0x00cd
+JUMPI
+PUSH0 0x
+CALLDATALOAD
+PUSH1 0xe0
+&amp;hellip;&lt;/p>
+&lt;pre tabindex="0">&lt;code>
+نمونه بایت کد های همان کانترکت:
+‍‍```
+0x608060405234801561000f575f80fd5b50600436106100cd575f3560e01c806370a082311161008a57806395d89b411161006457806395d89b411461022d578063a9059cbb1461024b578063d505accf1461027b578063dd62ed3e14610297576100cd565b806370a08231146101a95780637ecebe00146101d957806384b0196e14610209576100cd565b806306fdde03146100d1578063095ea7b3146100ef57806318160ddd1461011f57806323b872dd1461013d578063313ce5671461016d5780633644e5151461018b575b5f80fd5b6100d96102c7565b6040516100e691906113de565b60405180910390f35b6101096004803603810190610104919061148f565b610357565b60405161011691906114e7565b60405180910390f35b610127610379565b604051610134919061150f565b60405180910390f35b61015760048036038101906101529190611528565b610382565b60405161016491906114e7565b60405180910390f35b6101756103b0565b6040516101829190611593565b60405180910390f35b6101936103b8565b6040516101a091906115c4565b60405180910390f35b6101c360048036038101906101be91906115dd565b6103c6565b6040516101d0919061150f565b60405180910390f35b6101f360048036038101906101ee91906115dd565b61040b565b604051610200919061150f565b60405180910390f35b61021161041c565b6040516102249796959493929190611708565b60405180910390f35b6102356104c1565b60405161024291906113de565b60405180910390f35b6102656004803603810190610260919061148f565b610551565b60405161027291906114e7565b60405180910390f35b610295600480360381019061029091906117de565b610573565b005b6102b160048036038101906102ac919061187b565b6106b8565b6040516102be919061150f565b60405180910390f35b6060600380546102d6906118e6565b80601f0160208091040260200160405190810160405280929190818152602001828054610302906118e6565b801561034d5780601f106103245761010080835404028352916020019161034d565b820191905f5260205f20905b81548152906001019060200180831161033057829003601f168201915b5050505050905090565b5f8061036161073a565b905061036e818585610741565b600191505092915050565b5f600254905090565b5f8061038c61073a565b9050610399858285610753565b6103a48585856107e5565b60019150509392505050565b5f6012905090565b5f6103c16108d5565b905090565b5f805f8373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020015f20549050919050565b5f6104158261098b5...
+&lt;/code>&lt;/pre>&lt;h2 id="123622-محیط-اجرا">
+12.3.6.2.2 محیط اجرا
+&lt;a class="anchor" href="#123622-%d9%85%d8%ad%db%8c%d8%b7-%d8%a7%d8%ac%d8%b1%d8%a7">#&lt;/a>
+&lt;/h2>
+&lt;p>بایت کد های اتریوم توسط ماشین مجازی اتریوم اجرا میشوند که خود بخشی از پیاده سازی نود اتریوم است. نود درحال اجرا هم بصورت مستقیم از منابع یک ماشین غیر مجازی استفاده میکند.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../../assets/img/content/chapter12/ethereum/evm-layer.png" alt="evm layer">
+&lt;/a>&lt;/center>
+&lt;h2 id="123623-پیاده-سازی-geth">
+12.3.6.2.3 پیاده سازی GETH
+&lt;a class="anchor" href="#123623-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c-geth">#&lt;/a>
+&lt;/h2>
+&lt;p>تمامی عملکرد ماشین مجازی اتریوم در پیاده سازی رسمی اتریوم در این بخش قرار دارد:&lt;/p>
+&lt;p>&lt;a href="https://github.com/ethereum/go-ethereum/blob/master/core/vm">https://github.com/ethereum/go-ethereum/blob/master/core/vm&lt;/a>&lt;/p>
+&lt;p>برای مثال تعریف اوپریشن کد ها:&lt;/p>
+&lt;p>&lt;a href="https://github.com/ethereum/go-ethereum/blob/master/core/vm/opcodes.go">https://github.com/ethereum/go-ethereum/blob/master/core/vm/opcodes.go&lt;/a>&lt;/p>
+&lt;p>ساختار ماشین مجازی اتریوم در پیاده سازی گو اتریوم:&lt;/p>
+&lt;p>‍```go
+// EVM is the Ethereum Virtual Machine base object and provides
+// the necessary tools to run a contract on the given state with
+// the provided context. It should be noted that any error
+// generated through any of the calls should be considered a
+// revert-state-and-consume-all-gas operation, no checks on
+// specific errors should ever be performed. The interpreter makes
+// sure that any errors generated are to be considered faulty code.
+//
+// The EVM should never be reused and is not thread safe.
+type EVM struct {
+// Context provides auxiliary blockchain related information
+Context BlockContext
+TxContext
+// StateDB gives access to the underlying state
+StateDB StateDB
+// Depth is the current call stack
+depth int&lt;/p>
+&lt;pre>&lt;code>// chainConfig contains information about the current chain
+chainConfig *params.ChainConfig
+// chain rules contains the chain rules for the current epoch
+chainRules params.Rules
+// virtual machine configuration options used to initialise the
+// evm.
+Config Config
+// global (to this context) ethereum virtual machine
+// used throughout the execution of the tx.
+interpreter *EVMInterpreter
+// abort is used to abort the EVM calling operations
+abort atomic.Bool
+// callGasTemp holds the gas available for the current call. This is needed because the
+// available gas is calculated in gasCall* according to the 63/64 rule and later
+// applied in opCall*.
+callGasTemp uint64
+&lt;/code>&lt;/pre>
+&lt;p>}&lt;/p>
+&lt;pre tabindex="0">&lt;code>
+با بررسی پروژه های دیگر متوجه پیاده سازی های مختلفی از ماشین مجازی اتریوم در زبان های جاوااسکریپت راست و ... خواهید شد.
+&amp;lt;!-- TODO: adding single thread infos here and comparing with Solana --&amp;gt;
+&amp;lt;!-- TODO: reviewing execution codes in geth here --&amp;gt;
+&amp;lt;!-- TODO: talking about gas and mem pool rules here??? --&amp;gt;
+&amp;lt;!-- TODO: talking with more detail, refrencing to the ETH docs/white paper or keep it simple??? --&amp;gt;
+&lt;/code>&lt;/pre></description></item><item><author>Javad Rajabzadeh</author><title>12.3.7 بلاک ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-blocks/</guid><description>&lt;p>بلاک ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.8 الگوریتم اجماع</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-consensus/</guid><description>&lt;p>الگوریتم اجماع&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.9 نودها و ماینرها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-nodes-and-miners/</guid><description>&lt;p>نودها و ماینرها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.10 شبکه</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-network/</guid><description>&lt;p>شبکه&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.11 قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-smart-contracts/</guid><description>&lt;p>قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.12 والت ها و کلاینت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/ethereum-wallets-and-clients/</guid><description>&lt;p>والت ها و کلاینت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.13 معرفی go-ethereum</title><link>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/go-ethereum/</guid><description>&lt;p>معرفی go-ethereum&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.14 کار با اکانت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/work-with-accounts/</guid><description>&lt;p>کار با اکانت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.15 تراکنش برروی اتریوم</title><link>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/transactions-on-ethereum/</guid><description>&lt;p>تراکنش برروی اتریوم&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.16 نوشتن و ارتباط با قراردادهای هوشمند</title><link>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/read-write-in-smart-contracts/</guid><description>&lt;p>نوشتن و ارتباط با قراردادهای هوشمند&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.17 آشنایی با فایل ABI و bytecode</title><link>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/abi-and-bin-file/</guid><description>&lt;p>آشنایی با فایل ABI و bytecode&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.18 خواندن و دریافت لحظه ای لاگ های کانترکت ها</title><link>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/event-logs/</guid><description>&lt;p>خواندن و دریافت لحظه ای لاگ های کانترکت ها&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.19 ایجاد و تایید امضا</title><link>https://book.gofarsi.ir/chapter-12/ethereum/signature/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/signature/</guid><description>&lt;p>ایجاد و تایید امضا&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.20 کار با geth</title><link>https://book.gofarsi.ir/chapter-12/ethereum/geth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/geth/</guid><description>&lt;p>کار با geth&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>12.3.21 کار با پروتکل whisper و swarm</title><link>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-12/ethereum/protocol-swarm-and-whisper/</guid><description>&lt;p>کار با پروتکل whisper و swarm&lt;/p></description></item></channel></rss>
