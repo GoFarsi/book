@@ -3620,38 +3620,38 @@ API_KEY=AbCdEfGhIjKlMnOp
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th>خروجی&lt;/th>
-&lt;th>توضیح&lt;/th>
+&lt;th style="text-align: left">خروجی&lt;/th>
+&lt;th style="text-align: left">توضیح&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>gc 1&lt;/td>
-&lt;td>شماره پاکسازی که در هربار اجرای عملیات پاکسازی بصورت خودکار به آن اضافه می شود&lt;/td>
+&lt;td style="text-align: left">gc 1&lt;/td>
+&lt;td style="text-align: left">شماره پاکسازی که در هربار اجرای عملیات پاکسازی بصورت خودکار به آن اضافه می شود&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>@0.007s&lt;/td>
-&lt;td>زمان اجرای پاکسازی بعد از شروع به کار برنامه&lt;/td>
+&lt;td style="text-align: left">@0.007s&lt;/td>
+&lt;td style="text-align: left">زمان اجرای پاکسازی بعد از شروع به کار برنامه&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>0%&lt;/td>
-&lt;td>درصد منابع پردازشی استفاده شده بعد از اجرای برنامه&lt;/td>
+&lt;td style="text-align: left">0%&lt;/td>
+&lt;td style="text-align: left">درصد منابع پردازشی استفاده شده بعد از اجرای برنامه&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>0.011+0.11+0.002 ms clock&lt;/td>
-&lt;td>مقدار این متغیر متشکل از چند مقدار است که بصورت ذیل محاسبه می شود Tgc = Tseq + Tmark + Tsweep&lt;/td>
+&lt;td style="text-align: left">0.011+0.11+0.002 ms clock&lt;/td>
+&lt;td style="text-align: left">مقدار این متغیر متشکل از چند مقدار است که بصورت ذیل محاسبه می شود Tgc = Tseq + Tmark + Tsweep&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>95-&amp;gt;95-&amp;gt;0 MB&lt;/td>
-&lt;td>این متغیر نیز چند مقداری است و مقادیر اول نشانگر عملکرد حافظه قبل از اجرای پاکسازی ، دوم بعد از اجرای پاکسازی و سوم مقدار پشته است&lt;/td>
+&lt;td style="text-align: left">95-&amp;gt;95-&amp;gt;0 MB&lt;/td>
+&lt;td style="text-align: left">این متغیر نیز چند مقداری است و مقادیر اول نشانگر عملکرد حافظه قبل از اجرای پاکسازی ، دوم بعد از اجرای پاکسازی و سوم مقدار پشته است&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>96 MB goal&lt;/td>
-&lt;td>اندازه پشته برنامه مورد نظر&lt;/td>
+&lt;td style="text-align: left">96 MB goal&lt;/td>
+&lt;td style="text-align: left">اندازه پشته برنامه مورد نظر&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>1 P&lt;/td>
-&lt;td>تعداد پردازنده مورد استفاده شده&lt;/td>
+&lt;td style="text-align: left">1 P&lt;/td>
+&lt;td style="text-align: left">تعداد پردازنده مورد استفاده شده&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
