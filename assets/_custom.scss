@@ -154,6 +154,8 @@ a.book-btn.gray {
 
 .markdown code {
   direction: ltr !important;
+  unicode-bidi: embed; /* Prevent inheritance of RTL direction */
+  text-align: left;
 }
 
 .markdown ol {

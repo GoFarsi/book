@@ -29,3 +29,5 @@ bookCollapseSection: true
 - [۴.۲۱ (garbage collector)زباله جمع کن.](go-garbage-collector)
 - [۴.۲۲ Plugin کتابخانه.](go-plugin)
 - [۴.۲۳ شی گرایی در زبان گو.](oop)
+- [۴.۲۴ tracing آموزش](tracing)
+- [۴.۲۵ profiling آموزش](profiling)
