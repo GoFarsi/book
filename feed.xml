@@ -1454,6 +1454,8 @@ Error handling در Go اغلب از طریق بازگرداندن ارور از
 &lt;li>&lt;a href="go-garbage-collector">۴.۲۱ (garbage collector)زباله جمع کن.&lt;/a>&lt;/li>
 &lt;li>&lt;a href="go-plugin">۴.۲۲ Plugin کتابخانه.&lt;/a>&lt;/li>
 &lt;li>&lt;a href="oop">۴.۲۳ شی گرایی در زبان گو.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="tracing">۴.۲۴ tracing آموزش&lt;/a>&lt;/li>
+&lt;li>&lt;a href="profiling">۴.۲۵ profiling آموزش&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><author>Javad Rajabzadeh</author><title>فصل پنجم: برنامه نویسی شبکه با گو</title><link>https://book.gofarsi.ir/chapter-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-5/</guid><description>&lt;p>در این فصل به مباحث برنامه نویسی شبکه در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>فصل ششم: ژنریک ها (Generics)</title><link>https://book.gofarsi.ir/chapter-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-6/</guid><description>&lt;p>در این بخش قصد داریم به بحث ژنریک ها بپردازیم که از نسخه &lt;a href="https://go.dev/blog/go1.18">go1.18&lt;/a> اضافه شد که تقریبا یکی از اساسی ترین تغییرات در سینتکس زبان گو بود و در قالب یک &lt;a href="https://go.googlesource.com/proposal/&amp;#43;/HEAD/design/43651-type-parameters.md">پروپوزال&lt;/a> ارائه شد و سپس از نسخه ۱.۱۸ منتشر شد و تا الان تغییرات و بهبودهای زیادی داشته است.&lt;/p>
 &lt;p>ژنریک به زبان برنامه‌نویسی امکانات مهمی اضافه می‌کند:&lt;/p>
 &lt;ol>
