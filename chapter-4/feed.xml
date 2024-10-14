@@ -5500,7 +5500,11 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;li>&lt;strong>PNG&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-27-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-27-1">1&lt;/a>&lt;/span>&lt;span>go tool pprof -png heap_profile.pprof
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author>Javad Rajabzadeh</author><title>4.23 شی گرایی در زبان گو</title><link>https://book.gofarsi.ir/chapter-4/oop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/oop/</guid><description>&lt;p>گو یک زبان statically-typed است و بطور کلی امکانات شی گرایی را به شیوه قدیم و مرسوم پشتیبانی نمی کند. اما در عوض یک شیوه قرار دادی وجود دارد که به شما کمک می کند برخی از مفاهیم شی گرایی را با کمک اینترفیس, composition, متد و type embedding پیاده سازی کنید.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="42539-نتیجهگیری">
+4.25.3.9 نتیجه‌گیری
+&lt;a class="anchor" href="#42539-%d9%86%d8%aa%db%8c%d8%ac%d9%87%da%af%db%8c%d8%b1%db%8c">#&lt;/a>
+&lt;/h3>
+&lt;p>مدیریت کارآمد حافظه در Go، به همراه ابزارهای پروفایل‌سازی‌اش، به توسعه‌دهندگان پلتفرمی قوی برای ساخت برنامه‌های کارآمد ارائه می‌دهد. با درک رفتار حافظه در Go و پروفایل‌سازی منظم برنامه خود، می‌توانید اطمینان حاصل کنید که این برنامه حتی در بارهای سنگین نیز کارآمد و پاسخگو باقی می‌ماند.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.23 شی گرایی در زبان گو</title><link>https://book.gofarsi.ir/chapter-4/oop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/oop/</guid><description>&lt;p>گو یک زبان statically-typed است و بطور کلی امکانات شی گرایی را به شیوه قدیم و مرسوم پشتیبانی نمی کند. اما در عوض یک شیوه قرار دادی وجود دارد که به شما کمک می کند برخی از مفاهیم شی گرایی را با کمک اینترفیس, composition, متد و type embedding پیاده سازی کنید.&lt;/p>
 &lt;p>&lt;strong>این مفاهیم شامل :&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="go-encapsulation">کپسوله سازی&lt;/a>&lt;/li>
