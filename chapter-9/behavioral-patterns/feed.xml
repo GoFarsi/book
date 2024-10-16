@@ -71,34 +71,34 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;/th>
-&lt;th style="text-align: left">&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">handler&lt;/td>
-&lt;td style="text-align: left">department.go&lt;/td>
+&lt;td>handler&lt;/td>
+&lt;td>department.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Handler 1&lt;/td>
-&lt;td style="text-align: left">account.go&lt;/td>
+&lt;td>Concrete Handler 1&lt;/td>
+&lt;td>account.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Handler 2&lt;/td>
-&lt;td style="text-align: left">doctor.go&lt;/td>
+&lt;td>Concrete Handler 2&lt;/td>
+&lt;td>doctor.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Handler 3&lt;/td>
-&lt;td style="text-align: left">medical.go&lt;/td>
+&lt;td>Concrete Handler 3&lt;/td>
+&lt;td>medical.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Handler 4&lt;/td>
-&lt;td style="text-align: left">cashier.go&lt;/td>
+&lt;td>Concrete Handler 4&lt;/td>
+&lt;td>cashier.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Client&lt;/td>
-&lt;td style="text-align: left">main.go&lt;/td>
+&lt;td>Client&lt;/td>
+&lt;td>main.go&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -445,38 +445,38 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;/th>
-&lt;th style="text-align: left">&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">Invoker&lt;/td>
-&lt;td style="text-align: left">button.go&lt;/td>
+&lt;td>Invoker&lt;/td>
+&lt;td>button.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Command Interface&lt;/td>
-&lt;td style="text-align: left">command.go&lt;/td>
+&lt;td>Command Interface&lt;/td>
+&lt;td>command.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Command 1&lt;/td>
-&lt;td style="text-align: left">onCommand.go&lt;/td>
+&lt;td>Concrete Command 1&lt;/td>
+&lt;td>onCommand.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Command 2&lt;/td>
-&lt;td style="text-align: left">offCommand.go&lt;/td>
+&lt;td>Concrete Command 2&lt;/td>
+&lt;td>offCommand.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Receiver Interface&lt;/td>
-&lt;td style="text-align: left">device.go&lt;/td>
+&lt;td>Receiver Interface&lt;/td>
+&lt;td>device.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Receiver&lt;/td>
-&lt;td style="text-align: left">tv.go&lt;/td>
+&lt;td>Concrete Receiver&lt;/td>
+&lt;td>tv.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Client&lt;/td>
-&lt;td style="text-align: left">main.go&lt;/td>
+&lt;td>Client&lt;/td>
+&lt;td>main.go&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -712,30 +712,30 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;/th>
-&lt;th style="text-align: left">&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">Collection&lt;/td>
-&lt;td style="text-align: left">collection.go&lt;/td>
+&lt;td>Collection&lt;/td>
+&lt;td>collection.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Collection&lt;/td>
-&lt;td style="text-align: left">userCollection.go&lt;/td>
+&lt;td>Concrete Collection&lt;/td>
+&lt;td>userCollection.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Iterator&lt;/td>
-&lt;td style="text-align: left">mac.go&lt;/td>
+&lt;td>Iterator&lt;/td>
+&lt;td>mac.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Iterator 1&lt;/td>
-&lt;td style="text-align: left">userIterator.go&lt;/td>
+&lt;td>Concrete Iterator 1&lt;/td>
+&lt;td>userIterator.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Client&lt;/td>
-&lt;td style="text-align: left">main.go&lt;/td>
+&lt;td>Client&lt;/td>
+&lt;td>main.go&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1236,34 +1236,34 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;/th>
-&lt;th style="text-align: left">&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">Context&lt;/td>
-&lt;td style="text-align: left">vendingMachine.go&lt;/td>
+&lt;td>Context&lt;/td>
+&lt;td>vendingMachine.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">State Interface&lt;/td>
-&lt;td style="text-align: left">state.go&lt;/td>
+&lt;td>State Interface&lt;/td>
+&lt;td>state.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete State 1&lt;/td>
-&lt;td style="text-align: left">noItemState.go&lt;/td>
+&lt;td>Concrete State 1&lt;/td>
+&lt;td>noItemState.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete State 2&lt;/td>
-&lt;td style="text-align: left">hasItemState.go&lt;/td>
+&lt;td>Concrete State 2&lt;/td>
+&lt;td>hasItemState.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete State 3&lt;/td>
-&lt;td style="text-align: left">itemRequestedState.go&lt;/td>
+&lt;td>Concrete State 3&lt;/td>
+&lt;td>itemRequestedState.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete State 4&lt;/td>
-&lt;td style="text-align: left">hasMoneyState.go&lt;/td>
+&lt;td>Concrete State 4&lt;/td>
+&lt;td>hasMoneyState.go&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1893,42 +1893,42 @@ EMAIL: publishing metrics
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;/th>
-&lt;th style="text-align: left">&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">element&lt;/td>
-&lt;td style="text-align: left">shape.go&lt;/td>
+&lt;td>element&lt;/td>
+&lt;td>shape.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Element A&lt;/td>
-&lt;td style="text-align: left">square.go&lt;/td>
+&lt;td>Concrete Element A&lt;/td>
+&lt;td>square.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Element B&lt;/td>
-&lt;td style="text-align: left">circle.go&lt;/td>
+&lt;td>Concrete Element B&lt;/td>
+&lt;td>circle.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Element C&lt;/td>
-&lt;td style="text-align: left">rectangle.go&lt;/td>
+&lt;td>Concrete Element C&lt;/td>
+&lt;td>rectangle.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Visitor&lt;/td>
-&lt;td style="text-align: left">visitor.go&lt;/td>
+&lt;td>Visitor&lt;/td>
+&lt;td>visitor.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Visitor 1&lt;/td>
-&lt;td style="text-align: left">areaCalculator.go&lt;/td>
+&lt;td>Concrete Visitor 1&lt;/td>
+&lt;td>areaCalculator.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Concrete Visitor 2&lt;/td>
-&lt;td style="text-align: left">middleCoordinates.go&lt;/td>
+&lt;td>Concrete Visitor 2&lt;/td>
+&lt;td>middleCoordinates.go&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Client&lt;/td>
-&lt;td style="text-align: left">main.go&lt;/td>
+&lt;td>Client&lt;/td>
+&lt;td>main.go&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>

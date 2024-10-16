@@ -215,54 +215,54 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;/th>
-&lt;th style="text-align: left">1&lt;/th>
-&lt;th style="text-align: left">2&lt;/th>
-&lt;th style="text-align: left">3&lt;/th>
-&lt;th style="text-align: left">4&lt;/th>
-&lt;th style="text-align: left">5&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>1&lt;/th>
+&lt;th>2&lt;/th>
+&lt;th>3&lt;/th>
+&lt;th>4&lt;/th>
+&lt;th>5&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">break&lt;/td>
-&lt;td style="text-align: left">default&lt;/td>
-&lt;td style="text-align: left">func&lt;/td>
-&lt;td style="text-align: left">interface&lt;/td>
-&lt;td style="text-align: left">select&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>break&lt;/td>
+&lt;td>default&lt;/td>
+&lt;td>func&lt;/td>
+&lt;td>interface&lt;/td>
+&lt;td>select&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">2&lt;/td>
-&lt;td style="text-align: left">case&lt;/td>
-&lt;td style="text-align: left">defer&lt;/td>
-&lt;td style="text-align: left">go&lt;/td>
-&lt;td style="text-align: left">map&lt;/td>
-&lt;td style="text-align: left">struct&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>case&lt;/td>
+&lt;td>defer&lt;/td>
+&lt;td>go&lt;/td>
+&lt;td>map&lt;/td>
+&lt;td>struct&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">3&lt;/td>
-&lt;td style="text-align: left">chan&lt;/td>
-&lt;td style="text-align: left">else&lt;/td>
-&lt;td style="text-align: left">goto&lt;/td>
-&lt;td style="text-align: left">package&lt;/td>
-&lt;td style="text-align: left">switch&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>chan&lt;/td>
+&lt;td>else&lt;/td>
+&lt;td>goto&lt;/td>
+&lt;td>package&lt;/td>
+&lt;td>switch&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">4&lt;/td>
-&lt;td style="text-align: left">const&lt;/td>
-&lt;td style="text-align: left">fallthrough&lt;/td>
-&lt;td style="text-align: left">if&lt;/td>
-&lt;td style="text-align: left">range&lt;/td>
-&lt;td style="text-align: left">type&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>const&lt;/td>
+&lt;td>fallthrough&lt;/td>
+&lt;td>if&lt;/td>
+&lt;td>range&lt;/td>
+&lt;td>type&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">5&lt;/td>
-&lt;td style="text-align: left">continue&lt;/td>
-&lt;td style="text-align: left">for&lt;/td>
-&lt;td style="text-align: left">import&lt;/td>
-&lt;td style="text-align: left">return&lt;/td>
-&lt;td style="text-align: left">var&lt;/td>
+&lt;td>5&lt;/td>
+&lt;td>continue&lt;/td>
+&lt;td>for&lt;/td>
+&lt;td>import&lt;/td>
+&lt;td>return&lt;/td>
+&lt;td>var&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -284,22 +284,22 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">علامت&lt;/th>
-&lt;th style="text-align: left">کاربرد&lt;/th>
+&lt;th>علامت&lt;/th>
+&lt;th>کاربرد&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>ـ&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نادیده گرفتن&lt;/td>
+&lt;td>&lt;code>ـ&lt;/code>&lt;/td>
+&lt;td>نادیده گرفتن&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>&amp;amp;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">دسترسی به آدرس حافظه&lt;/td>
+&lt;td>&lt;code>&amp;amp;&lt;/code>&lt;/td>
+&lt;td>دسترسی به آدرس حافظه&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>*&lt;/code>&lt;/td>
-&lt;td style="text-align: left">دسترسی مقدار داخل یک خانه حافظه&lt;/td>
+&lt;td>&lt;code>*&lt;/code>&lt;/td>
+&lt;td>دسترسی مقدار داخل یک خانه حافظه&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -382,114 +382,114 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">تایپ&lt;/th>
-&lt;th style="text-align: left">محدوده&lt;/th>
-&lt;th style="text-align: left">مقدار پیش فرض یا مقدار صفر&lt;/th>
-&lt;th style="text-align: left">حجم استفاده از حافظه&lt;/th>
+&lt;th>تایپ&lt;/th>
+&lt;th>محدوده&lt;/th>
+&lt;th>مقدار پیش فرض یا مقدار صفر&lt;/th>
+&lt;th>حجم استفاده از حافظه&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">int&lt;/td>
-&lt;td style="text-align: left">بستگی به معماری سیستم عامل که ۳۲ بیت یا ۶۴ بیت باشد&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۴ یا ۸ بایت&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>بستگی به معماری سیستم عامل که ۳۲ بیت یا ۶۴ بیت باشد&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۴ یا ۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int8&lt;/td>
-&lt;td style="text-align: left">128- تا 127&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۱ بایت&lt;/td>
+&lt;td>int8&lt;/td>
+&lt;td>128- تا 127&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۱ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int16&lt;/td>
-&lt;td style="text-align: left">32768- تا 32767&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۲ بایت&lt;/td>
+&lt;td>int16&lt;/td>
+&lt;td>32768- تا 32767&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۲ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int32&lt;/td>
-&lt;td style="text-align: left">2147483648- تا 2147483647&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۴ بایت&lt;/td>
+&lt;td>int32&lt;/td>
+&lt;td>2147483648- تا 2147483647&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۴ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int64&lt;/td>
-&lt;td style="text-align: left">9223372036854775808- تا 9223372036854775807&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۸ بایت&lt;/td>
+&lt;td>int64&lt;/td>
+&lt;td>9223372036854775808- تا 9223372036854775807&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint&lt;/td>
-&lt;td style="text-align: left">بستگی به معماری سیستم عامل که ۳۲ بیت یا ۶۴ بیت باشد&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۴ یا ۸ بایت&lt;/td>
+&lt;td>uint&lt;/td>
+&lt;td>بستگی به معماری سیستم عامل که ۳۲ بیت یا ۶۴ بیت باشد&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۴ یا ۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint8&lt;/td>
-&lt;td style="text-align: left">0 تا 255&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۱ بایت&lt;/td>
+&lt;td>uint8&lt;/td>
+&lt;td>0 تا 255&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۱ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint16&lt;/td>
-&lt;td style="text-align: left">0 تا 65535&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۲ بایت&lt;/td>
+&lt;td>uint16&lt;/td>
+&lt;td>0 تا 65535&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۲ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint32&lt;/td>
-&lt;td style="text-align: left">0 تا 6294967295&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۴ بایت&lt;/td>
+&lt;td>uint32&lt;/td>
+&lt;td>0 تا 6294967295&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۴ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint64&lt;/td>
-&lt;td style="text-align: left">0 تا 18446744073709551615&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۸ بایت&lt;/td>
+&lt;td>uint64&lt;/td>
+&lt;td>0 تا 18446744073709551615&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uintptr&lt;/td>
-&lt;td style="text-align: left">عدد خیلی بزرگ&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۸ بایت&lt;/td>
+&lt;td>uintptr&lt;/td>
+&lt;td>عدد خیلی بزرگ&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">float32&lt;/td>
-&lt;td style="text-align: left">IEEE-754&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۴ بایت&lt;/td>
+&lt;td>float32&lt;/td>
+&lt;td>IEEE-754&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۴ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">float64&lt;/td>
-&lt;td style="text-align: left">IEEE-754&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">۸ بایت&lt;/td>
+&lt;td>float64&lt;/td>
+&lt;td>IEEE-754&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">complex64&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
-&lt;td style="text-align: left">0+0i&lt;/td>
-&lt;td style="text-align: left">۸ بایت&lt;/td>
+&lt;td>complex64&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>0+0i&lt;/td>
+&lt;td>۸ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">complex128&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
-&lt;td style="text-align: left">0+0i&lt;/td>
-&lt;td style="text-align: left">۱۶ بایت&lt;/td>
+&lt;td>complex128&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>0+0i&lt;/td>
+&lt;td>۱۶ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">bool&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
-&lt;td style="text-align: left">false&lt;/td>
-&lt;td style="text-align: left">۱ بایت&lt;/td>
+&lt;td>bool&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>false&lt;/td>
+&lt;td>۱ بایت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">string&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
-&lt;td style="text-align: left">&amp;quot; &amp;quot;&lt;/td>
-&lt;td style="text-align: left">۱۶ بایت&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>&amp;quot; &amp;quot;&lt;/td>
+&lt;td>۱۶ بایت&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -722,30 +722,30 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">عملگر&lt;/th>
-&lt;th style="text-align: left">نام&lt;/th>
+&lt;th>عملگر&lt;/th>
+&lt;th>نام&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>+&lt;/code>&lt;/td>
-&lt;td style="text-align: left">جمع&lt;/td>
+&lt;td>&lt;code>+&lt;/code>&lt;/td>
+&lt;td>جمع&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>-&lt;/code>&lt;/td>
-&lt;td style="text-align: left">تفریق&lt;/td>
+&lt;td>&lt;code>-&lt;/code>&lt;/td>
+&lt;td>تفریق&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>*&lt;/code>&lt;/td>
-&lt;td style="text-align: left">ضرب&lt;/td>
+&lt;td>&lt;code>*&lt;/code>&lt;/td>
+&lt;td>ضرب&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>/&lt;/code>&lt;/td>
-&lt;td style="text-align: left">تقسیم&lt;/td>
+&lt;td>&lt;code>/&lt;/code>&lt;/td>
+&lt;td>تقسیم&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>%&lt;/code>&lt;/td>
-&lt;td style="text-align: left">باقی مانده&lt;/td>
+&lt;td>&lt;code>%&lt;/code>&lt;/td>
+&lt;td>باقی مانده&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -769,34 +769,34 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">عملگر&lt;/th>
-&lt;th style="text-align: left">نام&lt;/th>
+&lt;th>عملگر&lt;/th>
+&lt;th>نام&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>==&lt;/code>&lt;/td>
-&lt;td style="text-align: left">مساوی بودن&lt;/td>
+&lt;td>&lt;code>==&lt;/code>&lt;/td>
+&lt;td>مساوی بودن&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>=!&lt;/code>&lt;/td>
-&lt;td style="text-align: left">مساوی نبودن با&lt;/td>
+&lt;td>&lt;code>=!&lt;/code>&lt;/td>
+&lt;td>مساوی نبودن با&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>&amp;gt;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">کوچکتر از&lt;/td>
+&lt;td>&lt;code>&amp;gt;&lt;/code>&lt;/td>
+&lt;td>کوچکتر از&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>=&amp;gt;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">کوچکتر یا مساوی&lt;/td>
+&lt;td>&lt;code>=&amp;gt;&lt;/code>&lt;/td>
+&lt;td>کوچکتر یا مساوی&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>&amp;lt;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">بزرگتر&lt;/td>
+&lt;td>&lt;code>&amp;lt;&lt;/code>&lt;/td>
+&lt;td>بزرگتر&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>=&amp;lt;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">بزرگتر یا مساوی&lt;/td>
+&lt;td>&lt;code>=&amp;lt;&lt;/code>&lt;/td>
+&lt;td>بزرگتر یا مساوی&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -821,22 +821,22 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">عملگر&lt;/th>
-&lt;th style="text-align: left">نام&lt;/th>
+&lt;th>عملگر&lt;/th>
+&lt;th>نام&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>&amp;amp;&amp;amp;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">AND&lt;/td>
+&lt;td>&lt;code>&amp;amp;&amp;amp;&lt;/code>&lt;/td>
+&lt;td>AND&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code> &lt;/code>||&lt;/td>
-&lt;td style="text-align: left">OR&lt;/td>
+&lt;td>&lt;code> &lt;/code>||&lt;/td>
+&lt;td>OR&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>!&lt;/code>&lt;/td>
-&lt;td style="text-align: left">NOT&lt;/td>
+&lt;td>&lt;code>!&lt;/code>&lt;/td>
+&lt;td>NOT&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -867,30 +867,30 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">عملگر&lt;/th>
-&lt;th style="text-align: left">نام&lt;/th>
+&lt;th>عملگر&lt;/th>
+&lt;th>نام&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>&amp;gt;&amp;gt;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">شیفت بیتی به چپ&lt;/td>
+&lt;td>&lt;code>&amp;gt;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>شیفت بیتی به چپ&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>&amp;lt;&amp;lt;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">شیفت بیتی به راست&lt;/td>
+&lt;td>&lt;code>&amp;lt;&amp;lt;&lt;/code>&lt;/td>
+&lt;td>شیفت بیتی به راست&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>&amp;amp;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">AND&lt;/td>
+&lt;td>&lt;code>&amp;amp;&lt;/code>&lt;/td>
+&lt;td>AND&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">|&lt;/td>
-&lt;td style="text-align: left">OR&lt;/td>
+&lt;td>|&lt;/td>
+&lt;td>OR&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;code>^&lt;/code>&lt;/td>
-&lt;td style="text-align: left">XOR&lt;/td>
+&lt;td>&lt;code>^&lt;/code>&lt;/td>
+&lt;td>XOR&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1359,106 +1359,106 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">تایپ&lt;/th>
-&lt;th style="text-align: left">مقدار پیش فرض یا مقدار صفر&lt;/th>
+&lt;th>تایپ&lt;/th>
+&lt;th>مقدار پیش فرض یا مقدار صفر&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">int&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int8&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>int8&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int16&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>int16&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int32&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>int32&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">int64&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>int64&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>uint&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint8&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>uint8&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint16&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>uint16&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint32&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>uint32&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uint64&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>uint64&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">uintptr&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>uintptr&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">float32&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>float32&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">float64&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>float64&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">complex64&lt;/td>
-&lt;td style="text-align: left">0+0i&lt;/td>
+&lt;td>complex64&lt;/td>
+&lt;td>0+0i&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">complex128&lt;/td>
-&lt;td style="text-align: left">0+0i&lt;/td>
+&lt;td>complex128&lt;/td>
+&lt;td>0+0i&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">bool&lt;/td>
-&lt;td style="text-align: left">false&lt;/td>
+&lt;td>bool&lt;/td>
+&lt;td>false&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">string&lt;/td>
-&lt;td style="text-align: left">&amp;quot;&amp;quot;&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>&amp;quot;&amp;quot;&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">interface&lt;/td>
-&lt;td style="text-align: left">nil&lt;/td>
+&lt;td>interface&lt;/td>
+&lt;td>nil&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">slice&lt;/td>
-&lt;td style="text-align: left">nil&lt;/td>
+&lt;td>slice&lt;/td>
+&lt;td>nil&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">channel&lt;/td>
-&lt;td style="text-align: left">nil&lt;/td>
+&lt;td>channel&lt;/td>
+&lt;td>nil&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">map&lt;/td>
-&lt;td style="text-align: left">nil&lt;/td>
+&lt;td>map&lt;/td>
+&lt;td>nil&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">pointer&lt;/td>
-&lt;td style="text-align: left">nil&lt;/td>
+&lt;td>pointer&lt;/td>
+&lt;td>nil&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">function&lt;/td>
-&lt;td style="text-align: left">nil&lt;/td>
+&lt;td>function&lt;/td>
+&lt;td>nil&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">struct&lt;/td>
-&lt;td style="text-align: left">براساس مقدار پیش فرض فیلدها&lt;/td>
+&lt;td>struct&lt;/td>
+&lt;td>براساس مقدار پیش فرض فیلدها&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4178,26 +4178,26 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, []int64{0, 1})&lt;/code> خروجی&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, []int64{0, 1})&lt;/code> خروجی&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%v&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>[0 1]&lt;/code>&lt;/td>
-&lt;td style="text-align: left">فرمت پیش‌فرض&lt;/td>
+&lt;td>&lt;span dir="ltr">%v&lt;/span>&lt;/td>
+&lt;td>&lt;code>[0 1]&lt;/code>&lt;/td>
+&lt;td>فرمت پیش‌فرض&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%#v&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>[]int64{0, 1}&lt;/code>&lt;/td>
-&lt;td style="text-align: left">قالب‌بندی کد گو&lt;/td>
+&lt;td>&lt;span dir="ltr">%#v&lt;/span>&lt;/td>
+&lt;td>&lt;code>[]int64{0, 1}&lt;/code>&lt;/td>
+&lt;td>قالب‌بندی کد گو&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%T&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>[]int64&lt;/code>&lt;/td>
-&lt;td style="text-align: left">تایپ مقدار&lt;/td>
+&lt;td>&lt;span dir="ltr">%T&lt;/span>&lt;/td>
+&lt;td>&lt;code>[]int64&lt;/code>&lt;/td>
+&lt;td>تایپ مقدار&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4211,61 +4211,61 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, 15)&lt;/code> خروجی&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, 15)&lt;/code> خروجی&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%d&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>15&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عدد پایه ۱۰&lt;/td>
+&lt;td>&lt;span dir="ltr">%d&lt;/span>&lt;/td>
+&lt;td>&lt;code>15&lt;/code>&lt;/td>
+&lt;td>عدد پایه ۱۰&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%+d&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>+15&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نمایش + در کنار عدد&lt;/td>
+&lt;td>&lt;span dir="ltr">%+d&lt;/span>&lt;/td>
+&lt;td>&lt;code>+15&lt;/code>&lt;/td>
+&lt;td>نمایش + در کنار عدد&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%4d&lt;/span>&lt;/td>
-&lt;td style="text-align: left">␣␣&lt;code>15&lt;/code>&lt;/td>
-&lt;td style="text-align: left">۴ کارکتر با فاصله از راست&lt;/td>
+&lt;td>&lt;span dir="ltr">%4d&lt;/span>&lt;/td>
+&lt;td>␣␣&lt;code>15&lt;/code>&lt;/td>
+&lt;td>۴ کارکتر با فاصله از راست&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%-4d&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>15&lt;/code>␣␣&lt;/td>
-&lt;td style="text-align: left">۴ کارکتر با فاصله از چپ&lt;/td>
+&lt;td>&lt;span dir="ltr">%-4d&lt;/span>&lt;/td>
+&lt;td>&lt;code>15&lt;/code>␣␣&lt;/td>
+&lt;td>۴ کارکتر با فاصله از چپ&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%04d&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>0015&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نمایش عدد با پیشوند صفر&lt;/td>
+&lt;td>&lt;span dir="ltr">%04d&lt;/span>&lt;/td>
+&lt;td>&lt;code>0015&lt;/code>&lt;/td>
+&lt;td>نمایش عدد با پیشوند صفر&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%b&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>1111&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عدد با پایه باینری&lt;/td>
+&lt;td>&lt;span dir="ltr">%b&lt;/span>&lt;/td>
+&lt;td>&lt;code>1111&lt;/code>&lt;/td>
+&lt;td>عدد با پایه باینری&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%o&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>17&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عدد با پایه ۸ اکتال&lt;/td>
+&lt;td>&lt;span dir="ltr">%o&lt;/span>&lt;/td>
+&lt;td>&lt;code>17&lt;/code>&lt;/td>
+&lt;td>عدد با پایه ۸ اکتال&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%x&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>f&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عدد با پایه ۱۶ هگز حروف کوچک&lt;/td>
+&lt;td>&lt;span dir="ltr">%x&lt;/span>&lt;/td>
+&lt;td>&lt;code>f&lt;/code>&lt;/td>
+&lt;td>عدد با پایه ۱۶ هگز حروف کوچک&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%X&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>F&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عدد با پایه ۱۶ هگز حروف بزرگ&lt;/td>
+&lt;td>&lt;span dir="ltr">%X&lt;/span>&lt;/td>
+&lt;td>&lt;code>F&lt;/code>&lt;/td>
+&lt;td>عدد با پایه ۱۶ هگز حروف بزرگ&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%#x&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>0xf&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عدد با پایه ۱۶ هگز به همراه 0x&lt;/td>
+&lt;td>&lt;span dir="ltr">%#x&lt;/span>&lt;/td>
+&lt;td>&lt;code>0xf&lt;/code>&lt;/td>
+&lt;td>عدد با پایه ۱۶ هگز به همراه 0x&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4276,41 +4276,41 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, 123.456)&lt;/code> خروجی&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, 123.456)&lt;/code> خروجی&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%e&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>1.234560e+02&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نمایش بصورت نماد عملی&lt;/td>
+&lt;td>&lt;span dir="ltr">%e&lt;/span>&lt;/td>
+&lt;td>&lt;code>1.234560e+02&lt;/code>&lt;/td>
+&lt;td>نمایش بصورت نماد عملی&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%f&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>123.456000&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نقطه اعشاری، بدون نما. دقت پیش فرض 6 است&lt;/td>
+&lt;td>&lt;span dir="ltr">%f&lt;/span>&lt;/td>
+&lt;td>&lt;code>123.456000&lt;/code>&lt;/td>
+&lt;td>نقطه اعشاری، بدون نما. دقت پیش فرض 6 است&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%.2f&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>123.46&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عرض پیش فرض، دقت 2 رقم بعد از نقطه اعشار&lt;/td>
+&lt;td>&lt;span dir="ltr">%.2f&lt;/span>&lt;/td>
+&lt;td>&lt;code>123.46&lt;/code>&lt;/td>
+&lt;td>عرض پیش فرض، دقت 2 رقم بعد از نقطه اعشار&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%8.2f&lt;/span>&lt;/td>
-&lt;td style="text-align: left">␣␣&lt;code>123.46&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عرض 8 کاراکتر، دقت 2 رقم بعد از نقطه اعشار. کاراکتر پیش‌فرض padding space است&lt;/td>
+&lt;td>&lt;span dir="ltr">%8.2f&lt;/span>&lt;/td>
+&lt;td>␣␣&lt;code>123.46&lt;/code>&lt;/td>
+&lt;td>عرض 8 کاراکتر، دقت 2 رقم بعد از نقطه اعشار. کاراکتر پیش‌فرض padding space است&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%08.2f&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>00123.46&lt;/code>&lt;/td>
-&lt;td style="text-align: left">عرض 8 کاراکتر، دقت 2 رقم بعد از نقطه اعشار. لایه سمت چپ با نویسه مشخص شده (اینجا، 0)&lt;/td>
+&lt;td>&lt;span dir="ltr">%08.2f&lt;/span>&lt;/td>
+&lt;td>&lt;code>00123.46&lt;/code>&lt;/td>
+&lt;td>عرض 8 کاراکتر، دقت 2 رقم بعد از نقطه اعشار. لایه سمت چپ با نویسه مشخص شده (اینجا، 0)&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%g&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>123.456&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نما در صورت نیاز، فقط ارقام ضروری&lt;/td>
+&lt;td>&lt;span dir="ltr">%g&lt;/span>&lt;/td>
+&lt;td>&lt;code>123.456&lt;/code>&lt;/td>
+&lt;td>نما در صورت نیاز، فقط ارقام ضروری&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4321,31 +4321,31 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, 'A')&lt;/code> خروجی&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, 'A')&lt;/code> خروجی&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%c&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>A&lt;/code>&lt;/td>
-&lt;td style="text-align: left">کارکتر&lt;/td>
+&lt;td>&lt;span dir="ltr">%c&lt;/span>&lt;/td>
+&lt;td>&lt;code>A&lt;/code>&lt;/td>
+&lt;td>کارکتر&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%q&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>&amp;quot;A&amp;quot;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">کارکتر به همراه دابل کوتیشن&lt;/td>
+&lt;td>&lt;span dir="ltr">%q&lt;/span>&lt;/td>
+&lt;td>&lt;code>&amp;quot;A&amp;quot;&lt;/code>&lt;/td>
+&lt;td>کارکتر به همراه دابل کوتیشن&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%U&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>U+0041&lt;/code>&lt;/td>
-&lt;td style="text-align: left">یونیکد&lt;/td>
+&lt;td>&lt;span dir="ltr">%U&lt;/span>&lt;/td>
+&lt;td>&lt;code>U+0041&lt;/code>&lt;/td>
+&lt;td>یونیکد&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%#U&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>U+0041 'A'&lt;/code>&lt;/td>
-&lt;td style="text-align: left">یونیکد به همراه کارکتر&lt;/td>
+&lt;td>&lt;span dir="ltr">%#U&lt;/span>&lt;/td>
+&lt;td>&lt;code>U+0041 'A'&lt;/code>&lt;/td>
+&lt;td>یونیکد به همراه کارکتر&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4356,41 +4356,41 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, &amp;quot;gophers&amp;quot;)&lt;/code> خروجی&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, &amp;quot;gophers&amp;quot;)&lt;/code> خروجی&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%s&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>gophers&lt;/code>&lt;/td>
-&lt;td style="text-align: left">رشته ساده&lt;/td>
+&lt;td>&lt;span dir="ltr">%s&lt;/span>&lt;/td>
+&lt;td>&lt;code>gophers&lt;/code>&lt;/td>
+&lt;td>رشته ساده&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%8s&lt;/span>&lt;/td>
-&lt;td style="text-align: left">␣␣&lt;code>gophers&lt;/code>&lt;/td>
-&lt;td style="text-align: left">با ۸ پدینگ راست چین شده&lt;/td>
+&lt;td>&lt;span dir="ltr">%8s&lt;/span>&lt;/td>
+&lt;td>␣␣&lt;code>gophers&lt;/code>&lt;/td>
+&lt;td>با ۸ پدینگ راست چین شده&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%-8s&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>gophers&lt;/code>␣␣&lt;/td>
-&lt;td style="text-align: left">با ۸ پدینگ چپ چین شده&lt;/td>
+&lt;td>&lt;span dir="ltr">%-8s&lt;/span>&lt;/td>
+&lt;td>&lt;code>gophers&lt;/code>␣␣&lt;/td>
+&lt;td>با ۸ پدینگ چپ چین شده&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%q&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>&amp;quot;gophers&amp;quot;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">رشته به همراه دابل کوتیشن&lt;/td>
+&lt;td>&lt;span dir="ltr">%q&lt;/span>&lt;/td>
+&lt;td>&lt;code>&amp;quot;gophers&amp;quot;&lt;/code>&lt;/td>
+&lt;td>رشته به همراه دابل کوتیشن&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%x&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>676f7068657273&lt;/code>&lt;/td>
-&lt;td style="text-align: left">خروجی هگز مقدار&lt;/td>
+&lt;td>&lt;span dir="ltr">%x&lt;/span>&lt;/td>
+&lt;td>&lt;code>676f7068657273&lt;/code>&lt;/td>
+&lt;td>خروجی هگز مقدار&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">% x&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>67 6f 70 68 65 72 73&lt;/code>&lt;/td>
-&lt;td style="text-align: left">خروجی هگز مقدار با فاصله&lt;/td>
+&lt;td>&lt;span dir="ltr">% x&lt;/span>&lt;/td>
+&lt;td>&lt;code>67 6f 70 68 65 72 73&lt;/code>&lt;/td>
+&lt;td>خروجی هگز مقدار با فاصله&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4401,16 +4401,16 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, true)&lt;/code> خروجی&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, true)&lt;/code> خروجی&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%t&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>true&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نمایش مقدار بولین در رشته&lt;/td>
+&lt;td>&lt;span dir="ltr">%t&lt;/span>&lt;/td>
+&lt;td>&lt;code>true&lt;/code>&lt;/td>
+&lt;td>نمایش مقدار بولین در رشته&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4421,16 +4421,16 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, new(int))&lt;/code> خروجی&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>&lt;code>fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, new(int))&lt;/code> خروجی&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%p&lt;/span>&lt;/td>
-&lt;td style="text-align: left">&lt;code>0xc0000b2000&lt;/code>&lt;/td>
-&lt;td style="text-align: left">نمایش آدرس حافظه با پایه ۱۶ به همراه 0x&lt;/td>
+&lt;td>&lt;span dir="ltr">%p&lt;/span>&lt;/td>
+&lt;td>&lt;code>0xc0000b2000&lt;/code>&lt;/td>
+&lt;td>نمایش آدرس حافظه با پایه ۱۶ به همراه 0x&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4442,46 +4442,46 @@ Cap: 5 - 1 = 4&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Verb&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>Verb&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\a&lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+0007 هشدار یا زنگ&lt;/td>
+&lt;td>&lt;span dir="ltr">\a&lt;/span>&lt;/td>
+&lt;td>U+0007 هشدار یا زنگ&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\b&lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+0008 بک اسپیس backspace&lt;/td>
+&lt;td>&lt;span dir="ltr">\b&lt;/span>&lt;/td>
+&lt;td>U+0008 بک اسپیس backspace&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\\ &lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+005c بک اسلش backslash&lt;/td>
+&lt;td>&lt;span dir="ltr">\\ &lt;/span>&lt;/td>
+&lt;td>U+005c بک اسلش backslash&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\t&lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+0009 تب بصورت افقی&lt;/td>
+&lt;td>&lt;span dir="ltr">\t&lt;/span>&lt;/td>
+&lt;td>U+0009 تب بصورت افقی&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\n&lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+000A خط جدید&lt;/td>
+&lt;td>&lt;span dir="ltr">\n&lt;/span>&lt;/td>
+&lt;td>U+000A خط جدید&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\f&lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+000C حالت فرم&lt;/td>
+&lt;td>&lt;span dir="ltr">\f&lt;/span>&lt;/td>
+&lt;td>U+000C حالت فرم&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\r&lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+000D حالت برگشت&lt;/td>
+&lt;td>&lt;span dir="ltr">\r&lt;/span>&lt;/td>
+&lt;td>U+000D حالت برگشت&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">\v&lt;/span>&lt;/td>
-&lt;td style="text-align: left">U+000b تب بصورت عمودی&lt;/td>
+&lt;td>&lt;span dir="ltr">\v&lt;/span>&lt;/td>
+&lt;td>U+000b تب بصورت عمودی&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span dir="ltr">%%&lt;/span>&lt;/td>
-&lt;td style="text-align: left">نمایش درصد برای حالت‌های خاص نظیر &lt;code>fmt.Printf(&amp;quot;%05.2f%%&amp;quot;, math.Pi)&lt;/code>&lt;/td>
+&lt;td>&lt;span dir="ltr">%%&lt;/span>&lt;/td>
+&lt;td>نمایش درصد برای حالت‌های خاص نظیر &lt;code>fmt.Printf(&amp;quot;%05.2f%%&amp;quot;, math.Pi)&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>

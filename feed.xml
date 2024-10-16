@@ -369,71 +369,71 @@ background-color: #21998E;
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">دستور&lt;/th>
-&lt;th style="text-align: left">توضیحات&lt;/th>
+&lt;th>دستور&lt;/th>
+&lt;th>توضیحات&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">build&lt;/td>
-&lt;td style="text-align: left">با این دستور (&lt;code>go build main.go&lt;/code>) می‌توانید فایل &lt;code>go&lt;/code> را کامپایل کنید.&lt;/td>
+&lt;td>build&lt;/td>
+&lt;td>با این دستور (&lt;code>go build main.go&lt;/code>) می‌توانید فایل &lt;code>go&lt;/code> را کامپایل کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">clean&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید فایل‌های کش‌شده را پاکسازی کنید.&lt;/td>
+&lt;td>clean&lt;/td>
+&lt;td>با این دستور می‌توانید فایل‌های کش‌شده را پاکسازی کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">doc&lt;/td>
-&lt;td style="text-align: left">با این دستور (&lt;code>go doc fmt.Println&lt;/code>) می‌توانید داکیومنت هر یک از توابع عمومی را ببینید.&lt;/td>
+&lt;td>doc&lt;/td>
+&lt;td>با این دستور (&lt;code>go doc fmt.Println&lt;/code>) می‌توانید داکیومنت هر یک از توابع عمومی را ببینید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">env&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید &lt;span class="tooltip" data-tooltip="environment variable" ontouchend="toggleTooltip(this)">متغیرهای محیطی&lt;/span>
+&lt;td>env&lt;/td>
+&lt;td>با این دستور می‌توانید &lt;span class="tooltip" data-tooltip="environment variable" ontouchend="toggleTooltip(this)">متغیرهای محیطی&lt;/span>
 تنظیم شده زبان گو را ببینید و آن‌ها را با دستور &lt;code>go env -w key=value&lt;/code> مقداردهی کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">fmt&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید کدهای خود را مرتب &lt;code>go fmt ./...&lt;/code> کنید.&lt;/td>
+&lt;td>fmt&lt;/td>
+&lt;td>با این دستور می‌توانید کدهای خود را مرتب &lt;code>go fmt ./...&lt;/code> کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">install&lt;/td>
-&lt;td style="text-align: left">با استفاده از این دستور می‌توانید یکسری پکیج‌ها را گرفته و کامپایل کنید.&lt;/td>
+&lt;td>install&lt;/td>
+&lt;td>با استفاده از این دستور می‌توانید یکسری پکیج‌ها را گرفته و کامپایل کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">list&lt;/td>
-&lt;td style="text-align: left">لیست پکیج‌ها و ماژول‌های دانلود شده.&lt;/td>
+&lt;td>list&lt;/td>
+&lt;td>لیست پکیج‌ها و ماژول‌های دانلود شده.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">generate&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید از قابلیت Generator زبان گو استفاده کنید و فایل generate کنید.&lt;/td>
+&lt;td>generate&lt;/td>
+&lt;td>با این دستور می‌توانید از قابلیت Generator زبان گو استفاده کنید و فایل generate کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">mod&lt;/td>
-&lt;td style="text-align: left">برای مدیریت و ایجاد فایل mod به ازای هر پروژه.&lt;/td>
+&lt;td>mod&lt;/td>
+&lt;td>برای مدیریت و ایجاد فایل mod به ازای هر پروژه.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">get&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید پکیجی را دانلود یا بروزرسانی کنید و همچنین برای استفاده از این دستور نیاز به &lt;code>git&lt;/code> دارید که نصب باشد.&lt;/td>
+&lt;td>get&lt;/td>
+&lt;td>با این دستور می‌توانید پکیجی را دانلود یا بروزرسانی کنید و همچنین برای استفاده از این دستور نیاز به &lt;code>git&lt;/code> دارید که نصب باشد.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">work&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید یک workspace ایجاد کنید و آن را مدیریت کنید.&lt;/td>
+&lt;td>work&lt;/td>
+&lt;td>با این دستور می‌توانید یک workspace ایجاد کنید و آن را مدیریت کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">run&lt;/td>
-&lt;td style="text-align: left">با این دستور (&lt;code>go run main.go&lt;/code>) می‌توانید فایل‌های گو یا پروژه را اجرا کنید.&lt;/td>
+&lt;td>run&lt;/td>
+&lt;td>با این دستور (&lt;code>go run main.go&lt;/code>) می‌توانید فایل‌های گو یا پروژه را اجرا کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">test&lt;/td>
-&lt;td style="text-align: left">با این دستور (&lt;code>go test example_test.go&lt;/code>) می‌توانید فایل‌های تست را اجرا کنید.&lt;/td>
+&lt;td>test&lt;/td>
+&lt;td>با این دستور (&lt;code>go test example_test.go&lt;/code>) می‌توانید فایل‌های تست را اجرا کنید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">version&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید نسخه نصب شده زبان گو را ببینید.&lt;/td>
+&lt;td>version&lt;/td>
+&lt;td>با این دستور می‌توانید نسخه نصب شده زبان گو را ببینید.&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">vet&lt;/td>
-&lt;td style="text-align: left">با این دستور می‌توانید اشتباهات کدهای خود را ببینید.&lt;/td>
+&lt;td>vet&lt;/td>
+&lt;td>با این دستور می‌توانید اشتباهات کدهای خود را ببینید.&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>

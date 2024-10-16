@@ -3620,38 +3620,38 @@ API_KEY=AbCdEfGhIjKlMnOp
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">خروجی&lt;/th>
-&lt;th style="text-align: left">توضیح&lt;/th>
+&lt;th>خروجی&lt;/th>
+&lt;th>توضیح&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">gc 1&lt;/td>
-&lt;td style="text-align: left">شماره پاکسازی که در هربار اجرای عملیات پاکسازی بصورت خودکار به آن اضافه می شود&lt;/td>
+&lt;td>gc 1&lt;/td>
+&lt;td>شماره پاکسازی که در هربار اجرای عملیات پاکسازی بصورت خودکار به آن اضافه می شود&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">@0.007s&lt;/td>
-&lt;td style="text-align: left">زمان اجرای پاکسازی بعد از شروع به کار برنامه&lt;/td>
+&lt;td>@0.007s&lt;/td>
+&lt;td>زمان اجرای پاکسازی بعد از شروع به کار برنامه&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">0%&lt;/td>
-&lt;td style="text-align: left">درصد منابع پردازشی استفاده شده بعد از اجرای برنامه&lt;/td>
+&lt;td>0%&lt;/td>
+&lt;td>درصد منابع پردازشی استفاده شده بعد از اجرای برنامه&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">0.011+0.11+0.002 ms clock&lt;/td>
-&lt;td style="text-align: left">مقدار این متغیر متشکل از چند مقدار است که بصورت ذیل محاسبه می شود Tgc = Tseq + Tmark + Tsweep&lt;/td>
+&lt;td>0.011+0.11+0.002 ms clock&lt;/td>
+&lt;td>مقدار این متغیر متشکل از چند مقدار است که بصورت ذیل محاسبه می شود Tgc = Tseq + Tmark + Tsweep&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">95-&amp;gt;95-&amp;gt;0 MB&lt;/td>
-&lt;td style="text-align: left">این متغیر نیز چند مقداری است و مقادیر اول نشانگر عملکرد حافظه قبل از اجرای پاکسازی ، دوم بعد از اجرای پاکسازی و سوم مقدار پشته است&lt;/td>
+&lt;td>95-&amp;gt;95-&amp;gt;0 MB&lt;/td>
+&lt;td>این متغیر نیز چند مقداری است و مقادیر اول نشانگر عملکرد حافظه قبل از اجرای پاکسازی ، دوم بعد از اجرای پاکسازی و سوم مقدار پشته است&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">96 MB goal&lt;/td>
-&lt;td style="text-align: left">اندازه پشته برنامه مورد نظر&lt;/td>
+&lt;td>96 MB goal&lt;/td>
+&lt;td>اندازه پشته برنامه مورد نظر&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">1 P&lt;/td>
-&lt;td style="text-align: left">تعداد پردازنده مورد استفاده شده&lt;/td>
+&lt;td>1 P&lt;/td>
+&lt;td>تعداد پردازنده مورد استفاده شده&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -3852,7 +3852,52 @@ API_KEY=AbCdEfGhIjKlMnOp
 &lt;a class="anchor" href="#4225-%da%a9%d9%84%d8%a7%d9%85-%d8%a2%d8%ae%d8%b1">#&lt;/a>
 &lt;/h2>
 &lt;p>ماژولارنویسی یکی از مهم ترین عناوین توسعه و طراحی نرم افزار بوده که شما با اینکار می توانید پلاگین های reusable بنویسید و در هر پروژه ای بسته به نیازتان استفاده کنید.
-شرکت های بزرگی نظیر hashicorp برای اکثر پروژهایش نظیر terraform یا consul از این قابلیت استفاده کرده است.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.24 آموزش tracing</title><link>https://book.gofarsi.ir/chapter-4/tracing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/tracing/</guid><description>&lt;p>در این فصل، این مورد را یاد خواهیم گرفت که چگونه یک برنامه در حال اجرا را ردیابی کنیم و آن را با ابزار ردیابی مشاهده کنیم. در این حالت با استفاده از کتابخانه استاندارد، یک ردیابی ایجاد خواهیم کرد.&lt;/p>
+شرکت های بزرگی نظیر hashicorp برای اکثر پروژهایش نظیر terraform یا consul از این قابلیت استفاده کرده است.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.23 شی گرایی در زبان گو</title><link>https://book.gofarsi.ir/chapter-4/oop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/oop/</guid><description>&lt;p>گو یک زبان statically-typed است و بطور کلی امکانات شی گرایی را به شیوه قدیم و مرسوم پشتیبانی نمی کند. اما در عوض یک شیوه قرار دادی وجود دارد که به شما کمک می کند برخی از مفاهیم شی گرایی را با کمک اینترفیس, composition, متد و type embedding پیاده سازی کنید.&lt;/p>
+&lt;p>&lt;strong>این مفاهیم شامل :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="go-encapsulation">کپسوله سازی&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-inheritance">ارث بری&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-polymorphism">پلی مورفیسم&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-overriding">overriding&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-abstraction">abstraction&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="تعریف-شی-گرایی-به-زبان-ساده">
+تعریف شی گرایی به زبان ساده
+&lt;a class="anchor" href="#%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%b4%db%8c-%da%af%d8%b1%d8%a7%db%8c%db%8c-%d8%a8%d9%87-%d8%b2%d8%a8%d8%a7%d9%86-%d8%b3%d8%a7%d8%af%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>بیاید با چند تا مثال ساده، سوا از اینکه با چه زبانی کار می کنیم، با مفهوم شی گرایی آشنا شویم.&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../assets/img/content/chapter4/oop/oop.jpeg" alt="pprof">
+&lt;/a>&lt;/center>
+&lt;p>قراره با یه سری مثال از دنیای واقعی شی گرایی رو براتون توضیح بدم.
+ما موجودی داریم به اسم گربه (class) که این موجود ویژگی (Attribute) و رفتار (Method) هایی رو داره. برای مثال گربه ویژگی هایی مثل رنگ چشم، وزن و &amp;hellip; داره. همچنین رفتار هایی رو داره مثل راه رفتن،‌ میو میو کردن.&lt;/p>
+&lt;p>خب تا الان گربه رو به صورت انتزاعی گفتیم که فلان ویژگی ها و رفتار هارو داره.
+به یک نمونه واقعی از گربه object و یا instance میگیم.&lt;/p>
+&lt;p>گربه خودش از یک کلاس والد ارث بری (Inheritance) کرده. مثلا کلاسی داریم به اسم حیوان. کلاس حیوان یه سری ویژگی ها و رفتار هایی رو داره. حالا که گربه از کلاس حیوان ارث بری کرده رفتار ها و ویژگی های والدش رو ارث میگیره.&lt;/p>
+&lt;p>خب اینجا یه سوالی پیش میاد! ما کلی موجود داریم که کلاس والدشون حیوان هستش ولی آیا همشون شبیه به همدیگه رفتار می کنن؟ برای مثال همشون یه شکلی راه میرن و صدا در میارن؟
+جواب قطعا خیر هستش. اینجاس که چند ریختگی (Polymorphism) اتفاق میوفته. درسته که هم سگ و هم گربه صدا دارن ولی یکیش میو میکنه یکیش هاپ هاپ&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../assets/img/content/chapter4/oop/encapsulation.png" alt="polymorphism">
+&lt;/a>&lt;/center>
+&lt;p>بعضی وقتا نیازه که ما یک سری ویژگی ها و متد هایی رو تعریف کنیم اما از بیرون قابل دسترس نباشه.
+مثلا attribute به اسم score داریم که امتیاز رو نگه میداریم. بقیه قسمت های کد نباید بصورت مستقیم بتونن مقدار score رو تغییر بدن پس میایم socre رو مخفی می کنیم تا از بیرون دسترسی نداشته باشن و برای تغییر دادن socre یک متد به اسم increase_score می نویسیم که هربار صدا زده بشه به امتیاز کاربر اضافه بشه.&lt;/p>
+&lt;p>مثال دوم:
+فرض کن یه پکیجی رو داری مینویسی که قراره یه سری کارهایی رو انجام بده.
+نمیخوای برنامه نویسی که قراره از پکیجت استفاده کنه یه سری رفتار و ویژگی هارو ببینه.
+مثلا متد get_response رو داری که خود این متد چند تا متد دیگه رو صدا میزنه تا بتونه پاسخ مناسب رو نشون بده.&lt;/p>
+&lt;p>این متد هایی که توی get_response استفاده کردیم فقط برای استفاده داخلی نوشته شدن و نمیخوایم برنامه نویس بهشون دسترسی داشته باشه. پس میایم مخفی میکنیمشون و از encapsulation استفاده می کنیم&lt;/p>
+&lt;center>&lt;a href="#">
+&lt;img src="../../assets/img/content/chapter4/oop/abstraction.jpeg" alt="abstraction">
+&lt;/a>&lt;/center>
+&lt;p>هر ساله ماشین ها از نظر فنی کلی تغییر می کنن اما شخصی که با یک ماشین چند سال پیش رانندگی کرده باشه با ماشین الانم میتونه رانندگی کنه. اینجاست که abstraction باعث میشه این اتفاق بیوفته.
+اومدن بصورت انتزاعی تعریف کردن که ماشین دنده داره، پدال گاز داره و فرمون داره و هر کدومشون به چه صورت عمل می کنن.&lt;/p>
+&lt;p>به همین دلیل با اینکه از نظر فنی و داخلی کلی تغییر میکنن اما طرز استفاده ازش تغییر خاصی نمیکنه.&lt;/p>
+&lt;p>بیاید یه مثال دیگه بزنیم:
+فرض کنید شما یک وب سایت طراحی کردید. یه سری دکمه ها و قابلیت ها قرار دادید تا کاربر بتونه ازش استفاده کنه.
+با اینکه سبد خرید برای کاربر همونه اما پشت صحنه کلی تغییر دادید و بروزرسانیش کردید.&lt;/p>
+&lt;p>همچنین شما هم برای طراحی وب سایت از یک سری ابزار ها استفاده کردید که این ابزار ها همش در حال بروز رسانی هستند اما نحوه استفاده شما تغییری نمیکنه.&lt;/p>
+&lt;p>به این مفهوم Abstraction میگن.&lt;/p>
+&lt;p>در ادامه این بخش بررسی می کنیم که در زبان گولنگ آیا مفاهیم شی گرایی رو داریم یا نه. اگه داریم به چه صورت قابل پیاده سازی هستند.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.24 آموزش tracing</title><link>https://book.gofarsi.ir/chapter-4/tracing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/tracing/</guid><description>&lt;p>در این فصل، این مورد را یاد خواهیم گرفت که چگونه یک برنامه در حال اجرا را ردیابی کنیم و آن را با ابزار ردیابی مشاهده کنیم. در این حالت با استفاده از کتابخانه استاندارد، یک ردیابی ایجاد خواهیم کرد.&lt;/p>
 &lt;h2 id="4241--مثال-از-tracing">
 4.24.1 مثال از tracing
 &lt;a class="anchor" href="#4241--%d9%85%d8%ab%d8%a7%d9%84-%d8%a7%d8%b2-tracing">#&lt;/a>
@@ -4366,7 +4411,6 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;/a>&lt;/center>
 &lt;p>مثال بالا به شدت ساده شده است و بسیاری از جزئیات مانند مقادیر بازگشتی، اشاره‌گرهای فریم، آدرس‌های بازگشت و درون‌خطی‌سازی (inlining) توابع را حذف کرده است. در واقع، از نسخه Go 1.17 به بعد، ممکن است برنامه بالا نیازی به فضای پشته نداشته باشد، زیرا مقدار کم داده می‌تواند توسط کامپایلر با استفاده از ثبات‌های پردازنده (CPU registers) مدیریت شود. اما این مسئله مشکلی ایجاد نمی‌کند. این مدل همچنان به شما یک شهود معقول از نحوه تخصیص و حذف متغیرهای محلی در برنامه‌های پیچیده‌تر Go روی پشته می‌دهد.&lt;/p>
 &lt;p>شاید در این مرحله این سوال برای شما پیش بیاید که چه اتفاقی می‌افتد اگر فضای پشته تمام شود. در زبان‌هایی مانند C، این موضوع باعث خطای سرریز پشته (stack overflow) می‌شود. اما در Go، این مشکل به صورت خودکار با ایجاد یک نسخه کپی از پشته که دو برابر بزرگتر است، مدیریت می‌شود. این قابلیت به goroutineها اجازه می‌دهد که با پشته‌های بسیار کوچک، معمولاً 2 کیلوبایت، شروع کنند و یکی از عوامل اصلی مقیاس‌پذیری بیشتر goroutineها نسبت به نخ‌های سیستم‌عامل همین موضوع است.&lt;/p>
-&lt;p>یکی دیگر از جنبه‌های پشته، نحوه استفاده از آن در ایجاد ردیابی پشته (stack trace) است. این موضوع کمی پیشرفته‌تر است، اما اگر علاقه‌مند هستید، می‌توانید به مستندات «ردیابی پشته در Go» که در این مخزن موجود است، مراجعه کنید.&lt;/p>
 &lt;h4 id="425122-هیپ-heap">
 4.25.1.2.2 هیپ (Heap)
 &lt;a class="anchor" href="#425122-%d9%87%db%8c%d9%be-heap">#&lt;/a>
@@ -4393,7 +4437,7 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;li>&lt;strong>بازاستفاده (Reuse)&lt;/strong>: تخصیص‌های هیپ را دوباره استفاده کنید به جای اینکه آن‌ها را با تخصیص‌های جدید جایگزین کنید.&lt;/li>
 &lt;li>&lt;strong>بازیافت (Recycle)&lt;/strong>: برخی از تخصیص‌های هیپ غیرقابل اجتناب هستند. بگذارید GC آن‌ها را بازیافت کند و بر روی مسائل دیگر تمرکز کنید.&lt;/li>
 &lt;/ul>
-&lt;p>همانند مدل ذهنی قبلی در این راهنما، همه موارد بالا نمایی به شدت ساده شده از واقعیت است. اما امیدوارم که این مدل به اندازه کافی مفید باشد تا باقی‌مانده این راهنما را درک کنید و شما را به مطالعه مقالات بیشتری در این زمینه ترغیب کند. یکی از مقالاتی که حتماً باید بخوانید، مقاله «به Go رسیدن: سفر جمع‌آوری زباله Go» است که ایده خوبی از پیشرفت‌های GC Go در طول سال‌ها و سرعت بهبود آن ارائه می‌دهد.&lt;/p>
+&lt;p>همانند مدل ذهنی قبلی در این راهنما، همه موارد بالا نمایی به شدت ساده شده از واقعیت است. اما امیدوارم که این مدل به اندازه کافی مفید باشد تا باقی‌مانده این راهنما را درک کنید و شما را به مطالعه مقالات بیشتری در این زمینه ترغیب کند.&lt;/p>
 &lt;h2 id="4252-درک-عمیق-پروفایلرهای-profilers-گو">
 4.25.2 درک عمیق پروفایلرهای (Profilers) گو
 &lt;a class="anchor" href="#4252-%d8%af%d8%b1%da%a9-%d8%b9%d9%85%db%8c%d9%82-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1%d9%87%d8%a7%db%8c-profilers-%da%af%d9%88">#&lt;/a>
@@ -4404,64 +4448,64 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">ویژگی&lt;/th>
-&lt;th style="text-align: left">&lt;a href="#42521-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-cpu">CPU&lt;/a>&lt;/th>
-&lt;th style="text-align: left">&lt;a href="#42522-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-%d8%ad%d8%a7%d9%81%d8%b8%d9%87-memory">Memory&lt;/a>&lt;/th>
-&lt;th style="text-align: left">&lt;a href="#42523-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-%d8%a8%d9%84%d8%a7%da%a9">Block&lt;/a>&lt;/th>
-&lt;th style="text-align: left">&lt;a href="#42524-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-mutex">Mutex&lt;/a>&lt;/th>
-&lt;th style="text-align: left">&lt;a href="#42525-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-goroutine">Goroutine&lt;/a>&lt;/th>
-&lt;th style="text-align: left">&lt;a href="#42526-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-threadcreate">ThreadCreate&lt;/a>&lt;/th>
+&lt;th>ویژگی&lt;/th>
+&lt;th>&lt;a href="#42521-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-cpu">CPU&lt;/a>&lt;/th>
+&lt;th>&lt;a href="#42522-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-%d8%ad%d8%a7%d9%81%d8%b8%d9%87-memory">Memory&lt;/a>&lt;/th>
+&lt;th>&lt;a href="#42523-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-%d8%a8%d9%84%d8%a7%da%a9">Block&lt;/a>&lt;/th>
+&lt;th>&lt;a href="#42524-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-mutex">Mutex&lt;/a>&lt;/th>
+&lt;th>&lt;a href="#42525-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-goroutine">Goroutine&lt;/a>&lt;/th>
+&lt;th>&lt;a href="#42526-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-threadcreate">ThreadCreate&lt;/a>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">Production Safety&lt;/td>
-&lt;td style="text-align: left">✅&lt;/td>
-&lt;td style="text-align: left">✅&lt;/td>
-&lt;td style="text-align: left">⚠ (1.)&lt;/td>
-&lt;td style="text-align: left">✅&lt;/td>
-&lt;td style="text-align: left">⚠️ (2.)&lt;/td>
-&lt;td style="text-align: left">🐞 (3.)&lt;/td>
+&lt;td>Production Safety&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>⚠ (1.)&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>⚠️ (2.)&lt;/td>
+&lt;td>🐞 (3.)&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span class="tooltip" data-tooltip="Safe Rate" ontouchend="toggleTooltip(this)">نرخ ایمنی&lt;/span>
+&lt;td>&lt;span class="tooltip" data-tooltip="Safe Rate" ontouchend="toggleTooltip(this)">نرخ ایمنی&lt;/span>
 &lt;/td>
-&lt;td style="text-align: left">default&lt;/td>
-&lt;td style="text-align: left">default&lt;/td>
-&lt;td style="text-align: left">❌ (1.)&lt;/td>
-&lt;td style="text-align: left">&lt;code>100&lt;/code>&lt;/td>
-&lt;td style="text-align: left">&lt;code>1000&lt;/code> goroutines&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>default&lt;/td>
+&lt;td>default&lt;/td>
+&lt;td>❌ (1.)&lt;/td>
+&lt;td>&lt;code>100&lt;/code>&lt;/td>
+&lt;td>&lt;code>1000&lt;/code> goroutines&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span class="tooltip" data-tooltip="Accuracy" ontouchend="toggleTooltip(this)">دقت&lt;/span>
+&lt;td>&lt;span class="tooltip" data-tooltip="Accuracy" ontouchend="toggleTooltip(this)">دقت&lt;/span>
 &lt;/td>
-&lt;td style="text-align: left">⭐️⭐️&lt;/td>
-&lt;td style="text-align: left">⭐⭐⭐&lt;/td>
-&lt;td style="text-align: left">⭐⭐⭐&lt;/td>
-&lt;td style="text-align: left">⭐⭐⭐&lt;/td>
-&lt;td style="text-align: left">⭐⭐⭐&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>⭐️⭐️&lt;/td>
+&lt;td>⭐⭐⭐&lt;/td>
+&lt;td>⭐⭐⭐&lt;/td>
+&lt;td>⭐⭐⭐&lt;/td>
+&lt;td>⭐⭐⭐&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span class="tooltip" data-tooltip="Max Stack Depth" ontouchend="toggleTooltip(this)">عمق حداکثر پشته&lt;/span>
+&lt;td>&lt;span class="tooltip" data-tooltip="Max Stack Depth" ontouchend="toggleTooltip(this)">عمق حداکثر پشته&lt;/span>
 &lt;/td>
-&lt;td style="text-align: left">&lt;code>64&lt;/code>&lt;/td>
-&lt;td style="text-align: left">&lt;code>32&lt;/code>&lt;/td>
-&lt;td style="text-align: left">&lt;code>32&lt;/code>&lt;/td>
-&lt;td style="text-align: left">&lt;code>32&lt;/code>&lt;/td>
-&lt;td style="text-align: left">&lt;code>32&lt;/code> - &lt;code>100&lt;/code> (4.)&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>&lt;code>64&lt;/code>&lt;/td>
+&lt;td>&lt;code>32&lt;/code>&lt;/td>
+&lt;td>&lt;code>32&lt;/code>&lt;/td>
+&lt;td>&lt;code>32&lt;/code>&lt;/td>
+&lt;td>&lt;code>32&lt;/code> - &lt;code>100&lt;/code> (4.)&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">&lt;span class="tooltip" data-tooltip="Profiler Labels" ontouchend="toggleTooltip(this)">برچسب‌های پروفایلر&lt;/span>
+&lt;td>&lt;span class="tooltip" data-tooltip="Profiler Labels" ontouchend="toggleTooltip(this)">برچسب‌های پروفایلر&lt;/span>
 &lt;/td>
-&lt;td style="text-align: left">✅&lt;/td>
-&lt;td style="text-align: left">❌&lt;/td>
-&lt;td style="text-align: left">❌&lt;/td>
-&lt;td style="text-align: left">❌&lt;/td>
-&lt;td style="text-align: left">✅&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4476,7 +4520,7 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;a class="anchor" href="#42521-%d9%be%d8%b1%d9%88%d9%81%d8%a7%db%8c%d9%84%d8%b1-cpu">#&lt;/a>
 &lt;/h3>
 &lt;p>پروفایلر CPU در Go می‌تواند به شما کمک کند تا قسمت‌هایی از کد خود را که زمان CPU زیادی مصرف می‌کنند، شناسایی کنید.&lt;/p>
-&lt;p>⚠️ توجه داشته باشید که زمان CPU معمولاً با زمان واقعی که کاربران شما تجربه می‌کنند (که به آن تاخیر می‌گویند) متفاوت است. به عنوان مثال، یک درخواست HTTP معمولاً ممکن است ۱۰۰ میلی‌ثانیه طول بکشد، اما تنها ۵ میلی‌ثانیه از زمان CPU را مصرف کند و ۹۵ میلی‌ثانیه را در انتظار پاسخ از پایگاه داده بگذراند. همچنین ممکن است یک درخواست ۱۰۰ میلی‌ثانیه طول بکشد، اما ۲۰۰ میلی‌ثانیه از زمان CPU را صرف کند اگر دو goroutine به طور همزمان کارهای پردازشی سنگین انجام دهند. اگر این موضوع برای شما گیج‌کننده است، لطفاً به بخش &lt;strong>برنامه‌ریز goroutine&lt;/strong> مراجعه کنید.&lt;/p>
+&lt;p>⚠️ توجه داشته باشید که زمان CPU معمولاً با زمان واقعی که کاربران شما تجربه می‌کنند (که به آن تاخیر می‌گویند) متفاوت است. به عنوان مثال، یک درخواست HTTP معمولاً ممکن است ۱۰۰ میلی‌ثانیه طول بکشد، اما تنها ۵ میلی‌ثانیه از زمان CPU را مصرف کند و ۹۵ میلی‌ثانیه را در انتظار پاسخ از پایگاه داده بگذراند. همچنین ممکن است یک درخواست ۱۰۰ میلی‌ثانیه طول بکشد، اما ۲۰۰ میلی‌ثانیه از زمان CPU را صرف کند اگر دو goroutine به طور همزمان کارهای پردازشی سنگین انجام دهند. اگر این موضوع برای شما گیج‌کننده است.&lt;/p>
 &lt;p>شما می‌توانید پروفایلر CPU را از طریق APIهای مختلف کنترل کنید:&lt;/p>
 &lt;ul>
 &lt;li>
@@ -4503,26 +4547,26 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">stack trace&lt;/th>
-&lt;th style="text-align: left">samples/count&lt;/th>
-&lt;th style="text-align: left">cpu/nanoseconds&lt;/th>
+&lt;th>stack trace&lt;/th>
+&lt;th>samples/count&lt;/th>
+&lt;th>cpu/nanoseconds&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">main;foo&lt;/td>
-&lt;td style="text-align: left">5&lt;/td>
-&lt;td style="text-align: left">50000000&lt;/td>
+&lt;td>main;foo&lt;/td>
+&lt;td>5&lt;/td>
+&lt;td>50000000&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;foo;bar&lt;/td>
-&lt;td style="text-align: left">3&lt;/td>
-&lt;td style="text-align: left">30000000&lt;/td>
+&lt;td>main;foo;bar&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>30000000&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;foobar&lt;/td>
-&lt;td style="text-align: left">4&lt;/td>
-&lt;td style="text-align: left">40000000&lt;/td>
+&lt;td>main;foobar&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>40000000&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4545,36 +4589,36 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">stack trace&lt;/th>
-&lt;th style="text-align: left">label&lt;/th>
-&lt;th style="text-align: left">samples/count&lt;/th>
-&lt;th style="text-align: left">cpu/nanoseconds&lt;/th>
+&lt;th>stack trace&lt;/th>
+&lt;th>label&lt;/th>
+&lt;th>samples/count&lt;/th>
+&lt;th>cpu/nanoseconds&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">main.backgroundWork&lt;/td>
-&lt;td style="text-align: left">user:bob&lt;/td>
-&lt;td style="text-align: left">5&lt;/td>
-&lt;td style="text-align: left">50000000&lt;/td>
+&lt;td>main.backgroundWork&lt;/td>
+&lt;td>user:bob&lt;/td>
+&lt;td>5&lt;/td>
+&lt;td>50000000&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main.backgroundWork&lt;/td>
-&lt;td style="text-align: left">user:alice&lt;/td>
-&lt;td style="text-align: left">2&lt;/td>
-&lt;td style="text-align: left">20000000&lt;/td>
+&lt;td>main.backgroundWork&lt;/td>
+&lt;td>user:alice&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>20000000&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main.work;main.directWork&lt;/td>
-&lt;td style="text-align: left">user:bob&lt;/td>
-&lt;td style="text-align: left">4&lt;/td>
-&lt;td style="text-align: left">40000000&lt;/td>
+&lt;td>main.work;main.directWork&lt;/td>
+&lt;td>user:bob&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>40000000&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main.work;main.directWork&lt;/td>
-&lt;td style="text-align: left">user:alice&lt;/td>
-&lt;td style="text-align: left">3&lt;/td>
-&lt;td style="text-align: left">30000000&lt;/td>
+&lt;td>main.work;main.directWork&lt;/td>
+&lt;td>user:alice&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>30000000&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4648,34 +4692,34 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">stack trace&lt;/th>
-&lt;th style="text-align: left">alloc_objects/count&lt;/th>
-&lt;th style="text-align: left">alloc_space/bytes&lt;/th>
-&lt;th style="text-align: left">inuse_objects/count&lt;/th>
-&lt;th style="text-align: left">inuse_space/bytes&lt;/th>
+&lt;th>stack trace&lt;/th>
+&lt;th>alloc_objects/count&lt;/th>
+&lt;th>alloc_space/bytes&lt;/th>
+&lt;th>inuse_objects/count&lt;/th>
+&lt;th>inuse_space/bytes&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">main;foo&lt;/td>
-&lt;td style="text-align: left">5&lt;/td>
-&lt;td style="text-align: left">120&lt;/td>
-&lt;td style="text-align: left">2&lt;/td>
-&lt;td style="text-align: left">48&lt;/td>
+&lt;td>main;foo&lt;/td>
+&lt;td>5&lt;/td>
+&lt;td>120&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>48&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;foo;bar&lt;/td>
-&lt;td style="text-align: left">3&lt;/td>
-&lt;td style="text-align: left">768&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
-&lt;td style="text-align: left">0&lt;/td>
+&lt;td>main;foo;bar&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>768&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;foobar&lt;/td>
-&lt;td style="text-align: left">4&lt;/td>
-&lt;td style="text-align: left">512&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">128&lt;/td>
+&lt;td>main;foobar&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>512&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>128&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4779,26 +4823,26 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">stack trace&lt;/th>
-&lt;th style="text-align: left">contentions/count&lt;/th>
-&lt;th style="text-align: left">delay/nanoseconds&lt;/th>
+&lt;th>stack trace&lt;/th>
+&lt;th>contentions/count&lt;/th>
+&lt;th>delay/nanoseconds&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">main;foo;runtime.selectgo&lt;/td>
-&lt;td style="text-align: left">5&lt;/td>
-&lt;td style="text-align: left">867549417&lt;/td>
+&lt;td>main;foo;runtime.selectgo&lt;/td>
+&lt;td>5&lt;/td>
+&lt;td>867549417&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;foo;bar;sync.(*Mutex).Lock&lt;/td>
-&lt;td style="text-align: left">3&lt;/td>
-&lt;td style="text-align: left">453510869&lt;/td>
+&lt;td>main;foo;bar;sync.(*Mutex).Lock&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>453510869&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;foobar;runtime.chanrecv1&lt;/td>
-&lt;td style="text-align: left">4&lt;/td>
-&lt;td style="text-align: left">5351086&lt;/td>
+&lt;td>main;foobar;runtime.chanrecv1&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>5351086&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -4873,26 +4917,26 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">stack trace&lt;/th>
-&lt;th style="text-align: left">contentions/count&lt;/th>
-&lt;th style="text-align: left">delay/nanoseconds&lt;/th>
+&lt;th>stack trace&lt;/th>
+&lt;th>contentions/count&lt;/th>
+&lt;th>delay/nanoseconds&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">main;foo;sync.(*Mutex).Unlock&lt;/td>
-&lt;td style="text-align: left">5&lt;/td>
-&lt;td style="text-align: left">867549417&lt;/td>
+&lt;td>main;foo;sync.(*Mutex).Unlock&lt;/td>
+&lt;td>5&lt;/td>
+&lt;td>867549417&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;bar;baz;sync.(*Mutex).Unlock&lt;/td>
-&lt;td style="text-align: left">3&lt;/td>
-&lt;td style="text-align: left">453510869&lt;/td>
+&lt;td>main;bar;baz;sync.(*Mutex).Unlock&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>453510869&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">main;foobar;sync.(*RWMutex).RUnlock&lt;/td>
-&lt;td style="text-align: left">4&lt;/td>
-&lt;td style="text-align: left">5351086&lt;/td>
+&lt;td>main;foobar;sync.(*RWMutex).RUnlock&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>5351086&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -5504,49 +5548,4 @@ Goroutine: مدیریت نحوه اجرای کد شما بر روی پردازن
 4.25.3.9 نتیجه‌گیری
 &lt;a class="anchor" href="#42539-%d9%86%d8%aa%db%8c%d8%ac%d9%87%da%af%db%8c%d8%b1%db%8c">#&lt;/a>
 &lt;/h3>
-&lt;p>مدیریت کارآمد حافظه در Go، به همراه ابزارهای پروفایل‌سازی‌اش، به توسعه‌دهندگان پلتفرمی قوی برای ساخت برنامه‌های کارآمد ارائه می‌دهد. با درک رفتار حافظه در Go و پروفایل‌سازی منظم برنامه خود، می‌توانید اطمینان حاصل کنید که این برنامه حتی در بارهای سنگین نیز کارآمد و پاسخگو باقی می‌ماند.&lt;/p></description></item><item><author>Javad Rajabzadeh</author><title>4.23 شی گرایی در زبان گو</title><link>https://book.gofarsi.ir/chapter-4/oop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-4/oop/</guid><description>&lt;p>گو یک زبان statically-typed است و بطور کلی امکانات شی گرایی را به شیوه قدیم و مرسوم پشتیبانی نمی کند. اما در عوض یک شیوه قرار دادی وجود دارد که به شما کمک می کند برخی از مفاهیم شی گرایی را با کمک اینترفیس, composition, متد و type embedding پیاده سازی کنید.&lt;/p>
-&lt;p>&lt;strong>این مفاهیم شامل :&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="go-encapsulation">کپسوله سازی&lt;/a>&lt;/li>
-&lt;li>&lt;a href="go-inheritance">ارث بری&lt;/a>&lt;/li>
-&lt;li>&lt;a href="go-polymorphism">پلی مورفیسم&lt;/a>&lt;/li>
-&lt;li>&lt;a href="go-overriding">overriding&lt;/a>&lt;/li>
-&lt;li>&lt;a href="go-abstraction">abstraction&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="تعریف-شی-گرایی-به-زبان-ساده">
-تعریف شی گرایی به زبان ساده
-&lt;a class="anchor" href="#%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%b4%db%8c-%da%af%d8%b1%d8%a7%db%8c%db%8c-%d8%a8%d9%87-%d8%b2%d8%a8%d8%a7%d9%86-%d8%b3%d8%a7%d8%af%d9%87">#&lt;/a>
-&lt;/h2>
-&lt;p>بیاید با چند تا مثال ساده، سوا از اینکه با چه زبانی کار می کنیم، با مفهوم شی گرایی آشنا شویم.&lt;/p>
-&lt;center>&lt;a href="#">
-&lt;img src="../../assets/img/content/chapter4/oop/oop.jpeg" alt="pprof">
-&lt;/a>&lt;/center>
-&lt;p>قراره با یه سری مثال از دنیای واقعی شی گرایی رو براتون توضیح بدم.
-ما موجودی داریم به اسم گربه (class) که این موجود ویژگی (Attribute) و رفتار (Method) هایی رو داره. برای مثال گربه ویژگی هایی مثل رنگ چشم، وزن و &amp;hellip; داره. همچنین رفتار هایی رو داره مثل راه رفتن،‌ میو میو کردن.&lt;/p>
-&lt;p>خب تا الان گربه رو به صورت انتزاعی گفتیم که فلان ویژگی ها و رفتار هارو داره.
-به یک نمونه واقعی از گربه object و یا instance میگیم.&lt;/p>
-&lt;p>گربه خودش از یک کلاس والد ارث بری (Inheritance) کرده. مثلا کلاسی داریم به اسم حیوان. کلاس حیوان یه سری ویژگی ها و رفتار هایی رو داره. حالا که گربه از کلاس حیوان ارث بری کرده رفتار ها و ویژگی های والدش رو ارث میگیره.&lt;/p>
-&lt;p>خب اینجا یه سوالی پیش میاد! ما کلی موجود داریم که کلاس والدشون حیوان هستش ولی آیا همشون شبیه به همدیگه رفتار می کنن؟ برای مثال همشون یه شکلی راه میرن و صدا در میارن؟
-جواب قطعا خیر هستش. اینجاس که چند ریختگی (Polymorphism) اتفاق میوفته. درسته که هم سگ و هم گربه صدا دارن ولی یکیش میو میکنه یکیش هاپ هاپ&lt;/p>
-&lt;center>&lt;a href="#">
-&lt;img src="../../assets/img/content/chapter4/oop/encapsulation.png" alt="polymorphism">
-&lt;/a>&lt;/center>
-&lt;p>بعضی وقتا نیازه که ما یک سری ویژگی ها و متد هایی رو تعریف کنیم اما از بیرون قابل دسترس نباشه.
-مثلا attribute به اسم score داریم که امتیاز رو نگه میداریم. بقیه قسمت های کد نباید بصورت مستقیم بتونن مقدار score رو تغییر بدن پس میایم socre رو مخفی می کنیم تا از بیرون دسترسی نداشته باشن و برای تغییر دادن socre یک متد به اسم increase_score می نویسیم که هربار صدا زده بشه به امتیاز کاربر اضافه بشه.&lt;/p>
-&lt;p>مثال دوم:
-فرض کن یه پکیجی رو داری مینویسی که قراره یه سری کارهایی رو انجام بده.
-نمیخوای برنامه نویسی که قراره از پکیجت استفاده کنه یه سری رفتار و ویژگی هارو ببینه.
-مثلا متد get_response رو داری که خود این متد چند تا متد دیگه رو صدا میزنه تا بتونه پاسخ مناسب رو نشون بده.&lt;/p>
-&lt;p>این متد هایی که توی get_response استفاده کردیم فقط برای استفاده داخلی نوشته شدن و نمیخوایم برنامه نویس بهشون دسترسی داشته باشه. پس میایم مخفی میکنیمشون و از encapsulation استفاده می کنیم&lt;/p>
-&lt;center>&lt;a href="#">
-&lt;img src="../../assets/img/content/chapter4/oop/abstraction.jpeg" alt="abstraction">
-&lt;/a>&lt;/center>
-&lt;p>هر ساله ماشین ها از نظر فنی کلی تغییر می کنن اما شخصی که با یک ماشین چند سال پیش رانندگی کرده باشه با ماشین الانم میتونه رانندگی کنه. اینجاست که abstraction باعث میشه این اتفاق بیوفته.
-اومدن بصورت انتزاعی تعریف کردن که ماشین دنده داره، پدال گاز داره و فرمون داره و هر کدومشون به چه صورت عمل می کنن.&lt;/p>
-&lt;p>به همین دلیل با اینکه از نظر فنی و داخلی کلی تغییر میکنن اما طرز استفاده ازش تغییر خاصی نمیکنه.&lt;/p>
-&lt;p>بیاید یه مثال دیگه بزنیم:
-فرض کنید شما یک وب سایت طراحی کردید. یه سری دکمه ها و قابلیت ها قرار دادید تا کاربر بتونه ازش استفاده کنه.
-با اینکه سبد خرید برای کاربر همونه اما پشت صحنه کلی تغییر دادید و بروزرسانیش کردید.&lt;/p>
-&lt;p>همچنین شما هم برای طراحی وب سایت از یک سری ابزار ها استفاده کردید که این ابزار ها همش در حال بروز رسانی هستند اما نحوه استفاده شما تغییری نمیکنه.&lt;/p>
-&lt;p>به این مفهوم Abstraction میگن.&lt;/p>
-&lt;p>در ادامه این بخش بررسی می کنیم که در زبان گولنگ آیا مفاهیم شی گرایی رو داریم یا نه. اگه داریم به چه صورت قابل پیاده سازی هستند.&lt;/p></description></item></channel></rss>
+&lt;p>مدیریت کارآمد حافظه در Go، به همراه ابزارهای پروفایل‌سازی‌اش، به توسعه‌دهندگان پلتفرمی قوی برای ساخت برنامه‌های کارآمد ارائه می‌دهد. با درک رفتار حافظه در Go و پروفایل‌سازی منظم برنامه خود، می‌توانید اطمینان حاصل کنید که این برنامه حتی در بارهای سنگین نیز کارآمد و پاسخگو باقی می‌ماند.&lt;/p></description></item></channel></rss>
