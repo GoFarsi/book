@@ -116,7 +116,7 @@
 تابع init
 &lt;a class="anchor" href="#%d8%aa%d8%a7%d8%a8%d8%b9--init">#&lt;/a>
 &lt;/h2>
-&lt;p>همانطور که گفتیم نقظه شروع برنامه ما تابع main است. اما اگر بخواهیم قبل از اجرای برنامه مقداری را ست کنیم و یا چیزی را لود کنیم، می توانیم در داخل تابع init اینکار را انجام دهیم.
+&lt;p>همانطور که گفتیم نقطه شروع برنامه ما تابع main است. اما اگر بخواهیم قبل از اجرای برنامه مقداری را ست کنیم و یا چیزی را لود کنیم، می توانیم در داخل تابع init اینکار را انجام دهیم.
 تابع init قبل از تابع main اجرا می شود&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// تعریف پکیج main
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2"> 2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">&lt;/span>&lt;span style="color:#ff79c6">package&lt;/span> main
