@@ -1660,31 +1660,19 @@ employee تعریف کردیم.&lt;/p>
 &lt;a class="anchor" href="#249-%d8%a8%d8%af%d9%86%d9%87-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3">#&lt;/a>
 &lt;/h2>
 &lt;p>اینترفیس دارای یک بدنه است که از دو بخش تشکیل شده تایپ و مقدار وقتی شما یک تایپی را به اینترفیس منتصب می‌کنید در بخش مقدار نوع و مقدار تایپی که منتصب کردید به اینترفیس در دسترس است.&lt;/p>
-&lt;center>
-&lt;script src="https://book.gofarsi.ir/mermaid.min.js">&lt;/script>
-&lt;script>mermaid.initialize({
-"flowchart": {
-"useMaxWidth":true
-},
-"theme": "default"
-}
-)&lt;/script>
-&lt;p class="mermaid">
+&lt;div class="mermaid">
 graph TD
 A[Interface Variable]
 --> B(Interface Type) &amp; C(Interface Value)
 C --> D(تایپ داخلی) &amp; E(مقدار داخلی)
-&lt;/p>
-&lt;/center>
+&lt;/div>
 &lt;p>اگر بخواهیم با توجه به مثال ساختار lion توجه کنیم به شکل زیر می‌شود:&lt;/p>
-&lt;center>
-&lt;p class="mermaid">
+&lt;div class="mermaid">
 graph TD
 A[Interface Variable]
 --> B(Interface Type) &amp; C(Interface Value)
 C --> D(lion) &amp; E("{age: 10}")
-&lt;/p>
-&lt;/center>
+&lt;/div>
 &lt;p>حالا در زیر مثالی زدیم با استفاده از &lt;code>T%&lt;/code> و &lt;code>v%&lt;/code> نوع و مقدار را می‌توانید چاپ کنیم.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-30-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-30-2"> 2&lt;/a>&lt;/span>&lt;span>
