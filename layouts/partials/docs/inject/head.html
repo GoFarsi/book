@@ -26,3 +26,19 @@
     }
   </script>
  
+ {{if .Page.Params.mermaid}}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+const themeMode = localStorage.getItem('themeMode') || 'light'; 
+mermaid.initialize({startOnLoad:true, theme:themeMode === "dark" ? "dark" : "light"});
+const style = document.createElement("style");
+style.textContent = `
+.mermaid {
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+}
+`;
+document.head.appendChild(style);
+</script>
+{{end}}
