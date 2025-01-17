@@ -210,7 +210,7 @@ background-color: #21998E;
 &lt;blockquote class="book-hint info">
 برنامه نویس‌های زبان گو را &lt;span class="tooltip" data-tooltip="Gopher" ontouchend="toggleTooltip(this)">گوفر&lt;/span>
 صدا می‌زنند.
-گوفر نام یک نوع موش و همچنین mascot گولنگ است.
+گوفر نام یک نوع موش و همچنین نماد گولنگ است.
 &lt;/blockquote></description></item><item><author>Javad Rajabzadeh</author><title>آموزش نصب</title><link>https://book.gofarsi.ir/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/installation/</guid><description>&lt;p>جهت نصب زبان گو بر روی سیستم عامل مورد نظر خود در ابتدا باید نسخه مناسب با پلت‌فرم خود را &lt;a href="https://go.dev/dl/">دانلود&lt;/a> کنید.&lt;/p>
 &lt;p>&lt;img src="../assets/img/content/installation/1.png" alt="Featured downloads golang" />&lt;/p>
 &lt;p>نکته:&lt;/p>
