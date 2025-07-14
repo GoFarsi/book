@@ -3,7 +3,7 @@ on: [pull_request]
 name: Check Build
 jobs:
   deploy:
-      runs-on: ubuntu-20.04
+      runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
           with:
