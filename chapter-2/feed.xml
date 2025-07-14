@@ -1,7 +1,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author>Javad Rajabzadeh</author><title>فصل دوم: مکانیزم‌های زبان on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-2/</link><description>Recent content in فصل دوم: مکانیزم‌های زبان on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><managingEditor>ja7ad@live.com (Javad Rajabzadeh)</managingEditor><webMaster>ja7ad@live.com (Javad Rajabzadeh)</webMaster><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-2/feed.xml" rel="self" type="application/rss+xml"/><item><author>Javad Rajabzadeh</author><title>2.1 اشاره‌گر (Pointer)</title><link>https://book.gofarsi.ir/chapter-2/pointer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>ja7ad@live.com (Javad Rajabzadeh)</author><guid>https://book.gofarsi.ir/chapter-2/pointer/</guid><description>&lt;p>&lt;span class="tooltip" data-tooltip="pointer" ontouchend="toggleTooltip(this)">اشاره‌گر&lt;/span>
 در واقع متغیری است که، آدرس حافظه یک مقدار را نگه می‌دارد.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> ex &lt;span style="color:#ff79c6">*&lt;/span>T
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/1.png" alt="pointer" />&lt;/p>
+&lt;p>درک اشاره‌گرها (Pointers) برای بسیاری از مبتدیان ترسناک به نظر می‌رسد، اما در واقع اگر با یک مثال ساده آن را توضیح دهیم، می‌تواند بسیار قابل فهم باشد. اجازه بدهید ترجمه و توضیحی روان بر پایه مثالی که دادی ارائه کنم:&lt;/p>
+&lt;blockquote>
+&lt;p>اشاره‌گرها پیچیده به نظر می‌رسند،&lt;br>
+اما واقعاً نیازی نیست که این‌طور باشند.&lt;br>
+اشاره‌گرها را می‌توان شبیه &amp;ldquo;فهرست مطالب یک کتاب&amp;rdquo; در نظر گرفت.&lt;br>
+برای مثال، همین کتاب را در نظر بگیر.
+فهرست مطالب این کتاب مثل پنج اشاره‌گر است.&lt;br>
+شما می‌توانید آن‌ها را بخوانید و بفهمید که اطلاعات مربوط به هر فصل در کجا قرار دارد.&lt;br>
+مثلاً فصل «زندگی من» در صفحه ۱ است (یعنی به صفحه ۱ اشاره می‌کند).&lt;br>
+و فصل «شغل من» در صفحه ۲۳ است.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote class="book-hint info">
 &lt;p>در بین برنامه نویسان زبان Go همیشه این مسئله بوده که &lt;strong>کی و کجا&lt;/strong> باید از Pointer استفاده کنیم؟!&lt;/p>
 &lt;p>دیدگاه من نسبت به Pointer :&lt;/p>
 &lt;p>زمانی باید از Pointer استفاده کنید که &lt;strong>قصد دارید یک متغیری را در scope ها و توابع مختلف مقدار دهی کنید&lt;/strong> در اینجا بهتر است از Pointer استفاده کنیم تا جلو کپی شدن متغیر در خانه های مختلف حافظه گرفته شود.&lt;/p>
@@ -65,7 +77,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">value&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> 3, address in &lt;span style="color:#8be9fd;font-style:italic">memory&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> 0xc000110088
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4">4&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">value&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> 2, address in &lt;span style="color:#8be9fd;font-style:italic">memory&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> 0xc000110068
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-5">5&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">value&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> 2, address in &lt;span style="color:#8be9fd;font-style:italic">memory&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> 0xc0001100b0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/1.jpg" alt="pointer" />&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/2.jpg" alt="pointer" />&lt;/p>
 &lt;p>در کد فوق ما یک متغیر به نام count ساختیم که داخل تابع (scope) main می باشد.&lt;/p>
 &lt;p>&lt;strong>رخداد اول:&lt;/strong> حال این متغیر را 2 بار بصورت Pointer به تابع &lt;strong>addCount&lt;/strong> پاس دادیم و داخل همان تابع مقدار دهیش کردیم و پس از مقدار دهی در همان تابع print ش کردیم.
 اتفاقی که افتاد مقدار متغیر در همان خانه حافظه که &lt;strong>0xc0000a6068&lt;/strong> هست مقدار دهی شد و عملا بخشی دیگر از حافظه گرفته نشد.&lt;/p>
@@ -213,7 +225,7 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1&lt;/a>&lt;/span>&lt;span>a &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#bd93f9">2&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-2">2&lt;/a>&lt;/span>&lt;span>b &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>a
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-3">3&lt;/a>&lt;/span>&lt;span>c &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>b
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/2.jpg" alt="array" />&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/3.jpg" alt="array" />&lt;/p>
 &lt;p>همانطور که در مثال و عکس بالا می‌بینید، متغیر a مقدارش ۲ و آدرسش در حافظه &lt;code>0xXXXXXX&lt;/code> است. در مقدار متغیر b ما اشاره کردیم به آدرس حافظه متغیر a و در ادامه در متغیر c به آدرس حافظه متغیر b اشاره کردیم.&lt;/p>
 &lt;p>زمانیکه شما بخواهید مقدار c را چاپ کنید کافیست از &lt;code>c**&lt;/code> استفاده کنید تا مقدار ۲ را چاپ کند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید:&lt;/p>
