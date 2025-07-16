@@ -35,6 +35,8 @@ builds:
         goarm: "7"
       - goos: android
         goarch: "386"
+      - goos: android
+        goarch: amd64
 
 archives:
   - builds:
