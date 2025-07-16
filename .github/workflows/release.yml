@@ -1,9 +1,13 @@
 name: Release application
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Publish Github Pages"]
+    types:
+      - completed
     branches:
-      - "main"
+      - main
+  push:
     tags:
       - "v*.*.*"
   pull_request:
@@ -11,9 +15,38 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' || github.event_name == 'pull_request' }}
     steps:
       - name: checkout code
         uses: actions/checkout@v3
+
+      - name: Check for gh-pages changes
+        id: check_changes
+        run: |
+          # Get the latest commit from gh-pages branch
+          LATEST_GHPAGES_COMMIT=$(git ls-remote origin gh-pages | cut -f1)
+          echo "Latest gh-pages commit: $LATEST_GHPAGES_COMMIT"
+          
+          # Check if this commit is different from the last release
+          LAST_RELEASE_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          
+          if [ -z "$LAST_RELEASE_TAG" ]; then
+            echo "No previous release found, proceeding with release"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            # Get the gh-pages commit at the time of last release
+            LAST_RELEASE_COMMIT=$(git rev-parse "$LAST_RELEASE_TAG")
+            echo "Last release commit: $LAST_RELEASE_COMMIT"
+          
+            # Compare commits to see if gh-pages has changed
+            if [ "$LATEST_GHPAGES_COMMIT" != "$LAST_RELEASE_COMMIT" ]; then
+              echo "Changes detected in gh-pages branch"
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+            else
+              echo "No changes in gh-pages branch since last release"
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            fi
+          fi
 
       - name: Clone gh-pages content
         run: |
