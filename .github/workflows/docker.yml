@@ -2,7 +2,7 @@ name: Build and Publish Book Image
 
 on:
   push:
-    branches: ['gh-pages']
+    branches: ['main']
 
 jobs:
   build-and-push-image:
