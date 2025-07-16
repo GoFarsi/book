@@ -1,0 +1,57 @@
+name: Build and Publish Book Image
+
+on:
+  push:
+    branches: ['gh-pages']
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Write temporary Dockerfile
+        run: |
+          cat <<EOF > Dockerfile
+          FROM nginx:alpine
+          LABEL maintainer="Ja7ad <ja7ad@live.com>"
+          LABEL description="gofarsi book offline in docker"
+          LABEL org.opencontainers.image.source https://github.com/GoFarsi/book
+          RUN apk add --no-cache git
+          RUN git clone https://github.com/GoFarsi/book && cd book && git checkout gh-pages
+          WORKDIR /book
+          RUN cp -r . /usr/share/nginx/html
+          EOF
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true

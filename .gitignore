@@ -16,10 +16,7 @@ _book
 *.pdf
 build/*
 .trash/
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/app.json
-.obsidian/appearance.json
+.obsidian
 
 #IDE and code editor(s) setting
 .idea/
@@ -32,6 +29,5 @@ app/worker/node_modules
 node_modules/
 latestcheck.json
 app/desktop/book/
-.obsidian/
 .hugo_build.lock
 Thumbs.db
