@@ -1,46 +1,49 @@
-//go:build aix || darwin || dragonfly || freebsd || linux || nacl || netbsd || openbsd || solaris || windows
-
 package main
 
 import (
 	"embed"
 	"flag"
 	"fmt"
-	upd "github.com/Christian1984/go-update-checker"
-	"github.com/Songmu/prompter"
 	"io/fs"
 	"log"
 	"net/http"
 	"os"
 	"os/exec"
 	"runtime"
-	"strconv"
 	"time"
+
+	upd "github.com/Christian1984/go-update-checker"
+	"github.com/Songmu/prompter"
 )
 
 //go:embed content
 var Book embed.FS
 
-const VERSION = "6.2.0"
+var VERSION = "dev"
 
 func main() {
-	port := flag.Int64("port", 8080, "port for listen and serve example 8080")
+	port := flag.Int("port", 8080, "port for listen and serve example 8080")
+	version := flag.Bool("version", false, "show version and exit")
 	flag.Parse()
 
-	if port == nil || *port <= 0 || *port >= 65535 {
+	if *version {
+		fmt.Printf("GoFarsi Book Version: %s\n", VERSION)
+		os.Exit(0)
+	}
+
+	if *port <= 0 || *port >= 65535 {
 		*port = 8080
 	}
 
-	address := fmt.Sprintf(":%s", strconv.Itoa(int(*port)))
+	address := fmt.Sprintf(":%d", *port)
 
 	subFS, err := fs.Sub(Book, "content")
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatal(err)
 	}
 
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 	fileFS := http.FileServer(http.FS(subFS))
-
 	http.Handle("/", fileFS)
 
 	if updateAvailable, downloadLink := isAvailableNewVersion(); updateAvailable {
@@ -50,19 +53,23 @@ func main() {
 		}
 	}
 
+	ready := make(chan struct{})
 	go func() {
-		<-time.After(100 * time.Millisecond)
-		if err := openBrowser(fmt.Sprintf("http://localhost:%s", strconv.Itoa(int(*port)))); err != nil {
-			log.Fatalln(err)
+		<-ready
+		time.Sleep(100 * time.Millisecond)
+		if err := openBrowser(fmt.Sprintf("http://localhost:%d", *port)); err != nil {
+			log.Fatal(err)
 		}
 	}()
 
 	log.Printf("start serve on address %s", address)
-	log.Fatalln(http.ListenAndServe(address, logRequest(http.DefaultServeMux)))
+	close(ready)
+	log.Fatal(http.ListenAndServe(address, logRequest(http.DefaultServeMux)))
 }
 
 func isAvailableNewVersion() (bool, string) {
-	uc := upd.New("GoFarsi", "book", "Go Programming Language Persian", "https://github.com/GoFarsi/book/releases", 0, false)
+	uc := upd.New("GoFarsi", "book", "Go Programming Language Persian",
+		"https://github.com/GoFarsi/book/releases", 0, false)
 	uc.CheckForUpdate(VERSION)
 	if uc.UpdateAvailable {
 		uc.PrintMessage()
@@ -87,7 +94,7 @@ func openBrowser(url string) error {
 		args = []string{"/c", "start"}
 	case "darwin":
 		cmd = "open"
-	default: // "linux", "freebsd", "openbsd", "netbsd"
+	default:
 		cmd = "xdg-open"
 	}
 	args = append(args, url)

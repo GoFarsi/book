@@ -31,3 +31,5 @@ latestcheck.json
 app/desktop/book/
 .hugo_build.lock
 Thumbs.db
+build/
+app/desktop/content/

@@ -1,0 +1,45 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+        fetch-depth: 0
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: '1.19'
+
+    - name: Generate version
+      id: version
+      run: |
+        chmod +x scripts/version.sh
+        VERSION=$(./scripts/version.sh)
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+        echo "Generated version: ${VERSION}"
+
+    - name: Test
+      run: |
+        cd app/desktop
+        go test -v ./...
+
+    - name: Build
+      run: |
+        cd app/desktop
+        go build -ldflags "-X main.VERSION=${{ steps.version.outputs.version }}" -o ../../build/book .
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: book-${{ steps.version.outputs.version }}
+        path: build/book

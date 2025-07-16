@@ -5,6 +5,8 @@ builds:
     binary: book
     env:
       - CGO_ENABLED=0
+    ldflags:
+      - -X main.VERSION={{.Version}}
     goos:
       - linux
       - windows
