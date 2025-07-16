@@ -23,4 +23,4 @@ else
     VERSION="${DATE}-${TIME}-${COMMIT}"
 fi
 
-echo "${VERSION}"
+echo "v${VERSION}"

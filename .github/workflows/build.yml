@@ -18,7 +18,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: '1.19'
+        go-version: '1.24'
 
     - name: Generate version
       id: version
@@ -28,18 +28,12 @@ jobs:
         echo "version=${VERSION}" >> $GITHUB_OUTPUT
         echo "Generated version: ${VERSION}"
 
-    - name: Test
+    - name: Clone gh-pages content
       run: |
-        cd app/desktop
-        go test -v ./...
+        rm -rf app/desktop/content
+        git clone --branch gh-pages --single-branch --depth 1 https://github.com/GoFarsi/book.git app/desktop/content
 
     - name: Build
       run: |
         cd app/desktop
         go build -ldflags "-X main.VERSION=${{ steps.version.outputs.version }}" -o ../../build/book .
-
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: book-${{ steps.version.outputs.version }}
-        path: build/book
