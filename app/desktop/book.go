@@ -49,8 +49,8 @@ func main() {
 	if updateAvailable, downloadLink := isAvailableNewVersion(); updateAvailable {
 		if prompter.YN("Are you want update book to new version?", false) {
 			openBrowser(downloadLink)
-			os.Exit(0)
 		}
+		os.Exit(0)
 	}
 
 	ready := make(chan struct{})
@@ -74,7 +74,7 @@ func isAvailableNewVersion() (bool, string) {
 	if uc.UpdateAvailable {
 		uc.PrintMessage()
 	}
-	return uc.UpdateAvailable, uc.DownloadLink
+	return uc.UpdateAvailable, uc.DownloadLink + "/latest"
 }
 
 func logRequest(handler http.Handler) http.Handler {
