@@ -28,7 +28,7 @@
 &lt;td>✅&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation">Cancellation&lt;/a>&lt;/td>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation">Context Cancellation Pattern&lt;/a>&lt;/td>
 &lt;td>الگو cancellation که حرکت تکنیکی هست برای ارسال سینگال به گوروتین ها استفاده می شود که باید اجرای کاری را متوقف کند و ایده اصلی این کار با استفاده بستن کانال صورت میگیرد.&lt;/td>
 &lt;td>✅&lt;/td>
 &lt;/tr>
@@ -38,7 +38,7 @@
 &lt;td>✅&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-bounded-work-pooling">Bounded Work Pooling&lt;/a>&lt;/td>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-worker-pool">Worker Pool&lt;/a>&lt;/td>
 &lt;td>با استفاده از الگو Bounded Work Pooling امکان محدود سازی تعداد گوروتین ها را براساس کار مشخصی دارید و گوروتین ها را محدود به تعداد دفعات کار مشخص شده محدود می شود. این الگو برای وقت مفید است که شما می خواهید منابع را به یک کار خاص محدود کنید.&lt;/td>
 &lt;td>✅&lt;/td>
 &lt;/tr>
@@ -87,56 +87,47 @@
 &lt;td>الگوی &amp;ldquo;صف&amp;rdquo; در زبان گو الگویی است که در آن از یک گوروتین برای بافر کردن و مدیریت ترتیب مقادیر ارسال شده و دریافت شده از یک کانال استفاده می شود.&lt;/td>
 &lt;td>✅&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-ratelimit">Rate limit&lt;/a>&lt;/td>
+&lt;td>الگوی &lt;strong>Rate Limiting&lt;/strong> برای کنترل تعداد درخواست‌ها یا وظایف همزمان در یک بازه زمانی مشخص استفاده می‌شود. این الگو با استفاده از یک &lt;code>time.Ticker&lt;/code> یا روش‌های مشابه، اجرای گوروتین‌ها یا پردازش داده‌ها را محدود می‌کند.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-deadlock-recovery">Deadlock Recovery&lt;/a>&lt;/td>
+&lt;td>الگوی &lt;strong>بازیابی از بن‌بست&lt;/strong> (Deadlock Recovery) برای شناسایی و بازیابی از وضعیت‌های بن‌بست استفاده می‌شود، جایی که چندین گوروتین به طور نامحدود منتظر منابعی هستند که توسط یکدیگر نگه داشته شده‌اند. بن‌بست می‌تواند به دلیل همگام‌سازی نادرست یا رقابت برای منابع در برنامه‌های همزمان رخ دهد.&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-lock-free-synchronization">Lock-free synchronization&lt;/a>&lt;/td>
+&lt;td>&lt;strong>همگام‌سازی بدون قفل (lock-free synchronization)&lt;/strong> به مجموعه‌ای از تکنیک‌ها و الگوهای برنامه‌نویسی گفته می‌شود که به چندین thread یا goroutine اجازه می‌دهد به طور همزمان و ایمن به داده‌های مشترک دسترسی پیدا کنند، بدون اینکه از primitiveهایی مثل Mutex یا قفل‌های سنتی استفاده شود. هدف اصلی این الگوها افزایش &lt;strong>بازدهی (throughput)&lt;/strong>، کاهش &lt;strong>زمان انتظار (latency)&lt;/strong> و جلوگیری از مشکلات رایج قفل‌گذاری (مثل deadlock، priority inversion و contention) است. الگوریتم‌های lock-free تضمین می‌کنند که حتی اگر برخی از threadها متوقف شوند یا دچار کندی شوند، باقی سیستم همچنان قادر به پیشرفت خواهد بود (&lt;strong>progress guarantee&lt;/strong>).&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><author/><title>9.5 الگوهای Cloud Native</title><link>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</guid><description>&lt;p>الگوهای cloud native&amp;hellip;&lt;/p></description></item><item><author/><title>9.6 ضد الگوها (Anti-Patterns)</title><link>https://book.gofarsi.ir/chapter-9/anti-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/anti-pattern/</guid><description>&lt;p>ضد الگوها&lt;/p></description></item><item><author/><title>9.7.1 اصول SOLID</title><link>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</guid><description>&lt;h2 id="971-مقدمه">
+&lt;/table></description></item><item><author/><title>9.5 الگوهای Cloud Native</title><link>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</guid><description>&lt;p>الگوهای cloud native&amp;hellip;&lt;/p></description></item><item><author/><title>9.6 ضد الگوها (Anti-Patterns)</title><link>https://book.gofarsi.ir/chapter-9/anti-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/anti-pattern/</guid><description>&lt;p>ضد الگوها&lt;/p></description></item><item><author/><title>9.7 اصول SOLID</title><link>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</guid><description>&lt;h2 id="971-مقدمه">
 9.7.1 مقدمه
 &lt;a class="anchor" href="#971-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
 &lt;/h2>
 &lt;p>این مقاله ترجمه ارایه اصول solid در golang توسط &lt;a href="https://dave.cheney.net/">Dave Cheney&lt;/a>می‌‌باشد.&lt;/p>
 &lt;p>در این مبحث به بررسی پیاده سازی solid در زبان Go می‌پردازیم.&lt;/p>
-&lt;ul>
-&lt;li>
 &lt;p>بررسی کد&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>چه کسی اینجا بررسی کد را به عنوان بخشی از کار خود انجام می‌دهد؟ تمام اتاق دستشان را بالا بردند که تشویق کننده بود. خوب، چرا بررسی کد انجام می‌دهید؟ کسی فریاد زد «برای جلوگیری از کد بد»&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>اگر code review برای شناسایی کد‌های نامناسب است، پس چگونه می‌دانید کدی که بررسی می‌کنید خوب است یا بد؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>حالا خوب است بگوییم «آن کد نامناسب است» یا «آن کد منبع زیبا است»، درست مانند اینکه بگویید «این نقاشی زیبا است» یا «این اتاق زیبا است» اما اینها اصطلاحات ذهنی هستند و من به دنبال راه‌های عینی برای صحبت در مورد خواص کد خوب یا بد هستم.&lt;/p>
-&lt;/li>
+&lt;ul>
+&lt;li>چه کسی اینجا بررسی کد را به عنوان بخشی از کار خود انجام می‌دهد؟ تمام اتاق دستشان را بالا بردند که تشویق کننده بود. خوب، چرا بررسی کد انجام می‌دهید؟ کسی فریاد زد «برای جلوگیری از کد بد»&lt;/li>
+&lt;li>اگر code review برای شناسایی کد‌های نامناسب است، پس چگونه می‌دانید کدی که بررسی می‌کنید خوب است یا بد؟&lt;/li>
+&lt;li>حالا خوب است بگوییم «آن کد نامناسب است» یا «آن کد منبع زیبا است»، درست مانند اینکه بگویید «این نقاشی زیبا است» یا «این اتاق زیبا است» اما اینها اصطلاحات ذهنی هستند و من به دنبال راه‌های عینی برای صحبت در مورد خواص کد خوب یا بد هستم.&lt;/li>
 &lt;/ul>
 &lt;h4 id="کد-بد">
 کد بد
 &lt;a class="anchor" href="#%da%a9%d8%af-%d8%a8%d8%af">#&lt;/a>
 &lt;/h4>
 &lt;ul>
-&lt;li>
-&lt;p>برخی از ویژگی‌های کد بد که ممکن است در بررسی کد به آن پی ببرید کدامند؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>سفت و خشک یا در اصطلاح &lt;em>Rigid&lt;/em>. آیا کد &lt;em>Rigid&lt;/em> است؟ آیا دارای یک محافظ محدود کننده از انواع و پارامترهای غالب است که اصلاح آن را دشوار می‌کند؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>شکننده یا در اصطلاح &lt;em>Fragile&lt;/em>. آیا کد &lt;em>Fragile&lt;/em> است؟ آیا کوچکترین تغییر در کد باعث ایجاد ویرانی‌های فراوان می‌شود؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>بی‌حرکتی یا &lt;em>Immobile&lt;/em> . آیا تغییر در ساختار کد سخت است؟ آیا اضافه کردن یک حلقه ساده در برنامه کار پیچیده‌ای است؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>پیچیده (&lt;em>Complex&lt;/em>). آیا کدها به دلیل اینکه فقط کدی نوشته شده باشد بدون آن که به آن نیاز باشد، وجود دارد، آیا چیزها بیش از حد مهندسی (over-engineered) شده‌اند؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>شرح دادن بیش از حد یا &lt;em>Verbose&lt;/em>. آیا استفاده و بررسی از کد خسته‌کننده است؟ وقتی به آن نگاه می‌کنید، می‌توانید بگویید این کد چه کاری می‌خواهد انجام دهد؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>آیا این کلمات مثبت هستند؟ آیا از شنیدن این کلمات در بررسی کد خود خوشحال خواهید شد؟&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>احتمالا نه.&lt;/p>
-&lt;/li>
+&lt;li>برخی از ویژگی‌های کد بد که ممکن است در بررسی کد به آن پی ببرید کدامند؟&lt;/li>
+&lt;li>سفت و خشک یا در اصطلاح Rigid. آیا کد Rigid است؟ آیا دارای یک محافظ محدود کننده از انواع و پارامترهای غالب است که اصلاح آن را دشوار می‌کند؟&lt;/li>
+&lt;li>شکننده یا در اصطلاح Fragile. آیا کد Fragile است؟ آیا کوچکترین تغییر در کد باعث ایجاد ویرانی‌های فراوان می‌شود؟&lt;/li>
+&lt;li>بی‌حرکتی یا Immobile . آیا تغییر در ساختار کد سخت است؟ آیا اضافه کردن یک حلقه ساده در برنامه کار پیچیده‌ای است؟&lt;/li>
+&lt;li>پیچیده (Complex). آیا کدها به دلیل اینکه فقط کدی نوشته شده باشد بدون آن که به آن نیاز باشد، وجود دارد، آیا چیزها بیش از حد مهندسی (over-engineered) شده‌اند؟&lt;/li>
+&lt;li>شرح دادن بیش از حد یا Verbose. آیا استفاده و بررسی از کد خسته‌کننده است؟ وقتی به آن نگاه می‌کنید، می‌توانید بگویید این کد چه کاری می‌خواهد انجام دهد؟&lt;/li>
+&lt;li>آیا این کلمات مثبت هستند؟ آیا از شنیدن این کلمات در بررسی کد خود خوشحال خواهید شد؟&lt;/li>
+&lt;li>احتمالا نه.&lt;/li>
 &lt;/ul>
 &lt;h4 id="طراحی-خوب">
 طراحی خوب

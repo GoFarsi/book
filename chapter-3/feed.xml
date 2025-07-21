@@ -565,58 +565,110 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 3.3.6 Cond
 &lt;a class="anchor" href="#336-cond">#&lt;/a>
 &lt;/h2>
-&lt;p>با استفاده از Cond می توانید چندین گوروتین ایجاد کنید و گوروتین ها تا زمان وقوع یک رویداد منتظر می مانند و هیچ فرآیندی را اجرا نمیکنند. هر Cond که ایجاد میکنید داخلش یک قفل از نوع (Mutex یا RWMutex) وجود دارد که می توانید گوروتین ها را منتظر نگه دارید.&lt;/p>
-&lt;p>زمانیکه شما یک Cond میسازید به عنوان ورودی یک قفل از نوع (Mutex یا RWMutex) یه عنوان ورودی می دهید. حال شما ۳ تا متد درخصوص Cond خواهید داشت که به شرح زیر است :&lt;/p>
+&lt;p>&lt;strong>پکیج &lt;code>sync.Cond&lt;/code>&lt;/strong> یکی از ابزارهای پیشرفته همزمانی در زبان Go است که امکان پیاده‌سازی الگوی &amp;ldquo;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-monitor">مانیتور&lt;/a>&amp;rdquo; یا همان &lt;strong>شرط انتظاری (Condition Variable)&lt;/strong> را فراهم می‌کند. Cond به شما اجازه می‌دهد تا مجموعه‌ای از goroutineها را تا زمانی که یک شرط یا رویداد خاص برقرار نشده، به صورت امن و کارآمد (بدون busy-waiting یا مصرف بی‌مورد CPU) منتظر نگه دارید. زمانی که شرط مورد نظر برقرار شد، می‌توانید یک یا همه goroutineهای منتظر را بیدار کنید تا کارشان را ادامه دهند. این تکنیک، در بسیاری از الگوهای معروف concurrency مانند producer-consumer، صف انتظار، صف پیام و کنترل منابع محدود کاربرد اساسی دارد.&lt;/p>
+&lt;h4 id="نحوه-کار-cond-و-نقش-قفل-mutex--rwmutex">
+&lt;strong>نحوه کار Cond و نقش قفل (Mutex / RWMutex)&lt;/strong>
+&lt;a class="anchor" href="#%d9%86%d8%ad%d9%88%d9%87-%da%a9%d8%a7%d8%b1-cond-%d9%88-%d9%86%d9%82%d8%b4-%d9%82%d9%81%d9%84-mutex--rwmutex">#&lt;/a>
+&lt;/h4>
+&lt;p>برای ساخت یک شیء Cond باید یک قفل (معمولاً از نوع &lt;code>*sync.Mutex&lt;/code> یا &lt;code>*sync.RWMutex&lt;/code>) به آن بدهید. این قفل به Cond اجازه می‌دهد تا وضعیت مشترک (shared state) را در میان چند goroutine به طور thread-safe بررسی و کنترل کند. قفل، تضمین می‌کند که هیچ دو goroutineای همزمان نتوانند وضعیت را تغییر دهند یا به متدهای Cond دسترسی پیدا کنند، که این برای جلوگیری از race condition کاملاً حیاتی است.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1">1&lt;/a>&lt;/span>&lt;span>lock &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>sync.Mutex{}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-2">2&lt;/a>&lt;/span>&lt;span>cond &lt;span style="color:#ff79c6">:=&lt;/span> sync.&lt;span style="color:#50fa7b">NewCond&lt;/span>(lock)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="عملکرد-متدها">
+&lt;strong>عملکرد متدها&lt;/strong>
+&lt;a class="anchor" href="#%d8%b9%d9%85%d9%84%da%a9%d8%b1%d8%af-%d9%85%d8%aa%d8%af%d9%87%d8%a7">#&lt;/a>
+&lt;/h4>
 &lt;ul>
-&lt;li>&lt;strong>Broadcast:&lt;/strong> با استفاده از این متد می توانید تمامی گوروتین هایی که در حالت منتظر هستند را آزاد کنید تا به فرآیند خود ادامه دهند.&lt;/li>
-&lt;li>&lt;strong>Signal:&lt;/strong> با استفاده از این متد می توانید به گوروتین سیگنال بفرستید تا از حالت منتظر خارج شود و به فرآیند خود ادامه دهد.&lt;/li>
-&lt;li>&lt;strong>Wait:&lt;/strong> این متد بصورت atomic منتظر می ماند تا زمانیکه unlocks صورت گیرد و تا اون موقع گوروتین ها را در حالت تعلیق نگه می دارد.&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Wait():&lt;/strong>&lt;br>
+وقتی یک goroutine متد Wait را صدا می‌زند، دو اتفاق پشت‌سرهم رخ می‌دهد:&lt;/p>
+&lt;ol>
+&lt;li>قفل داده‌شده (مثلاً Mutex) به طور موقت آزاد می‌شود تا سایر goroutineها بتوانند وضعیت مشترک را تغییر دهند.&lt;/li>
+&lt;li>goroutine تا زمان دریافت سیگنال (&lt;code>Signal&lt;/code> یا &lt;code>Broadcast&lt;/code>) به حالت تعلیق (sleep) می‌رود و هیچ پردازشی انجام نمی‌دهد (کاملاً غیرمسدودکننده).&lt;br>
+پس از دریافت سیگنال و بیدار شدن، Wait دوباره به صورت اتمیک قفل را در اختیار می‌گیرد و اجرا از همان خط ادامه پیدا می‌کند.&lt;br>
+معمولاً قبل از Wait باید شرط را داخل یک حلقه (for) بررسی کنید تا از &lt;strong>spurious wakeup&lt;/strong> و رقابت داده‌ای جلوگیری شود:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1">1&lt;/a>&lt;/span>&lt;span>cond.L.&lt;span style="color:#50fa7b">Lock&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-2">2&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">for&lt;/span> !شرط_برقرار_است {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-3">3&lt;/a>&lt;/span>&lt;span> cond.&lt;span style="color:#50fa7b">Wait&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-4">4&lt;/a>&lt;/span>&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-5">5&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// ادامه منطق ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-6">6&lt;/a>&lt;/span>&lt;span>cond.L.&lt;span style="color:#50fa7b">Unlock&lt;/span>()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Signal():&lt;/strong>&lt;br>
+این متد تنها &lt;strong>یکی از goroutineهای منتظر&lt;/strong> را بیدار می‌کند (اگر کسی در صف انتظار باشد). انتخاب اینکه کدام goroutine بیدار شود به سیاست زمان‌بندی runtime وابسته است و تضمینی برای ترتیب خاصی وجود ندارد. Signal معمولاً زمانی به کار می‌رود که انتظار دارید فقط یک مصرف‌کننده با داده جدید یا تغییر وضعیت بیدار شود.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Broadcast():&lt;/strong>&lt;br>
+این متد &lt;strong>همه goroutineهای منتظر روی آن Cond&lt;/strong> را بیدار می‌کند تا شرط را دوباره بررسی کنند. Broadcast زمانی کاربرد دارد که یک رویداد می‌تواند برای همه‌ی منتظرها مهم باشد (مثلاً اتمام کار یا آزاد شدن منبع برای همه مصرف‌کننده‌ها).&lt;/p>
+&lt;/li>
 &lt;/ul>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-2"> 2&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-4"> 4&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-5"> 5&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;sync&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-6"> 6&lt;/a>&lt;/span>&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-7"> 7&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-8"> 8&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> sharedResource = &lt;span style="color:#8be9fd;font-style:italic">make&lt;/span>(&lt;span style="color:#8be9fd;font-style:italic">map&lt;/span>[&lt;span style="color:#8be9fd">string&lt;/span>]&lt;span style="color:#8be9fd;font-style:italic">interface&lt;/span>{})
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-9"> 9&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-10">10&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-11">11&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> wg sync.WaitGroup
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-12">12&lt;/a>&lt;/span>&lt;span> wg.&lt;span style="color:#50fa7b">Add&lt;/span>(&lt;span style="color:#bd93f9">2&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-13">13&lt;/a>&lt;/span>&lt;span> locker &lt;span style="color:#ff79c6">:=&lt;/span> sync.Mutex{}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-14">14&lt;/a>&lt;/span>&lt;span> condition &lt;span style="color:#ff79c6">:=&lt;/span> sync.&lt;span style="color:#50fa7b">NewCond&lt;/span>(&lt;span style="color:#ff79c6">&amp;amp;&lt;/span>locker)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-15">15&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-16">16&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">go&lt;/span> &lt;span style="color:#50fa7b">waitForResourceUpdate&lt;/span>(&lt;span style="color:#ff79c6">&amp;amp;&lt;/span>wg, condition, &lt;span style="color:#f1fa8c">&amp;#34;rsc1&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-17">17&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">go&lt;/span> &lt;span style="color:#50fa7b">waitForResourceUpdate&lt;/span>(&lt;span style="color:#ff79c6">&amp;amp;&lt;/span>wg, condition, &lt;span style="color:#f1fa8c">&amp;#34;rsc2&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-18">18&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-19">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-19">19&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">// this one writes changes to sharedResource&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-20">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-20">20&lt;/a>&lt;/span>&lt;span> condition.L.&lt;span style="color:#50fa7b">Lock&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-21">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-21">21&lt;/a>&lt;/span>&lt;span> sharedResource[&lt;span style="color:#f1fa8c">&amp;#34;rsc1&amp;#34;&lt;/span>] = &lt;span style="color:#f1fa8c">&amp;#34;a string&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-22">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-22">22&lt;/a>&lt;/span>&lt;span> sharedResource[&lt;span style="color:#f1fa8c">&amp;#34;rsc2&amp;#34;&lt;/span>] = &lt;span style="color:#bd93f9">123456&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-23">23&lt;/a>&lt;/span>&lt;span> condition.&lt;span style="color:#50fa7b">Broadcast&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-24">24&lt;/a>&lt;/span>&lt;span> condition.L.&lt;span style="color:#50fa7b">Unlock&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-25">25&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-26">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-26">26&lt;/a>&lt;/span>&lt;span> wg.&lt;span style="color:#50fa7b">Wait&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-27">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-27">27&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-28">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-28">28&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-29">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-29">29&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// waitForResourceUpdate waits for a signal that a resource changed and prints it.&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-30">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-30">30&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">waitForResourceUpdate&lt;/span>(wg &lt;span style="color:#ff79c6">*&lt;/span>sync.WaitGroup, cond &lt;span style="color:#ff79c6">*&lt;/span>sync.Cond, key &lt;span style="color:#8be9fd">string&lt;/span>) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-31">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-31">31&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">defer&lt;/span> wg.&lt;span style="color:#50fa7b">Done&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-32">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-32">32&lt;/a>&lt;/span>&lt;span> cond.L.&lt;span style="color:#50fa7b">Lock&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-33">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-33">33&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">for&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">len&lt;/span>(sharedResource) &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#bd93f9">0&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-34">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-34">34&lt;/a>&lt;/span>&lt;span> cond.&lt;span style="color:#50fa7b">Wait&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-35">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-35">35&lt;/a>&lt;/span>&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-36">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-36">36&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;Resource&amp;#34;&lt;/span>, key, &lt;span style="color:#f1fa8c">&amp;#34;:&amp;#34;&lt;/span>, sharedResource[key])
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-37">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-37">37&lt;/a>&lt;/span>&lt;span> cond.L.&lt;span style="color:#50fa7b">Unlock&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-38">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-38">38&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-2">2&lt;/a>&lt;/span>&lt;span>Resource rsc2 : &lt;span style="color:#bd93f9">123456&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-3">3&lt;/a>&lt;/span>&lt;span>Resource rsc1 : a string
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author/><title>3.4 پکیج atomic</title><link>https://book.gofarsi.ir/chapter-3/go-atomic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-atomic/</guid><description>&lt;p>پکیج atomic یک حافظه atomic سطح پایین برای پیاده سازی الگوریتم های &lt;span class="tooltip" data-tooltip="synchronization" ontouchend="toggleTooltip(this)">همگام سازی&lt;/span>
-شده است. از مواردی که خیلی قابل اهمیت است با این پکیج شما می توانید یکسری الگوهای &lt;span class="tooltip" data-tooltip="synchronization" ontouchend="toggleTooltip(this)">همگام سازی&lt;/span>
-را پیاده سازی کنید. سعی کنید با دقت بیشتری از این پکیج استفاده کنید چون کارکردش خارج از safe memory هست.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-2"> 2&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-4"> 4&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-5"> 5&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;sync&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-6"> 6&lt;/a>&lt;/span>&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-7"> 7&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-8"> 8&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> sharedResource = &lt;span style="color:#8be9fd;font-style:italic">make&lt;/span>(&lt;span style="color:#8be9fd;font-style:italic">map&lt;/span>[&lt;span style="color:#8be9fd">string&lt;/span>]&lt;span style="color:#8be9fd;font-style:italic">interface&lt;/span>{})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-9"> 9&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-10">10&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-11">11&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> wg sync.WaitGroup
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-12">12&lt;/a>&lt;/span>&lt;span> wg.&lt;span style="color:#50fa7b">Add&lt;/span>(&lt;span style="color:#bd93f9">2&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-13">13&lt;/a>&lt;/span>&lt;span> locker &lt;span style="color:#ff79c6">:=&lt;/span> sync.Mutex{}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-14">14&lt;/a>&lt;/span>&lt;span> condition &lt;span style="color:#ff79c6">:=&lt;/span> sync.&lt;span style="color:#50fa7b">NewCond&lt;/span>(&lt;span style="color:#ff79c6">&amp;amp;&lt;/span>locker)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-15">15&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-16">16&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">go&lt;/span> &lt;span style="color:#50fa7b">waitForResourceUpdate&lt;/span>(&lt;span style="color:#ff79c6">&amp;amp;&lt;/span>wg, condition, &lt;span style="color:#f1fa8c">&amp;#34;rsc1&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-17">17&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">go&lt;/span> &lt;span style="color:#50fa7b">waitForResourceUpdate&lt;/span>(&lt;span style="color:#ff79c6">&amp;amp;&lt;/span>wg, condition, &lt;span style="color:#f1fa8c">&amp;#34;rsc2&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-18">18&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-19">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-19">19&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#6272a4">// this one writes changes to sharedResource&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-20">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-20">20&lt;/a>&lt;/span>&lt;span> condition.L.&lt;span style="color:#50fa7b">Lock&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-21">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-21">21&lt;/a>&lt;/span>&lt;span> sharedResource[&lt;span style="color:#f1fa8c">&amp;#34;rsc1&amp;#34;&lt;/span>] = &lt;span style="color:#f1fa8c">&amp;#34;a string&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-22">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-22">22&lt;/a>&lt;/span>&lt;span> sharedResource[&lt;span style="color:#f1fa8c">&amp;#34;rsc2&amp;#34;&lt;/span>] = &lt;span style="color:#bd93f9">123456&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-23">23&lt;/a>&lt;/span>&lt;span> condition.&lt;span style="color:#50fa7b">Broadcast&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-24">24&lt;/a>&lt;/span>&lt;span> condition.L.&lt;span style="color:#50fa7b">Unlock&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-25">25&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-26">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-26">26&lt;/a>&lt;/span>&lt;span> wg.&lt;span style="color:#50fa7b">Wait&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-27">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-27">27&lt;/a>&lt;/span>&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-28">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-28">28&lt;/a>&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-29">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-29">29&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#6272a4">// waitForResourceUpdate waits for a signal that a resource changed and prints it.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-30">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-30">30&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">waitForResourceUpdate&lt;/span>(wg &lt;span style="color:#ff79c6">*&lt;/span>sync.WaitGroup, cond &lt;span style="color:#ff79c6">*&lt;/span>sync.Cond, key &lt;span style="color:#8be9fd">string&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-31">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-31">31&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">defer&lt;/span> wg.&lt;span style="color:#50fa7b">Done&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-32">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-32">32&lt;/a>&lt;/span>&lt;span> cond.L.&lt;span style="color:#50fa7b">Lock&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-33">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-33">33&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">for&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">len&lt;/span>(sharedResource) &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#bd93f9">0&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-34">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-34">34&lt;/a>&lt;/span>&lt;span> cond.&lt;span style="color:#50fa7b">Wait&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-35">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-35">35&lt;/a>&lt;/span>&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-36">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-36">36&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;Resource&amp;#34;&lt;/span>, key, &lt;span style="color:#f1fa8c">&amp;#34;:&amp;#34;&lt;/span>, sharedResource[key])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-37">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-37">37&lt;/a>&lt;/span>&lt;span> cond.L.&lt;span style="color:#50fa7b">Unlock&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-38">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-38">38&lt;/a>&lt;/span>&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-2">2&lt;/a>&lt;/span>&lt;span>Resource rsc2 : &lt;span style="color:#bd93f9">123456&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-3">3&lt;/a>&lt;/span>&lt;span>Resource rsc1 : a string
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><author/><title>3.4 پکیج atomic</title><link>https://book.gofarsi.ir/chapter-3/go-atomic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-atomic/</guid><description>&lt;p>&lt;strong>پکیج &lt;a href="https://pkg.go.dev/sync/atomic">sync/atomic&lt;/a>&lt;/strong> در زبان Go مجموعه‌ای از توابع سطح پایین (low-level) را برای انجام عملیات خواندن و نوشتن &lt;strong>اتمی (atomic)&lt;/strong> روی متغیرهای حافظه فراهم می‌کند. منظور از عملیات اتمیک، عملیاتی است که به طور کامل و یکپارچه توسط CPU انجام می‌شود؛ یعنی هیچ گوروتین، thread یا پردازش دیگری نمی‌تواند مقدار متغیر را بین شروع و پایان یک عملیات اتمیک مشاهده یا تغییر دهد. این ویژگی برای پیاده‌سازی &lt;strong>الگوهای همگام‌سازی سبک و بدون قفل (lock-free synchronization)&lt;/strong> و &lt;strong>متغیرهای اشتراکی با دسترسی سریع و ایمن&lt;/strong> ضروری است.&lt;/p>
+&lt;h4 id="مهمترین-کاربردها-و-عملیات">
+&lt;strong>مهم‌ترین کاربردها و عملیات:&lt;/strong>
+&lt;a class="anchor" href="#%d9%85%d9%87%d9%85%d8%aa%d8%b1%db%8c%d9%86-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7-%d9%88-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>پیاده‌سازی شمارنده‌های اتمیک (atomic counters):&lt;/strong>&lt;br>
+مثلاً افزایش شمارنده تعداد درخواست، جمع یا کم کردن بدون نیاز به Mutex.&lt;/li>
+&lt;li>&lt;strong>فلگ‌ها یا وضعیت‌های اشتراکی:&lt;/strong>&lt;br>
+تنظیم و خواندن یک فلگ مشترک بین چند goroutine به شکلی که دچار race condition نشود.&lt;/li>
+&lt;li>&lt;strong>ساخت primitiveهای همگام‌سازی سفارشی:&lt;/strong>&lt;br>
+مثل اسپین‌لاک، قفل ساده، lock-free queue، semaphore سطح پایین و…&lt;/li>
+&lt;/ul>
+&lt;h4 id="متدهای-مهم-atomic">
+&lt;strong>متدهای مهم atomic:&lt;/strong>
+&lt;a class="anchor" href="#%d9%85%d8%aa%d8%af%d9%87%d8%a7%db%8c-%d9%85%d9%87%d9%85-atomic">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>atomic.AddInt32 / AddUint64&lt;/code> — جمع یا کم کردن مقدار به صورت اتمیک&lt;/li>
+&lt;li>&lt;code>atomic.LoadInt32 / LoadPointer&lt;/code> — خواندن مقدار به شکل اتمیک&lt;/li>
+&lt;li>&lt;code>atomic.StoreInt32 / StorePointer&lt;/code> — نوشتن مقدار به شکل اتمیک&lt;/li>
+&lt;li>&lt;code>atomic.CompareAndSwapInt32&lt;/code> — عمل مقایسه و جایگزینی اتمیک (CAS)، قلب الگوریتم‌های lock-free&lt;/li>
+&lt;li>&lt;code>atomic.Value&lt;/code> — یک ساختار wrapper برای نگهداری داده با خواندن و نوشتن اتمیک (ایده‌آل برای ساخت cacheهای ساده یا حافظه به اشتراک گذاشته شده)&lt;/li>
+&lt;/ul>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>
@@ -680,9 +732,30 @@ GOMAXPROCS در کنار همزمانی از موازی‌سازی (parallelism)
 &lt;p>استفاده از mutex در متد Get نیز مهم است، زیرا این اطمینان را به ما می‌دهد که در هنگام دسترسی به map data، هیچ گوروتین دیگری دارای مجوز تغییر داده‌ها نیست. بدون mutex، یک race condition ممکن است ایجاد شود اگر یک گوروتین دیگر در حال تغییر داده‌های map باشد در حالی که یک گوروتین دیگر سعی در خواندن از آن دارد.&lt;/p>
 &lt;p>در پیاده‌سازی AtomicCache، یک atomic.Value برای ذخیره map استفاده شده است که به انجام عملیات اتمی روی آن اجازه می‌دهد. با این حال، حتی با استفاده از یک مقدار اتمی، همچنان نیاز به mutex وجود دارد تا فقط یک گوروتین در هر زمان به map دسترسی داشته باشد و تداخل داده‌ها را جلوگیری کند.&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="341-برخی-از-کاربردهای-atomic">
-3.4.1 برخی از کاربردهای atomic
-&lt;a class="anchor" href="#341-%d8%a8%d8%b1%d8%ae%db%8c-%d8%a7%d8%b2-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7%db%8c-atomic">#&lt;/a>
+&lt;h2 id="341-نکات-و-هشدارهای-تولیدی-production-caveats">
+3.4.1 نکات و هشدارهای تولیدی (Production Caveats)
+&lt;a class="anchor" href="#341-%d9%86%da%a9%d8%a7%d8%aa-%d9%88-%d9%87%d8%b4%d8%af%d8%a7%d8%b1%d9%87%d8%a7%db%8c-%d8%aa%d9%88%d9%84%db%8c%d8%af%db%8c-production-caveats">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>memory safety:&lt;/strong> پکیج atomic از ویژگی‌های سطح پایین CPU استفاده می‌کند و bypass کردن حافظه امن زبان Go را ممکن می‌سازد؛ یعنی اگر به درستی از آن استفاده نکنید، به‌راحتی دچار bugهای عجیب و غیرقابل ردیابی خواهید شد. استفاده اشتباه می‌تواند باعث بروز race condition، memory corruption و مشکلات شدید تولیدی شود.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>تراز حافظه (memory alignment):&lt;/strong> متغیرهایی که به صورت اتمیک تغییر می‌کنند باید به درستی روی حافظه align شوند (مثلاً در ساختار struct کنار سایر داده‌ها قرار نگیرند). بی‌توجهی به این نکته ممکن است باعث crash برنامه در معماری‌های خاص شود.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>مناسب برای عملیات ساده:&lt;/strong> atomic برای primitive data types (int32, int64, pointer, &amp;hellip;)، عملیات ساده و سناریوهایی با هماهنگی حداقلی طراحی شده است؛ اگر منطق پیچیده‌تر دارید یا باید چندین متغیر را همزمان به شکل اتمیک تغییر دهید، از &lt;strong>sync.Mutex&lt;/strong> یا سایر ابزارهای همزمانی ایمن Go استفاده کنید.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>کاملاً lock-free نیست:&lt;/strong> گرچه atomic سریع و سبک است، اما فقط برای primitiveها کاملاً lock-free است. برای کار با داده‌های پیچیده یا ساختارهای بزرگ، باید با احتیاط و دانش کافی عمل کنید.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>atomic.Value&lt;/strong> برای داده‌های ساختاری، اما فقط با خواندن و نوشتن کامل؛ عملیات mutate روی داده ذخیره‌شده (مثلاً map یا slice) اتمیک نیست مگر کل value جایگزین شود.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="342-برخی-از-کاربردهای-atomic">
+3.4.2 برخی از کاربردهای atomic
+&lt;a class="anchor" href="#342-%d8%a8%d8%b1%d8%ae%db%8c-%d8%a7%d8%b2-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7%db%8c-atomic">#&lt;/a>
 &lt;/h2>
 &lt;p>در زیر چندتا use case برای استفاده از پکیج atomic معرفی کردیم :&lt;/p>
 &lt;ol>
@@ -2101,7 +2174,6 @@ context.ToDo() :
 &lt;th>عنوان&lt;/th>
 &lt;th>توضیحات&lt;/th>
 &lt;th>وضعیت&lt;/th>
-&lt;th>&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
@@ -2109,109 +2181,96 @@ context.ToDo() :
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-result">Wait For Result&lt;/a>&lt;/td>
 &lt;td>با استفاده از الگو Wait For Result می توانید یک عملیاتی را بصورت همزمانی انجام دهید و سپس منتظر نتیجه عملیات صورت گرفته بمانید. برای اینکار از کانال استفاده می شود.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-fan-out-in">Fan Out/In&lt;/a>&lt;/td>
 &lt;td>الگو Fan Out/In یک تکنیک همزمانی در زبان گو می باشد که به شما اجازه می دهد چندین کار را با گوروتین همزمان انجام دهید و در نتیجه خروجی این کارها را با هم ترکیب کنید و به عنوان نتیجه نهایی دریافت کنید.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-task">Wait For Task&lt;/a>&lt;/td>
 &lt;td>الگو wait for task یکی از الگوهای رایج در زبان گو می باشد و انتظار برای تکمیل یک تسک یا فرآیند استفاده می شود. یک تسک با استفاده از گوروتین اجرا می شود و پس اتمامش کار تسک از طریق کانال سیگنال انجام می فرستد.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-drop">Drop&lt;/a>&lt;/td>
 &lt;td>الگو Drop یک الگو مهم برای انجام خدمات سنگین می باشد. خدماتی که مواقعی باعث می شود حجم درخواست هایش بیش از ظرفیت موجود باشد و این درخواست ها بواسطه این الگو می تواند Drop شود. به عنوان مثال سرویس های DNS باید از این الگو استفاده کنند.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation">Cancellation&lt;/a>&lt;/td>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation">Context Cancellation Pattern&lt;/a>&lt;/td>
 &lt;td>الگو cancellation که حرکت تکنیکی هست برای ارسال سینگال به گوروتین ها استفاده می شود که باید اجرای کاری را متوقف کند و ایده اصلی این کار با استفاده بستن کانال صورت میگیرد.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-semaphore">Semaphore&lt;/a>&lt;/td>
 &lt;td>الگو Semaphore برای مدیریت کنترل دسترسی به منابع مشترک در همزمانی استفاده می شود. فرض کنید بصورت موازی ۱۰۰ درخواست HTTP سمت سرور میاد و I/O شبکه برای پردازش همزمان این ۱۰۰ درخواست درگیر میشود و به مرور عملکرد کاهش می یابد. حال اگر ما بیایم این ۱۰۰ درخواست موازی را تقسیم کنیم به ۵ دسته ۲۰ تایی که بصورت همزمانی انجام شود باعث می شود I/O شبکه کاهش یابد و عملکرد بهتری را خواهیم داشت.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-bounded-work-pooling">Bounded Work Pooling&lt;/a>&lt;/td>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-worker-pool">Worker Pool&lt;/a>&lt;/td>
 &lt;td>با استفاده از الگو Bounded Work Pooling امکان محدود سازی تعداد گوروتین ها را براساس کار مشخصی دارید و گوروتین ها را محدود به تعداد دفعات کار مشخص شده محدود می شود. این الگو برای وقت مفید است که شما می خواهید منابع را به یک کار خاص محدود کنید.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout">Retry Timeout&lt;/a>&lt;/td>
 &lt;td>شما از الگو Retry Timeout برای تلاش مجدد یکسری عملیات استفاده کنید. برای اینکار شما می توانید از حلقه و تابع After در پکیج time کمک بگیرید و برای هرتلاش یک timeout مشخص کنید.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-channel-cancellation">Channel Cancellation&lt;/a>&lt;/td>
 &lt;td>از کانال ها برای ارتباط بین گوروتین ها و هماهنگ کردن اجرا استفاده می شود. حال گاهی اوقات نیاز است که ما یکسری فرآیند را داخل گوروتین لغو کنیم. در اینجا می توانیم با استفاده از کانال سیگنال لغو کردن بفرستید تا عملیات هایی که گوروتین مورد نظر انجام می داد لغو شود.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer">Producer-Consumer&lt;/a>&lt;/td>
 &lt;td>الگو producer-consumer یکی از کاربردی ترین الگوها در زبان گو می باشد که با استفاده از الگو می توانید بطور همزمان یکسری اطلاعات تولید کنید و بفرستید داخل کانال و این اطلاعات توسط مصرف کننده بواسطه کانال دریافت شود.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-monitor">Monitor&lt;/a>&lt;/td>
 &lt;td>الگوی مانیتور به گروتین‌ ها اجازه می‌دهد هنگام ورود به حالت خواب بدون مسدود کردن اجرا یا مصرف منابع، منتظر شرایط خاصی باشند.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-future">Future&lt;/a>&lt;/td>
 &lt;td>در زبان گو الگو Future راهی برای نمایش نتیجه یک عملیات ناهمزمان (asynchronous) است که ممکن است آن عملیات هنوز تکمیل نشده باشد اما این الگو به شما این امکان را می دهد کدی بنویسید که طوری رفتار کند که گویی نتیجه یک عملیات فورا در دسترس است. حتی اگر عملیات در پس زمینه در حال اجرا باشد.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-pipeline">Pipeline&lt;/a>&lt;/td>
 &lt;td>الگو خط لوله (Pipeline) یکی از پرکاربردی ترین الگوها در همزمانی می باشد شما با استفاده از این الگو می توانید تسک های بزرگ را به تسک های کوچکتر و مستقل تقسیم کنید که می توانند بطور همزمان کار کنند. هر stage داخل یک گوروتین انجام می شود و بواسطه کانال داده ها بین stage های مختلف منتقل می شود.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-subscription">Subscription&lt;/a>&lt;/td>
 &lt;td>الگو Subscription یکی از الگوهای کاربردی برای پیاده سازی consumer می باشد که به یک آدرسی مشترک شوید و در بازده زمانی مختلف درخواست دهید و یکسری اطلاعات دریافت کنید.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-brdige-channel">Bridge Channel&lt;/a>&lt;/td>
 &lt;td>با استفاده از الگو Bridge Channel می توانید بین ۲ کانال داده ای را منتقل کنید فرض کنید یک داده را به کانال input میفرستید و از دریافت داده آن را می توانید به کانال دیگری منتقل کنید و عملا شما یک پل برای انتقال داده ایجاد کردید.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-queuing">Queuing&lt;/a>&lt;/td>
 &lt;td>الگوی &amp;ldquo;صف&amp;rdquo; در زبان گو الگویی است که در آن از یک گوروتین برای بافر کردن و مدیریت ترتیب مقادیر ارسال شده و دریافت شده از یک کانال استفاده می شود.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-ratelimit">Rate limit&lt;/a>&lt;/td>
 &lt;td>الگوی &lt;strong>Rate Limiting&lt;/strong> برای کنترل تعداد درخواست‌ها یا وظایف همزمان در یک بازه زمانی مشخص استفاده می‌شود. این الگو با استفاده از یک &lt;code>time.Ticker&lt;/code> یا روش‌های مشابه، اجرای گوروتین‌ها یا پردازش داده‌ها را محدود می‌کند.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-deadlock-recovery">Deadlock Recovery&lt;/a>&lt;/td>
 &lt;td>الگوی &lt;strong>بازیابی از بن‌بست&lt;/strong> (Deadlock Recovery) برای شناسایی و بازیابی از وضعیت‌های بن‌بست استفاده می‌شود، جایی که چندین گوروتین به طور نامحدود منتظر منابعی هستند که توسط یکدیگر نگه داشته شده‌اند. بن‌بست می‌تواند به دلیل همگام‌سازی نادرست یا رقابت برای منابع در برنامه‌های همزمان رخ دهد.&lt;/td>
 &lt;td>✅&lt;/td>
-&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-lock-free-synchronization">Lock-free synchronization&lt;/a>&lt;/td>
+&lt;td>&lt;strong>همگام‌سازی بدون قفل (lock-free synchronization)&lt;/strong> به مجموعه‌ای از تکنیک‌ها و الگوهای برنامه‌نویسی گفته می‌شود که به چندین thread یا goroutine اجازه می‌دهد به طور همزمان و ایمن به داده‌های مشترک دسترسی پیدا کنند، بدون اینکه از primitiveهایی مثل Mutex یا قفل‌های سنتی استفاده شود. هدف اصلی این الگوها افزایش &lt;strong>بازدهی (throughput)&lt;/strong>، کاهش &lt;strong>زمان انتظار (latency)&lt;/strong> و جلوگیری از مشکلات رایج قفل‌گذاری (مثل deadlock، priority inversion و contention) است. الگوریتم‌های lock-free تضمین می‌کنند که حتی اگر برخی از threadها متوقف شوند یا دچار کندی شوند، باقی سیستم همچنان قادر به پیشرفت خواهد بود (&lt;strong>progress guarantee&lt;/strong>).&lt;/td>
+&lt;td>✅&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item></channel></rss>
