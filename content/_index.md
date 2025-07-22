@@ -262,7 +262,7 @@ a {
   
 
 [![Andorid Offline](assets/img/dl/dl.png)](https://github.com/GoFarsi/book/releases) 
-[![myket](assets/img/dl/myket.png)](https://myket.ir/app/com.gofarsi.book) [![cafebazzar](assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.gofarsi.book)  [![docker](assets/img/dl/docker.png)](https://github.com/GoFarsi/book/pkgs/container/book) [![linux](assets/img/dl/linux.png)](https://github.com/GoFarsi/book/releases) [![windows](assets/img/dl/windows.png)](https://github.com/GoFarsi/book/releases) [![mac](assets/img/dl/mac.png)](https://github.com/GoFarsi/book/releases)
+[![myket](assets/img/dl/myket.png)](https://myket.ir/app/com.book.gofarsi) [![cafebazzar](assets/img/dl/bazzar.png)](https://cafebazaar.ir/app/com.book.gofarsi)  [![docker](assets/img/dl/docker.png)](https://github.com/GoFarsi/book/pkgs/container/book) [![linux](assets/img/dl/linux.png)](https://github.com/GoFarsi/book/releases) [![windows](assets/img/dl/windows.png)](https://github.com/GoFarsi/book/releases) [![mac](assets/img/dl/mac.png)](https://github.com/GoFarsi/book/releases)
 
 -------
 
