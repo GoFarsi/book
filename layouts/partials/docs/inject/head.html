@@ -16,7 +16,7 @@
 
 
 <script>
-    var html = document.documentElement;  
+    var html = document.documentElement;
     //Check Storage. Keep user preference on page reload
     if (localStorage.getItem('themeMode') == 'dark') {
       html.setAttribute("data-theme","dark");
@@ -25,11 +25,11 @@
       html.setAttribute("data-theme","light");
     }
   </script>
- 
+
  {{if .Page.Params.mermaid}}
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
-const themeMode = localStorage.getItem('themeMode') || 'light'; 
+const themeMode = localStorage.getItem('themeMode') || 'light';
 mermaid.initialize({startOnLoad:true, theme:themeMode === "dark" ? "dark" : "light"});
 const style = document.createElement("style");
 style.textContent = `
@@ -41,4 +41,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 </script>
+
+<link rel="manifest" href="https://progressier.app/oU0WwamIj66XOv6r96hb/progressier.json"/>
+<script defer src="https://progressier.app/oU0WwamIj66XOv6r96hb/script.js"></script>
 {{end}}
