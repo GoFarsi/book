@@ -272,15 +272,7 @@ a {
 
 <span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  سرور ایران :  https://ir1-book.gofarsi.ir
 <br>
-<span class="fas fa-sharp fa-solid fa-circle-nodes"></span>  شبکه IPFS بلاکچین :  https://ipfs-book.gofarsi.ir
-<br>
-<span class="fas a-sharp fa-solid fa-server"></span>  سرور آمازون :  https://aws1-book.gofarsi.ir
-<br>
-<span class="fas a-sharp fa-solid fa-server"></span>  سرور Heroku اروپا :  https://hku1-book.gofarsi.ir
-<br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سرور کلادفلر :  https://cloud-book.gofarsi.ir
-<br>
-<span class="fas a-sharp fa-solid fa-server"></span>  سروریس ورکر کلادفلر :  https://wk-book.gofarsi.ir
 <br>
 <span class="fas a-sharp fa-solid fa-server"></span>  سروریس نتلیفای :  https://netlify-book.gofarsi.ir
 <br>
