@@ -33,3 +33,4 @@ app/desktop/book/
 Thumbs.db
 build/
 app/desktop/content/
+package-lock.json
