@@ -7,8 +7,9 @@ rssLimit = 1000
 copyright = "2023 GoFarsi All rights reserved"
 
 [module]
-[[module.imports]]
-path = "github.com/alex-shpak/hugo-book"
+  [[module.imports]]
+  path = "github.com/alex-shpak/hugo-book"
+
 
 [author]
 	name = "Javad Rajabzadeh"
