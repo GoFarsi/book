@@ -9,7 +9,11 @@ copyright = "2023 GoFarsi All rights reserved"
 [module]
   [[module.imports]]
   path = "github.com/alex-shpak/hugo-book"
+  [[module.imports]]
+  path = "github.com/hugomods/pwa"
 
+[outputs]
+home = ["HTML", "RSS", "Offline"]
 
 [author]
 	name = "Javad Rajabzadeh"
@@ -81,6 +85,27 @@ BookComments = true
 BookServiceWorker = false
 
 graphcommentId = "book"
+
+[params.pwa]
+icon_path = "icons/android/android-launchericon-192-192.png"
+icon_sizes = [48, 72, 96, 144, 192, 512]
+offline_image = "icons/offline.png"  # optional
+
+[[params.pwa.precaches]]
+url = "/"
+
+[params.pwa.caches.font]
+strategy = "network-first"
+
+[params.pwa.caches.image]
+strategy = "network-first"
+
+[params.pwa.caches.script]
+strategy = "network-first"
+
+[params.pwa.caches.style]
+strategy = "network-first"
+
 
 [markup]
   [markup.highlight]

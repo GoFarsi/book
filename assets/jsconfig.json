@@ -1,0 +1,15 @@
+{
+ "compilerOptions": {
+  "baseUrl": ".",
+  "paths": {
+   "*": [
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/!google!chrome/workbox@v7.3.0+incompatible/packages/workbox-cacheable-response/src/*",
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/!google!chrome/workbox@v7.3.0+incompatible/packages/workbox-core/src/*",
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/!google!chrome/workbox@v7.3.0+incompatible/packages/workbox-expiration/src/*",
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/!google!chrome/workbox@v7.3.0+incompatible/packages/workbox-routing/src/*",
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/!google!chrome/workbox@v7.3.0+incompatible/packages/workbox-strategies/src/*",
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/jakearchibald/idb@v7.1.1+incompatible/src/*"
+   ]
+  }
+ }
+}

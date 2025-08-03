@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>آفلاین</title>
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@latest/farsi.css" rel="stylesheet" />
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        font-family: "Vazirmatn", sans-serif;
+        background: #ffffff;
+      }
+
+      .offline-icon {
+        max-width: 160px;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+
+      .offline-title {
+        font-size: 2rem;
+        color: #00ADD8; /* Golang brand blue */
+        margin-bottom: 1rem;
+      }
+
+      .offline-actions a {
+        --offline-action-bg: #0d6efd;
+        text-decoration: none;
+        background: var(--offline-action-bg);
+        color: white;
+        margin: 0.25rem;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      .offline-action-go-back {
+        --offline-action-bg: #198754;
+      }
+
+      .offline-action-try-again {
+        --offline-action-bg: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="offline">
+      <img src="/icons/offline.png" alt="offline" class="offline-icon" />
+      <h1 class="offline-title">شما آفلاین هستید</h1>
+      <div class="offline-actions">
+        <a class="offline-action" href="/">بازگشت به خانه</a>
+        <a class="offline-action offline-action-go-back" href="javascript: window.history.back();">بازگشت</a>
+        <a class="offline-action offline-action-try-again" href="javascript: window.location.reload();">تلاش مجدد</a>
+      </div>
+    </div>
+  </body>
+</html>

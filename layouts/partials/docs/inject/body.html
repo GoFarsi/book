@@ -7,7 +7,7 @@
 <script async="async">
     var html = document.documentElement;
     var switcher = document.getElementsByClassName('js-toggle')[0];
-    
+
     if(typeof(Storage) !== 'undefined') {
         if (localStorage.getItem('themeMode') == 'dark' || document.documentElement.getAttribute('data-theme') == 'dark') {
             switcher.classList.add('js-toggle--checked');
@@ -44,3 +44,5 @@
       document.documentElement.scrollTop = 0;
     }
     </script>
+
+  {{ partialCached "pwa/assets/sw" . }}

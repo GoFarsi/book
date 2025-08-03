@@ -1,2 +1,12 @@
+github.com/GoogleChrome/workbox v7.3.0+incompatible h1:P0VEW4ZF9li7dLLOsB3wknFhVBym05A7td3x/qWFTZM=
+github.com/GoogleChrome/workbox v7.3.0+incompatible/go.mod h1:dyEoGLpJeO43pUVJb+nNNr1WRgoF81hNEl4UGLV+yow=
 github.com/alex-shpak/hugo-book v0.0.0-20250530233833-f2c703e15588 h1:pwxkzpzw/iJSxMBgQLWjYMQubhIemLG3UrNjeWoCkSM=
 github.com/alex-shpak/hugo-book v0.0.0-20250530233833-f2c703e15588/go.mod h1:L4NMyzbn15fpLIpmmtDg9ZFFyTZzw87/lk7M2bMQ7ds=
+github.com/hugomods/icons v0.6.6 h1:gGlafcBDRP7sSID+tgLcWdog+s/QBj8DIfU+h9tZj1U=
+github.com/hugomods/icons v0.6.6/go.mod h1:cIkSvK6W0q6N4U6n9KGz+QfRWQXAW0INd+1P31gPNGg=
+github.com/hugomods/idb-js v0.1.0 h1:mA6hEGtR0aFEdmq9zYMGpfSpCU6SMilx9RzC4uK3DqY=
+github.com/hugomods/idb-js v0.1.0/go.mod h1:GPfnmr+BQpP4s6Epd4Yu+RlUog8q/Djw8qy8BZFWZ04=
+github.com/hugomods/pwa v0.9.0 h1:bEKFkP7xkow6IadY9hKEwPbdKeLC0XZfVT31gGP7CPc=
+github.com/hugomods/pwa v0.9.0/go.mod h1:KpYK2Ffn969+Py5SzV3+iXYase4UoUeRAsd9jY7Q2Us=
+github.com/twbs/icons v1.13.1 h1:6bmNXvoeIbvjFWjfbjXg5JGbelLD1haIsMaEIzE9UZI=
+github.com/twbs/icons v1.13.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
