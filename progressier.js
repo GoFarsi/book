@@ -1,2 +1,0 @@
-importScripts("https://progressier.app/oU0WwamIj66XOv6r96hb/sw.js");
-importScripts("/sw-workbox.js");
