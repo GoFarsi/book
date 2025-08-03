@@ -44,147 +44,19 @@ tags:
 ---
 
 <style>
-.content {
-  display: flex;
-  justify-content: center;
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #555555;
+  --border: #cccccc;
+  --quote-bg: #f5f5f5;
 }
-.flex {
-  display: flex;
-}
-.justify-center {
-    justify-content: center
-}
-.justify-between {
-    justify-content: space-between
-}
-.justify-start {
-    justify-content: start
-}
-.justify-end {
-    justify-content: end
-}
-.align-center {
-    align-items: center
-}
-a {
-  text-decoration: none;
-}
-
-.parent {
-  width: 550px;
-  direction: ltr;
-}
-.tweet-preview {
-  padding: 12px;
-  border: 1px solid rgb(207, 217, 222);
-  width: 100%;
-  color: rgb(15, 20, 25);
-  border-radius: 16px;
-}
-.parent-user {
-  font-size: 15px;
-}
-.parent-user .avatar {
-  margin-left: 8px;
-}
-.parent-user .avatar img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-}
-.parent-user .name span {
-  color: rgb(15, 20, 25);
-  font-weight: 700;
-  width: 180px;
-  text-align: right;
-}
-.parent-user .name svg {
-  max-width: 20px;
-  max-height: 20px;
-}
-.parent-user .username {
-  color: rgb(83, 100, 113);
-  font-weight: 700;
-  text-align: right;
-}
-.tweet-preview .body-message {
-  margin-bottom: 10px;
-}
-.tweet-preview .body-message span {
-  color: #0f1419;
-  font-size: 23px;
-}
-.tweet-preview .body-message a {
-  color: rgb(29, 155, 240);
-  font-size: 23px;
-}
-.tweet-comment {
-  padding: 10px;
-  border: 1px solid rgb(207, 217, 222);
-  min-height: 150px;
-  color: rgb(15, 20, 25);
-  border-radius: 16px;
-}
-.tweet-comment:hover {
-  background-color: #F7F7F7;
-}
-.comment-header img {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-}
-.tweet-comment .comment-header .username {
-  color: #536471;
-  font-size: 15px;
-  margin-right: 5px;
-}
-.tweet-comment .comment-header .full-name {
-  color: #0f1419;
-  font-size: 15px;
-  margin-right: 5px;
-}
-.tweet-comment .comment-body {
-  color: #0f1419;
-  font-size: 15px;
-}
-
-
-
-
-/* Logo Styles */
-.r-8kz0gk {
-    height: 2rem;
-}
-.r-1cvl2hr {
-    color: rgb(29, 155, 240);
-}
-.r-lrsllp {
-    width: 24px;
-}
-.r-16y2uox {
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-}
-.r-lrvibr {
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-.r-1plcrui {
-    vertical-align: text-bottom;
-}
-.r-bnwqim {
-    position: relative;
-}
-.r-dnmrzs {
-    max-width: 100%;
-}
-.r-yyyyoo {
-    fill: currentcolor;
-}
-.r-4qtqp9 {
-    display: inline-block;
+[data-theme="dark"] {
+  --bg: #2b2f33ff;
+  --fg: #e7e9ea;
+  --muted: #71767b;
+  --border: #2f3336;
+  --quote-bg: #16181c;
 }
 </style>
 
@@ -198,68 +70,79 @@ a {
 این کتاب تقدیم می‌شود به [#جادی_میرمیرانی](https://jadi.net/)، فعال در حوزهٔ فناوری‌های نوین و جامعهٔ نرم‌افزارهای آزاد و متن‌باز. همچنین یادی کنیم از [مرحوم صابر راستی‌کردار](https://rastikerdar.github.io/vazirmatn/fa)، طراح فونت وزیر، که از اعضای فعال جامعهٔ نرم‌افزارهای آزاد و متن‌باز بود.
 {{< /hint >}}
 
-   <div class="content">
-      <div class="parent">
-        <div class="tweet-preview">
-          <div class="flex justify-between">
-            <div>
-                <a href="https://twitter.com/goinggodotnet/status/1585243481685233664" target="_blank">
-              <svg viewBox="0 0 24 24" aria-hidden="true" class="r-1cvl2hr r-4qtqp9 r-yyyyoo r-16y2uox r-8kz0gk r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"><g><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg></a>
-            </div>
-            <div>
-              <div class="flex align-center parent-user">
-                <div>
-                  <div class="flex justify-end name">
-                    <svg viewBox="0 0 24 24" aria-label="Verified account" role="img" class="r-1cvl2hr r-4qtqp9 r-yyyyoo r-1xvli5t r-9cviqr r-f9ja8p r-og9te1 r-bnwqim r-1plcrui r-lrvibr" data-testid="icon-verified"><g><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></g></svg>
-                    <span>William (Bill) Kennedy</span>
-                  </div>
-                  <div class="flex justify-end">
-                    <a href="https://twitter.com/goinggodotnet" target="_blank" class="username">@goinggodotnet</a>
-                  </div>
-                </div>
-                <div class="avatar">
-                  <img src="assets/img/home/bill.jpg" alt="William (Bill) Kennedy">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="body-message">
-            <span>This is pretty cool. A technical book about</span>
-            <a href="https://twitter.com/hashtag/golang?src=hashtag_click" target="_blank">#golang</a>
-            <span>from</span>
-            <a href="https://twitter.com/Ja7adR" target="_blank">@Ja7adR</a>
-            <span>written in persian.</span>
-          </div>
-          <div class="tweet-comment">
-            <div class="flex justify-end comment-header">
-              <div class="flex align-center">
-                <a href="https://twitter.com/Ja7adR" target="_blank" class="username">@Ja7adR</a>
-                <a href="https://twitter.com/Ja7adR" target="_blank" class="full-name"><b>Javad Rajabzadeh</b></a>
-                <a href="https://twitter.com/Ja7adR" target="_blank">
-                  <img src="assets/img/home/javad.jpg"/>
-                </a>
-              </div>
-            </div>
-            <a href="https://twitter.com/goinggodotnet/status/1585243481685233664" target="_blank">
-            <div class="comment-body">
-              The first Persian open source book about golang deep dive
-              <br>
-              <br>
-              https://book.gofarsi.ir
-              <br>
-              <br>
-              In this book, we discuss all deep topics related to the Go language, from the basics to the advanced, with the aim of increasing the Gopher community in Iran.
-            </div></a>
-          </div>
-        </div>
+<div style="
+  border: 1px solid var(--border, #ccc);
+  border-radius: 16px;
+  padding: 1rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: var(--bg, #fff);
+  color: var(--fg, #000);
+  font-family: system-ui, sans-serif;
+  direction: ltr;
+">
+
+  <!-- Retweet Notice -->
+  <div style="color: var(--muted, #555); font-size: 0.85rem; margin-bottom: 0.5rem;">
+    🔁 William (Bill) Kennedy retweeted
+  </div>
+
+  <!-- Main tweet header -->
+  <div style="display: flex; align-items: center; gap: 0.75rem;">
+    <img src="https://unavatar.io/twitter/goinggodotnet" alt="William Kennedy" style="width: 48px; height: 48px; border-radius: 50%;" />
+    <div>
+      <div style="font-weight: 600;">William (Bill) Kennedy <span style="color:#1d9bf0;">✔</span></div>
+      <div style="color: var(--muted, #555); font-size: 0.9rem;">@goinggodotnet · Oct 26, 2022</div>
+    </div>
+  </div>
+
+  <!-- Tweet content -->
+  <div style="margin-top: 1rem; line-height: 1.6; font-size: 1rem;">
+    This is pretty cool. A technical book about
+    <a href="https://twitter.com/hashtag/golang" target="_blank" style="color:#1d9bf0;">#golang</a>
+    from
+    <a href="https://twitter.com/Ja7adR" target="_blank" style="color:#1d9bf0;">@Ja7adR</a>
+    written in Persian.
+  </div>
+
+  <!-- Quoted tweet -->
+  <div style="
+    border: 1px solid var(--border, #ccc);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: var(--quote-bg, #f5f5f5);
+  ">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <img src="https://unavatar.io/twitter/Ja7adR" alt="Javad Rajabzadeh" style="width: 36px; height: 36px; border-radius: 50%;" />
+      <div>
+        <div style="font-weight: 600;">Javad Rajabzadeh <span style="color:#1d9bf0;">@Ja7adR</span></div>
+        <div style="color: var(--muted, #777); font-size: 0.9rem;">Oct 26, 2022</div>
       </div>
     </div>
+    <div style="margin-top: 0.5rem;">
+      The first Persian open source book about golang deep dive
+    </div>
+    <div style="margin-top: 0.5rem; color:#1d9bf0;">
+      book.gofarsi.ir
+    </div>
+    <div style="margin-top: 0.5rem; color: var(--muted, #777);">
+      In this book, we discuss all deep topics related to the Go language, from the basics to the advanced, with the aim of increasing the Gopher community in Iran.
+    </div>
+  </div>
+
+  <div style="margin-top: 1rem;">
+    <a href="https://twitter.com/goinggodotnet/status/1585243481685233664" target="_blank" style="color: #1d9bf0; text-decoration: none;">View on Twitter</a>
+  </div>
+</div>
+
 
 <--->
-{{< figure src="cover.png" alt="زبان گو فارسی" >}}
+<img src="/assets/img/start-go.svg" alt="زبان گو فارسی" style="width: 470px;" />
+
 
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود نسخه های آفلاین و آنلاین کتاب
-  
+
 
 [![Andorid Offline](assets/img/dl/dl.png)](https://github.com/GoFarsi/book/releases) [![docker](assets/img/dl/docker.png)](https://github.com/GoFarsi/book/pkgs/container/book) [![linux](assets/img/dl/linux.png)](https://github.com/GoFarsi/book/releases) [![windows](assets/img/dl/windows.png)](https://github.com/GoFarsi/book/releases) [![mac](assets/img/dl/mac.png)](https://github.com/GoFarsi/book/releases)
 
