@@ -211,23 +211,27 @@
 &lt;div class="book-tabs-content markdown-inner">&lt;ol>
 &lt;li>در &lt;a href="https://go.dev/dl/">اینجا&lt;/a> نسخه مرتبط با لینوکس خود را دانلود کنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>$ wget -c https://go.dev/dl/go1.xx.x.linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;pre>&lt;code class="language-shell">$ wget -c https://go.dev/dl/go1.xx.x.linux-amd64.tar.gz
+&lt;/code>&lt;/pre>
+&lt;ol start="2">
 &lt;li>سپس دستور زیر را بزنید تا اگر نسخه قبلی وجود دارد پاک شود و نسخه جدید در مسیر &lt;code>usr/local/go/&lt;/code> جایگزین شود.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>$ sudo rm -rf /usr/local/go &lt;span style="color:#ff79c6">&amp;amp;&amp;amp;&lt;/span> sudo tar -C /usr/local -xzf go1.xx.x.linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;pre>&lt;code class="language-shell">$ sudo rm -rf /usr/local/go &amp;amp;&amp;amp; sudo tar -C /usr/local -xzf go1.xx.x.linux-amd64.tar.gz
+&lt;/code>&lt;/pre>
+&lt;ol start="3">
 &lt;li>افزودن مسیر &lt;code>usr/local/go/bin/&lt;/code> به &lt;span class="tooltip" data-tooltip="environment variable" ontouchend="toggleTooltip(this)">متغیرهای محیطی&lt;/span>&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">export&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">PATH&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#8be9fd;font-style:italic">$PATH&lt;/span>:/usr/local/go/bin
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
+&lt;pre>&lt;code class="language-shell">export PATH=$PATH:/usr/local/go/bin
+&lt;/code>&lt;/pre>
+&lt;blockquote class="book-hint info">
 بهتر است برای اینکه هر بار ترمینال را باز می‌کنید و فایل go توسط shell شناخته شود دستور فوق را به فایل &lt;code>home/{user}/.profile/&lt;/code> اضافه کنید.
 &lt;/blockquote>
 &lt;ol start="4">
 &lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" />
+&lt;pre>&lt;code class="language-shell">$ go version
+&lt;/code>&lt;/pre>
+&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1" />
 &lt;label for="tabs-uniqueid-1">ویندوز&lt;/label>
 &lt;div class="book-tabs-content markdown-inner">&lt;h2 id="روش-اول">
 روش اول
@@ -246,8 +250,9 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>go version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="روش-دوم">
+&lt;pre>&lt;code class="language-shell">go version
+&lt;/code>&lt;/pre>
+&lt;h2 id="روش-دوم">
 روش دوم
 &lt;a class="anchor" href="#%d8%b1%d9%88%d8%b4-%d8%af%d9%88%d9%85">#&lt;/a>
 &lt;/h2>
@@ -255,16 +260,19 @@
 &lt;ol>
 &lt;li>خط فرمان PowerShell را به صورت Administrator باز کنید و دستور زیر را داخل PowerShell بزنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>Set-ExecutionPolicy Bypass -Scope Process -Force; &lt;span style="color:#ff79c6">[&lt;/span>System.Net.ServicePointManager&lt;span style="color:#ff79c6">]&lt;/span>::SecurityProtocol &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#ff79c6">[&lt;/span>System.Net.ServicePointManager&lt;span style="color:#ff79c6">]&lt;/span>::SecurityProtocol -bor 3072; iex &lt;span style="color:#ff79c6">((&lt;/span>New-Object System.Net.WebClient&lt;span style="color:#ff79c6">)&lt;/span>.DownloadString&lt;span style="color:#ff79c6">(&lt;/span>&lt;span style="color:#f1fa8c">&amp;#39;https://community.chocolatey.org/install.ps1&amp;#39;&lt;/span>&lt;span style="color:#ff79c6">))&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;pre>&lt;code class="language-shell">Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+&lt;/code>&lt;/pre>
+&lt;ol start="2">
 &lt;li>بعد از نصب می‌توانید از دستور choco برای نصب گو استفاده کنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>choco install golang
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;pre>&lt;code class="language-shell">choco install golang
+&lt;/code>&lt;/pre>
+&lt;ol start="3">
 &lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint info">
+&lt;pre>&lt;code class="language-shell">$ go version
+&lt;/code>&lt;/pre>
+&lt;blockquote class="book-hint info">
 دقت داشته باشید برای نصب برنامه‌های مختلف مثل git و یا ابزارهای دیگر در محیط Administrator باید از دستور choco استفاده کنید.
 &lt;/blockquote>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2" />
 &lt;label for="tabs-uniqueid-2">مکینتاش&lt;/label>
@@ -279,8 +287,9 @@
 &lt;li>پس از نصب اگر ترمینال باز بود آن را کامل ببندید تا تغییرات صورت گیرد.&lt;/li>
 &lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>&lt;/span>&lt;span>$ go version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="روش-دوم">
+&lt;pre>&lt;code class="language-shell">$ go version
+&lt;/code>&lt;/pre>
+&lt;h2 id="روش-دوم">
 روش دوم
 &lt;a class="anchor" href="#%d8%b1%d9%88%d8%b4-%d8%af%d9%88%d9%85">#&lt;/a>
 &lt;/h2>
@@ -288,72 +297,67 @@
 &lt;ol>
 &lt;li>برای نصب brew می‌توانید ترمینال خود را باز کنید و از دستور زیر استفاده کنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>$ /bin/bash -c &lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>&lt;span style="color:#ff79c6">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style="color:#ff79c6">)&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;pre>&lt;code class="language-shell">$ /bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;ol start="2">
 &lt;li>بعد از نصب brew از دستور زیر برای نصب گو داخل ترمینال استفاده کنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>$ brew update &lt;span style="color:#ff79c6">&amp;amp;&amp;amp;&lt;/span> brew install golang
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;pre>&lt;code class="language-shell">$ brew update &amp;amp;&amp;amp; brew install golang
+&lt;/code>&lt;/pre>
+&lt;ol start="3">
 &lt;li>جهت اطمینان از اینکه زبان گو به‌درستی بر روی سیستم عامل شما نصب شده است، دستور زیر را داخل ترمینال بزنید.&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;/div></description></item><item><author/><title>ابزارها, دستورات گو و معرفی IDE</title><link>https://book.gofarsi.ir/toolchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/toolchain/</guid><description>&lt;p>پس از اینکه زبان گو را برروی سیستم خود نصب کردید از طریق &lt;span class="tooltip" data-tooltip="Terminal" ontouchend="toggleTooltip(this)">ترمینال&lt;/span>
+&lt;pre>&lt;code class="language-shell">$ go version
+&lt;/code>&lt;/pre>&lt;/div>&lt;/div></description></item><item><author/><title>ابزارها, دستورات گو و معرفی IDE</title><link>https://book.gofarsi.ir/toolchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/toolchain/</guid><description>&lt;p>پس از اینکه زبان گو را برروی سیستم خود نصب کردید از طریق &lt;span class="tooltip" data-tooltip="Terminal" ontouchend="toggleTooltip(this)">ترمینال&lt;/span>
 و یا &lt;span class="tooltip" data-tooltip="Command prompt" ontouchend="toggleTooltip(this)">خط فرمان&lt;/span>
 ویندوز قابل دسترس است که می‌توانید با زدن کلمه &lt;code>go&lt;/code> یکسری عملیات انجام دهید:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>$ go
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>Go is a tool &lt;span style="color:#ff79c6">for&lt;/span> managing Go &lt;span style="color:#8be9fd;font-style:italic">source&lt;/span> code.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4&lt;/a>&lt;/span>&lt;span>Usage:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6&lt;/a>&lt;/span>&lt;span> go &amp;lt;command&amp;gt; &lt;span style="color:#ff79c6">[&lt;/span>arguments&lt;span style="color:#ff79c6">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8&lt;/a>&lt;/span>&lt;span>The commands are:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10&lt;/a>&lt;/span>&lt;span> bug start a bug report
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11&lt;/a>&lt;/span>&lt;span> build compile packages and dependencies
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12&lt;/a>&lt;/span>&lt;span> clean remove object files and cached files
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13&lt;/a>&lt;/span>&lt;span> doc show documentation &lt;span style="color:#ff79c6">for&lt;/span> package or symbol
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14&lt;/a>&lt;/span>&lt;span> env print Go environment information
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span> fix update packages to use new APIs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16&lt;/a>&lt;/span>&lt;span> fmt gofmt &lt;span style="color:#ff79c6">(&lt;/span>reformat&lt;span style="color:#ff79c6">)&lt;/span> package sources
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17&lt;/a>&lt;/span>&lt;span> generate generate Go files by processing &lt;span style="color:#8be9fd;font-style:italic">source&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18&lt;/a>&lt;/span>&lt;span> get add dependencies to current module and install them
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19&lt;/a>&lt;/span>&lt;span> install compile and install packages and dependencies
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-20">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-20">20&lt;/a>&lt;/span>&lt;span> list list packages or modules
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-21">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-21">21&lt;/a>&lt;/span>&lt;span> mod module maintenance
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-22">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-22">22&lt;/a>&lt;/span>&lt;span> work workspace maintenance
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23&lt;/a>&lt;/span>&lt;span> run compile and run Go program
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#8be9fd;font-style:italic">test&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">test&lt;/span> packages
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25&lt;/a>&lt;/span>&lt;span> tool run specified go tool
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-26">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-26">26&lt;/a>&lt;/span>&lt;span> version print Go version
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-27">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-27">27&lt;/a>&lt;/span>&lt;span> vet report likely mistakes in packages
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-28">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-28">28&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-29">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-29">29&lt;/a>&lt;/span>&lt;span>Use &lt;span style="color:#f1fa8c">&amp;#34;go help &amp;lt;command&amp;gt;&amp;#34;&lt;/span> &lt;span style="color:#ff79c6">for&lt;/span> more information about a command.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-30">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-30">30&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-31">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-31">31&lt;/a>&lt;/span>&lt;span>Additional &lt;span style="color:#8be9fd;font-style:italic">help&lt;/span> topics:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-32">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-32">32&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-33">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-33">33&lt;/a>&lt;/span>&lt;span> buildconstraint build constraints
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-34">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-34">34&lt;/a>&lt;/span>&lt;span> buildmode build modes
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-35">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-35">35&lt;/a>&lt;/span>&lt;span> c calling between Go and C
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-36">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-36">36&lt;/a>&lt;/span>&lt;span> cache build and &lt;span style="color:#8be9fd;font-style:italic">test&lt;/span> caching
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-37">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-37">37&lt;/a>&lt;/span>&lt;span> environment environment variables
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-38">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-38">38&lt;/a>&lt;/span>&lt;span> filetype file types
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-39">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-39">39&lt;/a>&lt;/span>&lt;span> go.mod the go.mod file
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-40">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-40">40&lt;/a>&lt;/span>&lt;span> gopath GOPATH environment variable
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-41">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-41">41&lt;/a>&lt;/span>&lt;span> gopath-get legacy GOPATH go get
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-42">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-42">42&lt;/a>&lt;/span>&lt;span> goproxy module proxy protocol
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-43">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-43">43&lt;/a>&lt;/span>&lt;span> importpath import path syntax
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-44">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-44">44&lt;/a>&lt;/span>&lt;span> modules modules, module versions, and more
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-45">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-45">45&lt;/a>&lt;/span>&lt;span> module-get module-aware go get
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-46">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-46">46&lt;/a>&lt;/span>&lt;span> module-auth module authentication using go.sum
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-47">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-47">47&lt;/a>&lt;/span>&lt;span> packages package lists and patterns
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-48">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-48">48&lt;/a>&lt;/span>&lt;span> private configuration &lt;span style="color:#ff79c6">for&lt;/span> downloading non-public code
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-49">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-49">49&lt;/a>&lt;/span>&lt;span> testflag testing flags
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-50">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-50">50&lt;/a>&lt;/span>&lt;span> testfunc testing functions
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-51">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-51">51&lt;/a>&lt;/span>&lt;span> vcs controlling version control with GOVCS
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-52">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-52">52&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-53">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-53">53&lt;/a>&lt;/span>&lt;span>Use &lt;span style="color:#f1fa8c">&amp;#34;go help &amp;lt;topic&amp;gt;&amp;#34;&lt;/span> &lt;span style="color:#ff79c6">for&lt;/span> more information about that topic.
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="جدول-دستورات-commands">
+&lt;pre>&lt;code class="language-shell">$ go
+Go is a tool for managing Go source code.
+Usage:
+go &amp;lt;command&amp;gt; [arguments]
+The commands are:
+bug start a bug report
+build compile packages and dependencies
+clean remove object files and cached files
+doc show documentation for package or symbol
+env print Go environment information
+fix update packages to use new APIs
+fmt gofmt (reformat) package sources
+generate generate Go files by processing source
+get add dependencies to current module and install them
+install compile and install packages and dependencies
+list list packages or modules
+mod module maintenance
+work workspace maintenance
+run compile and run Go program
+test test packages
+tool run specified go tool
+version print Go version
+vet report likely mistakes in packages
+Use &amp;quot;go help &amp;lt;command&amp;gt;&amp;quot; for more information about a command.
+Additional help topics:
+buildconstraint build constraints
+buildmode build modes
+c calling between Go and C
+cache build and test caching
+environment environment variables
+filetype file types
+go.mod the go.mod file
+gopath GOPATH environment variable
+gopath-get legacy GOPATH go get
+goproxy module proxy protocol
+importpath import path syntax
+modules modules, module versions, and more
+module-get module-aware go get
+module-auth module authentication using go.sum
+packages package lists and patterns
+private configuration for downloading non-public code
+testflag testing flags
+testfunc testing functions
+vcs controlling version control with GOVCS
+Use &amp;quot;go help &amp;lt;topic&amp;gt;&amp;quot; for more information about that topic.
+&lt;/code>&lt;/pre>
+&lt;h2 id="جدول-دستورات-commands">
 جدول دستورات (Commands)
 &lt;a class="anchor" href="#%d8%ac%d8%af%d9%88%d9%84-%d8%af%d8%b3%d8%aa%d9%88%d8%b1%d8%a7%d8%aa-commands">#&lt;/a>
 &lt;/h2>
@@ -433,16 +437,16 @@
 &lt;a class="anchor" href="#%d8%a7%d8%ac%d8%b1%d8%a7%db%8c-%da%a9%d8%af-%d8%b3%d8%a7%d8%af%d9%87-%d8%af%d8%b1-%d8%b2%d8%a8%d8%a7%d9%86-%da%af%d9%88">#&lt;/a>
 &lt;/h2>
 &lt;p>در زیر یک نمونه کد ساده قرار دادیم که به سادگی می‌توانید با دستور &lt;code>go run main.go&lt;/code> اجرا کنید و خروجی را ببینید.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;Hello world!!!&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">7&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2&lt;/a>&lt;/span>&lt;span>Hello world!!!
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>در کد فوق، ما یکسری &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
+&lt;pre>&lt;code class="language-go">package main
+import &amp;quot;fmt&amp;quot;
+func main() {
+fmt.Println(&amp;quot;Hello world!!!&amp;quot;)
+}
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-shell">$ go run main.go
+Hello world!!!
+&lt;/code>&lt;/pre>
+&lt;p>در کد فوق، ما یکسری &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
 نظیر package , import , func استفاده کردیم که در بخش &lt;a href="https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/">1.2 کلید واژه و شناسه‌ها&lt;/a> با آن‌ها آشنا می‌شوید.&lt;/p>
 &lt;h2 id="انواع-نرمافزارهای-محیط-توسعه-ide-و-ویرایشگر-کد-code-editor">
 انواع نرم‌افزارهای محیط توسعه (IDE) و ویرایشگر کد (Code Editor)

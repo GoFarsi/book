@@ -17,89 +17,81 @@
 استفاده کنید که توسط بخش‌های مختلف برنامه به آن دسترسی دارند.
 &lt;/blockquote>
 &lt;p>&lt;strong>مثال مفهومی از الگوی سینگلتون:&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;sync&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;time&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7&lt;/a>&lt;/span>&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">type&lt;/span> MyLogger &lt;span style="color:#8be9fd;font-style:italic">struct&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13&lt;/a>&lt;/span>&lt;span> globalLogger &lt;span style="color:#ff79c6">*&lt;/span>MyLogger
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14&lt;/a>&lt;/span>&lt;span> mu = &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>sync.Mutex{}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15&lt;/a>&lt;/span>&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">GetMyLoggerInstance&lt;/span>(i &lt;span style="color:#8be9fd">int&lt;/span>) &lt;span style="color:#ff79c6">*&lt;/span>MyLogger {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">if&lt;/span> globalLogger &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#ff79c6">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19&lt;/a>&lt;/span>&lt;span> mu.&lt;span style="color:#50fa7b">Lock&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-20">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-20">20&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">defer&lt;/span> mu.&lt;span style="color:#50fa7b">Unlock&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-21">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-21">21&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">if&lt;/span> globalLogger &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#ff79c6">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-22">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-22">22&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;creating myLogger instance by&amp;#34;&lt;/span>, i)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23&lt;/a>&lt;/span>&lt;span> globalLogger = &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>MyLogger{}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24&lt;/a>&lt;/span>&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25&lt;/a>&lt;/span>&lt;span> } &lt;span style="color:#ff79c6">else&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-26">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-26">26&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;myLogger instance already created.&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-27">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-27">27&lt;/a>&lt;/span>&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-28">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-28">28&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-29">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-29">29&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> globalLogger
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-30">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-30">30&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-31">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-31">31&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-32">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-32">32&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-33">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-33">33&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">for&lt;/span> i &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#bd93f9">1&lt;/span>; i &lt;span style="color:#ff79c6">&amp;lt;=&lt;/span> &lt;span style="color:#bd93f9">5&lt;/span>; i&lt;span style="color:#ff79c6">++&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-34">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-34">34&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">go&lt;/span> &lt;span style="color:#50fa7b">GetMyLoggerInstance&lt;/span>(i)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-35">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-35">35&lt;/a>&lt;/span>&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-36">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-36">36&lt;/a>&lt;/span>&lt;span> time.&lt;span style="color:#50fa7b">Sleep&lt;/span>(time.Second)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-37">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-37">37&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>&lt;/span>&lt;span>creating myLogger instance by &lt;span style="color:#bd93f9">2&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>&lt;/span>&lt;span>myLogger instance already created.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>&lt;/span>&lt;span>myLogger instance already created.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5&lt;/a>&lt;/span>&lt;span>myLogger instance already created.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6&lt;/a>&lt;/span>&lt;span>myLogger instance already created.
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>روش‌ دیگری نیز برای ایجاد یک شی توسط الگوی سینگلتون در زبان گو وجود دارد:&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">package&lt;/span> main
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;sync&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#f1fa8c">&amp;#34;time&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7&lt;/a>&lt;/span>&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">type&lt;/span> MyLogger &lt;span style="color:#8be9fd;font-style:italic">struct&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">var&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13">13&lt;/a>&lt;/span>&lt;span> globalLogger &lt;span style="color:#ff79c6">*&lt;/span>MyLogger
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-14">14&lt;/a>&lt;/span>&lt;span> once sync.Once
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15">15&lt;/a>&lt;/span>&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-16">16&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-17">17&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">GetMyLoggerInstance&lt;/span>(i &lt;span style="color:#8be9fd">int&lt;/span>) &lt;span style="color:#ff79c6">*&lt;/span>MyLogger {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-18">18&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">if&lt;/span> globalLogger &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#ff79c6">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-19">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-19">19&lt;/a>&lt;/span>&lt;span> once.&lt;span style="color:#50fa7b">Do&lt;/span>(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-20">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-20">20&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#8be9fd;font-style:italic">func&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-21">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-21">21&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;creating myLogger instance by&amp;#34;&lt;/span>, i)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-22">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-22">22&lt;/a>&lt;/span>&lt;span> globalLogger = &lt;span style="color:#ff79c6">&amp;amp;&lt;/span>MyLogger{}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-23">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-23">23&lt;/a>&lt;/span>&lt;span> })
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-24">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-24">24&lt;/a>&lt;/span>&lt;span> } &lt;span style="color:#ff79c6">else&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-25">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-25">25&lt;/a>&lt;/span>&lt;span> fmt.&lt;span style="color:#50fa7b">Println&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;myLogger instance already created.&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-26">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-26">26&lt;/a>&lt;/span>&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-27">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-27">27&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-28">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-28">28&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> globalLogger
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-29">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-29">29&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-30">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-30">30&lt;/a>&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-31">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-31">31&lt;/a>&lt;/span>&lt;span>&lt;span style="color:#8be9fd;font-style:italic">func&lt;/span> &lt;span style="color:#50fa7b">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-32">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-32">32&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">for&lt;/span> i &lt;span style="color:#ff79c6">:=&lt;/span> &lt;span style="color:#bd93f9">1&lt;/span>; i &lt;span style="color:#ff79c6">&amp;lt;=&lt;/span> &lt;span style="color:#bd93f9">5&lt;/span>; i&lt;span style="color:#ff79c6">++&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-33">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-33">33&lt;/a>&lt;/span>&lt;span> &lt;span style="color:#ff79c6">go&lt;/span> &lt;span style="color:#50fa7b">GetMyLoggerInstance&lt;/span>(i)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-34">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-34">34&lt;/a>&lt;/span>&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-35">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-35">35&lt;/a>&lt;/span>&lt;span> time.&lt;span style="color:#50fa7b">Sleep&lt;/span>(time.Second)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-36">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-36">36&lt;/a>&lt;/span>&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>&lt;/span>&lt;span>$ go run main.go
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2&lt;/a>&lt;/span>&lt;span>creating myLogger instance by &lt;span style="color:#bd93f9">4&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>مزایا:&lt;/strong>&lt;br>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;fmt&amp;quot;
+&amp;quot;sync&amp;quot;
+&amp;quot;time&amp;quot;
+)
+type MyLogger struct {
+}
+var (
+globalLogger *MyLogger
+mu = &amp;amp;sync.Mutex{}
+)
+func GetMyLoggerInstance(i int) *MyLogger {
+if globalLogger == nil {
+mu.Lock()
+defer mu.Unlock()
+if globalLogger == nil {
+fmt.Println(&amp;quot;creating myLogger instance by&amp;quot;, i)
+globalLogger = &amp;amp;MyLogger{}
+}
+} else {
+fmt.Println(&amp;quot;myLogger instance already created.&amp;quot;)
+}
+return globalLogger
+}
+func main() {
+for i := 1; i &amp;lt;= 5; i++ {
+go GetMyLoggerInstance(i)
+}
+time.Sleep(time.Second)
+}
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-shell">$ go run main.go
+creating myLogger instance by 2
+myLogger instance already created.
+myLogger instance already created.
+myLogger instance already created.
+myLogger instance already created.
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>روش‌ دیگری نیز برای ایجاد یک شی توسط الگوی سینگلتون در زبان گو وجود دارد:&lt;/strong>&lt;/p>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;fmt&amp;quot;
+&amp;quot;sync&amp;quot;
+&amp;quot;time&amp;quot;
+)
+type MyLogger struct {
+}
+var (
+globalLogger *MyLogger
+once sync.Once
+)
+func GetMyLoggerInstance(i int) *MyLogger {
+if globalLogger == nil {
+once.Do(
+func() {
+fmt.Println(&amp;quot;creating myLogger instance by&amp;quot;, i)
+globalLogger = &amp;amp;MyLogger{}
+})
+} else {
+fmt.Println(&amp;quot;myLogger instance already created.&amp;quot;)
+}
+return globalLogger
+}
+func main() {
+for i := 1; i &amp;lt;= 5; i++ {
+go GetMyLoggerInstance(i)
+}
+time.Sleep(time.Second)
+}
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-shell">$ go run main.go
+creating myLogger instance by 4
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>مزایا:&lt;/strong>&lt;br>
 ✅ اطمینان می‌دهد که تنها یک شی از ساختار وجود دارد.
 ✅ دسترسی سراسری به آن شی را فراهم می‌کند.&lt;br>
 ✅ شی فقط در صورت نیاز به آن ایجاد و مقداردهی می‌شود.&lt;/p>
