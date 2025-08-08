@@ -190,7 +190,7 @@ a.book-btn.gray {
 
 .markdown {
   line-height: 2;
- 
+
 
   h1,
   h2 {
@@ -337,7 +337,7 @@ a.book-btn.gray {
 }
 
 
-body.dark-mode, 
+body.dark-mode,
 body.dark-mode main * {
   background: rgb(45, 45, 45);
   color: #f5f5f5;
@@ -508,7 +508,7 @@ a.book-btn {
 .wrapper{
   text-align: center;
   }
-  
+
   .wrapper .icon {
   position: relative;
   border-radius: 50%;
@@ -524,7 +524,7 @@ a.book-btn {
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   text-decoration: none;
   }
-  
+
   .wrapper .tooltip {
   position: absolute;
   top: 0;
@@ -542,15 +542,15 @@ a.book-btn {
   width: max-content;
   z-index: 95959202020 !important;
   }
-  
-  
+
+
   .wrapper a:first-child .tooltip {
   right: 0 !important;
   }
   .wrapper a:first-child .tooltip::before {
   right: 7% !important;
   }
-  
+
   .wrapper .tooltip::before {
   position: absolute;
   content: "";
@@ -562,47 +562,47 @@ a.book-btn {
   transform: translate(-50%) rotate(45deg);
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
-  
+
   .wrapper .icon:hover .tooltip {
   top: -45px;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   }
-  
+
   .wrapper .icon:hover span,
   .wrapper .icon:hover .tooltip {
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
   }
-  
+
   .wrapper .telegram:hover,
   .wrapper .telegram:hover .tooltip,
   .wrapper .telegram:hover .tooltip::before {
   background-color: #229ED9;
   color: #ffffff;
   }
-  
+
   .wrapper .linkedin:hover,
   .wrapper .linkedin:hover .tooltip,
   .wrapper .linkedin:hover .tooltip::before {
   background-color: #0072b1;
   color: #ffffff;
   }
-  
+
   .wrapper .twitter:hover,
   .wrapper .twitter:hover .tooltip,
   .wrapper .twitter:hover .tooltip::before {
   background-color: #46c1f6;
   color: #ffffff;
   }
-  
+
   .wrapper .instagram:hover,
   .wrapper .instagram:hover .tooltip,
   .wrapper .instagram:hover .tooltip::before {
   background-color: #e1306c;
   color: #ffffff;
   }
-  
+
   .wrapper .github:hover,
   .wrapper .github:hover .tooltip,
   .wrapper .github:hover .tooltip::before {
@@ -610,3 +610,98 @@ a.book-btn {
   color: #ffffff;
   }
 
+
+.go-playground pre {
+  overflow-x: auto;
+  margin: 0;
+}
+
+.go-playground .run-code {
+  background-color: #007acc;
+  color: white;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.go-playground .run-output {
+  background-color: #282c34;
+  color: #ddd;
+  white-space: pre-wrap;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+.go-playground .hidden {
+  display: none;
+}
+
+
+.go-playground pre.line-numbers {
+  position: relative;
+  overflow-x: auto;
+  white-space: pre;
+  padding-left: 3.5em;   /* More space for numbers */
+  line-height: 1.5;      /* Critical for matching line numbers */
+  margin: 0;
+}
+
+/* Ensures code block calculates line height correctly */
+.go-playground pre.line-numbers > code {
+  display: block;
+  white-space: pre;
+  position: relative;
+}
+
+
+.go-playground-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.copy-code {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.copy-code:hover {
+  background-color: #45a049;
+}
+
+html.light .copy-code {
+  background-color: #1976d2;
+}
+
+html.light .copy-code:hover {
+  background-color: #1565c0;
+}
+
+.playground-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.run-code,
+.hide-output {
+  background-color: #007acc;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hide-output {
+  background-color: #e53935;
+}
