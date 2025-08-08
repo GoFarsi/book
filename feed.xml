@@ -692,7 +692,31 @@ Error handling در Go اغلب از طریق بازگرداندن ارور از
 &lt;p>به عنوان مثال، فرض کنید یک تابع بخواهید بنویسید که دو عدد را با هم جمع کند. بدون استفاده از ژنریک، شما باید تابع‌های مجزایی برای جمع دو عدد از نوع مختلف (مثلاً عدد صحیح و عدد اعشاری) بنویسید. اما با ژنریک، می‌توانید یک تابع جمع کننده عمومی بنویسید که با هر نوع داده‌ای کار کند.&lt;/p>
 &lt;p>در اصطلاحات Go، از انواع نمادگذاری ژنریک می‌کنیم. این انواع می‌توانند به صورت متغیر باشند و از آن‌ها در تابع‌ها و ساختارهای داده استفاده کنید تا کدی ایجاد کنید که قابل استفاده با انواع مختلف داده‌ها باشد.&lt;/p>
 &lt;p>از مزیت‌های ژنریک در Go می‌توان به کاهش تکرار کد، افزایش قابلیت خوانایی کد و افزایش انعطاف‌پذیری برنامه اشاره کرد. با استفاده از این قابلیت، می‌توانید کدهای بهینه‌تری بنویسید و طراحی بهتری داشته باشید.&lt;/p>
-&lt;p>بنابراین، ژنریک در Go به شما این امکان را می‌دهد که کدهای کلی‌تر و کاربردی‌تری بنویسید که با انواع مختلف داده‌ها سازگار باشند و به عنوان یک توسعه‌دهنده جوان، این ابزار قدرتمند را در توسعه نرم‌افزار‌های خود بهره‌بری کنید.&lt;/p></description></item><item><author/><title>فصل هفتم: تست نویسی</title><link>https://book.gofarsi.ir/chapter-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-7/</guid><description>&lt;p>در این فصل به مباحث تست نویسی در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author/><title>فصل هشتم: پکیج های استاندارد</title><link>https://book.gofarsi.ir/chapter-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-8/</guid><description>&lt;p>در این فصل به مباحث پکیج های استاندارد در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author/><title>فصل نهم: الگوهای طراحی</title><link>https://book.gofarsi.ir/chapter-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/</guid><description>&lt;p>در این فصل، به مباحث الگوهای طراحی در زبان گو می‌پردازیم و سعی می‌کنیم به طور کلی و با مثال‌های مناسب، هر الگو را به شما آموزش دهیم و همچنین برخی از کاربردهای الگوها را نام ببریم.&lt;/p>
+&lt;p>بنابراین، ژنریک در Go به شما این امکان را می‌دهد که کدهای کلی‌تر و کاربردی‌تری بنویسید که با انواع مختلف داده‌ها سازگار باشند و به عنوان یک توسعه‌دهنده جوان، این ابزار قدرتمند را در توسعه نرم‌افزار‌های خود بهره‌بری کنید.&lt;/p></description></item><item><author/><title>فصل هفتم: تست نویسی</title><link>https://book.gofarsi.ir/chapter-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-7/</guid><description>&lt;p>در این فصل به صورت عمیق به مباحث تست‌نویسی در زبان Go پرداخته شده است که شامل عناوین زیر می‌باشد.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="go-introduction-testing">۷.۱ مقدمه‌ای بر تست در Go.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-unit-testing">۷.۲ تست واحد &lt;span class="tooltip" data-tooltip="Unit Test" ontouchend="toggleTooltip(this)">Unit Test&lt;/span>
+.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-table-driven-tests">۷.۳ تست جدول‌محور &lt;span class="tooltip" data-tooltip="table-driven test" ontouchend="toggleTooltip(this)">Table-Driven Test&lt;/span>
+.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-integration-testing">۷.۴ تست یکپارچه &lt;span class="tooltip" data-tooltip="integration test" ontouchend="toggleTooltip(this)">Integration Test&lt;/span>
+.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-end-to-end-tests">۷.۵ تست انتها به انتها &lt;span class="tooltip" data-tooltip="end-to-end test" ontouchend="toggleTooltip(this)">End-to-End Test&lt;/span>
+.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-benchmarking">۷.۶ تست عملکرد &lt;span class="tooltip" data-tooltip="benchmark" ontouchend="toggleTooltip(this)">Benchmark&lt;/span>
+.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-fuzz-testing">۷.۷ تست فازی &lt;span class="tooltip" data-tooltip="fuzz testing" ontouchend="toggleTooltip(this)">Fuzz Testing&lt;/span>
+.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-mocking">۷.۸ ماک و شبیه‌سازی وابستگی‌ها &lt;span class="tooltip" data-tooltip="mocking dependencies" ontouchend="toggleTooltip(this)">Mocking&lt;/span>
+.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-testify">۷.۹ استفاده از کتابخانه testify برای assertions، mock و ساختاردهی تست‌ها.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-ginkgo-testing">۷.۱۰ استفاده از فریم‌ورک ginkgo برای تست‌های سبک BDD.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-concurrent-testing">۷.۱۱ تست‌های همزمانی و تحلیل race conditions.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-code-coverage">۷.۱۲ سنجش پوشش کد &lt;span class="tooltip" data-tooltip="code coverage" ontouchend="toggleTooltip(this)">Code Coverage&lt;/span>
+و گزارش‌گیری.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-test-suites">۷.۱۳ مدیریت و گروه‌بندی تست‌ها با Test Suite.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-production-testing">۷.۱۴ تست‌نویسی حرفه‌ای در پروژه‌های واقعی.&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><author/><title>فصل هشتم: پکیج های استاندارد</title><link>https://book.gofarsi.ir/chapter-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-8/</guid><description>&lt;p>در این فصل به مباحث پکیج های استاندارد در زبان گو میپردازیم&amp;hellip;&lt;/p></description></item><item><author/><title>فصل نهم: الگوهای طراحی</title><link>https://book.gofarsi.ir/chapter-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/</guid><description>&lt;p>در این فصل، به مباحث الگوهای طراحی در زبان گو می‌پردازیم و سعی می‌کنیم به طور کلی و با مثال‌های مناسب، هر الگو را به شما آموزش دهیم و همچنین برخی از کاربردهای الگوها را نام ببریم.&lt;/p>
 &lt;h2 id="الگوی-طراحی-چیست">
 الگوی طراحی چیست؟
 &lt;a class="anchor" href="#%d8%a7%d9%84%da%af%d9%88%db%8c-%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
