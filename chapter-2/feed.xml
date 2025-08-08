@@ -5,13 +5,13 @@
 &lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/1.png" alt="pointer" />&lt;/p>
 &lt;p>درک اشاره‌گرها (Pointers) برای بسیاری از مبتدیان ترسناک به نظر می‌رسد، اما در واقع اگر با یک مثال ساده آن را توضیح دهیم، می‌تواند بسیار قابل فهم باشد. اجازه بدهید ترجمه و توضیحی روان بر پایه مثالی که دادی ارائه کنم:&lt;/p>
 &lt;blockquote>
-&lt;p>اشاره‌گرها پیچیده به نظر می‌رسند،&lt;br>
-اما واقعاً نیازی نیست که این‌طور باشند.&lt;br>
-اشاره‌گرها را می‌توان شبیه &amp;ldquo;فهرست مطالب یک کتاب&amp;rdquo; در نظر گرفت.&lt;br>
+&lt;p>اشاره‌گرها پیچیده به نظر می‌رسند،
+اما واقعاً نیازی نیست که این‌طور باشند.
+اشاره‌گرها را می‌توان شبیه &amp;ldquo;فهرست مطالب یک کتاب&amp;rdquo; در نظر گرفت.
 برای مثال، همین کتاب را در نظر بگیر.
-فهرست مطالب این کتاب مثل پنج اشاره‌گر است.&lt;br>
-شما می‌توانید آن‌ها را بخوانید و بفهمید که اطلاعات مربوط به هر فصل در کجا قرار دارد.&lt;br>
-مثلاً فصل «زندگی من» در صفحه ۱ است (یعنی به صفحه ۱ اشاره می‌کند).&lt;br>
+فهرست مطالب این کتاب مثل پنج اشاره‌گر است.
+شما می‌توانید آن‌ها را بخوانید و بفهمید که اطلاعات مربوط به هر فصل در کجا قرار دارد.
+مثلاً فصل «زندگی من» در صفحه ۱ است (یعنی به صفحه ۱ اشاره می‌کند).
 و فصل «شغل من» در صفحه ۲۳ است.&lt;/p>&lt;/blockquote>
 &lt;blockquote class="book-hint info">
 &lt;p>در بین برنامه نویسان زبان Go همیشه این مسئله بوده که &lt;strong>کی و کجا&lt;/strong> باید از Pointer استفاده کنیم؟!&lt;/p>
@@ -42,34 +42,33 @@
 &lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-1">#&lt;/a>
 &lt;/h3>
 &lt;p>فرض کنید شما 1 متغیر دارید و قصد دارید داخل 3 تابع مختلف مقدارش را بروز کنید و با یک تابع دیگر نمایش دهید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 var count int
-addCount(&amp;amp;count)
-addCount(&amp;amp;count)
+addCount(&amp;count)
+addCount(&amp;count)
 addCountWithoutPointer(count)
-fmt.Printf(&amp;quot;value = %d, address in memory = %p\n&amp;quot;, count, &amp;amp;count)
+fmt.Printf("value = %d, address in memory = %p\n", count, &amp;count)
 printCount(count)
 }
 func addCount(x *int) {
 *x++
-fmt.Printf(&amp;quot;value = %d, address in memory = %p\n&amp;quot;, *x, x)
+fmt.Printf("value = %d, address in memory = %p\n", *x, x)
 }
 func addCountWithoutPointer(x int) {
 x++
-fmt.Printf(&amp;quot;value = %d, address in memory = %p\n&amp;quot;, x, &amp;amp;x)
+fmt.Printf("value = %d, address in memory = %p\n", x, &amp;x)
 }
 func printCount(x int) {
-fmt.Printf(&amp;quot;value = %d, address in memory = %p\n&amp;quot;, x, &amp;amp;x)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">value = 1, address in memory = 0xc000110068
-value = 2, address in memory = 0xc000110068
-value = 3, address in memory = 0xc000110088
-value = 2, address in memory = 0xc000110068
-value = 2, address in memory = 0xc0001100b0
-&lt;/code>&lt;/pre>
+fmt.Printf("value = %d, address in memory = %p\n", x, &amp;x)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/2.jpg" alt="pointer" />&lt;/p>
 &lt;p>در کد فوق ما یک متغیر به نام count ساختیم که داخل تابع (scope) main می باشد.&lt;/p>
 &lt;p>&lt;strong>رخداد اول:&lt;/strong> حال این متغیر را 2 بار بصورت Pointer به تابع &lt;strong>addCount&lt;/strong> پاس دادیم و داخل همان تابع مقدار دهیش کردیم و پس از مقدار دهی در همان تابع print ش کردیم.
@@ -82,8 +81,9 @@ value = 2, address in memory = 0xc0001100b0
 &lt;/h3>
 &lt;p>فرض کنید یک تایپ count دارید که &lt;span class="tooltip" data-tooltip="Alias" ontouchend="toggleTooltip(this)">نام مستعار&lt;/span>
 تایپ int می باشد و 3 تا متد (متد را در بخش 2.3 می توانید بخوانید) گیرنده Pointer با نام های increase , decrease و print دارند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type count int
 func main() {
 x := new(count)
@@ -102,18 +102,16 @@ func (c *count) decrease() {
 c.print()
 }
 func (c *count) print() {
-fmt.Printf(&amp;quot;value = %d, address in memory = %p\n&amp;quot;, *c, c)
+fmt.Printf("value = %d, address in memory = %p\n", *c, c)
 }
 func (c count) printWithoutPointer() {
-fmt.Printf(&amp;quot;value = %d, address in memory = %p\n&amp;quot;, c, &amp;amp;c)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">value = 1, address in memory = 0xc0000a4068
-value = 2, address in memory = 0xc0000a4068
-value = 1, address in memory = 0xc0000a4068
-value = 2, address in memory = 0xc0000a4068
-value = 2, address in memory = 0xc0000a4088
-&lt;/code>&lt;/pre>
+fmt.Printf("value = %d, address in memory = %p\n", c, &amp;c)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>ما در مثال فوق با استفاده از تابع new اومدیم متغیر x را ایجاد کردیم سپس متد &lt;strong>increase&lt;/strong> برای افزایش مقدار متغیر x و متد &lt;strong>decrease&lt;/strong> را برای کاهش مقدار x و در نهایت print را برای چاپ استفاده کردیم.&lt;/p>
 &lt;p>در اینجا به دلیل گیرنده Pointer بودن تایپ &lt;strong>count&lt;/strong> توانستیم درهمان خانه حافظه مقدار x را افزایش یا کاهش دهیم و در نهایت با استفاده از متد print اومدیم مقدار و خانه حافظه را چاپ کردیم.&lt;/p>
 &lt;p>اما یک متد &lt;strong>printWithoutPointer&lt;/strong> داریم که یک کپی از مقدار &lt;strong>x&lt;/strong> را چاپ میکند و عملا مقدار را از یک خانه حافظه جدید را به نمایش میگذارد.&lt;/p>
@@ -146,24 +144,24 @@ b := &amp;amp;a
 fmt.Println(*b) //Output will be 2
 &lt;/code>&lt;/pre>
 &lt;p>به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 var b *int
 a := 2
-b = &amp;amp;a
+b = &amp;a
 fmt.Println(b)
 fmt.Println(*b)
 b = new(int)
 *b = 10
 fmt.Println(*b)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-0xc0000b0018
-2
-10
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در خروجی بالا &lt;code>0xc0000b0018&lt;/code> آدرس حافظه متغیر a است. در واقع متغیر a ساخته شد و ما آدرس حافظه آن را به متغیر b دادیم. یعنی هر دو متغیر به یک آدرس از حافظه اشاره می‌کنند.&lt;/p>
 &lt;h2 id="213-اپراتور--اشارهگر">
 2.1.3 اپراتور * اشاره‌گر
@@ -178,11 +176,12 @@ fmt.Println(*b)
 به مثال زیر توجه کنید:
 &lt;a class="anchor" href="#%d8%a8%d9%87-%d9%85%d8%ab%d8%a7%d9%84-%d8%b2%db%8c%d8%b1-%d8%aa%d9%88%d8%ac%d9%87-%da%a9%d9%86%db%8c%d8%af">#&lt;/a>
 &lt;/h3>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 a := 2
-b := &amp;amp;a
+b := &amp;a
 fmt.Println(a)
 fmt.Println(*b)
 *b = 3
@@ -191,16 +190,12 @@ fmt.Println(*b)
 a = 4
 fmt.Println(a)
 fmt.Println(*b)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-2
-2
-3
-3
-4
-4
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال بالا &lt;code>a&lt;/code> و &lt;code>b*&lt;/code> هر دو دارند به یک آدرس از حافظه اشاره می‌کنند. بنابرین تغییر مقدار یکی از آن‌ها، روی هر دو متغیر تاثیر می‌گذارد.&lt;/p>
 &lt;h2 id="214-اشارهگر-به-یک-اشارهگر-double-pointers">
 2.1.4 اشاره‌گر به یک اشاره‌گر (Double Pointers)
@@ -215,63 +210,52 @@ c := &amp;amp;b
 &lt;p>همانطور که در مثال و عکس بالا می‌بینید، متغیر a مقدارش ۲ و آدرسش در حافظه &lt;code>0xXXXXXX&lt;/code> است. در مقدار متغیر b ما اشاره کردیم به آدرس حافظه متغیر a و در ادامه در متغیر c به آدرس حافظه متغیر b اشاره کردیم.&lt;/p>
 &lt;p>زمانیکه شما بخواهید مقدار c را چاپ کنید کافیست از &lt;code>c**&lt;/code> استفاده کنید تا مقدار ۲ را چاپ کند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 a := 2
-b := &amp;amp;a
-c := &amp;amp;b
-fmt.Printf(&amp;quot;a: %d\n&amp;quot;, a)
-fmt.Printf(&amp;quot;b: %x\n&amp;quot;, b)
-fmt.Printf(&amp;quot;c: %x\n&amp;quot;, c)
+b := &amp;a
+c := &amp;b
+fmt.Printf("a: %d\n", a)
+fmt.Printf("b: %x\n", b)
+fmt.Printf("c: %x\n", c)
 fmt.Println()
-fmt.Printf(&amp;quot;a: %d\n&amp;quot;, a)
-fmt.Printf(&amp;quot;*&amp;amp;a: %d\n&amp;quot;, *&amp;amp;a)
-fmt.Printf(&amp;quot;*b: %d\n&amp;quot;, *b)
-fmt.Printf(&amp;quot;**c: %d\n&amp;quot;, **c)
+fmt.Printf("a: %d\n", a)
+fmt.Printf("*&amp;a: %d\n", *&amp;a)
+fmt.Printf("*b: %d\n", *b)
+fmt.Printf("**c: %d\n", **c)
 fmt.Println()
-fmt.Printf(&amp;quot;&amp;amp;a: %d\n&amp;quot;, &amp;amp;a)
-fmt.Printf(&amp;quot;b: %d\n&amp;quot;, b)
-fmt.Printf(&amp;quot;&amp;amp;*b: %d\n&amp;quot;, &amp;amp;*b)
-fmt.Printf(&amp;quot;*&amp;amp;b: %d\n&amp;quot;, *&amp;amp;b)
-fmt.Printf(&amp;quot;*c: %d\n&amp;quot;, *c)
+fmt.Printf("&amp;a: %d\n", &amp;a)
+fmt.Printf("b: %d\n", b)
+fmt.Printf("&amp;*b: %d\n", &amp;*b)
+fmt.Printf("*&amp;b: %d\n", *&amp;b)
+fmt.Printf("*c: %d\n", *c)
 fmt.Println()
-fmt.Printf(&amp;quot;&amp;amp;b: %d\n&amp;quot;, &amp;amp;b)
-fmt.Printf(&amp;quot;c: %d\n&amp;quot;, c)
-fmt.Printf(&amp;quot;*c: %d\n&amp;quot;, *c)
-fmt.Printf(&amp;quot;**c: %d\n&amp;quot;, **c)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-a: 2
-b: c000018078
-c: c00000e028
-a: 2
-*&amp;amp;a: 2
-*b: 2
-**c: 2
-&amp;amp;a: 824633819256
-b: 824633819256
-&amp;amp;*b: 824633819256
-*&amp;amp;b: 824633819256
-*c: 824633819256
-&amp;amp;b: 824633778216
-c: 824633778216
-*c:824633819256
-**c:2
-&lt;/code>&lt;/pre>
+fmt.Printf("&amp;b: %d\n", &amp;b)
+fmt.Printf("c: %d\n", c)
+fmt.Printf("*c: %d\n", *c)
+fmt.Printf("**c: %d\n", **c)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;blockquote class="book-hint danger">
 &lt;p>توجه کنید در زبان گو علی رغم زبان c استفاده از اشاره‌گر حسابی (Pointer Arithmetic) امکان پذیر نمی‌باشد و در صورت استفاده با خطای زیر مواجه خواهید شد:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 func main() {
 a := 1
-b := &amp;amp;a
+b := &amp;a
 b = b + 1
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-invalid operation: b + 1 (mismatched types *int and int)
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;/blockquote></description></item><item><author/><title>2.2 ساختار (struct)</title><link>https://book.gofarsi.ir/chapter-2/struct/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/struct/</guid><description>&lt;p>در زبان گو &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
 کالکشنی از فیلدها با تایپ‌های مختلف است. شما با استفاده از &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
 می‌توانید یک مدل کلی از بدنه پروژه خود را تعریف کنید. برای نمونه ما در مثال زیر یک نمونه از &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
@@ -356,8 +340,9 @@ age: 31,
 &lt;/code>&lt;/pre>
 &lt;p>در مثال بالا ما فیلد salary را مقدار دهی نکردیم. کامپایلر بطور پیش‌فرض با توجه به تایپ فیلد، مقدار پیش‌فرض صفر را برای اون تایپ در نظر می‌گیرد.
 در ادامه به مثالی که از نحوه ایجاد ساختارها زدیم، توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
@@ -365,28 +350,26 @@ salary int
 }
 func main() {
 emp1 := employee{}
-fmt.Printf(&amp;quot;Emp1: %+v\n&amp;quot;, emp1)
-emp2 := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
-fmt.Printf(&amp;quot;Emp2: %+v\n&amp;quot;, emp2)
+fmt.Printf("Emp1: %+v\n", emp1)
+emp2 := employee{name: "Sam", age: 31, salary: 2000}
+fmt.Printf("Emp2: %+v\n", emp2)
 emp3 := employee{
-name: &amp;quot;Sam&amp;quot;,
+name: "Sam",
 age: 31,
 salary: 2000,
 }
-fmt.Printf(&amp;quot;Emp3: %+v\n&amp;quot;, emp3)
+fmt.Printf("Emp3: %+v\n", emp3)
 emp4 := employee{
-name: &amp;quot;Sam&amp;quot;,
+name: "Sam",
 age: 31,
 }
-fmt.Printf(&amp;quot;Emp4: %+v\n&amp;quot;, emp4)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Emp1: {name: age:0 salary:0}
-Emp2: {name:Sam age:31 salary:2000}
-Emp3: {name:Sam age:31 salary:2000}
-Emp4: {name:Sam age:31 salary:0}
-&lt;/code>&lt;/pre>
+fmt.Printf("Emp4: %+v\n", emp4)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;ul>
 &lt;li>ایجاد متغیر ساختار و مقدار دهی فیلدها بدون نام فیلد:&lt;/li>
 &lt;/ul>
@@ -404,26 +387,27 @@ Emp4: {name:Sam age:31 salary:0}
 &lt;a class="anchor" href="#223-%d8%af%d8%b3%d8%aa%d8%b1%d8%b3%db%8c-%d9%88-%d8%aa%d9%86%d8%b8%db%8c%d9%85-%d9%81%db%8c%d9%84%d8%af%d9%87%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-struct">#&lt;/a>
 &lt;/h2>
 &lt;p>زمانیکه شما یک متغیر ساختار تعریف می‌کنید، می‌توانید خیلی آسان با استفاده از همان متغیر به فیلدهای ساختار دسترسی پیدا کنید و مقدار هر کدام از فیلدها را تغییر دهید. به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
 salary int
 }
 func main() {
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
+emp := employee{name: "Sam", age: 31, salary: 2000}
 //Accessing a struct field
-fmt.Printf(&amp;quot;Current name is: %s\n&amp;quot;, emp.name)
+fmt.Printf("Current name is: %s\n", emp.name)
 //Assigning a new value to name field
-emp.name = &amp;quot;John&amp;quot;
-fmt.Printf(&amp;quot;New name is: %s\n&amp;quot;, emp.name)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Current name is: Sam
-New name is: John
-&lt;/code>&lt;/pre>
+emp.name = "John"
+fmt.Printf("New name is: %s\n", emp.name)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="224-کار-با-اشارهگر-pointer-در-ساختار-struct">
 2.2.4 کار با اشاره‌گر (Pointer) در ساختار (struct)
 &lt;a class="anchor" href="#224-%da%a9%d8%a7%d8%b1-%d8%a8%d8%a7-%d8%a7%d8%b4%d8%a7%d8%b1%d9%87%da%af%d8%b1-pointer-%d8%af%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-struct">#&lt;/a>
@@ -447,25 +431,26 @@ empP := &amp;amp;emp
 &lt;pre>&lt;code class="language-go">empP := &amp;amp;employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
 &lt;/code>&lt;/pre>
 &lt;p>در مثال زیر هر دو روش رو برای شما توضیح دادیم. با دقت به کد و خروجی کد نگاه کنید:‌&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
 salary int
 }
 func main() {
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
-empP := &amp;amp;emp
-fmt.Printf(&amp;quot;Emp: %+v\n&amp;quot;, empP)
-empP = &amp;amp;employee{name: &amp;quot;John&amp;quot;, age: 30, salary: 3000}
-fmt.Printf(&amp;quot;Emp: %+v\n&amp;quot;, empP)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Emp: &amp;amp;{name:Sam age:31 salary:2000}
-Emp: &amp;amp;{name:John age:30 salary:3000}
-&lt;/code>&lt;/pre>
+emp := employee{name: "Sam", age: 31, salary: 2000}
+empP := &amp;emp
+fmt.Printf("Emp: %+v\n", empP)
+empP = &amp;employee{name: "John", age: 30, salary: 3000}
+fmt.Printf("Emp: %+v\n", empP)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="2242-ایجاد-ساختار-با-استفاده-تابع-new">
 2.2.4.2 ایجاد ساختار با استفاده تابع new
 &lt;a class="anchor" href="#2242-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%aa%d8%a7%d8%a8%d8%b9-new">#&lt;/a>
@@ -489,8 +474,9 @@ Emp: &amp;amp;{name:John age:30 salary:3000}
 &lt;pre>&lt;code class="language-go">fmt.Printf(&amp;quot;Emp Value: %+v\n&amp;quot;, *empP)
 &lt;/code>&lt;/pre>
 &lt;p>در مثال زیر خروجی آنچه در بالا گفته شد رو قرار دادیم. لطفاً با دقت به مثال زیر نگاه کنید و در آخر هم مثال‌های مشابهی رو برای خودتان بنویسید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
@@ -498,16 +484,15 @@ salary int
 }
 func main() {
 empP := new(employee)
-fmt.Printf(&amp;quot;Emp Pointer Address: %p\n&amp;quot;, empP)
-fmt.Printf(&amp;quot;Emp Pointer: %+v\n&amp;quot;, empP)
-fmt.Printf(&amp;quot;Emp Value: %+v\n&amp;quot;, *empP)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Emp Pointer Address: 0xc000130000
-Emp Pointer: &amp;amp;{name: age:0 salary:0}
-Emp Value: {name: age:0 salary:0}
-&lt;/code>&lt;/pre>
+fmt.Printf("Emp Pointer Address: %p\n", empP)
+fmt.Printf("Emp Pointer: %+v\n", empP)
+fmt.Printf("Emp Value: %+v\n", *empP)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="225-چاپ-یک-متغیر-ساختار-struct">
 2.2.5 چاپ یک متغیر ساختار (struct)
 &lt;a class="anchor" href="#225-%da%86%d8%a7%d9%be-%db%8c%da%a9-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-struct">#&lt;/a>
@@ -542,27 +527,26 @@ Emp Value: {name: age:0 salary:0}
 &lt;pre>&lt;code class="language-go">fmt.Println(emp) - {Sam 31 2000}
 &lt;/code>&lt;/pre>
 &lt;p>در نهایت کد زیر یک مثال کلی از چاپ با استفاده از پکیج fmt است‌:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
 salary int
 }
 func main() {
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
-fmt.Printf(&amp;quot;Emp: %v\n&amp;quot;, emp)
-fmt.Printf(&amp;quot;Emp: %+v\n&amp;quot;, emp)
-fmt.Printf(&amp;quot;Emp: %#v\n&amp;quot;, emp)
+emp := employee{name: "Sam", age: 31, salary: 2000}
+fmt.Printf("Emp: %v\n", emp)
+fmt.Printf("Emp: %+v\n", emp)
+fmt.Printf("Emp: %#v\n", emp)
 fmt.Println(emp)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Emp: {Sam 31 2000}
-Emp: {name:Sam age:31 salary:2000}
-Emp: main.employee{name:&amp;quot;Sam&amp;quot;, age:31, salary:2000}
-{Sam 31 2000}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="2252-چاپ-ساختار-با-استفاده-از-پکیج-json">
 2.2.5.2 چاپ ساختار با استفاده از پکیج JSON
 &lt;a class="anchor" href="#2252-%da%86%d8%a7%d9%be-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d9%be%da%a9%db%8c%d8%ac-json">#&lt;/a>
@@ -579,11 +563,12 @@ Emp: main.employee{name:&amp;quot;Sam&amp;quot;, age:31, salary:2000}
 &lt;pre>&lt;code class="language-go">MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
 &lt;/code>&lt;/pre>
 &lt;p>حالا با استفاده از توابع فوق یک کد نمونه مثال می‌زنیم و به شما یاد می‌دیم که چطور از این توابع استفاده کنید. به مثال زیر دقت کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
+"encoding/json"
+"fmt"
+"log"
 )
 type employee struct {
 Name string
@@ -591,28 +576,25 @@ Age int
 salary int
 }
 func main() {
-emp := employee{Name: &amp;quot;Sam&amp;quot;, Age: 31, salary: 2000}
+emp := employee{Name: "Sam", Age: 31, salary: 2000}
 //Marshal
 empJSON, err := json.Marshal(emp)
 if err != nil {
 log.Fatalf(err.Error())
 }
-fmt.Printf(&amp;quot;Marshal funnction output %s\n&amp;quot;, string(empJSON))
+fmt.Printf("Marshal funnction output %s\n", string(empJSON))
 //MarshalIndent
-empJSON, err = json.MarshalIndent(emp, &amp;quot;&amp;quot;, &amp;quot; &amp;quot;)
+empJSON, err = json.MarshalIndent(emp, "", " ")
 if err != nil {
 log.Fatalf(err.Error())
 }
-fmt.Printf(&amp;quot;MarshalIndent funnction output %s\n&amp;quot;, string(empJSON))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Marshal funnction output {&amp;quot;Name&amp;quot;:&amp;quot;Sam&amp;quot;,&amp;quot;Age&amp;quot;:31}
-MarshalIndent funnction output {
-&amp;quot;Name&amp;quot;: &amp;quot;Sam&amp;quot;,
-&amp;quot;Age&amp;quot;: 31
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("MarshalIndent funnction output %s\n", string(empJSON))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;blockquote class="book-hint warning">
 برای اطلاعات بیشتر در خصوص پکیج json می‌توانید به بخش &lt;a href="https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/">آموزش کار با json&lt;/a> مراجعه کنید.
 &lt;/blockquote>
@@ -633,11 +615,12 @@ Salary int
 }
 &lt;/code>&lt;/pre>
 &lt;p>در این مثال، مقدار داخل متغیری که از نوع Employee است را تبدیل به json می کنیم و چاپ می کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
+"encoding/json"
+"fmt"
+"log"
 )
 type employee struct {
 Name string
@@ -645,29 +628,26 @@ Age int
 Salary int
 }
 func main() {
-emp := employee{Name: &amp;quot;Sam&amp;quot;, Age: 31, Salary: 2000}
+emp := employee{Name: "Sam", Age: 31, Salary: 2000}
 //Converting to jsonn
-empJSON, err := json.MarshalIndent(emp, &amp;quot;&amp;quot;, &amp;quot; &amp;quot;)
+empJSON, err := json.MarshalIndent(emp, "", " ")
 if err != nil {
 log.Fatalf(err.Error())
 }
 fmt.Println(string(empJSON))
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی :&lt;/p>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{
-&amp;quot;Name&amp;quot;: &amp;quot;Sam&amp;quot;,
-&amp;quot;Age&amp;quot;: 31,
-&amp;quot;Salary&amp;quot;: 2000
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>حالا به ما می گویند که اول اسم فیلد ها در خروجی json با حرف بزرگ شروع نشود و حرف کوچک باشد. اولین چیزی که شاید به ذهن شما خطور کند این است که اسم فیلد ها را در ساختار تعریف شده با حروف کوچک شروع کنیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
+"encoding/json"
+"fmt"
+"log"
 )
 type employee struct {
 name string
@@ -675,50 +655,47 @@ age int
 salary int
 }
 func main() {
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
+emp := employee{name: "Sam", age: 31, salary: 2000}
 //Converting to jsonn
-empJSON, err := json.MarshalIndent(emp, &amp;quot;&amp;quot;, &amp;quot; &amp;quot;)
+empJSON, err := json.MarshalIndent(emp, "", " ")
 if err != nil {
 log.Fatalf(err.Error())
 }
 fmt.Println(string(empJSON))
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی :&lt;/p>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اما خروجی ما یک json خالی است. جرا؟ چون زمانی که اسم فیلد‌ ها با حروف کوچک شروع شوند private هستند و از بیرون قابل دسترسی نیستند. به همین دلیل خروجی یک json خالی است.&lt;/p>
 &lt;p>برای حل این مشکل ما برای ساختار خودمان یک تگ json اضافه می کنیم و می گوییم اسم فیلد تو در json چیز دیگری است:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
+"encoding/json"
+"fmt"
+"log"
 )
 type employee struct {
-Name string `json:&amp;quot;name&amp;quot;`
-Age int `json:&amp;quot;age&amp;quot;`
-Salary int `json:&amp;quot;salary&amp;quot;`
+Name string `json:"name"`
+Age int `json:"age"`
+Salary int `json:"salary"`
 }
 func main() {
-emp := employee{Name: &amp;quot;Sam&amp;quot;, Age: 31, Salary: 2000}
+emp := employee{Name: "Sam", Age: 31, Salary: 2000}
 //Converting to jsonn
-empJSON, err := json.MarshalIndent(emp, &amp;quot;&amp;quot;, &amp;quot; &amp;quot;)
+empJSON, err := json.MarshalIndent(emp, "", " ")
 if err != nil {
 log.Fatalf(err.Error())
 }
 fmt.Println(string(empJSON))
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی :&lt;/p>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{
-&amp;quot;name&amp;quot;: &amp;quot;Sam&amp;quot;,
-&amp;quot;age&amp;quot;: 31,
-&amp;quot;salary&amp;quot;: 2000
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>فکر می‌کنم خروجی بالا کاملاً برای ما روشن کرد که دقیقاً اون تگ‌هایی که قرار دادیم، برای ما چه کاری انجام دادند. بله &lt;strong>کلید-key&lt;/strong>‌های ما را به اون نام‌هایی که در تگ‌ها نوشته بودیم تغییر دادند.&lt;/p>
 &lt;h2 id="2261-چند-نمونه-از-کاربرد-تگ-ها">
 2.2.6.1 چند نمونه از کاربرد تگ ها
@@ -726,63 +703,59 @@ fmt.Println(string(empJSON))
 &lt;/h2>
 &lt;p>تگ ها کاربرد های خیلی زیادی دارند که در بخش قرار است بعضی از آنها را بررسی کنیم.&lt;/p>
 &lt;p>می توانید با تگ (-) مشخص کنید که آن فیلد موقع سریالایز نادیده گرفته شود و نمایش داده نشود. مثال:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
+"encoding/json"
+"fmt"
+"log"
 )
 type employee struct {
-Name string `json:&amp;quot;name&amp;quot;`
-Age int `json:&amp;quot;-&amp;quot;`
-Salary int `json:&amp;quot;salary&amp;quot;`
+Name string `json:"name"`
+Age int `json:"-"`
+Salary int `json:"salary"`
 }
 func main() {
-emp := employee{Name: &amp;quot;Sam&amp;quot;, Salary: 2000}
+emp := employee{Name: "Sam", Salary: 2000}
 //Converting to jsonn
-empJSON, err := json.MarshalIndent(emp, &amp;quot;&amp;quot;, &amp;quot; &amp;quot;)
+empJSON, err := json.MarshalIndent(emp, "", " ")
 if err != nil {
 log.Fatalf(err.Error())
 }
 fmt.Println(string(empJSON))
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی :&lt;/p>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{
-&amp;quot;name&amp;quot;: &amp;quot;Sam&amp;quot;,
-&amp;quot;salary&amp;quot;: 2000
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>با استفاده از تگ omitempty اگر آن فیلد مقداری نداشته باشد، نمایش داده نمی شود:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
+"encoding/json"
+"fmt"
+"log"
 )
 type employee struct {
-Name string `json:&amp;quot;name,omitempty&amp;quot;`
-Age int `json:&amp;quot;age,omitempty&amp;quot;`
-Salary int `json:&amp;quot;salary,omitempty&amp;quot;`
+Name string `json:"name,omitempty"`
+Age int `json:"age,omitempty"`
+Salary int `json:"salary,omitempty"`
 }
 func main() {
 emp := employee{Age: 22, Salary: 2000}
 //Converting to jsonn
-empJSON, err := json.MarshalIndent(emp, &amp;quot;&amp;quot;, &amp;quot; &amp;quot;)
+empJSON, err := json.MarshalIndent(emp, "", " ")
 if err != nil {
 log.Fatalf(err.Error())
 }
 fmt.Println(string(empJSON))
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی :&lt;/p>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{
-&amp;quot;age&amp;quot;: 22,
-&amp;quot;salary&amp;quot;: 2000
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>از دیگر کاربرد های تگ ها می توان به عملیات اعتبار سنجی اشاره کرد. برای مثال می توان چک کرد فیلد شماره موبایل از یازده رقم بیشتر و کمتر نباشد. همچنین در تعریف مدل های دیتابیس با استفاده از تگ ها ارتباط بین دیتابیس و مدل را می توانیم پیاده سازی کنیم و &amp;hellip;&lt;/p>
 &lt;h2 id="227-تعریف-فیلد-ناشناس-در-ساختار-struct">
 2.2.7 تعریف فیلد ناشناس در ساختار (struct)
@@ -797,31 +770,33 @@ salary int
 }
 &lt;/code>&lt;/pre>
 &lt;p>در کد زیر یک مثال ساده در خصوص تعریف و مقدار دهی فیلدهای ناشناس زده‌ایم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 string
 age int
 salary int
 }
 func main() {
-emp := employee{string: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
+emp := employee{string: "Sam", age: 31, salary: 2000}
 //Accessing a struct field
 n := emp.string
-fmt.Printf(&amp;quot;Current name is: %s\n&amp;quot;, n)
+fmt.Printf("Current name is: %s\n", n)
 //Assigning a new value
-emp.string = &amp;quot;John&amp;quot;
-fmt.Printf(&amp;quot;New name is: %s\n&amp;quot;, emp.string)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Current name is: Sam
-New name is: John
-&lt;/code>&lt;/pre>
+emp.string = "John"
+fmt.Printf("New name is: %s\n", emp.string)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>توجه داشته باشید زمانی که از فیلد های ناشناس استفاده می کنید، از هر دیتاتایپ فقط یکبار می توانید استفاده کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 type employee struct {
 string // name
@@ -829,24 +804,23 @@ int // age
 int // salary
 }
 func main() {
-emp := employee{&amp;quot;alireza&amp;quot;, 22, 10_000_000}
-fmt.Printf(&amp;quot;%+v&amp;quot;, emp)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-# command-line-arguments
-./main.go:10:2: int redeclared
-./main.go:9:2: other declaration of int
-./main.go:14:33: too many values in struct literal of type employee
-&lt;/code>&lt;/pre>
+emp := employee{"alireza", 22, 10_000_000}
+fmt.Printf("%+v", emp)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="228-تعریف-ساختار-تو-در-تو-nested">
 2.2.8 تعریف ساختار تو در تو (nested)
 &lt;a class="anchor" href="#228-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%aa%d9%88-%d8%af%d8%b1-%d8%aa%d9%88-nested">#&lt;/a>
 &lt;/h2>
 &lt;p>یکی دیگر از امکانات ساختار در زبان گو بحث ساختار &lt;span class="tooltip" data-tooltip="nested" ontouchend="toggleTooltip(this)">تو در تو&lt;/span>
 است. در مثالی که در ادامه زدیم ساختار address را داخل employee قرار دادیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
@@ -858,16 +832,16 @@ city string
 country string
 }
 func main() {
-address := address{city: &amp;quot;London&amp;quot;, country: &amp;quot;UK&amp;quot;}
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000, address: address}
-fmt.Printf(&amp;quot;City: %s\n&amp;quot;, emp.address.city)
-fmt.Printf(&amp;quot;Country: %s\n&amp;quot;, emp.address.country)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-City: London
-Country: UK
-&lt;/code>&lt;/pre>
+address := address{city: "London", country: "UK"}
+emp := employee{name: "Sam", age: 31, salary: 2000, address: address}
+fmt.Printf("City: %s\n", emp.address.city)
+fmt.Printf("Country: %s\n", emp.address.country)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;blockquote class="book-hint warning">
 &lt;p>توجه کنید شما طبق روش زیر می‌توانید به فیلدهای تو در تو دسترسی داشته باشید:&lt;/p>
 &lt;pre>&lt;code class="language-go">emp.address.city
@@ -875,7 +849,8 @@ emp.address.country
 &lt;/code>&lt;/pre>
 &lt;/blockquote>
 &lt;p>بعضی مواقع بهتر است بصورت مستقیم به فیلد های درون ساختار تو‌در‌تو دسترسی داشته باشیم. به مثال زیر دقت کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 type Product struct {
 Name string
 Price int
@@ -887,14 +862,19 @@ SimCount int
 }
 func main() {
 var mobile Mobile = Mobile{}
-mobile.Product.Name = &amp;quot;Iphone 11&amp;quot;
+mobile.Product.Name = "Iphone 11"
 mobile.Product.Price = 1000
 mobile.Ram = 8
 mobile.SimCount = 1
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>همانطور که می بینید برای تعریف اسم موبایل باید بگوییم mobile.Product.Name که این زیاد جالب نیست. پس به این صورت ساختار Product را درون موبایل قرار می دهیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 type Product struct {
 Name string
 Price int
@@ -906,12 +886,16 @@ SimCount int
 }
 func main() {
 var mobile Mobile = Mobile{}
-mobile.Name = &amp;quot;Iphone 11&amp;quot;
+mobile.Name = "Iphone 11"
 mobile.Price = 1000
 mobile.Ram = 8
 mobile.SimCount = 1
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>الان بصورت مستقیم می توانیم به فیلد های درون Product دسترسی داشته باشیم.&lt;/p>
 &lt;h2 id="229-تعریف-یک-ساختار-عمومی-یا-خصوصی-publicprivate">
 2.2.9 تعریف یک ساختار عمومی یا خصوصی (Public/Private)
@@ -950,26 +934,28 @@ Name string
 &lt;li>Map&lt;/li>
 &lt;li>Function&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
 salary int
 }
 func main() {
-emp1 := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
-emp2 := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
+emp1 := employee{name: "Sam", age: 31, salary: 2000}
+emp2 := employee{name: "Sam", age: 31, salary: 2000}
 if emp1 == emp2 {
-fmt.Println(&amp;quot;emp1 annd emp2 are equal&amp;quot;)
+fmt.Println("emp1 annd emp2 are equal")
 } else {
-fmt.Println(&amp;quot;emp1 annd emp2 are not equal&amp;quot;)
+fmt.Println("emp1 annd emp2 are not equal")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-emp1 annd emp2 are equal
-&lt;/code>&lt;/pre></description></item><item><author/><title>2.3 متد (Method)</title><link>https://book.gofarsi.ir/chapter-2/method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/method/</guid><description>&lt;p>متد در واقع یک تابع گیرنده (receiver) است که به واسطه یک تایپ در دسترس خواهد بود. توجه کنید برای تعریف متد باید قبل از اسم تابع، داخل پرانتز یک نام و یک تایپ قرار دهید. برای درک بهتر این موضوع فکر کنید نامی که داخل پرانتز قرار می‌دید یه متغیر هست که به تایپ شما اشاره می‌کند. به مثال زیر توجه کنید:&lt;/p>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div></description></item><item><author/><title>2.3 متد (Method)</title><link>https://book.gofarsi.ir/chapter-2/method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/method/</guid><description>&lt;p>متد در واقع یک تابع گیرنده (receiver) است که به واسطه یک تایپ در دسترس خواهد بود. توجه کنید برای تعریف متد باید قبل از اسم تابع، داخل پرانتز یک نام و یک تایپ قرار دهید. برای درک بهتر این موضوع فکر کنید نامی که داخل پرانتز قرار می‌دید یه متغیر هست که به تایپ شما اشاره می‌کند. به مثال زیر توجه کنید:&lt;/p>
 &lt;pre>&lt;code class="language-go">func (receiver receiver_type) some_func_name(arguments) return_values
 &lt;/code>&lt;/pre>
 &lt;p>برای درک بهتر این مفهوم، می‌توانید متد را دقیقاً یک تابع در نظر بگیرید. نحوه تعریف به صورت متد صرفاً برای راحتی در زمان توسعه نرم افزار است و به برنامه‌نویس امکان توسعه بهتر بدون نیاز به حفظ کردن زیاد عملکرد‌های سیستم را می‌دهد.&lt;/p>
@@ -984,36 +970,37 @@ func some_func_name(r receiver_T, arg1 arg1_T, ...) return_values
 &lt;/h2>
 &lt;p>زبان گو یک زبان شی گرا نیست ولی برخی از مفاهیم شی‌گرایی را بصورت قرار دادی دارد. ساختار در زبان گو یک تایپ است که این تایپ نیز کالکشنی از تایپ‌های مختلف را در بر می‌گیرد که ما در بخش قبلی بهش پرداختیم.&lt;/p>
 &lt;p>به مثالی که در مورد پیاده‌سازی متد‌ها زده‌ایم توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
 salary int
 }
 func (e employee) details() {
-fmt.Printf(&amp;quot;Name: %s\n&amp;quot;, e.name)
-fmt.Printf(&amp;quot;Age: %d\n&amp;quot;, e.age)
+fmt.Printf("Name: %s\n", e.name)
+fmt.Printf("Age: %d\n", e.age)
 }
 func (e employee) getSalary() int {
 return e.salary
 }
 func main() {
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
+emp := employee{name: "Sam", age: 31, salary: 2000}
 emp.details()
-fmt.Printf(&amp;quot;Salary %d\n&amp;quot;, emp.getSalary())
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Name: Sam
-Age: 31
-Salary 2000
-&lt;/code>&lt;/pre>
+fmt.Printf("Salary %d\n", emp.getSalary())
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا ما یک ساختار با نام employee ایجاد کردیم و سپس ۲ متد با نام‌های details و getSalary برای آن تعریف کردیم. حال برای اینکه بتوانیم از این متدها استفاده کنیم داخل تابع main، یک متغیر از نوع employee تعریف کردیم و سپس با استفاده از نقطه &lt;code>.&lt;/code> پس از نام متغیر به متدها دسترسی پیدا کردیم همانند دسترسی به فیلدهای ساختار.&lt;/p>
 &lt;p>&lt;strong>آیا با استفاده از متد می‌توانیم مقدار یکی از فیلدهای داخل ساختار را تغییر دهیم ؟&lt;/strong> این سوال ۲ جواب دارد هم بله و هم خیر&lt;/p>
 &lt;p>حال به مثال زیر توجه کنید تا توضیح دهیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
@@ -1023,14 +1010,15 @@ func (e employee) setNewName(newName string) {
 e.name = newName
 }
 func main() {
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
-emp.setNewName(&amp;quot;John&amp;quot;)
-fmt.Printf(&amp;quot;Name: %s\n&amp;quot;, emp.name)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Name: Sam
-&lt;/code>&lt;/pre>
+emp := employee{name: "Sam", age: 31, salary: 2000}
+emp.setNewName("John")
+fmt.Printf("Name: %s\n", emp.name)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;ul>
 &lt;li>&lt;strong>علت اینکه می‌گوییم خیر :&lt;/strong> به خاطر اینکه ما داریم با یک کپی از فیلدهای ساختار کار می‌کنیم و با تغییر مقدار هر یک از فیلدها تغییر بر روی کپی آن اعمال خواهد شد.&lt;/li>
 &lt;li>&lt;strong>اما علت اینکه می‌گوییم بله :&lt;/strong> اگر ما با استفاده از اشاره‌گر &lt;strong>pointer&lt;/strong> به فیلدهای داخل ساختار دسترسی پیدا کنیم می‌توانیم مستقیماً به داخل خانه حافظه تایپ دسترسی داشته باشیم و مقدار فیلد مورد نظر را در هر جایی از پروژه تغییر دهیم.&lt;/li>
@@ -1040,8 +1028,9 @@ Name: Sam
 &lt;a class="anchor" href="#232-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%a7%d8%b4%d8%a7%d8%b1%d9%87%da%af%d8%b1-pointer-%d8%af%d8%b1-%d9%85%d8%aa%d8%af%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;p>در مثال بالا ما به این اشاره کردیم که آیا می‌شود مقدار هر یک از فیلدهای ساختار را با استفاده از متد تغییر داد یا خیر و در پاسخ گفتیم هم می شود و هم نه. سپس علتش را توضیح دادیم. حال می‌خواهیم با یک مثال این مورد را توضیح دهیم چگونه می نوانیم هر یک از فیلد های ساختار را از طریق متد تغییر دهیم. به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
@@ -1051,18 +1040,20 @@ func (e *employee) setNewName(newName string) {
 e.name = newName
 }
 func main() {
-emp := &amp;amp;employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
-emp.setNewName(&amp;quot;John&amp;quot;)
-fmt.Printf(&amp;quot;Name: %s\n&amp;quot;, emp.name)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Name: John
-&lt;/code>&lt;/pre>
+emp := &amp;employee{name: "Sam", age: 31, salary: 2000}
+emp.setNewName("John")
+fmt.Printf("Name: %s\n", emp.name)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال بالا متد setNewName یک نوع متد گیرنده از نوع اشاره‌گر است که ما داخل این متد به مقدار فیلدهای داخل خانه حافظه ساختار employee دسترسی داریم و می‌توانیم آن‌ها را مقدار دهی کنیم.&lt;/p>
 &lt;p>&lt;strong>آیا استفاده از گیرنده اشاره‌گر واقعا ضروری است؟&lt;/strong> خیر، ضروری نیست زیرا ما وقتی به متدها دسترسی داریم که یک نمونه (instance) از تایپ مورد نظر ایجاد کنیم تا به متدهایش دسترسی داشته باشیم و همچنین اگر فرضاً نیاز داشته باشیم که یکی از فیلدهای ساختار را مقدار دهی کنیم، باز هم می‌توانیم به آدرس خانه متغیری که ساختار را نگه داری می‌کند اشاره کنیم و مقدارش را تغییر دهیم. به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
@@ -1072,17 +1063,17 @@ func (e *employee) setNewName(newName string) {
 e.name = newName
 }
 func main() {
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000}
-emp.setNewName(&amp;quot;John&amp;quot;)
-fmt.Printf(&amp;quot;Name: %s\n&amp;quot;, emp.name)
-(&amp;amp;emp).setNewName(&amp;quot;Mike&amp;quot;)
-fmt.Printf(&amp;quot;Name: %s\n&amp;quot;, emp.name)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Name: John
-Name: Mike
-&lt;/code>&lt;/pre>
+emp := employee{name: "Sam", age: 31, salary: 2000}
+emp.setNewName("John")
+fmt.Printf("Name: %s\n", emp.name)
+(&amp;emp).setNewName("Mike")
+fmt.Printf("Name: %s\n", emp.name)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="2321-چه-موقع-باید-از-گیرنده-اشارهگر-برای-متد-استفاده-کنیم">
 2.3.2.1 چه موقع باید از گیرنده اشاره‌گر برای متد استفاده کنیم؟
 &lt;a class="anchor" href="#2321-%da%86%d9%87-%d9%85%d9%88%d9%82%d8%b9-%d8%a8%d8%a7%db%8c%d8%af-%d8%a7%d8%b2-%da%af%db%8c%d8%b1%d9%86%d8%af%d9%87-%d8%a7%d8%b4%d8%a7%d8%b1%d9%87%da%af%d8%b1-%d8%a8%d8%b1%d8%a7%db%8c-%d9%85%d8%aa%d8%af-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%da%a9%d9%86%db%8c%d9%85">#&lt;/a>
@@ -1096,8 +1087,9 @@ Name: Mike
 &lt;a class="anchor" href="#234-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d9%85%d8%aa%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d9%81%db%8c%d9%84%d8%af%d9%87%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d8%aa%d9%88-%d8%af%d8%b1-%d8%aa%d9%88-nested">#&lt;/a>
 &lt;/h2>
 &lt;p>شما می‌توانید برای فیلدهایی که ساختار تو در تو دارند نیز متد بنویسید. به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type employee struct {
 name string
 age int
@@ -1109,19 +1101,19 @@ city string
 country string
 }
 func (a address) details() {
-fmt.Printf(&amp;quot;City: %s\n&amp;quot;, a.city)
-fmt.Printf(&amp;quot;Country: %s\n&amp;quot;, a.country)
+fmt.Printf("City: %s\n", a.city)
+fmt.Printf("Country: %s\n", a.country)
 }
 func main() {
-address := address{city: &amp;quot;London&amp;quot;, country: &amp;quot;UK&amp;quot;}
-emp := employee{name: &amp;quot;Sam&amp;quot;, age: 31, salary: 2000, address: address}
+address := address{city: "London", country: "UK"}
+emp := employee{name: "Sam", age: 31, salary: 2000, address: address}
 emp.address.details()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-City: London
-Country: UK
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال بالا ما یک متد برای ساختار address تعریف کردیم و سپس ساختار address را داخل ساختار employee گذاشتیم. در نهایت شما با استفاده از employee می‌توانید به متدهای address هم دسترسی داشته باشید و از آن‌ها استفاده کنید.&lt;/p></description></item><item><author/><title>2.4 اینترفیس (Interface)</title><link>https://book.gofarsi.ir/chapter-2/interface/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/interface/</guid><description>&lt;p>اینترفیس در زبان گو مجموعه‌ای از متدها است. این مجموعه متدها با توجه به ورودی و خروجی که دارند دارای رفتارهای خاصی هستند. زمانیکه شما یک اینترفیس به همراه یکسری از متدها تعریف می‌کنید باید در جایی این متدها را پیاده سازی کنید.&lt;/p>
 &lt;p>اینترفیس‌ها به شما اجازه می‌دهد تا از &lt;a href="https://fa.wikipedia.org/wiki/%D9%86%D9%88%D8%B9%E2%80%8C%D8%AF%D9%87%DB%8C_%D8%A7%D8%B1%D8%AF%DA%A9%DB%8C">Duck typing&lt;/a> استفاده کنید. حالا این duck typing چیست؟&lt;/p>
 &lt;p>duck typing روشی در برنامه‌نویسی کامپیوتری است که به شما امکان می‌دهد تست اردک را انجام دهید، جایی که ما نوع را بررسی نمی‌کنیم، بلکه تنها وجود برخی ویژگی‌ها یا روش‌ها را بررسی می‌کنیم. بنابراین آنچه واقعاً اهمیت دارد این است که آیا یک شی دارای ویژگی‌ها و روش‌های خاصی است و نه نوع آن.&lt;/p>
@@ -1138,8 +1130,9 @@ walk()
 }
 &lt;/code>&lt;/pre>
 &lt;p>در بالا ما یک اینترفیس تعریف کردیم ۲ تا متد دارد حالا بیاید یک متغیر از نوع اینترفیس animal درست کنیم و چاپ کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1147,11 +1140,12 @@ walk()
 func main() {
 var a animal
 fmt.Println(a)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-nil
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا وقتی اینترفیس را چاپ کردیم، خروجی &lt;code>nil&lt;/code> بود.
 توجه کنید اینترفیس مقدار پیش‌فرض یا خالی بودنش &lt;code>nil&lt;/code> هست.&lt;/p>
 &lt;h2 id="241-پیادهسازی-اینترفیس">
@@ -1159,8 +1153,9 @@ nil
 &lt;a class="anchor" href="#241-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3">#&lt;/a>
 &lt;/h2>
 &lt;p>در بالا ما یک اینترفیس animal تعریف کردیم که ۲ متد داشت حالا قصد داریم یک شی (منظور ساختار در گو) به نام lion تعریف کنیم و متدهای اینترفیس animal را پیاده‌سازی کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1169,22 +1164,22 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 func main() {
 var a animal
 a = lion{age: 10}
 a.breathe()
 a.walk()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Lion breathes
-Lion walk
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما یک متغیر با تایپ animal تعریف کردیم:&lt;/p>
 &lt;pre>&lt;code class="language-go">var a animal
 &lt;/code>&lt;/pre>
@@ -1203,8 +1198,9 @@ Lion walk
 &lt;p>برای اینترفیس هیچ حالت صریح (explicit) هنگام تعریف وجود ندارد و همه چی بصورت ضمنی است تا زمانیکه یک اینترفیس برای یک شی (ساختار) متدهایش پیاده سازی نشود هیچ کاربردی نخواهد داشت.&lt;/p>
 &lt;p>توجه کنید هیچ حالت صریحی وجود ندارد که بگوید شما تمامی متدهای اینترفیس animal را برای ساختار lion پیاده سازی کردید یا خیر و فقط در زمان کامپایل اگر ایرادی وجود داشته باشد کامپایلر به شما خطا می‌دهد و البته IDE هایی مانند: Goland , Vscode به شما هنگام نوشتن کد در خصوص این مورد کمک می‌کنند قبل از کامپایل متوجه خطاهای مرتبط با پیاده سازی اینترفیس شوید.&lt;/p>
 &lt;p>خب بزارید یک مثال پیچیده برای اینترفیس animal بزنیم و یک شی (ساختار) دیگر به نام dog اضافه کنیم و متدهای اینترفیس animal را برای این شی پیاده سازی کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1213,19 +1209,19 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 type dog struct {
 age int
 }
 func (l dog) breathe() {
-fmt.Println(&amp;quot;Dog breathes&amp;quot;)
+fmt.Println("Dog breathes")
 }
 func (l dog) walk() {
-fmt.Println(&amp;quot;Dog walk&amp;quot;)
+fmt.Println("Dog walk")
 }
 func main() {
 var a animal
@@ -1235,14 +1231,12 @@ a.walk()
 a = dog{age: 5}
 a.breathe()
 a.walk()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Lion breathes
-Lion walk
-Dog breathes
-Dog walk
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال بالا ما یک ساختار با نام dog تعریف کردیم و سپس متدهای animal را برای ساختار dog پیاده سازی کردیم و در نهایت ساختار dog را به متغیر اینترفیس a اختصاص دادیم. همانطور که می‌بینیم dog هم همانند lion نفس می‌کشد و راه می‌رود.&lt;/p>
 &lt;blockquote class="book-hint info">
 توجه کنید در بالا ما برای ۲ تا شی lion و dog یک وجه مشترک به نام animal به همراه رفتار مشترک تعریف کردیم که به اینکار پلی مورفیسم می‌گویند و یکی از عناوین پر کاربرد در شی‌گرایی می باشد که در &lt;a href="https://book.gofarsi.ir/chapter-4/oop/go-polymorphism/">بخش شی گرایی زبان گو&lt;/a> بیشتر می‌پردازیم.
@@ -1279,8 +1273,9 @@ want speed() int
 &lt;/h2>
 &lt;p>توابع، تایپ‌های اینترفیس را به عنوان ورودی قبول می‌کنند و هر ساختار یا تایپی متدهای اینترفیس را پیاده سازی کرده باشد می‌تواند به عنوان پارامتر ورودی به تابع ارسال شود.&lt;/p>
 &lt;p>به عنوان مثال ما در کد زیر ۲ تا تابع داریم به نام های &lt;strong>callBreathe&lt;/strong> و &lt;strong>callWalk&lt;/strong> که به عنوان ورودی اینترفیس animal را قبول می‌کند و ما ۲ نمونه از ساختارهای lion و dog را که متدهای اینترفیس animal را پیاده سازی کرده‌اند را به این ۲ تابع پاس دادیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1289,19 +1284,19 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 type dog struct {
 age int
 }
 func (l dog) breathe() {
-fmt.Println(&amp;quot;Dog breathes&amp;quot;)
+fmt.Println("Dog breathes")
 }
 func (l dog) walk() {
-fmt.Println(&amp;quot;Dog walk&amp;quot;)
+fmt.Println("Dog walk")
 }
 func main() {
 l := lion{age: 10}
@@ -1316,14 +1311,12 @@ a.breathe()
 }
 func callWalk(a animal) {
 a.breathe()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Lion breathes
-Lion walk
-Dog breathes
-Dog walk
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="244-چرا-اینترفیس">
 2.4.4 چرا اینترفیس؟
 &lt;a class="anchor" href="#244-%da%86%d8%b1%d8%a7-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3">#&lt;/a>
@@ -1355,8 +1348,9 @@ calculateTax()
 }
 &lt;/code>&lt;/pre>
 &lt;p>در بالا ما یک اینترفیس با نام taxCalculator داریم که یک متد به نام calculateTax برای محاسبه مالیات دارد. حالا ما باید به ازای هر کشور یک ساختار داشته باشیم که این ساختارها باید متد calculateTax را با توجه شیوه محاسباتی خود پیاده سازی کرده باشند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type taxSystem interface {
 calculateTax() int
 }
@@ -1385,17 +1379,17 @@ tax := i.income * i.taxPercentage / 100
 return tax
 }
 func main() {
-indianTax := &amp;amp;indianTax{
+indianTax := &amp;indianTax{
 taxPercentage: 30,
 income: 1000,
 }
-singaporeTax := &amp;amp;singaporeTax{
+singaporeTax := &amp;singaporeTax{
 taxPercentage: 10,
 income: 2000,
 }
 taxSystems := []taxSystem{indianTax, singaporeTax}
 totalTax := calculateTotalTax(taxSystems)
-fmt.Printf(&amp;quot;Total Tax is %d\n&amp;quot;, totalTax)
+fmt.Printf("Total Tax is %d\n", totalTax)
 }
 func calculateTotalTax(taxSystems []taxSystem) int {
 totalTax := 0
@@ -1403,11 +1397,12 @@ for _, t := range taxSystems {
 totalTax += t.calculateTax() // در اینجا runtime polymorphism رخ می دهد
 }
 return totalTax
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Total Tax is 300
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در خط زیر RunTime Polymorphism رخ داده است.&lt;/p>
 &lt;pre>&lt;code class="language-go"> totalTax += t.calculateTax() //This is where runtime polymorphism happens
 &lt;/code>&lt;/pre>
@@ -1432,8 +1427,9 @@ Total Tax is 300
 &lt;/li>
 &lt;/ul>
 &lt;p>مثال با حالت اولی که توضیح دادیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1442,31 +1438,30 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;, l)
+fmt.Println("Lion breathes", l)
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;, l)
+fmt.Println("Lion walk", l)
 }
 func main() {
 var a animal
 a = lion{age: 10}
 a.breathe()
 a.walk()
-a = &amp;amp;lion{age: 5}
+a = &amp;lion{age: 5}
 a.breathe()
 a.walk()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Lion breathes {10}
-Lion walk {10}
-Lion breathes {5}
-Lion walk {5}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما یک نمونه از ساختار lion با اشاره‌گر ایجاد کردیم و مقدار age را ۵ قرار دادیم و به اینترفیس animal انتصابش کردیم و بدون هیچ مشکلی کار کرد.&lt;/p>
 &lt;p>حالا برای حالت دوم به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1475,55 +1470,56 @@ type lion struct {
 age int
 }
 func (l *lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l *lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 func main() {
 var a animal
 a = lion{age: 10}
 a.breathe()
 a.walk()
-a = &amp;amp;lion{age: 5}
+a = &amp;lion{age: 5}
 a.breathe()
 a.walk()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-cannot use lion literal (type lion) as type animal in assignment:
-lion does not implement animal (breathe method has pointer receiver)
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در واقع شما فقط در صورت استفاده از اشاره‌گر، می‌توانید یک نمونه از ساختار lion بسازید در غیر این صورت با خطا مواجه خواهید شد.&lt;/p>
 &lt;h2 id="246-پیاده-سازی-اینترفیس-برای-تایپهای-غیر-ساختار">
 2.4.6 پیاده سازی اینترفیس برای تایپ‌های غیر ساختار
 &lt;a class="anchor" href="#246-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%a8%d8%b1%d8%a7%db%8c-%d8%aa%d8%a7%db%8c%d9%be%d9%87%d8%a7%db%8c-%d8%ba%db%8c%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1">#&lt;/a>
 &lt;/h2>
 &lt;p>همانطور که قبلاً گفتیم شما می‌توانید برای هر تایپی متد تعریف کنید و در اینجا هم می‌توانید متدهای یک اینترفیس را برای هر تایپی پیاده سازی کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
 }
 type cat string
 func (c cat) breathe() {
-fmt.Println(&amp;quot;Cat breathes&amp;quot;)
+fmt.Println("Cat breathes")
 }
 func (c cat) walk() {
-fmt.Println(&amp;quot;Cat walk&amp;quot;)
+fmt.Println("Cat walk")
 }
 func main() {
 var a animal
-a = cat(&amp;quot;smokey&amp;quot;)
+a = cat("smokey")
 a.breathe()
 a.walk()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Cat breathes
-Cat walk
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما یک تایپ با نام cat از نوع رشته تعریف کردیم و سپس متدهای اینترفیس animal را برای این تایپ پیاده‌سازی کردیم.&lt;/p>
 &lt;h2 id="247-پیادهسازی-چندتایی-اینترفیس-برای-تایپ">
 2.4.7 پیاده‌سازی چندتایی اینترفیس برای تایپ
@@ -1531,8 +1527,9 @@ Cat walk
 &lt;/h2>
 &lt;p>شما می‌توانید برای تایپ‌های خود چندین اینترفیس مختلف استفاده کنید و متدهای این اینترفیس‌ها را پیاده سازی کنید.&lt;/p>
 &lt;p>در کد زیر ما ۲ تا اینترفیس animal و mammal داریم که داخل اینترفیس mammal یک متد با نام feed وجود دارد حالا می‌خواهیم برای ساختار lion از این اینترفیس استفاده کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1544,13 +1541,13 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 func (l lion) feed() {
-fmt.Println(&amp;quot;Lion feeds young&amp;quot;)
+fmt.Println("Lion feeds young")
 }
 func main() {
 var a animal
@@ -1561,20 +1558,20 @@ a.walk()
 var m mammal
 m = l
 m.feed()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Lion breathes
-Lion walk
-Lion feeds young
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="248-مقدار-صفر-یا-پیشفرض-اینترفیس">
 2.4.8 مقدار صفر یا پیش‌فرض اینترفیس
 &lt;a class="anchor" href="#248-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%d8%b5%d9%81%d8%b1-%db%8c%d8%a7-%d9%be%db%8c%d8%b4%d9%81%d8%b1%d8%b6-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3">#&lt;/a>
 &lt;/h2>
 &lt;p>اینترفیس هم همانند سایر تایپ‌ها یک مقدار پیش‌فرض دارد که این مقدار پیش‌فرض &lt;strong>nil&lt;/strong> هست.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1582,11 +1579,12 @@ walk()
 func main() {
 var a animal
 fmt.Println(a)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-nil
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="249-بدنه-اینترفیس">
 2.4.9 بدنه اینترفیس
 &lt;a class="anchor" href="#249-%d8%a8%d8%af%d9%86%d9%87-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3">#&lt;/a>
@@ -1606,8 +1604,9 @@ A[Interface Variable]
 C --> D(lion) &amp; E("{age: 10}")
 &lt;/div>
 &lt;p>حالا در زیر مثالی زدیم با استفاده از &lt;code>T%&lt;/code> و &lt;code>v%&lt;/code> نوع و مقدار را می‌توانید چاپ کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1616,22 +1615,22 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 func main() {
 var a animal
 a = lion{age: 10}
-fmt.Printf(&amp;quot;Underlying Type: %T\n&amp;quot;, a)
-fmt.Printf(&amp;quot;Underlying Value: %v\n&amp;quot;, a)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Concrete Type: main.lion
-Concrete Value: {10}
-&lt;/code>&lt;/pre>
+fmt.Printf("Underlying Type: %T\n", a)
+fmt.Printf("Underlying Value: %v\n", a)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="2410-دسترسی-به-مقادیر-داخلی-اینترفیس">
 2.4.10 دسترسی به مقادیر داخلی اینترفیس
 &lt;a class="anchor" href="#2410-%d8%af%d8%b3%d8%aa%d8%b1%d8%b3%db%8c-%d8%a8%d9%87-%d9%85%d9%82%d8%a7%d8%af%db%8c%d8%b1-%d8%af%d8%a7%d8%ae%d9%84%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3">#&lt;/a>
@@ -1652,8 +1651,9 @@ Concrete Value: {10}
 &lt;blockquote class="book-hint danger">
 اگر هنگام Type Assertion شما وضعیت متغیر ok را بررسی نکنید با خطای panic مواجه خواهید شد.
 &lt;/blockquote>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1662,19 +1662,19 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 type dog struct {
 age int
 }
 func (d dog) breathe() {
-fmt.Println(&amp;quot;Dog breathes&amp;quot;)
+fmt.Println("Dog breathes")
 }
 func (d dog) walk() {
-fmt.Println(&amp;quot;Dog walk&amp;quot;)
+fmt.Println("Dog walk")
 }
 func main() {
 var a animal
@@ -1684,13 +1684,14 @@ print(a)
 func print(a animal) {
 l, ok := a.(lion)
 if ok {
-fmt.Printf(&amp;quot;Age: %d\n&amp;quot;, l.age)
+fmt.Printf("Age: %d\n", l.age)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Age: 10
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما تایپ lion را به اینترفیس animal پاس دادیم و بررسی کردیم آیا تایپ lion از نوع تایپ داخلی اینترفیس animal هست یا خیر.&lt;/p>
 &lt;pre>&lt;code class="language-go">l := a.(lion)
 &lt;/code>&lt;/pre>
@@ -1699,8 +1700,9 @@ Age: 10
 &lt;a class="anchor" href="#24102-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-switch">#&lt;/a>
 &lt;/h3>
 &lt;p>شما با استفاده از switch می‌توانید تایپ اینترفیس را تشخیص دهید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1709,19 +1711,19 @@ type lion struct {
 age int
 }
 func (l lion) breathe() {
-fmt.Println(&amp;quot;Lion breathes&amp;quot;)
+fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-fmt.Println(&amp;quot;Lion walk&amp;quot;)
+fmt.Println("Lion walk")
 }
 type dog struct {
 age int
 }
 func (d dog) breathe() {
-fmt.Println(&amp;quot;Dog breathes&amp;quot;)
+fmt.Println("Dog breathes")
 }
 func (d dog) walk() {
-fmt.Println(&amp;quot;Dog walk&amp;quot;)
+fmt.Println("Dog walk")
 }
 func main() {
 var a animal
@@ -1731,38 +1733,39 @@ print(a)
 func print(a animal) {
 switch v := a.(type) {
 case lion:
-fmt.Println(&amp;quot;Type: lion&amp;quot;)
+fmt.Println("Type: lion")
 case dog:
-fmt.Println(&amp;quot;Type: dog&amp;quot;)
+fmt.Println("Type: dog")
 default:
-fmt.Printf(&amp;quot;Unknown Type %T&amp;quot;, v)
+fmt.Printf("Unknown Type %T", v)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Type: lion
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="2411-اینترفیس-خالی">
 2.4.11 اینترفیس خالی
 &lt;a class="anchor" href="#2411-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%ae%d8%a7%d9%84%db%8c">#&lt;/a>
 &lt;/h2>
 &lt;p>شما می‌توانید اینترفیس بصورت خالی و بدون متد در هرجایی از کد خود استفاده کنید و هر تایپی را می‌توانید به این اینترفیس انتصاب دهید. به عنوان مثال در زیر یک تابع نوشتیم که به عنوان پارامتر ورودی یک اینترفیس خالی می‌گیرد و مقدار این پارامتر را چاپ می‌کند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
-test(&amp;quot;thisisstring&amp;quot;)
-test(&amp;quot;10&amp;quot;)
+test("thisisstring")
+test("10")
 test(true)
 }
 func test(a interface{}) {
-fmt.Printf(&amp;quot;(%v, %T)\n&amp;quot;, a, a)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-(thisisstring, string)
-(10, string)
-(true, bool)
-&lt;/code>&lt;/pre>
+fmt.Printf("(%v, %T)\n", a, a)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>توجه کنید اینترفیس خالی خیلی کاربردی هست و usecase‌های مختلفی دارد.&lt;/p></description></item><item><author/><title>2.5 جاسازی تایپ (type embedding)</title><link>https://book.gofarsi.ir/chapter-2/type-embedding/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/type-embedding/</guid><description>&lt;p>در زبان گو برای ساختار و اینترفیس امکان &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
 تایپ وجود دارد. یعنی شما می‌توانید یک ساختار یا یک اینترفیس را داخل ساختار دیگر &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
 کنید و یا داخل اینترفیس یک اینترفیس دیگر را جاسازی کنید.&lt;/p>
@@ -1801,13 +1804,14 @@ str string
 و به هرکدام از فیلدهای ساختارهای &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
 شده دسترسی دارید.&lt;/p>
 &lt;p>&lt;strong>به مثال زیر توجه کنید :&lt;/strong>&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type base struct {
 num int
 }
 func (b base) describe() string {
-return fmt.Sprintf(&amp;quot;base with num=%v&amp;quot;, b.num)
+return fmt.Sprintf("base with num=%v", b.num)
 }
 type container struct {
 base
@@ -1818,31 +1822,30 @@ co := container{
 base: base{
 num: 1,
 },
-str: &amp;quot;some name&amp;quot;,
+str: "some name",
 }
-fmt.Printf(&amp;quot;co={num: %v, str: %v}\n&amp;quot;, co.num, co.str)
-fmt.Println(&amp;quot;also num:&amp;quot;, co.base.num)
-fmt.Println(&amp;quot;describe:&amp;quot;, co.describe())
+fmt.Printf("co={num: %v, str: %v}\n", co.num, co.str)
+fmt.Println("also num:", co.base.num)
+fmt.Println("describe:", co.describe())
 type describer interface {
 describe() string
 }
 var d describer = co
-fmt.Println(&amp;quot;describer:&amp;quot;, d.describe())
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-co={num: 1, str: some name}
-also num: 1
-describe: base with num=1
-describer: base with num=1
-&lt;/code>&lt;/pre>
+fmt.Println("describer:", d.describe())
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="2511-جاسازی-اینترفیس-در-ساختار">
 2.5.1.1 جاسازی اینترفیس در ساختار
 &lt;a class="anchor" href="#2511-%d8%ac%d8%a7%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%af%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1">#&lt;/a>
 &lt;/h3>
 &lt;p>همانطور که گفتیم یک اینترفیس می‌‌تواند داخل یک ساختار جاسازی شود و همه متدهای اینترفیس به واسطه ساختار مورد قابل دسترس است و می‌توانید هر یک از متدها را استفاده کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1851,10 +1854,10 @@ type dog struct {
 age int
 }
 func (d dog) breathe() {
-fmt.Println(&amp;quot;Dog breathes&amp;quot;)
+fmt.Println("Dog breathes")
 }
 func (d dog) walk() {
-fmt.Println(&amp;quot;Dog walk&amp;quot;)
+fmt.Println("Dog walk")
 }
 type pet1 struct {
 a animal
@@ -1866,30 +1869,24 @@ name string
 }
 func main() {
 d := dog{age: 5}
-p1 := pet1{name: &amp;quot;Milo&amp;quot;, a: d}
+p1 := pet1{name: "Milo", a: d}
 fmt.Println(p1.name)
 // p1.breathe()
 // p1.walk()
 p1.a.breathe()
 p1.a.walk()
-p2 := pet2{name: &amp;quot;Oscar&amp;quot;, animal: d}
+p2 := pet2{name: "Oscar", animal: d}
 fmt.Println(p1.name)
 p2.breathe()
 p2.walk()
 p1.a.breathe()
 p1.a.walk()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Milo
-Dog breathes
-Dod walk
-Oscar
-Dog breathes
-Dog walk
-Dog breathes
-Dog walk
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="252-جاسازی-اینترفیس">
 2.5.2 جاسازی اینترفیس
 &lt;a class="anchor" href="#252-%d8%ac%d8%a7%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3">#&lt;/a>
@@ -1898,8 +1895,9 @@ Dog walk
 کنید و فقط کافیه اینترفیس‌ها را داخل دیگر اینترفیس‌ها &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
 کنید تا متدهای اینترفیس‌های &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
 شده دسترسی داشته باشید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type animal interface {
 breathe()
 walk()
@@ -1912,27 +1910,26 @@ type employee struct {
 name string
 }
 func (e employee) breathe() {
-fmt.Println(&amp;quot;Employee breathes&amp;quot;)
+fmt.Println("Employee breathes")
 }
 func (e employee) walk() {
-fmt.Println(&amp;quot;Employee walk&amp;quot;)
+fmt.Println("Employee walk")
 }
 func (e employee) speak() {
-fmt.Println(&amp;quot;Employee speaks&amp;quot;)
+fmt.Println("Employee speaks")
 }
 func main() {
 var h human
-h = employee{name: &amp;quot;John&amp;quot;}
+h = employee{name: "John"}
 h.breathe()
 h.walk()
 h.speak()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Employee breathes
-Employee walk
-Employee speaks
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>یکی دیگه از مثال‌هایی که می‌توانیم بزنیم پکیج io اینترفیس ReadWriter هست که ۲ تا اینترفیس &lt;a href="https://golang.org/pkg/io/#Reader">Reader&lt;/a> و &lt;a href="https://golang.org/pkg/io/#Writer">Writer&lt;/a> داخل این اینترفیس جاسازی شده است.&lt;/p></description></item><item><author/><title>2.6 مدیریت خطاها</title><link>https://book.gofarsi.ir/chapter-2/error-handling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/error-handling/</guid><description>&lt;p>در این بخش قصد داریم به مقوله مدیریت خطاها در زبان گو بپردازیم و اینکه چطور می‌توانید خیلی ساده خطاها را مدیریت کنید. مدیریت خطا در زبان گو با سایر زبان‌ها متفاوت هست و شما با چیزی به نام try-catch یا try-except سروکار ندارید.&lt;/p>
 &lt;p>مدیریت خطاها در زبان گو به دو روش صورت می گیرد:&lt;/p>
 &lt;ul>
@@ -1950,23 +1947,25 @@ Error() string
 }
 &lt;/code>&lt;/pre>
 &lt;p>به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
-file, err := os.Open(&amp;quot;non-existing.txt&amp;quot;)
+file, err := os.Open("non-existing.txt")
 if err != nil {
 fmt.Println(err)
 } else {
-fmt.Println(file.Name() + &amp;quot;opened succesfully&amp;quot;)
+fmt.Println(file.Name() + "opened succesfully")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-open non-existing.txt: no such file or directory
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا ما با استفاده از تابع Open که در پکیج os وجود دارد فایل non-existing.txt را باز کرده‌ایم. اگر دقت کنید این تابع ۲ تا خروجی دارد یکی ساختار File هست و دیگری خطا هست. در ادامه ما با استفاده شرط آمدیم چک کردیم اینترفیس err آیا خالی است یا خیر؟ در کد بالا این اینترفیس خالی &lt;code>nil&lt;/code> نیست و ما خطا را چاپ کردیم.&lt;/p>
 &lt;p>این روش به طور گسترده در پکیج‌های داخلی و شخص ثالث گو استفاده می‌شود.&lt;/p>
 &lt;p>دقت کنید اینترفیس error یک متد دارد به نام ()Error که این متد متن خطا را بصورت رشته بر می‌گرداند.&lt;/p>
@@ -1991,35 +1990,39 @@ open non-existing.txt: no such file or directory
 &lt;p>در زبان گو شما می‌توانید در هرجای کد خود یک خطا با محتوای مناسب ایجاد کنید و یا اینکه برخی از خطاهای برخی از کتابخانه‌ها را &lt;span class="tooltip" data-tooltip="wrap" ontouchend="toggleTooltip(this)">هم‌پوشانی&lt;/span>
 کنید.&lt;/p>
 &lt;p>&lt;strong>1. با استفاده (&amp;ldquo;متن خطا&amp;rdquo;)errors.New&lt;/strong>&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;errors&amp;quot;
-&amp;quot;fmt&amp;quot;
+"errors"
+"fmt"
 )
 func main() {
-sampleErr := errors.New(&amp;quot;error occured&amp;quot;)
+sampleErr := errors.New("error occured")
 fmt.Println(sampleErr)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-error occured
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما با استفاده از تابع New پکیج errors یک خطا با متن مشخص ایجاد کردیم و متغیر sampleErr از نوع اینترفیس error می‌باشد که می‌توانید در هر جای کد خود مدیریتش کنید.&lt;/p>
 &lt;p>&lt;strong>2. با استفاده از (&amp;ldquo;error is %s&amp;rdquo;, &amp;ldquo;some error message&amp;rdquo;)fmt.Errorf&lt;/strong>&lt;/p>
 &lt;p>شما با استفاده از تابع Errorf در پکیج fmt می‌توانید یک خطا ایجاد کنید و توجه کنید این متن خطا قابل فرمت است و حتی شما می‌توانید متن خطا را داینامیک کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 func main() {
-msg := &amp;quot;database connection issue&amp;quot;
-sampleErr := fmt.Errorf(&amp;quot;Err is: %s&amp;quot;, msg)
+msg := "database connection issue"
+sampleErr := fmt.Errorf("Err is: %s", msg)
 fmt.Println(sampleErr)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Err is: database connection issue
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="264-ایجاد-خطا-پیشرفته">
 2.6.4 ایجاد خطا پیشرفته
 &lt;a class="anchor" href="#264-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%ae%d8%b7%d8%a7-%d9%be%db%8c%d8%b4%d8%b1%d9%81%d8%aa%d9%87">#&lt;/a>
@@ -2031,8 +2034,9 @@ Err is: database connection issue
 &lt;li>شما می‌توانید به این ساختار خطای پیشرفته، متدهای بیشتری اضافه کنید و همچنین گسترش دهید که به عنوان مثال ما متد getMissingFields را برای گرفتن محتوای missingField اضافه کردیم.&lt;/li>
 &lt;li>ما با استفاده از type assertion می‌توانیم اینترفیس error را به inputError تبدیل کنیم.&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type inputError struct {
 message string
 missingField string
@@ -2044,46 +2048,48 @@ func (i *inputError) getMissingField() string {
 return i.missingField
 }
 func main() {
-err := validate(&amp;quot;&amp;quot;, &amp;quot;&amp;quot;)
+err := validate("", "")
 if err != nil {
 if err, ok := err.(*inputError); ok {
 fmt.Println(err)
-fmt.Printf(&amp;quot;Missing Field is %s\n&amp;quot;, err.getMissingField())
+fmt.Printf("Missing Field is %s\n", err.getMissingField())
 }
 }
 }
 func validate(name, gender string) error {
-if name == &amp;quot;&amp;quot; {
-return &amp;amp;inputError{message: &amp;quot;Name is mandatory&amp;quot;, missingField: &amp;quot;name&amp;quot;}
+if name == "" {
+return &amp;inputError{message: "Name is mandatory", missingField: "name"}
 }
-if gender == &amp;quot;&amp;quot; {
-return &amp;amp;inputError{message: &amp;quot;Gender is mandatory&amp;quot;, missingField: &amp;quot;gender&amp;quot;}
+if gender == "" {
+return &amp;inputError{message: "Gender is mandatory", missingField: "gender"}
 }
 return nil
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Name is mandatory
-Missing Field is name
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="265-نادیده-گرفتن-خطاها">
 2.6.5 نادیده گرفتن خطاها
 &lt;a class="anchor" href="#265-%d9%86%d8%a7%d8%af%db%8c%d8%af%d9%87-%da%af%d8%b1%d9%81%d8%aa%d9%86-%d8%ae%d8%b7%d8%a7%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;p>شما در هرجای کد خود با استفاده از &lt;code>_&lt;/code> می توانید متغیر خطا را نادیده بگیرید و آن را مدیریت نکنید. هر چند در بالا گفتیم نادیده گرفتن خطاها عوارضی در بر دارد و ما همیشه، تاکید می‌کنیم تا جایی که ممکن است خطاها را مدیریت کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
-file, _ := os.Open(&amp;quot;non-existing.txt&amp;quot;)
+file, _ := os.Open("non-existing.txt")
 fmt.Println(file)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{nil}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما خطای تابع Open را نادیده گرفتیم و مقدار file را چاپ کردیم مقدار چاپ شده &lt;code>nil&lt;/code> است چون تایپ خروجی با اشاره‌گر است و قطعا مقدار خالی بودش &lt;code>nil&lt;/code> است.&lt;/p>
 &lt;h2 id="266-همپوشانی-wrapping-خطا">
 2.6.6 هم‌پوشانی (Wrapping) خطا
@@ -2094,24 +2100,25 @@ fmt.Println(file)
 خطا چیست؟&lt;/p>
 &lt;p>بزارید با یک مثال ساده توضیح دهیم، فرض کنید شما تو لایه دیتابیس خود یکسری خطاها از سمت دیتابیس دریافت می‌کنید به عنوان مثال اگر شما سندی را در دیتابیس monogdb پیدا نکنید با خطای &lt;code>no documents found&lt;/code> مواجه خواهید شد. شما در اینجا نمی‌توانید همان متن خطا را به کاربر نمایش دهید بلکه باید آن خطا را با یک متن خطای مناسب &lt;span class="tooltip" data-tooltip="wrap" ontouchend="toggleTooltip(this)">هم پوشانی&lt;/span>
 کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 type notPositive struct {
 num int
 }
 func (e notPositive) Error() string {
-return fmt.Sprintf(&amp;quot;checkPositive: Given number %d is not a positive number&amp;quot;, e.num)
+return fmt.Sprintf("checkPositive: Given number %d is not a positive number", e.num)
 }
 type notEven struct {
 num int
 }
 func (e notEven) Error() string {
-return fmt.Sprintf(&amp;quot;checkEven: Given number %d is not an even number&amp;quot;, e.num)
+return fmt.Sprintf("checkEven: Given number %d is not an even number", e.num)
 }
 func checkPositive(num int) error {
-if num &amp;lt; 0 {
+if num &lt; 0 {
 return notPositive{num: num}
 }
 return nil
@@ -2123,8 +2130,8 @@ return notEven{num: num}
 return nil
 }
 func checkPostiveAndEven(num int) error {
-if num &amp;gt; 100 {
-return fmt.Errorf(&amp;quot;checkPostiveAndEven: Number %d is greater than 100&amp;quot;, num)
+if num > 100 {
+return fmt.Errorf("checkPostiveAndEven: Number %d is greater than 100", num)
 }
 err := checkPositive(num)
 if err != nil {
@@ -2142,13 +2149,14 @@ err := checkPostiveAndEven(num)
 if err != nil {
 fmt.Println(err)
 } else {
-fmt.Println(&amp;quot;Givennnumber is positive and even&amp;quot;)
+fmt.Println("Givennnumber is positive and even")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-checkEven: Given number 3 is not an even number
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="267-unwrap-خطاها">
 2.6.7 Unwrap خطاها
 &lt;a class="anchor" href="#267-unwrap-%d8%ae%d8%b7%d8%a7%d9%87%d8%a7">#&lt;/a>
@@ -2159,27 +2167,28 @@ checkEven: Given number 3 is not an even number
 &lt;/code>&lt;/pre>
 &lt;p>منظورمان از unwrap کردن این است که، اگر خطایی را &lt;span class="tooltip" data-tooltip="wrap" ontouchend="toggleTooltip(this)">هم پوشانی&lt;/span>
 کرده باشیم با استفاده unwrap می‌توانیم آن خطا را ببینیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">import (
-&amp;quot;errors&amp;quot;
-&amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">import (
+"errors"
+"fmt"
 )
 type errorOne struct{}
 func (e errorOne) Error() string {
-return &amp;quot;Error One happened&amp;quot;
+return "Error One happened"
 }
 func main() {
 e1 := errorOne{}
-e2 := fmt.Errorf(&amp;quot;E2: %w&amp;quot;, e1)
-e3 := fmt.Errorf(&amp;quot;E3: %w&amp;quot;, e2)
+e2 := fmt.Errorf("E2: %w", e1)
+e3 := fmt.Errorf("E3: %w", e2)
 fmt.Println(errors.Unwrap(e3))
 fmt.Println(errors.Unwrap(e2))
 fmt.Println(errors.Unwrap(e1))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-E2: Error One happended
-Error One happended
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا متغیر e2 خطای داخل ساختار e1 را هم‌پوشانی کرده و سپس متغیر e3 خطای متغیر e2 را هم‌پوشانی می‌کند. در نهایت با تابع Unwrap متن خطای اصلی را چاپ کردیم.&lt;/p>
 &lt;h2 id="268-بررسی-دو-خطا-اگر-برابر-هستند">
 2.6.8 بررسی دو خطا اگر برابر هستند
@@ -2192,33 +2201,34 @@ Error One happended
 &lt;li>هر دو این اینترفیس‌ها به یک نوع تایپ منصوب شده باشند.&lt;/li>
 &lt;li>مقدار داخلی اینترفیس‌ها باید با هم برابر باشند یا اینکه هر دو (nil) باشند.&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;errors&amp;quot;
-&amp;quot;fmt&amp;quot;
+"errors"
+"fmt"
 )
 type errorOne struct{}
 func (e errorOne) Error() string {
-return &amp;quot;Error One happended&amp;quot;
+return "Error One happended"
 }
 func main() {
 var err1 errorOne
 err2 := do()
 if err1 == err2 {
-fmt.Println(&amp;quot;Equality Operator: Both errors are equal&amp;quot;)
+fmt.Println("Equality Operator: Both errors are equal")
 }
 if errors.Is(err1, err2) {
-fmt.Println(&amp;quot;Is function: Both errors are equal&amp;quot;)
+fmt.Println("Is function: Both errors are equal")
 }
 }
 func do() error {
 return errorOne{}
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Equality Operator: Both errors are equal
-Is function: Both errors are equal
-&lt;/code>&lt;/pre></description></item><item><author/><title>2.7 فرق casting با conversion</title><link>https://book.gofarsi.ir/chapter-2/casting-vs-conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/casting-vs-conversion/</guid><description>&lt;h2 id="271-conversion">
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div></description></item><item><author/><title>2.7 فرق casting با conversion</title><link>https://book.gofarsi.ir/chapter-2/casting-vs-conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/casting-vs-conversion/</guid><description>&lt;h2 id="271-conversion">
 2.7.1 conversion
 &lt;a class="anchor" href="#271-conversion">#&lt;/a>
 &lt;/h2>
@@ -2236,16 +2246,18 @@ Is function: Both errors are equal
 &lt;a class="anchor" href="#273-%d9%85%d8%ab%d8%a7%d9%84-conversion">#&lt;/a>
 &lt;/h2>
 &lt;p>در زیر یک مثال در خصوص conversion زدیم تا با این مقوله آشنا شوید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 var totalsum int = 846
 var number int = 19
 var avg float32
 avg = float32(totalsum) / float32(number)
-fmt.Printf(&amp;quot;Average = %f\n&amp;quot;, avg)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Average = 44.526318
-&lt;/code>&lt;/pre></description></item></channel></rss>
+fmt.Printf("Average = %f\n", avg)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div></description></item></channel></rss>

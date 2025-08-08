@@ -2,7 +2,7 @@
   9.4.8.1 توضیحات
   #
 
-الگوی Retry Timeout یکی از رایج‌ترین و مهم‌ترین الگوها در توسعه سرویس‌های پایدار (resilient) و سیستم‌های توزیع‌شده است. این الگو زمانی کاربرد دارد که عملیاتی مانند تماس با سرویس خارجی (مثلاً API، پایگاه داده، یا هر نوع ارتباط شبکه‌ای) ممکن است به صورت موقت شکست بخورد و لازم باشد با رعایت یک فاصله زمانی معین (timeout) چند بار به طور خودکار تلاش مجدد (retry) صورت بگیرد تا شانس موفقیت افزایش یابد و تجربه کاربری بهبود پیدا کند."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.8 الگو Retry Timeout"><meta property="og:description" content="9.4.8.1 توضیحات # الگوی Retry Timeout یکی از رایج‌ترین و مهم‌ترین الگوها در توسعه سرویس‌های پایدار (resilient) و سیستم‌های توزیع‌شده است. این الگو زمانی کاربرد دارد که عملیاتی مانند تماس با سرویس خارجی (مثلاً API، پایگاه داده، یا هر نوع ارتباط شبکه‌ای) ممکن است به صورت موقت شکست بخورد و لازم باشد با رعایت یک فاصله زمانی معین (timeout) چند بار به طور خودکار تلاش مجدد (retry) صورت بگیرد تا شانس موفقیت افزایش یابد و تجربه کاربری بهبود پیدا کند."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.8 الگو Retry Timeout | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.6c1aaf1f270188830ce496fd59a7bc4eea6511a2c2d0fe2d706245283f6e0e03.js integrity="sha256-bBqvHycBiIMM5Jb9Wae8TuplEaLC0P4tcGJFKD9uDgM=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
+الگوی Retry Timeout یکی از رایج‌ترین و مهم‌ترین الگوها در توسعه سرویس‌های پایدار (resilient) و سیستم‌های توزیع‌شده است. این الگو زمانی کاربرد دارد که عملیاتی مانند تماس با سرویس خارجی (مثلاً API، پایگاه داده، یا هر نوع ارتباط شبکه‌ای) ممکن است به صورت موقت شکست بخورد و لازم باشد با رعایت یک فاصله زمانی معین (timeout) چند بار به طور خودکار تلاش مجدد (retry) صورت بگیرد تا شانس موفقیت افزایش یابد و تجربه کاربری بهبود پیدا کند."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.8 الگو Retry Timeout"><meta property="og:description" content="9.4.8.1 توضیحات # الگوی Retry Timeout یکی از رایج‌ترین و مهم‌ترین الگوها در توسعه سرویس‌های پایدار (resilient) و سیستم‌های توزیع‌شده است. این الگو زمانی کاربرد دارد که عملیاتی مانند تماس با سرویس خارجی (مثلاً API، پایگاه داده، یا هر نوع ارتباط شبکه‌ای) ممکن است به صورت موقت شکست بخورد و لازم باشد با رعایت یک فاصله زمانی معین (timeout) چند بار به طور خودکار تلاش مجدد (retry) صورت بگیرد تا شانس موفقیت افزایش یابد و تجربه کاربری بهبود پیدا کند."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.8 الگو Retry Timeout | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.b84e8b5ad0341651e017dbc60a5d71c5f75cb7e23e2ee16350e38b5fa3f90c2c.js integrity="sha256-uE6LWtA0FlHgF9vGCl1xxfdct+I+LuFjUOOLX6P5DCw=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
 .mermaid {
     display: flex;
     justify-content: center;
@@ -52,19 +52,19 @@ Success -- No --> RetryMore
 RetryMore -- Yes --> Wait
 Wait --> TryOp
 RetryMore -- No --> DoneFail</div><h2 id=9483-نمونه-کد>9.4.8.3 نمونه کد
-<a class=anchor href=#9483-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><pre><code class=language-go>package main
+<a class=anchor href=#9483-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
 import (
-	&quot;context&quot;
-	&quot;fmt&quot;
-	&quot;io&quot;
-	&quot;net/http&quot;
-	&quot;time&quot;
+	"context"
+	"fmt"
+	"io"
+	"net/http"
+	"time"
 )
 
 func main() {
 	const (
-		url          = &quot;http://example.com&quot;
+		url          = "http://example.com"
 		maxRetries   = 3
 		retryTimeout = 2 * time.Second
 	)
@@ -75,44 +75,38 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	for i := 1; i &lt;= maxRetries; i++ {
+	for i := 1; i <= maxRetries; i++ {
 		req, _ := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 		resp, err = http.DefaultClient.Do(req)
 		if err == nil {
-			fmt.Printf(&quot;Success on attempt %d\n&quot;, i)
+			fmt.Printf("Success on attempt %d\n", i)
 			break
 		}
-		fmt.Printf(&quot;Attempt %d failed: %v\n&quot;, i, err)
-		if i &lt; maxRetries {
+		fmt.Printf("Attempt %d failed: %v\n", i, err)
+		if i < maxRetries {
 			select {
-			case &lt;-ctx.Done():
-				fmt.Println(&quot;Global timeout reached, aborting retries.&quot;)
+			case <-ctx.Done():
+				fmt.Println("Global timeout reached, aborting retries.")
 				break
-			case &lt;-time.After(retryTimeout):
-				fmt.Println(&quot;Retrying...&quot;)
+			case <-time.After(retryTimeout):
+				fmt.Println("Retrying...")
 			}
 		}
 	}
 
 	if err != nil {
-		fmt.Println(&quot;Final Error:&quot;, err)
+		fmt.Println("Final Error:", err)
 		return
 	}
 	defer resp.Body.Close()
 
 	// خواندن بخشی از بدنه برای اطمینان از آزاد شدن connection
 	body, _ := io.ReadAll(io.LimitReader(resp.Body, 200))
-	fmt.Println(&quot;Status:&quot;, resp.Status)
-	fmt.Printf(&quot;Body sample: %q\n&quot;, body)
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Attempt 1 failed: Get &quot;http://example.com&quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-Retrying...
-Attempt 2 failed: Get &quot;http://example.com&quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-Retrying...
-Attempt 3 failed: Get &quot;http://example.com&quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-Final Error: Get &quot;http://example.com&quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-</code></pre><p>در این مثال از الگوی <strong>Retry Timeout</strong>، ما یک عملیات HTTP GET به آدرس مورد نظر را با رویکردی حرفه‌ای و ایمن، همراه با تلاش مجدد (Retry) و کنترل Timeout پیاده‌سازی می‌کنیم. ابتدا تعداد تلاش مجدد (<code>maxRetries</code>)، مدت تأخیر بین هر تلاش (<code>retryTimeout</code>) و یک Timeout کلی برای کل عملیات (۱۰ ثانیه) تعریف شده است تا سیستم هم از نظر مدیریت زمان و هم از نظر مصرف منابع، رفتار پیش‌بینی‌پذیری داشته باشد.</p><p>در ابتدای حلقه، یک context با Timeout کلی ساخته می‌شود. برای هر تلاش (تا سقف مجاز)، یک درخواست HTTP با همین context ساخته می‌شود تا در صورت لغو کلی یا پایان مهلت، همه retryها به صورت امن و هماهنگ متوقف شوند. اگر درخواست موفقیت‌آمیز باشد، شماره تلاش موفق ثبت می‌شود و حلقه خاتمه پیدا می‌کند. اگر شکست بخورد، پیام مربوط به شماره تلاش و علت خطا چاپ می‌شود. پیش از هر retry (به جز آخرین تلاش)، یک وقفه زمانی برقرار می‌شود. این وقفه با select روی <code>ctx.Done()</code> نیز کنترل می‌شود تا اگر قبل از شروع تلاش بعدی، context لغو شده بود، عملیات فوراً متوقف گردد و پیام مناسبی نمایش داده شود.</p><p>پس از پایان حلقه، اگر همچنان خطا وجود داشته باشد، پیام خطا چاپ و برنامه خاتمه پیدا می‌کند. اگر درخواست موفقیت‌آمیز بوده، بدنه‌ی پاسخ حتماً بسته می‌شود تا از leak شدن منابع جلوگیری شود و connection قابل استفاده مجدد بماند. همچنین برای نمونه، بخشی از پاسخ خوانده و در خروجی چاپ می‌شود تا مطمئن شویم اتصال به سرور کامل برقرار شده است.</p><p>این معماری باعث می‌شود هم مدیریت خطا و retry کاملاً تحت کنترل باشد، هم منابع شبکه‌ای آزاد باقی بمانند و هم بتوان به سادگی رفتارهای حرفه‌ای‌تر مانند <strong>backoff تصاعدی، Circuit Breaker</strong>، یا لاگ پیشرفته‌تر را به آن اضافه کرد. چنین رویکردی در سامانه‌های توزیع‌شده و میکروسرویس‌ها استاندارد طلایی محسوب می‌شود و در پروژه‌های production-ready بسیار توصیه می‌شود.</p><h2 id=9484-کاربردها>9.4.8.4 کاربردها
+	fmt.Println("Status:", resp.Status)
+	fmt.Printf("Body sample: %q\n", body)
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در این مثال از الگوی <strong>Retry Timeout</strong>، ما یک عملیات HTTP GET به آدرس مورد نظر را با رویکردی حرفه‌ای و ایمن، همراه با تلاش مجدد (Retry) و کنترل Timeout پیاده‌سازی می‌کنیم. ابتدا تعداد تلاش مجدد (<code>maxRetries</code>)، مدت تأخیر بین هر تلاش (<code>retryTimeout</code>) و یک Timeout کلی برای کل عملیات (۱۰ ثانیه) تعریف شده است تا سیستم هم از نظر مدیریت زمان و هم از نظر مصرف منابع، رفتار پیش‌بینی‌پذیری داشته باشد.</p><p>در ابتدای حلقه، یک context با Timeout کلی ساخته می‌شود. برای هر تلاش (تا سقف مجاز)، یک درخواست HTTP با همین context ساخته می‌شود تا در صورت لغو کلی یا پایان مهلت، همه retryها به صورت امن و هماهنگ متوقف شوند. اگر درخواست موفقیت‌آمیز باشد، شماره تلاش موفق ثبت می‌شود و حلقه خاتمه پیدا می‌کند. اگر شکست بخورد، پیام مربوط به شماره تلاش و علت خطا چاپ می‌شود. پیش از هر retry (به جز آخرین تلاش)، یک وقفه زمانی برقرار می‌شود. این وقفه با select روی <code>ctx.Done()</code> نیز کنترل می‌شود تا اگر قبل از شروع تلاش بعدی، context لغو شده بود، عملیات فوراً متوقف گردد و پیام مناسبی نمایش داده شود.</p><p>پس از پایان حلقه، اگر همچنان خطا وجود داشته باشد، پیام خطا چاپ و برنامه خاتمه پیدا می‌کند. اگر درخواست موفقیت‌آمیز بوده، بدنه‌ی پاسخ حتماً بسته می‌شود تا از leak شدن منابع جلوگیری شود و connection قابل استفاده مجدد بماند. همچنین برای نمونه، بخشی از پاسخ خوانده و در خروجی چاپ می‌شود تا مطمئن شویم اتصال به سرور کامل برقرار شده است.</p><p>این معماری باعث می‌شود هم مدیریت خطا و retry کاملاً تحت کنترل باشد، هم منابع شبکه‌ای آزاد باقی بمانند و هم بتوان به سادگی رفتارهای حرفه‌ای‌تر مانند <strong>backoff تصاعدی، Circuit Breaker</strong>، یا لاگ پیشرفته‌تر را به آن اضافه کرد. چنین رویکردی در سامانه‌های توزیع‌شده و میکروسرویس‌ها استاندارد طلایی محسوب می‌شود و در پروژه‌های production-ready بسیار توصیه می‌شود.</p><h2 id=9484-کاربردها>9.4.8.4 کاربردها
 <a class=anchor href=#9484-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7>#</a></h2><ul><li><strong>مقابله با خطاهای موقت شبکه و سرور:</strong> الگوی Retry Timeout اغلب زمانی به کار می‌رود که عملیات‌هایی مانند تماس با سرورهای HTTP، APIهای خارجی، پایگاه داده یا سایر سرویس‌های وابسته ممکن است به دلیل مشکلات موقتی (مانند قطعی لحظه‌ای شبکه، بار زیاد سرور، یا مشکلات DNS) شکست بخورند. با تکرار خودکار عملیات با فاصله زمانی کنترل‌شده، برنامه می‌تواند از گذرا بودن خطاها عبور کند و احتمال موفقیت را بدون دخالت کاربر بالا ببرد.</li><li><strong>پایداری و تاب‌آوری (Resilience) سرویس‌ها:</strong> در معماری‌های میکروسرویس، توزیع‌شده و ابری، Retry Timeout یک ابزار کلیدی برای افزایش resiliency سامانه است. این الگو کمک می‌کند سامانه به طور خودکار در برابر اختلالات کوتاه‌مدت واکنش نشان دهد و از fail شدن کل عملیات به خاطر یک خطای زودگذر جلوگیری کند.</li><li><strong>کاهش بار بر کاربر و تجربه کاربری بهتر:</strong> با استفاده از Retry Timeout، نیاز به تلاش مجدد دستی توسط کاربر حذف می‌شود و کاربران بدون آگاهی از خطاهای موقت، تجربه‌ای پیوسته و روان خواهند داشت. به‌ویژه در اپلیکیشن‌های موبایل یا تحت وب که اتصال شبکه متغیر است، این موضوع اهمیت بیشتری پیدا می‌کند.</li><li><strong>پیاده‌سازی Backoff و Circuit Breaker:</strong> این الگو پایه‌ای برای پیاده‌سازی استراتژی‌های پیچیده‌تری مانند <strong>exponential backoff</strong> (افزایش تدریجی فاصله بین تلاش‌ها) و <strong>circuit breaker</strong> (جلوگیری از retry پیوسته هنگام شکست‌های دائم) نیز هست که بهبود پایداری و هوشمندی retry را به ارمغان می‌آورد.</li><li><strong>اطمینان از اتمام موفق عملیات بحرانی:</strong> در کارهایی مانند ارسال تراکنش‌های بانکی، نوشتن در دیتابیس، یا ارسال پیام‌های حیاتی، Retry Timeout شانس اطمینان از موفقیت عملیات را افزایش می‌دهد و احتمال از دست رفتن داده‌ها را تا حد زیادی کاهش می‌دهد.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%209/concurrency%20patterns/9.4.8-retry-timeout.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
 <span>این صفحه را ویرایش کنید</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><div class="text-left page-navigation"><a href=/chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer/>9.4.9 الگو Producer-Consumer ◀︎</a></div><script>function toggleTooltip(e){e.classList.toggle("active")}</script><div id=graphcomment></div><script type=text/javascript>var __semio__params={graphcommentId:"book",behaviour:{}};function __semio__onload(){__semio__gc_graphlogin(__semio__params)}(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.onload=__semio__onload,e.defer=!0,e.src="https://integration.graphcomment.com/gc_graphlogin.js?"+Date.now(),(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content></br><main><div class=wrapper><a href=https://t.me/GolangEngineers class="icon telegram" target=_blank><div class=tooltip>گروه تلگرامی مهندسین گولنگ</div><span><i class="fab fa-telegram"></i></span>
 </a><a href=https://linkedin.com/in/Ja7ad class="icon linkedin" target=_blank><div class=tooltip>لینکدین نویسنده</div><span><i class="fab fa-linkedin"></i></span>

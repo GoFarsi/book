@@ -75,86 +75,83 @@ version 1.0.0, build time 2023-01-27T14:19:23Z
 &lt;a class="anchor" href="#421-%d9%86%d8%ad%d9%88%d9%87-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%a8%d8%a7-fmt">#&lt;/a>
 &lt;/h2>
 &lt;p>شما با استفاده از تابع &lt;code>fmt.Println&lt;/code> می توانید مقادیر برخی از متغیرها را چاپ کنید و برای اینکار به مثال ساده زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func fibonacci(n uint) uint {
-if n &amp;lt; 2 {
+if n &lt; 2 {
 return n
 }
 var a, b uint
 b = 1
-for n--; n &amp;gt; 0; n-- {
+for n--; n > 0; n-- {
 a += b
 a, b = b, a
-fmt.Println(&amp;quot;this is example debugging value a is &amp;quot;, a, &amp;quot; value b is &amp;quot;, b)
+fmt.Println("this is example debugging value a is ", a, " value b is ", b)
 }
 return b
 }
 func main() {
 fmt.Println(fibonacci(100))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-this is example debugging value a is 1 value b is 1
-this is example debugging value a is 1 value b is 2
-this is example debugging value a is 2 value b is 3
-this is example debugging value a is 3 value b is 5
-this is example debugging value a is 5 value b is 8
-...
-this is example debugging value a is 6174643828739884737 value b is 16008811023750101250
-this is example debugging value a is 16008811023750101250 value b is 3736710778780434371
-3736710778780434371
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق برای اینکه مقدار a, b را ببینیم از تابع Println استفاده کردیم تا مقدار داخل این دو متغیر را ببینیم.&lt;/p>
 &lt;h2 id="422-نحوه-دیباگ-با-استفاده-log">
 4.2.2 نحوه دیباگ با استفاده log
 &lt;a class="anchor" href="#422-%d9%86%d8%ad%d9%88%d9%87-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-log">#&lt;/a>
 &lt;/h2>
 &lt;p>یکی از کاربردی ترین روش ها بحث لاگ کردن هستش که شما می توانید هر بخش از کدهای خود را لاگ کنید و بصورت زنده در console یا داخل فایل ببینید و از همه مهمتر شما می توانید لاگ های خود را سطح بندی کنید تا بهتر بتوانید دیباگ کنید. حال برای اینکه با log دیباگ کنید یک پکیج استاندارد به نام log داریم که می توانید بسته به نیازتان تغییرات دهید و هچنین پکیج هایی نظیر zap, logrus و &amp;hellip; هست برای بحث لاگ به شما خیلی کمک می کنند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;log&amp;quot;
-&amp;quot;os&amp;quot;
+"log"
+"os"
 )
 func main() {
 // Set the log level to Info
 log.SetFlags(0)
-log.SetPrefix(&amp;quot;[Info] &amp;quot;)
+log.SetPrefix("[Info] ")
 log.SetOutput(os.Stdout)
-log.Println(&amp;quot;This is an informational message&amp;quot;)
+log.Println("This is an informational message")
 // Set the log level to Warning
-log.SetPrefix(&amp;quot;[Warn] &amp;quot;)
+log.SetPrefix("[Warn] ")
 log.SetOutput(os.Stdout)
-log.Println(&amp;quot;This is a warning message&amp;quot;)
+log.Println("This is a warning message")
 // Set the log level to Error
-log.SetPrefix(&amp;quot;[Error] &amp;quot;)
+log.SetPrefix("[Error] ")
 log.SetOutput(os.Stderr)
-log.Println(&amp;quot;This is an error message&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-[Info] This is an informational message
-[Warn] This is a warning message
-[Error] This is an error message
-&lt;/code>&lt;/pre>
+log.Println("This is an error message")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما با استفاده از تابع SetPrefix یک پیشوند برای لاگ ها اضافه کردیم تا بتوانیم لاگ با سطح های مختلف ایجاد کنیم. و با استفاده از log.Println لاگ را چاپ کردیم. در ادامه این فصل به بحث آموزش کار به log میپردازیم.&lt;/p>
 &lt;h2 id="423-دیباگ-عملکرد-با-استفاده-از-pprof">
 4.2.3 دیباگ عملکرد با استفاده از pprof
 &lt;a class="anchor" href="#423-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%b9%d9%85%d9%84%da%a9%d8%b1%d8%af-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-pprof">#&lt;/a>
 &lt;/h2>
 &lt;p>زبان گو یک ابزار داخلی دارد جهت آنالیز و دیباگ عملکرد به نام pprof که با استفاده از آن می توانید یکسری اطلاعات در خصوص عملکرد برنامه تهیه کنید و براساس آنالیز اطلاعات مشکلات عملکردی را می توانید برطرف کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;log&amp;quot;
-&amp;quot;net/http&amp;quot;
-_ &amp;quot;net/http/pprof&amp;quot;
+"log"
+"net/http"
+_ "net/http/pprof"
 )
 func main() {
-log.Println(http.ListenAndServe(&amp;quot;localhost:6060&amp;quot;, nil))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-&lt;/code>&lt;/pre>
+log.Println(http.ListenAndServe("localhost:6060", nil))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما از پکیج مسیر &lt;code>net/http/pprof&lt;/code> استفاده کردیم تا عملکرد برنامه را در وب سرور زبان گو را آنالیز و دیباگ کنیم. حال اگر به آدرس http://localhost:6060/debug/pprof/ بروید می توانید وضعیت عملکرد وب سرور را در لحظه ببینید و آنالیز کنید.&lt;/p>
 &lt;center>&lt;a href="#">
 &lt;img src="../../assets/img/content/chapter4/debugging/1.png" alt="pprof">
@@ -254,8 +251,8 @@ GDB نمی تواند به طور خودکار dynamic type یک interface value
 &lt;a class="anchor" href="#%d9%85%d8%b4%da%a9%d9%84%d8%a7%d8%aa-%d8%b4%d9%86%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87">#&lt;/a>
 &lt;/h4>
 &lt;p>۱- حالت String pretty printing فقط برای type string فعال می شود، نه برای انواع مشتق شده از آن.
-۲-Type information برای قسمت های C که در runtime library هستند، وجود ندارد.&lt;br>
-۳- GDB شرایط Go’s name را نمی‌فهمد و «fmt.Print» را به‌عنوان یک کلمه بدون ساختار با یک «» در نظر می‌گیرد. که باید نقل شود. حتی با شدت بیشتری به method names فرم &lt;code>pkg.(*MyType).Meth&lt;/code>. برخورد می کند.&lt;br>
+۲-Type information برای قسمت های C که در runtime library هستند، وجود ندارد.
+۳- GDB شرایط Go’s name را نمی‌فهمد و «fmt.Print» را به‌عنوان یک کلمه بدون ساختار با یک «» در نظر می‌گیرد. که باید نقل شود. حتی با شدت بیشتری به method names فرم &lt;code>pkg.(*MyType).Meth&lt;/code>. برخورد می کند.
 ۴- از Go 1.11، قسمت debug information به طور پیش فرض فشرده شده است. نسخه‌های قدیمی‌تر gdb، مانند نسخه‌ای که به‌طور پیش‌فرض در MacOS موجود است، فشرده‌سازی را درک نمی‌کنند. شما می توانید با استفاده از &lt;code>go build -ldflags=-compressdwarf=false‍&lt;/code> اطلاعات اشکال زدایی فشرده نشده تولید کنید. (برای راحتی می توانید گزینه -ldflags را در  &lt;a href="https://go.dev/cmd/go/#hdr-Environment_variables">&lt;code>GOFLAGS&lt;/code> environment variable&lt;/a> قرار دهید تا مجبور نباشید هر بار آدرس آن را مشخص کنید.)&lt;/p>
 &lt;h3 id="4244---مثال-های-gdb">
 4.2.4.4 مثال های GDB
@@ -384,7 +381,7 @@ $2 = {errors = &amp;quot;&amp;quot;, failed = false, ch = 0xf8406f5690}
 (gdb) p *t-&amp;gt;ch
 $3 = struct hchan&amp;lt;*testing.T&amp;gt;
 &lt;/code>&lt;/pre>
-&lt;p>که ساختار  &lt;code>hchan&amp;lt;*testing.T&amp;gt;&lt;/code> نمایش  runtime-internal یک کانال است و در حال حاضر خالی است، وگرنه gdb محتویات آن را به زیبایی چاپ می کرد.&lt;br>
+&lt;p>که ساختار  &lt;code>hchan&amp;lt;*testing.T&amp;gt;&lt;/code> نمایش  runtime-internal یک کانال است و در حال حاضر خالی است، وگرنه gdb محتویات آن را به زیبایی چاپ می کرد.
 حالا به قسمت مهم پیمایش دیباگر میرسیم که با حرف n صورت می‌گیرد.&lt;/p>
 &lt;p>پیمایش دیباگر :&lt;/p>
 &lt;pre>&lt;code class="language-shell">(gdb) n _# execute next line_
@@ -880,18 +877,20 @@ See https://golang.org/ref/mod#go-mod-vendor for more about 'go mod vendor'.
 &lt;p>در اینجا، ما یک مثال ساده از برنامه Hello World با استفاده از Go و Command Line ارائه می‌دهیم. این برنامه، یک پیام ساده را به صفحه نمایش خط فرمان چاپ می‌کند.&lt;/p>
 &lt;p>اولین چیزی که شما باید در نظر داشته باشید این است که برنامه‌ی شما باید یک فایل با پسوند .go باشد. برای مثال، می‌توانید یک فایل با نام helloworld.go ایجاد کنید.&lt;/p>
 &lt;p>بعد از ایجاد فایل، شما باید کد زیر را به فایل خود اضافه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
-fmt.Println(&amp;quot;Hello, World!&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run helloworld.go
-Hello, World!
-&lt;/code>&lt;/pre>
+fmt.Println("Hello, World!")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اگر کد بالا را به فایل helloworld.go اضافه کردید، می‌توانید با استفاده از Command Line، فایل را اجرا کنید. برای اجرای فایل، ابتدا باید به دایرکتوری فایل برید. سپس می‌توانید دستور برای اجرای فایل را وارد کنید.&lt;/p>
 &lt;p>برای مثال، فرض کنید فایل helloworld.go در دایرکتوری Documents قرار دارد. به عنوان نوشته، این دستورات را در Command Line وارد کنید:&lt;/p>
-&lt;p>$ cd Documents&lt;br>
+&lt;p>$ cd Documents
 $ go run helloworld.go&lt;/p>
 &lt;p>با اجرای دستور بالا، برنامه شما اجرا خواهد شد و پیام &amp;ldquo;Hello, World!&amp;rdquo; را در Command Line چاپ می‌کند.&lt;/p>
 &lt;p>نتیجه‌گیری:&lt;/p>
@@ -901,21 +900,22 @@ $ go run helloworld.go&lt;/p>
 &lt;a class="anchor" href="#462-%d9%86%d8%ad%d9%88%d9%87-%da%af%d8%b1%d9%81%d8%aa%d9%86-arguments-%d8%a8%d9%87-%d8%b9%d9%86%d9%88%d8%a7%d9%86-%d9%88%d8%b1%d9%88%d8%af%db%8c-%d8%a7%d8%b2-%d8%aa%d8%b1%d9%85%db%8c%d9%86%d8%a7%d9%84">#&lt;/a>
 &lt;/h2>
 &lt;p>برای گرفتن ورودی از Command Line به عنوان Argument در یک برنامه Go، شما می‌توانید از پایگاه‌داده os در Go استفاده کنید. برای دسترسی به Argumentها، شما می‌توانید متغیرهای os.Args را استفاده کنید. آرایه‌ی os.Args شامل تمامی Argumentهایی است که در Command Line به برنامه شما داده شده است. در زیر، یک مثال ساده از گرفتن دو Argument از Command Line در یک برنامه Go آورده شده است:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
 args := os.Args
-fmt.Println(&amp;quot;First Argument:&amp;quot;, args[1])
-fmt.Println(&amp;quot;Second Argument:&amp;quot;, args[2])
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go hello world
-First Argument: hello
-Second Argument: world
-&lt;/code>&lt;/pre>
+fmt.Println("First Argument:", args[1])
+fmt.Println("Second Argument:", args[2])
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا، ابتدا، ما متغیر os.Args را به متغیر args اختصاص داده‌ایم. سپس، با استفاده از این متغیر، ما مقادیر دو Argument اول را چاپ کرده‌ایم. در اینجا، args[0] نام برنامه Go در Command Line است، بنابراین اولین Argument بعد از آن در args[1] و دومین Argument در args[2] قرار دارد. با تغییر این شماره‌ها، شما می‌توانید به Argument‌های دیگر در Command Line دسترسی داشته باشید.&lt;/p>
 &lt;h2 id="463-کار-با-flag-در-زبان-گو">
 4.6.3 کار با flag در زبان گو
@@ -924,30 +924,30 @@ Second Argument: world
 &lt;p>در زبان Go، شما می‌توانید از پکیج flag برای ایجاد و مدیریت Flagها در Command Line استفاده کنید. با استفاده از قابلیت Flag، شما می‌توانید به آرگومان های اختیاری و پارامترهای Command Line برنامه خود دسترسی پیدا کنید.&lt;/p>
 &lt;p>در پکیج flag، سه نوع Flag مختلف وجود دارند: string، bool و int. برای ایجاد یک Flag از هر نوع، می‌توانید از توابع flag.String، flag.Bool و flag.Int استفاده کنید.&lt;/p>
 &lt;p>در مثال زیر، ما به کمک Flag یک رشته، یک boolean و یک integer را تعریف و مقداردهی اولیه آن‌ها را انجام می‌دهیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;flag&amp;quot;
-&amp;quot;fmt&amp;quot;
+"flag"
+"fmt"
 )
 func main() {
 // تعریف یک Flag رشته برای نام کاربری
-userName := flag.String(&amp;quot;username&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;نام کاربری&amp;quot;)
+userName := flag.String("username", "", "نام کاربری")
 // تعریف یک Flag boolean برای پرینت نتیجه
-printResult := flag.Bool(&amp;quot;print&amp;quot;, false, &amp;quot;پرینت نتیجه؟&amp;quot;)
+printResult := flag.Bool("print", false, "پرینت نتیجه؟")
 // تعریف یک Flag integer برای تعداد تکرار
-repeatCount := flag.Int(&amp;quot;count&amp;quot;, 1, &amp;quot;تعداد تکرار&amp;quot;)
+repeatCount := flag.Int("count", 1, "تعداد تکرار")
 flag.Parse()
 // استفاده از Flag ها
-fmt.Println(&amp;quot;نام کاربری:&amp;quot;, *userName)
-fmt.Println(&amp;quot;پرینت نتیجه؟&amp;quot;, *printResult)
-fmt.Println(&amp;quot;تعداد تکرار:&amp;quot;, *repeatCount)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go -username=John -print=true -count=5
-نام کاربری: john
-پرینت نتیجه؟true
-تعداد تکرار:5
-&lt;/code>&lt;/pre>
+fmt.Println("نام کاربری:", *userName)
+fmt.Println("پرینت نتیجه؟", *printResult)
+fmt.Println("تعداد تکرار:", *repeatCount)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال بالا، ما سه Flag ایجاد کرده‌ایم: username، print و count که به ترتیب متناظر با یک رشته، یک boolean و یک integer هستند. پارامتر اول تابع هر Flag نام آن است، پارامتر دوم مقدار پیش‌فرض و پارامتر سوم توضیحاتی در مورد Flag است.&lt;/p>
 &lt;p>در انتهای برنامه، با استفاده از تابع flag.Parse()، مقدار داده‌شده به Flagها از Command Line دریافت و مقداردهی به متغیرهای var استفاده شده در Flagها انجام می‌گیرد. در مثال بالا، ما با استفاده از اپراتور * به مقدار داده‌شده به هر Flag دریافت شده از Command Line دسترسی پیدا می‌کنیم.&lt;/p>
 &lt;p>با اجرای برنامه و وارد کردن یک Command Line مخصوص مثل زیر، می‌توانید مقدارهای مختلفی به Flagهای برنامه خود اختصاص دهید.&lt;/p>
@@ -961,16 +961,17 @@ fmt.Println(&amp;quot;تعداد تکرار:&amp;quot;, *repeatCount)
 &lt;a class="anchor" href="#472-%d8%a8%d8%a7%d8%b2-%da%a9%d8%b1%d8%af%d9%86-%d9%81%d8%a7%db%8c%d9%84-%d9%88-%d8%ae%d9%88%d8%a7%d9%86%d8%af%d9%86-%d9%85%d8%ad%d8%aa%d9%88%d8%a7%db%8c-%d9%81%d8%a7%db%8c%d9%84-%d8%a8%d8%a7-%d9%be%da%a9%db%8c%d8%ac-os">#&lt;/a>
 &lt;/h2>
 &lt;p>برای باز کردن یک فایل متنی و خواندن محتوای آن، می‌توانیم از پکیج &amp;ldquo;os&amp;rdquo; و متد &amp;ldquo;Open&amp;rdquo; استفاده کنیم. در کد زیر، ما یک فایل به نام &amp;ldquo;example.txt&amp;rdquo; باز می‌کنیم و محتوای آن را به صورت خط به خط خوانده و به صفحه کنسول چاپ می‌کنیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;bufio&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;os&amp;quot;
+"bufio"
+"fmt"
+"log"
+"os"
 )
 func main() {
 // باز کردن فایل برای خواندن
-file, err := os.Open(&amp;quot;example.txt&amp;quot;)
+file, err := os.Open("example.txt")
 if err != nil {
 log.Fatal(err)
 }
@@ -983,8 +984,12 @@ fmt.Println(scanner.Text())
 if err := scanner.Err(); err != nil {
 log.Fatal(err)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا، با استفاده از متد &amp;ldquo;os.Open&amp;rdquo;، فایل &amp;ldquo;example.txt&amp;rdquo; برای خواندن به صورت فایل شیء باز می‌شود. سپس، با استفاده از متد &amp;ldquo;bufio.NewScanner&amp;rdquo; محتوای فایل به شیء &amp;ldquo;scanner&amp;rdquo; انتقال داده می‌شود و در نهایت با استفاده از حلقه، محتوای فایل خوانده شده خط به خط و به صورت متنی چاپ می‌شود.&lt;/p>
 &lt;p>در نهایت، با استفاده از &amp;ldquo;scanner.Err&amp;rdquo;، خطاهایی که در پروسه خواندن ممکن است بوجود آیند، بررسی شده و مورد احتیاط قرار می‌گیرند.&lt;/p>
 &lt;h2 id="473-نحوه-ایجاد-فایل-و-نوشتن-محتوا-داخل-فایل-با-os">
@@ -992,23 +997,28 @@ log.Fatal(err)
 &lt;a class="anchor" href="#473-%d9%86%d8%ad%d9%88%d9%87-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d9%81%d8%a7%db%8c%d9%84-%d9%88-%d9%86%d9%88%d8%b4%d8%aa%d9%86-%d9%85%d8%ad%d8%aa%d9%88%d8%a7-%d8%af%d8%a7%d8%ae%d9%84-%d9%81%d8%a7%db%8c%d9%84-%d8%a8%d8%a7-os">#&lt;/a>
 &lt;/h2>
 &lt;p>برای ایجاد یک فایل جدید و نوشتن محتوای دلخواه در آن، می‌توانیم از پکیج &amp;ldquo;os&amp;rdquo; و متدهای آن استفاده کنیم. در کد زیر، یک فایل با نام &amp;ldquo;example.txt&amp;rdquo; ساخته شده و پس از باز شدن، متن &amp;ldquo;Hello, World!&amp;rdquo; در داخل آن نوشته می‌شود:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
 // ساخت فایل با نام example.txt
-file, err := os.Create(&amp;quot;example.txt&amp;quot;)
+file, err := os.Create("example.txt")
 if err != nil {
 fmt.Println(err)
 return
 }
 defer file.Close()
 // نوشتن محتوا در فایل
-fmt.Fprintln(file, &amp;quot;Hello, World!&amp;quot;)
-}
-&lt;/code>&lt;/pre>
+fmt.Fprintln(file, "Hello, World!")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا، با استفاده از متد &amp;ldquo;os.Create&amp;rdquo;، یک فایل با نام &amp;ldquo;example.txt&amp;rdquo; ایجاد شده و به عنوان یک فایل شیء باز شده است. سپس با استفاده از متد &amp;ldquo;fmt.Fprintln&amp;rdquo;، متن &amp;ldquo;Hello, World!&amp;rdquo; در داخل فایل نوشته می‌شود.&lt;/p>
 &lt;p>در نهایت، با استفاده از &amp;ldquo;file.Close&amp;rdquo;، فایل بسته شده و تمام تغییرات آن ذخیره می‌شود.&lt;/p>
 &lt;h2 id="474-خواندن-و-نوشتن-فایل-با-استفاده-از-پکیج-io">
@@ -1016,21 +1026,22 @@ fmt.Fprintln(file, &amp;quot;Hello, World!&amp;quot;)
 &lt;a class="anchor" href="#474-%d8%ae%d9%88%d8%a7%d9%86%d8%af%d9%86-%d9%88-%d9%86%d9%88%d8%b4%d8%aa%d9%86-%d9%81%d8%a7%db%8c%d9%84-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d9%be%da%a9%db%8c%d8%ac-io">#&lt;/a>
 &lt;/h2>
 &lt;p>برای خواندن و نوشتن فایل‌ها می‌توان از پکیج &amp;ldquo;io&amp;rdquo; استفاده کرد. این پکیج امکانات بسیاری را برای کار با بیت‌ها و داده‌های ورودی/خروجی فراهم می‌کند. در کد زیر، یک فایل با نام &amp;ldquo;example.txt&amp;rdquo; باز شده و محتوای آن خوانده شده و به فایل دیگری با نام &amp;ldquo;output.txt&amp;rdquo; کپی می‌شود:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;io&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;os&amp;quot;
+"io"
+"log"
+"os"
 )
 func main() {
 // باز کردن فایل برای خواندن
-inputFile, err := os.Open(&amp;quot;example.txt&amp;quot;)
+inputFile, err := os.Open("example.txt")
 if err != nil {
 log.Fatal(err)
 }
 defer inputFile.Close()
 // باز کردن فایل برای نوشتن
-outputFile, err := os.Create(&amp;quot;output.txt&amp;quot;)
+outputFile, err := os.Create("output.txt")
 if err != nil {
 log.Fatal(err)
 }
@@ -1040,8 +1051,12 @@ _, err = io.Copy(outputFile, inputFile)
 if err != nil {
 log.Fatal(err)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا، با استفاده از متدهای &amp;ldquo;os.Open&amp;rdquo; و &amp;ldquo;os.Create&amp;rdquo;، فایل‌های ورودی و خروجی باز شده و به عنوان فایل شیء به برنامه اضافه شده‌اند. سپس با استفاده از متد &amp;ldquo;io.Copy&amp;rdquo;، اطلاعات از فایل ورودی، به فایل خروجی کپی شده‌اند.&lt;/p>
 &lt;p>در نهایت، با استفاده از &amp;ldquo;defer&amp;rdquo; و &amp;ldquo;Close&amp;rdquo;، فایل‌ها بسته شده‌اند و تغییرات آن‌ها ذخیره شده‌اند.&lt;/p></description></item><item><author/><title>4.8 آموزش کار با json</title><link>https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/</guid><description>&lt;h2 id="481-مقدمه">
 4.8.1 مقدمه
@@ -1084,57 +1099,61 @@ log.Fatal(err)
 &lt;a class="anchor" href="#4821-%da%a9%d8%a7%d8%b1-%d8%a8%d8%a7-marshal">#&lt;/a>
 &lt;/h3>
 &lt;p>با استفاده از تابع &amp;ldquo;Marshal&amp;rdquo;، برای مثال، می‌توان یک شیء با فرمت JSON تولید کرد. در کد زیر، یک شیء از نوع &amp;ldquo;person&amp;rdquo; تعریف شده است و با استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; به فرمت JSON تبدیل شده است:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
+"encoding/json"
+"fmt"
 )
 type person struct {
-Name string `json:&amp;quot;name&amp;quot;`
-Age int `json:&amp;quot;age&amp;quot;`
-Email string `json:&amp;quot;email&amp;quot;`
+Name string `json:"name"`
+Age int `json:"age"`
+Email string `json:"email"`
 }
 func main() {
-p := &amp;amp;person{Name: &amp;quot;John Doe&amp;quot;, Age: 30, Email: &amp;quot;john.doe@example.com&amp;quot;}
+p := &amp;person{Name: "John Doe", Age: 30, Email: "john.doe@example.com"}
 b, err := json.Marshal(p)
 if err != nil {
-fmt.Println(&amp;quot;error:&amp;quot;, err)
+fmt.Println("error:", err)
 }
 fmt.Println(string(b))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{&amp;quot;name&amp;quot;:&amp;quot;John Doe&amp;quot;,&amp;quot;age&amp;quot;:30,&amp;quot;email&amp;quot;:&amp;quot;john.doe@example.com&amp;quot;}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا، ابتدا یک شیء از نوع &amp;ldquo;person&amp;rdquo; با مقادیر مشخص تعریف شده است. سپس از تابع &amp;ldquo;Marshal&amp;rdquo; برای تبدیل این شیء به فرمت JSON استفاده شده است. خروجی تابع &amp;ldquo;Marshal&amp;rdquo; یک بایت‌آرایه است که به عنوان یک رشته و با استفاده از تبدیل به &amp;ldquo;string&amp;rdquo; چاپ شده است.&lt;/p>
 &lt;h3 id="4822-کار-با-unmarshal">
 4.8.2.2 کار با unmarshal
 &lt;a class="anchor" href="#4822-%da%a9%d8%a7%d8%b1-%d8%a8%d8%a7-unmarshal">#&lt;/a>
 &lt;/h3>
 &lt;p>با استفاده از تابع &amp;ldquo;Unmarshal&amp;rdquo; نیز می‌توان یک رشته JSON را به شیء Go تبدیل کرد. در کد زیر، یک رشته JSON با نام &amp;ldquo;data&amp;rdquo; تعریف شده است و با استفاده از تابع &amp;ldquo;Unmarshal&amp;rdquo; به یک شیء از نوع &amp;ldquo;person&amp;rdquo; تبدیل شده است:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
+"encoding/json"
+"fmt"
 )
 type person struct {
-Name string `json:&amp;quot;name&amp;quot;`
-Age int `json:&amp;quot;age&amp;quot;`
-Email string `json:&amp;quot;email&amp;quot;`
+Name string `json:"name"`
+Age int `json:"age"`
+Email string `json:"email"`
 }
 func main() {
-data := `{&amp;quot;name&amp;quot;:&amp;quot;John Doe&amp;quot;,&amp;quot;age&amp;quot;:30,&amp;quot;email&amp;quot;:&amp;quot;john.doe@example.com&amp;quot;}`
+data := `{"name":"John Doe","age":30,"email":"john.doe@example.com"}`
 var p person
-err := json.Unmarshal([]byte(data), &amp;amp;p)
+err := json.Unmarshal([]byte(data), &amp;p)
 if err != nil {
-fmt.Println(&amp;quot;error:&amp;quot;, err)
+fmt.Println("error:", err)
 }
 fmt.Println(p.Name, p.Age, p.Email)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-John Doe 30 john.doe@example.com
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا، ابتدا یک رشته JSON با نام &amp;ldquo;data&amp;rdquo; تعریف شده است. سپس یک شیء از نوع &amp;ldquo;person&amp;rdquo; با استفاده از تابع &amp;ldquo;Unmarshal&amp;rdquo; و با این رشته JSON به شکل مقداردهی شده است. خروجی تابع &amp;ldquo;Unmarshal&amp;rdquo;، شیء &amp;ldquo;person&amp;rdquo; است که بعداً در کد چاپ شده است. توجه داشته باشید که در اینجا از &amp;ldquo;[]byte&amp;rdquo; برای تبدیل رشته به بایت‌آرایه استفاده شده است.&lt;/p>
 &lt;h2 id="483-تبدیل-آرایه-و-slice-به-json">
 4.8.3 تبدیل آرایه و slice به json
@@ -1142,70 +1161,76 @@ John Doe 30 john.doe@example.com
 &lt;/h2>
 &lt;p>در Go، می‌توان آرایه‌ها و slice‌ها را به فرمت JSON تبدیل کرد. برای این کار، از تابع &amp;ldquo;Marshal&amp;rdquo; پکیج &amp;ldquo;encoding/json&amp;rdquo; استفاده می‌شود.&lt;/p>
 &lt;p>برای مثال، فرض کنید یک slice‌ از اعداد صحیح داشته باشیم. برای تبدیل این slice به فرمت JSON، کد زیر نمونه‌ای از چگونگی استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; را نشان می‌دهد:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
+"encoding/json"
+"fmt"
 )
 func main() {
 numbers := []int{1, 2, 3, 4, 5}
 data, err := json.Marshal(numbers)
 if err != nil {
-fmt.Println(&amp;quot;error:&amp;quot;, err)
+fmt.Println("error:", err)
 }
 fmt.Println(string(data))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-[1,2,3,4,5]
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این کد، ابتدا یک slice‌ از اعداد صحیح تعریف شده است. سپس با استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; این slice‌ به فرمت JSON تبدیل شده و در متغیر &amp;ldquo;data&amp;rdquo; ذخیره شده است. در نهایت، با استفاده از تبدیل به &amp;ldquo;string&amp;rdquo;، خروجی تابع &amp;ldquo;Marshal&amp;rdquo; به صورت یک رشته چاپ شده است.&lt;/p>
 &lt;p>همچنین، می‌توان آرایه‌های چند بعدی را نیز به فرمت JSON تبدیل کرد. در کد زیر، یک آرایه دوبعدی از اعداد صحیح تعریف شده است و به فرمت JSON تبدیل می‌شود:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;p>&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
+"encoding/json"
+"fmt"
 )
 func main() {
 var matrix [2][3]int = [2][3]int{{1, 2, 3}, {4, 5, 6}}
 data, err := json.Marshal(matrix)
 if err != nil {
-fmt.Println(&amp;quot;error:&amp;quot;, err)
+fmt.Println("error:", err)
 }
 fmt.Println(string(data))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-[[1,2,3],[4,5,6]]
-&lt;/code>&lt;/pre>
-&lt;p>در این کد نیز، بعد از تعریف یک آرایه دوبعدی از اعداد صحیح، با استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; آن را به فرمت JSON تبدیل شده و در متغیر &amp;ldquo;data&amp;rdquo; ذخیره شده است. خروجی تابع &amp;ldquo;Marshal&amp;rdquo; نیز به صورت یک رشته چاپ می‌شود.&lt;/p>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+در این کد نیز، بعد از تعریف یک آرایه دوبعدی از اعداد صحیح، با استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; آن را به فرمت JSON تبدیل شده و در متغیر &amp;ldquo;data&amp;rdquo; ذخیره شده است. خروجی تابع &amp;ldquo;Marshal&amp;rdquo; نیز به صورت یک رشته چاپ می‌شود.&lt;/p>
 &lt;h2 id="484-تبدیل-map-به-json">
 4.8.4 تبدیل map به json
 &lt;a class="anchor" href="#484-%d8%aa%d8%a8%d8%af%db%8c%d9%84-map-%d8%a8%d9%87-json">#&lt;/a>
 &lt;/h2>
 &lt;p>در Go، می‌توان map را به فرمت JSON تبدیل کرد با استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; در پکیج &amp;ldquo;encoding/json&amp;rdquo; میتوان این کار را انجام داد.&lt;/p>
 &lt;p>برای مثال، فرض کنید یک map از داده‌های شخصی داشته باشیم که شامل نام، سن و ایمیل است. برای تبدیل این map به فرمت JSON، کد زیر نمونه‌ای از چگونگی استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; را نشان می‌دهد:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
+"encoding/json"
+"fmt"
 )
 func main() {
 data := map[string]interface{}{
-&amp;quot;name&amp;quot;: &amp;quot;John Doe&amp;quot;,
-&amp;quot;age&amp;quot;: 30,
-&amp;quot;email&amp;quot;: &amp;quot;john.doe@example.com&amp;quot;,
+"name": "John Doe",
+"age": 30,
+"email": "john.doe@example.com",
 }
 output, err := json.Marshal(data)
 if err != nil {
-fmt.Println(&amp;quot;error:&amp;quot;, err)
+fmt.Println("error:", err)
 }
 fmt.Println(string(output))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{&amp;quot;age&amp;quot;:30,&amp;quot;email&amp;quot;:&amp;quot;john.doe@example.com&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;John Doe&amp;quot;}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا، یک map از داده‌های شخصی با نام &amp;ldquo;data&amp;rdquo; تعریف شده است و سپس با استفاده از تابع &amp;ldquo;Marshal&amp;rdquo; به فرمت JSON تبدیل شده است. خروجی تابع &amp;ldquo;Marshal&amp;rdquo; نیز به صورت یک رشته چاپ شده است.&lt;/p>
 &lt;p>توجه داشته باشید که در این نمونه، نوع داده‌ی مقدارهای مپ از نوع خاصی استفاده نشده است و به جای آن، از نوع &amp;ldquo;interface{}&amp;rdquo; برای مقادیر استفاده شده است. این به این دلیل است که ممکن است مقادیر مختلفی در map وجود داشته باشد ولی نوعشان کاملاً شناخته شده نباشد. با استفاده از &amp;ldquo;interface{}&amp;quot;، مقادیر به صورت پویا تعریف شده و برنامه قادر است به درستی تبدیل را انجام دهد.&lt;/p>
 &lt;h2 id="485-کتابخانه-gjson">
@@ -1228,14 +1253,19 @@ fmt.Println(string(output))
 &lt;a class="anchor" href="#4852-%d8%ae%d9%88%d8%a7%d9%86%d8%af%d9%86-%d9%85%d9%82%d8%a7%d8%af%db%8c%d8%b1-%d8%a8%d8%a7-gjson">#&lt;/a>
 &lt;/h3>
 &lt;p>برای جستجوی مقدار مورد نظر json را برای آدرس یا فایل مشخص شده دریافت کنید. کافیست کلید های تو در تو را تنها توسط یک نقطه، مانند &amp;rsquo;name.last&amp;rsquo; یا &amp;lsquo;age&amp;rsquo; فراخوانی کرده و مقدار درون آن را بدست آورید. به عنوان مثال در کد زیر:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;github.com/tidwall/gjson&amp;quot;
-const json = `{&amp;quot;name&amp;quot;:{&amp;quot;first&amp;quot;:&amp;quot;Janet&amp;quot;,&amp;quot;last&amp;quot;:&amp;quot;Prichard&amp;quot;},&amp;quot;age&amp;quot;:47}`
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "github.com/tidwall/gjson"
+const json = `{"name":{"first":"Janet","last":"Prichard"},"age":47}`
 func main() {
-value := gjson.Get(json, &amp;quot;name.last&amp;quot;)
+value := gjson.Get(json, "name.last")
 println(value.String())
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>خروجی به صورت زیر خواهد بود:&lt;/p>
 &lt;pre>&lt;code class="language-shell">Prichard
 &lt;/code>&lt;/pre>
@@ -1705,24 +1735,29 @@ database = &amp;quot;myDB&amp;quot;
 &lt;/h3>
 &lt;p>تابع &lt;code>Marshal&lt;/code> برای تبدیل یک متغیر ساخته شده در Go به فرمت TOML مورد استفاده قرار می‌گیرد. برای استفاده از این تابع، باید داده‌های خود را به یک متغیر با نوع &lt;code>interface{}&lt;/code> تبدیل کنید و سپس این متغیر را به تابع &lt;code>Marshal&lt;/code> بدهید.&lt;/p>
 &lt;p>به عنوان مثال، برای تبدیل داده‌های &lt;code>map[string]interface{}&lt;/code> به فرمت TOML، می‌توانید این کد را به کار ببرید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;github.com/BurntSushi/toml&amp;quot;
-&amp;quot;fmt&amp;quot;
+"github.com/BurntSushi/toml"
+"fmt"
 )
 func main() {
 data := map[string]interface{}{
-&amp;quot;name&amp;quot;: &amp;quot;John&amp;quot;,
-&amp;quot;email&amp;quot;: &amp;quot;john@example.com&amp;quot;,
-&amp;quot;age&amp;quot;: 22,
+"name": "John",
+"email": "john@example.com",
+"age": 22,
 }
 tomlData, err := toml.Marshal(data)
 if err != nil {
 panic(err)
 }
 fmt.Println(string(tomlData))
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این کد یک دیکشنری ساده را تعریف می‌کند و سپس آن را به فرمت TOML تبدیل می‌کند. خروجی به صورت زیر خواهد بود:&lt;/p>
 &lt;pre>&lt;code class="language-shell">$ go run main.go
 age = 22
@@ -1735,11 +1770,12 @@ name = &amp;quot;John&amp;quot;
 &lt;/h3>
 &lt;p>تابع &lt;code>Unmarshal&lt;/code>، برای تبدیل یک رشته فرمت TOML به داده‌های Go استفاده می‌شود. برای استفاده از این تابع، باید با استفاده از تابع &lt;code>ioutil.ReadFile&lt;/code>، فایل TOML مورد نظر را بخوانید و سپس رشته خوانده‌شده را به تابع &lt;code>Unmarshal&lt;/code> بدهید.&lt;/p>
 &lt;p>به عنوان مثال، برای خواندن یک فایل TOML و تبدیل آن به یک دیکشنری در Go، می‌توانید این کد را به کار ببرید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;github.com/BurntSushi/toml&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;io/ioutil&amp;quot;
+"github.com/BurntSushi/toml"
+"fmt"
+"io/ioutil"
 )
 type Person struct {
 Name string
@@ -1747,17 +1783,21 @@ Email string
 Age int
 }
 func main() {
-data, err := ioutil.ReadFile(&amp;quot;file.toml&amp;quot;)
+data, err := ioutil.ReadFile("file.toml")
 if err != nil {
 panic(err)
 }
 var person Person
-if _, err := toml.Decode(string(data), &amp;amp;person); err != nil {
+if _, err := toml.Decode(string(data), &amp;person); err != nil {
 panic(err)
 }
-fmt.Printf(&amp;quot;%#v\n&amp;quot;, person)
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("%#v\n", person)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این کد یک فایل TOML با فرمت زیر را می‌خواند و مقادیر موجود در آن را به داده‌های Go مناسب تبدیل می‌کند:&lt;/p>
 &lt;pre>&lt;code class="language-toml">name = &amp;quot;John&amp;quot;
 email = &amp;quot;john@example.com&amp;quot;
@@ -1774,19 +1814,20 @@ main.Person{Name:&amp;quot;John&amp;quot;, Email:&amp;quot;john@example.com&amp;
 &lt;p>برای تبدیل یک &lt;code>struct&lt;/code> به فرمت TOML و بلعکس، می‌توان از تابع‌های &lt;code>Marshal&lt;/code> و &lt;code>Unmarshal&lt;/code> پکیج &lt;code>toml&lt;/code> استفاده کرد. در این روش، فیلدهای &lt;code>struct&lt;/code> بر اساس نام آن‌ها و به صورت حروف کوچک در فایل TOML با نام فیلد متناظر ذخیره می‌شوند.&lt;/p>
 &lt;p>همچنین می‌توان از تگ‌ها در داخل &lt;code>struct&lt;/code> برای تعیین نام فیلد در فایل TOML استفاده کرد. با استفاده از تگ &lt;code>toml:&amp;quot;name&amp;quot;&lt;/code> می‌توان نامی دلخواه برای فیلد در فایل TOML مشخص کرد. همچنین می‌توان از تگ‌های دیگری مانند &lt;code>toml:&amp;quot;omitempty&amp;quot;&lt;/code> برای اجباری نبودن یک فیلد در فایل TOML استفاده کرد.&lt;/p>
 &lt;p>به عنوان مثال، فرض کنید یک &lt;code>struct&lt;/code> به نام &lt;code>Person&lt;/code> با فیلدهای &lt;code>Name&lt;/code>، &lt;code>Email&lt;/code>و &lt;code>Age&lt;/code> داریم. با استفاده از تگ‌ها، نام فیلدها در فایل TOML و پیش‌فرض برای آن‌ها مشخص می‌شود.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;github.com/BurntSushi/toml&amp;quot;
-&amp;quot;fmt&amp;quot;
+"github.com/BurntSushi/toml"
+"fmt"
 )
 type Person struct {
-Name string `toml:&amp;quot;name&amp;quot;`
-Email string `toml:&amp;quot;email,omitempty&amp;quot;`
-Age int `toml:&amp;quot;age&amp;quot;`
+Name string `toml:"name"`
+Email string `toml:"email,omitempty"`
+Age int `toml:"age"`
 }
 func main() {
 // Marshaling from struct to TOML
-person := Person{Name: &amp;quot;John&amp;quot;, Age: 30}
+person := Person{Name: "John", Age: 30}
 tomlData, err := toml.Marshal(person)
 if err != nil {
 panic(err)
@@ -1794,12 +1835,16 @@ panic(err)
 fmt.Println(string(tomlData))
 // Unmarshaling from TOML to struct
 var p Person
-if _, err := toml.Decode(string(tomlData), &amp;amp;p); err != nil {
+if _, err := toml.Decode(string(tomlData), &amp;p); err != nil {
 panic(err)
 }
-fmt.Printf(&amp;quot;%#v\n&amp;quot;, p)
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("%#v\n", p)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، &lt;code>struct&lt;/code> با نام &lt;code>Person&lt;/code> تعریف شده و از تگ برای نام‌گذاری فیلدها استفاده شده است. در تابع &lt;code>main&lt;/code>، ابتدا از متد &lt;code>Marshal&lt;/code> پکیج &lt;code>toml&lt;/code> برای تبدیل یک شیء &lt;code>Person&lt;/code> به فرمت TOML استفاده شده است. سپس با استفاده از متد &lt;code>Decode&lt;/code> از پکیج &lt;code>toml&lt;/code>، فایل TOML به داخل شیء &lt;code>Person&lt;/code> تبدیل می‌شود.&lt;/p>
 &lt;p>خروجی کد بالا به صورت زیر است:&lt;/p>
 &lt;pre>&lt;code class="language-shell">$ go run main.go
@@ -1830,25 +1875,30 @@ isStudent: true
 &lt;a class="anchor" href="#41021-marshal">#&lt;/a>
 &lt;/h3>
 &lt;p>همچنین، می‌توان از تابع Marshal برای تبدیل ساختار داده‌ای Go به فرمت YAML استفاده کرد. به عنوان مثال، برای تبدیل ساختار Person به فرمت YAML می‌توان از کد زیر استفاده کرد:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;gopkg.in/yaml.v2&amp;quot;
-&amp;quot;log&amp;quot;
+"fmt"
+"gopkg.in/yaml.v2"
+"log"
 )
 func main() {
 person := Person{
-Name: &amp;quot;John&amp;quot;,
+Name: "John",
 Age: 25,
 IsStudent: true,
 }
-yamlData, err := yaml.Marshal(&amp;amp;person)
+yamlData, err := yaml.Marshal(&amp;person)
 if err != nil {
-log.Fatalf(&amp;quot;error: %v&amp;quot;, err)
+log.Fatalf("error: %v", err)
 }
-fmt.Printf(&amp;quot;%s&amp;quot;, string(yamlData))
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("%s", string(yamlData))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این کد، یک شیء از ساختار Person را ایجاد می کنیم و سپس از تابع Marshal برای تبدیل آن به فرمت YAML استفاده می کنیم. سپس محتوای YAML را به کمک تابع Printf چاپ می کنیم.&lt;/p>
 &lt;p>به این ترتیب پکیج YAML از امکانات و قابلیت بالایی برای کد نویسی و کار با فرمت YAML در زبان Go برخوردار می‌باشد.&lt;/p>
 &lt;h3 id="41022-unmarshal">
@@ -1863,16 +1913,17 @@ IsStudent bool `yaml:&amp;quot;isStudent&amp;quot;`
 }
 &lt;/code>&lt;/pre>
 &lt;p>حالا می توانیم از تابع Unmarshal برای تبدیل داده‌ی YAML به ساختار Go استفاده کنیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;gopkg.in/yaml.v2&amp;quot;
-&amp;quot;log&amp;quot;
+"fmt"
+"gopkg.in/yaml.v2"
+"log"
 )
 type Person struct {
-Name string `yaml:&amp;quot;name&amp;quot;`
-Age int `yaml:&amp;quot;age&amp;quot;`
-IsStudent bool `yaml:&amp;quot;isStudent&amp;quot;`
+Name string `yaml:"name"`
+Age int `yaml:"age"`
+IsStudent bool `yaml:"isStudent"`
 }
 func main() {
 yamlData := `
@@ -1881,13 +1932,17 @@ age: 25
 isStudent: true
 `
 var person Person
-err := yaml.Unmarshal([]byte(yamlData), &amp;amp;person)
+err := yaml.Unmarshal([]byte(yamlData), &amp;person)
 if err != nil {
-log.Fatalf(&amp;quot;error: %v&amp;quot;, err)
+log.Fatalf("error: %v", err)
 }
-fmt.Printf(&amp;quot;Name: %s\nAge: %d\nIsStudent: %v&amp;quot;, person.Name, person.Age, person.IsStudent)
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("Name: %s\nAge: %d\nIsStudent: %v", person.Name, person.Age, person.IsStudent)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این کد پرونده YAML را به متغیر yamlData منتسب کرده، از تابع Unmarshal برای تجزیه و تحلیل داده‌های YAML استفاده و ساختار Person را با مقادیر معادل پر کرده‌است. سپس جزئیات این ساختار را چاپ می‌کنیم.&lt;/p></description></item><item><author/><title>4.11 آموزش کار با csv</title><link>https://book.gofarsi.ir/chapter-4/work-with-csv-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-csv-file-in-go/</guid><description>&lt;h2 id="4111-مقدمه">
 4.11.1 مقدمه
 &lt;a class="anchor" href="#4111-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
@@ -1905,14 +1960,15 @@ Bob,40,Los Angeles
 &lt;a class="anchor" href="#4112-%d9%86%d8%ad%d9%88%d9%87-%d8%ae%d9%88%d8%a7%d9%86%d8%af%d9%86-%d9%81%d8%a7%db%8c%d9%84-csv">#&lt;/a>
 &lt;/h2>
 &lt;p>برای خواندن فایل csv می‌توان با استفاده از پکیج encoding/csv پرونده CSV را باز کرد:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/csv&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"encoding/csv"
+"fmt"
+"os"
 )
 func main() {
-f, err := os.Open(&amp;quot;data.csv&amp;quot;)
+f, err := os.Open("data.csv")
 if err != nil {
 panic(err)
 }
@@ -1923,12 +1979,16 @@ panic(err)
 }
 for _, row := range records {
 for _, col := range row {
-fmt.Print(col, &amp;quot;\t&amp;quot;)
+fmt.Print(col, "\t")
 }
 fmt.Println()
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این کد، تابع os.Open برای باز کردن پرونده CSV استفاده می‌شود. یک رابط csv.Reader ایجاد شده و یک رشته ساختارمند، پرونده CSV را می‌خواند. سپس با استفاده از یک حلقه، داده‌های جدولی چاپ می‌شود.&lt;/p>
 &lt;p>فراداده‌های CSV بسیار گسترده هستند و می‌توانند شامل شماره دسته، توضیحات، یادداشت‌های شخصی و غیره باشند. برای کار با این نوع داده‌ها، پکیج encoding/csv امکاناتی مانند تنظیمات csv.Reader را فراهم می‌کند، که در آن، می‌توانیم تنظیماتی مانند علامت‌گذاری مناسب فایل CSV و دیگر علامت‌گذاری‌ها را بهبود ببخشیم.&lt;/p>
 &lt;h2 id="4113--readall-فایل-csv">
@@ -1942,12 +2002,13 @@ Lucy,Smith,teacher
 Brian,Bethamy,programmer
 &lt;/code>&lt;/pre>
 &lt;p>نام این فایل users.csv است. خط اول نام ستون ها هستند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/csv&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;os&amp;quot;
+"encoding/csv"
+"fmt"
+"log"
+"os"
 )
 type User struct {
 firstName string
@@ -1955,7 +2016,7 @@ lastName string
 occupation string
 }
 func main() {
-records, err := readData(&amp;quot;users.csv&amp;quot;)
+records, err := readData("users.csv")
 if err != nil {
 log.Fatal(err)
 }
@@ -1965,7 +2026,7 @@ firstName: record[0],
 lastName: record[1],
 occupation: record[2],
 }
-fmt.Printf(&amp;quot;%s %s is a %s\n&amp;quot;, user.firstName, user.lastName,
+fmt.Printf("%s %s is a %s\n", user.firstName, user.lastName,
 user.occupation)
 }
 }
@@ -1985,8 +2046,12 @@ if err != nil {
 return [][]string{}, err
 }
 return records, nil
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اسم فایل بالا read_all.go می‌باشد و این مثال فایل users.csv را می خواند. هر line به یک &lt;code>User&lt;/code> type را بر می‌گرداند.&lt;/p>
 &lt;pre>&lt;code class="language-go">// skip first line
 if _, err := r.Read(); err != nil {
@@ -2014,16 +2079,17 @@ Lucy;Smith;teacher
 Brian;Bethamy;programmer
 &lt;/code>&lt;/pre>
 &lt;p>در فایل users.csv فیلدها با نقطه ویرگول از هم جدا شده اند. این فایل حاوی یک comment نیز می‌باشد.&lt;/p>
-&lt;pre>&lt;code class="language-go">//different_delimiter.go//
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">//different_delimiter.go//
 package main
 import (
-&amp;quot;encoding/csv&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;os&amp;quot;
+"encoding/csv"
+"fmt"
+"log"
+"os"
 )
 func main() {
-f, err := os.Open(&amp;quot;users.csv&amp;quot;)
+f, err := os.Open("users.csv")
 if err != nil {
 log.Fatal(err)
 }
@@ -2035,8 +2101,12 @@ if err != nil {
 log.Fatal(err)
 }
 fmt.Print(records)
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این مثال تمام داده های این فایل را می خواند.&lt;/p>
 &lt;pre>&lt;code class="language-go">r := csv.NewReader(f)
 r.Comma = ';'
@@ -2048,67 +2118,76 @@ r.Comment = '#'
 &lt;a class="anchor" href="#4115-%d9%86%d9%88%d8%b4%d8%aa%d9%86-csv">#&lt;/a>
 &lt;/h2>
 &lt;p>تابع Write یک رکورد CSV را برای writer می نویسد. رکورد برشی از strings است که هر string یک فیلد است. write ها buffer شده هستند، بنابراین باید Flush فراخوانی شود تا اطمینان حاصل شود که رکورد برای writer اصلی نوشته شده است.&lt;/p>
-&lt;pre>&lt;code class="language-go">//write_fun.go//
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">//write_fun.go//
 package main
 import (
-&amp;quot;encoding/csv&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;os&amp;quot;
+"encoding/csv"
+"log"
+"os"
 )
 func main() {
 records := [][]string{
-{&amp;quot;first_name&amp;quot;, &amp;quot;last_name&amp;quot;, &amp;quot;occupation&amp;quot;},
-{&amp;quot;John&amp;quot;, &amp;quot;Doe&amp;quot;, &amp;quot;gardener&amp;quot;},
-{&amp;quot;Lucy&amp;quot;, &amp;quot;Smith&amp;quot;, &amp;quot;teacher&amp;quot;},
-{&amp;quot;Brian&amp;quot;, &amp;quot;Bethamy&amp;quot;, &amp;quot;programmer&amp;quot;},
+{"first_name", "last_name", "occupation"},
+{"John", "Doe", "gardener"},
+{"Lucy", "Smith", "teacher"},
+{"Brian", "Bethamy", "programmer"},
 }
-f, err := os.Create(&amp;quot;users.csv&amp;quot;)
+f, err := os.Create("users.csv")
 defer f.Close()
 if err != nil {
-log.Fatalln(&amp;quot;failed to open file&amp;quot;, err)
+log.Fatalln("failed to open file", err)
 }
 w := csv.NewWriter(f)
 defer w.Flush()
 for _, record := range records {
 if err := w.Write(record); err != nil {
-log.Fatalln(&amp;quot;error writing record to file&amp;quot;, err)
+log.Fatalln("error writing record to file", err)
 }
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال بالا، چند رکورد را با تابع Write در فایل users.csv نوشتیم.&lt;/p>
 &lt;h2 id="4116-نوشتن-writeall-csv">
 4.11.6 نوشتن WriteAll CSV
 &lt;a class="anchor" href="#4116-%d9%86%d9%88%d8%b4%d8%aa%d9%86-writeall-csv">#&lt;/a>
 &lt;/h2>
 &lt;p>تابع WriteAll چندین رکورد CSV را با استفاده از Write برای writer می‌نویسد و سپس Flush را فراخوانی می‌کند.&lt;/p>
-&lt;pre>&lt;code class="language-go">
-//write_all.go//
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">//write_all.go//
 package main
 import (
-&amp;quot;encoding/csv&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;os&amp;quot;
+"encoding/csv"
+"log"
+"os"
 )
 func main() {
 records := [][]string{
-{&amp;quot;first_name&amp;quot;, &amp;quot;last_name&amp;quot;, &amp;quot;occupation&amp;quot;},
-{&amp;quot;John&amp;quot;, &amp;quot;Doe&amp;quot;, &amp;quot;gardener&amp;quot;},
-{&amp;quot;Lucy&amp;quot;, &amp;quot;Smith&amp;quot;, &amp;quot;teacher&amp;quot;},
-{&amp;quot;Brian&amp;quot;, &amp;quot;Bethamy&amp;quot;, &amp;quot;programmer&amp;quot;},
+{"first_name", "last_name", "occupation"},
+{"John", "Doe", "gardener"},
+{"Lucy", "Smith", "teacher"},
+{"Brian", "Bethamy", "programmer"},
 }
-f, err := os.Create(&amp;quot;users.csv&amp;quot;)
+f, err := os.Create("users.csv")
 defer f.Close()
 if err != nil {
-log.Fatalln(&amp;quot;failed to open file&amp;quot;, err)
+log.Fatalln("failed to open file", err)
 }
 w := csv.NewWriter(f)
 err = w.WriteAll(records) // calls Flush internally
 if err != nil {
 log.Fatal(err)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در نهایت ما چند رکورد را در یک لحظه با WriteAll می نویسیم.&lt;/p></description></item><item><author/><title>4.12 آموزش کار با ini</title><link>https://book.gofarsi.ir/chapter-4/work-with-ini-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-ini-file-in-go/</guid><description>&lt;p>بطور خلاصه فایل های ini.* جهت ذخیره تنظیمات مختلف استفاده می شود تنظیماتی مثل: آدرس خاص در شبکه، اطلاعات ورود به سیستم های مختلف و موارد از این قبیل.&lt;/p>
 &lt;p>برای شروع ساختار پروژه ما به این شکل است&lt;/p>
 &lt;pre>&lt;code class="language-shell">$ mkdir -p /tmp/ini
@@ -2139,46 +2218,38 @@ enforce_domain = true
 &lt;li>حط بعد شماره پورت مورد استفاده برنامه است که مقدار 9999 می باشد&lt;/li>
 &lt;/ol>
 &lt;p>مقادیر وارد شده صرفا برای مثال می باشد و می توان هر مقداری را که در برنامه نیاز دارید ایجاد کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;gopkg.in/ini.v1&amp;quot;
+"fmt"
+"os"
+"gopkg.in/ini.v1"
 )
 func main() {
-cfg, err := ini.Load(&amp;quot;my.ini&amp;quot;)
+cfg, err := ini.Load("my.ini")
 if err != nil {
-fmt.Printf(&amp;quot;Fail to read file: %v&amp;quot;, err)
+fmt.Printf("Fail to read file: %v", err)
 os.Exit(1)
 }
 // Classic read of values, default section can be represented as empty string
-fmt.Println(&amp;quot;App Mode:&amp;quot;, cfg.Section(&amp;quot;&amp;quot;).Key(&amp;quot;app_mode&amp;quot;).String())
-fmt.Println(&amp;quot;Data Path:&amp;quot;, cfg.Section(&amp;quot;paths&amp;quot;).Key(&amp;quot;data&amp;quot;).String())
+fmt.Println("App Mode:", cfg.Section("").Key("app_mode").String())
+fmt.Println("Data Path:", cfg.Section("paths").Key("data").String())
 // Let's do some candidate value limitation
-fmt.Println(&amp;quot;Server Protocol:&amp;quot;,
-cfg.Section(&amp;quot;server&amp;quot;).Key(&amp;quot;protocol&amp;quot;).In(&amp;quot;http&amp;quot;, []string{&amp;quot;http&amp;quot;, &amp;quot;https&amp;quot;}))
+fmt.Println("Server Protocol:",
+cfg.Section("server").Key("protocol").In("http", []string{"http", "https"}))
 // Value read that is not in candidates will be discarded and fall back to given default value
-fmt.Println(&amp;quot;Email Protocol:&amp;quot;, cfg.Section(&amp;quot;server&amp;quot;).Key(&amp;quot;protocol&amp;quot;).In(&amp;quot;smtp&amp;quot;, []string{&amp;quot;imap&amp;quot;, &amp;quot;smtp&amp;quot;}))
+fmt.Println("Email Protocol:", cfg.Section("server").Key("protocol").In("smtp", []string{"imap", "smtp"}))
 // Try out auto-type conversion
-fmt.Printf(&amp;quot;Port Number: (%[1]T) %[1]d\n&amp;quot;, cfg.Section(&amp;quot;server&amp;quot;).Key(&amp;quot;http_port&amp;quot;).MustInt(9999))
-fmt.Printf(&amp;quot;Enforce Domain: (%[1]T) %[1]v\n&amp;quot;, cfg.Section(&amp;quot;server&amp;quot;).Key(&amp;quot;enforce_domain&amp;quot;).MustBool(false))
+fmt.Printf("Port Number: (%[1]T) %[1]d\n", cfg.Section("server").Key("http_port").MustInt(9999))
+fmt.Printf("Enforce Domain: (%[1]T) %[1]v\n", cfg.Section("server").Key("enforce_domain").MustBool(false))
 // Now, make some changes and save it
-cfg.Section(&amp;quot;&amp;quot;).Key(&amp;quot;app_mode&amp;quot;).SetValue(&amp;quot;production&amp;quot;) cfg.SaveTo(&amp;quot;my.ini.local&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی اجرای کد بالا به این شکل است&lt;/p>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-App Mode: development
-Data Path: /home/git/grafana
-Server Protocol: http
-Email Protocol: smtp Port Number: (int) 9999
-Enforce Domain: (bool) true
-$ cat my.ini.local
-# possible values : production, development
-app_mode = production [paths]
-# Path to where grafana can store temp files, sessions, and the sqlite3 db (if that is used) data = /home/git/grafana
-...
-&lt;/code>&lt;/pre>
+cfg.Section("").Key("app_mode").SetValue("production") cfg.SaveTo("my.ini.local")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>کد بالا به اندازه کافی شفاف و ساده است که نیازی به توضیح بیشتر ندارد در ابتدا نیاز است تا بسته &amp;ldquo;gopkg.in/ini.v1&amp;rdquo; را به برنامه اضافه کنیم سپس با متد load فایل کانفیگ موجود را به حافظه بارگذاری می کنیم تا محتوای آن را بخوانیم و خط های بعد مقادیر آن را میخوانیم در خط پایانی نیز مقدار app_mode را به production تغییر دادیم و در فایل جدیدی به نام my.ini.local ذخیره کردیم .&lt;/p>
 &lt;p>می توانیم به شکل های مختلف یک فایل را بارگذاری یا ایجاد کنیم به مثال ذیل توجه کنید:&lt;/p>
 &lt;pre>&lt;code class="language-go">cfg, err := ini.Load( []byte(&amp;quot;raw data&amp;quot;), // Raw data
@@ -2218,33 +2289,37 @@ names := cfg.SectionStrings()
 &lt;pre>&lt;code class="language-go">key, err := cfg.Section(&amp;quot;&amp;quot;).GetKey(&amp;quot;app_mode&amp;quot;)
 &lt;/code>&lt;/pre>
 &lt;p>برای بدست آوردن key یک section بطور مثال &amp;ldquo;app_mode&amp;rdquo;
-4.
-```go
-key, err := cfg.Section(&amp;quot;&amp;quot;).HasKey(&amp;ldquo;app_mode&amp;rdquo;)&lt;/p>
-&lt;pre>&lt;code>برای بررسی وجود یک key
-5.
-```go
-key, err := cfg.Section(&amp;quot;&amp;quot;).NewKey(&amp;quot;name&amp;quot;, &amp;quot;value&amp;quot;)
+4.&lt;/p>
+&lt;pre>&lt;code class="language-go">key, err := cfg.Section(&amp;quot;&amp;quot;).HasKey(&amp;quot;app_mode&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>برای بررسی وجود یک key
+5.&lt;/p>
+&lt;pre>&lt;code class="language-go">key, err := cfg.Section(&amp;quot;&amp;quot;).NewKey(&amp;quot;name&amp;quot;, &amp;quot;value&amp;quot;)
 &lt;/code>&lt;/pre>
 &lt;p>برای ایجاد یک key جدید&lt;/p></description></item><item><author/><title>4.13 آموزش کار با environment variable</title><link>https://book.gofarsi.ir/chapter-4/work-with-environment-variable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-environment-variable/</guid><description>&lt;p>Environment Variables یا متغیرهای محیطی، متغیرهایی هستند که در فضای محیطی سیستم عامل مشخص شده‌اند. این متغیرها، شامل اطلاعاتی مانند مسیر فایل‌ها، تنظیمات سیستم، ترجیحات و تعیینات ساده و دیگر اطلاعات مورد استفاده توسط برنامه‌ها هستند.&lt;/p>
 &lt;p>به عنوان مثال، در سیستم عامل لینوکس، PATH یک متغیر محیطی است که شامل یک فهرست از دایرکتوری‌هایی است که سیستم به دنبال فایل‌ها و برنامه‌ها می‌گردد. برای دسترسی به این متغیر، می‌توان از دستور زیر در خط فرمان استفاده کرد:&lt;/p>
 &lt;pre>&lt;code>echo $PATH
 &lt;/code>&lt;/pre>
 &lt;p>همچنین، در زبان برنامه‌نویسی Go نیز استفاده از Environment Variables بسیار رایج است. برای نمونه، تنظیمات پایگاه داده را می‌توان با استفاده از Environment Variables در برنامه اصلی تنظیم کرد. در این مثال بسیار کوتاه، متصل شدن به پایگاه داده با استفاده از متغیرهای محیطی بیان شده است:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;database/sql&amp;quot;
-&amp;quot;os&amp;quot;
+"database/sql"
+"os"
 )
 func main() {
-db, err := sql.Open(&amp;quot;postgres&amp;quot;, os.Getenv(&amp;quot;DATABASE_URL&amp;quot;))
+db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 if err != nil {
 panic(err)
 }
 defer db.Close()
 // Do something with the database
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، پایگاه داده PostgreSQL از طریق پارامتر DATABASE_URL قابل تنظیم است. با استفاده از os.Getenv مقدار متغیر محیطی با همین نام به دست می‌آید و سپس به عنوان آرگومان به sql.Open ارائه می‌شود.&lt;/p>
 &lt;p>استفاده از Environment Variables یک روش مدیریتی عالی برای محیط برنامه است. این روش، به برنامه‌ها امکان می‌دهد که بدون اینکه برای هر برنامه یک سری تنظیمات خاص وجود داشته باشد، با یک سری تنظیمات کلی کار کنند و به صورت پویا و گسترده پاسخگو باشند.&lt;/p>
 &lt;h2 id="4131-نحوه-set-کردن">
@@ -2252,66 +2327,86 @@ defer db.Close()
 &lt;a class="anchor" href="#4131-%d9%86%d8%ad%d9%88%d9%87-set-%da%a9%d8%b1%d8%af%d9%86">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان برنامه‌نویسی Go، برای set کردن Environment Variables می‌توان از پکیج os استفاده کرد. برای مثال، برای تعیین متغیر محیطی با نام &amp;ldquo;DATABASE_URL&amp;rdquo; به مقدار &amp;ldquo;postgresql://localhost/mydb&amp;rdquo; می‌توانید از تابع os.Setenv استفاده کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
-err := os.Setenv(&amp;quot;DATABASE_URL&amp;quot;, &amp;quot;postgresql://localhost/mydb&amp;quot;)
+err := os.Setenv("DATABASE_URL", "postgresql://localhost/mydb")
 if err != nil {
 panic(err)
 }
-fmt.Println(&amp;quot;Environment variable set successfully&amp;quot;)
-}
-&lt;/code>&lt;/pre>
+fmt.Println("Environment variable set successfully")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، با استفاده از تابع os.Setenv، متغیر محیطی با نام DATABASE_URL و مقدار postgresql://localhost/mydb تنظیم شده است. اگر خطا رخ دهد، با استفاده از تابع panic خطا ثبت می‌شود. سپس یک پیام تاییدی برای نشان دادن موفقیت set کردن متغیر محیطی نمایش داده می‌شود.&lt;/p>
 &lt;p>اگر بخواهید یک Environment Variable را به یک مقدار خالی تنظیم کنید، می‌توانید از تابع os.Unsetenv استفاده کنید. برای مثال، برای حذف متغیر محیطی DATABASE_URL، کد زیر را می‌توانید استفاده کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
-err := os.Unsetenv(&amp;quot;DATABASE_URL&amp;quot;)
+err := os.Unsetenv("DATABASE_URL")
 if err != nil {
 panic(err)
 }
-fmt.Println(&amp;quot;Environment variable unset successfully&amp;quot;)
-}
-&lt;/code>&lt;/pre>
+fmt.Println("Environment variable unset successfully")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، با استفاده از تابع os.Unsetenv، متغیر محیطی با نام DATABASE_URL حذف شده است. اگر خطا رخ دهد، با استفاده از تابع panic خطا ثبت می‌شود. سپس یک پیام تاییدی برای نشان دادن موفقیت unset کردن متغیر محیطی نمایش داده می‌شود.&lt;/p>
 &lt;h2 id="4132-نحوه-get-کردن">
 4.13.2 نحوه get کردن
 &lt;a class="anchor" href="#4132-%d9%86%d8%ad%d9%88%d9%87-get-%da%a9%d8%b1%d8%af%d9%86">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان برنامه‌نویسی Go، برای get کردن Environment Variables می‌توان از پکیج os استفاده کرد. برای مثال، برای به دست آوردن مقدار متغیر محیطی با نام &amp;ldquo;DATABASE_URL&amp;rdquo; می‌توانید از تابع os.Getenv استفاده کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
-dbUrl := os.Getenv(&amp;quot;DATABASE_URL&amp;quot;)
-fmt.Printf(&amp;quot;Database URL: %s\n&amp;quot;, dbUrl)
-}
-&lt;/code>&lt;/pre>
+dbUrl := os.Getenv("DATABASE_URL")
+fmt.Printf("Database URL: %s\n", dbUrl)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، با استفاده از تابع os.Getenv، متغیر محیطی با نام DATABASE_URL به عنوان پارامتر به تابع ارسال شده و مقدار آن در یک متغیر به نام dbUrl ذخیره شده است. سپس با استفاده از تابع fmt.Printf، مقدار dbUrl به همراه یک پیام مشابه &amp;ldquo;Database URL: postgresql://localhost/mydb&amp;rdquo; نمایش داده می‌شود.&lt;/p>
 &lt;p>اگر مقدار متغیر محیطی مورد نظر وجود نداشته باشد، تابع os.Getenv مقدار خالی برمی‌گرداند. لذا برای اطمینان از وجود مقدار متغیر محیطی، می‌توانید از تابع os.LookupEnv استفاده کنید. برای مثال، کد زیر چک می‌کند که آیا متغیر محیطی EMAIL تنظیم شده است یا خیر:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"os"
 )
 func main() {
-email, ok := os.LookupEnv(&amp;quot;EMAIL&amp;quot;)
+email, ok := os.LookupEnv("EMAIL")
 if ok {
-fmt.Printf(&amp;quot;Email address: %s\n&amp;quot;, email)
+fmt.Printf("Email address: %s\n", email)
 } else {
-fmt.Println(&amp;quot;Email address is not set&amp;quot;)
+fmt.Println("Email address is not set")
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، با استفاده از تابع os.LookupEnv، متغیر محیطی با نام EMAIL برای وجود مقدار بررسی شده است. اگر مقدار موجود بود، با استفاده از تابع fmt.Printf، مقدار این متغیر به همراه یک پیام مشابه &amp;ldquo;Email address: &lt;a href="mailto:user@example.com">user@example.com&lt;/a>&amp;rdquo; نمایش داده می‌شود. در صورتی که مقداری برای این متغیر وجود نداشته باشد، با استفاده از تابع fmt.Println، یک پیام مشابه &amp;ldquo;Email address is not set&amp;rdquo; نمایش داده می‌شود.&lt;/p>
 &lt;h2 id="4133-کار-با-فایل-env">
 4.13.3 کار با فایل env.
@@ -2327,27 +2422,32 @@ fmt.Println(&amp;quot;Email address is not set&amp;quot;)
 API_KEY=AbCdEfGhIjKlMnOp
 &lt;/code>&lt;/pre>
 &lt;p>حال در کد Go خود، پکیج godotenv را import کرده و با استفاده از تابع godotenv.Load()، متغیرهای محیطی از فایل .env خوانده شده و در متغیرهای خود بارگذاری کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;github.com/joho/godotenv&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"github.com/joho/godotenv"
+"os"
 )
 func main() {
 // Load environment variables from .env file
 err := godotenv.Load()
 if err != nil {
-fmt.Println(&amp;quot;Error loading .env file&amp;quot;)
+fmt.Println("Error loading .env file")
 os.Exit(1)
 }
 // Get values of environment variables
-dbUrl := os.Getenv(&amp;quot;DATABASE_URL&amp;quot;)
-apiKey := os.Getenv(&amp;quot;API_KEY&amp;quot;)
+dbUrl := os.Getenv("DATABASE_URL")
+apiKey := os.Getenv("API_KEY")
 // Print the values
-fmt.Printf(&amp;quot;Database URL: %s\n&amp;quot;, dbUrl)
-fmt.Printf(&amp;quot;API Key: %s\n&amp;quot;, apiKey)
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("Database URL: %s\n", dbUrl)
+fmt.Printf("API Key: %s\n", apiKey)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، با استفاده از تابع godotenv.Load()، متغیرهای محیطی از فایل .env خوانده شده و در متغیرهای خود بارگذاری شده‌اند. سپس با استفاده از تابع os.Getenv()، مقادیر این متغیرها به دست آمده و با استفاده از تابع fmt.Printf نمایش داده شده‌اند.&lt;/p>
 &lt;p>با استفاده از این روش، مقادیری که در فایل .env تعریف شده‌اند، در زمان اجرای برنامه به راحتی قابل دسترس خواهند بود و این اجازه را به شما می‌دهد که مقادیر مورد نیاز را به راحتی تغییر دهید و حتی بدون تغییر کد، برنامه خود را در محیط‌های مختلف اجرا کنید.&lt;/p></description></item><item><author/><title>4.14 آموزش کار با regexp</title><link>https://book.gofarsi.ir/chapter-4/go-regular-expressions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-regular-expressions/</guid><description>&lt;p>مواقعی در کد نویسی دارید که نیاز هست تا یک عبارتی مثل شماره تلفن،کد پستی و یا شماره پاسپورت وارد شده را بصورت قاعده مند بررسی کنید به عبارتی کاربر نتواند برای فیلد شماره تلفن، کاراکتر غیر عددی وارد کند. در این مواقع بهتر است داده وارد شده بصورت قاعده مند بررسی شود. برای درک بهتر موضوع به رشته وارد شده توسط کاربر که می تواند سهوا باشد دقت کنید&lt;/p>
 &lt;pre>&lt;code>+989121234#566
@@ -2365,40 +2465,46 @@ fmt.Printf(&amp;quot;API Key: %s\n&amp;quot;, apiKey)
 )
 &lt;/code>&lt;/pre>
 &lt;p>برای شروع و درک بهتر مطلب اجازه دهید از یک مثال ساده شروع کنیم. میخواهیم بررسی کنیم آیا کاربر کارکتر نقطه [.] را وارد کرده است یا خیر .&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;regexp&amp;quot;
+"fmt"
+"regexp"
 )
 func main() {
-sampleRegex := regexp.MustCompile(&amp;quot;[.]&amp;quot;)
-match := sampleRegex.Match([]byte(&amp;quot;.&amp;quot;))
+sampleRegex := regexp.MustCompile("[.]")
+match := sampleRegex.Match([]byte("."))
 fmt.Println(match)
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق به کمک تابع MustCompile عبارت قاعده مند را دریافت می کنیم در صورتیکه عبارت وارد شده قابل قبول یا معتبر نباشد panic اتفاق خواهد افتاد . دقت داشته باشید که خود عبارت قاعده مند دارای استاندارد و چارچوب های مشخص است که بهتر است درصورت عدم اطلاع از ابتدا آن را &lt;a href="https://regexlearn.com/">بیاموزید&lt;/a>.&lt;/p>
 &lt;p>دقت کنید که در کد فوق عبارت مد نظر خود را داخل [] قرار داده ایم و در خط بعد با تابع Match که مقدار مورد نظر را بصورت رشته ای از بایت ها به آن معرفی کرده ایم بررسی می کنیم که &amp;ldquo;.&amp;rdquo; در رشته وجود دارد یا خیر که خروجی این بررسی یک مقدار بولین بصورت ذیل است.&lt;/p>
 &lt;pre>&lt;code>true
 &lt;/code>&lt;/pre>
 &lt;p>در واقع می توانید رشته های ساده را نیز با این روش مقایسه کنید بطور مثال :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;regexp&amp;quot;
+"fmt"
+"regexp"
 )
 func main() {
-first := &amp;quot;abc&amp;quot;
-second := &amp;quot;xyz&amp;quot;
-third := &amp;quot;123&amp;quot;
+first := "abc"
+second := "xyz"
+third := "123"
 sampleRegex := regexp.MustCompile(first + second + third)
-match := sampleRegex.Match([]byte(&amp;quot;abcxyz123&amp;quot;))
+match := sampleRegex.Match([]byte("abcxyz123"))
 fmt.Println(match)
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی بررسی بالا&lt;/p>
-&lt;pre>&lt;code class="language-shell">$go run main.go
-true
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اگر به کد فوق دقت کنید متوجه خواهید شد که مقادیر بررسی شده بصورت کامل بوده و چنانچه بررسی شما شامل بخشی از عبارت وارد شده باشد باز نتیجه بررسی اشتباه خواهد بود برای مثال ما قسمتی از کد را تغییر می دهیم&lt;/p>
 &lt;pre>&lt;code class="language-go">package main
 ...
@@ -2409,27 +2515,26 @@ func main() {
 }
 &lt;/code>&lt;/pre>
 &lt;p>در اینجا نتیجه بررسی برای عبارت &amp;ldquo;abcxyz&amp;rdquo; که در عبارت اصلی یعنی &amp;ldquo;abcxyz123&amp;rdquo; قرار دارد مقدار false نمایش داده خواهد شد که این به معنای بررسی کل عبارت است. برای رفع این اشتباه می بایست از ساختار عبارات قاعده مند بهر بگیریم و به این شکل به برنامه اطلاع دهیم که عبارت مد نظر ما می تواند بخشی از عبارت وارد شده باشد.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;regexp&amp;quot;
+"fmt"
+"regexp"
 )
 func main() {
-sampleRegex := regexp.MustCompile(&amp;quot;[abc]&amp;quot;)
-match := sampleRegex.Match([]byte(&amp;quot;abcd&amp;quot;))
-fmt.Printf(&amp;quot;For abcd: %t\n&amp;quot;, match)
-match = sampleRegex.Match([]byte(&amp;quot;1abc23&amp;quot;))
-fmt.Printf(&amp;quot;For 1abc23: %t\n&amp;quot;, match)
-match = sampleRegex.Match([]byte(&amp;quot;abc&amp;quot;))
-fmt.Printf(&amp;quot;For abc: %t\n&amp;quot;, match)
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی کد&lt;/p>
-&lt;pre>&lt;code class="language-shell">$go run main.go
-For abcd: true
-For 1abc23: true
-For abc: true
-&lt;/code>&lt;/pre>
+sampleRegex := regexp.MustCompile("[abc]")
+match := sampleRegex.Match([]byte("abcd"))
+fmt.Printf("For abcd: %t\n", match)
+match = sampleRegex.Match([]byte("1abc23"))
+fmt.Printf("For 1abc23: %t\n", match)
+match = sampleRegex.Match([]byte("abc"))
+fmt.Printf("For abc: %t\n", match)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق کارکترهای [] به این معنا است که عبارت مورد نظر می تواند شامل عبارت مورد مقایسه نیز باشد.
 به چند تا از علائم و معانی پرکاربرد در عبارات قاعده مند توجه کنید.&lt;/p>
 &lt;ol>
@@ -2445,19 +2550,24 @@ For abc: true
 &lt;/ol>
 &lt;p>لیست کامل این عبارات را می توانید در &lt;a href="https://regexlearn.com/cheatsheet">اینجا&lt;/a> مشاهده کنید.&lt;/p>
 &lt;p>در مواقعی مایل هستیم که عبارت مورد نظر در رشته را جستجو و نمایش دهیم بطور مثال:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;regexp&amp;quot;
+"fmt"
+"regexp"
 )
 func main() {
 sampleRegexp := regexp.MustCompile(`(ab){2}`)
-matches := sampleRegexp.FindString(&amp;quot;abab&amp;quot;)
+matches := sampleRegexp.FindString("abab")
 fmt.Println(matches)
-matches = sampleRegexp.FindString(&amp;quot;ababbc&amp;quot;)
+matches = sampleRegexp.FindString("ababbc")
 fmt.Println(matches)
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در اینجا از برنامه خواسته ایم که به دنبال ترکیبی از ab با تکرار دوبار متوالی باشد و در انتها عبارت پیدا شده توسط تابع FindString را نمایش دهد که علامت () تاکید روی عبارت مورد نظر است و {2} به معنی تکرار حداقل دوبار متوالی است.&lt;/p>
 &lt;p>خروجی کد بالا&lt;/p>
 &lt;pre>&lt;code class="language-shell">$go run main.go
@@ -2465,24 +2575,24 @@ abab
 abab
 &lt;/code>&lt;/pre>
 &lt;p>در پایان می خواهیم یک مثال سختر را که در ابتدا به آن اشاره کردیم بنویسیم و آن بررسی شماره تلفن است.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;regexp&amp;quot;
+"fmt"
+"regexp"
 )
 func main() {
 sampleRegexp := regexp.MustCompile(`^\+989(1[0-9]|3[1-9]|2[1-9])?[0-9]{7}$`)
-matches := sampleRegexp.Match([]byte(&amp;quot;+989121234#566&amp;quot;))
+matches := sampleRegexp.Match([]byte("+989121234#566"))
 fmt.Println(matches)
-matches = sampleRegexp.Match([]byte(&amp;quot;+989121234567&amp;quot;))
+matches = sampleRegexp.Match([]byte("+989121234567"))
 fmt.Println(matches)
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی کد بالا&lt;/p>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-false
-true
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق علامت ^ در عبارات با قاعده به معنی شروع ساختار عبارت است و علامت $ به معنای پایان عبارت. درواقع تمامی رشته های که قرار است عتبار سنجی شوند باید در ساختار بین این تو کاراکتر تطبیق شوند.
 در ادامه نیاز است تا با کمک کاراکتر \ اثر کارکتر + را خنثی کنیم به این معنی که تمامی شماره های وارد شده باید علامت + در ابتدا داشته باشند سپس قید شده است که 989 که پیش شمار ایران و موبایل است را قید کرده ایم .
 از آنجا که شماره موبایلهای ایران 911|912|913 شروع می شود با این عبارت &amp;ldquo;(1[0-9]|3[1-9]|2[1-9])&amp;rdquo; مشخص کرده ایم.
@@ -2523,47 +2633,48 @@ true
 &lt;a class="anchor" href="#5153-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%d8%aa%d8%a7%db%8c%d9%be-%d9%87%d8%a7%db%8c-%d9%85%d8%aa%d8%ba%db%8c%d8%b1%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;p>در ابتدا، می‌توانیم با پکیج reflect، از بررسی نوع متغیرها برای شروع استفاده کنیم. کد زیر را ببینید که نوع چندین متغیر را چاپ می‌کند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+"fmt"
+"reflect"
 )
 func main() {
 x := 10
-name := &amp;quot;Go Lang&amp;quot;
+name := "Go Lang"
 type Book struct {
 name string
 author string
 }
-sampleBook := Book{&amp;quot;Reflection in Go&amp;quot;, &amp;quot;John&amp;quot;}
+sampleBook := Book{"Reflection in Go", "John"}
 fmt.Println(reflect.TypeOf(x)) // int
 fmt.Println(reflect.TypeOf(name)) // string
 fmt.Println(reflect.TypeOf(sampleBook)) // main.Book
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-int
-string
-main.Book
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>کد بالا نوع داده‌های متغیرها را با استفاده از تابع reflect.TypeOf چاپ می‌کند. تابع TypeOf یک نمونه reflection Type بازگردانده می‌کند که توابعی برای دسترسی به اطلاعات بیشتر درباره نوع فعلی فراهم می‌کند. برای مثال، می‌توانیم از تابع Kind برای بدست آوردن نوع ابتدایی یک متغیر استفاده کنیم. به خاطر داشته باشید که کد بالا نوع داده ساختار اختصاصی main.Book برای متغیر sampleBook را نشان می‌دهد - نه نوع ساختار ابتدایی.&lt;/p>
 &lt;p>برای بدست آوردن نوع ابتدایی، کد بالا را به صورت زیر تغییر دهید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+"fmt"
+"reflect"
 )
 func main() {
 var (
-str = &amp;quot;Hello, world!&amp;quot;
+str = "Hello, world!"
 num = 42
 flt = 3.14
 boo = true
 slice = []int{1, 2, 3}
-mymap = map[string]int{&amp;quot;foo&amp;quot;: 1, &amp;quot;bar&amp;quot;: 2}
-structure = struct{ Name string }{Name: &amp;quot;John Doe&amp;quot;}
-interface1 interface{} = &amp;quot;hello&amp;quot;
-interface2 interface{} = &amp;amp;structure
+mymap = map[string]int{"foo": 1, "bar": 2}
+structure = struct{ Name string }{Name: "John Doe"}
+interface1 interface{} = "hello"
+interface2 interface{} = &amp;structure
 )
 fmt.Println(reflect.TypeOf(str).Kind())
 fmt.Println(reflect.TypeOf(num).Kind())
@@ -2574,49 +2685,47 @@ fmt.Println(reflect.TypeOf(mymap).Kind())
 fmt.Println(reflect.TypeOf(structure).Kind())
 fmt.Println(reflect.TypeOf(interface1).Kind())
 fmt.Println(reflect.TypeOf(interface2).Kind())
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-string
-int
-float64
-bool
-slice
-map
-struct
-string
-ptr
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>دلیلی که در کد بالا برای سومین دستور چاپ، struct چاپ می‌شود، این است که تابع Kind reflection Type یک reflection Kind بازگردانده که اطلاعات نوع اولیه را نگه می‌دارد. در این حالت، reflection Kind نوع اولیه ساختار است.&lt;/p>
 &lt;h3 id="51531-اندازه-تایپ-های-مقداردهی-شده">
 5.15.3.1 اندازه تایپ های مقداردهی شده
 &lt;a class="anchor" href="#51531-%d8%a7%d9%86%d8%af%d8%a7%d8%b2%d9%87-%d8%aa%d8%a7%db%8c%d9%be-%d9%87%d8%a7%db%8c-%d9%85%d9%82%d8%af%d8%a7%d8%b1%d8%af%d9%87%db%8c-%d8%b4%d8%af%d9%87">#&lt;/a>
 &lt;/h3>
 &lt;p>همچنین می‌توانیم از تابع Size reflection Type استفاده کنیم تا تعداد بایت‌های مورد نیاز برای ذخیره نوع فعلی را بدست آوریم. کد زیر را ببینید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+"fmt"
+"reflect"
 )
 func main() {
 var (
-str = &amp;quot;Hello, world!&amp;quot;
+str = "Hello, world!"
 num = 42
 flt = 3.14
 boo = true
 slice = []int{1, 2, 3}
-mymap = map[string]int{&amp;quot;foo&amp;quot;: 1, &amp;quot;bar&amp;quot;: 2}
-structure = struct{ Name string }{Name: &amp;quot;John Doe&amp;quot;}
+mymap = map[string]int{"foo": 1, "bar": 2}
+structure = struct{ Name string }{Name: "John Doe"}
 )
-fmt.Printf(&amp;quot;Size of str: %d\n&amp;quot;, reflect.TypeOf(str).Size())
-fmt.Printf(&amp;quot;Size of num: %d\n&amp;quot;, reflect.TypeOf(num).Size())
-fmt.Printf(&amp;quot;Size of flt: %d\n&amp;quot;, reflect.TypeOf(flt).Size())
-fmt.Printf(&amp;quot;Size of boo: %d\n&amp;quot;, reflect.TypeOf(boo).Size())
-fmt.Printf(&amp;quot;Size of slice: %d\n&amp;quot;, reflect.TypeOf(slice).Size())
-fmt.Printf(&amp;quot;Size of mymap: %d\n&amp;quot;, reflect.TypeOf(mymap).Size())
-fmt.Printf(&amp;quot;Size of structure: %d\n&amp;quot;, reflect.TypeOf(structure).Size())
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("Size of str: %d\n", reflect.TypeOf(str).Size())
+fmt.Printf("Size of num: %d\n", reflect.TypeOf(num).Size())
+fmt.Printf("Size of flt: %d\n", reflect.TypeOf(flt).Size())
+fmt.Printf("Size of boo: %d\n", reflect.TypeOf(boo).Size())
+fmt.Printf("Size of slice: %d\n", reflect.TypeOf(slice).Size())
+fmt.Printf("Size of mymap: %d\n", reflect.TypeOf(mymap).Size())
+fmt.Printf("Size of structure: %d\n", reflect.TypeOf(structure).Size())
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این کد، با استفاده از تابع Size reflection Type، تعداد بایت‌های مورد نیاز برای ذخیره هر نوع را چاپ می‌کند. با اجرای این کد، خروجی زیر را خواهید داشت:&lt;/p>
 &lt;pre>&lt;code class="language-shell">$ go run main.go
 Size of str: 16
@@ -2633,30 +2742,35 @@ Size of structure: 0
 &lt;a class="anchor" href="#5154-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%db%8c%da%a9-%d9%85%d8%aa%d8%ba%db%8c%d8%b1">#&lt;/a>
 &lt;/h2>
 &lt;p>قبلاً، اطلاعات نوع داده‌ها را بررسی کردیم. همچنین با استفاده از پکیج reflect، می‌توانیم مقادیر متغیرها را استخراج کنیم. کد زیر، مقادیر متغیرها را با استفاده از تابع reflect.ValueOf چاپ می‌کند:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+"fmt"
+"reflect"
 )
 func main() {
 var (
-str = &amp;quot;Hello, world!&amp;quot;
+str = "Hello, world!"
 num = 42
 flt = 3.14
 boo = true
 slice = []int{1, 2, 3}
-mymap = map[string]int{&amp;quot;foo&amp;quot;: 1, &amp;quot;bar&amp;quot;: 2}
-structure = struct{ Name string }{Name: &amp;quot;John Doe&amp;quot;}
+mymap = map[string]int{"foo": 1, "bar": 2}
+structure = struct{ Name string }{Name: "John Doe"}
 )
-fmt.Printf(&amp;quot;Value of str: %v\n&amp;quot;, reflect.ValueOf(str))
-fmt.Printf(&amp;quot;Value of num: %v\n&amp;quot;, reflect.ValueOf(num))
-fmt.Printf(&amp;quot;Value of flt: %v\n&amp;quot;, reflect.ValueOf(flt))
-fmt.Printf(&amp;quot;Value of boo: %v\n&amp;quot;, reflect.ValueOf(boo))
-fmt.Printf(&amp;quot;Value of slice: %v\n&amp;quot;, reflect.ValueOf(slice))
-fmt.Printf(&amp;quot;Value of mymap: %v\n&amp;quot;, reflect.ValueOf(mymap))
-fmt.Printf(&amp;quot;Value of structure: %v\n&amp;quot;, reflect.ValueOf(structure))
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("Value of str: %v\n", reflect.ValueOf(str))
+fmt.Printf("Value of num: %v\n", reflect.ValueOf(num))
+fmt.Printf("Value of flt: %v\n", reflect.ValueOf(flt))
+fmt.Printf("Value of boo: %v\n", reflect.ValueOf(boo))
+fmt.Printf("Value of slice: %v\n", reflect.ValueOf(slice))
+fmt.Printf("Value of mymap: %v\n", reflect.ValueOf(mymap))
+fmt.Printf("Value of structure: %v\n", reflect.ValueOf(structure))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این کد، با استفاده از تابع reflect.ValueOf، مقادیر متغیرها را چاپ می‌کند. با اجرای این کد، خروجی زیر را خواهید داشت:&lt;/p>
 &lt;pre>&lt;code class="language-shell">$ go run main.go
 Value of str: Hello, world!
@@ -2673,29 +2787,34 @@ Value of structure: {John Doe}
 &lt;a class="anchor" href="#5155-%d8%aa%d8%ba%db%8c%db%8c%d8%b1-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%db%8c%da%a9-%d9%85%d8%aa%d8%ba%db%8c%d8%b1">#&lt;/a>
 &lt;/h2>
 &lt;p>قبلاً، ساختار کد را با استفاده از چندین تابع در پکیج reflect بررسی کردیم. همچنین با استفاده از API بازتاب Go، امکان تغییر کد در حین اجرا وجود دارد. در کد زیر، نحوه به‌روزرسانی یک فیلد رشته‌ای در یک ساختار را مشاهده می‌کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+"fmt"
+"reflect"
 )
 type Person struct {
 Name string
 Age int
 }
 func main() {
-p := Person{Name: &amp;quot;John&amp;quot;, Age: 30}
-fmt.Println(&amp;quot;Before update:&amp;quot;, p)
-v := reflect.ValueOf(&amp;amp;p)
+p := Person{Name: "John", Age: 30}
+fmt.Println("Before update:", p)
+v := reflect.ValueOf(&amp;p)
 if v.Kind() == reflect.Ptr {
 v = v.Elem()
 }
-f := v.FieldByName(&amp;quot;Name&amp;quot;)
-if f.IsValid() &amp;amp;&amp;amp; f.CanSet() {
-f.SetString(&amp;quot;Jane&amp;quot;)
+f := v.FieldByName("Name")
+if f.IsValid() &amp;&amp; f.CanSet() {
+f.SetString("Jane")
 }
-fmt.Println(&amp;quot;After update:&amp;quot;, p)
-}
-&lt;/code>&lt;/pre>
+fmt.Println("After update:", p)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این کد، یک ساختار به نام Person تعریف شده است که دو فیلد Name و Age دارد. در تابع main، یک نمونه از ساختار Person با مقدار پیش‌فرض Name: &amp;ldquo;John&amp;rdquo; و Age: 30 ایجاد شده است. سپس با استفاده از تابع reflect.ValueOf، نمونه ساختار Person به یک reflection Value تبدیل شده و با استفاده از تابع Kind، نوع آن بررسی می‌شود. اگر نوع نمونه یک اشاره‌گر باشد، با استفاده از تابع Elem، به مقدار اشاره شده تبدیل می‌شود.&lt;/p>
 &lt;p>در ادامه، با استفاده از تابع FieldByName، فیلد Name در نمونه ساختار Person بدست آورده می‌شود. سپس با استفاده از تابع IsValid بررسی می‌شود که آیا فیلد موجود است یا خیر. در صورت وجود، با استفاده از تابع CanSet بررسی می‌شود که آیا می‌توان آن را تغییر داد یا خیر. در صورت امکان تغییر، با استفاده از تابع SetString، مقدار فیلد Name به &amp;ldquo;Jane&amp;rdquo; تغییر می‌یابد.&lt;/p>
 &lt;p>در نهایت، با چاپ دوباره مقدار نمونه ساختار Person، تغییر در فیلد Name را مشاهده می‌کنیم. با اجرای این کد، خروجی زیر را خواهید داشت:&lt;/p>
@@ -2709,10 +2828,11 @@ After update: {Jane 30}
 &lt;a class="anchor" href="#5156-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%d8%a7%d8%b7%d9%84%d8%a7%d8%b9%d8%a7%d8%aa-%db%8c%da%a9-struct">#&lt;/a>
 &lt;/h2>
 &lt;p>بیایید یک کد نمونه برای بررسی همه فیلدهای یک ساختار بنویسیم. در طول بررسی، می‌توانیم نام و مقدار هر فیلد ساختار را نمایش دهیم. کد زیر این کار را انجام می‌دهد:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+"fmt"
+"reflect"
 )
 type Person struct {
 Name string
@@ -2720,17 +2840,21 @@ Age int
 Address string
 }
 func main() {
-p := Person{Name: &amp;quot;John&amp;quot;, Age: 30, Address: &amp;quot;123 Main St.&amp;quot;}
+p := Person{Name: "John", Age: 30, Address: "123 Main St."}
 v := reflect.ValueOf(p)
 if v.Kind() == reflect.Ptr {
 v = v.Elem()
 }
-for i := 0; i &amp;lt; v.NumField(); i++ {
+for i := 0; i &lt; v.NumField(); i++ {
 field := v.Field(i)
-fmt.Printf(&amp;quot;Field %d: %s = %v\n&amp;quot;, i, v.Type().Field(i).Name, field.Interface())
+fmt.Printf("Field %d: %s = %v\n", i, v.Type().Field(i).Name, field.Interface())
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این کد، یک ساختار به نام Person تعریف شده است که دارای سه فیلد Name، Age و Address است. در تابع main، یک نمونه از ساختار Person با مقدار پیش‌فرض Name: &amp;ldquo;John&amp;rdquo;، Age: 30 و Address: &amp;ldquo;123 Main St.&amp;rdquo; ایجاد شده است.&lt;/p>
 &lt;p>سپس با استفاده از تابع reflect.ValueOf، نمونه ساختار Person به یک reflection Value تبدیل شده و با استفاده از تابع Kind، نوع آن بررسی می‌شود. اگر نوع نمونه یک اشاره‌گر باشد، با استفاده از تابع Elem، به مقدار اشاره شده تبدیل می‌شود.&lt;/p>
 &lt;p>در ادامه، با استفاده از تابع NumField، تعداد فیلدهای موجود در نمونه ساختار Person بدست آورده می‌شود. سپس در یک حلقه، با استفاده از تابع Field، مقدار هر فیلد به همراه نام آن چاپ می‌شود. با استفاده از تابع Type، نوع نمونه ساختار Person به دست می‌آید، و با استفاده از تابع Field(i).Name، نام فیلد در ایندکس i بدست می‌آید. در نهایت، با استفاده از تابع Interface، مقدار فیلد به صورت یک interface{} برگردانده می‌شود و چاپ می‌شود.&lt;/p>
@@ -2746,55 +2870,52 @@ Field 2: Address = 123 Main St.
 &lt;a class="anchor" href="#5157-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%d9%85%d8%aa%d8%af%d9%87%d8%a7-methods">#&lt;/a>
 &lt;/h2>
 &lt;p>فرض کنید شما یک موتور دستور سفارشی برای یک برنامه شل پیاده‌سازی می‌کنید و برای اجرای توابع Go بر اساس دستورات ورودی کاربر، نیاز دارید دستورات را به توابع مرتبط تخصیص دهید. اگر تعداد توابع کم باشد، می‌توانید از یک switch-case statement استفاده کنید. اما اگر تعداد توابع صد‌ها نفر باشد؟ در این صورت، ما می‌توانیم توابع Go را براساس نام آن‌ها به صورت پویا فراخوانی کنیم. برنامه شل پایه‌ای زیر با استفاده از بازتاب این کار را انجام می‌دهد:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
-&amp;quot;bufio&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"reflect"
+"bufio"
+"os"
 )
 type NativeCommandEngine struct{}
 func (nse NativeCommandEngine) Method1() {
-fmt.Println(&amp;quot;INFO: Method1 executed!&amp;quot;)
+fmt.Println("INFO: Method1 executed!")
 }
 func (nse NativeCommandEngine) Method2() {
-fmt.Println(&amp;quot;INFO: Method2 executed!&amp;quot;)
+fmt.Println("INFO: Method2 executed!")
 }
 func (nse NativeCommandEngine) callMethodByName(methodName string) {
 method := reflect.ValueOf(nse).MethodByName(methodName)
 if !method.IsValid() {
-fmt.Println(&amp;quot;ERROR: \&amp;quot;&amp;quot; + methodName + &amp;quot;\&amp;quot; is not implemented&amp;quot;)
+fmt.Println("ERROR: \"" + methodName + "\" is not implemented")
 return
 }
 method.Call(nil)
 }
 func (nse NativeCommandEngine) ShowCommands() {
 val := reflect.TypeOf(nse)
-for i := 0; i &amp;lt; val.NumMethod(); i++ {
+for i := 0; i &lt; val.NumMethod(); i++ {
 fmt.Println(val.Method(i).Name)
 }
 }
 func main() {
 nse := NativeCommandEngine{}
-fmt.Println(&amp;quot;A simple Shell v1.0.0&amp;quot;)
-fmt.Println(&amp;quot;Supported commands:&amp;quot;)
+fmt.Println("A simple Shell v1.0.0")
+fmt.Println("Supported commands:")
 nse.ShowCommands()
 scanner := bufio.NewScanner(os.Stdin)
-fmt.Print(&amp;quot;$ &amp;quot;)
+fmt.Print("$ ")
 for scanner.Scan() {
 nse.callMethodByName(scanner.Text())
-fmt.Print(&amp;quot;$ &amp;quot;)
+fmt.Print("$ ")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-A simple Shell v1.0.0
-Supported commands:
-Method1
-Method2
-ShowCommands
-$
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>برنامه شلی که پیشتر نوشتیم، ابتدا تمام دستورات پشتیبانی شده را نشان می‌دهد. سپس کاربر می‌تواند دستورات را به دلخواه خود وارد کند. هر دستور شل یک متد متناظر دارد، و اگر یک متد خاص وجود نداشته باشد، شل پیام خطا چاپ می‌کند.&lt;/p>
 &lt;h2 id="5158-نوشتن-custom-tag-برای-فیلد-های-ساختار">
 5.15.8 نوشتن custom tag برای فیلد های ساختار
@@ -2802,27 +2923,32 @@ $
 &lt;/h2>
 &lt;p>تگ سفارشی مانند &lt;code>json:&amp;quot;name&amp;quot;&lt;/code> در گو، برای اتصال متاداده به فیلدهای یک ساختار استفاده می‌شود. بسته &lt;code>reflect&lt;/code> در گو، یک راه برای دسترسی به این تگ‌ها در زمان اجرا فراهم می‌کند. برای ایجاد یک تگ سفارشی در گو، می‌توان از بسته &lt;code>reflect&lt;/code> برای دسترسی به تگ‌ها بر روی یک فیلد ساختار استفاده کرد.&lt;/p>
 &lt;p>در ادامه مثالی از چگونگی ایجاد یک تگ سفارشی با بسته &lt;code>reflect&lt;/code> در گو آورده شده است:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+"fmt"
+"reflect"
 )
 type Person struct {
-Name string `customtag:&amp;quot;myname&amp;quot;`
-Age int `customtag:&amp;quot;myage&amp;quot;`
+Name string `customtag:"myname"`
+Age int `customtag:"myage"`
 }
 func main() {
-p := Person{&amp;quot;John&amp;quot;, 30}
+p := Person{"John", 30}
 t := reflect.TypeOf(p)
 v := reflect.ValueOf(p)
-for i := 0; i &amp;lt; t.NumField(); i++ {
+for i := 0; i &lt; t.NumField(); i++ {
 field := t.Field(i)
 value := v.Field(i)
-tag := field.Tag.Get(&amp;quot;customtag&amp;quot;)
-fmt.Printf(&amp;quot;Field: %s, Value: %v, Tag: %s\n&amp;quot;, field.Name, value.Interface(), tag)
+tag := field.Tag.Get("customtag")
+fmt.Printf("Field: %s, Value: %v, Tag: %s\n", field.Name, value.Interface(), tag)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، یک ساختار Person با دو فیلد Name و Age تعریف شده است. هر یک از این فیلدها با استفاده از کلید &lt;code>customtag&lt;/code> یک تگ سفارشی دارند.&lt;/p>
 &lt;p>برای دسترسی به تگ‌ها در زمان اجرا، از بسته &lt;code>reflect&lt;/code> استفاده می‌شود. با استفاده از &lt;code>reflect.TypeOf&lt;/code> و &lt;code>reflect.ValueOf&lt;/code> نوع و مقدار ساختار Person بدست می‌آیند. سپس با استفاده از حلقه &lt;code>for&lt;/code> و توابع &lt;code>t.NumField()&lt;/code> و &lt;code>t.Field(i)&lt;/code> بر روی فیلدهای ساختار حرکت می‌کنیم. برای هر فیلد، با استفاده از &lt;code>v.Field(i)&lt;/code> مقدار آن را و با استفاده از &lt;code>field.Tag.Get(&amp;quot;customtag&amp;quot;)&lt;/code> تگ سفارشی آن را بدست می‌آوریم.&lt;/p>
 &lt;p>در نهایت با استفاده از &lt;code>fmt.Printf&lt;/code> نام فیلد، مقدار آن و تگ سفارشی آن را چاپ می‌کنیم. خروجی این برنامه به شکل زیر خواهد بود:&lt;/p>
@@ -2844,8 +2970,9 @@ Field: Age, Value: 30, Tag: myage
 &lt;/h2>
 &lt;p>شما می توانید برای هر یک از آبجکت ها متد String را پیاده سازی کنید و یک خروجی استرینگ در خصوص مقادیر آبجکت داشته باشید.&lt;/p>
 &lt;p>به مثال کاربردی زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type Age int
 const (
 CHILDERN Age = iota
@@ -2855,22 +2982,23 @@ ADULTS
 func (a Age) String() string {
 switch a {
 case CHILDERN:
-return &amp;quot;childern&amp;quot;
+return "childern"
 case ADOLESCENTS:
-return &amp;quot;adolescents&amp;quot;
+return "adolescents"
 case ADULTS:
-return &amp;quot;adults&amp;quot;
+return "adults"
 default:
-return &amp;quot;&amp;quot;
+return ""
 }
 }
 func main() {
 fmt.Println(CHILDERN.String())
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-childern
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال فوق ما یک تایپ Age تعریف کردیم و سپس یکسری enum با همان تایپ قرار دادیم پس از آن متد String را پیاده سازی کردیم که بتوانیم رشته هرکدام از enum ها را بگیریم.&lt;/p>
 &lt;h2 id="4172-استفاده-از-ابزار-stringer">
 4.17.2 استفاده از ابزار stringer
@@ -2881,8 +3009,9 @@ childern
 &lt;pre>&lt;code class="language-shell">$ go install golang.org/x/tools/cmd/stringer@latest
 &lt;/code>&lt;/pre>
 &lt;p>اکنون بخواهیم با استفاده از ابزار stringer متد استرینگ جنریت کنیم کافیه مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 //go:generate stringer -type=Age
 type Age int
 const (
@@ -2892,8 +3021,12 @@ ADULTS
 )
 func main() {
 fmt.Println(CHILDERN.String())
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک directive comment اضافه کردیم حال کافیه با استفاده از دستور go generate متد استرینگ تایپ را جنریت کنیم.&lt;/p>
 &lt;pre>&lt;code>go generate ./...
 &lt;/code>&lt;/pre></description></item><item><author/><title>4.18 تکنیک های کدنویسی زبان گو</title><link>https://book.gofarsi.ir/chapter-4/effective-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/effective-go/</guid><description>&lt;p>در این بخش به موارد زیر می پردازیم.&lt;/p>
@@ -3002,15 +3135,16 @@ codeUsing(f)
 &lt;a class="anchor" href="#41841-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%d8%b5%d9%81%d8%b1-%d8%aa%d8%a7%db%8c%d9%be-%d9%87%d8%a7-%d9%88-%d9%85%d9%82%d8%a7%d8%af%db%8c%d8%b1">#&lt;/a>
 &lt;/h3>
 &lt;p>همانطور در فصل های قبل اشاره کردیم تایپ ساختار (struct) بدون فیلد مقدارش در حافظه کاملا صفر است. اندازه تایپ آرایه بدون هیچ المنتی صفر است. حال در زیر یک مثال میزنیم تا ببینید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;unsafe&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "unsafe"
 type A [0][256]int
 type S struct {
 x A
-y [1 &amp;lt;&amp;lt; 30]A
-z [1 &amp;lt;&amp;lt; 30]struct{}
+y [1 &lt;&lt; 30]A
+z [1 &lt;&lt; 30]struct{}
 }
-type T [1 &amp;lt;&amp;lt; 30]S
+type T [1 &lt;&lt; 30]S
 func main() {
 var a A
 var s S
@@ -3018,13 +3152,12 @@ var t T
 println(unsafe.Sizeof(a)) // 0
 println(unsafe.Sizeof(s)) // 0
 println(unsafe.Sizeof(t)) // 0
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-0
-0
-0
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در Go، اندازه ها اغلب به عنوان مقادیر int نشان داده می شوند. این به این معنی است که بزرگترین طول ممکن یک آرایه MaxInt است که مقدار آن در سیستم عامل های 64 بیتی &lt;span dir="ltr">2^63-1&lt;/span> است. با این حال، طول آرایه با اندازه عناصر غیر صفر به سختی توسط کامپایلر استاندارد رسمی Go و زمان اجرا محدود می شود.&lt;/p>
 &lt;pre>&lt;code class="language-go">var x [1&amp;lt;&amp;lt;63 - 1]struct{} // okay
 var y [2000000000 + 1]byte // compilation error
@@ -3035,7 +3168,8 @@ var z = make([]byte, 1&amp;lt;&amp;lt;49) // panic: runtime error: makeslice: le
 &lt;a class="anchor" href="#41842-%d9%86%d8%ad%d9%88%d9%87-%d8%aa%d8%ae%d8%b5%db%8c%d8%b5-%d9%85%d9%82%d8%a7%d8%af%db%8c%d8%b1-%d8%a7%d9%86%d8%af%d8%a7%d8%b2%d9%87-%d8%b5%d9%81%d8%b1-%d8%a8%d9%87-%da%a9%d8%a7%d9%85%d9%be%d8%a7%db%8c%d9%84%d8%b1-%d8%a8%d8%b3%d8%aa%da%af%db%8c-%d8%af%d8%a7%d8%b1%d8%af">#&lt;/a>
 &lt;/h3>
 &lt;p>در اجرای استاندارد رسمی فعلی کامپایلر Go (نسخه 1.20)، همه مقادیر محلی صفر تخصیص داده شده روی heap و آدرس یکسانی دارند. به عنوان مثال، موارد زیر دو بار false را چاپ می کنند، سپس دو بار true را چاپ می کنند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 var g *[0]int
 var a, b [0]int
 //go:noinline
@@ -3046,20 +3180,18 @@ func main() {
 // x and y are allocated on stack.
 var x, y, z, w [0]int
 // Make z and w escape to heap.
-g = &amp;amp;z
-g = &amp;amp;w
-println(&amp;amp;b == &amp;amp;a) // false
-println(&amp;amp;x == &amp;amp;y) // false
-println(&amp;amp;z == &amp;amp;w) // true
-println(&amp;amp;z == f()) // true
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-false
-false
-true
-true
-&lt;/code>&lt;/pre>
+g = &amp;z
+g = &amp;w
+println(&amp;b == &amp;a) // false
+println(&amp;x == &amp;y) // false
+println(&amp;z == &amp;w) // true
+println(&amp;z == f()) // true
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;blockquote class="book-hint info">
 لطفا توجه داشته باشید که خروجی های برنامه فوق به کامپایلرهای خاصی بستگی دارد. خروجی ها ممکن است برای نسخه های کامپایلر استاندارد رسمی Go در آینده متفاوت باشند.
 &lt;/blockquote>
@@ -3068,8 +3200,9 @@ true
 &lt;a class="anchor" href="#41843-%d9%81%db%8c%d9%84%d8%af-%d8%a8%d8%a7-%d8%a7%d9%86%d8%af%d8%a7%d8%b2%d9%87-%d8%b5%d9%81%d8%b1-%d8%b1%d8%a7-%d8%a8%d9%87-%d8%b9%d9%86%d9%88%d8%a7%d9%86-%d9%81%db%8c%d9%84%d8%af-%d9%86%d9%87%d8%a7%db%8c%db%8c-%db%8c%da%a9-%d9%86%d9%88%d8%b9-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d9%82%d8%b1%d8%a7%d8%b1-%d9%86%d8%af%d9%87%db%8c%d8%af">#&lt;/a>
 &lt;/h3>
 &lt;p>در کد زیر اندازه تایپ Tz از تایپ Ty بزرگتر است.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;unsafe&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "unsafe"
 type Ty struct {
 _ [0]func()
 y int64
@@ -3083,12 +3216,12 @@ var y Ty
 var z Tz
 println(unsafe.Sizeof(y)) // 8
 println(unsafe.Sizeof(z)) // 16
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-8
-16
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>چرا اندازه نوع Tz بیشتر است؟&lt;/p>
 &lt;p>در پیاده‌سازی runtime Go استاندارد کنونی، تا زمانی که یک بلوک حافظه توسط حداقل یک اشاره‌گر زنده مشارکت شود، آن بلوک حافظه به عنوان زباله در نظر گرفته نمی‌شود و جمع‌آوری نمی‌شود. همه فیلدهای یک مقدار ساختار قابل دسترسی می‌توانند آدرس‌گرفته شوند. اگر اندازه فیلد نهایی در یک مقدار ساختار با اندازه غیر صفر صفر باشد، آنگاه گرفتن آدرس فیلد نهایی در مقدار ساختاری، آدرسی را که خارج از بلوک حافظه اختصاص داده شده برای مقدار ساختاری است باز خواهد گرداند. آدرس بازگردانده شده ممکن است به بلوک حافظه دیگری که به طور نزدیکی پس از بلوک حافظه اختصاص داده شده برای مقدار ساختاری با اندازه غیر صفر قرار دارد، اشاره کند. تا زمانی که آدرس بازگردانده شده در یک مقدار اشاره‌گر زنده ذخیره شود، بلوک حافظه دیگری که به جمع‌آوری زباله می‌روید جمع‌آوری نخواهد شد که ممکن است باعث نشت حافظه شود. برای جلوگیری از این نوع مشکلات نشت حافظه، کامپایلر Go استاندارد تضمین می‌کند که دریافت آدرس فیلد نهایی در یک ساختار با اندازه غیر صفر هرگز آدرسی را که خارج از بلوک حافظه اختصاص داده شده برای ساختار نیست را بازنخواهد گرداند. کامپایلر Go استاندارد این کار را با وارد کردن برخی بایت‌ها پس از فیلد صفر آخرین انجام می‌دهد. بنابراین، حداقل یک بایت پس از فیلد نهایی (صفر) نوع Tz وجود دارد. به همین دلیل اندازه نوع Tz بزرگتر از Ty است. در واقع، در سیستم عامل‌های ۶۴ بیتی، ۸ بایت پس از فیلد نهایی (صفر) Tz وجود دارد. برای توضیح این موضوع، باید دو حقیقت را در پیاده‌سازی کامپایلر استاندارد رسمی بدانیم:&lt;/p>
 &lt;ol>
@@ -3434,96 +3567,85 @@ Ran garbage collector
 &lt;/p>
 &lt;p>نکته قابل توجه اینجاست که تابع gcWaitOnMark دو بار در طول عملیات پاکسازی اجار می شود که بار اول جهت اعتبار سنجی منابع نشانه گذاری شده قسمت قبل است.&lt;/p>
 &lt;p>با این توضیحات حال می خواهیم به بررسی چند مثال ساده بپردازیم تا ببینیم در چه مواقعی بهتر است برنامه نویس در بخش های مناسب خود اقدام به پاکسازی حافظه نماید&lt;/p>
-&lt;pre>&lt;code class="language-go">
-package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;runtime&amp;quot;
+"fmt"
+"runtime"
 )
 func main() {
 // Allocate some memory for the program to use
 s := make([]string, 0, 100000)
-for i := 0; i &amp;lt; 100000; i++ {
-s = append(s, &amp;quot;hello, world&amp;quot;)
+for i := 0; i &lt; 100000; i++ {
+s = append(s, "hello, world")
 }
 // Print the initial memory usage
 var m runtime.MemStats
-runtime.ReadMemStats(&amp;amp;m)
-fmt.Println(&amp;quot;Initial HeapAlloc: &amp;quot;, m.HeapAlloc)
+runtime.ReadMemStats(&amp;m)
+fmt.Println("Initial HeapAlloc: ", m.HeapAlloc)
 // Trigger the garbage collector
 runtime.GC()
 // Print the memory usage after the garbage collector has run
-runtime.ReadMemStats(&amp;amp;m)
-fmt.Println(&amp;quot;After GC HeapAlloc: &amp;quot;, m.HeapAlloc)
+runtime.ReadMemStats(&amp;m)
+fmt.Println("After GC HeapAlloc: ", m.HeapAlloc)
 // Release the memory
 s = nil
 // Trigger the garbage collector
 runtime.GC()
 // Print the memory usage after the garbage collector has run
-runtime.ReadMemStats(&amp;amp;m)
-fmt.Println(&amp;quot;After release HeapAlloc: &amp;quot;, m.HeapAlloc)
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی برنامه :&lt;/p>
-&lt;pre>&lt;code class="language-bash"># go run main.go
-Initial HeapAlloc: 1654512
-After GC HeapAlloc: 37872
-After release HeapAlloc: 37872
-&lt;/code>&lt;/pre>
+runtime.ReadMemStats(&amp;m)
+fmt.Println("After release HeapAlloc: ", m.HeapAlloc)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا به کمک یک حلقه در هربار اجرای آن مقداری را به رشته قبلی خود اضافه نموده ایم و بعد از آن مقدار فضای اشغال شده توسط رشته ما در حافظه را نمایش می دهیم در ادامه به کمک runtime.GC حافظه را تخلیه می کنیم و در انتها بررسی می کنیم که آیا مقدار متغیر ما بصورت واقعی تخلیه شده است که نتایج خروجی موارد فوق را تائید می نماید. به یاد داشته باشید که منابع سیستم همواره محدود می باشد و در شرایط این چنینی می بایست خود برنامه نویس با تشخیص درست اقدام به تخلیه حافظه نماید.&lt;/p>
 &lt;h2 id="استفاده-از-godebug">
 استفاده از GODEBUG
 &lt;a class="anchor" href="#%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-godebug">#&lt;/a>
 &lt;/h2>
 &lt;p>در مواقعی نیاز است تا GC را بدونه کتابخانه و ابزار اضافی و فقط با قابلیت‌های داخلی خود زبان go بررسی نمائیم که در چنین شرایطی بهتر است از GODEBUG استفاده کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;runtime&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"runtime"
+"time"
 )
 func printStats(mem runtime.MemStats) {
-runtime.ReadMemStats(&amp;amp;mem)
-fmt.Println(&amp;quot;mem.Alloc:&amp;quot;, mem.Alloc)
-fmt.Println(&amp;quot;mem.TotalAlloc:&amp;quot;, mem.TotalAlloc)
-fmt.Println(&amp;quot;mem.HeapAlloc:&amp;quot;, mem.HeapAlloc)
-fmt.Println(&amp;quot;mem.NumGC:&amp;quot;, mem.NumGC)
-fmt.Println(&amp;quot;-----&amp;quot;)
+runtime.ReadMemStats(&amp;mem)
+fmt.Println("mem.Alloc:", mem.Alloc)
+fmt.Println("mem.TotalAlloc:", mem.TotalAlloc)
+fmt.Println("mem.HeapAlloc:", mem.HeapAlloc)
+fmt.Println("mem.NumGC:", mem.NumGC)
+fmt.Println("-----")
 }
 func main() {
 var mem runtime.MemStats
 printStats(mem)
-for i := 0; i &amp;lt; 10; i++ {
+for i := 0; i &lt; 10; i++ {
 s := make([]byte, 100000000)
 if s == nil {
-fmt.Println(&amp;quot;Operation failed!&amp;quot;)
+fmt.Println("Operation failed!")
 }
 }
 printStats(mem)
-for i := 0; i &amp;lt; 10; i++ {
+for i := 0; i &lt; 10; i++ {
 s := make([]byte, 100000000)
 if s == nil {
-fmt.Println(&amp;quot;Operation failed!&amp;quot;)
+fmt.Println("Operation failed!")
 }
 time.Sleep(5 * time.Second)
 }
 printStats(mem)
-}
-&lt;/code>&lt;/pre>
-&lt;p>خروجی کد:&lt;/p>
-&lt;pre>&lt;code class="language-bash"># go run main.go
-mem.Alloc: 48256
-mem.TotalAlloc: 48256
-mem.HeapAlloc: 48256
-mem.NumGC: 0
------
-mem.Alloc: 100045200
-mem.TotalAlloc: 1000128496
-mem.HeapAlloc: 100045200
-mem.NumGC: 9
------
-^Csignal: interrupt
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق برنامه بدون دیباگ خروجی فوق را تولید نموده است که مقدار منابع مصرف شده در هر چرخه را نمایش می دهد اما اگر بخواهیم برنامه را با دستور GODEBUG اجرا کنیم خروجی متفاوت خواهد بود به یاد داشته باشید ما در اینجا میخواهیم مقادیر تولید شده که بصورت key-value است و با علامت کاما از هم جدا شده اند و فقط برای GC را بررسی کنیم درحالی که می توان بخش های دیگر برنامه را نیز با سوئیچ های مختلف دیباگ کرد بنابراین اینبار برنامه را با دستور ذیل اجرا می کنیم&lt;/p>
 &lt;pre>&lt;code class="language-bash"># GODEBUG=gctrace=1 go run main.go a
 gc 1 @0.019s 1%: 0.014+2.4+0.001 ms clock, 0.014+0.33/0/0+0.001 ms cpu, 4-&amp;gt;4-&amp;gt;0 MB, 5 MB goal, 1 P
@@ -3596,8 +3718,8 @@ mem.NumGC: 9
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;strong>Tseq&lt;/strong>: زمان توقف گوروتین های کاربر&lt;br>
-&lt;strong>Tmark&lt;/strong>: زمان مورد استفاده جهت فاز mark&lt;br>
+&lt;p>&lt;strong>Tseq&lt;/strong>: زمان توقف گوروتین های کاربر
+&lt;strong>Tmark&lt;/strong>: زمان مورد استفاده جهت فاز mark
 &lt;strong>Tsweep&lt;/strong>: زمان مورد استفاده جهت فاز sweep&lt;/p></description></item><item><author/><title>4.22 کتابخانه Plugin</title><link>https://book.gofarsi.ir/chapter-4/go-plugin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-plugin/</guid><description>&lt;p>در میان ویژگی‌های قابل توجه Go نسخه 1.8، سیستم جدید پلاگین‌های Go قرار دارد. این ویژگی به برنامه‌نویسان اجازه می‌دهد تا برنامه‌های ماژولار بدون ارتباط زنجیره‌ای با هم، با استفاده از بسته‌هایی که به صورت کتابخانه‌های اشیا شیء‌گرا کامپایل شده‌اند، ساخته شوند و به‌صورت پویا در زمان اجرا بارگذاری و به‌صورت پیوسته به آن‌ها پیوند داده شوند.&lt;/p>
 &lt;p>این تغییر بزرگی است! چرا که توسعه‌دهندگان نرم‌افزارهای سیستمی بزرگ در Go، بدون شک، نیاز به ماژولارسازی کد خود دارند. ما برای دستیابی به ماژولارسازی کد، از طراحی‌های متعدد out-of-process، مانند &lt;a href="https://kubernetes.io/docs/admin/network-plugins/">OS exec calls&lt;/a>، &lt;a href="https://docs.docker.com/engine/extend/plugin_api/">سوکت&lt;/a> و &lt;a href="https://github.com/hashicorp/go-plugin">RPC/gRPC&lt;/a> (و غیره) استفاده کرده‌ایم. این روش‌ها ممکن است به خوبی کار کنند، اما در بسیاری از زمینه‌ها به‌عنوان پایانه‌ای برای پردازش با قبل نبود یک سیستم پلاگین‌ای ناتیو در Go بکار رفته‌اند.&lt;/p>
 &lt;p>در این بخش از کتاب، من بررسی می‌کنم که ایجاد نرم‌افزار ماژولار با استفاده از سیستم پلاگین‌های Go (plugin) چه تبعاتی دارد.&lt;/p>
@@ -3836,24 +3958,25 @@ Hello 🌎
 &lt;a class="anchor" href="#4241--%d9%85%d8%ab%d8%a7%d9%84-%d8%a7%d8%b2-tracing">#&lt;/a>
 &lt;/h2>
 &lt;p>ما برنامه ای داریم که تعداد دفعات یافتن یک topic را در collection ای ازRSS news feed document را می شمارد. این برنامه از یک threaded algorithm به نام freq استفاده می کند که روی collection تکرار می شود و هر سند را یک به یک پردازش می کند و تعداد دفعاتی که topic پیدا شده است را برمی‌گرداند.&lt;/p>
-&lt;pre>&lt;code class="language-go">func freq(topic string, docs []string) int {
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">func freq(topic string, docs []string) int {
 var found int
 for _, doc := range docs {
-file := fmt.Sprintf(&amp;quot;%s.xml&amp;quot;, doc[:8])
+file := fmt.Sprintf("%s.xml", doc[:8])
 f, err := os.OpenFile(file, os.O_RDONLY, 0)
 if err != nil {
-log.Printf(&amp;quot;Opening Document [%s] : ERROR : %v&amp;quot;, doc, err)
+log.Printf("Opening Document [%s] : ERROR : %v", doc, err)
 return 0
 }
 data, err := io.ReadAll(f)
 f.Close()
 if err != nil {
-log.Printf(&amp;quot;Reading Document [%s] : ERROR : %v&amp;quot;, doc, err)
+log.Printf("Reading Document [%s] : ERROR : %v", doc, err)
 return 0
 }
 var d document
-if err := xml.Unmarshal(data, &amp;amp;d); err != nil {
-log.Printf(&amp;quot;Decoding Document [%s] : ERROR : %v&amp;quot;, doc, err)
+if err := xml.Unmarshal(data, &amp;d); err != nil {
+log.Printf("Decoding Document [%s] : ERROR : %v", doc, err)
 return 0
 }
 for _, item := range d.Channel.Items {
@@ -3867,34 +3990,49 @@ found++
 }
 }
 return found
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>تابع Freq کار را به چهار مرحله تقسیم می کند: باز کردن، خواندن، باز کردن و جستجو. برای تست تابع freq، تابع main مجموعه ای از فایل های 4k را می سازد و freq را فراخوانی می کند.&lt;/p>
-&lt;pre>&lt;code class="language-go">type (
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"encoding/xml"
+"fmt"
+"log"
+)
+type (
 item struct {
-XMLName xml.Name `xml:&amp;quot;item&amp;quot;`
-Title string `xml:&amp;quot;title&amp;quot;`
-Description string `xml:&amp;quot;description&amp;quot;`
+XMLName xml.Name `xml:"item"`
+Title string `xml:"title"`
+Description string `xml:"description"`
 }
 channel struct {
-XMLName xml.Name `xml:&amp;quot;channel&amp;quot;`
-Items []item `xml:&amp;quot;item&amp;quot;`
+XMLName xml.Name `xml:"channel"`
+Items []item `xml:"item"`
 }
 document struct {
-XMLName xml.Name `xml:&amp;quot;rss&amp;quot;`
-Channel channel `xml:&amp;quot;channel&amp;quot;`
+XMLName xml.Name `xml:"rss"`
+Channel channel `xml:"channel"`
 }
 )
 func main() {
 docs := make([]string, 4000)
 for i := range docs {
-docs[i] = fmt.Sprintf(&amp;quot;newsfeed-%.4d.xml&amp;quot;, i)
+docs[i] = fmt.Sprintf("newsfeed-%.4d.xml", i)
 }
-topic := &amp;quot;president&amp;quot;
+topic := "president"
 n := freq(topic, docs)
-log.Printf(&amp;quot;Searching %d files, found %s %d times.&amp;quot;, len(docs), topic, n)
-}
-&lt;/code>&lt;/pre>
+log.Printf("Searching %d files, found %s %d times.", len(docs), topic, n)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>کدی که تکه‌ای از اسناد 4k را می‌سازد، مجموعه‌ای از فایل‌های منحصربه‌فرد را براساس یک فایل واقعی که ما newfeed.xml نامیده‌ایم ایجاد می‌کند.&lt;/p>
 &lt;pre>&lt;code class="language-xml">newsfeed.xml
 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
@@ -3922,21 +4060,30 @@ $ time ./trace
 &lt;a class="anchor" href="#4242--generating-traces">#&lt;/a>
 &lt;/h2>
 &lt;p>از آنجایی که این برنامه در عرض چند ثانیه شروع و متوقف می شود، می توانیم از کتابخانه استاندارد برای ایجاد ردی از این برنامه استفاده کنم. به طور کلی، ایجاد ردیابی برای بیش از چند ثانیه از زمان اجرا می‌تواند برای بررسی سخت باشد، زیرا یک ردیابی مقدار زیادی داده تولید می‌کند. ما می خواهیم بر روی ردپاهای کوچک و هدفمند تمرکز کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">import (
-&amp;quot;runtime/trace&amp;quot; //&amp;lt;-- ADDED
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"log"
+"os"
+"runtime/trace" //&lt;-- ADDED
 )
 func main() {
-trace.Start(os.Stdout) // &amp;lt;-- ADDED
-defer trace.Stop() // &amp;lt;-- ADDED
+trace.Start(os.Stdout) // &lt;-- ADDED
+defer trace.Stop() // &lt;-- ADDED
 docs := make([]string, 4000)
 for i := range docs {
-docs[i] = fmt.Sprintf(&amp;quot;newsfeed-%.4d.xml&amp;quot;, i)
+docs[i] = fmt.Sprintf("newsfeed-%.4d.xml", i)
 }
-topic := &amp;quot;president&amp;quot;
+topic := "president"
 n := freq(topic, docs)
-log.Printf(&amp;quot;Search %d files, found %s %d times.&amp;quot;, len(docs), topic, n)
-}
-&lt;/code>&lt;/pre>
+log.Printf("Search %d files, found %s %d times.", len(docs), topic, n)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>پس از افزودن بسته trace به importها، می توانیم از توابع trace.Start و Stop استفاده کنیم. نوشتن ردیابی در stdout گرفتن و تغییر مسیر داده های ردیابی به یک فایل را ساده می کند. حالا می توانم دوباره برنامه را اجرا کنیم.&lt;/p>
 &lt;pre>&lt;code class="language-shell">$ go build
 $ time ./trace &amp;gt; t.out

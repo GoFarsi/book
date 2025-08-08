@@ -2,7 +2,7 @@
   9.4.13.1 توضیحات
   #
 
-الگوی Subscription (یا Pub-Sub / Observer Pattern) یکی از پرکاربردترین الگوها در معماری‌های رویداد-محور و همزمان (event-driven & concurrent) است که امکان ثبت‌نام (subscribe) یک یا چند مصرف‌کننده (consumer) را برای دریافت خودکار داده‌های جدید از یک منبع یا سرویس فراهم می‌کند. در این الگو، یک یا چند مصرف‌کننده به یک &ldquo;آدرس&rdquo; یا منبع اشتراک (مثلاً یک topic، کانال یا event source) متصل می‌شوند و هر زمان که داده یا رویداد جدیدی منتشر شد (publish)، اطلاعات به طور خودکار و بی‌نیاز از polling مکرر به همه‌ی مصرف‌کننده‌های عضو ارسال می‌شود."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-subscription/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.13 الگو Subscription"><meta property="og:description" content="9.4.13.1 توضیحات # الگوی Subscription (یا Pub-Sub / Observer Pattern) یکی از پرکاربردترین الگوها در معماری‌های رویداد-محور و همزمان (event-driven & concurrent) است که امکان ثبت‌نام (subscribe) یک یا چند مصرف‌کننده (consumer) را برای دریافت خودکار داده‌های جدید از یک منبع یا سرویس فراهم می‌کند. در این الگو، یک یا چند مصرف‌کننده به یک “آدرس” یا منبع اشتراک (مثلاً یک topic، کانال یا event source) متصل می‌شوند و هر زمان که داده یا رویداد جدیدی منتشر شد (publish)، اطلاعات به طور خودکار و بی‌نیاز از polling مکرر به همه‌ی مصرف‌کننده‌های عضو ارسال می‌شود."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.13 الگو Subscription | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-subscription/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.6c1aaf1f270188830ce496fd59a7bc4eea6511a2c2d0fe2d706245283f6e0e03.js integrity="sha256-bBqvHycBiIMM5Jb9Wae8TuplEaLC0P4tcGJFKD9uDgM=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
+الگوی Subscription (یا Pub-Sub / Observer Pattern) یکی از پرکاربردترین الگوها در معماری‌های رویداد-محور و همزمان (event-driven & concurrent) است که امکان ثبت‌نام (subscribe) یک یا چند مصرف‌کننده (consumer) را برای دریافت خودکار داده‌های جدید از یک منبع یا سرویس فراهم می‌کند. در این الگو، یک یا چند مصرف‌کننده به یک &ldquo;آدرس&rdquo; یا منبع اشتراک (مثلاً یک topic، کانال یا event source) متصل می‌شوند و هر زمان که داده یا رویداد جدیدی منتشر شد (publish)، اطلاعات به طور خودکار و بی‌نیاز از polling مکرر به همه‌ی مصرف‌کننده‌های عضو ارسال می‌شود."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-subscription/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.13 الگو Subscription"><meta property="og:description" content="9.4.13.1 توضیحات # الگوی Subscription (یا Pub-Sub / Observer Pattern) یکی از پرکاربردترین الگوها در معماری‌های رویداد-محور و همزمان (event-driven & concurrent) است که امکان ثبت‌نام (subscribe) یک یا چند مصرف‌کننده (consumer) را برای دریافت خودکار داده‌های جدید از یک منبع یا سرویس فراهم می‌کند. در این الگو، یک یا چند مصرف‌کننده به یک “آدرس” یا منبع اشتراک (مثلاً یک topic، کانال یا event source) متصل می‌شوند و هر زمان که داده یا رویداد جدیدی منتشر شد (publish)، اطلاعات به طور خودکار و بی‌نیاز از polling مکرر به همه‌ی مصرف‌کننده‌های عضو ارسال می‌شود."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.13 الگو Subscription | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-subscription/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.b84e8b5ad0341651e017dbc60a5d71c5f75cb7e23e2ee16350e38b5fa3f90c2c.js integrity="sha256-uE6LWtA0FlHgF9vGCl1xxfdct+I+LuFjUOOLX6P5DCw=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
 .mermaid {
     display: flex;
     justify-content: center;
@@ -53,35 +53,35 @@ SubN -- "Subscribe" --> Topic
 style Topic fill:#e2f0fc,stroke:#377dbf,stroke-width:2px
 style Publisher fill:#f5e8ff,stroke:#b486e5,stroke-width:2px
 style Sub1,Sub2,SubN fill:#e9fbe7,stroke:#6dc165,stroke-width:2px</div><h2 id=94133-نمونه-کد>9.4.13.3 نمونه کد
-<a class=anchor href=#94133-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><pre><code class=language-go>package main
+<a class=anchor href=#94133-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
 import (
-	&quot;context&quot;
-	&quot;encoding/json&quot;
-	&quot;fmt&quot;
-	&quot;io/ioutil&quot;
-	&quot;log&quot;
-	&quot;net/http&quot;
-	&quot;os&quot;
-	&quot;time&quot;
+	"context"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"os"
+	"time"
 )
 
-const exampleAPIAddress = &quot;https://random-data-api.com/api/stripe/random_stripe&quot;
+const exampleAPIAddress = "https://random-data-api.com/api/stripe/random_stripe"
 
 type Card struct {
-	Id          uint   `json:&quot;id&quot;`
-	Uid         string `json:&quot;uid&quot;`
-	ValidCard   string `json:&quot;valid_card&quot;`
-	Token       string `json:&quot;token&quot;`
-	InvalidCard string `json:&quot;invalid_card&quot;`
-	Month       string `json:&quot;month&quot;`
-	Year        string `json:&quot;year&quot;`
-	CCV         string `json:&quot;ccv&quot;`
-	CCVAmex     string `json:&quot;ccv_amex&quot;`
+	Id          uint   `json:"id"`
+	Uid         string `json:"uid"`
+	ValidCard   string `json:"valid_card"`
+	Token       string `json:"token"`
+	InvalidCard string `json:"invalid_card"`
+	Month       string `json:"month"`
+	Year        string `json:"year"`
+	CCV         string `json:"ccv"`
+	CCVAmex     string `json:"ccv_amex"`
 }
 
 type Subscription interface {
-	Updates() &lt;-chan Card
+	Updates() <-chan Card
 }
 
 type Fetcher interface {
@@ -104,7 +104,7 @@ type fetchResult struct {
 
 // NewSubscription create subscription for fetch data per freq time in second
 func NewSubscription(ctx context.Context, fetcher Fetcher, freq uint) Subscription {
-	s := &amp;sub{
+	s := &sub{
 		fetcher: fetcher,
 		updates: make(chan Card),
 	}
@@ -113,7 +113,7 @@ func NewSubscription(ctx context.Context, fetcher Fetcher, freq uint) Subscripti
 }
 
 func NewFetcher(url string) Fetcher {
-	return &amp;fetcher{
+	return &fetcher{
 		url: url,
 	}
 }
@@ -141,30 +141,30 @@ func (s *sub) serve(ctx context.Context, freq uint) {
 		}
 
 		select {
-		case &lt;-ticker.C:
+		case <-ticker.C:
 			if pending {
 				break
 			}
 			go func() {
 				fetched, err := s.fetcher.Fetch()
-				done &lt;- fetchResult{fetched, err}
+				done <- fetchResult{fetched, err}
 			}()
-		case result := &lt;-done:
+		case result := <-done:
 			fetchedCard = result.fetchedCard
 			if result.err != nil {
-				log.Printf(&quot;fetch got error %v&quot;, result.err)
+				log.Printf("fetch got error %v", result.err)
 				break
 			}
 			pending = true
-		case fetchResponseStream &lt;- fetchedCard:
+		case fetchResponseStream <- fetchedCard:
 			pending = false
-		case &lt;-ctx.Done():
+		case <-ctx.Done():
 			return
 		}
 	}
 }
 
-func (s *sub) Updates() &lt;-chan Card {
+func (s *sub) Updates() <-chan Card {
 	return s.updates
 }
 
@@ -182,7 +182,7 @@ func requestAPI(url string) (Card, error) {
 	if err != nil {
 		return Card{}, err
 	}
-	if err := json.Unmarshal(body, &amp;card); err != nil {
+	if err := json.Unmarshal(body, &card); err != nil {
 		return Card{}, err
 	}
 	return card, nil
@@ -194,22 +194,19 @@ func main() {
 
 	time.AfterFunc(1*time.Minute, func() {
 		cancel()
-		log.Println(&quot;canceled subscription task&quot;)
+		log.Println("canceled subscription task")
 		os.Exit(0)
 	})
 
 	for card := range sub.Updates() {
 		fmt.Println(card)
 	}
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-{4643 add2475a-ed64-4039-831d-0e95469752d9 371449635398431 tok_mastercard_debit 4000000000000101 01 2024 920 7875}
-{6992 a89e3d71-785a-4d37-9639-be3ce7534257 2223003122003222 tok_discover 4000000000000069 11 2024 660 5241}
-{9287 f665526e-1b34-46f5-9d9d-50362631ed0f 5200828282828210 tok_mastercard_debit 4000000000000036 05 2026 993 6272}
-{4956 e8ae8e75-0ff2-42e8-921c-5cc438d64fac 3566002020360505 tok_amex 4000000000000044 10 2024 371 9989}
-{1193 954d1b36-829b-4726-bbb7-0f5f01b3dd40 6011000990139424 tok_mastercard_debit 4000000000000341 12 2026 331 5119}
-</code></pre><p>در این مثال، ابتدا یک اینترفیس به نام <strong>Subscription</strong> تعریف شده است که متدی به نام <code>Updates</code> دارد و کانالی از نوع <code>Card</code> را برمی‌گرداند. این کانال نقش مسیر ارتباطی را بین تولیدکننده و مصرف‌کننده ایفا می‌کند، به طوری که مصرف‌کننده می‌تواند به طور همزمان و غیرمسدود داده‌های جدید را دریافت کند. همچنین اینترفیس <strong>Fetcher</strong> طراحی شده که وظیفه‌ی فراخوانی API و دریافت داده‌ها را بر عهده دارد و متد <code>Fetch</code> را ارائه می‌دهد. این تفکیک وظایف باعث می‌شود کد قابلیت توسعه و تست بیشتری داشته باشد.</p><p>تابع <code>NewSubscription</code> به عنوان سازنده Subscription عمل می‌کند؛ این تابع یک struct از نوع <code>sub</code> ایجاد می‌کند که حاوی fetcher و یک کانال <code>updates</code> است. سپس متد <code>serve</code> به صورت یک goroutine اجرا می‌شود تا عملیات fetch را در فواصل زمانی مشخص (که با پارامتر freq تعیین می‌شود) تکرار کند. درون این متد از <code>time.Ticker</code> برای زمان‌بندی دقیق استفاده شده است تا به صورت منظم و بدون ایجاد سربار اضافی، داده‌ها را از API فراخوانی کند و در صورت دریافت موفقیت‌آمیز، آن‌ها را در کانال منتشر نماید. همچنین با کمک متغیر <code>pending</code> اطمینان حاصل می‌شود که یک fetch جدید تا قبل از اتمام fetch قبلی آغاز نشود، بنابراین از فشار بیش از حد به سرویس جلوگیری می‌شود.</p><p>مصرف‌کنندگان داده‌ها از طریق متد <code>Updates</code> به کانال <code>updates</code> دسترسی دارند و به محض دریافت داده‌های جدید، می‌توانند پردازش خود را آغاز کنند. استفاده از <code>context.Context</code> در این ساختار اجازه می‌دهد که در هر زمان عملیات fetch به صورت ایمن لغو شود و goroutine مربوطه به سرعت و بدون باقی ماندن در حالت بلاک‌شده خاتمه یابد. این طراحی باعث می‌شود که برنامه همزمانی بهینه‌ای داشته باشد، منابع به خوبی مدیریت شود و کد قابلیت خوانایی، توسعه و تست آسان را حفظ کند.</p><p>در کل، این الگو ترکیبی از بهترین شیوه‌های Go در مدیریت جریان داده‌های ناهمزمان، کنترل concurrency و ارتباط بین goroutineها است که برای دریافت داده‌های زنده از API یا منابع خارجی بسیار مناسب است. با چنین معماری می‌توان سیستم‌هایی تولید کرد که علاوه بر مقیاس‌پذیری بالا، مقاوم در برابر خطا و قابل کنترل نیز باشند.</p><h2 id=94134-کاربردها>9.4.13.4 کاربردها
-<a class=anchor href=#94134-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7>#</a></h2><ul><li><strong>دریافت اطلاعات از تولیدکننده‌ها (Publisher) یا سیستم‌های Pub/Sub:</strong><br>الگوی Subscription به شما این امکان را می‌دهد که به سادگی به یک یا چند منبع داده (مانند سرویس‌های پیام‌رسان، سیستم‌های صف پیام، یا هر منبعی که به صورت publish/subscribe کار می‌کند) متصل شوید و داده‌های جدید را به صورت همزمان و غیرمسدود دریافت کنید. این کار باعث می‌شود مصرف‌کننده‌ها به صورت real-time یا نزدیک به real-time اطلاعات را دریافت و پردازش نمایند و از پیچیدگی‌های مدیریت اتصال یا polling مکرر بی‌نیاز شوند.</li><li><strong>همگام‌سازی داده‌ها از APIهای خارجی:</strong><br>در بسیاری از برنامه‌ها نیاز است داده‌ها یا وضعیت از سرویس‌های خارجی (مانند RESTful APIها، سرویس‌های ابری یا سیستم‌های تحلیلی) به صورت دوره‌ای یا بر اساس رویداد به‌روزرسانی شوند. الگوی Subscription این امکان را فراهم می‌کند که بتوانید با تعریف یک سازوکار هوشمند برای دریافت به‌روزرسانی‌ها، مصرف داده‌ها را ساده، پایدار و بهینه کنید. این الگو به خصوص در سناریوهای real-time dashboards، اطلاع‌رسانی لحظه‌ای و هماهنگ‌سازی داده‌های توزیع‌شده کاربرد فراوان دارد.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%209/concurrency%20patterns/9.4.13-subscription.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در این مثال، ابتدا یک اینترفیس به نام <strong>Subscription</strong> تعریف شده است که متدی به نام <code>Updates</code> دارد و کانالی از نوع <code>Card</code> را برمی‌گرداند. این کانال نقش مسیر ارتباطی را بین تولیدکننده و مصرف‌کننده ایفا می‌کند، به طوری که مصرف‌کننده می‌تواند به طور همزمان و غیرمسدود داده‌های جدید را دریافت کند. همچنین اینترفیس <strong>Fetcher</strong> طراحی شده که وظیفه‌ی فراخوانی API و دریافت داده‌ها را بر عهده دارد و متد <code>Fetch</code> را ارائه می‌دهد. این تفکیک وظایف باعث می‌شود کد قابلیت توسعه و تست بیشتری داشته باشد.</p><p>تابع <code>NewSubscription</code> به عنوان سازنده Subscription عمل می‌کند؛ این تابع یک struct از نوع <code>sub</code> ایجاد می‌کند که حاوی fetcher و یک کانال <code>updates</code> است. سپس متد <code>serve</code> به صورت یک goroutine اجرا می‌شود تا عملیات fetch را در فواصل زمانی مشخص (که با پارامتر freq تعیین می‌شود) تکرار کند. درون این متد از <code>time.Ticker</code> برای زمان‌بندی دقیق استفاده شده است تا به صورت منظم و بدون ایجاد سربار اضافی، داده‌ها را از API فراخوانی کند و در صورت دریافت موفقیت‌آمیز، آن‌ها را در کانال منتشر نماید. همچنین با کمک متغیر <code>pending</code> اطمینان حاصل می‌شود که یک fetch جدید تا قبل از اتمام fetch قبلی آغاز نشود، بنابراین از فشار بیش از حد به سرویس جلوگیری می‌شود.</p><p>مصرف‌کنندگان داده‌ها از طریق متد <code>Updates</code> به کانال <code>updates</code> دسترسی دارند و به محض دریافت داده‌های جدید، می‌توانند پردازش خود را آغاز کنند. استفاده از <code>context.Context</code> در این ساختار اجازه می‌دهد که در هر زمان عملیات fetch به صورت ایمن لغو شود و goroutine مربوطه به سرعت و بدون باقی ماندن در حالت بلاک‌شده خاتمه یابد. این طراحی باعث می‌شود که برنامه همزمانی بهینه‌ای داشته باشد، منابع به خوبی مدیریت شود و کد قابلیت خوانایی، توسعه و تست آسان را حفظ کند.</p><p>در کل، این الگو ترکیبی از بهترین شیوه‌های Go در مدیریت جریان داده‌های ناهمزمان، کنترل concurrency و ارتباط بین goroutineها است که برای دریافت داده‌های زنده از API یا منابع خارجی بسیار مناسب است. با چنین معماری می‌توان سیستم‌هایی تولید کرد که علاوه بر مقیاس‌پذیری بالا، مقاوم در برابر خطا و قابل کنترل نیز باشند.</p><h2 id=94134-کاربردها>9.4.13.4 کاربردها
+<a class=anchor href=#94134-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7>#</a></h2><ul><li><strong>دریافت اطلاعات از تولیدکننده‌ها (Publisher) یا سیستم‌های Pub/Sub:</strong>
+الگوی Subscription به شما این امکان را می‌دهد که به سادگی به یک یا چند منبع داده (مانند سرویس‌های پیام‌رسان، سیستم‌های صف پیام، یا هر منبعی که به صورت publish/subscribe کار می‌کند) متصل شوید و داده‌های جدید را به صورت همزمان و غیرمسدود دریافت کنید. این کار باعث می‌شود مصرف‌کننده‌ها به صورت real-time یا نزدیک به real-time اطلاعات را دریافت و پردازش نمایند و از پیچیدگی‌های مدیریت اتصال یا polling مکرر بی‌نیاز شوند.</li><li><strong>همگام‌سازی داده‌ها از APIهای خارجی:</strong>
+در بسیاری از برنامه‌ها نیاز است داده‌ها یا وضعیت از سرویس‌های خارجی (مانند RESTful APIها، سرویس‌های ابری یا سیستم‌های تحلیلی) به صورت دوره‌ای یا بر اساس رویداد به‌روزرسانی شوند. الگوی Subscription این امکان را فراهم می‌کند که بتوانید با تعریف یک سازوکار هوشمند برای دریافت به‌روزرسانی‌ها، مصرف داده‌ها را ساده، پایدار و بهینه کنید. این الگو به خصوص در سناریوهای real-time dashboards، اطلاع‌رسانی لحظه‌ای و هماهنگ‌سازی داده‌های توزیع‌شده کاربرد فراوان دارد.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%209/concurrency%20patterns/9.4.13-subscription.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
 <span>این صفحه را ویرایش کنید</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><div class="text-left page-navigation"><a href=/chapter-9/concurrency-patterns/go-concurrency-pattern-brdige-channel/>9.4.14 الگو Bridge Channel ◀︎</a></div><script>function toggleTooltip(e){e.classList.toggle("active")}</script><div id=graphcomment></div><script type=text/javascript>var __semio__params={graphcommentId:"book",behaviour:{}};function __semio__onload(){__semio__gc_graphlogin(__semio__params)}(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.onload=__semio__onload,e.defer=!0,e.src="https://integration.graphcomment.com/gc_graphlogin.js?"+Date.now(),(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content></br><main><div class=wrapper><a href=https://t.me/GolangEngineers class="icon telegram" target=_blank><div class=tooltip>گروه تلگرامی مهندسین گولنگ</div><span><i class="fab fa-telegram"></i></span>
 </a><a href=https://linkedin.com/in/Ja7ad class="icon linkedin" target=_blank><div class=tooltip>لینکدین نویسنده</div><span><i class="fab fa-linkedin"></i></span>
 </a><a href=https://twitter.com/Ja7adR class="icon twitter" target=_blank><div class=tooltip>توییتر نویسنده</div><span><i class="fab fa-twitter"></i></span></a></div></main></br></br><nav id=TableOfContents><ul><li><ul><li><a href=#94131-توضیحات>9.4.13.1 توضیحات</a></li><li><a href=#94132-دیاگرام>9.4.13.2 دیاگرام</a></li><li><a href=#94133-نمونه-کد>9.4.13.3 نمونه کد</a></li><li><a href=#94134-کاربردها>9.4.13.4 کاربردها</a></li></ul></li></ul></nav></div></aside></main><button onclick=topFunction() id=myBtn title="رفتن به بالا" class="fas fa-solid fa-arrow-up"></button>

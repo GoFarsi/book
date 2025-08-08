@@ -2,7 +2,7 @@
   9.4.5.1 توضیحات
   #
 
-الگوی Drop یا Drop Overflow یکی از الگوهای حیاتی برای سیستم‌هایی است که ممکن است با موجی از درخواست‌ها روبرو شوند که بیش از ظرفیت واقعی سیستم است. در این الگو، زمانی که صف یا ظرفیت پردازش درخواست‌ها (مثلاً یک کانال یا بافر) پر می‌شود، به جای اینکه سیستم را دچار ازدحام، توقف یا crash کند، به سادگی درخواست‌های اضافی (یا جدیدتر یا قدیمی‌تر، بر اساس سیاست) را حذف (Drop) می‌کند. این کار باعث می‌شود سرویس همواره پایدار و قابل اطمینان باقی بماند و منابع اصلی به خاطر یک سناریوی غیرعادی یا حمله دچار مشکل نشود."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-drop/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.5 الگو Drop"><meta property="og:description" content="9.4.5.1 توضیحات # الگوی Drop یا Drop Overflow یکی از الگوهای حیاتی برای سیستم‌هایی است که ممکن است با موجی از درخواست‌ها روبرو شوند که بیش از ظرفیت واقعی سیستم است. در این الگو، زمانی که صف یا ظرفیت پردازش درخواست‌ها (مثلاً یک کانال یا بافر) پر می‌شود، به جای اینکه سیستم را دچار ازدحام، توقف یا crash کند، به سادگی درخواست‌های اضافی (یا جدیدتر یا قدیمی‌تر، بر اساس سیاست) را حذف (Drop) می‌کند. این کار باعث می‌شود سرویس همواره پایدار و قابل اطمینان باقی بماند و منابع اصلی به خاطر یک سناریوی غیرعادی یا حمله دچار مشکل نشود."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.5 الگو Drop | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-drop/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.6c1aaf1f270188830ce496fd59a7bc4eea6511a2c2d0fe2d706245283f6e0e03.js integrity="sha256-bBqvHycBiIMM5Jb9Wae8TuplEaLC0P4tcGJFKD9uDgM=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
+الگوی Drop یا Drop Overflow یکی از الگوهای حیاتی برای سیستم‌هایی است که ممکن است با موجی از درخواست‌ها روبرو شوند که بیش از ظرفیت واقعی سیستم است. در این الگو، زمانی که صف یا ظرفیت پردازش درخواست‌ها (مثلاً یک کانال یا بافر) پر می‌شود، به جای اینکه سیستم را دچار ازدحام، توقف یا crash کند، به سادگی درخواست‌های اضافی (یا جدیدتر یا قدیمی‌تر، بر اساس سیاست) را حذف (Drop) می‌کند. این کار باعث می‌شود سرویس همواره پایدار و قابل اطمینان باقی بماند و منابع اصلی به خاطر یک سناریوی غیرعادی یا حمله دچار مشکل نشود."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-drop/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.5 الگو Drop"><meta property="og:description" content="9.4.5.1 توضیحات # الگوی Drop یا Drop Overflow یکی از الگوهای حیاتی برای سیستم‌هایی است که ممکن است با موجی از درخواست‌ها روبرو شوند که بیش از ظرفیت واقعی سیستم است. در این الگو، زمانی که صف یا ظرفیت پردازش درخواست‌ها (مثلاً یک کانال یا بافر) پر می‌شود، به جای اینکه سیستم را دچار ازدحام، توقف یا crash کند، به سادگی درخواست‌های اضافی (یا جدیدتر یا قدیمی‌تر، بر اساس سیاست) را حذف (Drop) می‌کند. این کار باعث می‌شود سرویس همواره پایدار و قابل اطمینان باقی بماند و منابع اصلی به خاطر یک سناریوی غیرعادی یا حمله دچار مشکل نشود."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.5 الگو Drop | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-drop/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.b84e8b5ad0341651e017dbc60a5d71c5f75cb7e23e2ee16350e38b5fa3f90c2c.js integrity="sha256-uE6LWtA0FlHgF9vGCl1xxfdct+I+LuFjUOOLX6P5DCw=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
 .mermaid {
     display: flex;
     justify-content: center;
@@ -49,12 +49,12 @@ style Q fill:#ffe9c6,stroke:#efb64f,stroke-width:2px
 style D fill:#ffeaea,stroke:#ff5b5b,stroke-width:2px
 style W fill:#e3ffe3,stroke:#6bc76b,stroke-width:2px
 style R fill:#e0eaff,stroke:#476ebd,stroke-width:2px</div><h2 id=9453-نمونه-کد>9.4.5.3 نمونه کد
-<a class=anchor href=#9453-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><pre><code class=language-go>package main
+<a class=anchor href=#9453-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
 import (
-	&quot;fmt&quot;
-	&quot;sync&quot;
-	&quot;time&quot;
+	"fmt"
+	"sync"
+	"time"
 )
 
 func main() {
@@ -69,12 +69,12 @@ func main() {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		for i := 1; i &lt;= numData; i++ {
+		for i := 1; i <= numData; i++ {
 			select {
-			case in &lt;- i:
-				fmt.Printf(&quot;[Producer] Sent: %d\n&quot;, i)
+			case in <- i:
+				fmt.Printf("[Producer] Sent: %d\n", i)
 			default:
-				fmt.Printf(&quot;[Producer] Drop: %d (buffer full)\n&quot;, i)
+				fmt.Printf("[Producer] Drop: %d (buffer full)\n", i)
 			}
 			time.Sleep(100 * time.Millisecond)
 		}
@@ -87,10 +87,10 @@ func main() {
 		defer wg.Done()
 		for data := range in {
 			select {
-			case out &lt;- data:
-				fmt.Printf(&quot;[Consumer] Forwarded: %d\n&quot;, data)
+			case out <- data:
+				fmt.Printf("[Consumer] Forwarded: %d\n", data)
 			default:
-				fmt.Printf(&quot;[Consumer] Drop: %d (output buffer full)\n&quot;, data)
+				fmt.Printf("[Consumer] Drop: %d (output buffer full)\n", data)
 			}
 			time.Sleep(150 * time.Millisecond)
 		}
@@ -99,41 +99,13 @@ func main() {
 
 	// جمع‌آوری خروجی
 	for result := range out {
-		fmt.Printf(&quot;[Result] Received: %d\n&quot;, result)
+		fmt.Printf("[Result] Received: %d\n", result)
 	}
 
 	wg.Wait()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-[Producer] Sent: 1
-[Result] Received: 1
-[Consumer] Forwarded: 1
-[Producer] Sent: 2
-[Consumer] Forwarded: 2
-[Result] Received: 2
-[Producer] Sent: 3
-[Producer] Sent: 4
-[Consumer] Forwarded: 3
-[Result] Received: 3
-[Producer] Sent: 5
-[Consumer] Forwarded: 4
-[Result] Received: 4
-[Producer] Sent: 6
-[Producer] Sent: 7
-[Consumer] Forwarded: 5
-[Result] Received: 5
-[Producer] Sent: 8
-[Consumer] Forwarded: 6
-[Result] Received: 6
-[Producer] Sent: 9
-[Producer] Drop: 10 (buffer full)
-[Consumer] Forwarded: 7
-[Result] Received: 7
-[Consumer] Forwarded: 8
-[Result] Received: 8
-[Consumer] Forwarded: 9
-[Result] Received: 9
-</code></pre><p>در این مثال از الگوی <strong>Drop Overflow</strong>، یک سناریوی واقعی‌تر برای مدیریت بار بیش از ظرفیت در سیستم‌های concurrent نمایش داده شده است. ابتدا دو کانال بافر‌دار (یکی برای ورودی و دیگری برای خروجی) تعریف شده‌اند تا شبیه‌ساز صف‌هایی با ظرفیت محدود باشند. یک goroutine به عنوان تولیدکننده، داده‌هایی با مقادیر مختلف (از ۱ تا ۱۰) تولید می‌کند و در تلاش است آن‌ها را وارد کانال ورودی کند. اگر ظرفیت کانال ورودی پر باشد، داده جدید بدون معطلی Drop شده و پیام مناسبی در لاگ چاپ می‌شود؛ این رفتار باعث می‌شود که goroutine تولیدکننده هیچگاه بلاک نشود و سیستم دچار اختلال یا توقف نگردد.</p><p>در طرف مصرف‌کننده، داده‌ها از کانال ورودی خوانده می‌شوند و تلاش می‌شود به کانال خروجی منتقل شوند. اگر خروجی هم در آن لحظه ظرفیت نداشته باشد (یعنی مصرف‌کننده بعدی نتواند داده را دریافت کند)، داده دوباره Drop شده و این اتفاق نیز در لاگ ثبت می‌شود. به این ترتیب، در هر نقطه‌ای از زنجیره پردازش که ظرفیت کافی وجود نداشته باشد، داده بدون انتظار و سربار اضافه حذف خواهد شد. این رفتار بسیار مهم است، چرا که از تجمع داده‌های غیرقابل پردازش جلوگیری می‌کند و جلوی اشغال بیش از حد حافظه یا منابع را می‌گیرد.</p><p>در انتهای برنامه، خروجی‌ها از کانال خروجی جمع‌آوری و چاپ می‌شوند تا وضعیت مصرف موفق داده‌ها قابل مشاهده باشد. با کمک sync.WaitGroup اطمینان حاصل شده که تمام goroutineها قبل از پایان برنامه به درستی خاتمه پیدا می‌کنند و هیچ goroutine سرگردان یا leak اتفاق نمی‌افتد. با افزودن تأخیرهای زمانی متفاوت در تولید و مصرف داده‌ها، سناریوهای متفاوتی از فشار و ترافیک شبیه‌سازی شده تا نقاط Drop مختلف به خوبی دیده شوند. این مثال نشان‌دهنده کاربرد عملی و idiomatic این الگو در Go است؛ جایی که Drop شدن بخشی از داده‌ها به جای کندی یا Crash سیستم، انتخابی هوشمندانه و تولیدی محسوب می‌شود، به ویژه در سیستم‌های real-time، سرویس‌های زیرساختی یا سناریوهایی با بار متغیر.</p><h2 id=9454-کاربردها>9.4.5.4 کاربردها
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در این مثال از الگوی <strong>Drop Overflow</strong>، یک سناریوی واقعی‌تر برای مدیریت بار بیش از ظرفیت در سیستم‌های concurrent نمایش داده شده است. ابتدا دو کانال بافر‌دار (یکی برای ورودی و دیگری برای خروجی) تعریف شده‌اند تا شبیه‌ساز صف‌هایی با ظرفیت محدود باشند. یک goroutine به عنوان تولیدکننده، داده‌هایی با مقادیر مختلف (از ۱ تا ۱۰) تولید می‌کند و در تلاش است آن‌ها را وارد کانال ورودی کند. اگر ظرفیت کانال ورودی پر باشد، داده جدید بدون معطلی Drop شده و پیام مناسبی در لاگ چاپ می‌شود؛ این رفتار باعث می‌شود که goroutine تولیدکننده هیچگاه بلاک نشود و سیستم دچار اختلال یا توقف نگردد.</p><p>در طرف مصرف‌کننده، داده‌ها از کانال ورودی خوانده می‌شوند و تلاش می‌شود به کانال خروجی منتقل شوند. اگر خروجی هم در آن لحظه ظرفیت نداشته باشد (یعنی مصرف‌کننده بعدی نتواند داده را دریافت کند)، داده دوباره Drop شده و این اتفاق نیز در لاگ ثبت می‌شود. به این ترتیب، در هر نقطه‌ای از زنجیره پردازش که ظرفیت کافی وجود نداشته باشد، داده بدون انتظار و سربار اضافه حذف خواهد شد. این رفتار بسیار مهم است، چرا که از تجمع داده‌های غیرقابل پردازش جلوگیری می‌کند و جلوی اشغال بیش از حد حافظه یا منابع را می‌گیرد.</p><p>در انتهای برنامه، خروجی‌ها از کانال خروجی جمع‌آوری و چاپ می‌شوند تا وضعیت مصرف موفق داده‌ها قابل مشاهده باشد. با کمک sync.WaitGroup اطمینان حاصل شده که تمام goroutineها قبل از پایان برنامه به درستی خاتمه پیدا می‌کنند و هیچ goroutine سرگردان یا leak اتفاق نمی‌افتد. با افزودن تأخیرهای زمانی متفاوت در تولید و مصرف داده‌ها، سناریوهای متفاوتی از فشار و ترافیک شبیه‌سازی شده تا نقاط Drop مختلف به خوبی دیده شوند. این مثال نشان‌دهنده کاربرد عملی و idiomatic این الگو در Go است؛ جایی که Drop شدن بخشی از داده‌ها به جای کندی یا Crash سیستم، انتخابی هوشمندانه و تولیدی محسوب می‌شود، به ویژه در سیستم‌های real-time، سرویس‌های زیرساختی یا سناریوهایی با بار متغیر.</p><h2 id=9454-کاربردها>9.4.5.4 کاربردها
 <a class=anchor href=#9454-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7>#</a></h2><ul><li><strong>محدودسازی نرخ پردازش (Rate Limiting):</strong> زمانی که با حجم بالایی از داده‌های ورودی یا درخواست‌ها سروکار دارید، این الگو به شما کمک می‌کند تا تنها تعداد مشخصی داده را در هر لحظه بپذیرید و باقی داده‌های مازاد را Drop کنید؛ به این ترتیب، نرخ پردازش سیستم ثابت و قابل کنترل باقی می‌ماند و از overload یا کندی سیستم جلوگیری می‌شود.</li><li><strong>ثبت لاگ و مانیتورینگ (Logging/Monitoring):</strong> در سیستم‌های لاگ‌گیری یا مانیتورینگ با حجم بالای رویداد، ممکن است توان نوشتن روی دیسک یا ارسال داده به سرور مرکزی محدود باشد. با پیاده‌سازی Drop Pattern می‌توانید پیام‌های اضافی یا کم‌اهمیت را به سادگی حذف کنید تا ضمن حفظ پایداری سرویس، داده‌های کلیدی با کمترین تأخیر ثبت شوند.</li><li><strong>مدیریت صف و کنترل ازدحام (Queue Management & Congestion Control):</strong> هنگام استفاده از صف‌هایی که توسط کانال‌های بافر‌دار مدیریت می‌شوند، به جای مسدود شدن تولیدکننده یا ایجاد backlog زیاد، می‌توانید در صورت پر شدن صف، داده‌های جدید را Drop کنید. این رفتار به ویژه در سناریوهای با بار متغیر، باعث افزایش پایداری سیستم و کاهش سربار مدیریت صف می‌شود.</li><li><strong>کنترل ترافیک شبکه و ورودی (Traffic Shaping & Throttling):</strong> در سرورها یا سرویس‌هایی که با حجم بالای ترافیک یا درخواست همزمان مواجه می‌شوند (مانند API Gateway یا Load Balancer)، Drop Pattern کمک می‌کند که بخشی از ترافیک ورودی در صورت نبود ظرفیت حذف شود و کیفیت خدمات به کاربران باقی‌مانده حفظ شود. این رویکرد، راهکاری مؤثر برای جلوگیری از حملات DoS یا اسپایک‌های ناگهانی است.</li><li><strong>سیستم‌های بلادرنگ و حساس به تأخیر (Real-time & Low Latency Systems):</strong> در سیستم‌های real-time مانند سیستم‌های پردازش صدا، تصویر، یا تحلیل لحظه‌ای داده‌های حسگرها، معمولاً داده‌ها باید در بازه زمانی مشخص پردازش شوند. در صورت پر بودن بافر یا عدم توان مصرف داده، داده‌های جدید Drop می‌شوند تا latency پایین و پاسخ‌دهی سریع سیستم حفظ شود.</li><li><strong>سرویس‌های زیرساختی حیاتی (مانند DNS و پیام‌رسان‌ها):</strong> در زیرساخت‌هایی مثل DNS، صف‌های کاری باید کوتاه و پاسخ‌دهی سریع باشد. اگر صف پر شود، درخواست‌های جدید به سرعت Drop می‌شوند تا سرویس‌دهی پایدار باقی بماند و سیستم دچار اشباع یا توقف نشود.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%209/concurrency%20patterns/9.4.5-drop.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
 <span>این صفحه را ویرایش کنید</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><div class="text-left page-navigation"><a href=/chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation/>9.4.6 الگو Context Cancellation Pattern ◀︎</a></div><script>function toggleTooltip(e){e.classList.toggle("active")}</script><div id=graphcomment></div><script type=text/javascript>var __semio__params={graphcommentId:"book",behaviour:{}};function __semio__onload(){__semio__gc_graphlogin(__semio__params)}(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.onload=__semio__onload,e.defer=!0,e.src="https://integration.graphcomment.com/gc_graphlogin.js?"+Date.now(),(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content></br><main><div class=wrapper><a href=https://t.me/GolangEngineers class="icon telegram" target=_blank><div class=tooltip>گروه تلگرامی مهندسین گولنگ</div><span><i class="fab fa-telegram"></i></span>
 </a><a href=https://linkedin.com/in/Ja7ad class="icon linkedin" target=_blank><div class=tooltip>لینکدین نویسنده</div><span><i class="fab fa-linkedin"></i></span>

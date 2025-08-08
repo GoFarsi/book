@@ -53,46 +53,47 @@ throw(&amp;quot;stack overflow&amp;quot;)
 &lt;pre>&lt;code class="language-go">go functionName(parameters)
 &lt;/code>&lt;/pre>
 &lt;p>به عنوان مثال :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 go start()
-fmt.Println(&amp;quot;Started&amp;quot;)
+fmt.Println("Started")
 time.Sleep(1 * time.Second)
-fmt.Println(&amp;quot;Finished&amp;quot;)
+fmt.Println("Finished")
 }
 func start() {
-fmt.Println(&amp;quot;In Goroutine&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Started
-In Goroutine
-Finished
-&lt;/code>&lt;/pre>
+fmt.Println("In Goroutine")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما تابع &lt;code>()start&lt;/code> را توسط کلمه کلیدی &lt;code>go&lt;/code> داخل گوروتین قرار دادیم و این تابع بصورت مستقل از تابع main اجرا شد. اما این وسط یک نکته ای وجود دارد. همانطور که گفتیم تابع اصلی جهت اجرا برنامه های زبان گو تابع main می باشد و اگر شما تابعی را توسط گوروتین از main جدا کنید ممکن است فرآیندهای داخل تابع main زود اتمام شود و شما خروجی تابعی که داخل گوروتین گذاشتید را نبینید.&lt;/p>
 &lt;p>ما در کد بالا با استفاده از تابع Sleep پکیج time یک وقفه ۱ ثانیه گذاشتیم و این وقفه باعث شد تا عملیات داخل تابع ()start تمام شود و خروجی نمایش داده شود.&lt;/p>
 &lt;p>خب حالا بزارید مثال فوق را بدون وقفه تست کنیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 func main() {
 go start()
-fmt.Println(&amp;quot;Started&amp;quot;)
-fmt.Println(&amp;quot;Finished&amp;quot;)
+fmt.Println("Started")
+fmt.Println("Finished")
 }
 func start() {
-fmt.Println(&amp;quot;In Goroutine&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Started
-Finished
-&lt;/code>&lt;/pre>
+fmt.Println("In Goroutine")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در خروجی بالا هرگز پیغام داخل تابع ()start چاپ نمی شود.&lt;/p>
 &lt;pre>&lt;code class="language-go">In Goroutine
 &lt;/code>&lt;/pre>
@@ -105,68 +106,58 @@ Finished
 &lt;p>زمانیکه شما تابع main را فراخوانی می کنید بخش اصلی و شروع برنامه شما است. و اگر تابع main شما به هر دلیلی متوقف شود یا اتمام شود سایر گوروتین ها از بین می روند.&lt;/p>
 &lt;p>گوروتین ها چیزی به نام parent یا child ندارند. زمانیکه شما یک گوروتین را اجرا می کنید این گوروتین در کنار سایر گوروتین ها اجرا می شود و کارش را انجام می دهد. زمانی کار یک گوروتین تمام می شود که تابع بازگشت (return) داشته باشد.&lt;/p>
 &lt;p>بزارید یک مثال بزنیم تا ببینید چیزی به نام parent یا child برای گوروتین نداریم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 go start()
-fmt.Println(&amp;quot;Started&amp;quot;)
+fmt.Println("Started")
 time.Sleep(1 * time.Second)
-fmt.Println(&amp;quot;Finished&amp;quot;)
+fmt.Println("Finished")
 }
 func start() {
 go start2()
-fmt.Println(&amp;quot;In Goroutine&amp;quot;)
+fmt.Println("In Goroutine")
 }
 func start2() {
-fmt.Println(&amp;quot;In Goroutine2&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Started
-In Goroutine
-In Goroutine2
-Finished
-&lt;/code>&lt;/pre>
+fmt.Println("In Goroutine2")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد بالا داخل تابع main ما تابع start را با گوروتین اجرا کردیم و داخل تابع start تابع start2 را با گوروتین اجرا کردیم. این ۲ تابع start و start2 در کنار هم اجرا می شود و در نهایت کارشان اتمام می شود و هیچ کدام منتظر دیگری نخواهد بود.&lt;/p>
 &lt;h2 id="322-ایجاد-گوروتین-چندتایی">
 3.2.2 ایجاد گوروتین چندتایی
 &lt;a class="anchor" href="#322-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%da%af%d9%88%d8%b1%d9%88%d8%aa%db%8c%d9%86-%da%86%d9%86%d8%af%d8%aa%d8%a7%db%8c%db%8c">#&lt;/a>
 &lt;/h2>
 &lt;p>شما می توانید n تا گوروتین بطور همزمان در کنار هم اجرا کنید, در زیر یک مثال زدیم ببینید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func execute(id int) {
-fmt.Printf(&amp;quot;id: %d\n&amp;quot;, id)
+fmt.Printf("id: %d\n", id)
 }
 func main() {
-fmt.Println(&amp;quot;Started&amp;quot;)
-for i := 0; i &amp;lt; 10; i++ {
+fmt.Println("Started")
+for i := 0; i &lt; 10; i++ {
 go execute(i)
 }
 time.Sleep(time.Second * 2)
-fmt.Println(&amp;quot;Finished&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Started
-id: 4
-id: 9
-id: 1
-id: 0
-id: 8
-id: 2
-id: 6
-id: 3
-id: 7
-id: 5
-Finished
-&lt;/code>&lt;/pre>
+fmt.Println("Finished")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک حلقه قرار دادیم از i برابر ۰ تا ۱۰ که داخلش تابع execute را ۱۰ بار اجرا می کند. و هربار اجرا می شود خروجی های مختلفی دارد و ترتیبی درست نخواهید علت این اتفاق این است بطور همزمان اجرا می شوند در کنار هم و هرکدام از گوروتین ها زودتر کارش تمام شود خروجی را نمایش می دهد. به همین دلیل ترتیب درستی نخواهد داشت.&lt;/p>
 &lt;h2 id="323-زمانبندی-گوروتین-ها">
 3.2.3 زمانبندی گوروتین ها
@@ -177,15 +168,20 @@ Finished
 &lt;/code>&lt;/pre>
 &lt;p>در کد بالا x برابر است با تعداد thread ها به ازای هر هسته از CPU&lt;/p>
 &lt;p>در گو ما یک تابع به نام NumCPU داخل پکیج runtime داریم که می توانید تعداد logical Proccessors موجود برای برنامه گو را ببینید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;runtime&amp;quot;
+"fmt"
+"runtime"
 )
 func main() {
 fmt.Println(runtime.NumCPU())
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>روی سیستم من عدد 8 را چاپ کرد یعنی سیستم من ۴ هسته که هر هسته دارای ۲ threads است. که قابل استفاده برای برنامه گو روی سیستم من می باشد.&lt;/p></description></item><item><author/><title>3.3 پکیج sync</title><link>https://book.gofarsi.ir/chapter-3/go-sync-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-sync-package/</guid><description>&lt;p>پکیج &lt;code>sync&lt;/code> یکی از کاربردی ترین پکیج ها در زمینه همزمانی می باشد و یکسری تایپ و توابع برای&lt;span class="tooltip" data-tooltip="synchronize" ontouchend="toggleTooltip(this)">همگام سازی&lt;/span>
 و کنترل دسترسی همزمان به داده های مشترک ارائه می دهد. پرکاربرد ترین ویژگی های این پکیج شامل موارد زیر می شود :&lt;/p>
 &lt;ul>
@@ -207,11 +203,12 @@ fmt.Println(runtime.NumCPU())
 کنید. با استفاده از این قابلیت در واقع منابع مشترک محافظت شده و این اطمینان به شما داده می شود که تنها یک گوروتین در یک زمان مشخص، به دیتای مشترک بین گوروتین ها دسترسی دارد.
 تایپ Mutex شامل دو متد مهم Lock و Unlock است. وقتی Lock فراخوانی می شود فقط و فقط یک گوروتین می تواند برروی آن بخش از داده کار کند و تا زمانیکه شما Unlock نکنید سایر گوروتین ها نمی توانند به دیتای مورد نظر شما دسترسی داشته باشند و تا زمانیکه Unlock صورت گیرد سایر گوروتین هادر حالت انتظار باقی می مانند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"sync"
+"time"
 )
 var count int
 func main() {
@@ -226,15 +223,13 @@ func increment(mu *sync.Mutex) {
 mu.Lock()
 defer mu.Unlock()
 count++
-fmt.Printf(&amp;quot;Incrementing: %d\n&amp;quot;, count)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Incrementing: 1
-Incrementing: 2
-Incrementing: 3
-Incrementing: 4
-&lt;/code>&lt;/pre>
+fmt.Printf("Incrementing: %d\n", count)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;center>&lt;a href="#">
 &lt;img src="../../assets/img/content/chapter3/sync/1.jpg" alt="sync mutex">
 &lt;/a>&lt;/center>
@@ -271,13 +266,14 @@ Incrementing: 4
 می کند. شما می توانید به چندین گوروتین اجازه خواندن یک داده مشترک را بدهید ولی فقط یک گوروتین می تواند عملیات نوشتن را برروی آن داده مشترک انجام دهد.&lt;/p>
 &lt;p>برخی مواقع ممکن است دسترسی به یک مقدار مشترک بین گوروتین ها‌را محدود کنیم اما بر اساس شرایط خاص. مثلا همه ی گورتونین ها بتوانند عملیات خواندن را انجام دهند، اما در آن واحد فقط یک گوروتین بتواند بنویسد.&lt;/p>
 &lt;p>در زیر یک مثال قرار دادیم توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;math/rand&amp;quot;
-&amp;quot;strings&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"math/rand"
+"strings"
+"sync"
+"time"
 )
 func init() {
 rand.Seed(time.Now().Unix())
@@ -288,18 +284,18 @@ time.Sleep(time.Duration(rand.Intn(1000))*time.Millisecond)
 func reader(c chan int, m *sync.RWMutex, wg *sync.WaitGroup) {
 sleep()
 m.RLock()
-c &amp;lt;- 1
+c &lt;- 1
 sleep()
-c &amp;lt;- -1
+c &lt;- -1
 m.RUnlock()
 wg.Done()
 }
 func writer(c chan int, m *sync.RWMutex, wg *sync.WaitGroup) {
 sleep()
 m.Lock()
-c &amp;lt;- 1
+c &lt;- 1
 sleep()
-c &amp;lt;- -1
+c &lt;- -1
 m.Unlock()
 wg.Done()
 }
@@ -311,50 +307,31 @@ wsCh := make(chan int)
 go func() {
 for {
 select {
-case n := &amp;lt;-rsCh:
+case n := &lt;-rsCh:
 rs += n
-case n := &amp;lt;-wsCh:
+case n := &lt;-wsCh:
 ws += n
 }
-fmt.Printf(&amp;quot;%s%s\n&amp;quot;, strings.Repeat(&amp;quot;R&amp;quot;, rs),
-strings.Repeat(&amp;quot;W&amp;quot;, ws))
+fmt.Printf("%s%s\n", strings.Repeat("R", rs),
+strings.Repeat("W", ws))
 }
 }()
 wg := sync.WaitGroup{}
-for i := 0; i &amp;lt; 10; i++ {
+for i := 0; i &lt; 10; i++ {
 wg.Add(1)
-go reader(rsCh, &amp;amp;m, &amp;amp;wg)
+go reader(rsCh, &amp;m, &amp;wg)
 }
-for i := 0; i &amp;lt; 3; i++ {
+for i := 0; i &lt; 3; i++ {
 wg.Add(1)
-go writer(wsCh, &amp;amp;m, &amp;amp;wg)
+go writer(wsCh, &amp;m, &amp;wg)
 }
 wg.Wait()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-R
-RR
-R
-RR
-R
-W
-R
-RR
-RRR
-RRRR
-RRRRR
-RRRRRR
-RRRRRRR
-RRRRRR
-RRRRR
-RRRR
-RRR
-RR
-R
-W
-W
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="333-waitgroup">
 3.3.3 WaitGroup
 &lt;a class="anchor" href="#333-waitgroup">#&lt;/a>
@@ -366,31 +343,31 @@ W
 &lt;li>&lt;strong>Wait:&lt;/strong> این متد کد ما را بلاک می کند تا زمانیکه سیگنال Done از تمامی گوروتین ها دریافت کند.&lt;/li>
 &lt;/ul>
 &lt;p>بگذارید با یک مثال توضیح دهیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"sync"
+"time"
 )
 func main() {
 var wg sync.WaitGroup
 wg.Add(2)
-go sleep(&amp;amp;wg, time.Second*1)
-go sleep(&amp;amp;wg, time.Second*2)
+go sleep(&amp;wg, time.Second*1)
+go sleep(&amp;wg, time.Second*2)
 wg.Wait()
-fmt.Println(&amp;quot;All goroutines finished&amp;quot;)
+fmt.Println("All goroutines finished")
 }
 func sleep(wg *sync.WaitGroup, t time.Duration) {
 defer wg.Done()
 time.Sleep(t)
-fmt.Println(&amp;quot;Finished Execution&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Finished Execution
-Finished Execution
-All goroutines finished
-&lt;/code>&lt;/pre>
+fmt.Println("Finished Execution")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما یک متغیر از ساختار WaitGroup ایجاد کردیم و پس از ایجاد متد &lt;strong>Add&lt;/strong> را فراخوانی کردیم و تعداد گوروتین هایی که قرار است منتظر بماند را مشخص کردیم. سپس آدرس حافظه متغیر wg را به تابع sleep به عنوان ورودی پاس دادیم و در نهایت داخل تابع sleep با استفاده از &lt;strong>defer&lt;/strong> متد &lt;strong>Done&lt;/strong> را فراخوانی کردیم.&lt;/p>
 &lt;p>زمانیکه عملیات تابع sleep اتمام می شود متد Done فراخوانی می شود و یک گوروتین از لیست گوروتین های آبجکت WaitGroup کم می شود.&lt;/p>
 &lt;pre>&lt;code class="language-go">// Done decrements the WaitGroup counter by one.
@@ -413,10 +390,11 @@ wg.Add(-1)
 &lt;/h2>
 &lt;p>در پکیج &lt;code>sync&lt;/code> ما یک تایپ داریم به نام &lt;code>Once&lt;/code> که برای اطمینان از اینکه یک تابع فقط یکبار فراخوانی می شود استفاده می شود. شما فرض کنید قصد دارید در طول برنامه از یک آبجکت فقط یک instance داشته باشید می توانید با استفاده از Once این کار را انجام دهید (شما با استفاده از Once می توانید الگو طراحی &lt;a href="https://book.gofarsi.ir/chapter-9/creational-patterns/go-singleton-pattern/">Singleton&lt;/a> را پیاده سازی کنید.)&lt;/p>
 &lt;p>به مثال زیر توجه کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
+"fmt"
+"sync"
 )
 type singleton struct {
 data string
@@ -425,7 +403,7 @@ var instance *singleton
 var once sync.Once
 func GetInstance() *singleton {
 once.Do(func() {
-instance = &amp;amp;singleton{data: &amp;quot;some data&amp;quot;}
+instance = &amp;singleton{data: "some data"}
 })
 return instance
 }
@@ -433,15 +411,16 @@ func main() {
 s1 := GetInstance()
 s2 := GetInstance()
 if s1 == s2 {
-fmt.Println(&amp;quot;Same instance&amp;quot;)
+fmt.Println("Same instance")
 } else {
-fmt.Println(&amp;quot;Different instances&amp;quot;)
+fmt.Println("Different instances")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Same instance
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال فوق ما یک تابع داریم به نام GetInstance که به عنوان خروجی ساختار singleton را بصورت اشاره گر ارائه می دهد. قبل از تابع ۲ تا متغیر تعریف کردیم به نام once و instance که داخل تابع GetInstance از متد Do متغیر once یک تابع inline را قرار دادیم که فقط یک آبجکت از ساختار singleton می سازد و داخل متغیر instance قرار می دهد. در نهایت instance بازگشت داده می شود.&lt;/p>
 &lt;h2 id="335-pool">
 3.3.5 Pool
@@ -451,13 +430,14 @@ Same instance
 &lt;center>&lt;a href="#">
 &lt;img src="../../assets/img/content/chapter3/sync/2.gif" alt="sync pool">
 &lt;/a>&lt;/center>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;bytes&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"bytes"
+"io"
+"os"
+"sync"
+"time"
 )
 var bufPool = sync.Pool{
 New: func() any {
@@ -484,21 +464,23 @@ w.Write(b.Bytes())
 bufPool.Put(b)
 }
 func main() {
-Log(os.Stdout, &amp;quot;path&amp;quot;, &amp;quot;/search?q=flowers&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-2006-01-02T15:04:05Z path=/search?q=flowers
-&lt;/code>&lt;/pre>
+Log(os.Stdout, "path", "/search?q=flowers")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما یک متغیر به نام bufPool ایجاد کردیم که یک آبجکت از نوع bytes.Buffer ایجاد می کند. سپس داخل تابع Log ما با استفاده از متد Get آبجکت مورد نظر را از Pool خارج و داخل متغیر b قرار دادیم و پس از آن عملیات لازم را برروی Buffer انجام و در نهایت با استفاده از متد Put آبجکت را به Pool اضافه کردیم. حالا اتفاقی که صورت گرفته ما عملیاتی که نیاز داشتیم را برروی آبجکت انجام دادیم بدون اینکه بخوایم بخشی از حافظه را درگیر کنیم.&lt;/p>
 &lt;h3 id="3351-بنچمارک-در-خصوص-pool">
 3.3.5.1 بنچمارک در خصوص Pool
 &lt;a class="anchor" href="#3351-%d8%a8%d9%86%da%86%d9%85%d8%a7%d8%b1%da%a9-%d8%af%d8%b1-%d8%ae%d8%b5%d9%88%d8%b5-pool">#&lt;/a>
 &lt;/h3>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;sync&amp;quot;
-&amp;quot;testing&amp;quot;)
+"sync"
+"testing")
 type Person struct {
 Age int
 }
@@ -509,8 +491,8 @@ func BenchmarkWithoutPool(b *testing.B) {
 var p *Person
 b.ReportAllocs()
 b.ResetTimer()
-for i := 0; i &amp;lt; b.N; i++ {
-for j := 0; j &amp;lt; 10000; j++ {
+for i := 0; i &lt; b.N; i++ {
+for j := 0; j &lt; 10000; j++ {
 p = new(Person)
 p.Age = 23
 }
@@ -520,25 +502,19 @@ func BenchmarkWithPool(b *testing.B) {
 var p *Person
 b.ReportAllocs()
 b.ResetTimer()
-for i := 0; i &amp;lt; b.N; i++ {
-for j := 0; j &amp;lt; 10000; j++ {
+for i := 0; i &lt; b.N; i++ {
+for j := 0; j &lt; 10000; j++ {
 p = personPool.Get().(*Person)
 p.Age = 23
 personPool.Put(p)
 }
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go test -bench=. -benchmem
-goos: linux
-goarch: amd64
-pkg: pool
-cpu: Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz
-BenchmarkWithoutPool-4 5262 213177 ns/op 80000 B/op 10000 allocs/op
-BenchmarkWithPool-4 7699 152788 ns/op 0 B/op 0 allocs/op
-PASS
-ok pool 2.343s
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="3352-مثال-های-کاربردی">
 3.3.5.2 مثال های کاربردی
 &lt;a class="anchor" href="#3352-%d9%85%d8%ab%d8%a7%d9%84-%d9%87%d8%a7%db%8c-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%db%8c">#&lt;/a>
@@ -567,12 +543,12 @@ cond := sync.NewCond(lock)
 &lt;/h4>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;strong>Wait():&lt;/strong>&lt;br>
+&lt;p>&lt;strong>Wait():&lt;/strong>
 وقتی یک goroutine متد Wait را صدا می‌زند، دو اتفاق پشت‌سرهم رخ می‌دهد:&lt;/p>
 &lt;ol>
 &lt;li>قفل داده‌شده (مثلاً Mutex) به طور موقت آزاد می‌شود تا سایر goroutineها بتوانند وضعیت مشترک را تغییر دهند.&lt;/li>
-&lt;li>goroutine تا زمان دریافت سیگنال (&lt;code>Signal&lt;/code> یا &lt;code>Broadcast&lt;/code>) به حالت تعلیق (sleep) می‌رود و هیچ پردازشی انجام نمی‌دهد (کاملاً غیرمسدودکننده).&lt;br>
-پس از دریافت سیگنال و بیدار شدن، Wait دوباره به صورت اتمیک قفل را در اختیار می‌گیرد و اجرا از همان خط ادامه پیدا می‌کند.&lt;br>
+&lt;li>goroutine تا زمان دریافت سیگنال (&lt;code>Signal&lt;/code> یا &lt;code>Broadcast&lt;/code>) به حالت تعلیق (sleep) می‌رود و هیچ پردازشی انجام نمی‌دهد (کاملاً غیرمسدودکننده).
+پس از دریافت سیگنال و بیدار شدن، Wait دوباره به صورت اتمیک قفل را در اختیار می‌گیرد و اجرا از همان خط ادامه پیدا می‌کند.
 معمولاً قبل از Wait باید شرط را داخل یک حلقه (for) بررسی کنید تا از &lt;strong>spurious wakeup&lt;/strong> و رقابت داده‌ای جلوگیری شود:&lt;/li>
 &lt;/ol>
 &lt;pre>&lt;code class="language-go">cond.L.Lock()
@@ -584,32 +560,33 @@ cond.L.Unlock()
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Signal():&lt;/strong>&lt;br>
+&lt;p>&lt;strong>Signal():&lt;/strong>
 این متد تنها &lt;strong>یکی از goroutineهای منتظر&lt;/strong> را بیدار می‌کند (اگر کسی در صف انتظار باشد). انتخاب اینکه کدام goroutine بیدار شود به سیاست زمان‌بندی runtime وابسته است و تضمینی برای ترتیب خاصی وجود ندارد. Signal معمولاً زمانی به کار می‌رود که انتظار دارید فقط یک مصرف‌کننده با داده جدید یا تغییر وضعیت بیدار شود.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Broadcast():&lt;/strong>&lt;br>
+&lt;p>&lt;strong>Broadcast():&lt;/strong>
 این متد &lt;strong>همه goroutineهای منتظر روی آن Cond&lt;/strong> را بیدار می‌کند تا شرط را دوباره بررسی کنند. Broadcast زمانی کاربرد دارد که یک رویداد می‌تواند برای همه‌ی منتظرها مهم باشد (مثلاً اتمام کار یا آزاد شدن منبع برای همه مصرف‌کننده‌ها).&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
+"fmt"
+"sync"
 )
 var sharedResource = make(map[string]interface{})
 func main() {
 var wg sync.WaitGroup
 wg.Add(2)
 locker := sync.Mutex{}
-condition := sync.NewCond(&amp;amp;locker)
-go waitForResourceUpdate(&amp;amp;wg, condition, &amp;quot;rsc1&amp;quot;)
-go waitForResourceUpdate(&amp;amp;wg, condition, &amp;quot;rsc2&amp;quot;)
+condition := sync.NewCond(&amp;locker)
+go waitForResourceUpdate(&amp;wg, condition, "rsc1")
+go waitForResourceUpdate(&amp;wg, condition, "rsc2")
 // this one writes changes to sharedResource
 condition.L.Lock()
-sharedResource[&amp;quot;rsc1&amp;quot;] = &amp;quot;a string&amp;quot;
-sharedResource[&amp;quot;rsc2&amp;quot;] = 123456
+sharedResource["rsc1"] = "a string"
+sharedResource["rsc2"] = 123456
 condition.Broadcast()
 condition.L.Unlock()
 wg.Wait()
@@ -621,24 +598,24 @@ cond.L.Lock()
 for len(sharedResource) == 0 {
 cond.Wait()
 }
-fmt.Println(&amp;quot;Resource&amp;quot;, key, &amp;quot;:&amp;quot;, sharedResource[key])
+fmt.Println("Resource", key, ":", sharedResource[key])
 cond.L.Unlock()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Resource rsc2 : 123456
-Resource rsc1 : a string
-&lt;/code>&lt;/pre></description></item><item><author/><title>3.4 پکیج atomic</title><link>https://book.gofarsi.ir/chapter-3/go-atomic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-atomic/</guid><description>&lt;p>&lt;strong>پکیج &lt;a href="https://pkg.go.dev/sync/atomic">sync/atomic&lt;/a>&lt;/strong> در زبان Go مجموعه‌ای از توابع سطح پایین (low-level) را برای انجام عملیات خواندن و نوشتن &lt;strong>اتمی (atomic)&lt;/strong> روی متغیرهای حافظه فراهم می‌کند. منظور از عملیات اتمیک، عملیاتی است که به طور کامل و یکپارچه توسط CPU انجام می‌شود؛ یعنی هیچ گوروتین، thread یا پردازش دیگری نمی‌تواند مقدار متغیر را بین شروع و پایان یک عملیات اتمیک مشاهده یا تغییر دهد. این ویژگی برای پیاده‌سازی &lt;strong>الگوهای همگام‌سازی سبک و بدون قفل (lock-free synchronization)&lt;/strong> و &lt;strong>متغیرهای اشتراکی با دسترسی سریع و ایمن&lt;/strong> ضروری است.&lt;/p>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div></description></item><item><author/><title>3.4 پکیج atomic</title><link>https://book.gofarsi.ir/chapter-3/go-atomic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-atomic/</guid><description>&lt;p>&lt;strong>پکیج &lt;a href="https://pkg.go.dev/sync/atomic">sync/atomic&lt;/a>&lt;/strong> در زبان Go مجموعه‌ای از توابع سطح پایین (low-level) را برای انجام عملیات خواندن و نوشتن &lt;strong>اتمی (atomic)&lt;/strong> روی متغیرهای حافظه فراهم می‌کند. منظور از عملیات اتمیک، عملیاتی است که به طور کامل و یکپارچه توسط CPU انجام می‌شود؛ یعنی هیچ گوروتین، thread یا پردازش دیگری نمی‌تواند مقدار متغیر را بین شروع و پایان یک عملیات اتمیک مشاهده یا تغییر دهد. این ویژگی برای پیاده‌سازی &lt;strong>الگوهای همگام‌سازی سبک و بدون قفل (lock-free synchronization)&lt;/strong> و &lt;strong>متغیرهای اشتراکی با دسترسی سریع و ایمن&lt;/strong> ضروری است.&lt;/p>
 &lt;h4 id="مهمترین-کاربردها-و-عملیات">
 &lt;strong>مهم‌ترین کاربردها و عملیات:&lt;/strong>
 &lt;a class="anchor" href="#%d9%85%d9%87%d9%85%d8%aa%d8%b1%db%8c%d9%86-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7-%d9%88-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa">#&lt;/a>
 &lt;/h4>
 &lt;ul>
-&lt;li>&lt;strong>پیاده‌سازی شمارنده‌های اتمیک (atomic counters):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>پیاده‌سازی شمارنده‌های اتمیک (atomic counters):&lt;/strong>
 مثلاً افزایش شمارنده تعداد درخواست، جمع یا کم کردن بدون نیاز به Mutex.&lt;/li>
-&lt;li>&lt;strong>فلگ‌ها یا وضعیت‌های اشتراکی:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>فلگ‌ها یا وضعیت‌های اشتراکی:&lt;/strong>
 تنظیم و خواندن یک فلگ مشترک بین چند goroutine به شکلی که دچار race condition نشود.&lt;/li>
-&lt;li>&lt;strong>ساخت primitiveهای همگام‌سازی سفارشی:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>ساخت primitiveهای همگام‌سازی سفارشی:&lt;/strong>
 مثل اسپین‌لاک، قفل ساده، lock-free queue، semaphore سطح پایین و…&lt;/li>
 &lt;/ul>
 &lt;h4 id="متدهای-مهم-atomic">
@@ -653,11 +630,12 @@ Resource rsc1 : a string
 &lt;li>&lt;code>atomic.Value&lt;/code> — یک ساختار wrapper برای نگهداری داده با خواندن و نوشتن اتمیک (ایده‌آل برای ساخت cacheهای ساده یا حافظه به اشتراک گذاشته شده)&lt;/li>
 &lt;/ul>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;sync/atomic&amp;quot;
+"fmt"
+"sync"
+"sync/atomic"
 )
 type Cache struct {
 mu sync.Mutex
@@ -690,17 +668,17 @@ return
 }
 func main() {
 cache := Cache{data: map[string]string{}}
-cache.Set(&amp;quot;key&amp;quot;, &amp;quot;value&amp;quot;)
-fmt.Println(cache.Get(&amp;quot;key&amp;quot;)) // Output: value, true
+cache.Set("key", "value")
+fmt.Println(cache.Get("key")) // Output: value, true
 atomicCache := AtomicCache{data: atomic.Value{}}
-atomicCache.Set(&amp;quot;key&amp;quot;, &amp;quot;value&amp;quot;)
-fmt.Println(atomicCache.Get(&amp;quot;key&amp;quot;)) // Output: value, true
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-value true
-value true
-&lt;/code>&lt;/pre>
+atomicCache.Set("key", "value")
+fmt.Println(atomicCache.Get("key")) // Output: value, true
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در مثال فوق ما یک ساختار به نام Cache داریم که داخلش یک فیلد از نوع map داریم و قصد داریم یکسری اطلاعات را داخل کش بریزیم حال زمانیکه Set/Get می کنیم با استفاده از Mutex اون بخش از عملیات را لاک میکنیم تا جلوی عملیات نوشتن چندین گوروتین برروی یک آدرس حافظه را بگیریم. حال این عملیات رو ما با استفاده از atomic انجام دادیم و همگام سازی داده را بردیم تو سطح خیلی پایین تر در حافظه و با استفاده از atomic.Value که یک اینترفیس است این عملیات را انجام دادیم و این عملیات Set/Get حالت atomic پیدا کرده است.&lt;/p>
 &lt;blockquote class="book-hint info">
 &lt;p>&lt;strong>آیا استفاده از atomic نیازمند mutex می باشد یا خیر؟&lt;/strong>&lt;/p>
@@ -812,30 +790,34 @@ main.main()
 &lt;pre>&lt;code class="language-go">var &amp;lt;variable_name&amp;gt; chan &amp;lt;type&amp;gt;
 &lt;/code>&lt;/pre>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 var a chan int
 fmt.Println(a)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{nil}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در بالا ما یک متغیر با نام a تعریف کردیم که از نوع کانال با تایپ int می باشد و این کانال فقط انتقال داده از نوع int را انجام می دهد. و مقدار پیش فرض کانال nil می باشد که در خروجی می توانید ببینید.&lt;/p>
 &lt;blockquote class="book-hint info">
 توجه کنید همیشه سعی کنید کانال را با استفاده از تابع &lt;strong>make&lt;/strong> ایجاد کنید.
 &lt;/blockquote>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 a := make(chan int)
 fmt.Println(a)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-0xc0000240c0
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در خروجی کد بالا همانطور که مشاهده می کنید به جای nil آدرس حافظه داده را نمایش می دهد.&lt;/p>
 &lt;p>زمانیکه شما یک کانال را به واسطه make ایجاد می کنید در واقع دارید یک instance از ساختار hchan ایجاد می کنید و تمامی فیلدهای این ساختار مقدار پیش فرض میگیرند.&lt;/p>
 &lt;pre>&lt;code class="language-go">type hchan struct {
@@ -891,32 +873,32 @@ lock mutex
 &lt;a class="anchor" href="#3623-%d9%85%d8%ab%d8%a7%d9%84-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa-%d8%a7%d8%b1%d8%b3%d8%a7%d9%84-%d9%88-%d8%af%d8%b1%db%8c%d8%a7%d9%81%d8%aa">#&lt;/a>
 &lt;/h3>
 &lt;p>در زیر یک مثال میزنیم که داده ای را بواسطه کانال ارسال/دریافت می کنیم بین گوروتین ها.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 ch := make(chan int)
-fmt.Println(&amp;quot;Sending value to channel&amp;quot;)
+fmt.Println("Sending value to channel")
 go send(ch)
-fmt.Println(&amp;quot;Receiving from channel&amp;quot;)
+fmt.Println("Receiving from channel")
 go receive(ch)
 time.Sleep(time.Second * 1)
 }
 func send(ch chan int) {
-ch &amp;lt;- 1
+ch &lt;- 1
 }
 func receive(ch chan int) {
-val := &amp;lt;-ch
-fmt.Printf(&amp;quot;Value Received=%d in receive function\n&amp;quot;, val)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Sending value to channel
-Receiving from channel
-Value Received=1 in receive function
-&lt;/code>&lt;/pre>
+val := &lt;-ch
+fmt.Printf("Value Received=%d in receive function\n", val)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال با نام ch از نوع int ایجاد کردیم. سپس ۲ تابع send و received را داخل گوروتین قرار دادیم که هر دو تابع به عنوان پارامتر ورودی تایپ int را بصورت کانال میگیرد. حال متغیر کانال ch را به هر دو تابع پاس دادیم. و در هر دو تابع ۲ تا عملیات صورت گرفته :&lt;/p>
 &lt;ul>
 &lt;li>تابع send مقدار عدد ۱ را به داخل کانال ارسال کرده&lt;/li>
@@ -925,10 +907,11 @@ Value Received=1 in receive function
 &lt;p>در انتهای تابع main ما یک sleep به مدت ۱ ثانیه قرار دادیم که بتوانیم خروجی برنامه را ببینیم. اگر اینکار را نکنیم گوروتین main ممکن است سریع تر از اینکه دو گوروتین دیگر اجرا شوند و خروجی آنها را ببینیم، کارش به اتمام برسد و برنامه متوقف شود.&lt;/p>
 &lt;p>یک نکته بسیار مهمی که در مورد کانال ها وجود دارد و باید به آن توجه کنید این است که یک مقدار زمانی که داخل کانال ارسال می شود، فقط یکبار قابل دریافت کردن است. همانطور که می بینید هیچ قفلی در گوروتین ها موقع ارسال و دریافت استفاده نشده است و قفل ها توسط خود کانال مدیریت می شوند و نیازی به استفاده از قفل ها در کد نیست.&lt;/p>
 &lt;p>بزارید یک مثال ساده برای اینکه ببینید چطور کانال ها Lock و UnLock می شوند بزنیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 ch := make(chan int)
@@ -938,18 +921,18 @@ time.Sleep(time.Second * 2)
 }
 func send(ch chan int) {
 time.Sleep(time.Second * 1)
-fmt.Println(&amp;quot;Timeout finished&amp;quot;)
-ch &amp;lt;- 1
+fmt.Println("Timeout finished")
+ch &lt;- 1
 }
 func receive(ch chan int) {
-val := &amp;lt;-ch
-fmt.Printf(&amp;quot;Receiving Value from channel finished. Value received: %d\n&amp;quot;, val)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Timeout finished
-Receiving Value from channel finished. Value received: 1
-&lt;/code>&lt;/pre>
+val := &lt;-ch
+fmt.Printf("Receiving Value from channel finished. Value received: %d\n", val)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما داخل تابع send یک sleep به مدت ۱ ثانیه قرار دادیم. و پس از اینکه ۱ ثانیه تمام شد مقدار را داخل کانال ch ارسال کردیم و سپس مقدار داخل تابع recived دریافت شد.&lt;/p>
 &lt;p>اتفاقی که در کد فوق رخداد زمانیکه شما عملیات دریافت را انجام می دهید تا زمانیکه مقداری از کانال دریافت نشود اون بخش از کد شما Lock می شود و پس از اینکه دریافت شد مقدار از کانال آن بخش Unlock خواهد شد.&lt;/p>
 &lt;h2 id="363-ایجاد-کانال-بافر-شده">
@@ -964,22 +947,23 @@ Receiving Value from channel finished. Value received: 1
 &lt;/code>&lt;/pre>
 &lt;p>مقدار capacity که بصورت عدد هست تعداد بافر کانال را مشخص می کند که این کانال فقط می تواند این حجم از داده را داخل کانال نگه داری کند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 func main() {
 ch := make(chan int, 1)
-ch &amp;lt;- 1
-fmt.Println(&amp;quot;Sending value to channnel complete&amp;quot;)
-val := &amp;lt;-ch
-fmt.Printf(&amp;quot;Receiving Value from channel finished. Value received: %d\n&amp;quot;, val)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Sending value to channnel complete
-Receiving Value from channel finished. Value received: 1
-&lt;/code>&lt;/pre>
+ch &lt;- 1
+fmt.Println("Sending value to channnel complete")
+val := &lt;-ch
+fmt.Printf("Receiving Value from channel finished. Value received: %d\n", val)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال بافر شده با ظرفیت ۱ ایجاد کردیم و مقدار ۱ را به کانال ارسال کردیم و در ادامه این مقدار را از کانال دریافت کردیم.&lt;/p>
 &lt;pre>&lt;code class="language-go">ch := make(chan int, 1)
 &lt;/code>&lt;/pre>
@@ -988,25 +972,24 @@ Receiving Value from channel finished. Value received: 1
 &lt;a class="anchor" href="#3631-%d8%a7%d8%b1%d8%b3%d8%a7%d9%84-%d8%af%d8%a7%d8%af%d9%87-%d8%a8%d8%b1%d8%b1%d9%88%db%8c-%da%a9%d8%a7%d9%86%d8%a7%d9%84-%d8%a8%d8%a7-%d8%b8%d8%b1%d9%81%db%8c%d8%aa-%d9%be%d8%b1">#&lt;/a>
 &lt;/h3>
 &lt;p>حالا فرض کنید می خواهیم به کانال بافر شده کد فوق یک مقدار دیگری را ارسال کنیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 func main() {
 ch := make(chan int, 1)
-ch &amp;lt;- 1
-ch &amp;lt;- 2
-fmt.Println(&amp;quot;Sending value to channnel complete&amp;quot;)
-val := &amp;lt;-ch
-fmt.Printf(&amp;quot;Receiving Value from channel finished. Value received: %d\n&amp;quot;, val)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-fatal error: all goroutines are asleep - deadlock!
-goroutine 1 [chan send]:
-main.main()
-/tmp/sandbox2390960160/prog.go:10 +0x4b
-&lt;/code>&lt;/pre>
+ch &lt;- 1
+ch &lt;- 2
+fmt.Println("Sending value to channnel complete")
+val := &lt;-ch
+fmt.Printf("Receiving Value from channel finished. Value received: %d\n", val)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق اتفاقی که افتاد ما یک کانال بافر شده با ظرفیت ۱ ایجاد کردیم ولی به این کانال ۲ تا مقدار ارسال کردیم:&lt;/p>
 &lt;pre>&lt;code class="language-go">ch &amp;lt;- 1
 ch &amp;lt;- 2
@@ -1019,26 +1002,24 @@ ch &amp;lt;- 2
 &lt;a class="anchor" href="#%d8%af%d8%b1%db%8c%d8%a7%d9%81%d8%aa-%d9%85%d8%ac%d8%af%d8%af-%d8%af%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%da%a9%d8%a7%d9%86%d8%a7%d9%84-%d8%ae%d8%a7%d9%84%db%8c-%d8%b4%d8%af%d9%87">#&lt;/a>
 &lt;/h3>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 func main() {
 ch := make(chan int, 1)
-ch &amp;lt;- 1
-fmt.Println(&amp;quot;Sending value to channnel complete&amp;quot;)
-val := &amp;lt;-ch
-val = &amp;lt;-ch
-fmt.Printf(&amp;quot;Receiving Value from channel finished. Value received: %d\n&amp;quot;, val)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Sending value to channnel complete
-fatal error: all goroutines are asleep - deadlock!
-goroutine 1 [chan receive]:
-main.main()
-/tmp/sandbox3239418330/prog.go:12 +0xad
-&lt;/code>&lt;/pre>
+ch &lt;- 1
+fmt.Println("Sending value to channnel complete")
+val := &lt;-ch
+val = &lt;-ch
+fmt.Printf("Receiving Value from channel finished. Value received: %d\n", val)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال بافر شده با ظرفیت ۱ ایجاد کردیم و یک مقدار را به کانال ارسال کردیم و در نهایت ۲ بار دریافت از کانال را فرخوانی کردیم. اما اتفاقی که افتاده بازم با خطای deadlock مواجه شدیم چون کانال خالی شده است و هیچ داده ای بیشتر از بافر اش ندارد.&lt;/p>
 &lt;h2 id="364-جهت-های-کانال">
 3.6.4 جهت های کانال
@@ -1068,20 +1049,22 @@ main.main()
 &lt;pre>&lt;code class="language-go">invalid operation: &amp;lt;-ch (receive from send-only type chan&amp;lt;- int)
 &lt;/code>&lt;/pre>
 &lt;p>به مثال ساده زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch := make(chan int, 3)
 go process(ch)
-fmt.Println(&amp;lt;-ch)
+fmt.Println(&lt;-ch)
 }
-func process(ch chan&amp;lt;- int) {
-ch &amp;lt;- 2
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-2
-&lt;/code>&lt;/pre>
+func process(ch chan&lt;- int) {
+ch &lt;- 2
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک تابع به نام process ایجاد کردیم که کانال فقط ارسال به عنوان پارامتر ورودی دارد و در ادامه ما کانال ch را که دو طرفه است به این تابع پاس دادیم و مقدار دریافتی را چاپ کردیم.&lt;/p>
 &lt;h3 id="3642-کانال-فقط-دریافت">
 3.6.4.2 کانال فقط دریافت
@@ -1094,36 +1077,40 @@ ch &amp;lt;- 2
 &lt;pre>&lt;code class="language-go">invalid operation: ch &amp;lt;- 2 (send to receive-only type &amp;lt;-chan int)
 &lt;/code>&lt;/pre>
 &lt;p>به مثال ساده زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch := make(chan int, 3)
-ch &amp;lt;- 2
+ch &lt;- 2
 process(ch)
 }
-func process(ch &amp;lt;-chan int) {
-s := &amp;lt;-ch
+func process(ch &lt;-chan int) {
+s := &lt;-ch
 fmt.Println(s)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-2
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="365-گرفتن-ظرفیت-یک-کانال">
 3.6.5 گرفتن ظرفیت یک کانال
 &lt;a class="anchor" href="#365-%da%af%d8%b1%d9%81%d8%aa%d9%86-%d8%b8%d8%b1%d9%81%db%8c%d8%aa-%db%8c%da%a9-%da%a9%d8%a7%d9%86%d8%a7%d9%84">#&lt;/a>
 &lt;/h2>
 &lt;p>شما می توانید همانند slice یا آرایه ظرفیت یک کانال را با استفاده از تابع ()cap ببینید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch := make(chan int, 3)
-fmt.Printf(&amp;quot;Capacity: %d\n&amp;quot;, cap(ch))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Capacity: 3
-&lt;/code>&lt;/pre>
+fmt.Printf("Capacity: %d\n", cap(ch))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;blockquote class="book-hint warning">
 توجه کنید ظرفیت کانال بافر نشده همیشه صفر است.
 &lt;/blockquote>
@@ -1132,86 +1119,92 @@ Capacity: 3
 &lt;a class="anchor" href="#366-%da%af%d8%b1%d9%81%d8%aa%d9%86-%d8%b7%d9%88%d9%84-%db%8c%da%a9-%da%a9%d8%a7%d9%86%d8%a7%d9%84">#&lt;/a>
 &lt;/h2>
 &lt;p>شما با استفاده از تابع ()len می توانید طول و اندازه یک کانال را بگیرید و ببینید چه مقدار داده داخل کانال قرار دارد.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch := make(chan int, 3)
-ch &amp;lt;- 5
-fmt.Printf(&amp;quot;Len: %d\n&amp;quot;, len(ch))
-ch &amp;lt;- 6
-fmt.Printf(&amp;quot;Len: %d\n&amp;quot;, len(ch))
-ch &amp;lt;- 7
-fmt.Printf(&amp;quot;Len: %d\n&amp;quot;, len(ch))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Len: 1
-Len: 2
-Len: 3
-&lt;/code>&lt;/pre>
+ch &lt;- 5
+fmt.Printf("Len: %d\n", len(ch))
+ch &lt;- 6
+fmt.Printf("Len: %d\n", len(ch))
+ch &lt;- 7
+fmt.Printf("Len: %d\n", len(ch))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="367-عملیات-بستن-close-یک-کانال">
 3.6.7 عملیات بستن (close) یک کانال
 &lt;a class="anchor" href="#367-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa-%d8%a8%d8%b3%d8%aa%d9%86-close-%db%8c%da%a9-%da%a9%d8%a7%d9%86%d8%a7%d9%84">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان گو ما یک تابع Built-in به نام close داریم که می توانیم برای بستن یک کانال استفاده کنیم و زمانیکه که یک کانال بسته شود دیگر نمی توانیم داده ای را به آن کانال ارسال کنیم. کانال معمولا زمانی بسته می شود که همه داده ها ارسال شده است و داده دیگری برای ارسال نداریم و باید کانال را ببندیم.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 ch := make(chan int)
 go sum(ch, 3)
-ch &amp;lt;- 2
-ch &amp;lt;- 2
-ch &amp;lt;- 2
+ch &lt;- 2
+ch &lt;- 2
+ch &lt;- 2
 close(ch)
 time.Sleep(time.Second * 1)
 }
 func sum(ch chan int, len int) {
 sum := 0
-for i := 0; i &amp;lt; len; i++ {
-sum += &amp;lt;-ch
+for i := 0; i &lt; len; i++ {
+sum += &lt;-ch
 }
-fmt.Printf(&amp;quot;Sum: %d\n&amp;quot;, sum)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Sum: 6
-&lt;/code>&lt;/pre>
+fmt.Printf("Sum: %d\n", sum)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال بافر شده با ظرفیت ۳ ایجاد کردیم و سپس ۳ تا مقدار را به کانال ارسال کردیم و پس از آن کانال را با تابع close بستیم چون دیگر نمیخواهیم داده دیگری را ارسال کنیم.&lt;/p>
 &lt;blockquote class="book-hint danger">
 &lt;p>توجه کنید ارسال داده برروی کانال بسته شده ممکن است برنامه شما با خطای panic مواجه و کاملا متوقف شود.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 func main() {
 ch := make(chan int)
 close(ch)
-ch &amp;lt;- 2
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-panic: send on closed channel
-&lt;/code>&lt;/pre>
+ch &lt;- 2
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اما برای اینکه بتوانیم جلوی این panic رخ داده را بگیریم می توانیم زمانیکه داریم از کانال مقدار دریافت می کنیم assertion انجام دهیم تا متوجه بسته بودن کانال شویم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 func main() {
 ch := make(chan int, 1)
-ch &amp;lt;- 2
-val, ok := &amp;lt;-ch
-fmt.Printf(&amp;quot;Val: %d OK: %t\n&amp;quot;, val, ok)
-close(ch)
+ch &lt;- 2
+val, ok := &lt;-ch
+fmt.Printf("Val: %d OK: %t\n", val, ok)
+&lt;pre>&lt;code>close(ch)
 val, ok = &amp;lt;-ch
 fmt.Printf(&amp;quot;Val: %d OK: %t\n&amp;quot;, val, ok)
-}
 &lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Val: 2 OK: true
-Val: 0 OK: false
-&lt;/code>&lt;/pre>
+&lt;p>}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>&lt;/p>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اگر مقدار ok از کانال دریافتی true باشد یعنی کانال بسته نشده است و اگر مقدار false دریافت کنیم یعنی کانال بسته شده است.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="368-استفاده-از-حلقه-for-range-برروی-کانال">
@@ -1219,16 +1212,17 @@ Val: 0 OK: false
 &lt;a class="anchor" href="#368-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%ad%d9%84%d9%82%d9%87-for-range-%d8%a8%d8%b1%d8%b1%d9%88%db%8c-%da%a9%d8%a7%d9%86%d8%a7%d9%84">#&lt;/a>
 &lt;/h2>
 &lt;p>یکی از کاربردی ترین حالت های دریافت داده از کانال استفاده از حلقه for-range است که می توانید تا زمان بسته شدن کانال مقدار دریافت کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 ch := make(chan int, 3)
-ch &amp;lt;- 2
-ch &amp;lt;- 2
-ch &amp;lt;- 2
+ch &lt;- 2
+ch &lt;- 2
+ch &lt;- 2
 close(ch)
 go sum(ch)
 time.Sleep(time.Second * 1)
@@ -1238,12 +1232,13 @@ sum := 0
 for val := range ch {
 sum += val
 }
-fmt.Printf(&amp;quot;Sum: %d\n&amp;quot;, sum)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Sum: 6
-&lt;/code>&lt;/pre>
+fmt.Printf("Sum: %d\n", sum)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال بافر شده با ظرفیت ۳ ایجاد کردیم سپس ۳ تا مقدار به کانال ارسال کردیم و داخل تابع sum مقادیر را با استفاده از حلقه for-range دریافت و پس از آن چاپ کردیم.&lt;/p>
 &lt;p>حالا یک سوال پیش می آید آیا ما اگر کانال را در تابع main نبندیم چه اتفاقی می افتد؟ اگر شما کانال را نبندید بطور حتمی با خطا deadlock مواجه خواهید شد. حلقه ای که داخل تابع sum قرار دادید برای دریافت داده هیچوقت متوقف نخواهد شد.&lt;/p>
 &lt;p>&lt;strong>پس سعی کنید همیشه و همه جا در جای درست بستن کانال را انجام دهید تا دچار مشکلات مختلف نشوید.&lt;/strong>&lt;/p>
@@ -1252,17 +1247,19 @@ Sum: 6
 &lt;a class="anchor" href="#369-%da%a9%d8%a7%d9%86%d8%a7%d9%84-nil">#&lt;/a>
 &lt;/h2>
 &lt;p>همانطور که در اوایل این بخش گفتیم مقدار پیش فرض یک کانال nil است و زمانیکه ما یک کانال بدون تابع make تعریف می کنیم مقدار پیش فرضش nil خوهد بود.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 var a chan int
-fmt.Print(&amp;quot;Default zero value of channel: &amp;quot;)
+fmt.Print("Default zero value of channel: ")
 fmt.Println(a)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Default zero value of channel: &amp;lt;nil&amp;gt;
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>یکسری نکات در خصوص کانال nil وجود دارد :&lt;/p>
 &lt;ul>
 &lt;li>ارسال داده به یک کانالی که nil است باعث بلاک شدن همیشگی کد شما در آن خط خواهد شد.&lt;/li>
@@ -1284,75 +1281,80 @@ default:
 &lt;/code>&lt;/pre>
 &lt;p>select از بین case ها موردی را انتخاب می کند که در آن عملیات ارسال یا دریافت کانال بلاک نشده باشد و آماده اجرا باشد. اگر چند مورد از case ها آماده باشد یکی از آنها بصورت تصادفی انتخاب می شود تا فرآیند را تکمیل کند.&lt;/p>
 &lt;p>بزارید یک مثال ساده بزنیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch1 := make(chan string)
 ch2 := make(chan string)
 go goOne(ch1)
 go goTwo(ch2)
 select {
-case msg1 := &amp;lt;-ch1:
+case msg1 := &lt;-ch1:
 fmt.Println(msg1)
-case msg2 := &amp;lt;-ch2:
+case msg2 := &lt;-ch2:
 fmt.Println(msg2)
 }
 }
 func goOne(ch chan string) {
-ch &amp;lt;- &amp;quot;From goOne goroutine&amp;quot;
+ch &lt;- "From goOne goroutine"
 }
 func goTwo(ch chan string) {
-ch &amp;lt;- &amp;quot;From goTwo goroutine&amp;quot;
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-From goOne goroutine
-&lt;/code>&lt;/pre>
+ch &lt;- "From goTwo goroutine"
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما ۲ تا کانال تعریف کردیم و کانال ها را به توابع goOne و goTwo پاس دادیم سپس داخل تابع به هرکدام از کانال مقداری ارسال شد. حالا در ادامه بدنه main یک select قرار دادیم که هر یک از case ها منتظر دریافت اطلاعات از کانال مشخص شده‌اش است.&lt;/p>
 &lt;p>بلافاصله پس از‌اینکه یکی از کانال ها آماده ارسال داده شود، کیس آن اجرا می شود. اگر هر دوی کانال ها همزمان آماده ارسال داده شوند، به‌صورت تصادفی یکی از case ها انتخاب می شود تا عملیات را تکمیل کند.&lt;/p>
 &lt;p>که در خروجی مقداری که از ch1 آمده را نمایش می دهد. اما اگر بخواهیم خروجی هر دو کانال را ببینیم می توانیم از حلقه استفاده کنیم. به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch1 := make(chan string)
 ch2 := make(chan string)
 go goOne(ch1)
 go goTwo(ch2)
-for i := 0; i &amp;lt; 2; i++ {
+for i := 0; i &lt; 2; i++ {
 select {
-case msg1 := &amp;lt;-ch1:
+case msg1 := &lt;-ch1:
 fmt.Println(msg1)
-case msg2 := &amp;lt;-ch2:
+case msg2 := &lt;-ch2:
 fmt.Println(msg2)
 }
 }
 }
 func goOne(ch chan string) {
-ch &amp;lt;- &amp;quot;From goOne goroutine&amp;quot;
+ch &lt;- "From goOne goroutine"
 }
 func goTwo(ch chan string) {
-ch &amp;lt;- &amp;quot;From goTwo goroutine&amp;quot;
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-From goOne goroutine
-From goTwo goroutine
-&lt;/code>&lt;/pre>
+ch &lt;- "From goTwo goroutine"
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما select را داخل یک حلقه for قرار دادیم و گفتیم اگر مقدار i کوچکتر از ۲ بود ++i شود. که در هر دو تایم مقدار دریافتی از کانال ها را توانستیم به عنوان خروجی چاپ کنیم.&lt;/p>
 &lt;p>همانطور که قبلا گفتیم اگر شما داخل select یک case را بزارید که هیچ اطلاعات از کانال دریافت نکند ممکن است برنامه شما کاملا بلاک شود و با خطای deadlock مواجه شوید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch1 := make(chan string)
 select {
-case msg := &amp;lt;-ch1:
+case msg := &lt;-ch1:
 fmt.Println(msg)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-fatal error: all goroutines are asleep - deadlock!
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اتفاقی که در کد فوق رخ داد ما یک کانال ایجاد کردیم و سپس داخل select یک case قرار دادیم که منتظر دریافت داده از کانال می باشد. اما چون هیچ داده‌ای به کانال ارسال نمی شود برنامه بطور کلی در همان تیکه از کد بلاک می شود و در نهایت شما با این خطا مواجه خواهید شد.&lt;/p>
 &lt;h2 id="371-نحوه-کنترل-عملیات-های-کانال-با-select">
 3.7.1 نحوه کنترل عملیات های کانال با select
@@ -1364,30 +1366,32 @@ fatal error: all goroutines are asleep - deadlock!
 &lt;a class="anchor" href="#3711-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa-%d8%a7%d8%b1%d8%b3%d8%a7%d9%84-%d8%a8%d8%a7-select">#&lt;/a>
 &lt;/h3>
 &lt;p>در زیر یک مثالی زدیم که با استفاده از select داده ای را به کانال میریزیم و سپس آن داده را از کانال دیگر دریافت می کنیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch1 := make(chan string)
 ch2 := make(chan string)
 go goOne(ch1)
 go goTwo(ch2)
 select {
-case msg1 := &amp;lt;-ch1:
+case msg1 := &lt;-ch1:
 fmt.Println(msg1)
-case ch2 &amp;lt;- &amp;quot;To goTwo goroutine&amp;quot;:
+case ch2 &lt;- "To goTwo goroutine":
 }
 }
 func goOne(ch chan string) {
-ch &amp;lt;- &amp;quot;From goOne goroutine&amp;quot;
+ch &lt;- "From goOne goroutine"
 }
 func goTwo(ch chan string) {
-msg := &amp;lt;-ch
+msg := &lt;-ch
 fmt.Println(msg)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-To goTwo goroutine
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما با استفاده از یکی از case های select داده‌ای را داخل کانال ریختیم و آن داده را داخل گوروتین تابع goTwo دریافت کردیم و پس آن مقدار دریافتی را چاپ کردیم.&lt;/p>
 &lt;h2 id="372-استفاده-از-default-در-select">
 3.7.2 استفاده از default در select
@@ -1395,21 +1399,23 @@ To goTwo goroutine
 &lt;/h2>
 &lt;p>در زبان گو switch و select می توانند یک default داشته باشند. در اینجا default مربوط select رفتارش همانند default داخل switch می باشد. حالا اگر هر یک از case ها عملیات دریافت یا ارسالی برای اجرا نداشته باشند می توانید با استفاده از default از بلاک شدن برای همیشه جلوگیری کنید. و خیلی مهمه که بدانید وقتی دارید داخل select از default استفاده می کنید select از نوع non-blocking می شود. اگر شما داخل select از default استفاده نکنید ممکن است آن بخش کد شما مسدود شود تا زمانیکه یکی از case ها از کانال داده ای را دریافت کند تا ادامه عملیات صورت گیرد.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 func main() {
 ch1 := make(chan string)
 select {
-case msg := &amp;lt;-ch1:
+case msg := &lt;-ch1:
 fmt.Println(msg)
 default:
-fmt.Println(&amp;quot;Default statement executed&amp;quot;)
+fmt.Println("Default statement executed")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Default statement executed
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال ایجاد کردیم و دریافت داده از کانال را داخل یکی از case های select قرار دادیم و پس از آن default را قرار دادیم که از مسدود شدن برنامه جلوگیری کند.&lt;/p>
 &lt;h2 id="373-مسدود-سازی-select-با-استفاده-از-timeout">
 3.7.3 مسدود سازی select با استفاده از timeout
@@ -1420,52 +1426,57 @@ Default statement executed
 &lt;/code>&lt;/pre>
 &lt;p>تابع After یک مدت زمان میگیرد و سپس به عنوان خروجی یک کانال فقط دریافت از نوع Time برمیگرداند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 ch1 := make(chan string)
 go goOne(ch1)
 select {
-case msg := &amp;lt;-ch1:
+case msg := &lt;-ch1:
 fmt.Println(msg)
-case &amp;lt;-time.After(time.Second * 1):
-fmt.Println(&amp;quot;Timeout&amp;quot;)
+case &lt;-time.After(time.Second * 1):
+fmt.Println("Timeout")
 }
 }
 func goOne(ch chan string) {
 time.Sleep(time.Second * 2)
-ch &amp;lt;- &amp;quot;From goOne goroutine&amp;quot;
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Timeout
-&lt;/code>&lt;/pre>
+ch &lt;- "From goOne goroutine"
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما در یکی از case های select تابع After را به عنوان کانال دریافت کننده قرار دادیم و سپس مقدار ۱ ثانیه به تابع After پاس دادیم و پس از ۱ ثانیه select از مسدودی خارج شد.&lt;/p>
 &lt;h2 id="374-select-خالی">
 3.7.4 select خالی
 &lt;a class="anchor" href="#374-select-%d8%ae%d8%a7%d9%84%db%8c">#&lt;/a>
 &lt;/h2>
 &lt;p>یک select خالی و بدون case می تواند برنامه شما را به‌طور کلی بلاک کند و باعث بروز خطای deadlock شود. اگر select خالی داخل یک گوروتین دیگری قرار گیرد آن گوروتین بطور کلی برای همیشه بلاک خواهد شد اما اگر داخل تابع main قرار دهید باعث بروز deadlock خواهد شد.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 func main() {
 select {}
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-fatal error: all goroutines are asleep - deadlock!
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="375-استفاده-از-select-در-حلقه-بینهایت">
 3.7.5 استفاده از select در حلقه بینهایت
 &lt;a class="anchor" href="#375-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-select-%d8%af%d8%b1-%d8%ad%d9%84%d9%82%d9%87-%d8%a8%db%8c%d9%86%d9%87%d8%a7%db%8c%d8%aa">#&lt;/a>
 &lt;/h2>
 &lt;p>ما می توانیم select را داخل یک حلقه بینهایت قرار دهیم تا برای همیشه از case ها چندتا داده را بواسطه کانال دریافت کنیم و عملیاتی را انجام دهیم. همچنین اگر قصد داریم که آنقدر کیس ها چک شوند تا یکی از کانال ها برای ارسال و یا دریافت داده آماده باشد، می توانیم از این روش استفاده کنیم و در نهایت با return کردن از حلقه بینهایت خارج شویم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 news := make(chan string)
@@ -1475,36 +1486,36 @@ printAllNews(news)
 func printAllNews(news chan string) {
 for {
 select {
-case n := &amp;lt;-news:
+case n := &lt;-news:
 fmt.Println(n)
-case &amp;lt;-time.After(time.Second * 1):
-fmt.Println(&amp;quot;Timeout: News feed finished&amp;quot;)
+case &lt;-time.After(time.Second * 1):
+fmt.Println("Timeout: News feed finished")
 return
 }
 }
 }
 func newsFeed(ch chan string) {
-for i := 0; i &amp;lt; 2; i++ {
+for i := 0; i &lt; 2; i++ {
 time.Sleep(time.Millisecond * 400)
-ch &amp;lt;- fmt.Sprintf(&amp;quot;News: %d&amp;quot;, i+1)
+ch &lt;- fmt.Sprintf("News: %d", i+1)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-News: 1
-News: 2
-Timeout: News feed finished
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال بافر نشده با نام news ایجاد کردیم و این کانال را داخل گوروتین newsFeed و تابع printAllNews قرار داده‌ایم. تابع newsFeed یک مقداری را به کانال ارسال می کند. و ما داخل تابع printAllNews بواسطه حلقه بینهایت و select دریافت می کنیم و یکی از case های select عملیات timeout را دارد که بعد ۱ ثانیه حلقه را کاملا متوقف کند.&lt;/p>
 &lt;h2 id="376-select-با-یک-کانال-nil">
 3.7.6 select با یک کانال nil
 &lt;a class="anchor" href="#376-select-%d8%a8%d8%a7-%db%8c%da%a9-%da%a9%d8%a7%d9%86%d8%a7%d9%84-nil">#&lt;/a>
 &lt;/h2>
 &lt;p>معمولا اگر یک کانال nil را برای ارسال یا دریافت داخل case قرار دهید برنامه شما همیشه بلاک می شود. اگر شما داخل یکی از case ها بیاید پس از انجام عملیات مقدار یک کانال را nil بزارید case ای که مقدار داخل کانال را دریافت می کند غیرفعال می شود و به هیچ عنوان دیگر قابل استفاده نخواهد بود. و توسط select آن case کاملا نادیده گرفته خواهد شد و select منتظر دریافت و ارسال داده از سایر case ها خواهد بود.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 news := make(chan string)
@@ -1514,26 +1525,26 @@ printAllNews(news)
 func printAllNews(news chan string) {
 for {
 select {
-case n := &amp;lt;-news:
+case n := &lt;-news:
 fmt.Println(n)
 news = nil
-case &amp;lt;-time.After(time.Second * 1):
-fmt.Println(&amp;quot;Timeout: News feed finished&amp;quot;)
+case &lt;-time.After(time.Second * 1):
+fmt.Println("Timeout: News feed finished")
 return
 }
 }
 }
 func newsFeed(ch chan string) {
-for i := 0; i &amp;lt; 2; i++ {
+for i := 0; i &lt; 2; i++ {
 time.Sleep(time.Millisecond * 400)
-ch &amp;lt;- fmt.Sprintf(&amp;quot;News: %d&amp;quot;, i+1)
+ch &lt;- fmt.Sprintf("News: %d", i+1)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-News: 1
-Timeout: News feed finished
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما داخل &lt;code>case n := &amp;lt;-news&lt;/code> پس از اینکه مقدار دریافتی را چاپ کردیم اومدیم مقدار کانال news را برابر nil قرار دادیم. حالا اگر داده‌ای به اون کانال ارسال شود دیگر نمی توانیم دریافت کنیم و select آن case را بطور کلی نادیده میگیرد.&lt;/p>
 &lt;pre>&lt;code class="language-go">case n := &amp;lt;-news:
 fmt.Println(n)
@@ -1544,23 +1555,25 @@ news = nil
 &lt;a class="anchor" href="#377-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-break-%d8%af%d8%b1-select">#&lt;/a>
 &lt;/h2>
 &lt;p>شما می توانید break را داخل هر یک از case های select استفاده کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">import "fmt"
 func main() {
 ch := make(chan string, 1)
-ch &amp;lt;- &amp;quot;Before break&amp;quot;
+ch &lt;- "Before break"
 select {
-case msg := &amp;lt;-ch:
+case msg := &lt;-ch:
 fmt.Println(msg)
 break
-fmt.Println(&amp;quot;After break&amp;quot;)
+fmt.Println("After break")
 default:
-fmt.Println(&amp;quot;Default case&amp;quot;)
+fmt.Println("Default case")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Before break
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما با استفاده از break توانستیم select را کاملا متوقف کنیم و برنامه اتمام شود و اگر دقت کرده باشید بعد از break کلمات After break چاپ نشده.&lt;/p>
 &lt;pre>&lt;code class="language-go">fmt.Println(&amp;quot;After break&amp;quot;)
 &lt;/code>&lt;/pre></description></item><item><author/><title>3.8 پکیج context</title><link>https://book.gofarsi.ir/chapter-3/go-context/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-context/</guid><description>&lt;center>&lt;a href="#">
@@ -1725,25 +1738,27 @@ ctxChildofChild := context.WithValue(ctxChild, &amp;quot;b&amp;quot;, &amp;quot;
 &lt;/code>&lt;/pre>
 &lt;p>در بالا ما یک ctxRoot ایجاد کردیم و سپس یک فرزند با استفاده از تابع WithValue ایجاد کردیم که یک مقدار از نوع key/value با نام a را داخل context فرزند قرار دادیم. حالا برای context فرزند مجدد با استفاده از WithValue یک فرزند دیگری ایجاد کردیم که یک مقدار دیگر از نوع key/value با نام b قرار دادیم حالا اگر دقت کنید ctxChildofChild دارای ۲ مقدار a و b هستش.&lt;/p>
 &lt;p>بزارید یک مثال ساده بزنیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;fmt&amp;quot;
+"context"
+"fmt"
 )
 func main() {
-ctx := context.WithValue(context.Background(), &amp;quot;language&amp;quot;, &amp;quot;Go&amp;quot;)
-fmt.Println(manager(ctx, &amp;quot;language&amp;quot;))
+ctx := context.WithValue(context.Background(), "language", "Go")
+fmt.Println(manager(ctx, "language"))
 }
 func manager(ctx context.Context, key string) string {
 if v := ctx.Value(key); v != nil {
 return v.(string)
 }
-return &amp;quot;not found value&amp;quot;
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Go
-&lt;/code>&lt;/pre>
+return "not found value"
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک context ایجاد کردیم و داخلش با استفاده از WithValue مقدار key/value قرار دادیم و سپس این context را تابع manager پاس دادیم و داخل تابع manager ما با استفاده از متد Value که داخل اینترفیس ctx هست مقدار کلید language را گرفتیم.&lt;/p>
 &lt;blockquote class="book-hint info">
 نکته کاربردی و مهم همیشه سعی کنید context را به عنوان اولین پارامتر برای توابع تعریف کنید. و بهتر است برای نام پارامتر ctx یا c بزارید.
@@ -1757,11 +1772,12 @@ Go
 func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
 &lt;/code>&lt;/pre>
 &lt;p>حالا با استفاده از مثال زیر میتوانید بحث لغو کردن را بهتر درک کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"context"
+"fmt"
+"time"
 )
 func main() {
 ctx := context.Background()
@@ -1775,8 +1791,8 @@ func task(ctx context.Context) {
 i := 1
 for {
 select {
-case &amp;lt;-ctx.Done():
-fmt.Println(&amp;quot;Gracefully exit&amp;quot;)
+case &lt;-ctx.Done():
+fmt.Println("Gracefully exit")
 fmt.Println(ctx.Err())
 return
 default:
@@ -1785,15 +1801,12 @@ time.Sleep(time.Second * 1)
 i++
 }
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-1
-2
-3
-Gracefully exit
-context canceled
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک context فرزند با استفاده از WithCancel ایجاد کردیم که به عنوان خروجی cancelCtx و cancelFunc را داد. سپس cancelCtx را به تابع task منتقل کردیم تا عملیاتی را انجام دهد. حال در ادامه کد تابع main ما یک Sleep در حد ۳ ثانیه گذاشتیم و گفتیم تابع cancelFunc اجرا شود. اگر دقت کنید پس ۳ ثانیه سیگنال لغو به تابع task ارسال شده و خطای Gracefully exit را چاپ کردیم و پس از آن خطای context چاپ کردیم.&lt;/p>
 &lt;blockquote class="book-hint info">
 &lt;p>نکته کاربردی و مهم همیشه سعی کنید تابع cancelFunc را پس از اینکه context فرزند را با WithCancel ایجاد کردید داخل defer قرار دهید.&lt;/p>
@@ -1810,11 +1823,12 @@ defer cancelFunc()
 &lt;pre>&lt;code class="language-go">func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 &lt;/code>&lt;/pre>
 &lt;p>بزارید یک مثال ساده بزنیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"context"
+"fmt"
+"time"
 )
 func main() {
 ctx := context.Background()
@@ -1827,8 +1841,8 @@ func task1(ctx context.Context) {
 i := 1
 for {
 select {
-case &amp;lt;-ctx.Done():
-fmt.Println(&amp;quot;Gracefully exit&amp;quot;)
+case &lt;-ctx.Done():
+fmt.Println("Gracefully exit")
 fmt.Println(ctx.Err())
 return
 default:
@@ -1837,15 +1851,12 @@ time.Sleep(time.Second * 1)
 i++
 }
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-1
-2
-3
-Gracefully exit
-context deadline exceeded
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک context فرزند با استفاده از تابع WithTimeout ایجاد کردیم و مدت زمان ۳ ثانیه به این تابع پاس دادیم و پس از آن context فرزند به همراه تابع cancelFunc دریافت کردیم. حالا تابع cancel را داخل defer قرار دادیم و cancelCtx را به تابع task1 که داخل گوروتین است پاس داده ایم سپس و یک Sleep به مدت ۴ ثانیه گذاشتیم تا، تابع main کارش تمام نشود. حال پس از اینکه ۳ ثانیه گذشت داخل select سیگنال cancel را دریافت کردیم و خطای context deadline exceeded که نشان دهنده اتمام شدن مدت زمان هست را چاپ کرده ایم. همانطور که متوجه شدید درخواست کلی ما لغو شده.&lt;/p>
 &lt;h2 id="387-تابع-contextwithdeadline">
 3.8.7 تابع context.WithDeadline
@@ -1855,11 +1866,12 @@ context deadline exceeded
 &lt;pre>&lt;code class="language-go">func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
 &lt;/code>&lt;/pre>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"context"
+"fmt"
+"time"
 )
 func main() {
 ctx := context.Background()
@@ -1872,8 +1884,8 @@ func task(ctx context.Context) {
 i := 1
 for {
 select {
-case &amp;lt;-ctx.Done():
-fmt.Println(&amp;quot;Gracefully exit&amp;quot;)
+case &lt;-ctx.Done():
+fmt.Println("Gracefully exit")
 fmt.Println(ctx.Err())
 return
 default:
@@ -1882,17 +1894,12 @@ time.Sleep(time.Second * 1)
 i++
 }
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-1
-2
-3
-4
-5
-Gracefully exit
-context deadline exceeded
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق یک context فرزند با استفاده از تابع WithDeadline ایجاد کردیم و سپس با توجه به زمان فعلی مدت زمان ۵ ثانیه بعد را درنظر گرفتیم که مثلا اگر الان ساعت است 10:45:30 درخواست را در 10:45:35 لغو کند.&lt;/p>
 &lt;h2 id="388-نکات-کاربردی">
 3.8.8 نکات کاربردی
@@ -1910,25 +1917,26 @@ context deadline exceeded
 &lt;a class="anchor" href="#391-%d8%a7%d8%b1%d8%b3%d8%a7%d9%84-%d8%b3%db%8c%da%af%d9%86%d8%a7%d9%84-%d8%a7%d9%86%d8%ac%d8%a7%d9%85-%d8%b4%d8%af%d9%86-%d8%a8%d8%a7-%da%a9%d8%a7%d9%86%d8%a7%d9%84-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1">#&lt;/a>
 &lt;/h2>
 &lt;p>شما می توانید با استفاده از کانال struct سیگنالی برای تکمیل شدن انجام یک کار را بفرستید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func task1(done chan struct{}) {
 // Do some work here
-fmt.Println(&amp;quot;doing task 1&amp;quot;)
+fmt.Println("doing task 1")
 time.Sleep(2 * time.Second)
-fmt.Println(&amp;quot;task 1 has been completed&amp;quot;)
-done &amp;lt;- struct{}{}
+fmt.Println("task 1 has been completed")
+done &lt;- struct{}{}
 }
-func task2(done &amp;lt;-chan struct{}) {
+func task2(done &lt;-chan struct{}) {
 select {
-case &amp;lt;-done:
+case &lt;-done:
 // Do some work here
-fmt.Println(&amp;quot;doing task 2&amp;quot;)
+fmt.Println("doing task 2")
 time.Sleep(2 * time.Second)
-fmt.Println(&amp;quot;task 2 has been completed&amp;quot;)
+fmt.Println("task 2 has been completed")
 }
 }
 func main() {
@@ -1936,16 +1944,13 @@ done := make(chan struct{})
 go task1(done)
 go task2(done)
 time.Sleep(5 * time.Second)
-fmt.Println(&amp;quot;all tasks has been completed&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-doing task 1
-task 1 has been completed
-doing task 2
-task 2 has been completed
-all tasks has been completed
-&lt;/code>&lt;/pre>
+fmt.Println("all tasks has been completed")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما دو تابع به نام task1 و task2 داریم که داخل گوروتین هستند و به عنوان پارامتر ورودی یک کانال ساختار خالی میگیرد حال کانال ساختار را به هر دو تابع پاس دادیم در ابتدا task1 فرآیند خود را انجام می دهد و سپس سیگنال انجام شدن را می فرستد و در ادامه تابع task2 سیگنال را دریافت می کند و فرآیندهای خود را انجام می دهد.&lt;/p>
 &lt;blockquote class="book-hint info">
 در زبان گو شما وقتی یک struct کاملا خالی و بدون فیلد میسازید هیچ تخصیص حافظه‌ای برایش صورت نمیگیرد.
@@ -1955,41 +1960,40 @@ all tasks has been completed
 &lt;a class="anchor" href="#392-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%db%8c%da%a9-%d8%b3%d8%b1%d9%88%db%8c%d8%b3-%db%8c%d8%a7-%d9%81%d8%b1%d8%a2%db%8c%d9%86%d8%af-%d8%a8%d8%a7-heartbeat">#&lt;/a>
 &lt;/h2>
 &lt;p>شما با استفاده از همزمانی می توانید یک heartbeat پیاده سازی کنید تا یک سرویس یا فرآیند را بطور مداوم طی بازه زمانی مشخصی زیر نظر داشته باشد و از وضعیت آن سرویس یا فرآیند به شما اطلاع دهد.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
-func heartbeat(interval time.Duration, c chan&amp;lt;- struct{}) {
+func heartbeat(interval time.Duration, c chan&lt;- struct{}) {
 ticker := time.NewTicker(interval)
 for {
 select {
-case &amp;lt;-ticker.C:
-c &amp;lt;- struct{}{}
+case &lt;-ticker.C:
+c &lt;- struct{}{}
 }
 }
 }
 func task() {
 // Do some work here
-fmt.Println(&amp;quot;Task running...&amp;quot;)
+fmt.Println("Task running...")
 }
 func main() {
 c := make(chan struct{})
 go heartbeat(1*time.Second, c)
 for {
 select {
-case &amp;lt;-c:
+case &lt;-c:
 task()
 }
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Task running...
-Task running...
-Task running...
-Task running...
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک تابع به نام heartbeat ایجاد کردیم که طی مدت زمانی یک سیگنال می فرستد تا تابع task اجرا شود که وضعیت فرآیند یا سرویس را گزارش دهد. ما مدت زمان را ۱ ثانیه گذاشتیم و یک کانال ساختار ایجاد کردیم و به تابع heartbeat که داخل یک گوروتین هست پاس دادیم سپس هر ۱ ثانیه از طریق کانال c ما سیگنال اجرای task برای بررسی وضعیت سرویس یا فرآیند را دریافت میکنیم.&lt;/p>
 &lt;h2 id="393-ارسال-درخواستهای-تکراری-به-سرور-یا-سرویسی">
 3.9.3 ارسال درخواست‌های تکراری به سرور یا سرویسی
@@ -1997,62 +2001,63 @@ Task running...
 &lt;/h2>
 &lt;p>فرض کنید شما نیاز دارید به یک سرور یا سرویسی چندین درخواست تکراری را بصورت موازی بفرستید که به اینکار replicated requests می گویند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;net/http&amp;quot;
+"fmt"
+"net/http"
 )
-func makeRequest(url string, c chan&amp;lt;- *http.Response) {
+func makeRequest(url string, c chan&lt;- *http.Response) {
 resp, err := http.Get(url)
 if err != nil {
-c &amp;lt;- nil
+c &lt;- nil
 } else {
-c &amp;lt;- resp
+c &lt;- resp
 }
 }
 func main() {
-urls := []string{&amp;quot;http://example.com&amp;quot;, &amp;quot;http://example.org&amp;quot;, &amp;quot;http://example.net&amp;quot;}
+urls := []string{"http://example.com", "http://example.org", "http://example.net"}
 c := make(chan *http.Response)
 defer close(c)
 for _, url := range urls {
 go makeRequest(url, c)
 }
-for i := 0; i &amp;lt; len(urls); i++ {
-resp := &amp;lt;-c
+for i := 0; i &lt; len(urls); i++ {
+resp := &lt;-c
 if resp == nil {
-fmt.Println(&amp;quot;Error making request&amp;quot;)
+fmt.Println("Error making request")
 } else {
 fmt.Println(resp.Status)
 }
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-200 OK
-200 OK
-200 OK
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک تابع makeRequest داریم که ۲ تا پارامتر ورودی دارد اولین پارامتر url میگیرد و دومین پارامتر یک کانال فقط ارسال از نوع http.Response* میگیرد. سپس یک ریکوئست با متد GET ایجاد میکند و خروجی را داخل کانال میفرستد. در تابع main ما یک لیست url داریم که قرار است بصورت موازی به این آدرس ها درخواست بفرستیم و خروجی را دریافت کنیم در اینجا یک کانال از نوع http.Response* ایجاد کردیم و سپس یک حلقه for-range قرار دادیم و به ازای هر یک از url ها تابع makeRequest را فراخوانی کرده‌ایم و سپس داخل گوروتین قرار داده‌ایم، در نهایت یک حلقه for-i داریم که به تعداد url ها شمارش میکند و از طریق کانال ریسپانس را دریافت می کند.&lt;/p>
 &lt;h2 id="394-بازیابی-سلامتی-یک-گوروتین">
 3.9.4 بازیابی سلامتی یک گوروتین
 &lt;a class="anchor" href="#394-%d8%a8%d8%a7%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d8%b3%d9%84%d8%a7%d9%85%d8%aa%db%8c-%db%8c%da%a9-%da%af%d9%88%d8%b1%d9%88%d8%aa%db%8c%d9%86">#&lt;/a>
 &lt;/h2>
 &lt;p>در برنامه نویسی همزمانی خیلی مهم است شما به سلامتی یک گوروتین رسیدگی کنید که اگر گوروتین قادر به انجام کاری نیست مجدد بتوانید سلامتی گوروتین را بازیابی کنید. در زبان گو شما می توانید با استفاده از پکیج context گوروتین هایی که وضعیت سالمی ندارد را با راه اندازی مجدد سلامتی آنها را بازیابی کنید.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"context"
+"fmt"
+"time"
 )
 func unhealthyGoroutine(ctx context.Context) {
 for {
 select {
-case &amp;lt;-ctx.Done():
-fmt.Println(&amp;quot;Goroutine is unhealthy, exiting&amp;quot;)
+case &lt;-ctx.Done():
+fmt.Println("Goroutine is unhealthy, exiting")
 return
 default:
 // Do some work here
-fmt.Println(&amp;quot;Goroutine running...&amp;quot;)
+fmt.Println("Goroutine running...")
 time.Sleep(500 * time.Millisecond)
 }
 }
@@ -2062,24 +2067,14 @@ ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 defer cancel()
 for {
 go unhealthyGoroutine(ctx)
-&amp;lt;-time.After(4 * time.Second)
+&lt;-time.After(4 * time.Second)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Goroutine running...
-Goroutine running...
-Goroutine running...
-Goroutine running...
-Goroutine running...
-Goroutine running...
-Goroutine is unhealthy, exiting
-Goroutine is unhealthy, exiting
-Goroutine is unhealthy, exiting
-Goroutine is unhealthy, exiting
-Goroutine is unhealthy, exiting
-Goroutine is unhealthy, exiting
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک تابع به نام unhealthyGoroutine داریم که بصورت جداگانه در گوروتین های مختلف اجرا می شود و کاری را انجام می دهد. داخل تابع ما یک select داریم که در یکی از case هایش context.Done را بررسی میکنیم آیا فرآیند لغو شده است یا خیر. داخل تابع main ما یک context از نوع Timeout با مدت زمان ۳ ثانیه‌ای ایجاد کردیم و در ادامه داخل یک حلقه بینهایت تابع unhealthyGoroutine داخل گوروتین قرار دادیم و هر ۴ ثانیه یک نمونه از این تابع داخل گوروتین های مختلف اجرا می شود.&lt;/p>
 &lt;p>در اینجا کارهای داخل تابع unhealthyGoroutine انجام شود پس از ۳ ثانیه بواسطه context فرآیندها لغو می شود و از گوروتین خارج می شود. حال ما داخل تابع main اجازه دادیم یک گوروتین جدید و سالم را اجرا کند و جایگزین گوروتین ناسالم شود.&lt;/p>
 &lt;h2 id="395-پیاده-سازی-الگوریتم-فیبوناچی-با-همزمانی">
@@ -2090,29 +2085,31 @@ Goroutine is unhealthy, exiting
 الگوریتم فیبوناچی روشی برای محاسبه عدد n در دنباله فیبوناچی است. روش‌های مختلفی برای پیاده‌سازی الگوریتم فیبوناچی وجود دارد، اما رایج‌ترین روش استفاده از بازگشت است.&lt;/p>
 &lt;p>در علوم و مهندسی کامپیوتر، از دنباله فیبوناچی برای تحلیل عملکرد الگوریتم هایی مانند برج هانوی و تکنیک جستجوی فیبوناچی استفاده می شود.&lt;/p>
 &lt;p>در زیر ما برای اینکه بتوانید در سریعترین حالت ممکن محاسبات را انجام دهیم خیلی ساده می توانیم از همزمانی و کانال استفاده کنیم و در کسری از ثانیه محاسبه کنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
-func fibo(n int) &amp;lt;-chan int {
+func fibo(n int) &lt;-chan int {
 result := make(chan int)
 go func() {
 defer close(result)
-if n &amp;lt;= 2 {
-result &amp;lt;- 1
+if n &lt;= 2 {
+result &lt;- 1
 return
 }
-result &amp;lt;- &amp;lt;-fibo(n-1) + &amp;lt;-fibo(n-2)
+result &lt;- &lt;-fibo(n-1) + &lt;-fibo(n-2)
 }()
 return result
 }
 func main() {
-fmt.Println(&amp;lt;-fibo(25))
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-75025
-&lt;/code>&lt;/pre></description></item><item><author/><title>3.10 الگو های همزمانی</title><link>https://book.gofarsi.ir/chapter-3/go-concurrency-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-concurrency-patterns/</guid><description>&lt;p>الگو های همزمانی را در فصل ۹ در کنار سایر الگوهای طراحی قرار دادیم یک مرجع کامل از الگوهای طراحی برای زبان گو داشته باشیم. در این بخش فقط ما خلاصه توضیحی در خصوص الگوها قرار دادیم و شما را ارجاع می دهیم به صفحه الگو :&lt;/p>
+fmt.Println(&lt;-fibo(25))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div></description></item><item><author/><title>3.10 الگو های همزمانی</title><link>https://book.gofarsi.ir/chapter-3/go-concurrency-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-3/go-concurrency-patterns/</guid><description>&lt;p>الگو های همزمانی را در فصل ۹ در کنار سایر الگوهای طراحی قرار دادیم یک مرجع کامل از الگوهای طراحی برای زبان گو داشته باشیم. در این بخش فقط ما خلاصه توضیحی در خصوص الگوها قرار دادیم و شما را ارجاع می دهیم به صفحه الگو :&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>

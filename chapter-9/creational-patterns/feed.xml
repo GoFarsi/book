@@ -17,51 +17,50 @@
 استفاده کنید که توسط بخش‌های مختلف برنامه به آن دسترسی دارند.
 &lt;/blockquote>
 &lt;p>&lt;strong>مثال مفهومی از الگوی سینگلتون:&lt;/strong>&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"sync"
+"time"
 )
 type MyLogger struct {
 }
 var (
 globalLogger *MyLogger
-mu = &amp;amp;sync.Mutex{}
+mu = &amp;sync.Mutex{}
 )
 func GetMyLoggerInstance(i int) *MyLogger {
 if globalLogger == nil {
 mu.Lock()
 defer mu.Unlock()
 if globalLogger == nil {
-fmt.Println(&amp;quot;creating myLogger instance by&amp;quot;, i)
-globalLogger = &amp;amp;MyLogger{}
+fmt.Println("creating myLogger instance by", i)
+globalLogger = &amp;MyLogger{}
 }
 } else {
-fmt.Println(&amp;quot;myLogger instance already created.&amp;quot;)
+fmt.Println("myLogger instance already created.")
 }
 return globalLogger
 }
 func main() {
-for i := 1; i &amp;lt;= 5; i++ {
+for i := 1; i &lt;= 5; i++ {
 go GetMyLoggerInstance(i)
 }
 time.Sleep(time.Second)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-creating myLogger instance by 2
-myLogger instance already created.
-myLogger instance already created.
-myLogger instance already created.
-myLogger instance already created.
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>&lt;strong>روش‌ دیگری نیز برای ایجاد یک شی توسط الگوی سینگلتون در زبان گو وجود دارد:&lt;/strong>&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"sync"
+"time"
 )
 type MyLogger struct {
 }
@@ -73,30 +72,31 @@ func GetMyLoggerInstance(i int) *MyLogger {
 if globalLogger == nil {
 once.Do(
 func() {
-fmt.Println(&amp;quot;creating myLogger instance by&amp;quot;, i)
-globalLogger = &amp;amp;MyLogger{}
+fmt.Println("creating myLogger instance by", i)
+globalLogger = &amp;MyLogger{}
 })
 } else {
-fmt.Println(&amp;quot;myLogger instance already created.&amp;quot;)
+fmt.Println("myLogger instance already created.")
 }
 return globalLogger
 }
 func main() {
-for i := 1; i &amp;lt;= 5; i++ {
+for i := 1; i &lt;= 5; i++ {
 go GetMyLoggerInstance(i)
 }
 time.Sleep(time.Second)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-creating myLogger instance by 4
-&lt;/code>&lt;/pre>
-&lt;p>&lt;strong>مزایا:&lt;/strong>&lt;br>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>&lt;strong>مزایا:&lt;/strong>
 ✅ اطمینان می‌دهد که تنها یک شی از ساختار وجود دارد.
-✅ دسترسی سراسری به آن شی را فراهم می‌کند.&lt;br>
+✅ دسترسی سراسری به آن شی را فراهم می‌کند.
 ✅ شی فقط در صورت نیاز به آن ایجاد و مقداردهی می‌شود.&lt;/p>
-&lt;p>&lt;strong>معایب:&lt;/strong>&lt;br>
+&lt;p>&lt;strong>معایب:&lt;/strong>
 ❌ &lt;span class="tooltip" data-tooltip="Single Responsibility Principle" ontouchend="toggleTooltip(this)">اصل مسئولیت واحد&lt;/span>
-را نقض می‌کند و ممکن است باعث پیچیدگی در کد شود.&lt;br>
+را نقض می‌کند و ممکن است باعث پیچیدگی در کد شود.
 ❌ در برنامه‌های &lt;span class="tooltip" data-tooltip="Multi Thread" ontouchend="toggleTooltip(this)">ماتی ترد&lt;/span>
 ، پیاده‌سازی الگوی سینگلتون نیاز به رویکردهای خاص دارد و این ممکن است پیچیدگی را افزایش دهد.&lt;/p></description></item><item><author/><title>9.1.2 الگو Factory Method</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/go-factory-method-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/go-factory-method-pattern/</guid><description>&lt;p>الگو Factory Method&amp;hellip;&lt;/p></description></item><item><author/><title>9.1.3 الگو Prototype</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/go-prototype-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/go-prototype-pattern/</guid><description>&lt;p>الگو Prototype&amp;hellip;&lt;/p></description></item><item><author/><title>9.1.4 الگو Abstract Factory</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/go-abstract-factory-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/go-abstract-factory-pattern/</guid><description>&lt;p>الگو Abstract Factory&amp;hellip;&lt;/p></description></item><item><author/><title>9.1.6 الگو Builder</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/go-builder-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/go-builder-pattern/</guid><description>&lt;p>الگو Builder&amp;hellip;&lt;/p></description></item><item><author/><title>9.1.7 الگو Object Pool</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/go-object-pool-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/go-object-pool-pattern/</guid><description>&lt;p>الگو Object Pool&amp;hellip;&lt;/p></description></item></channel></rss>

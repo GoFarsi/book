@@ -2,7 +2,7 @@
 اینترفیس‌ها به شما اجازه می‌دهد تا از Duck typing استفاده کنید. حالا این duck typing چیست؟
 duck typing روشی در برنامه‌نویسی کامپیوتری است که به شما امکان می‌دهد تست اردک را انجام دهید، جایی که ما نوع را بررسی نمی‌کنیم، بلکه تنها وجود برخی ویژگی‌ها یا روش‌ها را بررسی می‌کنیم. بنابراین آنچه واقعاً اهمیت دارد این است که آیا یک شی دارای ویژگی‌ها و روش‌های خاصی است و نه نوع آن."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-2/interface/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="2.4 اینترفیس (Interface)"><meta property="og:description" content="اینترفیس در زبان گو مجموعه‌ای از متدها است. این مجموعه متدها با توجه به ورودی و خروجی که دارند دارای رفتارهای خاصی هستند. زمانیکه شما یک اینترفیس به همراه یکسری از متدها تعریف می‌کنید باید در جایی این متدها را پیاده سازی کنید.
 اینترفیس‌ها به شما اجازه می‌دهد تا از Duck typing استفاده کنید. حالا این duck typing چیست؟
-duck typing روشی در برنامه‌نویسی کامپیوتری است که به شما امکان می‌دهد تست اردک را انجام دهید، جایی که ما نوع را بررسی نمی‌کنیم، بلکه تنها وجود برخی ویژگی‌ها یا روش‌ها را بررسی می‌کنیم. بنابراین آنچه واقعاً اهمیت دارد این است که آیا یک شی دارای ویژگی‌ها و روش‌های خاصی است و نه نوع آن."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-2"><title>2.4 اینترفیس (Interface) | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-2/interface/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.6c1aaf1f270188830ce496fd59a7bc4eea6511a2c2d0fe2d706245283f6e0e03.js integrity="sha256-bBqvHycBiIMM5Jb9Wae8TuplEaLC0P4tcGJFKD9uDgM=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
+duck typing روشی در برنامه‌نویسی کامپیوتری است که به شما امکان می‌دهد تست اردک را انجام دهید، جایی که ما نوع را بررسی نمی‌کنیم، بلکه تنها وجود برخی ویژگی‌ها یا روش‌ها را بررسی می‌کنیم. بنابراین آنچه واقعاً اهمیت دارد این است که آیا یک شی دارای ویژگی‌ها و روش‌های خاصی است و نه نوع آن."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-2"><title>2.4 اینترفیس (Interface) | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-2/interface/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.b84e8b5ad0341651e017dbc60a5d71c5f75cb7e23e2ee16350e38b5fa3f90c2c.js integrity="sha256-uE6LWtA0FlHgF9vGCl1xxfdct+I+LuFjUOOLX6P5DCw=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
 .mermaid {
     display: flex;
     justify-content: center;
@@ -43,9 +43,9 @@ duck typing روشی در برنامه‌نویسی کامپیوتری است ک
     breathe()
     walk()
 }
-</code></pre><p>در بالا ما یک اینترفیس تعریف کردیم ۲ تا متد دارد حالا بیاید یک متغیر از نوع اینترفیس animal درست کنیم و چاپ کنیم.</p><pre><code class=language-go>package main
+</code></pre><p>در بالا ما یک اینترفیس تعریف کردیم ۲ تا متد دارد حالا بیاید یک متغیر از نوع اینترفیس animal درست کنیم و چاپ کنیم.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
     breathe()
@@ -55,14 +55,13 @@ type animal interface {
 func main() {
     var a animal
     fmt.Println(a)
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-nil
-</code></pre><p>در بالا وقتی اینترفیس را چاپ کردیم، خروجی <code>nil</code> بود.
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در بالا وقتی اینترفیس را چاپ کردیم، خروجی <code>nil</code> بود.
 توجه کنید اینترفیس مقدار پیش‌فرض یا خالی بودنش <code>nil</code> هست.</p><h2 id=241-پیادهسازی-اینترفیس>2.4.1 پیاده‌سازی اینترفیس
-<a class=anchor href=#241-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>در بالا ما یک اینترفیس animal تعریف کردیم که ۲ متد داشت حالا قصد داریم یک شی (منظور ساختار در گو) به نام lion تعریف کنیم و متدهای اینترفیس animal را پیاده‌سازی کنیم.</p><pre><code class=language-go>package main
+<a class=anchor href=#241-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>در بالا ما یک اینترفیس animal تعریف کردیم که ۲ متد داشت حالا قصد داریم یک شی (منظور ساختار در گو) به نام lion تعریف کنیم و متدهای اینترفیس animal را پیاده‌سازی کنیم.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
     breathe()
@@ -74,11 +73,11 @@ type lion struct {
 }
 
 func (l lion) breathe() {
-    fmt.Println(&quot;Lion breathes&quot;)
+    fmt.Println("Lion breathes")
 }
 
 func (l lion) walk() {
-    fmt.Println(&quot;Lion walk&quot;)
+    fmt.Println("Lion walk")
 }
 
 func main() {
@@ -86,16 +85,14 @@ func main() {
     a = lion{age: 10}
     a.breathe()
     a.walk()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Lion breathes
-Lion walk
-</code></pre><p>در بالا ما یک متغیر با تایپ animal تعریف کردیم:</p><pre><code class=language-go>var a animal
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در بالا ما یک متغیر با تایپ animal تعریف کردیم:</p><pre><code class=language-go>var a animal
 </code></pre><p>سپس ما یک نمونه از ساختار lion را بهش اختصاص دادیم:</p><pre><code class=language-go>a = lion{}
 </code></pre><p>اختصاص یک نمونه از ساختار lion به متغیر a که با تایپ lion بود موفقیت آمیز بود زیرا ما برای lion متدهای مربوط به animal را که breathe و walk بود، پیاده سازی کردیم. این مفهوم کاملاً شبیه به ducking typing هست که در بالا گفتیم. یک شیر می‌تواند نفس بکشد و راه برود از این رو او یک حیوان است.</p><blockquote class="book-hint info"><p>توجه کنید اگر شما متد جدیدی را اضافه یا کم کنید و همچنین اگر تغییر ایجاد کنید باید این تغییرات بر روی اشیایی که با اینترفیس شما در ارتباط هستند صورت بگیرید.</p><p>به عنوان مثال شما اگر به اینترفیس animal یک متد جدیدی اضافه کنید حتما باید برای ساختار lion هم پیاده سازی کنید.</p></blockquote><h2 id=242-اینترفیسها-بطور-ضمنی-implicitly-پیاده-سازی-میشود>2.4.2 اینترفیس‌ها بطور ضمنی (implicitly) پیاده سازی می‌شود
-<a class=anchor href=#242-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3%d9%87%d8%a7-%d8%a8%d8%b7%d9%88%d8%b1-%d8%b6%d9%85%d9%86%db%8c-implicitly-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c-%d9%85%db%8c%d8%b4%d9%88%d8%af>#</a></h2><p>برای اینترفیس هیچ حالت صریح (explicit) هنگام تعریف وجود ندارد و همه چی بصورت ضمنی است تا زمانیکه یک اینترفیس برای یک شی (ساختار) متدهایش پیاده سازی نشود هیچ کاربردی نخواهد داشت.</p><p>توجه کنید هیچ حالت صریحی وجود ندارد که بگوید شما تمامی متدهای اینترفیس animal را برای ساختار lion پیاده سازی کردید یا خیر و فقط در زمان کامپایل اگر ایرادی وجود داشته باشد کامپایلر به شما خطا می‌دهد و البته IDE هایی مانند: Goland , Vscode به شما هنگام نوشتن کد در خصوص این مورد کمک می‌کنند قبل از کامپایل متوجه خطاهای مرتبط با پیاده سازی اینترفیس شوید.</p><p>خب بزارید یک مثال پیچیده برای اینترفیس animal بزنیم و یک شی (ساختار) دیگر به نام dog اضافه کنیم و متدهای اینترفیس animal را برای این شی پیاده سازی کنیم.</p><pre><code class=language-go>package main
+<a class=anchor href=#242-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3%d9%87%d8%a7-%d8%a8%d8%b7%d9%88%d8%b1-%d8%b6%d9%85%d9%86%db%8c-implicitly-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c-%d9%85%db%8c%d8%b4%d9%88%d8%af>#</a></h2><p>برای اینترفیس هیچ حالت صریح (explicit) هنگام تعریف وجود ندارد و همه چی بصورت ضمنی است تا زمانیکه یک اینترفیس برای یک شی (ساختار) متدهایش پیاده سازی نشود هیچ کاربردی نخواهد داشت.</p><p>توجه کنید هیچ حالت صریحی وجود ندارد که بگوید شما تمامی متدهای اینترفیس animal را برای ساختار lion پیاده سازی کردید یا خیر و فقط در زمان کامپایل اگر ایرادی وجود داشته باشد کامپایلر به شما خطا می‌دهد و البته IDE هایی مانند: Goland , Vscode به شما هنگام نوشتن کد در خصوص این مورد کمک می‌کنند قبل از کامپایل متوجه خطاهای مرتبط با پیاده سازی اینترفیس شوید.</p><p>خب بزارید یک مثال پیچیده برای اینترفیس animal بزنیم و یک شی (ساختار) دیگر به نام dog اضافه کنیم و متدهای اینترفیس animal را برای این شی پیاده سازی کنیم.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
     breathe()
@@ -107,11 +104,11 @@ type lion struct {
 }
 
 func (l lion) breathe() {
-    fmt.Println(&quot;Lion breathes&quot;)
+    fmt.Println("Lion breathes")
 }
 
 func (l lion) walk() {
-    fmt.Println(&quot;Lion walk&quot;)
+    fmt.Println("Lion walk")
 }
 
 type dog struct {
@@ -119,30 +116,26 @@ type dog struct {
 }
 
 func (l dog) breathe() {
-    fmt.Println(&quot;Dog breathes&quot;)
+    fmt.Println("Dog breathes")
 }
 
 func (l dog) walk() {
-    fmt.Println(&quot;Dog walk&quot;)
+    fmt.Println("Dog walk")
 }
 
 func main() {
     var a animal
-    
+
     a = lion{age: 10}
     a.breathe()
     a.walk()
-  
+
     a = dog{age: 5}
     a.breathe()
     a.walk()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Lion breathes
-Lion walk
-Dog breathes
-Dog walk
-</code></pre><p>در مثال بالا ما یک ساختار با نام dog تعریف کردیم و سپس متدهای animal را برای ساختار dog پیاده سازی کردیم و در نهایت ساختار dog را به متغیر اینترفیس a اختصاص دادیم. همانطور که می‌بینیم dog هم همانند lion نفس می‌کشد و راه می‌رود.</p><blockquote class="book-hint info">توجه کنید در بالا ما برای ۲ تا شی lion و dog یک وجه مشترک به نام animal به همراه رفتار مشترک تعریف کردیم که به اینکار پلی مورفیسم می‌گویند و یکی از عناوین پر کاربرد در شی‌گرایی می باشد که در <a href=https://book.gofarsi.ir/chapter-4/oop/go-polymorphism/>بخش شی گرایی زبان گو</a> بیشتر می‌پردازیم.</blockquote><p><strong>دو نکته مهم در خصوص اینترفیس‌:</strong></p><ol><li>اینترفیس‌ها فقط زمان کامپایل مشخص می‌شود که برای اشیا به درستی پیاده سازی شده‌اند یا خیر و اگر فرضاً ما برای ساختار lion در کد بالا متد walk را حذف کنیم با خطای زیر رو به رو خواهیم شد:</li></ol><pre><code class=language-go>cannot use lion literal (type lion) as type animal in assignment:
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در مثال بالا ما یک ساختار با نام dog تعریف کردیم و سپس متدهای animal را برای ساختار dog پیاده سازی کردیم و در نهایت ساختار dog را به متغیر اینترفیس a اختصاص دادیم. همانطور که می‌بینیم dog هم همانند lion نفس می‌کشد و راه می‌رود.</p><blockquote class="book-hint info">توجه کنید در بالا ما برای ۲ تا شی lion و dog یک وجه مشترک به نام animal به همراه رفتار مشترک تعریف کردیم که به اینکار پلی مورفیسم می‌گویند و یکی از عناوین پر کاربرد در شی‌گرایی می باشد که در <a href=https://book.gofarsi.ir/chapter-4/oop/go-polymorphism/>بخش شی گرایی زبان گو</a> بیشتر می‌پردازیم.</blockquote><p><strong>دو نکته مهم در خصوص اینترفیس‌:</strong></p><ol><li>اینترفیس‌ها فقط زمان کامپایل مشخص می‌شود که برای اشیا به درستی پیاده سازی شده‌اند یا خیر و اگر فرضاً ما برای ساختار lion در کد بالا متد walk را حذف کنیم با خطای زیر رو به رو خواهیم شد:</li></ol><pre><code class=language-go>cannot use lion literal (type lion) as type animal in assignment:
 </code></pre><ol start=2><li>ورود و خروجی‌های هر متدی که پیاده سازی می‌کنید برای اشیا (ساختارها) بستگی به تعریف ضمنی متد داخل اینترفیس دارد و اگر شما متدی را داخل اینترفیس تغییر دهید حتما باید آن متد در اشیایی که قبلا پیاده سازی شده تغییر یابد.</li></ol><p>حالا فرض کنید ما برای اینترفیس animal یک متد جدیدی به نام speed تعریف کردیم که این متد به عنوان خروجی مقداری با تایپ int بر می‌گرداند:</p><pre><code class=language-go>type animal interface {
     breathe()
     walk()
@@ -154,9 +147,9 @@ Dog walk
                 have speed()
                 want speed() int
 </code></pre><p>با توجه به اتفاقی که افتاد ما نتیجه میگریم متدی که داخل اینترفیس به همراه ورودی و خروجی اضافه می‌شود باید به همان شکل برای ساختارهامون پیاده سازی کنیم.</p><h2 id=243-استفاده-از-اینترفیس-به-عنوان-پارامتر-ورودی-تابع>2.4.3 استفاده از اینترفیس به عنوان پارامتر ورودی تابع
-<a class=anchor href=#243-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%a8%d9%87-%d8%b9%d9%86%d9%88%d8%a7%d9%86-%d9%be%d8%a7%d8%b1%d8%a7%d9%85%d8%aa%d8%b1-%d9%88%d8%b1%d9%88%d8%af%db%8c-%d8%aa%d8%a7%d8%a8%d8%b9>#</a></h2><p>توابع، تایپ‌های اینترفیس را به عنوان ورودی قبول می‌کنند و هر ساختار یا تایپی متدهای اینترفیس را پیاده سازی کرده باشد می‌تواند به عنوان پارامتر ورودی به تابع ارسال شود.</p><p>به عنوان مثال ما در کد زیر ۲ تا تابع داریم به نام های <strong>callBreathe</strong> و <strong>callWalk</strong> که به عنوان ورودی اینترفیس animal را قبول می‌کند و ما ۲ نمونه از ساختارهای lion و dog را که متدهای اینترفیس animal را پیاده سازی کرده‌اند را به این ۲ تابع پاس دادیم.</p><pre><code class=language-go>package main
+<a class=anchor href=#243-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%a8%d9%87-%d8%b9%d9%86%d9%88%d8%a7%d9%86-%d9%be%d8%a7%d8%b1%d8%a7%d9%85%d8%aa%d8%b1-%d9%88%d8%b1%d9%88%d8%af%db%8c-%d8%aa%d8%a7%d8%a8%d8%b9>#</a></h2><p>توابع، تایپ‌های اینترفیس را به عنوان ورودی قبول می‌کنند و هر ساختار یا تایپی متدهای اینترفیس را پیاده سازی کرده باشد می‌تواند به عنوان پارامتر ورودی به تابع ارسال شود.</p><p>به عنوان مثال ما در کد زیر ۲ تا تابع داریم به نام های <strong>callBreathe</strong> و <strong>callWalk</strong> که به عنوان ورودی اینترفیس animal را قبول می‌کند و ما ۲ نمونه از ساختارهای lion و dog را که متدهای اینترفیس animal را پیاده سازی کرده‌اند را به این ۲ تابع پاس دادیم.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
 	breathe()
@@ -168,11 +161,11 @@ type lion struct {
 }
 
 func (l lion) breathe() {
-	fmt.Println(&quot;Lion breathes&quot;)
+	fmt.Println("Lion breathes")
 }
 
 func (l lion) walk() {
-	fmt.Println(&quot;Lion walk&quot;)
+	fmt.Println("Lion walk")
 }
 
 type dog struct {
@@ -180,11 +173,11 @@ type dog struct {
 }
 
 func (l dog) breathe() {
-	fmt.Println(&quot;Dog breathes&quot;)
+	fmt.Println("Dog breathes")
 }
 
 func (l dog) walk() {
-	fmt.Println(&quot;Dog walk&quot;)
+	fmt.Println("Dog walk")
 }
 
 func main() {
@@ -203,13 +196,9 @@ func callBreathe(a animal) {
 
 func callWalk(a animal) {
 	a.breathe()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Lion breathes
-Lion walk
-Dog breathes
-Dog walk
-</code></pre><h2 id=244-چرا-اینترفیس>2.4.4 چرا اینترفیس؟
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><h2 id=244-چرا-اینترفیس>2.4.4 چرا اینترفیس؟
 <a class=anchor href=#244-%da%86%d8%b1%d8%a7-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>شاید برای شما این سوال پیش بیاد چرا باید از اینترفیس استفاده کنیم و مزایای آن چیست؟ ما در زیر مزایای استفاده از اینترفیس و علت اینکه چرا باید از اینترفیس استفاده کنیم را توضیح خواهیم داد.</p><ol><li>اینترفیس به ما در نوشتن کدهای ماژولارتر و <span class=tooltip data-tooltip=decoupled ontouchend=toggleTooltip(this)>جدا شده‌‌تر</span>
 بین بخش‌های مختلف کد کمک می‌کند و همچنین می‌تواند باعث کاهش وابستگی بین بخش‌های مختلف کد شود.</li></ol><h2 id=کد-باید-برای-تغییر-بسته-و-برای-توسعه-باز-باشد>کد باید برای تغییر بسته، و برای توسعه باز باشد.
 <a class=anchor href=#%da%a9%d8%af-%d8%a8%d8%a7%db%8c%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%aa%d8%ba%db%8c%db%8c%d8%b1-%d8%a8%d8%b3%d8%aa%d9%87-%d9%88-%d8%a8%d8%b1%d8%a7%db%8c-%d8%aa%d9%88%d8%b3%d8%b9%d9%87-%d8%a8%d8%a7%d8%b2-%d8%a8%d8%a7%d8%b4%d8%af>#</a></h2><p>اصل باز و بسته بودن یا اصل Open/Closed به نظر بسیاری، اساس برنامه نویسی شی گرا را تشکیل می‌دهد. رابرت مارتین (Robert C. Martin) که در بین برنامه نویسان به عمو باب (Uncle Bob) مشهور است با عبارت: &ldquo;مهم‌ترین اصل طراحی شی گرا&rdquo; از این اصل یاد کرده است. ما با استفاده از اینترفیس ها میتونیم این اصل مهم رو پیاده سازی کنیم.</p><p><strong>بزارید چند مثال کاربردی بزنیم:</strong>
@@ -220,9 +209,9 @@ Dog walk
 در زمان اجرا استفاده کرد. که به این مفهوم RunTime Polymorphism می‌گویند.</li></ol><p><strong>بزارید یک مثال برای توضیح فوق بزنیم:</strong></p><p>فرض کنید کشورهای مختلف روش‌های مختلفی برای محاسبه مالیات دارند که شما می‌توانید با استفاده از یک اینترفیس این عملیات محاسبه را انجام دهید.</p><pre><code class=language-go>type taxCalculator interface{
     calculateTax()
 }
-</code></pre><p>در بالا ما یک اینترفیس با نام taxCalculator داریم که یک متد به نام calculateTax برای محاسبه مالیات دارد. حالا ما باید به ازای هر کشور یک ساختار داشته باشیم که این ساختارها باید متد calculateTax را با توجه شیوه محاسباتی خود پیاده سازی کرده باشند.</p><pre><code class=language-go>package main
+</code></pre><p>در بالا ما یک اینترفیس با نام taxCalculator داریم که یک متد به نام calculateTax برای محاسبه مالیات دارد. حالا ما باید به ازای هر کشور یک ساختار داشته باشیم که این ساختارها باید متد calculateTax را با توجه شیوه محاسباتی خود پیاده سازی کرده باشند.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type taxSystem interface {
     calculateTax() int
@@ -252,11 +241,11 @@ func (i *usaTax) calculateTax() int {
     return tax
 }
 func main() {
-    indianTax := &amp;indianTax{
+    indianTax := &indianTax{
         taxPercentage: 30,
         income:        1000,
     }
-    singaporeTax := &amp;singaporeTax{
+    singaporeTax := &singaporeTax{
         taxPercentage: 10,
         income:        2000,
     }
@@ -266,7 +255,7 @@ func main() {
     totalTax := calculateTotalTax(taxSystems)
 
 
-    fmt.Printf(&quot;Total Tax is %d\n&quot;, totalTax)
+    fmt.Printf("Total Tax is %d\n", totalTax)
 }
 
 func calculateTotalTax(taxSystems []taxSystem) int {
@@ -275,10 +264,9 @@ func calculateTotalTax(taxSystems []taxSystem) int {
         totalTax += t.calculateTax() // در اینجا runtime polymorphism رخ می دهد
     }
     return totalTax
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Total Tax is 300
-</code></pre><p>در خط زیر RunTime Polymorphism رخ داده است.</p><pre><code class=language-go> totalTax += t.calculateTax() //This is where runtime polymorphism happens
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در خط زیر RunTime Polymorphism رخ داده است.</p><pre><code class=language-go> totalTax += t.calculateTax() //This is where runtime polymorphism happens
 </code></pre><h2 id=245-استفاده-از-اشارهگر-هنگام-پیادهسازی-اینترفیس>2.4.5 استفاده از اشاره‌گر هنگام پیاده‌سازی اینترفیس
 <a class=anchor href=#245-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%a7%d8%b4%d8%a7%d8%b1%d9%87%da%af%d8%b1-%d9%87%d9%86%da%af%d8%a7%d9%85-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>متدها تایپ‌های گیرنده خود را به دو صورت <span class=tooltip data-tooltip=pointer ontouchend=toggleTooltip(this)>اشاره‌گر</span>
 یا <span class=tooltip data-tooltip=value ontouchend=toggleTooltip(this)>مقدار</span>
@@ -286,9 +274,9 @@ Total Tax is 300
 بود. حالا می‌خواهیم بصورت <span class=tooltip data-tooltip="pointer receiver" ontouchend=toggleTooltip(this)>گیرنده اشاره‌گر</span>
 تعریف کنیم.</p><p>2 نکته با توجه مثالی که خواهیم زد وجود دارد:</p><ul><li><p>اگر شما برای یک تایپ تمامی متدهای اینترفیس را بصورت <span class=tooltip data-tooltip="value receiver" ontouchend=toggleTooltip(this)>گیرنده مقدار</span>
 تعریف کرده باشید، هر دو متغیری که یک نمونه از تایپ را بصورت اشاره‌گر و بدون اشاره‌گر تعریف کرده باشد، می‌تواند به اینترفیس animal انتصاب شود و بدون هیچ مشکلی کار کند.</p></li><li><p>اگر شما برای یک تایپی تمامی متدهای اینترفیس را بصورت <span class=tooltip data-tooltip="pointer receiver" ontouchend=toggleTooltip(this)>گیرنده اشاره‌گر</span>
-تعریف کرده باشید فقط متغیری که یک نمونه از تایپ که با اشاره‌گر تعریف کرده باشد می‌تواند به اینترفیس انتصاب یابد.</p></li></ul><p>مثال با حالت اولی که توضیح دادیم:</p><pre><code class=language-go>package main
+تعریف کرده باشید فقط متغیری که یک نمونه از تایپ که با اشاره‌گر تعریف کرده باشد می‌تواند به اینترفیس انتصاب یابد.</p></li></ul><p>مثال با حالت اولی که توضیح دادیم:</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
 	breathe()
@@ -300,11 +288,11 @@ type lion struct {
 }
 
 func (l lion) breathe() {
-	fmt.Println(&quot;Lion breathes&quot;, l)
+	fmt.Println("Lion breathes", l)
 }
 
 func (l lion) walk() {
-	fmt.Println(&quot;Lion walk&quot;, l)
+	fmt.Println("Lion walk", l)
 }
 
 func main() {
@@ -314,18 +302,14 @@ func main() {
 	a.breathe()
 	a.walk()
 
-	a = &amp;lion{age: 5}
+	a = &lion{age: 5}
 	a.breathe()
 	a.walk()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Lion breathes {10}
-Lion walk {10}
-Lion breathes {5}
-Lion walk {5}
-</code></pre><p>در بالا ما یک نمونه از ساختار lion با اشاره‌گر ایجاد کردیم و مقدار age را ۵ قرار دادیم و به اینترفیس animal انتصابش کردیم و بدون هیچ مشکلی کار کرد.</p><p>حالا برای حالت دوم به مثال زیر توجه کنید:</p><pre><code class=language-go>package main
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در بالا ما یک نمونه از ساختار lion با اشاره‌گر ایجاد کردیم و مقدار age را ۵ قرار دادیم و به اینترفیس animal انتصابش کردیم و بدون هیچ مشکلی کار کرد.</p><p>حالا برای حالت دوم به مثال زیر توجه کنید:</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
 	breathe()
@@ -337,11 +321,11 @@ type lion struct {
 }
 
 func (l *lion) breathe() {
-	fmt.Println(&quot;Lion breathes&quot;)
+	fmt.Println("Lion breathes")
 }
 
 func (l *lion) walk() {
-	fmt.Println(&quot;Lion walk&quot;)
+	fmt.Println("Lion walk")
 }
 
 func main() {
@@ -351,17 +335,15 @@ func main() {
 	a.breathe()
 	a.walk()
 
-	a = &amp;lion{age: 5}
+	a = &lion{age: 5}
 	a.breathe()
 	a.walk()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-cannot use lion literal (type lion) as type animal in assignment:
-        lion does not implement animal (breathe method has pointer receiver)
-</code></pre><p>در واقع شما فقط در صورت استفاده از اشاره‌گر، می‌توانید یک نمونه از ساختار lion بسازید در غیر این صورت با خطا مواجه خواهید شد.</p><h2 id=246-پیاده-سازی-اینترفیس-برای-تایپهای-غیر-ساختار>2.4.6 پیاده سازی اینترفیس برای تایپ‌های غیر ساختار
-<a class=anchor href=#246-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%a8%d8%b1%d8%a7%db%8c-%d8%aa%d8%a7%db%8c%d9%be%d9%87%d8%a7%db%8c-%d8%ba%db%8c%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1>#</a></h2><p>همانطور که قبلاً گفتیم شما می‌توانید برای هر تایپی متد تعریف کنید و در اینجا هم می‌توانید متدهای یک اینترفیس را برای هر تایپی پیاده سازی کنید.</p><pre><code class=language-go>package main
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در واقع شما فقط در صورت استفاده از اشاره‌گر، می‌توانید یک نمونه از ساختار lion بسازید در غیر این صورت با خطا مواجه خواهید شد.</p><h2 id=246-پیاده-سازی-اینترفیس-برای-تایپهای-غیر-ساختار>2.4.6 پیاده سازی اینترفیس برای تایپ‌های غیر ساختار
+<a class=anchor href=#246-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%a8%d8%b1%d8%a7%db%8c-%d8%aa%d8%a7%db%8c%d9%be%d9%87%d8%a7%db%8c-%d8%ba%db%8c%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1>#</a></h2><p>همانطور که قبلاً گفتیم شما می‌توانید برای هر تایپی متد تعریف کنید و در اینجا هم می‌توانید متدهای یک اینترفیس را برای هر تایپی پیاده سازی کنید.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
 	breathe()
@@ -371,27 +353,25 @@ type animal interface {
 type cat string
 
 func (c cat) breathe() {
-	fmt.Println(&quot;Cat breathes&quot;)
+	fmt.Println("Cat breathes")
 }
 
 func (c cat) walk() {
-	fmt.Println(&quot;Cat walk&quot;)
+	fmt.Println("Cat walk")
 }
 
 func main() {
 	var a animal
 
-	a = cat(&quot;smokey&quot;)
+	a = cat("smokey")
 	a.breathe()
 	a.walk()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Cat breathes
-Cat walk
-</code></pre><p>در بالا ما یک تایپ با نام cat از نوع رشته تعریف کردیم و سپس متدهای اینترفیس animal را برای این تایپ پیاده‌سازی کردیم.</p><h2 id=247-پیادهسازی-چندتایی-اینترفیس-برای-تایپ>2.4.7 پیاده‌سازی چندتایی اینترفیس برای تایپ
-<a class=anchor href=#247-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%da%86%d9%86%d8%af%d8%aa%d8%a7%db%8c%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%a8%d8%b1%d8%a7%db%8c-%d8%aa%d8%a7%db%8c%d9%be>#</a></h2><p>شما می‌توانید برای تایپ‌های خود چندین اینترفیس مختلف استفاده کنید و متدهای این اینترفیس‌ها را پیاده سازی کنید.</p><p>در کد زیر ما ۲ تا اینترفیس animal و mammal داریم که داخل اینترفیس mammal یک متد با نام feed وجود دارد حالا می‌خواهیم برای ساختار lion از این اینترفیس استفاده کنیم.</p><pre><code class=language-go>package main
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در بالا ما یک تایپ با نام cat از نوع رشته تعریف کردیم و سپس متدهای اینترفیس animal را برای این تایپ پیاده‌سازی کردیم.</p><h2 id=247-پیادهسازی-چندتایی-اینترفیس-برای-تایپ>2.4.7 پیاده‌سازی چندتایی اینترفیس برای تایپ
+<a class=anchor href=#247-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%da%86%d9%86%d8%af%d8%aa%d8%a7%db%8c%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%a8%d8%b1%d8%a7%db%8c-%d8%aa%d8%a7%db%8c%d9%be>#</a></h2><p>شما می‌توانید برای تایپ‌های خود چندین اینترفیس مختلف استفاده کنید و متدهای این اینترفیس‌ها را پیاده سازی کنید.</p><p>در کد زیر ما ۲ تا اینترفیس animal و mammal داریم که داخل اینترفیس mammal یک متد با نام feed وجود دارد حالا می‌خواهیم برای ساختار lion از این اینترفیس استفاده کنیم.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
     breathe()
@@ -406,13 +386,13 @@ type lion struct {
      age int
 }
 func (l lion) breathe() {
-    fmt.Println(&quot;Lion breathes&quot;)
+    fmt.Println("Lion breathes")
 }
 func (l lion) walk() {
-    fmt.Println(&quot;Lion walk&quot;)
+    fmt.Println("Lion walk")
 }
 func (l lion) feed() {
-    fmt.Println(&quot;Lion feeds young&quot;)
+    fmt.Println("Lion feeds young")
 }
 func main() {
     var a animal
@@ -423,15 +403,12 @@ func main() {
     var m mammal
     m = l
     m.feed()
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Lion breathes
-Lion walk
-Lion feeds young
-</code></pre><h2 id=248-مقدار-صفر-یا-پیشفرض-اینترفیس>2.4.8 مقدار صفر یا پیش‌فرض اینترفیس
-<a class=anchor href=#248-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%d8%b5%d9%81%d8%b1-%db%8c%d8%a7-%d9%be%db%8c%d8%b4%d9%81%d8%b1%d8%b6-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>اینترفیس هم همانند سایر تایپ‌ها یک مقدار پیش‌فرض دارد که این مقدار پیش‌فرض <strong>nil</strong> هست.</p><pre><code class=language-go>package main
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><h2 id=248-مقدار-صفر-یا-پیشفرض-اینترفیس>2.4.8 مقدار صفر یا پیش‌فرض اینترفیس
+<a class=anchor href=#248-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%d8%b5%d9%81%d8%b1-%db%8c%d8%a7-%d9%be%db%8c%d8%b4%d9%81%d8%b1%d8%b6-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>اینترفیس هم همانند سایر تایپ‌ها یک مقدار پیش‌فرض دارد که این مقدار پیش‌فرض <strong>nil</strong> هست.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 type animal interface {
     breathe()
     walk()
@@ -440,19 +417,18 @@ type animal interface {
 func main() {
     var a animal
     fmt.Println(a)
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-nil
-</code></pre><h2 id=249-بدنه-اینترفیس>2.4.9 بدنه اینترفیس
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><h2 id=249-بدنه-اینترفیس>2.4.9 بدنه اینترفیس
 <a class=anchor href=#249-%d8%a8%d8%af%d9%86%d9%87-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>اینترفیس دارای یک بدنه است که از دو بخش تشکیل شده تایپ و مقدار وقتی شما یک تایپی را به اینترفیس منتصب می‌کنید در بخش مقدار نوع و مقدار تایپی که منتصب کردید به اینترفیس در دسترس است.</p><div class=mermaid>graph TD
 A[Interface Variable]
 --> B(Interface Type) & C(Interface Value)
 C --> D(تایپ داخلی) & E(مقدار داخلی)</div><p>اگر بخواهیم با توجه به مثال ساختار lion توجه کنیم به شکل زیر می‌شود:</p><div class=mermaid>graph TD
 A[Interface Variable]
 --> B(Interface Type) & C(Interface Value)
-C --> D(lion) & E("{age: 10}")</div><p>حالا در زیر مثالی زدیم با استفاده از <code>T%</code> و <code>v%</code> نوع و مقدار را می‌توانید چاپ کنیم.</p><pre><code class=language-go>package main
+C --> D(lion) & E("{age: 10}")</div><p>حالا در زیر مثالی زدیم با استفاده از <code>T%</code> و <code>v%</code> نوع و مقدار را می‌توانید چاپ کنیم.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
     breathe()
@@ -464,28 +440,26 @@ type lion struct {
 }
 
 func (l lion) breathe() {
-    fmt.Println(&quot;Lion breathes&quot;)
+    fmt.Println("Lion breathes")
 }
 
 func (l lion) walk() {
-    fmt.Println(&quot;Lion walk&quot;)
+    fmt.Println("Lion walk")
 }
 
 func main() {
     var a animal
     a = lion{age: 10}
-    fmt.Printf(&quot;Underlying Type: %T\n&quot;, a)
-    fmt.Printf(&quot;Underlying Value: %v\n&quot;, a)
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Concrete Type: main.lion
-Concrete Value: {10}
-</code></pre><h2 id=2410-دسترسی-به-مقادیر-داخلی-اینترفیس>2.4.10 دسترسی به مقادیر داخلی اینترفیس
+    fmt.Printf("Underlying Type: %T\n", a)
+    fmt.Printf("Underlying Value: %v\n", a)
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><h2 id=2410-دسترسی-به-مقادیر-داخلی-اینترفیس>2.4.10 دسترسی به مقادیر داخلی اینترفیس
 <a class=anchor href=#2410-%d8%af%d8%b3%d8%aa%d8%b1%d8%b3%db%8c-%d8%a8%d9%87-%d9%85%d9%82%d8%a7%d8%af%db%8c%d8%b1-%d8%af%d8%a7%d8%ae%d9%84%db%8c-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3>#</a></h2><p>برای اینکه بتوانید به مقادیر داخلی اینترفیس دسترسی پیدا کنید ۲ تا روش وجود دارد‌:</p><ul><li>با استفاده از Type Assertion</li><li>با استفاده از Switch</li></ul><h3 id=24101-با-استفاده-از-type-assertion>2.4.10.1 با استفاده از Type Assertion
 <a class=anchor href=#24101-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-type-assertion>#</a></h3><p>برای اینکه بتوانید به مقدار داخلی یک اینترفیس دسترسی پیدا کنید باید جلوی متغیر از نوع اینترفیس یک نقطه <code>.</code> و در ادامه داخل پرانتز تایپ مورد نظری که قصد دارید تشخیص دهید را باید قرار دهید.</p><pre><code class=language-go>val, ok := i.({type})
-</code></pre><p>در بالا زمانیکه Type Assertion انجام می‌دهید ۲ تا متغیر دارید که اولیش مقدار است و دومیش تایید می‌کند تایپی که به اینترفیس دادید همان است (منظور متغیر ok است که مقدار آن از نوع bool است)</p><blockquote class="book-hint danger">اگر هنگام Type Assertion شما وضعیت متغیر ok را بررسی نکنید با خطای panic مواجه خواهید شد.</blockquote><pre><code class=language-go>package main
+</code></pre><p>در بالا زمانیکه Type Assertion انجام می‌دهید ۲ تا متغیر دارید که اولیش مقدار است و دومیش تایید می‌کند تایپی که به اینترفیس دادید همان است (منظور متغیر ok است که مقدار آن از نوع bool است)</p><blockquote class="book-hint danger">اگر هنگام Type Assertion شما وضعیت متغیر ok را بررسی نکنید با خطای panic مواجه خواهید شد.</blockquote><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
 	breathe()
@@ -497,11 +471,11 @@ type lion struct {
 }
 
 func (l lion) breathe() {
-	fmt.Println(&quot;Lion breathes&quot;)
+	fmt.Println("Lion breathes")
 }
 
 func (l lion) walk() {
-	fmt.Println(&quot;Lion walk&quot;)
+	fmt.Println("Lion walk")
 }
 
 type dog struct {
@@ -509,11 +483,11 @@ type dog struct {
 }
 
 func (d dog) breathe() {
-	fmt.Println(&quot;Dog breathes&quot;)
+	fmt.Println("Dog breathes")
 }
 
 func (d dog) walk() {
-	fmt.Println(&quot;Dog walk&quot;)
+	fmt.Println("Dog walk")
 }
 
 func main() {
@@ -527,16 +501,15 @@ func main() {
 func print(a animal) {
 	l, ok := a.(lion)
 	if ok {
-		fmt.Printf(&quot;Age: %d\n&quot;, l.age)
+		fmt.Printf("Age: %d\n", l.age)
 	}
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Age: 10
-</code></pre><p>در بالا ما تایپ lion را به اینترفیس animal پاس دادیم و بررسی کردیم آیا تایپ lion از نوع تایپ داخلی اینترفیس animal هست یا خیر.</p><pre><code class=language-go>l := a.(lion)
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در بالا ما تایپ lion را به اینترفیس animal پاس دادیم و بررسی کردیم آیا تایپ lion از نوع تایپ داخلی اینترفیس animal هست یا خیر.</p><pre><code class=language-go>l := a.(lion)
 </code></pre><h3 id=24102-با-استفاده-از-switch>2.4.10.2 با استفاده از Switch
-<a class=anchor href=#24102-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-switch>#</a></h3><p>شما با استفاده از switch می‌توانید تایپ اینترفیس را تشخیص دهید.</p><pre><code class=language-go>package main
+<a class=anchor href=#24102-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-switch>#</a></h3><p>شما با استفاده از switch می‌توانید تایپ اینترفیس را تشخیص دهید.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 type animal interface {
 	breathe()
@@ -548,11 +521,11 @@ type lion struct {
 }
 
 func (l lion) breathe() {
-	fmt.Println(&quot;Lion breathes&quot;)
+	fmt.Println("Lion breathes")
 }
 
 func (l lion) walk() {
-	fmt.Println(&quot;Lion walk&quot;)
+	fmt.Println("Lion walk")
 }
 
 type dog struct {
@@ -560,11 +533,11 @@ type dog struct {
 }
 
 func (d dog) breathe() {
-	fmt.Println(&quot;Dog breathes&quot;)
+	fmt.Println("Dog breathes")
 }
 
 func (d dog) walk() {
-	fmt.Println(&quot;Dog walk&quot;)
+	fmt.Println("Dog walk")
 }
 
 func main() {
@@ -578,34 +551,30 @@ func main() {
 func print(a animal) {
 	switch v := a.(type) {
 	case lion:
-		fmt.Println(&quot;Type: lion&quot;)
+		fmt.Println("Type: lion")
 	case dog:
-		fmt.Println(&quot;Type: dog&quot;)
+		fmt.Println("Type: dog")
 	default:
-		fmt.Printf(&quot;Unknown Type %T&quot;, v)
+		fmt.Printf("Unknown Type %T", v)
 	}
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Type: lion
-</code></pre><h2 id=2411-اینترفیس-خالی>2.4.11 اینترفیس خالی
-<a class=anchor href=#2411-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%ae%d8%a7%d9%84%db%8c>#</a></h2><p>شما می‌توانید اینترفیس بصورت خالی و بدون متد در هرجایی از کد خود استفاده کنید و هر تایپی را می‌توانید به این اینترفیس انتصاب دهید. به عنوان مثال در زیر یک تابع نوشتیم که به عنوان پارامتر ورودی یک اینترفیس خالی می‌گیرد و مقدار این پارامتر را چاپ می‌کند.</p><pre><code class=language-go>package main
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><h2 id=2411-اینترفیس-خالی>2.4.11 اینترفیس خالی
+<a class=anchor href=#2411-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-%d8%ae%d8%a7%d9%84%db%8c>#</a></h2><p>شما می‌توانید اینترفیس بصورت خالی و بدون متد در هرجایی از کد خود استفاده کنید و هر تایپی را می‌توانید به این اینترفیس انتصاب دهید. به عنوان مثال در زیر یک تابع نوشتیم که به عنوان پارامتر ورودی یک اینترفیس خالی می‌گیرد و مقدار این پارامتر را چاپ می‌کند.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 func main() {
-    test(&quot;thisisstring&quot;)
-    test(&quot;10&quot;)
+    test("thisisstring")
+    test("10")
     test(true)
 }
 
 func test(a interface{}) {
-    fmt.Printf(&quot;(%v, %T)\n&quot;, a, a)
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-(thisisstring, string)
-(10, string)
-(true, bool)
-</code></pre><p>توجه کنید اینترفیس خالی خیلی کاربردی هست و usecase‌های مختلفی دارد.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%202/2.4-interface.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
+    fmt.Printf("(%v, %T)\n", a, a)
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>توجه کنید اینترفیس خالی خیلی کاربردی هست و usecase‌های مختلفی دارد.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%202/2.4-interface.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
 <span>این صفحه را ویرایش کنید</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><div class="text-left page-navigation"><a href=/chapter-2/type-embedding/>2.5 جاسازی تایپ (type embedding) ◀︎</a></div><script>function toggleTooltip(e){e.classList.toggle("active")}</script><div id=graphcomment></div><script type=text/javascript>var __semio__params={graphcommentId:"book",behaviour:{}};function __semio__onload(){__semio__gc_graphlogin(__semio__params)}(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.onload=__semio__onload,e.defer=!0,e.src="https://integration.graphcomment.com/gc_graphlogin.js?"+Date.now(),(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content></br><main><div class=wrapper><a href=https://t.me/GolangEngineers class="icon telegram" target=_blank><div class=tooltip>گروه تلگرامی مهندسین گولنگ</div><span><i class="fab fa-telegram"></i></span>
 </a><a href=https://linkedin.com/in/Ja7ad class="icon linkedin" target=_blank><div class=tooltip>لینکدین نویسنده</div><span><i class="fab fa-linkedin"></i></span>
 </a><a href=https://twitter.com/Ja7adR class="icon twitter" target=_blank><div class=tooltip>توییتر نویسنده</div><span><i class="fab fa-twitter"></i></span></a></div></main></br></br><nav id=TableOfContents><ul><li><ul><li><a href=#241-پیادهسازی-اینترفیس>2.4.1 پیاده‌سازی اینترفیس</a></li><li><a href=#242-اینترفیسها-بطور-ضمنی-implicitly-پیاده-سازی-میشود>2.4.2 اینترفیس‌ها بطور ضمنی (implicitly) پیاده سازی می‌شود</a></li><li><a href=#243-استفاده-از-اینترفیس-به-عنوان-پارامتر-ورودی-تابع>2.4.3 استفاده از اینترفیس به عنوان پارامتر ورودی تابع</a></li><li><a href=#244-چرا-اینترفیس>2.4.4 چرا اینترفیس؟</a></li><li><a href=#کد-باید-برای-تغییر-بسته-و-برای-توسعه-باز-باشد>کد باید برای تغییر بسته، و برای توسعه باز باشد.</a></li><li><a href=#245-استفاده-از-اشارهگر-هنگام-پیادهسازی-اینترفیس>2.4.5 استفاده از اشاره‌گر هنگام پیاده‌سازی اینترفیس</a></li><li><a href=#246-پیاده-سازی-اینترفیس-برای-تایپهای-غیر-ساختار>2.4.6 پیاده سازی اینترفیس برای تایپ‌های غیر ساختار</a></li><li><a href=#247-پیادهسازی-چندتایی-اینترفیس-برای-تایپ>2.4.7 پیاده‌سازی چندتایی اینترفیس برای تایپ</a></li><li><a href=#248-مقدار-صفر-یا-پیشفرض-اینترفیس>2.4.8 مقدار صفر یا پیش‌فرض اینترفیس</a></li><li><a href=#249-بدنه-اینترفیس>2.4.9 بدنه اینترفیس</a></li><li><a href=#2410-دسترسی-به-مقادیر-داخلی-اینترفیس>2.4.10 دسترسی به مقادیر داخلی اینترفیس</a><ul><li><a href=#24101-با-استفاده-از-type-assertion>2.4.10.1 با استفاده از Type Assertion</a></li><li><a href=#24102-با-استفاده-از-switch>2.4.10.2 با استفاده از Switch</a></li></ul></li><li><a href=#2411-اینترفیس-خالی>2.4.11 اینترفیس خالی</a></li></ul></li></ul></nav></div></aside></main><button onclick=topFunction() id=myBtn title="رفتن به بالا" class="fas fa-solid fa-arrow-up"></button>

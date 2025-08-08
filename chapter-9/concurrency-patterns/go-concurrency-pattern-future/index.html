@@ -2,7 +2,7 @@
   9.4.11.1 توضیحات
   #
 
-الگوی Future (یا Promise) یکی از الگوهای مهم و کاربردی در طراحی سیستم‌های ناهمزمان (asynchronous) است که در زبان Go نیز، اگرچه به صورت مستقیم در کتابخانه استاندارد وجود ندارد، اما می‌توان با استفاده از ابزارهای زبان مانند goroutine و channel، به‌سادگی آن را پیاده‌سازی کرد. هدف این الگو این است که یک &ldquo;آبجکت&rdquo; یا واسط به برنامه‌نویس داده شود که نماینده نتیجه یک عملیات (مانند درخواست شبکه یا محاسبه سنگین) است—حتی اگر آن عملیات هنوز به پایان نرسیده باشد."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-future/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.11 الگو Future"><meta property="og:description" content="9.4.11.1 توضیحات # الگوی Future (یا Promise) یکی از الگوهای مهم و کاربردی در طراحی سیستم‌های ناهمزمان (asynchronous) است که در زبان Go نیز، اگرچه به صورت مستقیم در کتابخانه استاندارد وجود ندارد، اما می‌توان با استفاده از ابزارهای زبان مانند goroutine و channel، به‌سادگی آن را پیاده‌سازی کرد. هدف این الگو این است که یک “آبجکت” یا واسط به برنامه‌نویس داده شود که نماینده نتیجه یک عملیات (مانند درخواست شبکه یا محاسبه سنگین) است—حتی اگر آن عملیات هنوز به پایان نرسیده باشد."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.11 الگو Future | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-future/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.6c1aaf1f270188830ce496fd59a7bc4eea6511a2c2d0fe2d706245283f6e0e03.js integrity="sha256-bBqvHycBiIMM5Jb9Wae8TuplEaLC0P4tcGJFKD9uDgM=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
+الگوی Future (یا Promise) یکی از الگوهای مهم و کاربردی در طراحی سیستم‌های ناهمزمان (asynchronous) است که در زبان Go نیز، اگرچه به صورت مستقیم در کتابخانه استاندارد وجود ندارد، اما می‌توان با استفاده از ابزارهای زبان مانند goroutine و channel، به‌سادگی آن را پیاده‌سازی کرد. هدف این الگو این است که یک &ldquo;آبجکت&rdquo; یا واسط به برنامه‌نویس داده شود که نماینده نتیجه یک عملیات (مانند درخواست شبکه یا محاسبه سنگین) است—حتی اگر آن عملیات هنوز به پایان نرسیده باشد."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-future/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.11 الگو Future"><meta property="og:description" content="9.4.11.1 توضیحات # الگوی Future (یا Promise) یکی از الگوهای مهم و کاربردی در طراحی سیستم‌های ناهمزمان (asynchronous) است که در زبان Go نیز، اگرچه به صورت مستقیم در کتابخانه استاندارد وجود ندارد، اما می‌توان با استفاده از ابزارهای زبان مانند goroutine و channel، به‌سادگی آن را پیاده‌سازی کرد. هدف این الگو این است که یک “آبجکت” یا واسط به برنامه‌نویس داده شود که نماینده نتیجه یک عملیات (مانند درخواست شبکه یا محاسبه سنگین) است—حتی اگر آن عملیات هنوز به پایان نرسیده باشد."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.11 الگو Future | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-future/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.b84e8b5ad0341651e017dbc60a5d71c5f75cb7e23e2ee16350e38b5fa3f90c2c.js integrity="sha256-uE6LWtA0FlHgF9vGCl1xxfdct+I+LuFjUOOLX6P5DCw=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
 .mermaid {
     display: flex;
     justify-content: center;
@@ -44,13 +44,13 @@ C --> D[Wait for result from Future]
 D --> E[Receive final result and continue]
 A -- "Run in background" --> F[Async task completes]
 F -- "Set result in Future" --> D</div><h2 id=94113-نمونه-کد>9.4.11.3 نمونه کد
-<a class=anchor href=#94113-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><pre><code class=language-go>package main
+<a class=anchor href=#94113-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
 import (
-	&quot;errors&quot;
-	&quot;fmt&quot;
-	&quot;sync&quot;
-	&quot;time&quot;
+	"errors"
+	"fmt"
+	"sync"
+	"time"
 )
 
 type FutureInt struct {
@@ -62,22 +62,22 @@ type FutureInt struct {
 
 // Get با بلاک تا تکمیل شدن عملیات صبر می‌کند و نتیجه و خطا را برمی‌گرداند
 func (f *FutureInt) Get() (int, error) {
-	&lt;-f.done
+	<-f.done
 	return f.result, f.err
 }
 
 // GetWithTimeout با تایم‌اوت مشخص منتظر نتیجه می‌ماند
 func (f *FutureInt) GetWithTimeout(timeout time.Duration) (int, error) {
 	select {
-	case &lt;-f.done:
+	case <-f.done:
 		return f.result, f.err
-	case &lt;-time.After(timeout):
-		return 0, errors.New(&quot;timeout waiting for future&quot;)
+	case <-time.After(timeout):
+		return 0, errors.New("timeout waiting for future")
 	}
 }
 
 func longRunningTask() *FutureInt {
-	f := &amp;FutureInt{done: make(chan struct{})}
+	f := &FutureInt{done: make(chan struct{})}
 	go func() {
 		defer close(f.done)
 		// شبیه‌سازی کار زمان‌بر و گاهی بروز خطا
@@ -87,7 +87,7 @@ func longRunningTask() *FutureInt {
 			f.err = nil
 		} else {
 			f.result = 0
-			f.err = errors.New(&quot;unexpected error&quot;)
+			f.err = errors.New("unexpected error")
 		}
 	}()
 	return f
@@ -95,29 +95,32 @@ func longRunningTask() *FutureInt {
 
 func main() {
 	f := longRunningTask()
-	fmt.Println(&quot;Do something else while waiting for result...&quot;)
+	fmt.Println("Do something else while waiting for result...")
 	// دریافت نتیجه با مدیریت خطا
 	result, err := f.Get()
 	if err != nil {
-		fmt.Println(&quot;Future failed:&quot;, err)
+		fmt.Println("Future failed:", err)
 		return
 	}
-	fmt.Println(&quot;The answer is:&quot;, result)
+	fmt.Println("The answer is:", result)
 
 	// نمونه با timeout
 	f2 := longRunningTask()
 	result2, err2 := f2.GetWithTimeout(500 * time.Millisecond)
 	if err2 != nil {
-		fmt.Println(&quot;Timeout error:&quot;, err2)
+		fmt.Println("Timeout error:", err2)
 	} else {
-		fmt.Println(&quot;Result with timeout:&quot;, result2)
+		fmt.Println("Result with timeout:", result2)
 	}
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Do something else while waiting for result...
-Future failed: unexpected error
-</code></pre><p>در این مثال از الگوی <strong>Future</strong> در Go، ما یک ساختار کامل و قابل اطمینان برای مدیریت نتیجه‌ی عملیات ناهمزمان (asynchronous) و دریافت امن و حرفه‌ای نتیجه، همراه با مدیریت خطا و قابلیت timeout پیاده‌سازی کرده‌ایم.</p><p>در ساختار <code>FutureInt</code>، یک کانال از نوع <code>chan struct{}</code> با نام <code>done</code> وجود دارد که سیگنال اتمام عملیات را ارسال می‌کند. مقدار نتیجه (<code>result</code>) و خطا (<code>err</code>) به صورت فیلدهای struct نگهداری می‌شوند. زمانی که عملیات ناهمزمان (در goroutine مربوط به تابع <code>longRunningTask</code>) به پایان می‌رسد، کانال <code>done</code> بسته می‌شود تا هر goroutine منتظر یا فراخوانی کننده‌ی Get یا GetWithTimeout متوجه آماده‌شدن نتیجه شود.</p><p>متد <code>Get</code> تا زمانی که عملیات کامل نشده منتظر می‌ماند و پس از اتمام، مقدار نهایی و خطا را بازمی‌گرداند. این کار با خواندن از کانال <code>done</code> انجام می‌شود، که هم thread-safe و هم idiomatic است. متد <code>GetWithTimeout</code> علاوه بر انتظار برای تکمیل، این امکان را می‌دهد که اگر نتیجه طی زمان معینی آماده نشد، با پیغام خطای timeout عملیات را مدیریت کنید—این قابلیت در سناریوهای real-time و حساس به تاخیر اهمیت زیادی دارد.</p><p>در تابع <code>main</code>، ابتدا یک Future ساخته می‌شود و قبل از فراخوانی نتیجه می‌توان هر کار دیگری انجام داد (این همان مزیت کلیدی Future است). سپس با صدا زدن Get، نتیجه و خطا را دریافت و مدیریت می‌کنیم. همچنین نمونه‌ای از دریافت نتیجه با timeout هم آورده شده است تا نحوه‌ی مدیریت عملیات طولانی یا گیر افتاده نیز مشخص باشد.</p><p>این معماری علاوه بر ایمنی همزمانی، جداسازی وظایف (تولید و مصرف نتیجه)، پشتیبانی از خطا و timeout، به سادگی قابل توسعه و استفاده در پروژه‌های واقعی و تولیدی است و تجربه برنامه‌نویسی concurrent را بسیار حرفه‌ای‌تر و قابل کنترل‌تر می‌کند.</p><h2 id=94114-کاربردها>9.4.11.4 کاربردها
-<a class=anchor href=#94114-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7>#</a></h2><ul><li><strong>درخواست‌های شبکه (Asynchronous Network Requests):</strong><br>در زمانی که نیاز به ارسال درخواست به یک سرویس خارجی یا API دارید، الگوی Future کمک می‌کند که بتوانید درخواست را به صورت ناهمزمان ارسال و به محض آماده شدن پاسخ، آن را دریافت کنید. این کار باعث می‌شود بتوانید بدون مسدود کردن برنامه، کارهای دیگری انجام دهید تا زمانی که نتیجه آماده شود. این تکنیک برای توسعه کلاینت‌های HTTP، REST، GraphQL و حتی WebSocket بسیار کاربردی است.</li><li><strong>کوئری‌های پایگاه داده (Async Database Querying):</strong><br>هنگام اجرای کوئری‌های سنگین یا زمان‌بر روی دیتابیس، Future اجازه می‌دهد کوئری را به صورت ناهمزمان آغاز کنید و هر زمان که نتیجه واقعاً لازم بود، آن را دریافت کنید. این رویکرد برای برنامه‌هایی که باید همزمان چند کوئری مختلف را به دیتابیس ارسال کنند (مانند جمع‌آوری داده از چند جدول یا سرور متفاوت) بسیار مفید است و latency کلی برنامه را کاهش می‌دهد.</li><li><strong>محاسبات سنگین و پردازش موازی:</strong><br>اگر در برنامه نیاز به انجام محاسبات CPU-intensive (مانند تجزیه داده، پردازش تصویر، رمزنگاری و &mldr;) دارید، می‌توانید هر task را در یک Future قرار دهید و نتایج را در صورت نیاز، به صورت همزمان و بدون بلاک شدن منتظر بمانید. این کار باعث بهبود performance و پاسخگویی سیستم خواهد شد.</li><li><strong>ترکیب و همگام‌سازی عملیات مستقل (Composition and Synchronization):</strong><br>می‌توانید چندین Future ایجاد کنید و به طور موازی آن‌ها را اجرا نمایید، سپس به صورت هماهنگ (مثلاً با WaitGroup یا channel) منتظر دریافت همه نتایج باشید (pattern معروف به Fan-In). این رویکرد برای جمع‌آوری نتایج عملیات‌های موازی (مانند دانلود چند فایل یا جمع‌آوری داده از چند سرویس) ایده‌آل است.</li><li><strong>پردازش رویداد و message queue:</strong><br>در معماری‌هایی مانند صف پیام یا پردازش رویداد (event-driven)، هر message را می‌توان به عنوان یک Future مدیریت کرد و پس از پایان پردازش، نتیجه یا پاسخ را برای ادامه کار استفاده نمود.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%209/concurrency%20patterns/9.4.11-future.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در این مثال از الگوی <strong>Future</strong> در Go، ما یک ساختار کامل و قابل اطمینان برای مدیریت نتیجه‌ی عملیات ناهمزمان (asynchronous) و دریافت امن و حرفه‌ای نتیجه، همراه با مدیریت خطا و قابلیت timeout پیاده‌سازی کرده‌ایم.</p><p>در ساختار <code>FutureInt</code>، یک کانال از نوع <code>chan struct{}</code> با نام <code>done</code> وجود دارد که سیگنال اتمام عملیات را ارسال می‌کند. مقدار نتیجه (<code>result</code>) و خطا (<code>err</code>) به صورت فیلدهای struct نگهداری می‌شوند. زمانی که عملیات ناهمزمان (در goroutine مربوط به تابع <code>longRunningTask</code>) به پایان می‌رسد، کانال <code>done</code> بسته می‌شود تا هر goroutine منتظر یا فراخوانی کننده‌ی Get یا GetWithTimeout متوجه آماده‌شدن نتیجه شود.</p><p>متد <code>Get</code> تا زمانی که عملیات کامل نشده منتظر می‌ماند و پس از اتمام، مقدار نهایی و خطا را بازمی‌گرداند. این کار با خواندن از کانال <code>done</code> انجام می‌شود، که هم thread-safe و هم idiomatic است. متد <code>GetWithTimeout</code> علاوه بر انتظار برای تکمیل، این امکان را می‌دهد که اگر نتیجه طی زمان معینی آماده نشد، با پیغام خطای timeout عملیات را مدیریت کنید—این قابلیت در سناریوهای real-time و حساس به تاخیر اهمیت زیادی دارد.</p><p>در تابع <code>main</code>، ابتدا یک Future ساخته می‌شود و قبل از فراخوانی نتیجه می‌توان هر کار دیگری انجام داد (این همان مزیت کلیدی Future است). سپس با صدا زدن Get، نتیجه و خطا را دریافت و مدیریت می‌کنیم. همچنین نمونه‌ای از دریافت نتیجه با timeout هم آورده شده است تا نحوه‌ی مدیریت عملیات طولانی یا گیر افتاده نیز مشخص باشد.</p><p>این معماری علاوه بر ایمنی همزمانی، جداسازی وظایف (تولید و مصرف نتیجه)، پشتیبانی از خطا و timeout، به سادگی قابل توسعه و استفاده در پروژه‌های واقعی و تولیدی است و تجربه برنامه‌نویسی concurrent را بسیار حرفه‌ای‌تر و قابل کنترل‌تر می‌کند.</p><h2 id=94114-کاربردها>9.4.11.4 کاربردها
+<a class=anchor href=#94114-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7>#</a></h2><ul><li><strong>درخواست‌های شبکه (Asynchronous Network Requests):</strong>
+در زمانی که نیاز به ارسال درخواست به یک سرویس خارجی یا API دارید، الگوی Future کمک می‌کند که بتوانید درخواست را به صورت ناهمزمان ارسال و به محض آماده شدن پاسخ، آن را دریافت کنید. این کار باعث می‌شود بتوانید بدون مسدود کردن برنامه، کارهای دیگری انجام دهید تا زمانی که نتیجه آماده شود. این تکنیک برای توسعه کلاینت‌های HTTP، REST، GraphQL و حتی WebSocket بسیار کاربردی است.</li><li><strong>کوئری‌های پایگاه داده (Async Database Querying):</strong>
+هنگام اجرای کوئری‌های سنگین یا زمان‌بر روی دیتابیس، Future اجازه می‌دهد کوئری را به صورت ناهمزمان آغاز کنید و هر زمان که نتیجه واقعاً لازم بود، آن را دریافت کنید. این رویکرد برای برنامه‌هایی که باید همزمان چند کوئری مختلف را به دیتابیس ارسال کنند (مانند جمع‌آوری داده از چند جدول یا سرور متفاوت) بسیار مفید است و latency کلی برنامه را کاهش می‌دهد.</li><li><strong>محاسبات سنگین و پردازش موازی:</strong>
+اگر در برنامه نیاز به انجام محاسبات CPU-intensive (مانند تجزیه داده، پردازش تصویر، رمزنگاری و &mldr;) دارید، می‌توانید هر task را در یک Future قرار دهید و نتایج را در صورت نیاز، به صورت همزمان و بدون بلاک شدن منتظر بمانید. این کار باعث بهبود performance و پاسخگویی سیستم خواهد شد.</li><li><strong>ترکیب و همگام‌سازی عملیات مستقل (Composition and Synchronization):</strong>
+می‌توانید چندین Future ایجاد کنید و به طور موازی آن‌ها را اجرا نمایید، سپس به صورت هماهنگ (مثلاً با WaitGroup یا channel) منتظر دریافت همه نتایج باشید (pattern معروف به Fan-In). این رویکرد برای جمع‌آوری نتایج عملیات‌های موازی (مانند دانلود چند فایل یا جمع‌آوری داده از چند سرویس) ایده‌آل است.</li><li><strong>پردازش رویداد و message queue:</strong>
+در معماری‌هایی مانند صف پیام یا پردازش رویداد (event-driven)، هر message را می‌توان به عنوان یک Future مدیریت کرد و پس از پایان پردازش، نتیجه یا پاسخ را برای ادامه کار استفاده نمود.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%209/concurrency%20patterns/9.4.11-future.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
 <span>این صفحه را ویرایش کنید</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><div class="text-left page-navigation"><a href=/chapter-9/concurrency-patterns/go-concurrency-pattern-pipeline/>9.4.12 الگو Pipeline ◀︎</a></div><script>function toggleTooltip(e){e.classList.toggle("active")}</script><div id=graphcomment></div><script type=text/javascript>var __semio__params={graphcommentId:"book",behaviour:{}};function __semio__onload(){__semio__gc_graphlogin(__semio__params)}(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.onload=__semio__onload,e.defer=!0,e.src="https://integration.graphcomment.com/gc_graphlogin.js?"+Date.now(),(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content></br><main><div class=wrapper><a href=https://t.me/GolangEngineers class="icon telegram" target=_blank><div class=tooltip>گروه تلگرامی مهندسین گولنگ</div><span><i class="fab fa-telegram"></i></span>
 </a><a href=https://linkedin.com/in/Ja7ad class="icon linkedin" target=_blank><div class=tooltip>لینکدین نویسنده</div><span><i class="fab fa-linkedin"></i></span>
 </a><a href=https://twitter.com/Ja7adR class="icon twitter" target=_blank><div class=tooltip>توییتر نویسنده</div><span><i class="fab fa-twitter"></i></span></a></div></main></br></br><nav id=TableOfContents><ul><li><ul><li><a href=#94111-توضیحات>9.4.11.1 توضیحات</a></li><li><a href=#94112-دیاگرام>9.4.11.2 دیاگرام</a></li><li><a href=#94113-نمونه-کد>9.4.11.3 نمونه کد</a></li><li><a href=#94114-کاربردها>9.4.11.4 کاربردها</a></li></ul></li></ul></nav></div></aside></main><button onclick=topFunction() id=myBtn title="رفتن به بالا" class="fas fa-solid fa-arrow-up"></button>

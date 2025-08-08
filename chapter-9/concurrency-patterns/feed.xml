@@ -24,25 +24,27 @@ Chan-->>Main: دریافت نتیجه
 9.4.1.3 نمونه کد
 &lt;a class="anchor" href="#9413-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func longRunningTask(c chan int) {
 time.Sleep(3 * time.Second)
-c &amp;lt;- 42
+c &lt;- 42
 }
 func main() {
 c := make(chan int)
 go longRunningTask(c)
-result := &amp;lt;-c
-fmt.Println(&amp;quot;Result:&amp;quot;, result)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Result: 42
-&lt;/code>&lt;/pre>
+result := &lt;-c
+fmt.Println("Result:", result)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این کد نمونه، مفهوم الگوی &lt;strong>Wait For Result&lt;/strong> را در Go به شکلی بسیار ساده و شفاف پیاده‌سازی می‌کند. در این برنامه، یک تابع به نام &lt;code>longRunningTask&lt;/code> داریم که شبیه‌ساز یک کار زمان‌بر است؛ این تابع پس از سه ثانیه توقف (با استفاده از &lt;code>time.Sleep&lt;/code>) عدد ۴۲ را از طریق یک کانال (&lt;code>channel&lt;/code>) به بخش اصلی برنامه (main goroutine) ارسال می‌کند. در تابع &lt;code>main&lt;/code>، ابتدا یک کانال بدون بافر ساخته شده و سپس با استفاده از goroutine، تابع زمان‌بر به طور موازی اجرا می‌شود. پس از آن، برنامه اصلی منتظر می‌ماند تا مقدار از کانال دریافت شود و به محض دریافت، مقدار دریافت‌شده را چاپ می‌کند.&lt;/p>
 &lt;p>کاربرد این الگو در سناریوهایی است که نیاز داریم عملیات زمان‌بر یا همزمان را اجرا کنیم و در عین حال تا زمان آماده شدن نتیجه، سایر بخش‌های برنامه بلاک نشود یا بتوانیم همزمان چندین کار دیگر را انجام دهیم. دریافت مقدار از کانال در اینجا نقش &amp;ldquo;منتظر ماندن برای نتیجه&amp;rdquo; را دارد و هنگامی که goroutine مقدار را ارسال کند، ادامه‌ی برنامه اصلی اجرا می‌شود. این روش به صورت idiomatic و ایمن، همزمانی و انتقال داده بین goroutineها را در Go مدیریت می‌کند و به‌سادگی می‌توان آن را در مسائل واقعی‌تر، مثلاً پردازش موازی درخواست‌ها یا جمع‌آوری نتایج عملیات‌های موازی، استفاده کرد.&lt;/p>
 &lt;h2 id="9414-کاربردها">
@@ -90,10 +92,11 @@ C-->|Fan-In|B1
 &lt;/h2>
 &lt;p>فرض کنید قصد دارید یک برنامه ای بنویسید که چندین فایل بصورت موازی دانلود کنید و در نهایت محتوای این فایل را میخواهید ترکیب کنید و یک خروجی داشته باشید.&lt;/p>
 &lt;p>در زیر یک مثال ساده زدیم :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
+"fmt"
+"sync"
 )
 // ساختار نتیجه دانلود
 type DownloadResult struct {
@@ -102,7 +105,7 @@ Data string
 Err error
 }
 func main() {
-urls := []string{&amp;quot;url1&amp;quot;, &amp;quot;url2&amp;quot;, &amp;quot;url3&amp;quot;}
+urls := []string{"url1", "url2", "url3"}
 var wg sync.WaitGroup
 results := make(chan DownloadResult, len(urls)) // کانال بافر دار به اندازه تعداد urlها
 // Fan-Out: اجرای موازی دانلودها
@@ -111,7 +114,7 @@ wg.Add(1)
 go func(url string) {
 defer wg.Done()
 data, err := downloadFile(url)
-results &amp;lt;- DownloadResult{
+results &lt;- DownloadResult{
 URL: url,
 Data: data,
 Err: err,
@@ -126,26 +129,25 @@ close(results)
 // جمع‌آوری و نمایش نتایج
 for result := range results {
 if result.Err != nil {
-fmt.Printf(&amp;quot;خطا در دانلود %s: %v\n&amp;quot;, result.URL, result.Err)
+fmt.Printf("خطا در دانلود %s: %v\n", result.URL, result.Err)
 continue
 }
-fmt.Printf(&amp;quot;دانلود %s موفقیت‌آمیز: %s\n&amp;quot;, result.URL, result.Data)
+fmt.Printf("دانلود %s موفقیت‌آمیز: %s\n", result.URL, result.Data)
 }
 }
 // شبیه‌ساز دانلود فایل
 func downloadFile(url string) (string, error) {
 // در اینجا می‌توانید کد واقعی دانلود را قرار دهید
-if url == &amp;quot;url2&amp;quot; {
-return &amp;quot;&amp;quot;, fmt.Errorf(&amp;quot;اتصال برقرار نشد&amp;quot;)
+if url == "url2" {
+return "", fmt.Errorf("اتصال برقرار نشد")
 }
-return &amp;quot;file contents of &amp;quot; + url, nil
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-دانلود url1 موفقیت‌آمیز: file contents of url1
-دانلود url3 موفقیت‌آمیز: file contents of url3
-خطا در دانلود url2: اتصال برقرار نشد
-&lt;/code>&lt;/pre>
+return "file contents of " + url, nil
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال از الگوی &lt;strong>Fan-Out/Fan-In&lt;/strong> در Go، عملیات دانلود فایل‌ها از چندین آدرس به صورت کاملاً موازی و ایمن انجام می‌شود و مدیریت خطاها، شناسایی منبع داده و خوانایی کد به شکل قابل توجهی ارتقا یافته است. ساختار جدیدی به نام &lt;code>DownloadResult&lt;/code> تعریف شده که اطلاعات هر دانلود شامل آدرس منبع (&lt;code>URL&lt;/code>)، داده دریافتی (&lt;code>Data&lt;/code>) و هرگونه خطا (&lt;code>Err&lt;/code>) را در خود نگه می‌دارد. این کار باعث می‌شود در زمان جمع‌آوری نتایج، به‌راحتی بتوان نتیجه‌ی هر عملیات را با منبع آن تطبیق داد و مدیریت خطا را به صورت مجزا و تمیز انجام داد؛ در حالی که در کد اولیه، فقط داده به صورت یک رشته ساده منتقل می‌شد و اگر خطایی رخ می‌داد، امکان تشخیص منبع آن وجود نداشت.&lt;/p>
 &lt;p>در مرحله Fan-Out، با استفاده از یک حلقه، برای هر URL یک goroutine راه‌اندازی می‌شود که وظیفه دانلود داده از آن آدرس را بر عهده دارد. به‌منظور جلوگیری از بلاک شدن ناخواسته goroutineها (به ویژه اگر دریافت روی کانال با تأخیر انجام شود)، یک کانال بافر دار به اندازه تعداد آدرس‌ها تعریف شده است. هر goroutine پس از اتمام کار، نتیجه (اعم از موفق یا ناموفق) را به صورت یک ساختار &lt;code>DownloadResult&lt;/code> داخل کانال قرار می‌دهد و با استفاده از &lt;code>wg.Done()&lt;/code> پایان کار خود را به WaitGroup اعلام می‌کند. به‌طور همزمان، یک goroutine دیگر وظیفه دارد پس از اتمام همه عملیات‌ها (یعنی وقتی شمارنده WaitGroup به صفر رسید)، کانال نتایج را ببندد تا مصرف‌کننده (main goroutine) از پایان عملیات‌ها مطلع شود.&lt;/p>
 &lt;p>در مرحله Fan-In، کد اصلی با استفاده از حلقه &lt;code>for result := range results&lt;/code> همه نتایج را از کانال دریافت می‌کند. اگر برای هر آدرس خطایی رخ داده باشد، پیام خطا به همراه نام منبع نمایش داده می‌شود و در غیر این صورت، پیام موفقیت و محتوای دانلود شده چاپ می‌گردد. به این ترتیب، امکان مدیریت خطاها، ثبت وضعیت هر دانلود و افزایش شفافیت و قابلیت دیباگ کد به دست می‌آید. از این الگو می‌توان به عنوان هسته اصلی جمع‌آوری موازی داده‌ها، پردازش موازی یا کار با چندین سرویس مختلف استفاده کرد؛ در حالی که همچنان کد خوانا، ایمن و توسعه‌پذیر باقی می‌ماند.&lt;/p>
@@ -186,10 +188,11 @@ Chan-->>Main: دریافت سیگنال و ادامه اجرای برنامه
 9.4.3.3 نمونه کد
 &lt;a class="anchor" href="#9433-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 // تعریف ساختار نتیجه کار
 type TaskResult struct {
@@ -199,36 +202,35 @@ Err error
 func main() {
 done := make(chan TaskResult)
 go task(done)
-result := &amp;lt;-done
+result := &lt;-done
 if result.Err != nil {
-fmt.Println(&amp;quot;Task failed:&amp;quot;, result.Err)
+fmt.Println("Task failed:", result.Err)
 return
 }
-fmt.Println(&amp;quot;Task complete!&amp;quot;)
-fmt.Println(&amp;quot;Result:&amp;quot;, result.Data)
+fmt.Println("Task complete!")
+fmt.Println("Result:", result.Data)
 }
-func task(done chan&amp;lt;- TaskResult) {
-fmt.Println(&amp;quot;Task started...&amp;quot;)
+func task(done chan&lt;- TaskResult) {
+fmt.Println("Task started...")
 time.Sleep(2 * time.Second) // شبیه‌سازی کار زمان‌بر
 // شبیه‌سازی موفقیت/خطا
 if time.Now().Unix()%2 == 0 {
-done &amp;lt;- TaskResult{
-Data: &amp;quot;Some useful data&amp;quot;,
+done &lt;- TaskResult{
+Data: "Some useful data",
 Err: nil,
 }
 } else {
-done &amp;lt;- TaskResult{
-Data: &amp;quot;&amp;quot;,
-Err: fmt.Errorf(&amp;quot;خطا در اجرای تسک&amp;quot;),
+done &lt;- TaskResult{
+Data: "",
+Err: fmt.Errorf("خطا در اجرای تسک"),
 }
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Task started...
-Task complete!
-Result: Some useful data
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال بهبود‌یافته، یک پیاده‌سازی حرفه‌ای و واقعی‌تر از الگوی &lt;strong>Wait For Task&lt;/strong> در Go را مشاهده می‌کنید. هدف این است که هم‌زمانی، انتقال نتیجه یا خطا، و مدیریت کامل جریان کار به ساده‌ترین و امن‌ترین شکل انجام شود. ابتدا در تابع &lt;code>main&lt;/code> یک کانال از نوع &lt;code>TaskResult&lt;/code> ایجاد شده که این ساختار می‌تواند هم داده خروجی (در صورت نیاز) و هم خطا را در خود نگه دارد. سپس با اجرای goroutine تابع &lt;code>task&lt;/code>، عملیات به صورت موازی شروع می‌شود و در این مدت، main منتظر می‌ماند تا نتیجه‌ای از کانال دریافت کند.&lt;/p>
 &lt;p>در تابع &lt;code>task&lt;/code> ابتدا پیامی برای شروع کار چاپ می‌شود و سپس با دستور &lt;code>time.Sleep(2 * time.Second)&lt;/code>، انجام یک کار زمان‌بر شبیه‌سازی می‌گردد. پس از آن، با یک شرط ساده، گاهی نتیجه موفقیت‌آمیز با داده خروجی و گاهی هم یک خطا به کانال ارسال می‌شود. این رویکرد نشان می‌دهد که چطور در سناریوهای واقعی، هم نتیجه و هم خطا را می‌توان به راحتی از طریق کانال به goroutine اصلی منتقل کرد تا کنترل کاملی روی مدیریت جریان و واکنش به خطاها داشت.&lt;/p>
 &lt;p>در بخش جمع‌آوری نتیجه، main با دریافت مقدار از کانال، ابتدا بررسی می‌کند که آیا خطایی رخ داده یا خیر؛ اگر خطا وجود داشته باشد، پیام مناسب چاپ شده و اجرای برنامه خاتمه می‌یابد. در غیر این صورت، پیام موفقیت و داده خروجی نمایش داده می‌شود. این ساختار باعث می‌شود کد همزمان کاملاً idiomatic، قابل گسترش و مناسب استفاده در پروژه‌های جدی باشد، چرا که به سادگی می‌توان مدیریت خطا، پردازش نتیجه و سینک شدن با کارهای async را با امنیت و شفافیت کامل انجام داد. این الگو پایه‌ای برای بسیاری از نیازهای تولیدی، مخصوصاً در هماهنگی و کنترل جریان بین goroutineها محسوب می‌شود.&lt;/p>
@@ -289,10 +291,11 @@ class MGR mgr;
 9.4.4.3 نمونه کد
 &lt;a class="anchor" href="#9443-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
+"fmt"
+"sync"
 )
 // ساختار نتیجه خروجی هر کارگر
 type JobResult struct {
@@ -311,13 +314,13 @@ jobs := make(chan int, numJobs)
 results := make(chan JobResult, numJobs)
 var wg sync.WaitGroup
 // راه‌اندازی worker pool
-for w := 1; w &amp;lt;= numWorkers; w++ {
+for w := 1; w &lt;= numWorkers; w++ {
 wg.Add(1)
-go worker(w, jobs, results, &amp;amp;wg)
+go worker(w, jobs, results, &amp;wg)
 }
 // ارسال jobها
-for j := 1; j &amp;lt;= numJobs; j++ {
-jobs &amp;lt;- j
+for j := 1; j &lt;= numJobs; j++ {
+jobs &lt;- j
 }
 close(jobs)
 // انتظار برای اتمام همه workerها و سپس بستن کانال نتایج
@@ -328,22 +331,22 @@ close(results)
 // جمع‌آوری و پردازش نتایج
 for result := range results {
 if result.Err != nil {
-fmt.Printf(&amp;quot;[Job %d] خطا در Worker %d: %v\n&amp;quot;, result.JobID, result.WorkerID, result.Err)
+fmt.Printf("[Job %d] خطا در Worker %d: %v\n", result.JobID, result.WorkerID, result.Err)
 continue
 }
-fmt.Printf(&amp;quot;[Job %d] Worker %d → input: %d, output: %d\n&amp;quot;,
+fmt.Printf("[Job %d] Worker %d → input: %d, output: %d\n",
 result.JobID, result.WorkerID, result.Input, result.Output)
 }
 }
 // Worker function
-func worker(id int, jobs &amp;lt;-chan int, results chan&amp;lt;- JobResult, wg *sync.WaitGroup) {
+func worker(id int, jobs &lt;-chan int, results chan&lt;- JobResult, wg *sync.WaitGroup) {
 defer wg.Done()
 for input := range jobs {
 // شبیه‌سازی کار و احتمال خطا
 var output int
 var err error
 if input == 3 {
-err = fmt.Errorf(&amp;quot;مشکل در پردازش داده&amp;quot;)
+err = fmt.Errorf("مشکل در پردازش داده")
 } else {
 output = input * 2
 }
@@ -354,17 +357,14 @@ Output: output,
 WorkerID: id,
 Err: err,
 }
-results &amp;lt;- result
+results &lt;- result
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-[Job 1] Worker 3 → input: 1, output: 2
-[Job 2] Worker 3 → input: 2, output: 4
-[Job 4] Worker 2 → input: 4, output: 8
-[Job 5] Worker 2 → input: 5, output: 10
-[Job 3] خطا در Worker 3: مشکل در پردازش داده
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال از &lt;strong>Worker Pool&lt;/strong>، سعی شده معماری‌ای تولید شود که هم خوانایی و توسعه‌پذیری بالایی داشته باشد و هم از نظر اطمینان و مدیریت منابع کاملاً production-ready باشد. در ابتدای برنامه، تعداد jobها و workerها به صورت ثابت تعیین شده و دو کانال برای مدیریت ارسال کارها (&lt;code>jobs&lt;/code>) و جمع‌آوری نتایج (&lt;code>results&lt;/code>) تعریف شده است. با استفاده از یک حلقه، به تعداد workerها goroutine اجرا می‌شود؛ هرکدام با استفاده از یک اشاره‌گر به &lt;code>sync.WaitGroup&lt;/code>، اتمام کار خود را اعلام می‌کنند. این باعث می‌شود که بدانیم دقیقاً چه زمانی همه کارگرها کارشان را به اتمام رسانده‌اند.&lt;/p>
 &lt;p>برای هر job که وارد صف می‌شود، اطلاعات آن در کانال jobs قرار می‌گیرد و پس از ارسال تمام jobها، کانال بسته می‌شود تا workerها پس از اتمام کار بتوانند از حلقه خارج شوند. پس از اتمام همه goroutineها (به کمک WaitGroup)، یک goroutine کمکی کانال results را می‌بندد تا حلقه جمع‌آوری نتایج نیز بدون مشکل به پایان برسد. خروجی هر کار به صورت یک ساختار &lt;code>JobResult&lt;/code> است که هم شناسه job، هم ورودی و خروجی، هم شماره worker و هم خطای احتمالی را شامل می‌شود. این ساختار هم امکان لاگ‌گیری دقیق، هم مدیریت خطا و هم تحلیل بعدی را به سادگی ممکن می‌کند.&lt;/p>
 &lt;p>در این مثال، برای یکی از jobها به صورت شبیه‌سازی‌شده یک خطا تولید می‌شود تا نشان داده شود چگونه مدیریت خطا باید به صورت ایمن و جداگانه برای هر job انجام گیرد. در حلقه دریافت نتایج، ابتدا خطا بررسی می‌شود و در صورت وجود خطا، پیام مناسب نمایش داده می‌شود؛ در غیر این صورت، ورودی، خروجی و شماره worker برای هر job به صورت فرمت‌بندی‌شده چاپ می‌گردد. این رویکرد علاوه بر رعایت idiomatic بودن کد Go، کنترل کاملی روی منابع و وضعیت اجرایی همه بخش‌ها ایجاد می‌کند و پایه‌ای ایده‌آل برای پروژه‌های واقعی و مقیاس‌پذیر محسوب می‌شود.&lt;/p>
@@ -409,11 +409,12 @@ style R fill:#e0eaff,stroke:#476ebd,stroke-width:2px
 9.4.5.3 نمونه کد
 &lt;a class="anchor" href="#9453-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"sync"
+"time"
 )
 func main() {
 const bufferSize = 3
@@ -425,12 +426,12 @@ var wg sync.WaitGroup
 wg.Add(1)
 go func() {
 defer wg.Done()
-for i := 1; i &amp;lt;= numData; i++ {
+for i := 1; i &lt;= numData; i++ {
 select {
-case in &amp;lt;- i:
-fmt.Printf(&amp;quot;[Producer] Sent: %d\n&amp;quot;, i)
+case in &lt;- i:
+fmt.Printf("[Producer] Sent: %d\n", i)
 default:
-fmt.Printf(&amp;quot;[Producer] Drop: %d (buffer full)\n&amp;quot;, i)
+fmt.Printf("[Producer] Drop: %d (buffer full)\n", i)
 }
 time.Sleep(100 * time.Millisecond)
 }
@@ -442,10 +443,10 @@ go func() {
 defer wg.Done()
 for data := range in {
 select {
-case out &amp;lt;- data:
-fmt.Printf(&amp;quot;[Consumer] Forwarded: %d\n&amp;quot;, data)
+case out &lt;- data:
+fmt.Printf("[Consumer] Forwarded: %d\n", data)
 default:
-fmt.Printf(&amp;quot;[Consumer] Drop: %d (output buffer full)\n&amp;quot;, data)
+fmt.Printf("[Consumer] Drop: %d (output buffer full)\n", data)
 }
 time.Sleep(150 * time.Millisecond)
 }
@@ -453,41 +454,15 @@ close(out)
 }()
 // جمع‌آوری خروجی
 for result := range out {
-fmt.Printf(&amp;quot;[Result] Received: %d\n&amp;quot;, result)
+fmt.Printf("[Result] Received: %d\n", result)
 }
 wg.Wait()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-[Producer] Sent: 1
-[Result] Received: 1
-[Consumer] Forwarded: 1
-[Producer] Sent: 2
-[Consumer] Forwarded: 2
-[Result] Received: 2
-[Producer] Sent: 3
-[Producer] Sent: 4
-[Consumer] Forwarded: 3
-[Result] Received: 3
-[Producer] Sent: 5
-[Consumer] Forwarded: 4
-[Result] Received: 4
-[Producer] Sent: 6
-[Producer] Sent: 7
-[Consumer] Forwarded: 5
-[Result] Received: 5
-[Producer] Sent: 8
-[Consumer] Forwarded: 6
-[Result] Received: 6
-[Producer] Sent: 9
-[Producer] Drop: 10 (buffer full)
-[Consumer] Forwarded: 7
-[Result] Received: 7
-[Consumer] Forwarded: 8
-[Result] Received: 8
-[Consumer] Forwarded: 9
-[Result] Received: 9
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال از الگوی &lt;strong>Drop Overflow&lt;/strong>، یک سناریوی واقعی‌تر برای مدیریت بار بیش از ظرفیت در سیستم‌های concurrent نمایش داده شده است. ابتدا دو کانال بافر‌دار (یکی برای ورودی و دیگری برای خروجی) تعریف شده‌اند تا شبیه‌ساز صف‌هایی با ظرفیت محدود باشند. یک goroutine به عنوان تولیدکننده، داده‌هایی با مقادیر مختلف (از ۱ تا ۱۰) تولید می‌کند و در تلاش است آن‌ها را وارد کانال ورودی کند. اگر ظرفیت کانال ورودی پر باشد، داده جدید بدون معطلی Drop شده و پیام مناسبی در لاگ چاپ می‌شود؛ این رفتار باعث می‌شود که goroutine تولیدکننده هیچگاه بلاک نشود و سیستم دچار اختلال یا توقف نگردد.&lt;/p>
 &lt;p>در طرف مصرف‌کننده، داده‌ها از کانال ورودی خوانده می‌شوند و تلاش می‌شود به کانال خروجی منتقل شوند. اگر خروجی هم در آن لحظه ظرفیت نداشته باشد (یعنی مصرف‌کننده بعدی نتواند داده را دریافت کند)، داده دوباره Drop شده و این اتفاق نیز در لاگ ثبت می‌شود. به این ترتیب، در هر نقطه‌ای از زنجیره پردازش که ظرفیت کافی وجود نداشته باشد، داده بدون انتظار و سربار اضافه حذف خواهد شد. این رفتار بسیار مهم است، چرا که از تجمع داده‌های غیرقابل پردازش جلوگیری می‌کند و جلوی اشغال بیش از حد حافظه یا منابع را می‌گیرد.&lt;/p>
 &lt;p>در انتهای برنامه، خروجی‌ها از کانال خروجی جمع‌آوری و چاپ می‌شوند تا وضعیت مصرف موفق داده‌ها قابل مشاهده باشد. با کمک sync.WaitGroup اطمینان حاصل شده که تمام goroutineها قبل از پایان برنامه به درستی خاتمه پیدا می‌کنند و هیچ goroutine سرگردان یا leak اتفاق نمی‌افتد. با افزودن تأخیرهای زمانی متفاوت در تولید و مصرف داده‌ها، سناریوهای متفاوتی از فشار و ترافیک شبیه‌سازی شده تا نقاط Drop مختلف به خوبی دیده شوند. این مثال نشان‌دهنده کاربرد عملی و idiomatic این الگو در Go است؛ جایی که Drop شدن بخشی از داده‌ها به جای کندی یا Crash سیستم، انتخابی هوشمندانه و تولیدی محسوب می‌شود، به ویژه در سیستم‌های real-time، سرویس‌های زیرساختی یا سناریوهایی با بار متغیر.&lt;/p>
@@ -533,11 +508,12 @@ Worker2->>Main: آزاد کردن منابع و پایان
 9.4.6.3 نمونه کد
 &lt;a class="anchor" href="#9463-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"context"
+"fmt"
+"time"
 )
 func main() {
 // ساخت context قابل لغو
@@ -546,11 +522,11 @@ ctx, cancel := context.WithCancel(context.Background())
 go func(ctx context.Context) {
 for {
 select {
-case &amp;lt;-ctx.Done():
-fmt.Println(&amp;quot;Cancelled:&amp;quot;, ctx.Err())
+case &lt;-ctx.Done():
+fmt.Println("Cancelled:", ctx.Err())
 return
 default:
-fmt.Println(&amp;quot;Running&amp;quot;)
+fmt.Println("Running")
 time.Sleep(time.Second)
 }
 }
@@ -561,15 +537,12 @@ time.Sleep(3 * time.Second)
 cancel()
 // انتظار برای خاتمه goroutine
 time.Sleep(time.Second)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Running
-Running
-Running
-Running
-Cancelled: context canceled
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک کانال از نوع ساختار ایجاد کردیم با عنوان cancel و این کانال را داخل یکی از case های select بصورت دریافت قرار دادیم که در ادامه ما یک Sleep ۳ گذاشتیم تا فرآیند انجام شود و Running چاپ شود. پس از آن کانال را close کردیم و سیگنال لغو فرآیند ارسال شد و گوروتین کاملا متوقف شد.&lt;/p>
 &lt;h2 id="9464-کاربردها">
 9.4.6.4 کاربردها
@@ -604,33 +577,34 @@ Cancelled: context canceled
 9.4.7.3 نمونه کد
 &lt;a class="anchor" href="#9473-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"sync"
+"time"
 )
 // Interface optional, usually direct struct is enough
 type Semaphore struct {
 semCh chan struct{}
 }
 func NewSemaphore(maxConcurrency int) *Semaphore {
-return &amp;amp;Semaphore{
+return &amp;Semaphore{
 semCh: make(chan struct{}, maxConcurrency),
 }
 }
 func (s *Semaphore) Acquire() {
-s.semCh &amp;lt;- struct{}{}
+s.semCh &lt;- struct{}{}
 }
 func (s *Semaphore) Release() {
-&amp;lt;-s.semCh
+&lt;-s.semCh
 }
 func main() {
 maxConcurrent := 3
 totProcess := 10
 sem := NewSemaphore(maxConcurrent)
 var wg sync.WaitGroup
-for i := 1; i &amp;lt;= totProcess; i++ {
+for i := 1; i &lt;= totProcess; i++ {
 wg.Add(1)
 sem.Acquire()
 go func(taskID int) {
@@ -640,29 +614,20 @@ longRunningProcess(taskID)
 }(i)
 }
 wg.Wait()
-fmt.Println(&amp;quot;All tasks finished!&amp;quot;)
+fmt.Println("All tasks finished!")
 }
 func longRunningProcess(taskID int) {
-fmt.Println(time.Now().Format(&amp;quot;15:04:05&amp;quot;), &amp;quot;Running task&amp;quot;, taskID)
+fmt.Println(time.Now().Format("15:04:05"), "Running task", taskID)
 time.Sleep(2 * time.Second)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-23:00:00 Running task 3
-23:00:00 Running task 1
-23:00:00 Running task 2
-23:00:02 Running task 4
-23:00:02 Running task 5
-23:00:02 Running task 6
-23:00:04 Running task 7
-23:00:04 Running task 9
-23:00:04 Running task 8
-23:00:06 Running task 10
-All tasks finished!
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این نسخه بهبود یافته از &lt;strong>الگوی Semaphore&lt;/strong>، هدف کنترل تعداد goroutineهای همزمان و اطمینان از اجرای کامل تمام وظایف (tasks) بدون هیچ‌گونه race condition یا مشکل همزمانی است. در ابتدا با ساخت یک struct ساده به نام &lt;code>Semaphore&lt;/code> و تعریف یک &lt;strong>کانال بافر دار&lt;/strong> به اندازه‌ی تعداد مجاز عملیات همزمان (در اینجا ۳)، یک Semaphore سبک اما مؤثر ساخته می‌شود. هر زمان که یک goroutine می‌خواهد اجرا شود، ابتدا باید یک اسلات در این کانال اشغال کند (&lt;code>Acquire&lt;/code>). اگر ظرفیت کانال پر باشد، goroutine تا آزاد شدن یک اسلات جدید منتظر می‌ماند. پس از پایان کار، با دستور &lt;code>Release&lt;/code> اسلات آزاد می‌شود تا goroutine بعدی بتواند اجرا شود.&lt;/p>
 &lt;p>در تابع &lt;code>main&lt;/code> یک حلقه وظیفه راه‌اندازی ۱۰ goroutine را دارد، ولی با کمک Semaphore فقط ۳ کار همزمان می‌توانند در هر لحظه فعال باشند. برای اطمینان از اینکه تمام goroutineها به‌درستی اجرا و پایان یافته‌اند، از &lt;strong>sync.WaitGroup&lt;/strong> استفاده شده است: قبل از راه‌اندازی هر goroutine مقدار WaitGroup افزایش و پس از اتمام آن کاهش می‌یابد. در انتها با دستور &lt;code>wg.Wait()&lt;/code> مطمئن می‌شویم که برنامه فقط پس از اتمام همه کارها به پایان می‌رسد. این مکانیزم از خروج زودهنگام main یا رخ دادن goroutine leak جلوگیری می‌کند.&lt;/p>
-&lt;p>هر goroutine یک تابع شبیه‌ساز کار سنگین (&lt;code>longRunningProcess&lt;/code>) را با شناسه‌ی خود اجرا می‌کند که خروجی اجرای task و زمان شروع آن را در لاگ چاپ می‌کند و با یک توقف (sleep) دو ثانیه‌ای، بار واقعی‌تری ایجاد می‌نماید. این پیاده‌سازی تضمین می‌کند که همزمانی به‌شکلی کنترل‌شده انجام شود، تعداد goroutineها بیش از حد نشود و سرور یا سیستم هیچ‌گاه overloaded نشود. همین الگو در بسیاری از سناریوهای واقعی مثل دانلود فایل، فراخوانی APIهای موازی، پردازش صف داده و مدیریت connection pool استفاده می‌شود و پایه‌ی معماری بسیاری از سرویس‌های مقیاس‌پذیر است.&lt;br>
+&lt;p>هر goroutine یک تابع شبیه‌ساز کار سنگین (&lt;code>longRunningProcess&lt;/code>) را با شناسه‌ی خود اجرا می‌کند که خروجی اجرای task و زمان شروع آن را در لاگ چاپ می‌کند و با یک توقف (sleep) دو ثانیه‌ای، بار واقعی‌تری ایجاد می‌نماید. این پیاده‌سازی تضمین می‌کند که همزمانی به‌شکلی کنترل‌شده انجام شود، تعداد goroutineها بیش از حد نشود و سرور یا سیستم هیچ‌گاه overloaded نشود. همین الگو در بسیاری از سناریوهای واقعی مثل دانلود فایل، فراخوانی APIهای موازی، پردازش صف داده و مدیریت connection pool استفاده می‌شود و پایه‌ی معماری بسیاری از سرویس‌های مقیاس‌پذیر است.
 همچنین این روش idiomatic Go است و برای توسعه در پروژه‌های تولیدی کاملاً توصیه می‌شود.&lt;/p>
 &lt;h2 id="9474-کاربردها">
 9.4.7.4 کاربردها
@@ -707,17 +672,18 @@ RetryMore -- No --> DoneFail
 9.4.8.3 نمونه کد
 &lt;a class="anchor" href="#9483-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;net/http&amp;quot;
-&amp;quot;time&amp;quot;
+"context"
+"fmt"
+"io"
+"net/http"
+"time"
 )
 func main() {
 const (
-url = &amp;quot;http://example.com&amp;quot;
+url = "http://example.com"
 maxRetries = 3
 retryTimeout = 2 * time.Second
 )
@@ -726,43 +692,39 @@ var err error
 // Timeout کلی روی کل تلاش‌ها (مثلاً 10 ثانیه)
 ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 defer cancel()
-for i := 1; i &amp;lt;= maxRetries; i++ {
+for i := 1; i &lt;= maxRetries; i++ {
 req, _ := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 resp, err = http.DefaultClient.Do(req)
 if err == nil {
-fmt.Printf(&amp;quot;Success on attempt %d\n&amp;quot;, i)
+fmt.Printf("Success on attempt %d\n", i)
 break
 }
-fmt.Printf(&amp;quot;Attempt %d failed: %v\n&amp;quot;, i, err)
-if i &amp;lt; maxRetries {
+fmt.Printf("Attempt %d failed: %v\n", i, err)
+if i &lt; maxRetries {
 select {
-case &amp;lt;-ctx.Done():
-fmt.Println(&amp;quot;Global timeout reached, aborting retries.&amp;quot;)
+case &lt;-ctx.Done():
+fmt.Println("Global timeout reached, aborting retries.")
 break
-case &amp;lt;-time.After(retryTimeout):
-fmt.Println(&amp;quot;Retrying...&amp;quot;)
+case &lt;-time.After(retryTimeout):
+fmt.Println("Retrying...")
 }
 }
 }
 if err != nil {
-fmt.Println(&amp;quot;Final Error:&amp;quot;, err)
+fmt.Println("Final Error:", err)
 return
 }
 defer resp.Body.Close()
 // خواندن بخشی از بدنه برای اطمینان از آزاد شدن connection
 body, _ := io.ReadAll(io.LimitReader(resp.Body, 200))
-fmt.Println(&amp;quot;Status:&amp;quot;, resp.Status)
-fmt.Printf(&amp;quot;Body sample: %q\n&amp;quot;, body)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Attempt 1 failed: Get &amp;quot;http://example.com&amp;quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-Retrying...
-Attempt 2 failed: Get &amp;quot;http://example.com&amp;quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-Retrying...
-Attempt 3 failed: Get &amp;quot;http://example.com&amp;quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-Final Error: Get &amp;quot;http://example.com&amp;quot;: dial tcp: lookup example.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
-&lt;/code>&lt;/pre>
+fmt.Println("Status:", resp.Status)
+fmt.Printf("Body sample: %q\n", body)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال از الگوی &lt;strong>Retry Timeout&lt;/strong>، ما یک عملیات HTTP GET به آدرس مورد نظر را با رویکردی حرفه‌ای و ایمن، همراه با تلاش مجدد (Retry) و کنترل Timeout پیاده‌سازی می‌کنیم. ابتدا تعداد تلاش مجدد (&lt;code>maxRetries&lt;/code>)، مدت تأخیر بین هر تلاش (&lt;code>retryTimeout&lt;/code>) و یک Timeout کلی برای کل عملیات (۱۰ ثانیه) تعریف شده است تا سیستم هم از نظر مدیریت زمان و هم از نظر مصرف منابع، رفتار پیش‌بینی‌پذیری داشته باشد.&lt;/p>
 &lt;p>در ابتدای حلقه، یک context با Timeout کلی ساخته می‌شود. برای هر تلاش (تا سقف مجاز)، یک درخواست HTTP با همین context ساخته می‌شود تا در صورت لغو کلی یا پایان مهلت، همه retryها به صورت امن و هماهنگ متوقف شوند. اگر درخواست موفقیت‌آمیز باشد، شماره تلاش موفق ثبت می‌شود و حلقه خاتمه پیدا می‌کند. اگر شکست بخورد، پیام مربوط به شماره تلاش و علت خطا چاپ می‌شود. پیش از هر retry (به جز آخرین تلاش)، یک وقفه زمانی برقرار می‌شود. این وقفه با select روی &lt;code>ctx.Done()&lt;/code> نیز کنترل می‌شود تا اگر قبل از شروع تلاش بعدی، context لغو شده بود، عملیات فوراً متوقف گردد و پیام مناسبی نمایش داده شود.&lt;/p>
 &lt;p>پس از پایان حلقه، اگر همچنان خطا وجود داشته باشد، پیام خطا چاپ و برنامه خاتمه پیدا می‌کند. اگر درخواست موفقیت‌آمیز بوده، بدنه‌ی پاسخ حتماً بسته می‌شود تا از leak شدن منابع جلوگیری شود و connection قابل استفاده مجدد بماند. همچنین برای نمونه، بخشی از پاسخ خوانده و در خروجی چاپ می‌شود تا مطمئن شویم اتصال به سرور کامل برقرار شده است.&lt;/p>
@@ -816,30 +778,31 @@ Chan -- "Receive Data" --> Cn
 9.4.9.3 نمونه کد
 &lt;a class="anchor" href="#9493-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;math/rand&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"math/rand"
+"sync"
+"time"
 )
-func producer(ch chan&amp;lt;- int, count int, wg *sync.WaitGroup) {
+func producer(ch chan&lt;- int, count int, wg *sync.WaitGroup) {
 defer wg.Done()
-for i := 0; i &amp;lt; count; i++ {
+for i := 0; i &lt; count; i++ {
 n := rand.Intn(100)
-ch &amp;lt;- n
-fmt.Println(&amp;quot;Produced:&amp;quot;, n)
+ch &lt;- n
+fmt.Println("Produced:", n)
 time.Sleep(100 * time.Millisecond)
 }
 close(ch) // سیگنال پایان تولید به مصرف‌کننده‌ها
 }
-func consumer(id int, ch &amp;lt;-chan int, wg *sync.WaitGroup) {
+func consumer(id int, ch &lt;-chan int, wg *sync.WaitGroup) {
 defer wg.Done()
 for n := range ch {
-fmt.Printf(&amp;quot;Consumer %d: Consumed %d\n&amp;quot;, id, n)
+fmt.Printf("Consumer %d: Consumed %d\n", id, n)
 time.Sleep(200 * time.Millisecond)
 }
-fmt.Printf(&amp;quot;Consumer %d: Finished\n&amp;quot;, id)
+fmt.Printf("Consumer %d: Finished\n", id)
 }
 func main() {
 rand.Seed(time.Now().UnixNano())
@@ -847,61 +810,20 @@ ch := make(chan int, 10) // کانال بافر دار
 var wg sync.WaitGroup
 produceCount := 20
 wg.Add(1)
-go producer(ch, produceCount, &amp;amp;wg)
+go producer(ch, produceCount, &amp;wg)
 consumerCount := 2
-for i := 1; i &amp;lt;= consumerCount; i++ {
+for i := 1; i &lt;= consumerCount; i++ {
 wg.Add(1)
-go consumer(i, ch, &amp;amp;wg)
+go consumer(i, ch, &amp;wg)
 }
 wg.Wait()
-fmt.Println(&amp;quot;All done.&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Produced: 96
-Consumer 2: Consumed 96
-Produced: 55
-Consumer 1: Consumed 55
-Consumer 2: Consumed 36
-Produced: 36
-Produced: 45
-Consumer 1: Consumed 45
-Produced: 61
-Consumer 2: Consumed 61
-Produced: 6
-Consumer 1: Consumed 6
-Produced: 12
-Consumer 2: Consumed 12
-Produced: 45
-Consumer 1: Consumed 45
-Produced: 84
-Consumer 2: Consumed 84
-Produced: 48
-Consumer 1: Consumed 48
-Produced: 78
-Consumer 2: Consumed 78
-Produced: 44
-Consumer 1: Consumed 44
-Produced: 18
-Consumer 2: Consumed 18
-Produced: 92
-Consumer 1: Consumed 92
-Produced: 9
-Consumer 2: Consumed 9
-Produced: 5
-Consumer 1: Consumed 5
-Produced: 32
-Consumer 2: Consumed 32
-Produced: 0
-Consumer 1: Consumed 0
-Produced: 30
-Consumer 2: Consumed 30
-Produced: 86
-Consumer 1: Consumed 86
-Consumer 2: Finished
-Consumer 1: Finished
-All done.
-&lt;/code>&lt;/pre>
+fmt.Println("All done.")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در نسخه بهبود یافته‌ی مثال &lt;strong>Producer-Consumer&lt;/strong>، تلاش شده تمام چالش‌های همزمانی و ضعف‌های مدیریت goroutineها به صورت حرفه‌ای و idiomatic در زبان Go برطرف شود. در این ساختار، یک goroutine به عنوان &lt;strong>تولیدکننده&lt;/strong> (Producer) تعریف شده که به تعداد مشخص (مثلاً ۲۰ عدد) داده تصادفی تولید و وارد یک &lt;strong>کانال بافر‌دار&lt;/strong> (مثلاً با ظرفیت ۱۰) می‌کند. استفاده از کانال بافر دار باعث می‌شود تولید و مصرف داده‌ها تا حدی decoupled باشند، یعنی اگر مصرف‌کننده‌ها لحظه‌ای کند شوند، تولیدکننده تا پر شدن بافر بدون توقف می‌تواند تولید کند.&lt;/p>
 &lt;p>پس از تولید همه داده‌ها، producer کانال را می‌بندد. این کار بسیار مهم است؛ چون با بسته شدن کانال، حلقه‌ی for در goroutineهای مصرف‌کننده به صورت تمیز و بدون خطا تمام می‌شود و پیام &amp;ldquo;Finished&amp;rdquo; برای هر مصرف‌کننده چاپ می‌گردد. مصرف‌کننده‌ها به صورت worker pool پیاده‌سازی شده‌اند؛ یعنی هر داده‌ای که از کانال خارج شود به طور تصادفی توسط یکی از مصرف‌کننده‌ها پردازش می‌شود (division of labor) و هرکدام بعد از اتمام کارشان (یعنی زمانی که کانال بسته و همه داده‌ها مصرف شده باشد) خارج می‌شوند.&lt;/p>
 &lt;p>برای جلوگیری از goroutine leak و تضمین پایان تمیز همه goroutineها، از &lt;strong>sync.WaitGroup&lt;/strong> استفاده شده است. با اضافه کردن یک مقدار به WaitGroup قبل از هر goroutine و کم کردن آن هنگام اتمام goroutine (&lt;code>defer wg.Done()&lt;/code>)، می‌توان مطمئن بود که برنامه فقط زمانی پایان می‌یابد که همه تولید و مصرف‌ها به طور کامل انجام شده‌اند.&lt;/p>
@@ -949,10 +871,11 @@ F[Other Goroutines] -->|Signal/Broadcast| D
 9.4.10.3 نمونه کد
 &lt;a class="anchor" href="#94103-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
+"fmt"
+"sync"
 )
 type Item = int
 type Queue struct {
@@ -962,8 +885,8 @@ closed bool
 }
 // ایجاد صف جدید
 func NewQueue() *Queue {
-return &amp;amp;Queue{
-Cond: sync.NewCond(&amp;amp;sync.Mutex{}),
+return &amp;Queue{
+Cond: sync.NewCond(&amp;sync.Mutex{}),
 }
 }
 // قرار دادن یک آیتم در صف
@@ -971,7 +894,7 @@ func (q *Queue) Put(item Item) error {
 q.L.Lock()
 defer q.L.Unlock()
 if q.closed {
-return fmt.Errorf(&amp;quot;queue is closed&amp;quot;)
+return fmt.Errorf("queue is closed")
 }
 q.items = append(q.items, item)
 q.Signal() // فقط یکی از منتظرها را بیدار کن (بهینه‌تر)
@@ -981,15 +904,15 @@ return nil
 func (q *Queue) GetMany(n int) ([]Item, error) {
 q.L.Lock()
 defer q.L.Unlock()
-for len(q.items) &amp;lt; n &amp;amp;&amp;amp; !q.closed {
+for len(q.items) &lt; n &amp;&amp; !q.closed {
 q.Wait()
 }
-if len(q.items) == 0 &amp;amp;&amp;amp; q.closed {
-return nil, fmt.Errorf(&amp;quot;queue closed and empty&amp;quot;)
+if len(q.items) == 0 &amp;&amp; q.closed {
+return nil, fmt.Errorf("queue closed and empty")
 }
 // اگر صف بسته شده و آیتم‌هایی باقی مانده است، همان‌ها را بازگردان
 m := n
-if len(q.items) &amp;lt; n {
+if len(q.items) &lt; n {
 m = len(q.items)
 }
 items := q.items[:m:m]
@@ -1007,7 +930,7 @@ func main() {
 q := NewQueue()
 var wg sync.WaitGroup
 // مصرف‌کننده‌ها
-for n := 10; n &amp;gt; 0; n-- {
+for n := 10; n > 0; n-- {
 wg.Add(1)
 go func(n int) {
 defer wg.Done()
@@ -1016,50 +939,23 @@ items, err := q.GetMany(n)
 if err != nil {
 break
 }
-fmt.Printf(&amp;quot;%2d: %v\n&amp;quot;, n, items)
+fmt.Printf("%2d: %v\n", n, items)
 }
 }(n)
 }
 // تولید داده
-for i := 0; i &amp;lt; 100; i++ {
+for i := 0; i &lt; 100; i++ {
 _ = q.Put(i)
 }
 q.Close() // صف را پس از تولید داده می‌بندیم
 wg.Wait()
-fmt.Println(&amp;quot;All done!&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-1: [0]
-1: [1]
-1: [2]
-1: [3]
-1: [4]
-1: [5]
-1: [6]
-1: [7]
-1: [8]
-1: [9]
-1: [10]
-1: [11]
-1: [12]
-1: [13]
-7: [14 15 16 17 18 19 20]
-7: [43 44 45 46 47 48 49]
-7: [72 73 74 75 76 77 78]
-7: [79 80 81 82 83 84 85]
-7: [86 87 88 89 90 91 92]
-7: [93 94 95 96 97 98 99]
-5: [50 51 52 53 54]
-9: [55 56 57 58 59 60 61 62 63]
-8: [64 65 66 67 68 69 70 71]
-1: [21]
-2: [25 26]
-3: [22 23 24]
-6: [27 28 29 30 31 32]
-10: [33 34 35 36 37 38 39 40 41 42]
-All done!
-&lt;/code>&lt;/pre>
+fmt.Println("All done!")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، یک &lt;strong>صف thread-safe (ایمن برای همزمانی)&lt;/strong> با استفاده از الگوی مانیتور (Monitor Pattern) و ابزار قدرتمند &lt;code>sync.Cond&lt;/code> پیاده‌سازی شده است. این صف، امکان قرار دادن آیتم (توسط تولیدکننده‌ها) و دریافت چند آیتم به صورت همزمان (توسط مصرف‌کننده‌ها) را به‌صورت هماهنگ و ایمن فراهم می‌کند.&lt;/p>
 &lt;p>در این معماری، متد &lt;code>Put&lt;/code> برای افزودن آیتم جدید به صف استفاده می‌شود و با هر بار افزودن، یکی از goroutineهای منتظر (مصرف‌کننده‌ها) را با متد &lt;code>Signal()&lt;/code> بیدار می‌کند تا در صورت آماده بودن شرط (یعنی تعداد آیتم کافی)، کار خود را ادامه دهد. در سمت مصرف‌کننده، هر goroutine با متد &lt;code>GetMany(n)&lt;/code> منتظر می‌ماند تا حداقل n آیتم در صف موجود شود. اگر این شرط برقرار نباشد و صف همچنان باز باشد، مصرف‌کننده با متد &lt;code>Wait()&lt;/code> به حالت خواب می‌رود تا زمانی که داده کافی توسط تولیدکننده وارد صف شود یا صف بسته شود.&lt;/p>
 &lt;p>نکته کلیدی اینجاست که بعد از اتمام تولید داده (در این مثال پس از افزودن ۱۰۰ آیتم)، با فراخوانی متد &lt;code>Close()&lt;/code> صف بسته می‌شود و همه goroutineهای منتظر با &lt;code>Broadcast()&lt;/code> بیدار می‌شوند. این کار تضمین می‌کند هیچ مصرف‌کننده‌ای به صورت بی‌نهایت در حالت انتظار نخواهد ماند و همگی graceful و تمیز به کار خود پایان می‌دهند. اگر صف بسته و خالی باشد، مصرف‌کننده‌ها پیام خطا دریافت و خارج می‌شوند.&lt;/p>
@@ -1099,12 +995,13 @@ F -- "Set result in Future" --> D
 9.4.11.3 نمونه کد
 &lt;a class="anchor" href="#94113-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;errors&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"errors"
+"fmt"
+"sync"
+"time"
 )
 type FutureInt struct {
 once sync.Once
@@ -1114,20 +1011,20 @@ done chan struct{}
 }
 // Get با بلاک تا تکمیل شدن عملیات صبر می‌کند و نتیجه و خطا را برمی‌گرداند
 func (f *FutureInt) Get() (int, error) {
-&amp;lt;-f.done
+&lt;-f.done
 return f.result, f.err
 }
 // GetWithTimeout با تایم‌اوت مشخص منتظر نتیجه می‌ماند
 func (f *FutureInt) GetWithTimeout(timeout time.Duration) (int, error) {
 select {
-case &amp;lt;-f.done:
+case &lt;-f.done:
 return f.result, f.err
-case &amp;lt;-time.After(timeout):
-return 0, errors.New(&amp;quot;timeout waiting for future&amp;quot;)
+case &lt;-time.After(timeout):
+return 0, errors.New("timeout waiting for future")
 }
 }
 func longRunningTask() *FutureInt {
-f := &amp;amp;FutureInt{done: make(chan struct{})}
+f := &amp;FutureInt{done: make(chan struct{})}
 go func() {
 defer close(f.done)
 // شبیه‌سازی کار زمان‌بر و گاهی بروز خطا
@@ -1137,35 +1034,35 @@ f.result = 42
 f.err = nil
 } else {
 f.result = 0
-f.err = errors.New(&amp;quot;unexpected error&amp;quot;)
+f.err = errors.New("unexpected error")
 }
 }()
 return f
 }
 func main() {
 f := longRunningTask()
-fmt.Println(&amp;quot;Do something else while waiting for result...&amp;quot;)
+fmt.Println("Do something else while waiting for result...")
 // دریافت نتیجه با مدیریت خطا
 result, err := f.Get()
 if err != nil {
-fmt.Println(&amp;quot;Future failed:&amp;quot;, err)
+fmt.Println("Future failed:", err)
 return
 }
-fmt.Println(&amp;quot;The answer is:&amp;quot;, result)
+fmt.Println("The answer is:", result)
 // نمونه با timeout
 f2 := longRunningTask()
 result2, err2 := f2.GetWithTimeout(500 * time.Millisecond)
 if err2 != nil {
-fmt.Println(&amp;quot;Timeout error:&amp;quot;, err2)
+fmt.Println("Timeout error:", err2)
 } else {
-fmt.Println(&amp;quot;Result with timeout:&amp;quot;, result2)
+fmt.Println("Result with timeout:", result2)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Do something else while waiting for result...
-Future failed: unexpected error
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال از الگوی &lt;strong>Future&lt;/strong> در Go، ما یک ساختار کامل و قابل اطمینان برای مدیریت نتیجه‌ی عملیات ناهمزمان (asynchronous) و دریافت امن و حرفه‌ای نتیجه، همراه با مدیریت خطا و قابلیت timeout پیاده‌سازی کرده‌ایم.&lt;/p>
 &lt;p>در ساختار &lt;code>FutureInt&lt;/code>، یک کانال از نوع &lt;code>chan struct{}&lt;/code> با نام &lt;code>done&lt;/code> وجود دارد که سیگنال اتمام عملیات را ارسال می‌کند. مقدار نتیجه (&lt;code>result&lt;/code>) و خطا (&lt;code>err&lt;/code>) به صورت فیلدهای struct نگهداری می‌شوند. زمانی که عملیات ناهمزمان (در goroutine مربوط به تابع &lt;code>longRunningTask&lt;/code>) به پایان می‌رسد، کانال &lt;code>done&lt;/code> بسته می‌شود تا هر goroutine منتظر یا فراخوانی کننده‌ی Get یا GetWithTimeout متوجه آماده‌شدن نتیجه شود.&lt;/p>
 &lt;p>متد &lt;code>Get&lt;/code> تا زمانی که عملیات کامل نشده منتظر می‌ماند و پس از اتمام، مقدار نهایی و خطا را بازمی‌گرداند. این کار با خواندن از کانال &lt;code>done&lt;/code> انجام می‌شود، که هم thread-safe و هم idiomatic است. متد &lt;code>GetWithTimeout&lt;/code> علاوه بر انتظار برای تکمیل، این امکان را می‌دهد که اگر نتیجه طی زمان معینی آماده نشد، با پیغام خطای timeout عملیات را مدیریت کنید—این قابلیت در سناریوهای real-time و حساس به تاخیر اهمیت زیادی دارد.&lt;/p>
@@ -1176,15 +1073,15 @@ Future failed: unexpected error
 &lt;a class="anchor" href="#94114-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>درخواست‌های شبکه (Asynchronous Network Requests):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>درخواست‌های شبکه (Asynchronous Network Requests):&lt;/strong>
 در زمانی که نیاز به ارسال درخواست به یک سرویس خارجی یا API دارید، الگوی Future کمک می‌کند که بتوانید درخواست را به صورت ناهمزمان ارسال و به محض آماده شدن پاسخ، آن را دریافت کنید. این کار باعث می‌شود بتوانید بدون مسدود کردن برنامه، کارهای دیگری انجام دهید تا زمانی که نتیجه آماده شود. این تکنیک برای توسعه کلاینت‌های HTTP، REST، GraphQL و حتی WebSocket بسیار کاربردی است.&lt;/li>
-&lt;li>&lt;strong>کوئری‌های پایگاه داده (Async Database Querying):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>کوئری‌های پایگاه داده (Async Database Querying):&lt;/strong>
 هنگام اجرای کوئری‌های سنگین یا زمان‌بر روی دیتابیس، Future اجازه می‌دهد کوئری را به صورت ناهمزمان آغاز کنید و هر زمان که نتیجه واقعاً لازم بود، آن را دریافت کنید. این رویکرد برای برنامه‌هایی که باید همزمان چند کوئری مختلف را به دیتابیس ارسال کنند (مانند جمع‌آوری داده از چند جدول یا سرور متفاوت) بسیار مفید است و latency کلی برنامه را کاهش می‌دهد.&lt;/li>
-&lt;li>&lt;strong>محاسبات سنگین و پردازش موازی:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>محاسبات سنگین و پردازش موازی:&lt;/strong>
 اگر در برنامه نیاز به انجام محاسبات CPU-intensive (مانند تجزیه داده، پردازش تصویر، رمزنگاری و &amp;hellip;) دارید، می‌توانید هر task را در یک Future قرار دهید و نتایج را در صورت نیاز، به صورت همزمان و بدون بلاک شدن منتظر بمانید. این کار باعث بهبود performance و پاسخگویی سیستم خواهد شد.&lt;/li>
-&lt;li>&lt;strong>ترکیب و همگام‌سازی عملیات مستقل (Composition and Synchronization):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>ترکیب و همگام‌سازی عملیات مستقل (Composition and Synchronization):&lt;/strong>
 می‌توانید چندین Future ایجاد کنید و به طور موازی آن‌ها را اجرا نمایید، سپس به صورت هماهنگ (مثلاً با WaitGroup یا channel) منتظر دریافت همه نتایج باشید (pattern معروف به Fan-In). این رویکرد برای جمع‌آوری نتایج عملیات‌های موازی (مانند دانلود چند فایل یا جمع‌آوری داده از چند سرویس) ایده‌آل است.&lt;/li>
-&lt;li>&lt;strong>پردازش رویداد و message queue:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>پردازش رویداد و message queue:&lt;/strong>
 در معماری‌هایی مانند صف پیام یا پردازش رویداد (event-driven)، هر message را می‌توان به عنوان یک Future مدیریت کرد و پس از پایان پردازش، نتیجه یا پاسخ را برای ادامه کار استفاده نمود.&lt;/li>
 &lt;/ul></description></item><item><author/><title>9.4.12 الگو Pipeline</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-pipeline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-pipeline/</guid><description>&lt;h2 id="94121-توضیحات">
 9.4.12.1 توضیحات
@@ -1216,39 +1113,40 @@ style S3 fill:#fdf2e8,stroke:#e8922d,stroke-width:2px
 9.4.12.3 نمونه کد
 &lt;a class="anchor" href="#94123-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 // تولید داده اولیه (stage 1)
-func gen(nums ...int) &amp;lt;-chan int {
+func gen(nums ...int) &lt;-chan int {
 out := make(chan int, 2) // کانال بافر دار
 go func() {
 defer close(out)
 for _, n := range nums {
-out &amp;lt;- n
+out &lt;- n
 }
 }()
 return out
 }
 // مربع هر عدد (stage 2)
-func sq(in &amp;lt;-chan int) &amp;lt;-chan int {
+func sq(in &lt;-chan int) &lt;-chan int {
 out := make(chan int, 2)
 go func() {
 defer close(out)
 for n := range in {
-out &amp;lt;- n * n
+out &lt;- n * n
 }
 }()
 return out
 }
 // افزایش عدد به اندازه ۱۰ (stage 3)
-func addTen(in &amp;lt;-chan int) &amp;lt;-chan int {
+func addTen(in &lt;-chan int) &lt;-chan int {
 out := make(chan int, 2)
 go func() {
 defer close(out)
 for n := range in {
-out &amp;lt;- n + 10
+out &lt;- n + 10
 }
 }()
 return out
@@ -1262,14 +1160,12 @@ stage3 := addTen(stage2)
 for v := range stage3 {
 fmt.Println(v)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-14
-19
-35
-59
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، یک &lt;strong>خط لوله (Pipeline)&lt;/strong> همزمانی واقعی و کاملاً idiomatic در زبان Go پیاده‌سازی شده است که چندین مرحله (stage) پردازشی را به صورت مستقل و موازی اجرا می‌کند. هر مرحله‌ی این pipeline یک تابع جداگانه است که داده‌های دریافتی از مرحله قبلی را از یک کانال (channel) می‌گیرد، عملیات مورد نظر خود را روی هر داده انجام می‌دهد و نتیجه را به کانال خروجی ارسال می‌کند. این مدل باعث می‌شود هر بخش از پردازش بدون وابستگی به سرعت بخش دیگر و به صورت ایمن و concurrent اجرا شود.&lt;/p>
 &lt;p>در کد، ابتدا با تابع &lt;code>gen&lt;/code> داده‌های اولیه (در اینجا ۲، ۳، ۵ و ۷) تولید و وارد یک کانال می‌شوند. سپس این داده‌ها به مرحله دوم (&lt;code>sq&lt;/code>) ارسال می‌شوند که کار هر goroutine در این مرحله گرفتن عدد و بازگرداندن مربع آن است. خروجی مرحله دوم وارد مرحله سوم (&lt;code>addTen&lt;/code>) می‌شود که به هر عدد، مقدار ۱۰ اضافه می‌کند. هر مرحله در یک goroutine مجزا و روی یک کانال بافر‌دار اجرا می‌شود که باعث افزایش performance و decoupling کامل مراحل می‌شود.&lt;/p>
 &lt;p>در انتها، یک حلقه‌ی ساده روی خروجی مرحله آخر (stage3) قرار می‌گیرد و تمام نتایج به ترتیب مصرف و چاپ می‌شوند. استفاده از حلقه و &lt;code>range&lt;/code> روی کانال، مصرف امن، بدون بلاک شدن و بدون نگرانی از goroutine leak را تضمین می‌کند، چون با بسته شدن کانال، حلقه به طور خودکار خارج می‌شود. این ساختار بسیار منعطف و قابل توسعه است؛ می‌توان به راحتی مراحل بیشتری به pipeline افزود یا منطق هر مرحله را تغییر داد، بدون اینکه بخش‌های دیگر برنامه نیاز به تغییر داشته باشند. چنین معماری، مناسب سیستم‌های پردازش داده، real-time، ETL و سناریوهای تحلیل موازی و مقیاس‌پذیر است.&lt;/p>
@@ -1279,15 +1175,15 @@ fmt.Println(v)
 &lt;a class="anchor" href="#94124-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>مدیریت ترافیک و پردازش شبکه (Network Stream Processing):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>مدیریت ترافیک و پردازش شبکه (Network Stream Processing):&lt;/strong>
 الگوی Pipeline به شما اجازه می‌دهد چندین اتصال شبکه (مثلاً درخواست‌های همزمان کاربران یا پیام‌های ورودی) را به صورت مرحله‌ای مدیریت کنید؛ به گونه‌ای که هر بسته یا پیام از مراحل مختلفی مانند خواندن، تجزیه (parse)، فیلتر (filter)، اعتبارسنجی (validation)، مسیریابی (routing)، و حتی رمزنگاری یا فشرده‌سازی عبور کند. این مدل به شدت در سرورهای proxy، load balancer و نرم‌افزارهای firewall کاربرد دارد.&lt;/li>
-&lt;li>&lt;strong>محاسبات چند مرحله‌ای و زنجیره‌ای (Multi-stage Computation):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>محاسبات چند مرحله‌ای و زنجیره‌ای (Multi-stage Computation):&lt;/strong>
 Pipeline راهکاری عالی برای تقسیم محاسبات پیچیده به گام‌های ساده‌تر و مستقل است؛ به طوری که هر مرحله روی بخشی از داده یا نتیجه مرحله قبل کار کند. برای مثال: تولید داده خام → پاک‌سازی → تبدیل فرمت → محاسبات عددی یا آماری → تجمیع نهایی. این ساختار کارایی و خوانایی برنامه را افزایش و توسعه آن را آسان‌تر می‌کند.&lt;/li>
-&lt;li>&lt;strong>پردازش و تحلیل گزارش‌ها (Log Processing &amp;amp; ETL):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>پردازش و تحلیل گزارش‌ها (Log Processing &amp;amp; ETL):&lt;/strong>
 در سامانه‌های جمع‌آوری و تحلیل لاگ یا داده‌های گزارش، می‌توان داده‌ها را به صورت جریان پیوسته از مراحل مختلف عبور داد؛ مثلاً ابتدا فیلترکردن داده‌های نامربوط، سپس تجزیه (parse) رکوردها، enrich کردن با داده‌های خارجی (مانند geoip)، و در نهایت ذخیره‌سازی یا index برای جستجو. این روش پایه معماری‌های ETL، سامانه‌های لاگ توزیع‌شده (ELK، Loki، &amp;hellip;)، و data lakeها است.&lt;/li>
-&lt;li>&lt;strong>تجزیه و تحلیل داده‌های بزرگ (Big Data &amp;amp; Real-Time Analytics):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>تجزیه و تحلیل داده‌های بزرگ (Big Data &amp;amp; Real-Time Analytics):&lt;/strong>
 در پروژه‌های داده‌محور، Pipeline ابزاری کلیدی برای اجرای زنجیره‌ای عملیات روی داده‌های حجیم است؛ مانند فیلترکردن داده‌ها، map/reduce، تبدیل ویژگی‌ها (feature engineering)، استخراج اطلاعات، و ساخت گزارش‌های لحظه‌ای یا ذخیره در بانک داده. این مدل به پردازش موازی، افزایش throughput و مقیاس‌پذیری سامانه کمک می‌کند.&lt;/li>
-&lt;li>&lt;strong>پردازش فایل و تصویر:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>پردازش فایل و تصویر:&lt;/strong>
 در بسیاری از سرویس‌های backend، فایل‌ها یا تصاویر آپلودشده می‌توانند به صورت pipeline پردازش شوند: خواندن فایل → decode → resize/crop → تبدیل فرمت → اعمال واترمارک → ذخیره‌سازی یا آپلود به سرویس دیگر.&lt;/li>
 &lt;/ul></description></item><item><author/><title>9.4.13 الگو Subscription</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-subscription/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-subscription/</guid><description>&lt;h2 id="94131-توضیحات">
 9.4.13.1 توضیحات
@@ -1322,31 +1218,32 @@ style Sub1,Sub2,SubN fill:#e9fbe7,stroke:#6dc165,stroke-width:2px
 9.4.13.3 نمونه کد
 &lt;a class="anchor" href="#94133-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;io/ioutil&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;net/http&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;time&amp;quot;
+"context"
+"encoding/json"
+"fmt"
+"io/ioutil"
+"log"
+"net/http"
+"os"
+"time"
 )
-const exampleAPIAddress = &amp;quot;https://random-data-api.com/api/stripe/random_stripe&amp;quot;
+const exampleAPIAddress = "https://random-data-api.com/api/stripe/random_stripe"
 type Card struct {
-Id uint `json:&amp;quot;id&amp;quot;`
-Uid string `json:&amp;quot;uid&amp;quot;`
-ValidCard string `json:&amp;quot;valid_card&amp;quot;`
-Token string `json:&amp;quot;token&amp;quot;`
-InvalidCard string `json:&amp;quot;invalid_card&amp;quot;`
-Month string `json:&amp;quot;month&amp;quot;`
-Year string `json:&amp;quot;year&amp;quot;`
-CCV string `json:&amp;quot;ccv&amp;quot;`
-CCVAmex string `json:&amp;quot;ccv_amex&amp;quot;`
+Id uint `json:"id"`
+Uid string `json:"uid"`
+ValidCard string `json:"valid_card"`
+Token string `json:"token"`
+InvalidCard string `json:"invalid_card"`
+Month string `json:"month"`
+Year string `json:"year"`
+CCV string `json:"ccv"`
+CCVAmex string `json:"ccv_amex"`
 }
 type Subscription interface {
-Updates() &amp;lt;-chan Card
+Updates() &lt;-chan Card
 }
 type Fetcher interface {
 Fetch() (Card, error)
@@ -1364,7 +1261,7 @@ err error
 }
 // NewSubscription create subscription for fetch data per freq time in second
 func NewSubscription(ctx context.Context, fetcher Fetcher, freq uint) Subscription {
-s := &amp;amp;sub{
+s := &amp;sub{
 fetcher: fetcher,
 updates: make(chan Card),
 }
@@ -1372,7 +1269,7 @@ go s.serve(ctx, freq)
 return s
 }
 func NewFetcher(url string) Fetcher {
-return &amp;amp;fetcher{
+return &amp;fetcher{
 url: url,
 }
 }
@@ -1394,29 +1291,29 @@ fetchResponseStream = s.updates
 fetchResponseStream = nil
 }
 select {
-case &amp;lt;-ticker.C:
+case &lt;-ticker.C:
 if pending {
 break
 }
 go func() {
 fetched, err := s.fetcher.Fetch()
-done &amp;lt;- fetchResult{fetched, err}
+done &lt;- fetchResult{fetched, err}
 }()
-case result := &amp;lt;-done:
+case result := &lt;-done:
 fetchedCard = result.fetchedCard
 if result.err != nil {
-log.Printf(&amp;quot;fetch got error %v&amp;quot;, result.err)
+log.Printf("fetch got error %v", result.err)
 break
 }
 pending = true
-case fetchResponseStream &amp;lt;- fetchedCard:
+case fetchResponseStream &lt;- fetchedCard:
 pending = false
-case &amp;lt;-ctx.Done():
+case &lt;-ctx.Done():
 return
 }
 }
 }
-func (s *sub) Updates() &amp;lt;-chan Card {
+func (s *sub) Updates() &lt;-chan Card {
 return s.updates
 }
 func requestAPI(url string) (Card, error) {
@@ -1433,7 +1330,7 @@ body, err := ioutil.ReadAll(res.Body)
 if err != nil {
 return Card{}, err
 }
-if err := json.Unmarshal(body, &amp;amp;card); err != nil {
+if err := json.Unmarshal(body, &amp;card); err != nil {
 return Card{}, err
 }
 return card, nil
@@ -1443,21 +1340,18 @@ ctx, cancel := context.WithCancel(context.Background())
 sub := NewSubscription(ctx, NewFetcher(exampleAPIAddress), 3)
 time.AfterFunc(1*time.Minute, func() {
 cancel()
-log.Println(&amp;quot;canceled subscription task&amp;quot;)
+log.Println("canceled subscription task")
 os.Exit(0)
 })
 for card := range sub.Updates() {
 fmt.Println(card)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-{4643 add2475a-ed64-4039-831d-0e95469752d9 371449635398431 tok_mastercard_debit 4000000000000101 01 2024 920 7875}
-{6992 a89e3d71-785a-4d37-9639-be3ce7534257 2223003122003222 tok_discover 4000000000000069 11 2024 660 5241}
-{9287 f665526e-1b34-46f5-9d9d-50362631ed0f 5200828282828210 tok_mastercard_debit 4000000000000036 05 2026 993 6272}
-{4956 e8ae8e75-0ff2-42e8-921c-5cc438d64fac 3566002020360505 tok_amex 4000000000000044 10 2024 371 9989}
-{1193 954d1b36-829b-4726-bbb7-0f5f01b3dd40 6011000990139424 tok_mastercard_debit 4000000000000341 12 2026 331 5119}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، ابتدا یک اینترفیس به نام &lt;strong>Subscription&lt;/strong> تعریف شده است که متدی به نام &lt;code>Updates&lt;/code> دارد و کانالی از نوع &lt;code>Card&lt;/code> را برمی‌گرداند. این کانال نقش مسیر ارتباطی را بین تولیدکننده و مصرف‌کننده ایفا می‌کند، به طوری که مصرف‌کننده می‌تواند به طور همزمان و غیرمسدود داده‌های جدید را دریافت کند. همچنین اینترفیس &lt;strong>Fetcher&lt;/strong> طراحی شده که وظیفه‌ی فراخوانی API و دریافت داده‌ها را بر عهده دارد و متد &lt;code>Fetch&lt;/code> را ارائه می‌دهد. این تفکیک وظایف باعث می‌شود کد قابلیت توسعه و تست بیشتری داشته باشد.&lt;/p>
 &lt;p>تابع &lt;code>NewSubscription&lt;/code> به عنوان سازنده Subscription عمل می‌کند؛ این تابع یک struct از نوع &lt;code>sub&lt;/code> ایجاد می‌کند که حاوی fetcher و یک کانال &lt;code>updates&lt;/code> است. سپس متد &lt;code>serve&lt;/code> به صورت یک goroutine اجرا می‌شود تا عملیات fetch را در فواصل زمانی مشخص (که با پارامتر freq تعیین می‌شود) تکرار کند. درون این متد از &lt;code>time.Ticker&lt;/code> برای زمان‌بندی دقیق استفاده شده است تا به صورت منظم و بدون ایجاد سربار اضافی، داده‌ها را از API فراخوانی کند و در صورت دریافت موفقیت‌آمیز، آن‌ها را در کانال منتشر نماید. همچنین با کمک متغیر &lt;code>pending&lt;/code> اطمینان حاصل می‌شود که یک fetch جدید تا قبل از اتمام fetch قبلی آغاز نشود، بنابراین از فشار بیش از حد به سرویس جلوگیری می‌شود.&lt;/p>
 &lt;p>مصرف‌کنندگان داده‌ها از طریق متد &lt;code>Updates&lt;/code> به کانال &lt;code>updates&lt;/code> دسترسی دارند و به محض دریافت داده‌های جدید، می‌توانند پردازش خود را آغاز کنند. استفاده از &lt;code>context.Context&lt;/code> در این ساختار اجازه می‌دهد که در هر زمان عملیات fetch به صورت ایمن لغو شود و goroutine مربوطه به سرعت و بدون باقی ماندن در حالت بلاک‌شده خاتمه یابد. این طراحی باعث می‌شود که برنامه همزمانی بهینه‌ای داشته باشد، منابع به خوبی مدیریت شود و کد قابلیت خوانایی، توسعه و تست آسان را حفظ کند.&lt;/p>
@@ -1467,9 +1361,9 @@ fmt.Println(card)
 &lt;a class="anchor" href="#94134-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>دریافت اطلاعات از تولیدکننده‌ها (Publisher) یا سیستم‌های Pub/Sub:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>دریافت اطلاعات از تولیدکننده‌ها (Publisher) یا سیستم‌های Pub/Sub:&lt;/strong>
 الگوی Subscription به شما این امکان را می‌دهد که به سادگی به یک یا چند منبع داده (مانند سرویس‌های پیام‌رسان، سیستم‌های صف پیام، یا هر منبعی که به صورت publish/subscribe کار می‌کند) متصل شوید و داده‌های جدید را به صورت همزمان و غیرمسدود دریافت کنید. این کار باعث می‌شود مصرف‌کننده‌ها به صورت real-time یا نزدیک به real-time اطلاعات را دریافت و پردازش نمایند و از پیچیدگی‌های مدیریت اتصال یا polling مکرر بی‌نیاز شوند.&lt;/li>
-&lt;li>&lt;strong>همگام‌سازی داده‌ها از APIهای خارجی:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>همگام‌سازی داده‌ها از APIهای خارجی:&lt;/strong>
 در بسیاری از برنامه‌ها نیاز است داده‌ها یا وضعیت از سرویس‌های خارجی (مانند RESTful APIها، سرویس‌های ابری یا سیستم‌های تحلیلی) به صورت دوره‌ای یا بر اساس رویداد به‌روزرسانی شوند. الگوی Subscription این امکان را فراهم می‌کند که بتوانید با تعریف یک سازوکار هوشمند برای دریافت به‌روزرسانی‌ها، مصرف داده‌ها را ساده، پایدار و بهینه کنید. این الگو به خصوص در سناریوهای real-time dashboards، اطلاع‌رسانی لحظه‌ای و هماهنگ‌سازی داده‌های توزیع‌شده کاربرد فراوان دارد.&lt;/li>
 &lt;/ul></description></item><item><author/><title>9.4.14 الگو Bridge Channel</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-brdige-channel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-brdige-channel/</guid><description>&lt;h2 id="94141-توضیحات">
 9.4.14.1 توضیحات
@@ -1503,14 +1397,15 @@ style E fill:#fce4ec,stroke:#e91e63,stroke-width:2px
 9.4.17.3 نمونه کد
 &lt;a class="anchor" href="#94173-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
+"fmt"
 )
 // bridge بین input و output قرار می‌گیرد و داده‌ها را منتقل می‌کند.
-func bridge(input &amp;lt;-chan int, output chan&amp;lt;- int) {
+func bridge(input &lt;-chan int, output chan&lt;- int) {
 for val := range input {
-output &amp;lt;- val
+output &lt;- val
 }
 close(output)
 }
@@ -1521,22 +1416,21 @@ output := make(chan int)
 go bridge(input, output)
 // ارسال چند داده به کانال input
 go func() {
-for i := 1; i &amp;lt;= 3; i++ {
-input &amp;lt;- i
+for i := 1; i &lt;= 3; i++ {
+input &lt;- i
 }
 close(input)
 }()
 // دریافت داده‌ها از کانال output
 for val := range output {
-fmt.Println(&amp;quot;Received:&amp;quot;, val)
+fmt.Println("Received:", val)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Received: 1
-Received: 2
-Received: 3
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، ما پیاده‌سازی بهبودیافته‌ای از الگوی &lt;strong>Bridge Channel&lt;/strong> در زبان Go را مشاهده می‌کنیم؛ الگویی که هدف آن &lt;strong>اتصال دو کانال (input و output) از طریق یک goroutine واسط (bridge)&lt;/strong> است. این واسط به صورت شفاف داده‌ها را از یک کانال می‌خواند و به کانال دیگری منتقل می‌کند، به‌گونه‌ای که بخش‌های تولید (Producer) و مصرف (Consumer) بتوانند بدون وابستگی مستقیم به یکدیگر کار کنند.&lt;/p>
 &lt;p>در ابتدای برنامه، دو کانال &lt;code>input&lt;/code> و &lt;code>output&lt;/code> تعریف می‌شوند. سپس تابعی به نام &lt;code>bridge&lt;/code> ایجاد شده که به عنوان واسطه عمل می‌کند. این تابع در یک goroutine اجرا شده و با استفاده از یک حلقه &lt;code>for val := range input&lt;/code>، تا زمانی که کانال &lt;code>input&lt;/code> باز است، مقادیر را دریافت می‌کند و آن‌ها را بلافاصله در کانال &lt;code>output&lt;/code> می‌نویسد. پس از بسته شدن &lt;code>input&lt;/code>، تابع &lt;code>bridge&lt;/code> نیز با بستن &lt;code>output&lt;/code> خاتمه می‌یابد؛ این یک الگوی بسیار ایمن و idiomatic در Go برای جلوگیری از goroutine leak است.&lt;/p>
 &lt;p>در بخش &lt;code>main&lt;/code>، یک goroutine دیگر وظیفه ارسال داده به &lt;code>input&lt;/code> را بر عهده دارد. در اینجا، مقادیر ۱ تا ۳ به &lt;code>input&lt;/code> ارسال شده و سپس کانال بسته می‌شود. در انتها، از یک حلقه &lt;code>for val := range output&lt;/code> استفاده شده تا داده‌های منتقل‌شده به &lt;code>output&lt;/code> دریافت و چاپ شوند. این ساختار به گونه‌ای طراحی شده که پس از اتمام پردازش، برنامه به صورت تمیز و بدون بلاک شدن به پایان می‌رسد.&lt;/p>
@@ -1580,10 +1474,11 @@ style Consumer1,Consumer2 fill:#fde2e2,stroke:#c0392b,stroke-width:2px
 9.4.15.3 نمونه کد
 &lt;a class="anchor" href="#94153-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func main() {
 enqueue := make(chan int) // کانال برای دریافت داده‌های جدید
@@ -1595,17 +1490,17 @@ var queue []int
 for {
 var first int
 var out chan int
-if len(queue) &amp;gt; 0 {
+if len(queue) > 0 {
 first = queue[0]
 out = dequeue
 }
 select {
-case item := &amp;lt;-enqueue:
+case item := &lt;-enqueue:
 queue = append(queue, item)
-fmt.Println(&amp;quot;Enqueued:&amp;quot;, item)
-case out &amp;lt;- first:
+fmt.Println("Enqueued:", item)
+case out &lt;- first:
 queue = queue[1:]
-case &amp;lt;-done:
+case &lt;-done:
 close(dequeue)
 return
 }
@@ -1613,42 +1508,24 @@ return
 }()
 // Producer: ارسال ۱۰ مقدار به صف
 go func() {
-for i := 0; i &amp;lt; 10; i++ {
-enqueue &amp;lt;- i
+for i := 0; i &lt; 10; i++ {
+enqueue &lt;- i
 time.Sleep(100 * time.Millisecond)
 }
 // پایان
 time.Sleep(1 * time.Second)
-done &amp;lt;- struct{}{}
+done &lt;- struct{}{}
 }()
 // Consumer: دریافت مقادیر به ترتیب
 for item := range dequeue {
-fmt.Println(&amp;quot;Dequeued:&amp;quot;, item)
+fmt.Println("Dequeued:", item)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Enqueued: 0
-Dequeued: 0
-Enqueued: 1
-Dequeued: 1
-Enqueued: 2
-Dequeued: 2
-Enqueued: 3
-Dequeued: 3
-Enqueued: 4
-Dequeued: 4
-Enqueued: 5
-Dequeued: 5
-Enqueued: 6
-Dequeued: 6
-Enqueued: 7
-Dequeued: 7
-Enqueued: 8
-Dequeued: 8
-Enqueued: 9
-Dequeued: 9
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال ما سه کانال داریم: &lt;code>enqueue&lt;/code> برای وارد کردن آیتم‌ها به صف، &lt;code>dequeue&lt;/code> برای خارج کردن آیتم‌ها از صف، و &lt;code>done&lt;/code> برای پایان دادن به اجرای برنامه. این ساختار به ما اجازه می‌دهد یک صف ساده ولی همزمان و thread-safe را با استفاده از ویژگی‌های زبان Go پیاده‌سازی کنیم.&lt;/p>
 &lt;p>یک goroutine اصلی مسئول مدیریت صف است. این goroutine یک &lt;code>queue&lt;/code> از نوع &lt;code>[]int&lt;/code> نگه می‌دارد که همان بافر داخلی صف ماست. درون یک حلقه بی‌نهایت، ابتدا بررسی می‌شود که آیا صف خالی نیست. اگر خالی نبود، مقدار اول صف (&lt;code>first = queue[0]&lt;/code>) برای ارسال آماده می‌شود و کانال &lt;code>out&lt;/code> برابر &lt;code>dequeue&lt;/code> قرار می‌گیرد. در غیر این صورت، مقدار &lt;code>out&lt;/code> خالی می‌ماند و بنابراین حالت ارسال انجام نخواهد شد.&lt;/p>
 &lt;p>سپس با &lt;code>select&lt;/code> سه حالت بررسی می‌شود. اگر آیتم جدیدی از طریق &lt;code>enqueue&lt;/code> وارد شود، به انتهای صف اضافه می‌شود. اگر صف خالی نباشد و &lt;code>dequeue&lt;/code> آمادگی دریافت داشته باشد (&lt;code>out &amp;lt;- first&lt;/code>)، مقدار اول صف به مصرف‌کننده ارسال می‌شود و از صف حذف می‌شود (&lt;code>queue = queue[1:]&lt;/code>). اگر سیگنالی از &lt;code>done&lt;/code> برسد، یعنی برنامه باید پایان یابد؛ در این صورت کانال &lt;code>dequeue&lt;/code> بسته می‌شود و goroutine متوقف می‌شود.&lt;/p>
@@ -1660,15 +1537,15 @@ Dequeued: 9
 &lt;a class="anchor" href="#94154-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>زمان‌بندی وظایف (Task Scheduling):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>زمان‌بندی وظایف (Task Scheduling):&lt;/strong>
 از کانال به‌عنوان صف وظایف (task queue) استفاده می‌شود تا وظایف تولیدشده از سوی گوروتین‌های مختلف، به گوروتین‌های worker برای اجرا سپرده شوند. این الگو برای پیاده‌سازی worker pool بسیار رایج است و باعث می‌شود وظایف به ترتیبی که وارد کانال می‌شوند پردازش شوند، بدون نیاز به مدیریت پیچیده‌ی همزمانی با mutex.&lt;/li>
-&lt;li>&lt;strong>بافر کردن داده‌ها (Buffering Input Data):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>بافر کردن داده‌ها (Buffering Input Data):&lt;/strong>
 در مواقعی که نرخ ورود داده‌ها بیشتر از نرخ پردازش است، یک کانال بافر‌دار می‌تواند به‌عنوان صف موقت برای ذخیره‌ی داده‌ها استفاده شود. این کمک می‌کند فشار از روی گوروتینی که داده را مصرف می‌کند برداشته شود و از data loss یا race conditions جلوگیری شود.&lt;/li>
-&lt;li>&lt;strong>محدودسازی نرخ (Throttling/Rate Limiting):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>محدودسازی نرخ (Throttling/Rate Limiting):&lt;/strong>
 کانال با ظرفیت مشخص می‌تواند برای کنترل نرخ پردازش به کار رود. اگر گوروتین مصرف‌کننده کند عمل کند و کانال پر شود، گوروتین تولیدکننده تا زمان آزاد شدن بافر مسدود می‌ماند. این یک روش ساده و کارآمد برای جلوگیری از &lt;strong>overload شدن سیستم&lt;/strong> در شرایط پرترافیک است.&lt;/li>
-&lt;li>&lt;strong>مدیریت گزارش‌ها (Asynchronous Logging):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>مدیریت گزارش‌ها (Asynchronous Logging):&lt;/strong>
 استفاده از یک کانال به‌عنوان صف برای ثبت گزارش‌ها (logs) باعث می‌شود عملیات نوشتن گزارش (که ممکن است کند باشد) گوروتین‌های دیگر را متوقف نکند. گوروتینی که مسئول نوشتن گزارش است پیام‌ها را به ترتیب از کانال دریافت می‌کند و در فایل یا خروجی شبکه ذخیره می‌کند، بدون اینکه نیاز به قفل یا ساختار همزمانی پیچیده داشته باشد.&lt;/li>
-&lt;li>&lt;strong>همزمانی امن بین گوروتین‌ها (Safe Inter-Goroutine Communication):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>همزمانی امن بین گوروتین‌ها (Safe Inter-Goroutine Communication):&lt;/strong>
 کانال‌ها راهی امن و idiomatic برای تبادل داده بین گوروتین‌ها هستند. استفاده از آن‌ها به‌عنوان صف، امکان پیاده‌سازی سیستم‌هایی مانند pipeline processing، fan-in/fan-out یا load balancing را به سادگی فراهم می‌کند، بدون نیاز به primitives سطح پایین‌تر مثل mutex یا condition variable.&lt;/li>
 &lt;/ul></description></item><item><author/><title>9.4.16 الگو Rate limit</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-ratelimit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-ratelimit/</guid><description>&lt;h2 id="94161-توضیحات">
 9.4.16.1 توضیحات
@@ -1704,13 +1581,14 @@ D --> B
 9.4.16.3 نمونه کد
 &lt;a class="anchor" href="#94163-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 func processRequest(id int) {
-fmt.Printf(&amp;quot;✅ Processed request %d at %s\n&amp;quot;, id, time.Now().Format(&amp;quot;15:04:05&amp;quot;))
+fmt.Printf("✅ Processed request %d at %s\n", id, time.Now().Format("15:04:05"))
 }
 func main() {
 const maxRequests = 10
@@ -1720,31 +1598,23 @@ defer ticker.Stop()
 requests := make(chan int)
 // Producer: ارسال درخواست‌ها با فاصله زمانی (مثلاً هر 300ms)
 go func() {
-for i := 1; i &amp;lt;= maxRequests; i++ {
-requests &amp;lt;- i
+for i := 1; i &lt;= maxRequests; i++ {
+requests &lt;- i
 time.Sleep(300 * time.Millisecond) // simulate incoming traffic
 }
 close(requests)
 }()
 // Consumer با Rate Limiting
 for req := range requests {
-&amp;lt;-ticker.C // اجازه پردازش فقط هر یک ثانیه یکبار
+&lt;-ticker.C // اجازه پردازش فقط هر یک ثانیه یکبار
 processRequest(req)
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-✅ Processed request 1 at 23:00:01
-✅ Processed request 2 at 23:00:02
-✅ Processed request 3 at 23:00:03
-✅ Processed request 4 at 23:00:04
-✅ Processed request 5 at 23:00:05
-✅ Processed request 6 at 23:00:06
-✅ Processed request 7 at 23:00:07
-✅ Processed request 8 at 23:00:08
-✅ Processed request 9 at 23:00:09
-✅ Processed request 10 at 23:00:10
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، پیاده‌سازی ساده‌ای از الگوی &lt;strong>Rate Limiting&lt;/strong> در زبان Go با استفاده از &lt;code>time.Ticker&lt;/code> نمایش داده شده است. هدف این کد آن است که اجازه دهد درخواست‌ها (در اینجا اعداد ۱ تا ۱۰) تنها با نرخ یک درخواست در هر ثانیه پردازش شوند. این کار برای جلوگیری از فشار زیاد بر روی سیستم یا رعایت محدودیت‌های خارجی بسیار رایج است.&lt;/p>
 &lt;p>ابتدا یک &lt;code>ticker&lt;/code> با بازه‌ی زمانی یک ثانیه ساخته می‌شود. این &lt;code>ticker&lt;/code> در هر ثانیه یک سیگنال روی کانال &lt;code>C&lt;/code> خودش ارسال می‌کند. در همین حال، یک goroutine به عنوان تولیدکننده (Producer) تعریف شده که اعداد ۱ تا ۱۰ را بدون تأخیر وارد یک کانال &lt;code>requests&lt;/code> می‌کند و سپس آن را می‌بندد. این کانال مانند یک صف عمل می‌کند.&lt;/p>
 &lt;p>در بخش مصرف‌کننده (Consumer)، که در &lt;code>main&lt;/code> اجرا می‌شود، یک حلقه از روی &lt;code>requests&lt;/code> می‌چرخد. قبل از پردازش هر درخواست، برنامه منتظر سیگنال از &lt;code>ticker.C&lt;/code> می‌ماند. به این معنی که هر درخواست دقیقاً با فاصله‌ی زمانی یک ثانیه پردازش می‌شود. این مکانیزم باعث می‌شود اگر درخواست‌ها خیلی سریع وارد صف شوند، باز هم فقط با سرعت مجاز (در این مثال ۱ بر ثانیه) اجرا شوند.&lt;/p>
@@ -1764,9 +1634,9 @@ processRequest(req)
 &lt;/h2>
 &lt;p>الگوی &lt;strong>بازیابی از بن‌بست (Deadlock Recovery)&lt;/strong> یکی از الگوهای مهم در طراحی سیستم‌های همزمان (concurrent systems) است که به ما کمک می‌کند از شرایطی خطرناک به نام &lt;em>بن‌بست&lt;/em> (deadlock) خارج شویم. در شرایط بن‌بست، دو یا چند گوروتین (یا نخ) در حالتی گیر می‌افتند که هر یک منتظر آزاد شدن منبعی است که توسط دیگری نگه داشته شده؛ در نتیجه هیچ‌کدام نمی‌توانند پیش بروند و کل سیستم در حالت توقف (freeze) باقی می‌ماند.&lt;/p>
 &lt;p>در زبان Go، به دلیل استفاده گسترده از &lt;code>goroutine&lt;/code> و &lt;code>channel&lt;/code>، احتمال وقوع بن‌بست در اثر طراحی نادرست بالا است. مثلاً اگر گوروتینی منتظر داده روی یک کانال بماند، در حالی که گوروتین ارسال‌کننده هرگز اجرا نشود یا مسدود شده باشد، بن‌بست اتفاق می‌افتد. در سیستم‌های واقعی، تشخیص و بازیابی از این وضعیت حیاتی است تا سیستم به‌صورت پیوسته و قابل اطمینان باقی بماند.&lt;/p>
-&lt;p>الگوی Deadlock Recovery معمولاً شامل سه مرحله است:&lt;br>
-۱. &lt;strong>نظارت (Monitoring):&lt;/strong> سیستم باید به‌صورت مداوم وضعیت گوروتین‌ها یا منابع مشترک را بررسی کند. این کار می‌تواند با استفاده از تایم‌اوت، لاگ‌گیری، یا ابزارهای profiler مانند &lt;code>pprof&lt;/code> انجام شود.&lt;br>
-۲. &lt;strong>تشخیص (Detection):&lt;/strong> با تجزیه‌وتحلیل رفتار سیستم، مانند گوروتین‌هایی که برای مدت طولانی در حالت مسدود باقی مانده‌اند، می‌توان بن‌بست‌های احتمالی را شناسایی کرد.&lt;br>
+&lt;p>الگوی Deadlock Recovery معمولاً شامل سه مرحله است:
+۱. &lt;strong>نظارت (Monitoring):&lt;/strong> سیستم باید به‌صورت مداوم وضعیت گوروتین‌ها یا منابع مشترک را بررسی کند. این کار می‌تواند با استفاده از تایم‌اوت، لاگ‌گیری، یا ابزارهای profiler مانند &lt;code>pprof&lt;/code> انجام شود.
+۲. &lt;strong>تشخیص (Detection):&lt;/strong> با تجزیه‌وتحلیل رفتار سیستم، مانند گوروتین‌هایی که برای مدت طولانی در حالت مسدود باقی مانده‌اند، می‌توان بن‌بست‌های احتمالی را شناسایی کرد.
 ۳. &lt;strong>بازیابی (Recovery):&lt;/strong> پس از تشخیص، می‌توان با یکی از روش‌های زیر اقدام به آزادسازی سیستم کرد:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>تلاش مجدد با backoff&lt;/strong> (بازگشت نمایی یا تصادفی)&lt;/li>
@@ -1799,11 +1669,12 @@ DeadlockChecker-->>Main: بن‌بست شناسایی شد ✅
 9.4.17.3 نمونه کد
 &lt;a class="anchor" href="#94173-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"sync"
+"time"
 )
 func deadlockRecoveryExample() {
 var mu1, mu2 sync.Mutex
@@ -1811,44 +1682,43 @@ done := make(chan string, 2)
 // گوروتین اول: تلاش برای گرفتن mu1 سپس mu2
 go func() {
 mu1.Lock()
-fmt.Println(&amp;quot;G1: mu1 locked&amp;quot;)
+fmt.Println("G1: mu1 locked")
 time.Sleep(1 * time.Second)
 mu2.Lock()
-fmt.Println(&amp;quot;G1: mu2 locked&amp;quot;)
+fmt.Println("G1: mu2 locked")
 time.Sleep(500 * time.Millisecond)
 mu2.Unlock()
 mu1.Unlock()
-done &amp;lt;- &amp;quot;G1: done&amp;quot;
+done &lt;- "G1: done"
 }()
 // گوروتین دوم: تلاش برای گرفتن mu2 سپس mu1
 go func() {
 mu2.Lock()
-fmt.Println(&amp;quot;G2: mu2 locked&amp;quot;)
+fmt.Println("G2: mu2 locked")
 time.Sleep(1 * time.Second)
 mu1.Lock()
-fmt.Println(&amp;quot;G2: mu1 locked&amp;quot;)
+fmt.Println("G2: mu1 locked")
 time.Sleep(500 * time.Millisecond)
 mu1.Unlock()
 mu2.Unlock()
-done &amp;lt;- &amp;quot;G2: done&amp;quot;
+done &lt;- "G2: done"
 }()
 // انتظار برای پیام از گوروتین‌ها یا تشخیص بن‌بست
 select {
-case msg := &amp;lt;-done:
-fmt.Println(&amp;quot;✅ موفقیت:&amp;quot;, msg)
-case &amp;lt;-time.After(3 * time.Second):
-fmt.Println(&amp;quot;❌ بن‌بست شناسایی شد: یکی از گوروتین‌ها قفل شده است&amp;quot;)
+case msg := &lt;-done:
+fmt.Println("✅ موفقیت:", msg)
+case &lt;-time.After(3 * time.Second):
+fmt.Println("❌ بن‌بست شناسایی شد: یکی از گوروتین‌ها قفل شده است")
 }
 }
 func main() {
 deadlockRecoveryExample()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-G1: mu1 locked
-G2: mu2 locked
-❌ بن‌بست شناسایی شد: یکی از گوروتین‌ها قفل شده است
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، یک سناریوی کلاسیک از &lt;strong>بن‌بست (Deadlock)&lt;/strong> در زبان Go شبیه‌سازی شده و با استفاده از مکانیزم &lt;code>select&lt;/code> و &lt;code>time.After&lt;/code>، وقوع آن تشخیص داده می‌شود. هدف این کد، نشان دادن چگونگی رخ دادن بن‌بست بین دو goroutine است که هر کدام سعی می‌کنند منابع مشترکی را قفل کنند، اما به دلیل ترتیب متفاوت در قفل‌گیری، در حالت انتظار دائمی قرار می‌گیرند.&lt;/p>
 &lt;p>در ابتدا، دو شیء قفل &lt;code>mu1&lt;/code> و &lt;code>mu2&lt;/code> از نوع &lt;code>sync.Mutex&lt;/code> تعریف می‌شود. سپس دو goroutine راه‌اندازی می‌شوند. گوروتین اول (&lt;code>G1&lt;/code>) ابتدا &lt;code>mu1&lt;/code> را قفل کرده و پس از کمی توقف، سعی می‌کند &lt;code>mu2&lt;/code> را نیز قفل کند. در مقابل، گوروتین دوم (&lt;code>G2&lt;/code>) ابتدا &lt;code>mu2&lt;/code> را قفل کرده و پس از کمی توقف، سعی در قفل کردن &lt;code>mu1&lt;/code> دارد. به این ترتیب، هر کدام منتظر آزاد شدن قفلی هستند که در دست دیگری است و هیچ‌کدام نمی‌توانند ادامه دهند، در نتیجه &lt;strong>بن‌بست واقعی&lt;/strong> رخ می‌دهد.&lt;/p>
 &lt;p>در بخش &lt;code>main&lt;/code>، یک &lt;code>select&lt;/code> برای خواندن پیام از کانال &lt;code>done&lt;/code> تعریف شده که انتظار دارد یکی از goroutineها پس از انجام کار، پیامی ارسال کند. اما چون هر دو گوروتین در وضعیت قفل گیر افتاده‌اند و هیچ‌کدام به پایان نمی‌رسند، کانال &lt;code>done&lt;/code> خالی می‌ماند. در نتیجه پس از ۳ ثانیه، بخش &lt;code>select&lt;/code> وارد مسیر &lt;code>time.After&lt;/code> می‌شود و پیام &amp;ldquo;بن‌بست شناسایی شد&amp;rdquo; چاپ می‌گردد.&lt;/p>
@@ -1858,13 +1728,13 @@ G2: mu2 locked
 &lt;a class="anchor" href="#94174-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>مدیریت منابع در برنامه‌های همزمان (Concurrent Resource Management):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>مدیریت منابع در برنامه‌های همزمان (Concurrent Resource Management):&lt;/strong>
 در سیستم‌هایی که گوروتین‌ها یا نخ‌ها به منابع مشترکی مانند فایل‌ها، حافظه، یا کانکشن‌های شبکه دسترسی دارند، استفاده از این الگو برای جلوگیری یا بازیابی از بن‌بست هنگام قفل‌گذاری (locking) منابع حیاتی است. با استفاده از تشخیص زمان‌محور، تلاش مجدد یا اولویت‌بندی دسترسی می‌توان از توقف کامل سیستم جلوگیری کرد.&lt;/li>
-&lt;li>&lt;strong>پایگاه‌داده‌های توزیع‌شده و سیستم‌های تراکنشی (Distributed Databases &amp;amp; Transactions):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>پایگاه‌داده‌های توزیع‌شده و سیستم‌های تراکنشی (Distributed Databases &amp;amp; Transactions):&lt;/strong>
 در محیط‌های توزیع‌شده مانند دیتابیس‌های چندگره‌ای یا سیستم‌های ACID، تراکنش‌هایی که منتظر منابع قفل‌شده توسط سایر تراکنش‌ها هستند، ممکن است در حالت بن‌بست باقی بمانند. این الگو با تشخیص بن‌بست‌ها و اعمال سیاست‌هایی مانند &lt;strong>abort و retry&lt;/strong> یا &lt;strong>rollback&lt;/strong>، پایداری و در دسترس بودن سیستم را تضمین می‌کند.&lt;/li>
-&lt;li>&lt;strong>سیستم‌های بلادرنگ و حساس به زمان (Real-Time Systems):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>سیستم‌های بلادرنگ و حساس به زمان (Real-Time Systems):&lt;/strong>
 در سیستم‌های بلادرنگ (مانند سامانه‌های کنترل صنعتی یا رباتیک)، حتی تأخیر جزئی می‌تواند بحرانی باشد. استفاده از الگوی بازیابی از بن‌بست باعث می‌شود سیستم بتواند به‌جای توقف کامل، در زمان محدود وضعیت را تشخیص داده و به روش fail-safe ادامه دهد.&lt;/li>
-&lt;li>&lt;strong>اشکال‌زدایی و تحلیل همزمانی (Concurrency Debugging &amp;amp; Analysis):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>اشکال‌زدایی و تحلیل همزمانی (Concurrency Debugging &amp;amp; Analysis):&lt;/strong>
 این الگو به توسعه‌دهندگان کمک می‌کند تا طراحی همزمانی برنامه را زیر نظر بگیرند و نقاطی که امکان وقوع بن‌بست دارند را شناسایی کنند. با ابزارهایی مثل &lt;code>pprof&lt;/code>, &lt;code>trace&lt;/code> و تحلیل کانال‌ها می‌توان مسیرهای اجرای بن‌بست‌زا را شناسایی و بازطراحی کرد.&lt;/li>
 &lt;/ul></description></item><item><author/><title>9.4.18 الگو Channel Cancellation</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-channel-cancellation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-channel-cancellation/</guid><description>&lt;h2 id="94181-توضیحات">
 9.4.18.1 توضیحات
@@ -1897,20 +1767,21 @@ Worker2->>Main: stopped gracefully
 9.4.18.3 نمونه کد
 &lt;a class="anchor" href="#94183-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"time"
 )
 // تابعی که تا زمان دریافت سیگنال لغو کار می‌کند
-func worker(id int, cancel &amp;lt;-chan struct{}) {
+func worker(id int, cancel &lt;-chan struct{}) {
 for {
 select {
-case &amp;lt;-cancel:
-fmt.Printf(&amp;quot;⛔️ Worker %d متوقف شد\n&amp;quot;, id)
+case &lt;-cancel:
+fmt.Printf("⛔️ Worker %d متوقف شد\n", id)
 return
 default:
-fmt.Printf(&amp;quot;⚙️ Worker %d در حال کار...\n&amp;quot;, id)
+fmt.Printf("⚙️ Worker %d در حال کار...\n", id)
 time.Sleep(500 * time.Millisecond)
 }
 }
@@ -1918,41 +1789,23 @@ time.Sleep(500 * time.Millisecond)
 func main() {
 cancel := make(chan struct{}) // کانال لغو مشترک
 // اجرای چند گوروتین worker
-for i := 1; i &amp;lt;= 3; i++ {
+for i := 1; i &lt;= 3; i++ {
 go worker(i, cancel)
 }
 // اجرای اصلی تا ۲ ثانیه صبر می‌کند
 time.Sleep(2 * time.Second)
 // ارسال سیگنال لغو با بستن کانال
-fmt.Println(&amp;quot;📢 ارسال سیگنال لغو به همه گوروتین‌ها...&amp;quot;)
+fmt.Println("📢 ارسال سیگنال لغو به همه گوروتین‌ها...")
 close(cancel)
 // صبر برای پایان اجرای گوروتین‌ها
 time.Sleep(1 * time.Second)
-fmt.Println(&amp;quot;🏁 پایان برنامه&amp;quot;)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-⚙️ Worker 3 در حال کار...
-⚙️ Worker 1 در حال کار...
-⚙️ Worker 2 در حال کار...
-⚙️ Worker 1 در حال کار...
-⚙️ Worker 3 در حال کار...
-⚙️ Worker 2 در حال کار...
-⚙️ Worker 2 در حال کار...
-⚙️ Worker 3 در حال کار...
-⚙️ Worker 1 در حال کار...
-⚙️ Worker 3 در حال کار...
-⚙️ Worker 2 در حال کار...
-⚙️ Worker 1 در حال کار...
-⚙️ Worker 2 در حال کار...
-📢 ارسال سیگنال لغو به همه گوروتین‌ها...
-⚙️ Worker 3 در حال کار...
-⚙️ Worker 1 در حال کار...
-⛔️ Worker 3 متوقف شد
-⛔️ Worker 2 متوقف شد
-⛔️ Worker 1 متوقف شد
-🏁 پایان برنامه
-&lt;/code>&lt;/pre>
+fmt.Println("🏁 پایان برنامه")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، الگوی &lt;strong>Channel Cancellation&lt;/strong> برای متوقف کردن همزمان چند گوروتین به کار گرفته شده است. هدف این الگو آن است که بدون نیاز به متغیرهای اشتراکی یا قفل (mutex)، چند گوروتین را به‌صورت هماهنگ و ایمن متوقف کنیم، آن‌هم با استفاده از یک کانال ساده که نقش سیگنال لغو (cancel signal) را ایفا می‌کند.&lt;/p>
 &lt;p>در ابتدای برنامه، یک کانال از نوع &lt;code>chan struct{}&lt;/code> به نام &lt;code>cancel&lt;/code> تعریف می‌شود. این کانال هیچ داده‌ای حمل نمی‌کند و فقط نقش «علامت توقف» دارد. سپس با استفاده از یک حلقه، سه گوروتین worker راه‌اندازی می‌شوند که همگی به این کانال دسترسی دارند. هر گوروتین درون یک حلقه بی‌نهایت اجرا می‌شود و درون &lt;code>select&lt;/code> بررسی می‌کند که آیا سیگنال لغو از کانال دریافت شده یا نه. اگر سیگنال لغو دریافت شود (&lt;code>&amp;lt;-cancel&lt;/code>)، گوروتین با چاپ یک پیام متوقف می‌شود. در غیر این صورت، کار شبیه‌سازی‌شده‌ای انجام می‌دهد و سپس کمی می‌خوابد.&lt;/p>
 &lt;p>در تابع &lt;code>main&lt;/code>، برنامه به مدت ۲ ثانیه منتظر می‌ماند تا گوروتین‌ها چند بار پیام «در حال کار» چاپ کنند. سپس کانال &lt;code>cancel&lt;/code> را می‌بندد (&lt;code>close(cancel)&lt;/code>) که این عمل به عنوان سیگنال توقف برای تمام گوروتین‌ها عمل می‌کند. در نتیجه، هر گوروتینی که در حالت انتظار روی آن کانال بوده، فعال می‌شود و مسیر لغو را طی می‌کند. پس از آن، &lt;code>main&lt;/code> کمی صبر می‌کند تا همه گوروتین‌ها فرصت چاپ پیام «⛔️ متوقف شد» را پیدا کنند.&lt;/p>
@@ -1992,13 +1845,13 @@ atomic.AddInt64(&amp;amp;counter, 1) // جمع اتمیک بدون قفل
 &lt;a class="anchor" href="#941912-%d8%a7%d9%84%da%af%d9%88%d9%87%d8%a7%db%8c-%d8%b1%d8%a7%db%8c%d8%ac-lock-free">#&lt;/a>
 &lt;/h3>
 &lt;ol>
-&lt;li>&lt;strong>Lock-Free Counter:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>Lock-Free Counter:&lt;/strong>
 پیاده‌سازی شمارنده‌های افزایشی/کاهشی (مثل تعداد درخواست، session فعال و &amp;hellip;) با متدهایی مانند &lt;code>atomic.AddInt64&lt;/code> و &lt;code>atomic.LoadInt64&lt;/code> بدون هیچ قفل یا wait.&lt;/li>
-&lt;li>&lt;strong>Lock-Free Stack/Queue:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>Lock-Free Stack/Queue:&lt;/strong>
 ساختارهایی مانند stack و queue را می‌توان با ترکیب pointer اتمیک و حلقه‌ی CAS پیاده‌سازی کرد؛ هر عملیاتی که نیاز به افزودن/حذف دارد، تا زمانی که مقدار قبلی با مقدار مورد انتظار برابر باشد، مقدار جدید را جایگزین می‌کند. اگر مقدار تغییر کرده باشد (به دلیل دخالت thread دیگر)، عمل دوباره تکرار می‌شود.&lt;/li>
-&lt;li>&lt;strong>Flagها و وضعیت‌های اتمیک:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>Flagها و وضعیت‌های اتمیک:&lt;/strong>
 استفاده از فلگ‌ها برای signaling یا مدیریت وضعیت‌های بین چند goroutine (مثلاً active/inactive)، بدون race condition و با سرعت بسیار بالا.&lt;/li>
-&lt;li>&lt;strong>Reference Swap (atomic.Value):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>Reference Swap (atomic.Value):&lt;/strong>
 تعویض اتمیک مراجع به object یا ساختار داده کامل (مثلاً عوض کردن reference یک cache در حافظه) با atomic.Value، که خواندن و نوشتن کامل آن اتمیک است.&lt;/li>
 &lt;/ol>
 &lt;h3 id="941913-مزایا-و-محدودیتها">
@@ -2041,11 +1894,12 @@ style Done1 fill:#d3f5e4,stroke:#11b584,stroke-width:2px
 9.4.19.3 نمونه کد
 &lt;a class="anchor" href="#94193-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af">#&lt;/a>
 &lt;/h2>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;sync&amp;quot;
-&amp;quot;sync/atomic&amp;quot;
+"fmt"
+"sync"
+"sync/atomic"
 )
 func main() {
 var counter int64
@@ -2053,21 +1907,22 @@ var wg sync.WaitGroup
 numGoroutines := 10
 incrementsPerGoroutine := 1000
 wg.Add(numGoroutines)
-for i := 0; i &amp;lt; numGoroutines; i++ {
+for i := 0; i &lt; numGoroutines; i++ {
 go func() {
 defer wg.Done()
-for j := 0; j &amp;lt; incrementsPerGoroutine; j++ {
-atomic.AddInt64(&amp;amp;counter, 1) // افزایش اتمیک بدون قفل
+for j := 0; j &lt; incrementsPerGoroutine; j++ {
+atomic.AddInt64(&amp;counter, 1) // افزایش اتمیک بدون قفل
 }
 }()
 }
 wg.Wait()
-fmt.Println(&amp;quot;Final counter value:&amp;quot;, counter)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Final counter value: 10000
-&lt;/code>&lt;/pre>
+fmt.Println("Final counter value:", counter)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال یک &lt;strong>شمارنده lock-free&lt;/strong> (بدون قفل) با استفاده از پکیج &lt;code>sync/atomic&lt;/code> در زبان Go پیاده‌سازی شده است. هدف این است که چندین goroutine بتوانند همزمان و بدون نیاز به Mutex یا قفل سنتی، یک متغیر مشترک را افزایش دهند و در نهایت مقدار دقیق، بدون race condition و کاملاً صحیح به دست آید.&lt;/p>
 &lt;p>در ابتدای برنامه یک متغیر از نوع &lt;code>int64&lt;/code> به نام &lt;code>counter&lt;/code> تعریف می‌شود که قرار است توسط goroutineها به طور مشترک افزایش یابد. یک &lt;code>sync.WaitGroup&lt;/code> نیز به کار گرفته شده تا اطمینان حاصل شود همه goroutineها تا پایان اجرای خود منتظر بمانند و برنامه قبل از تکمیل همه عملیات‌ها خاتمه پیدا نکند.&lt;/p>
 &lt;p>در حلقه اصلی، ۱۰ goroutine ایجاد می‌شود که هر کدام ۱۰۰۰ بار مقدار شمارنده را افزایش می‌دهند. برای این کار به جای استفاده از قفل، از تابع &lt;code>atomic.AddInt64&lt;/code> استفاده می‌شود. این تابع تضمین می‌کند که عملیات افزایش مقدار شمارنده کاملاً اتمیک است؛ یعنی در هر لحظه فقط یک goroutine می‌تواند مقدار متغیر را تغییر دهد و هیچ دو goroutineی به طور همزمان مقدار ناسازگار یا نادرست دریافت نمی‌کنند.&lt;/p>
@@ -2078,16 +1933,16 @@ Final counter value: 10000
 &lt;a class="anchor" href="#94194-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>شمارنده‌های آماری با بازده بالا:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>شمارنده‌های آماری با بازده بالا:&lt;/strong>
 ثبت تعداد درخواست‌های دریافتی سرور، تعداد پیام‌های ارسال یا دریافت‌شده، تعداد خطاها یا موفقیت‌ها، یا هر نوع شمارش سریع و موازی که نباید موجب گلوگاه (bottleneck) در performance شود.&lt;/li>
-&lt;li>&lt;strong>ثبت رخدادهای سریع (event counting):&lt;/strong>&lt;br>
+&lt;li>&lt;strong>ثبت رخدادهای سریع (event counting):&lt;/strong>
 به‌طور مثال، شمارش لحظه‌ای کلیک‌ها یا رویدادهای کاربر در وب‌سرورهای real-time یا برنامه‌های مانیتورینگ.&lt;/li>
-&lt;li>&lt;strong>پیاده‌سازی flagهای همگام‌سازی:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>پیاده‌سازی flagهای همگام‌سازی:&lt;/strong>
 استفاده از متغیرهای اتمیک برای مدیریت وضعیت بین goroutineها (مثلاً علامت پایان، فعال/غیرفعال شدن یک job، آماده‌بودن یک سرویس، یا لغو شدن یک تسک).&lt;/li>
-&lt;li>&lt;strong>ساخت cache یا پیکربندی داینامیک:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>ساخت cache یا پیکربندی داینامیک:&lt;/strong>
 با استفاده از &lt;code>atomic.Value&lt;/code> می‌توانید یک reference به ساختار داده یا تنظیمات (مثل map یا struct تنظیمات) را به صورت لحظه‌ای و اتمیک عوض کنید، بدون نیاز به قفل کردن کل داده برای خواندن و نوشتن.&lt;/li>
-&lt;li>&lt;strong>ساخت primitiveهای همگام‌سازی سفارشی:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>ساخت primitiveهای همگام‌سازی سفارشی:&lt;/strong>
 پیاده‌سازی الگوریتم‌هایی مانند spinlock، lock-free queue و stack، و semaphoreهای سبک که نیاز به performance بسیار بالا دارند و استفاده از Mutex می‌تواند گلوگاه ایجاد کند.&lt;/li>
-&lt;li>&lt;strong>مدیریت ساده state در concurrent logger یا metrics collector:&lt;/strong>&lt;br>
+&lt;li>&lt;strong>مدیریت ساده state در concurrent logger یا metrics collector:&lt;/strong>
 در لایه‌های جمع‌آوری لاگ یا متریک که چندین goroutine همزمان روی یک متغیر می‌نویسند و می‌خوانند.&lt;/li>
 &lt;/ul></description></item></channel></rss>

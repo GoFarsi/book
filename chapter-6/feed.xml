@@ -1129,21 +1129,22 @@ return data
 ۶.۶.۱ استفاده از interface{} و reflect قبل از ژنریک‌ها
 &lt;a class="anchor" href="#%db%b6%db%b6%db%b1-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-interface-%d9%88-reflect-%d9%82%d8%a8%d9%84-%d8%a7%d8%b2-%da%98%d9%86%d8%b1%db%8c%da%a9%d9%87%d8%a7">#&lt;/a>
 &lt;/h2>
-&lt;p>پیش از Go 1.18، برای پیاده‌سازی توابع یا ساختارهای داده عمومی، معمولاً از نوع &lt;strong>interface{}&lt;/strong> (نوع همه‌کاره) استفاده می‌شد.&lt;br>
+&lt;p>پیش از Go 1.18، برای پیاده‌سازی توابع یا ساختارهای داده عمومی، معمولاً از نوع &lt;strong>interface{}&lt;/strong> (نوع همه‌کاره) استفاده می‌شد.
 در موارد نیاز به عملیات خاص یا تبدیل نوع، ناچار به استفاده از &lt;strong>reflect&lt;/strong> یا type assertion بودیم. این روش‌ها معایب و ریسک‌های خاص خود را داشتند.&lt;/p>
 &lt;h4 id="مثال-تابع-max-با-interface-و-reflect">
 &lt;strong>مثال: تابع Max با interface{} و reflect&lt;/strong>
 &lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-%d8%aa%d8%a7%d8%a8%d8%b9-max-%d8%a8%d8%a7-interface-%d9%88-reflect">#&lt;/a>
 &lt;/h4>
-&lt;pre>&lt;code class="language-go">import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;reflect&amp;quot;
+&lt;p>`&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">import (
+"fmt"
+"reflect"
 )
 func Max(a, b interface{}) interface{} {
 av := reflect.ValueOf(a)
 bv := reflect.ValueOf(b)
-if av.Kind() == reflect.Int &amp;amp;&amp;amp; bv.Kind() == reflect.Int {
-if av.Int() &amp;gt; bv.Int() {
+if av.Kind() == reflect.Int &amp;&amp; bv.Kind() == reflect.Int {
+if av.Int() > bv.Int() {
 return a
 }
 return b
@@ -1153,9 +1154,14 @@ return nil
 }
 func main() {
 fmt.Println(Max(3, 7)) // خروجی: 7
-}
-&lt;/code>&lt;/pre>
-&lt;p>&lt;strong>توضیح:&lt;/strong>&lt;br>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;/p>
+&lt;p>&lt;strong>توضیح:&lt;/strong>
 در این مثال تابع Max با هر نوعی که به آن بدهید کار می‌کند، اما باید به کمک reflect نوع مقدار را بررسی و مقایسه کنید. این کار هم کند است و هم ایمنی نوعی ندارد و در زمان اجرا ممکن است باعث panic یا رفتار ناخواسته شود.&lt;/p>
 &lt;h2 id="۶۶۲-مزایا-و-معایب-هر-روش">
 ۶.۶.۲ مزایا و معایب هر روش

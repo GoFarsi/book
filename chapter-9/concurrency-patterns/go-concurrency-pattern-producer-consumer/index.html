@@ -2,7 +2,7 @@
   9.4.9.1 توضیحات
   #
 
-الگوی Producer-Consumer یکی از الگوهای بنیادی و بسیار پرکاربرد در برنامه‌نویسی همزمان (concurrent) با زبان Go است که امکان تولید و مصرف داده به صورت همزمان و ایمن را فراهم می‌کند. در این الگو، معمولاً یک یا چند goroutine به عنوان تولیدکننده (Producer) وظیفه تولید داده، رویداد یا پیام را بر عهده دارند و داده‌های تولیدی را از طریق یک کانال (channel) به goroutineهای دیگر که نقش مصرف‌کننده (Consumer) را دارند، ارسال می‌کنند. مصرف‌کننده‌ها نیز به صورت موازی داده‌های دریافتی را از کانال خوانده و پردازش می‌کنند. این جداسازی نقش تولید و مصرف، باعث می‌شود بخش‌های مختلف برنامه به صورت مستقل و همزمان عمل کرده و در عین حال از race condition و مشکلات همزمانی جلوگیری شود."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.9 الگو Producer-Consumer"><meta property="og:description" content="9.4.9.1 توضیحات # الگوی Producer-Consumer یکی از الگوهای بنیادی و بسیار پرکاربرد در برنامه‌نویسی همزمان (concurrent) با زبان Go است که امکان تولید و مصرف داده به صورت همزمان و ایمن را فراهم می‌کند. در این الگو، معمولاً یک یا چند goroutine به عنوان تولیدکننده (Producer) وظیفه تولید داده، رویداد یا پیام را بر عهده دارند و داده‌های تولیدی را از طریق یک کانال (channel) به goroutineهای دیگر که نقش مصرف‌کننده (Consumer) را دارند، ارسال می‌کنند. مصرف‌کننده‌ها نیز به صورت موازی داده‌های دریافتی را از کانال خوانده و پردازش می‌کنند. این جداسازی نقش تولید و مصرف، باعث می‌شود بخش‌های مختلف برنامه به صورت مستقل و همزمان عمل کرده و در عین حال از race condition و مشکلات همزمانی جلوگیری شود."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.9 الگو Producer-Consumer | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.6c1aaf1f270188830ce496fd59a7bc4eea6511a2c2d0fe2d706245283f6e0e03.js integrity="sha256-bBqvHycBiIMM5Jb9Wae8TuplEaLC0P4tcGJFKD9uDgM=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
+الگوی Producer-Consumer یکی از الگوهای بنیادی و بسیار پرکاربرد در برنامه‌نویسی همزمان (concurrent) با زبان Go است که امکان تولید و مصرف داده به صورت همزمان و ایمن را فراهم می‌کند. در این الگو، معمولاً یک یا چند goroutine به عنوان تولیدکننده (Producer) وظیفه تولید داده، رویداد یا پیام را بر عهده دارند و داده‌های تولیدی را از طریق یک کانال (channel) به goroutineهای دیگر که نقش مصرف‌کننده (Consumer) را دارند، ارسال می‌کنند. مصرف‌کننده‌ها نیز به صورت موازی داده‌های دریافتی را از کانال خوانده و پردازش می‌کنند. این جداسازی نقش تولید و مصرف، باعث می‌شود بخش‌های مختلف برنامه به صورت مستقل و همزمان عمل کرده و در عین حال از race condition و مشکلات همزمانی جلوگیری شود."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="9.4.9 الگو Producer-Consumer"><meta property="og:description" content="9.4.9.1 توضیحات # الگوی Producer-Consumer یکی از الگوهای بنیادی و بسیار پرکاربرد در برنامه‌نویسی همزمان (concurrent) با زبان Go است که امکان تولید و مصرف داده به صورت همزمان و ایمن را فراهم می‌کند. در این الگو، معمولاً یک یا چند goroutine به عنوان تولیدکننده (Producer) وظیفه تولید داده، رویداد یا پیام را بر عهده دارند و داده‌های تولیدی را از طریق یک کانال (channel) به goroutineهای دیگر که نقش مصرف‌کننده (Consumer) را دارند، ارسال می‌کنند. مصرف‌کننده‌ها نیز به صورت موازی داده‌های دریافتی را از کانال خوانده و پردازش می‌کنند. این جداسازی نقش تولید و مصرف، باعث می‌شود بخش‌های مختلف برنامه به صورت مستقل و همزمان عمل کرده و در عین حال از race condition و مشکلات همزمانی جلوگیری شود."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-9"><title>9.4.9 الگو Producer-Consumer | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.b84e8b5ad0341651e017dbc60a5d71c5f75cb7e23e2ee16350e38b5fa3f90c2c.js integrity="sha256-uE6LWtA0FlHgF9vGCl1xxfdct+I+LuFjUOOLX6P5DCw=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const themeMode=localStorage.getItem("themeMode")||"light";mermaid.initialize({startOnLoad:!0,theme:themeMode==="dark"?"dark":"light"});const style=document.createElement("style");style.textContent=`
 .mermaid {
     display: flex;
     justify-content: center;
@@ -59,33 +59,33 @@ Pn -- "Send Data" --> Chan
 Chan -- "Receive Data" --> C1
 Chan -- "Receive Data" --> C2
 Chan -- "Receive Data" --> Cn</div><h2 id=9493-نمونه-کد>9.4.9.3 نمونه کد
-<a class=anchor href=#9493-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><pre><code class=language-go>package main
+<a class=anchor href=#9493-%d9%86%d9%85%d9%88%d9%86%d9%87-%da%a9%d8%af>#</a></h2><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
 import (
-	&quot;fmt&quot;
-	&quot;math/rand&quot;
-	&quot;sync&quot;
-	&quot;time&quot;
+	"fmt"
+	"math/rand"
+	"sync"
+	"time"
 )
 
-func producer(ch chan&lt;- int, count int, wg *sync.WaitGroup) {
+func producer(ch chan<- int, count int, wg *sync.WaitGroup) {
 	defer wg.Done()
-	for i := 0; i &lt; count; i++ {
+	for i := 0; i < count; i++ {
 		n := rand.Intn(100)
-		ch &lt;- n
-		fmt.Println(&quot;Produced:&quot;, n)
+		ch <- n
+		fmt.Println("Produced:", n)
 		time.Sleep(100 * time.Millisecond)
 	}
 	close(ch) // سیگنال پایان تولید به مصرف‌کننده‌ها
 }
 
-func consumer(id int, ch &lt;-chan int, wg *sync.WaitGroup) {
+func consumer(id int, ch <-chan int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for n := range ch {
-		fmt.Printf(&quot;Consumer %d: Consumed %d\n&quot;, id, n)
+		fmt.Printf("Consumer %d: Consumed %d\n", id, n)
 		time.Sleep(200 * time.Millisecond)
 	}
-	fmt.Printf(&quot;Consumer %d: Finished\n&quot;, id)
+	fmt.Printf("Consumer %d: Finished\n", id)
 }
 
 func main() {
@@ -96,62 +96,19 @@ func main() {
 	produceCount := 20
 
 	wg.Add(1)
-	go producer(ch, produceCount, &amp;wg)
+	go producer(ch, produceCount, &wg)
 
 	consumerCount := 2
-	for i := 1; i &lt;= consumerCount; i++ {
+	for i := 1; i <= consumerCount; i++ {
 		wg.Add(1)
-		go consumer(i, ch, &amp;wg)
+		go consumer(i, ch, &wg)
 	}
 
 	wg.Wait()
-	fmt.Println(&quot;All done.&quot;)
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-Produced: 96
-Consumer 2: Consumed 96
-Produced: 55
-Consumer 1: Consumed 55
-Consumer 2: Consumed 36
-Produced: 36
-Produced: 45
-Consumer 1: Consumed 45
-Produced: 61
-Consumer 2: Consumed 61
-Produced: 6
-Consumer 1: Consumed 6
-Produced: 12
-Consumer 2: Consumed 12
-Produced: 45
-Consumer 1: Consumed 45
-Produced: 84
-Consumer 2: Consumed 84
-Produced: 48
-Consumer 1: Consumed 48
-Produced: 78
-Consumer 2: Consumed 78
-Produced: 44
-Consumer 1: Consumed 44
-Produced: 18
-Consumer 2: Consumed 18
-Produced: 92
-Consumer 1: Consumed 92
-Produced: 9
-Consumer 2: Consumed 9
-Produced: 5
-Consumer 1: Consumed 5
-Produced: 32
-Consumer 2: Consumed 32
-Produced: 0
-Consumer 1: Consumed 0
-Produced: 30
-Consumer 2: Consumed 30
-Produced: 86
-Consumer 1: Consumed 86
-Consumer 2: Finished
-Consumer 1: Finished
-All done.
-</code></pre><p>در نسخه بهبود یافته‌ی مثال <strong>Producer-Consumer</strong>، تلاش شده تمام چالش‌های همزمانی و ضعف‌های مدیریت goroutineها به صورت حرفه‌ای و idiomatic در زبان Go برطرف شود. در این ساختار، یک goroutine به عنوان <strong>تولیدکننده</strong> (Producer) تعریف شده که به تعداد مشخص (مثلاً ۲۰ عدد) داده تصادفی تولید و وارد یک <strong>کانال بافر‌دار</strong> (مثلاً با ظرفیت ۱۰) می‌کند. استفاده از کانال بافر دار باعث می‌شود تولید و مصرف داده‌ها تا حدی decoupled باشند، یعنی اگر مصرف‌کننده‌ها لحظه‌ای کند شوند، تولیدکننده تا پر شدن بافر بدون توقف می‌تواند تولید کند.</p><p>پس از تولید همه داده‌ها، producer کانال را می‌بندد. این کار بسیار مهم است؛ چون با بسته شدن کانال، حلقه‌ی for در goroutineهای مصرف‌کننده به صورت تمیز و بدون خطا تمام می‌شود و پیام &ldquo;Finished&rdquo; برای هر مصرف‌کننده چاپ می‌گردد. مصرف‌کننده‌ها به صورت worker pool پیاده‌سازی شده‌اند؛ یعنی هر داده‌ای که از کانال خارج شود به طور تصادفی توسط یکی از مصرف‌کننده‌ها پردازش می‌شود (division of labor) و هرکدام بعد از اتمام کارشان (یعنی زمانی که کانال بسته و همه داده‌ها مصرف شده باشد) خارج می‌شوند.</p><p>برای جلوگیری از goroutine leak و تضمین پایان تمیز همه goroutineها، از <strong>sync.WaitGroup</strong> استفاده شده است. با اضافه کردن یک مقدار به WaitGroup قبل از هر goroutine و کم کردن آن هنگام اتمام goroutine (<code>defer wg.Done()</code>)، می‌توان مطمئن بود که برنامه فقط زمانی پایان می‌یابد که همه تولید و مصرف‌ها به طور کامل انجام شده‌اند.</p><p>این معماری، همزمانی ایمن، کنترل شده و مقیاس‌پذیر بین بخش تولید و مصرف داده را فراهم می‌کند. در چنین سیستمی، می‌توانید تعداد تولیدکننده یا مصرف‌کننده را به راحتی افزایش دهید یا منطق هر بخش را تغییر دهید (مثلاً پردازش‌های سنگین‌تر، ارسال درخواست‌های شبکه و&mldr;) بدون اینکه نیاز به تغییر بنیادی در ساختار ارتباط بین آن‌ها باشد. استفاده صحیح از کانال‌ها، WaitGroup و مدیریت پایان graceful باعث می‌شود این الگو به راحتی در پروژه‌های تولیدی، سرویس‌های بلادرنگ، صف‌های پیام و هر نوع معماری concurrent مدرن قابل استفاده باشد.</p><h2 id=9494-کاربردها>9.4.9.4 کاربردها
+	fmt.Println("All done.")
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در نسخه بهبود یافته‌ی مثال <strong>Producer-Consumer</strong>، تلاش شده تمام چالش‌های همزمانی و ضعف‌های مدیریت goroutineها به صورت حرفه‌ای و idiomatic در زبان Go برطرف شود. در این ساختار، یک goroutine به عنوان <strong>تولیدکننده</strong> (Producer) تعریف شده که به تعداد مشخص (مثلاً ۲۰ عدد) داده تصادفی تولید و وارد یک <strong>کانال بافر‌دار</strong> (مثلاً با ظرفیت ۱۰) می‌کند. استفاده از کانال بافر دار باعث می‌شود تولید و مصرف داده‌ها تا حدی decoupled باشند، یعنی اگر مصرف‌کننده‌ها لحظه‌ای کند شوند، تولیدکننده تا پر شدن بافر بدون توقف می‌تواند تولید کند.</p><p>پس از تولید همه داده‌ها، producer کانال را می‌بندد. این کار بسیار مهم است؛ چون با بسته شدن کانال، حلقه‌ی for در goroutineهای مصرف‌کننده به صورت تمیز و بدون خطا تمام می‌شود و پیام &ldquo;Finished&rdquo; برای هر مصرف‌کننده چاپ می‌گردد. مصرف‌کننده‌ها به صورت worker pool پیاده‌سازی شده‌اند؛ یعنی هر داده‌ای که از کانال خارج شود به طور تصادفی توسط یکی از مصرف‌کننده‌ها پردازش می‌شود (division of labor) و هرکدام بعد از اتمام کارشان (یعنی زمانی که کانال بسته و همه داده‌ها مصرف شده باشد) خارج می‌شوند.</p><p>برای جلوگیری از goroutine leak و تضمین پایان تمیز همه goroutineها، از <strong>sync.WaitGroup</strong> استفاده شده است. با اضافه کردن یک مقدار به WaitGroup قبل از هر goroutine و کم کردن آن هنگام اتمام goroutine (<code>defer wg.Done()</code>)، می‌توان مطمئن بود که برنامه فقط زمانی پایان می‌یابد که همه تولید و مصرف‌ها به طور کامل انجام شده‌اند.</p><p>این معماری، همزمانی ایمن، کنترل شده و مقیاس‌پذیر بین بخش تولید و مصرف داده را فراهم می‌کند. در چنین سیستمی، می‌توانید تعداد تولیدکننده یا مصرف‌کننده را به راحتی افزایش دهید یا منطق هر بخش را تغییر دهید (مثلاً پردازش‌های سنگین‌تر، ارسال درخواست‌های شبکه و&mldr;) بدون اینکه نیاز به تغییر بنیادی در ساختار ارتباط بین آن‌ها باشد. استفاده صحیح از کانال‌ها، WaitGroup و مدیریت پایان graceful باعث می‌شود این الگو به راحتی در پروژه‌های تولیدی، سرویس‌های بلادرنگ، صف‌های پیام و هر نوع معماری concurrent مدرن قابل استفاده باشد.</p><h2 id=9494-کاربردها>9.4.9.4 کاربردها
 <a class=anchor href=#9494-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%d9%87%d8%a7>#</a></h2><ul><li><strong>خط لوله پردازش داده (Data Processing Pipeline):</strong> با استفاده از این الگو می‌توانید معماری خط لوله یا <strong>pipeline</strong> ایجاد کنید که هر مرحله از پردازش به‌عنوان یک producer یا consumer عمل می‌کند. به عنوان مثال، ابتدا داده خام توسط یک goroutine تولید و از طریق کانال به مرحله بعد (مثل پاک‌سازی، تحلیل، تبدیل یا ذخیره‌سازی) ارسال می‌شود و هر مرحله می‌تواند نقش producer برای مرحله بعد و consumer برای مرحله قبل را داشته باشد. این مدل توسعه، تست و مقیاس‌پذیری سیستم‌های داده‌محور را بسیار ساده و حرفه‌ای می‌کند.</li><li><strong>سیستم‌های Logging و Monitoring:</strong> در معماری‌های واقعی، ثبت لاگ یا مانیتورینگ سیستم نیازمند جدا بودن تولید و ذخیره‌سازی لاگ است تا بخش اصلی سیستم کند نشود. با این الگو، برنامه اصلی (یا بخش‌های مختلف آن) به‌عنوان producer لاگ‌ها را روی کانال می‌فرستد و یک یا چند consumer این داده‌ها را از کانال می‌خوانند و آن‌ها را در فایل، پایگاه داده یا سرور مانیتورینگ ثبت می‌کنند. این کار از blocking شدن منطق اصلی و تجمع بی‌مورد داده جلوگیری می‌کند و ثبت لاگ را مقیاس‌پذیر و غیرمسدودکننده می‌کند.</li><li><strong>استریم داده و Real-time Processing:</strong> در سناریوهایی مانند پردازش رویدادهای لحظه‌ای (event streaming)، انتقال داده‌های IoT یا سیستم‌های تحلیل آنلاین (online analytics)، این الگو به شما امکان می‌دهد داده‌های تولیدشده را در لحظه به مصرف‌کنندگان منتقل کنید. این مصرف‌کنندگان می‌توانند انواع عملیات مانند فیلتر، آمار، آلارم، ذخیره‌سازی لحظه‌ای یا پردازش پیشرفته روی داده انجام دهند. Producer-Consumer ستون فقرات معماری بسیاری از سرویس‌های real-time و message queue است.</li><li><strong>واسطه‌گری بین سیستم‌ها (Integration & Decoupling):</strong> این الگو به شما اجازه می‌دهد بخش‌های مختلف یک سیستم یا حتی سرویس‌های جدا را از طریق کانال‌های ارتباطی به هم متصل کنید بدون آنکه وابستگی مستقیم یا coupling بالا داشته باشند. هر producer می‌تواند در یک microservice یا process مجزا باشد و داده را به صف ارسال کند و هر consumer در سوی دیگر مسئول مصرف و پردازش باشد.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/GoFarsi/book/edit/main/content/chapter%209/concurrency%20patterns/9.4.9-producer-comsumer.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt>
 <span>این صفحه را ویرایش کنید</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><div class="text-left page-navigation"><a href=/chapter-9/concurrency-patterns/go-concurrency-pattern-monitor/>9.4.10 الگو Monitor ◀︎</a></div><script>function toggleTooltip(e){e.classList.toggle("active")}</script><div id=graphcomment></div><script type=text/javascript>var __semio__params={graphcommentId:"book",behaviour:{}};function __semio__onload(){__semio__gc_graphlogin(__semio__params)}(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.onload=__semio__onload,e.defer=!0,e.src="https://integration.graphcomment.com/gc_graphlogin.js?"+Date.now(),(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content></br><main><div class=wrapper><a href=https://t.me/GolangEngineers class="icon telegram" target=_blank><div class=tooltip>گروه تلگرامی مهندسین گولنگ</div><span><i class="fab fa-telegram"></i></span>
 </a><a href=https://linkedin.com/in/Ja7ad class="icon linkedin" target=_blank><div class=tooltip>لینکدین نویسنده</div><span><i class="fab fa-linkedin"></i></span>

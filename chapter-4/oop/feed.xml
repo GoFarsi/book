@@ -13,8 +13,9 @@ func greeting() {} // private
 └── resp.go
 &lt;/code>&lt;/pre>
 &lt;p>در زیر یک مثال ساده زدیم توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type Person struct {
 name string
 age int
@@ -30,39 +31,43 @@ p.age = age
 }
 func main() {
 person := Person{
-name: &amp;quot;Javad&amp;quot;,
+name: "Javad",
 }
 person.SetAge(29)
-fmt.Printf(&amp;quot;%s with age %d&amp;quot;, person.getName(), person.GetAge())
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Javad with age 29
-&lt;/code>&lt;/pre>
+fmt.Printf("%s with age %d", person.getName(), person.GetAge())
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>کد فوق ما یک ساختار (آبجکت) Person ایجاد کردیم که داخلش ۲ فیلد name, age بصورت private وجود دارد که سایر پکیج ها نمی توانند دسترسی مستقیم به فیلد های Person دسترسی داشته باشند. حال ۳ متد تعریف کردیم GetAge برای گرفتن سن شخص , SetAge برای تعیین سن شخص , getName گرفتن نام شخص که فقط داخل همان پکیج در دسترس است این متد.&lt;/p></description></item><item><author/><title>4.22.2 ارث بری</title><link>https://book.gofarsi.ir/chapter-4/oop/go-inheritance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/oop/go-inheritance/</guid><description>&lt;p>در زبان گو ارث بری در واقع type embedding هست با استفاده &lt;a href="../../../chapter-2/type-embedding/">type embedding&lt;/a> می توانید یک type را داخل type دیگری جاسازی کنید و به واسطه type والد قابل دسترس است.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type Person struct {
 Name string
 }
 func (p *Person) Introduce() {
-fmt.Printf(&amp;quot;Hi, my name is %s\n&amp;quot;, p.Name)
+fmt.Printf("Hi, my name is %s\n", p.Name)
 }
 type Student struct {
 Person
 School string
 }
 func main() {
-s := &amp;amp;Student{Person{&amp;quot;John Doe&amp;quot;}, &amp;quot;Go University&amp;quot;}
+s := &amp;Student{Person{"John Doe"}, "Go University"}
 s.Introduce()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Hi, my name is John Doe
-&lt;/code>&lt;/pre></description></item><item><author/><title>4.23.3 پلی مورفیسم (Polymorphism)</title><link>https://book.gofarsi.ir/chapter-4/oop/go-polymorphism/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/oop/go-polymorphism/</guid><description>&lt;p>پلی مورفیسم یکی از مفاهیم مهم در شی گرایی می باشد و هدف استفاده از پلی مورفیسم این است بین آبجکت ها رفتار مشترکی ایجاد کنیم. در زبان گو شما می توانید یک اینترفیس تعریف کنید و برای ساختارهای مختلف متدهای اینترفیس را پیاده سازی کنید.&lt;/p>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div></description></item><item><author/><title>4.23.3 پلی مورفیسم (Polymorphism)</title><link>https://book.gofarsi.ir/chapter-4/oop/go-polymorphism/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/oop/go-polymorphism/</guid><description>&lt;p>پلی مورفیسم یکی از مفاهیم مهم در شی گرایی می باشد و هدف استفاده از پلی مورفیسم این است بین آبجکت ها رفتار مشترکی ایجاد کنیم. در زبان گو شما می توانید یک اینترفیس تعریف کنید و برای ساختارهای مختلف متدهای اینترفیس را پیاده سازی کنید.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 // Shape is an interface that defines a method named `Area`
 type Shape interface {
 Area() float64
@@ -93,16 +98,17 @@ func main() {
 r := Rectangle{width: 10, height: 5}
 c := Circle{radius: 5}
 CalcArea(r, c)
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-50
-78.5
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک اینترفیس Shape داریم که داخلش یک متد به نام Area هست حال این متد را برای ساختارهای Rectangle و Circle پیاده سازی کردیم که مساحت دایره و مستطیل را محاسبه کنیم. حال یک تابع CalcArea داریم به عنوان پارامتر slice از Shape ها میگیرد که ما داخل تابع main ساختار Rectangle و Circle که متد Area اینترفیس Shape را پیاده سازی کرده اند را پاس دادیم و در نهایت محاسبه مساحت را در خروجی چاپ می کند.&lt;/p></description></item><item><author/><title>4.23.4 overriding</title><link>https://book.gofarsi.ir/chapter-4/oop/go-overriding/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/oop/go-overriding/</guid><description>&lt;p>در زبان گو مثل سایر زبان های شی گرا امکان overriding مستقیم یک متد وجود ندارد اما در عوض شما می توانید با استفاده از &lt;a href="../../../chapter-2/type-embedding/">type embedding&lt;/a> و پیاده سازی متد یک اینترفیس این تکنیک را انجام دهید و به متدی که override انجام داده Shadow Method می گویند.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type User interface {
 PrintName()
 }
@@ -110,25 +116,25 @@ type Person struct {
 Name string
 }
 func (p Person) PrintName() {
-fmt.Println(&amp;quot;My name is&amp;quot;, p.Name)
+fmt.Println("My name is", p.Name)
 }
 type Student struct {
 Person
 }
 func (s Student) PrintName() {
-fmt.Println(&amp;quot;I am a student and my name is&amp;quot;, s.Name)
+fmt.Println("I am a student and my name is", s.Name)
 }
 func main() {
-p := Person{Name: &amp;quot;John&amp;quot;}
-s := Student{Person{Name: &amp;quot;Jane&amp;quot;}}
+p := Person{Name: "John"}
+s := Student{Person{Name: "Jane"}}
 p.PrintName()
 s.PrintName()
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-My name is John
-I am a student and my name is Jane
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک اینترفیس User داریم که داخلش یک متد PrintName وجود دارد که این متد نام شخص یا دانش آموز را به همراه توضیحات چاپ می کند.
 حال ۲ تا ساختار داریم Person و Student که ساختار student فقط Person را جاسازی کرده است. سپس برای این ۲ ساختار متد PrintName را پیاده سازی کردیم با این تفاوت که داخل متد PrintName ساختار Student متن دیگری قرار دادیم. در تابع main ما متغیر p, s را از نوع Person و Student ایجاد و مقدار دهی کردیم. سپس متد PrintName هر دو را فراخوانی کردیم.&lt;/p></description></item><item><author/><title>4.23.5 abstraction</title><link>https://book.gofarsi.ir/chapter-4/oop/go-abstraction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/oop/go-abstraction/</guid><description>&lt;p>&lt;strong>Abstraction&lt;/strong> (به معنای انتزاع)، فرآیند حذف یا از بین بردن برخی ویژگی‌های غیرضروری یک چیز به‌منظور کاهش، خلاصه‌سازی و به کار بردن آن در مجموعه‌ای از ویژگی‌های ضروری است. در برنامه‌نویسی شیءگرا(OOP)، انتزاع یکی از سه مفهوم اصلی (به همراه مفاهیم Encapsulation و Inheritance) است.&lt;/p>
 &lt;blockquote class="book-hint info">
@@ -138,8 +144,9 @@ I am a student and my name is Jane
 &lt;/blockquote>
 &lt;p>در زبان گو abstraction با استفاده از اینترفیس می توان انجام داد. یک اینترفیس یکسری متد دارد که ما این متدها را برای هریک از تایپ های مختلف پیاده سازی می کنیم.&lt;/p>
 &lt;p>به مثال زیر توجه کنید :&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 // Shape is an interface that defines the basic methods for a shape.
 type Shape interface {
 Area() float64
@@ -177,16 +184,14 @@ c := Circle{radius: 5}
 shapes := []Shape{r, c}
 // Iterate over the shapes and print their area and perimeter.
 for _, shape := range shapes {
-fmt.Println(&amp;quot;Area:&amp;quot;, shape.Area())
-fmt.Println(&amp;quot;Perimeter:&amp;quot;, shape.Perimeter())
-fmt.Println(&amp;quot;&amp;quot;)
+fmt.Println("Area:", shape.Area())
+fmt.Println("Perimeter:", shape.Perimeter())
+fmt.Println("")
 }
-}
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-shell">$ go run main.go
-Area: 200
-Perimeter: 60
-Area: 78.5
-Perimeter: 31.400000000000002
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در کد فوق ما یک اینترفیس Shape داریم که ۲ تا متد Area و Perimeter داریم که مساحت و محیط را محاسبه می کند. در ادامه ۲ ساختار Rectangle و Circle داریم که برای این ساختارها متدهای اینترفیس Shape را پیاده سازی کردیم و در نهایت اندازه مساحت و محیط را محاسبه می کنیم.&lt;/p></description></item></channel></rss>

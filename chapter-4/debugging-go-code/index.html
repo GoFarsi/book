@@ -7,7 +7,7 @@
 با استفاده از دیباگر dlv : یکی از محبوبترین دیباگرهایی بصورت متن باز در حال توسعه است delve می باشد که به شما برای دیباگ کردن بصورت تعاملی هنگام اجرا کمک می کند.
 
 حال در ادامه ما با مثال هایی نحوه کار با این شیوه هایی که معرفی کردیم آموزش می دهیم."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://book.gofarsi.ir/chapter-4/debugging-go-code/"><meta property="og:site_name" content="زبان گو فارسی"><meta property="og:title" content="4.2 آموزش کار با Debugging"><meta property="og:description" content="برای بحث debugging در زبان گو روش های مختلفی وجود دارد که محبوبترین روش ها به شرح زیر می باشد :
-با استفاده پکیج fmt : شما با استفاده از تابع fmt.Println می توانید مقادیر برخی از متغیرها را چاپ کنید و یکی از روش های ساده برای بحث دیباگ هستش. با استفاده از پکیج log : یکی از کاربردی ترین روش ها بحث لاگ کردن هستش که شما می توانید هر بخش از کدهای خود را لاگ کنید و بصورت زنده در console یا داخل فایل ببینید و از همه مهمتر شما می توانید لاگ های خود را سطح بندی کنید تا بهتر بتوانید دیباگ کنید. استفاده از پکیج pprof : پکیج pprof به شما کمک می کند تا راحتر مشکلات عملکردی برنامه خود را بیابید و همچنین خروجی profile از عملکرد برنامه با CPU و Memory را آنالیز کنید. با استفاده از IDE ها: اکثر IDE هایی (Goland, Vscode) که قبلا معرفی کردیم دارای دیباگر داخلی می باشند که شما می توانید در هر بخش از کد خود breakpoint بزارید و خط به خط کد را دیباگ کنید و مشکلات را برطرف کنید. با استفاده از دیباگر dlv : یکی از محبوبترین دیباگرهایی بصورت متن باز در حال توسعه است delve می باشد که به شما برای دیباگ کردن بصورت تعاملی هنگام اجرا کمک می کند. حال در ادامه ما با مثال هایی نحوه کار با این شیوه هایی که معرفی کردیم آموزش می دهیم."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-4"><title>4.2 آموزش کار با Debugging | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-4/debugging-go-code/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.6c1aaf1f270188830ce496fd59a7bc4eea6511a2c2d0fe2d706245283f6e0e03.js integrity="sha256-bBqvHycBiIMM5Jb9Wae8TuplEaLC0P4tcGJFKD9uDgM=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script></head><body dir=rtl><input type=checkbox class="hidden toggle" id=menu-control>
+با استفاده پکیج fmt : شما با استفاده از تابع fmt.Println می توانید مقادیر برخی از متغیرها را چاپ کنید و یکی از روش های ساده برای بحث دیباگ هستش. با استفاده از پکیج log : یکی از کاربردی ترین روش ها بحث لاگ کردن هستش که شما می توانید هر بخش از کدهای خود را لاگ کنید و بصورت زنده در console یا داخل فایل ببینید و از همه مهمتر شما می توانید لاگ های خود را سطح بندی کنید تا بهتر بتوانید دیباگ کنید. استفاده از پکیج pprof : پکیج pprof به شما کمک می کند تا راحتر مشکلات عملکردی برنامه خود را بیابید و همچنین خروجی profile از عملکرد برنامه با CPU و Memory را آنالیز کنید. با استفاده از IDE ها: اکثر IDE هایی (Goland, Vscode) که قبلا معرفی کردیم دارای دیباگر داخلی می باشند که شما می توانید در هر بخش از کد خود breakpoint بزارید و خط به خط کد را دیباگ کنید و مشکلات را برطرف کنید. با استفاده از دیباگر dlv : یکی از محبوبترین دیباگرهایی بصورت متن باز در حال توسعه است delve می باشد که به شما برای دیباگ کردن بصورت تعاملی هنگام اجرا کمک می کند. حال در ادامه ما با مثال هایی نحوه کار با این شیوه هایی که معرفی کردیم آموزش می دهیم."><meta property="og:locale" content="fa"><meta property="og:type" content="article"><meta property="article:section" content="chapter-4"><title>4.2 آموزش کار با Debugging | زبان گو فارسی</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://book.gofarsi.ir/chapter-4/debugging-go-code/><link rel=stylesheet href=/book.min.c2f5390a8db8d6e8a1f34ca78b37beea11b3040c8e6f418e46422051f3aa7136.css integrity="sha256-wvU5Co241uih80ynize+6hGzBAyOb0GORkIgUfOqcTY=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fa.search.min.b84e8b5ad0341651e017dbc60a5d71c5f75cb7e23e2ee16350e38b5fa3f90c2c.js integrity="sha256-uE6LWtA0FlHgF9vGCl1xxfdct+I+LuFjUOOLX6P5DCw=" crossorigin=anonymous></script><link rel=stylesheet href=prism.css><meta name=keywords content><link href=https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css crossorigin=anonymous><link rel=alternate type=application/rss+xml href=https://book.gofarsi.ir//feed.xml title="زبان گو فارسی"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-dark.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE44Q8PZDW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-ZE44Q8PZDW")</script><script>var html=document.documentElement;localStorage.getItem("themeMode")=="dark"&&html.setAttribute("data-theme","dark"),localStorage.getItem("themeMode")=="light"&&html.setAttribute("data-theme","light")</script></head><body dir=rtl><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><img src=/favicon.png alt=Logo class=book-icon><span>زبان گو فارسی</span></a></h2><div class=magic><div class=book-search><input type=text id=book-search-input placeholder=جستجو aria-label=جستجو maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><div class=js-toggle-wrapper><div class=js-toggle><div class=js-toggle-track><div class=js-toggle-track-check><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAA2FBMVEUAAADExMTw01jg0p/w01fv1FfGxsbGxsbGxsbGxsbGxsbv1Ffv01fw01jv1Fjw1Ffw1Fbw01jv01fv1Fjv01jw01jw01jv1FjHx8fv01jw1FjHx8fFxcXExMTIyMjHx8fw01jv01jv01jv1Ffv01jv1Fnw01jw01jw1Fjv01jv01ju01bv01fv1Fjv01jv1Fjw01fq1GHv01jv01jw0ljw01jv1Ffw01fv1FjFxcXFxcXHx8fFxcXFxcXFxcXw01jFxcXGxsbw01nMzMzv1Fjv01jv01jGxsbNUVPOAAAARnRSTlMAJ0IITyrixqxrYkka2l2PD6jNmohnN+G6sqyEXTggG93GwJJ/d2y7t6BzFNSEfFY9BO+jIOov+eXd3LKoo5uVjTEmGfNjgBujdgAAB3dJREFUeNrs3Qlb2kAQBuARiFfCfRVaWxBFBJRDEHvaWv3y//9R26ctbbVKjt3szMb3H5AnJLO7803o2bNnz57pkt3/9HEvS6n15Z3/3c5rSqmv/i9blE7v/V92KJXe+GtvKI0O/LUDSqNX/torSqOX/tpLSqNdf22X0uitv7ZNKbTlf5fmSmDf/8s+pc8L/y8vKHX2/H/sUcpsbfv/2E7bimjHv+cDpcqu/8BnSpHP/loaq6HXH/z/2klJNbC37T9iOwXvgq39F/4TXuzbexe8OXj1cnfb3+jt7stXB/btkGzt+KG8/0pWee2H9oUskt3xQ3tn03nBnh/BPgWWyWQc4uyjH8EnCshtAUC+NiW2tF6ACX5bVicjYknrX6CJv6xadY7XQOdD8Aj3XBUbxI7G12AdD7UKM2JGXyGUw//kz9i9FnSVwpd4xDW7S6BpMbTCI25rHnGkejl8iEddnZeIIcUbIjU8Id9n9zhUviWWw5MqE2JI5aboCBtccHwaqtwW72CD+TGxo/JgpIyNDl3iRuHR2DECuF4QM+oOR10E0ckRL+qOxz0Ec06sKGyQWCKYMq/KUF2LzAkCGrN6FqprkqohME4vRHVtckMEd8FndaCuUbKAELps6kJ1rbIuwrji8iBQ1yzdQDh14kFZu/wNQjojFpQFJkYI65RYUBaZQWgnxIKq0NQtQhuQTZYIr00WaSKCC7LHGFFUyRoVRFIkW3Txk9B6QOUFEFoTxjVGVAxP0qPoIDJ2e6WRLBFZk8/+QAwrRNfmUMrGNEMcVQaLmZhKiOXM+HI2rgXiyZHw/L+DeCol4fn/BmIqCs//u4grJzv/30dclZLo/H8PsRVF5/8HiC8nOf/fQXyVrNz8/wwqnMnN/ztQYdUQm//PQYm22Pz/EGrcSc3/V6FG3hOa/z+EIkWZ+f8ZlMmIzP9noExLZP7/DOpkJOb/u1DnQmD+fwSVGvLy/xOodC0v/1+ESreOuPx/BUrVpOX/Hai19BIJP/NbCKwNk4i/c6yDf+vKugANKJcR9ReoQbmeqIdgHspdlQS9BnPQoCCoEDqFBi05pfBoDh0uxSyG6tDiSMxyeAAtulI2RFxocilkS6wNTY5lbIpmoMuhjG3xMrTxJByMTKFPXcLR2Cn0GQg4HG1Apxn/4/EqdHLZN0hModUR+xaZFrRqc2+SuoNeTeZtcl4emo14N0oWoVuGdatsBtods26WHkC7Mud2+T70yzMOTCyaSECWb2SmjCQ4bENTQySC2+ixtekKiRgST9kuknFNPPUQidgpI/cVkJQOcXTTRGKIozaSc0P8lJGgDLFTxgaWFwJlJKpAzJSRrD7xcgElZE7f/K6HpNWIkyMkrkeMKPj9UmcOKvr9ssfNhfv99q2GzmBEi5joISg7nwGniE3ysL2bNkw5IgYKTYRkVSmc7SEcyxZD0y7Csmo5PFzBqCkZtSjDMIdM6jdhmkfmZAYwL0umeEUwMCdT7vLgoEJmTFvgoUwmNKrgokbJm56CjzolLWP8zW/0YMhtg5cFJWhU5/DiN3Y4nDudg50OJaRR4/HaN7Ml6gwPwVSVAjuq5y4pPK9QHYOvPgWUa+KHbq/gUGAzt1gBbzcRxhjdHtYmi00/3ckNq2zv+z/ykWeYLFtHw7uJ23C8Eq3NSgun4fZ7gw6E6Clp3J83x93uuLNcQZwcn+SCGaWUX4ABBeTATscUFM8yLrYGBVWDjfJsEqyGnFJwS1howibEbUYzS8FNYJ8ehTASWOZtkuGUYzegwmKclUHnFMroCpa5ZBdlT9aA1ziX5NW5jfNI2NxjnOVLQpVCm1m1JJzK6WbWos1hvrdJLkVxDVucUCTOLSxR4DPhOhTjnVGeJfVwn6I6hw3yJYqqZEUtcM58uJFu4xFFN+N+3h1AgdH3fky4kBbvVmx+SfE4DHu9ko3LH0OyQ46fvNnI+CroXy7kKtI9KVsV5j1SYSGmCeq+AufP3jyNWTpC5qKoRXKn/ajQuSF1PM4NwE81BfL/9MsDHBbBNhSEZfpN7NCrWMYeqVbqQhCX1HMEbZHe0S8pfRCe0wOcPwP3E7slkNzz0jLdZ8H8IzbRuBNwN6b/kvQZiFiW9BiJU5B5hoM5l4QdepKI74Hxff7xb6Ks0pOsrwc21X+214RDCkbChxEljEdZmB8LZnhOYIlTQTB2KSA7X4dlj4Ky8mVwTqbkOHTQdHJkTsl8TdS6oXAsuwnMfy/A6E2QNz8l1+hNUPSIhezZCgYcusRGo42kzZl9LiXpmaEXl8RMolNjxyweft/au5sVBIEgDuDLqqfU/Ez05PemgpqVdBMi5v0fqatEwYpu7Nb+XmGGmf9p5hUO4TuMtkF8wmdgzyktxK/D9ACmCJfNP6d5V2Am4mjzfabXCbAwuD0SBc5usLGjz0nso2SZIWzHablb+xTGPIEtBBmHfzIpjUUK6wRVpyCh6SvOK6e5uLWfO+3yKFhcerfjOfAs1+DCNoBKTNxSQz9J0dR6IjG8Nzi25+ML+gN3rJpl4WVVRMJqn5em2mu64MNOkiRJGE+YnGcOWncZjQAAAABJRU5ErkJggg==" role=presentation style=pointer-events:none width=23 height=23></div><div class=js-toggle-track-x><img src=data:image/png;base64,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 role=presentation style=pointer-events:none width=23 height=23></div></div><div class=js-toggle-thumb><img src=data:image/png;base64,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 role=presentation style=pointer-events:none width=46 height=46></div><input class=js-toggle-screenreader-only type=checkbox aria-label="تغییر تم بین روشن و تاریک"></div></div></div><ul><li><a href=/preface/>پیشگفتار</a></li><li><a href=/history/>تاریخچه</a></li><li><a href=/why-go/>چرا زبان Go؟</a></li><li><a href=/installation/>آموزش نصب</a></li><li><a href=/toolchain/>ابزارها, دستورات گو و معرفی IDE</a></li><li><a href=/roadmap/>نقشه یادگیری زبان گو</a></li><li><a href=/interview/>نمونه سوالات مصاحبه</a></li><li><input type=checkbox id=section-c0c35ea61c635f6152f0c00d6a15569e class=toggle>
 <label for=section-c0c35ea61c635f6152f0c00d6a15569e class=flex><a href=/chapter-1/ class=flex-auto>فصل اول: آشنایی با مفاهیم گو</a></label><ul><li><a href=/chapter-1/structure-of-go-code/>1.1 ساختار کد گو</a></li><li><a href=/chapter-1/go-built-in-keywords-identifiers/>1.2 کلید واژه و شناسه‌ها</a></li><li><a href=/chapter-1/go-basic-types/>1.3 تایپ‌های پایه</a></li><li><a href=/chapter-1/go-operators/>1.4 عملگرها</a></li><li><a href=/chapter-1/go-variables-and-consts/>1.5 متغیرها و constant</a></li><li><a href=/chapter-1/go-zero-values/>1.6 مقادیر صفر تایپ‌ها (zero values)</a></li><li><a href=/chapter-1/go-function/>1.7 تابع (function)</a></li><li><a href=/chapter-1/go-array/>1.8 آرایه و slice</a></li><li><a href=/chapter-1/go-for/>1.9 حلقه‌ها (for)</a></li><li><a href=/chapter-1/go-map/>1.10 نقشه map</a></li><li><a href=/chapter-1/go-if-switch/>1.11 شرط (if, switch)</a></li><li><a href=/chapter-1/go-package/>1.12 اضافه کردن پکیج در کد (package)</a></li><li><a href=/chapter-1/go-defer-panic-recovery/>1.13 defer, panic, recovery</a></li><li><a href=/chapter-1/go-builtins/>1.14 لیست تایپ‌ها و توابع Builtin</a></li><li><a href=/chapter-1/go-string-formatting/>1.15 قالب بندی رشته‌ها</a></li></ul></li><li><input type=checkbox id=section-ce9b5b1ec927bacdb2712b9c215a3ca1 class=toggle>
 <label for=section-ce9b5b1ec927bacdb2712b9c215a3ca1 class=flex><a href=/chapter-2/ class=flex-auto>فصل دوم: مکانیزم‌های زبان</a></label><ul><li><a href=/chapter-2/pointer/>2.1 اشاره‌گر (Pointer)</a></li><li><a href=/chapter-2/struct/>2.2 ساختار (struct)</a></li><li><a href=/chapter-2/method/>2.3 متد (Method)</a></li><li><a href=/chapter-2/interface/>2.4 اینترفیس (Interface)</a></li><li><a href=/chapter-2/type-embedding/>2.5 جاسازی تایپ (type embedding)</a></li><li><a href=/chapter-2/error-handling/>2.6 مدیریت خطاها</a></li><li><a href=/chapter-2/casting-vs-conversion/>2.7 فرق casting با conversion</a></li></ul></li><li><input type=checkbox id=section-0691270142e95f82c4d2eb637f234afd class=toggle>
@@ -35,12 +35,12 @@
 <a class=book-btn href=https://github.com/GoFarsi/book/blob/main/COUNTRIBUTING.md>مشارکت در کتاب زبان گو</a><center><p><img alt="GitHub Repo stars" src=https://img.shields.io/github/stars/GoFarsi/book> <img alt=GitHub src=https://img.shields.io/github/license/gofarsi/book> <img alt="GitHub contributors" src=https://img.shields.io/github/contributors/gofarsi/book></p></center></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>4.2 آموزش کار با Debugging</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"></br><main><div class=wrapper><a href=https://t.me/GolangEngineers class="icon telegram" target=_blank><div class=tooltip>گروه تلگرامی مهندسین گولنگ</div><span><i class="fab fa-telegram"></i></span>
 </a><a href=https://linkedin.com/in/Ja7ad class="icon linkedin" target=_blank><div class=tooltip>لینکدین نویسنده</div><span><i class="fab fa-linkedin"></i></span>
 </a><a href=https://twitter.com/Ja7adR class="icon twitter" target=_blank><div class=tooltip>توییتر نویسنده</div><span><i class="fab fa-twitter"></i></span></a></div></main></br></br><nav id=TableOfContents><ul><li><ul><li><a href=#421-نحوه-دیباگ-با-fmt>4.2.1 نحوه دیباگ با fmt</a></li><li><a href=#422-نحوه-دیباگ-با-استفاده-log>4.2.2 نحوه دیباگ با استفاده log</a></li><li><a href=#423-دیباگ-عملکرد-با-استفاده-از-pprof>4.2.3 دیباگ عملکرد با استفاده از pprof</a><ul><li><a href=#4231-آنالیز-وضعیت-cpu>4.2.3.1 آنالیز وضعیت CPU</a></li><li><a href=#4232-آنالیز-وضعیت-heap-memory>4.2.3.2 آنالیز وضعیت heap memory</a></li></ul></li><li><a href=#424-دیباگ-با-استفاده-از--gdb>4.2.4 دیباگ با استفاده از GDB</a><ul><li><a href=#4241-مقدمه-اولیه-gdb>4.2.4.1 مقدمه اولیه GDB</a></li><li><a href=#4242--common-operations>4.2.4.2 Common Operations</a></li><li><a href=#4243---go-extensions>4.2.4.3 Go Extensions</a></li><li><a href=#4244---مثال-های-gdb>4.2.4.4 مثال های GDB</a></li></ul></li><li><a href=#425---معرفی-دیباگر--delve>4.2.5 معرفی دیباگر DELVE</a><ul><li><a href=#4251--راهنمای-نصب-delve>4.2.5.1 راهنمای نصب DELVE</a></li><li><a href=#4252-شروع-استفاده-از-delve>4.2.5.2 شروع استفاده از DELVE</a></li><li><a href=#4253-debugging-main-packages>4.2.5.3 Debugging &lsquo;main&rsquo; packages</a></li><li><a href=#4254-debugging-tests>4.2.5.4 Debugging tests</a></li><li><a href=#4255-synopsis-و-گزینه-های-command-line-options>4.2.5.5 Synopsis و گزینه های Command line options</a></li></ul></li></ul></li></ul></nav></aside></header><h1>4.2 آموزش کار با Debugging</h1><article class="markdown book-article"><p>برای بحث debugging در زبان گو روش های مختلفی وجود دارد که محبوبترین روش ها به شرح زیر می باشد :</p><ol><li>با استفاده پکیج <code>fmt</code> : شما با استفاده از تابع <code>fmt.Println</code> می توانید مقادیر برخی از متغیرها را چاپ کنید و یکی از روش های ساده برای بحث دیباگ هستش.</li><li>با استفاده از پکیج <code>log</code> : یکی از کاربردی ترین روش ها بحث لاگ کردن هستش که شما می توانید هر بخش از کدهای خود را لاگ کنید و بصورت زنده در console یا داخل فایل ببینید و از همه مهمتر شما می توانید لاگ های خود را سطح بندی کنید تا بهتر بتوانید دیباگ کنید.</li><li>استفاده از پکیج <code>pprof</code> : پکیج pprof به شما کمک می کند تا راحتر مشکلات عملکردی برنامه خود را بیابید و همچنین خروجی profile از عملکرد برنامه با CPU و Memory را آنالیز کنید.</li><li>با استفاده از IDE ها: اکثر IDE هایی (Goland, Vscode) که قبلا معرفی کردیم دارای دیباگر داخلی می باشند که شما می توانید در هر بخش از کد خود breakpoint بزارید و خط به خط کد را دیباگ کنید و مشکلات را برطرف کنید.</li><li>با استفاده از دیباگر <code>dlv</code> : یکی از محبوبترین دیباگرهایی بصورت متن باز در حال توسعه است <a href=https://github.com/go-delve/delve>delve</a> می باشد که به شما برای دیباگ کردن بصورت تعاملی هنگام اجرا کمک می کند.</li></ol><p>حال در ادامه ما با مثال هایی نحوه کار با این شیوه هایی که معرفی کردیم آموزش می دهیم.</p><h2 id=421-نحوه-دیباگ-با-fmt>4.2.1 نحوه دیباگ با fmt
-<a class=anchor href=#421-%d9%86%d8%ad%d9%88%d9%87-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%a8%d8%a7-fmt>#</a></h2><p>شما با استفاده از تابع <code>fmt.Println</code> می توانید مقادیر برخی از متغیرها را چاپ کنید و برای اینکار به مثال ساده زیر توجه کنید :</p><pre><code class=language-go>package main
+<a class=anchor href=#421-%d9%86%d8%ad%d9%88%d9%87-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%a8%d8%a7-fmt>#</a></h2><p>شما با استفاده از تابع <code>fmt.Println</code> می توانید مقادیر برخی از متغیرها را چاپ کنید و برای اینکار به مثال ساده زیر توجه کنید :</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
-import &quot;fmt&quot;
+import "fmt"
 
 func fibonacci(n uint) uint {
-	if n &lt; 2 {
+	if n < 2 {
 		return n
 	}
 
@@ -48,10 +48,10 @@ func fibonacci(n uint) uint {
 
 	b = 1
 
-	for n--; n &gt; 0; n-- {
+	for n--; n > 0; n-- {
 		a += b
 		a, b = b, a
-		fmt.Println(&quot;this is example debugging value a is &quot;, a, &quot; value b is &quot;, b) 
+		fmt.Println("this is example debugging value a is ", a, " value b is ", b)
 	}
 
 	return b
@@ -59,62 +59,48 @@ func fibonacci(n uint) uint {
 
 func main() {
 	fmt.Println(fibonacci(100))
-}
-
-</code></pre><pre><code class=language-shell>$ go run main.go
-this is example debugging value a is  1  value b is  1
-this is example debugging value a is  1  value b is  2
-this is example debugging value a is  2  value b is  3
-this is example debugging value a is  3  value b is  5
-this is example debugging value a is  5  value b is  8
-...
-this is example debugging value a is  6174643828739884737  value b is  16008811023750101250
-this is example debugging value a is  16008811023750101250  value b is  3736710778780434371
-3736710778780434371
-</code></pre><p>در کد فوق برای اینکه مقدار a, b را ببینیم از تابع Println استفاده کردیم تا مقدار داخل این دو متغیر را ببینیم.</p><h2 id=422-نحوه-دیباگ-با-استفاده-log>4.2.2 نحوه دیباگ با استفاده log
-<a class=anchor href=#422-%d9%86%d8%ad%d9%88%d9%87-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-log>#</a></h2><p>یکی از کاربردی ترین روش ها بحث لاگ کردن هستش که شما می توانید هر بخش از کدهای خود را لاگ کنید و بصورت زنده در console یا داخل فایل ببینید و از همه مهمتر شما می توانید لاگ های خود را سطح بندی کنید تا بهتر بتوانید دیباگ کنید. حال برای اینکه با log دیباگ کنید یک پکیج استاندارد به نام log داریم که می توانید بسته به نیازتان تغییرات دهید و هچنین پکیج هایی نظیر zap, logrus و &mldr; هست برای بحث لاگ به شما خیلی کمک می کنند.</p><pre><code class=language-go>package main
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در کد فوق برای اینکه مقدار a, b را ببینیم از تابع Println استفاده کردیم تا مقدار داخل این دو متغیر را ببینیم.</p><h2 id=422-نحوه-دیباگ-با-استفاده-log>4.2.2 نحوه دیباگ با استفاده log
+<a class=anchor href=#422-%d9%86%d8%ad%d9%88%d9%87-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-log>#</a></h2><p>یکی از کاربردی ترین روش ها بحث لاگ کردن هستش که شما می توانید هر بخش از کدهای خود را لاگ کنید و بصورت زنده در console یا داخل فایل ببینید و از همه مهمتر شما می توانید لاگ های خود را سطح بندی کنید تا بهتر بتوانید دیباگ کنید. حال برای اینکه با log دیباگ کنید یک پکیج استاندارد به نام log داریم که می توانید بسته به نیازتان تغییرات دهید و هچنین پکیج هایی نظیر zap, logrus و &mldr; هست برای بحث لاگ به شما خیلی کمک می کنند.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
 import (
-	&quot;log&quot;
-	&quot;os&quot;
+	"log"
+	"os"
 )
 
 func main() {
 	// Set the log level to Info
 	log.SetFlags(0)
-	log.SetPrefix(&quot;[Info] &quot;)
+	log.SetPrefix("[Info] ")
 	log.SetOutput(os.Stdout)
-	log.Println(&quot;This is an informational message&quot;)
+	log.Println("This is an informational message")
 
 	// Set the log level to Warning
-	log.SetPrefix(&quot;[Warn] &quot;)
+	log.SetPrefix("[Warn] ")
 	log.SetOutput(os.Stdout)
-	log.Println(&quot;This is a warning message&quot;)
+	log.Println("This is a warning message")
 
 	// Set the log level to Error
-	log.SetPrefix(&quot;[Error] &quot;)
+	log.SetPrefix("[Error] ")
 	log.SetOutput(os.Stderr)
-	log.Println(&quot;This is an error message&quot;)
-}
-
-</code></pre><pre><code class=language-shell>$ go run main.go
-[Info] This is an informational message
-[Warn] This is a warning message
-[Error] This is an error message
-</code></pre><p>در کد فوق ما با استفاده از تابع SetPrefix یک پیشوند برای لاگ ها اضافه کردیم تا بتوانیم لاگ با سطح های مختلف ایجاد کنیم. و با استفاده از log.Println لاگ را چاپ کردیم. در ادامه این فصل به بحث آموزش کار به log میپردازیم.</p><h2 id=423-دیباگ-عملکرد-با-استفاده-از-pprof>4.2.3 دیباگ عملکرد با استفاده از pprof
-<a class=anchor href=#423-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%b9%d9%85%d9%84%da%a9%d8%b1%d8%af-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-pprof>#</a></h2><p>زبان گو یک ابزار داخلی دارد جهت آنالیز و دیباگ عملکرد به نام pprof که با استفاده از آن می توانید یکسری اطلاعات در خصوص عملکرد برنامه تهیه کنید و براساس آنالیز اطلاعات مشکلات عملکردی را می توانید برطرف کنید.</p><pre><code class=language-go>package main
+	log.Println("This is an error message")
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در کد فوق ما با استفاده از تابع SetPrefix یک پیشوند برای لاگ ها اضافه کردیم تا بتوانیم لاگ با سطح های مختلف ایجاد کنیم. و با استفاده از log.Println لاگ را چاپ کردیم. در ادامه این فصل به بحث آموزش کار به log میپردازیم.</p><h2 id=423-دیباگ-عملکرد-با-استفاده-از-pprof>4.2.3 دیباگ عملکرد با استفاده از pprof
+<a class=anchor href=#423-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%b9%d9%85%d9%84%da%a9%d8%b1%d8%af-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-pprof>#</a></h2><p>زبان گو یک ابزار داخلی دارد جهت آنالیز و دیباگ عملکرد به نام pprof که با استفاده از آن می توانید یکسری اطلاعات در خصوص عملکرد برنامه تهیه کنید و براساس آنالیز اطلاعات مشکلات عملکردی را می توانید برطرف کنید.</p><div class=go-playground><pre class=line-numbers><code class=language-go>package main
 
 import (
-	&quot;log&quot;
-	&quot;net/http&quot;
-	_ &quot;net/http/pprof&quot;
+	"log"
+	"net/http"
+	_ "net/http/pprof"
 )
 
 func main() {
-	log.Println(http.ListenAndServe(&quot;localhost:6060&quot;, nil))
-}
-</code></pre><pre><code class=language-shell>$ go run main.go
-</code></pre><p>در کد فوق ما از پکیج مسیر <code>net/http/pprof</code> استفاده کردیم تا عملکرد برنامه را در وب سرور زبان گو را آنالیز و دیباگ کنیم. حال اگر به آدرس http://localhost:6060/debug/pprof/ بروید می توانید وضعیت عملکرد وب سرور را در لحظه ببینید و آنالیز کنید.</p><center><a href=#><img src=../../assets/img/content/chapter4/debugging/1.png alt=pprof></a></center><h3 id=4231-آنالیز-وضعیت-cpu>4.2.3.1 آنالیز وضعیت CPU
+	log.Println(http.ListenAndServe("localhost:6060", nil))
+}</code></pre><button class=run-code>▶ اجرای کد</button>
+<button class=copy-code>کپی</button>
+<button class=hide-output>✖ بستن خروجی</button><pre class="run-output hidden"></pre></div><p>در کد فوق ما از پکیج مسیر <code>net/http/pprof</code> استفاده کردیم تا عملکرد برنامه را در وب سرور زبان گو را آنالیز و دیباگ کنیم. حال اگر به آدرس http://localhost:6060/debug/pprof/ بروید می توانید وضعیت عملکرد وب سرور را در لحظه ببینید و آنالیز کنید.</p><center><a href=#><img src=../../assets/img/content/chapter4/debugging/1.png alt=pprof></a></center><h3 id=4231-آنالیز-وضعیت-cpu>4.2.3.1 آنالیز وضعیت CPU
 <a class=anchor href=#4231-%d8%a2%d9%86%d8%a7%d9%84%db%8c%d8%b2-%d9%88%d8%b6%d8%b9%db%8c%d8%aa-cpu>#</a></h3><p>برای آنالیز وضعیت CPU کافیه کامند زیر را بزنید :</p><pre><code class=language-shell>go tool pprof http://localhost:6060/debug/pprof/profile
 </code></pre><h3 id=4232-آنالیز-وضعیت-heap-memory>4.2.3.2 آنالیز وضعیت heap memory
 <a class=anchor href=#4232-%d8%a2%d9%86%d8%a7%d9%84%db%8c%d8%b2-%d9%88%d8%b6%d8%b9%db%8c%d8%aa-heap-memory>#</a></h3><p>برای آنالیز حافظه heap کافیه کامند زیر را بزنید :</p><pre><code class=language-shell>go tool pprof http://localhost:6060/debug/pprof/heap
@@ -130,18 +116,18 @@ Entering interactive mode (type &quot;help&quot; for commands, &quot;o&quot; for
 <a class=anchor href=#424-%d8%af%db%8c%d8%a8%d8%a7%da%af-%d8%a8%d8%a7-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2--gdb>#</a></h2><p>این قسمت با استفاده از مستندات رسمی GO در مورد 1. <a href=https://go.dev/doc/gdb>Debugging Go Code with GDB</a> نوشته شده است.
 دستورالعمل های زیر برای استاندارد toolchain (کامپایلر و ابزارهای gc Go) اعمال می شود. Gccgo دارای پشتیبانی از native gdb به صورت پیش فرض است.</p><p>توجه داشته باشید که هنگام اشکال زدایی برنامه های Go که باstandard toolchain ساخته شده اند، <a href=https://github.com/go-delve/delve>Delve</a> جایگزین بهتری برای GDB است. زیرا Go runtime را بهتر تشخیص می‌دهد و ساختارهای داده و عبارات را بهتر از GDB درک می کند. Delve در حال حاضر از Linux، OSX و Windows در amd64 پشتیبانی می کند. برای به روزترین لیست پلتفرم های پشتیبانی شده، لطفاً به <a href=https://github.com/go-delve/delve/tree/master/Documentation/installation>Delve documentation</a> مراجعه کنید.</p><p>GDB برنامه های Go را به خوبی درک نمی کند. مدیریت stack و threading و runtime شامل جنبه هایی هستند که به اندازه کافی با مدل اجرایی متفاوت است که GDB انتظار دارد که می توانند debugger را اشتباه گرفته و نتایج نادرستی را حتی زمانی که برنامه با gccgo کامپایل می شود ایجاد کنند. در نتیجه، اگرچه GDB می‌تواند در برخی موقعیت‌ها مفید باشد (به عنوان مثال، اشکال‌زدایی کد Cgo، یا اشکال‌زدایی خود زمان اجرا)، اما برای برنامه‌های Go، به‌ویژه برنامه‌های به‌شدت همزمان هستند، اشکال‌زدایی با این روش چندان قابل اعتمادی نیست. علاوه بر این، پرداختن به این مسائل که دشوار هستند، برای پروژه Go در اولویت نیست.</p><p>به طور خلاصه، دستورالعمل‌های زیر باید تنها به‌عنوان راهنمای نحوه استفاده از GDB در هنگام کارکرد آن در نظر گرفته شود، نه به عنوان تضمین موفقیت اجرای درست برنامه. علاوه بر این نمای کلی، ممکن است بخواهید به <a href=https://sourceware.org/gdb/current/onlinedocs/gdb/>GDB manual</a> مراجعه کنید.</p><h3 id=4241-مقدمه-اولیه-gdb>4.2.4.1 مقدمه اولیه GDB
 <a class=anchor href=#4241-%d9%85%d9%82%d8%af%d9%85%d9%87-%d8%a7%d9%88%d9%84%db%8c%d9%87-gdb>#</a></h3><p>وقتی برنامه‌های Go را با toolchain مربوط gc در Linux، macOS، FreeBSD یا NetBSD کامپایل و link می‌دهید، باینری‌های به دست آمده حاوی اطلاعات اشکال‌زدایی DWARFv4 هستند که نسخه‌های اخیر (≥7.5) اشکال‌زدای GDB می‌توانند از آن برای بازرسی یک live process یا یک core dump استفاده کنند. .</p><p>پرچم &lsquo;-w&rsquo; را به linker ارسال کنید تا اطلاعات debug را حذف کنید (به عنوان مثال، <code>go build -ldflags=-w prog.go</code>).</p><p>کد تولید شده توسط کامپایلر gc شامل درون خطی کردن فراخوانی تابع و ثبت متغیرها است. این بهینه سازی ها گاهی اوقات می تواند اشکال زدایی با gdb را سخت تر کند. اگر متوجه شدید که باید این بهینه سازی ها را غیرفعال کنید، برنامه خود را با استفاده از <code>go build -gcflags=all=-N -l</code> بسازید.</p><p>اگر می‌خواهید از gdb برای بررسی یک core dump استفاده کنید، می توانید یک Dump را در یک program crash راه اندازی کنید و برای این کار باید GOTRACEBACK=crash در environment تنظیم کنید (برای اطلاعات بیشتر به  <a href=https://go.dev/pkg/runtime/#hdr-Environment_Variables>runtime package documentation</a> مراجعه کنید).</p><h3 id=4242--common-operations>4.2.4.2 Common Operations
-<a class=anchor href=#4242--common-operations>#</a></h3><p>نمایش فایل و شماره خط برای کد، تعیین breakpoints و disassemble:</p><pre><code class=language-shell>(gdb)  list 
-(gdb)  list _line_ 
-(gdb)  list _file.go_:_line_ 
-(gdb)  break _line_ 
-(gdb)  break _file.go_:_line_ 
-(gdb)  disas 
-</code></pre><p>نمایش backtraces و باز کردن stack frames:</p><pre><code class=language-shell>(gdb)  bt 
-(gdb)  frame _n_ 
-</code></pre><p>نمایش نام، type و location در stack frame و local variables، آرگومان ها و مقادیر بازگشتی:</p><pre><code class=language-shell>(gdb)  info locals 
-(gdb)  info args 
-(gdb)  p variable 
-(gdb)  whatis variable 
+<a class=anchor href=#4242--common-operations>#</a></h3><p>نمایش فایل و شماره خط برای کد، تعیین breakpoints و disassemble:</p><pre><code class=language-shell>(gdb)  list
+(gdb)  list _line_
+(gdb)  list _file.go_:_line_
+(gdb)  break _line_
+(gdb)  break _file.go_:_line_
+(gdb)  disas
+</code></pre><p>نمایش backtraces و باز کردن stack frames:</p><pre><code class=language-shell>(gdb)  bt
+(gdb)  frame _n_
+</code></pre><p>نمایش نام، type و location در stack frame و local variables، آرگومان ها و مقادیر بازگشتی:</p><pre><code class=language-shell>(gdb)  info locals
+(gdb)  info args
+(gdb)  p variable
+(gdb)  whatis variable
 </code></pre><p>نمایش نام، type و location و global variables:</p><pre><code class=language-shell>(gdb)  info variables _regexp_
 </code></pre><h3 id=4243---go-extensions>4.2.4.3 Go Extensions
 <a class=anchor href=#4243---go-extensions>#</a></h3><p>اخیرا یک نوع extension به GDB اجازه می دهد تا extension scripts را برای یک باینری معین load کند. این toolchain برای extend GDB با تعداد انگشت شماری از command ها برای بررسی داخلی runtime code (مانند گوروتین ها) و pretty print the built-in map و slice وchannel types استفاده می کند.</p><pre><code class=language-shell>Pretty printing a string, slice, map, channel or interface:(gdb) p var
@@ -157,9 +143,11 @@ GDB نمی تواند به طور خودکار dynamic type یک interface value
 </code></pre><p>می توانید همه گوروتین ها را با pass کردن همه به جای goroutine&rsquo;s ID خاص بررسی کنید. مثلا:</p><pre><code class=language-shell> (gdb) goroutine all bt
 </code></pre><p>اگر می‌خواهید ببینید که این حالت چگونه کار می‌کند یا می‌خواهید آن را گسترش دهید، به <a href=https://go.dev/src/runtime/runtime-gdb.py>src/runtime/runtime-gdb.py</a> در توزیع Go source نگاهی بیندازید. این به برخی از type های جادویی خاص (<code>hash&lt;T,U></code>) و متغیرهایی (runtime.m و runtime.g) بستگی دارد کهlinker (<a href=https://go.dev/src/cmd/link/internal/ld/dwarf.go>src/cmd/link/internal/ld/dwarf.go</a>) اطمینان حاصل می کند که در کد DWARF توضیح داده شده اند.</p><p>اگر به debugging information علاقه دارید، objdump -W a.out را اجرا کنید و در بخش های مرتبط با .debug_* مرور کنید.</p><h4 id=مشکلات-شناخته-شده>مشکلات شناخته شده:
 <a class=anchor href=#%d9%85%d8%b4%da%a9%d9%84%d8%a7%d8%aa-%d8%b4%d9%86%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87>#</a></h4><p>۱- حالت String pretty printing فقط برای type string فعال می شود، نه برای انواع مشتق شده از آن.
-۲-Type information برای قسمت های C که در runtime library هستند، وجود ندارد.<br>۳- GDB شرایط Go’s name را نمی‌فهمد و «fmt.Print» را به‌عنوان یک کلمه بدون ساختار با یک «» در نظر می‌گیرد. که باید نقل شود. حتی با شدت بیشتری به method names فرم <code>pkg.(*MyType).Meth</code>. برخورد می کند.<br>۴- از Go 1.11، قسمت debug information به طور پیش فرض فشرده شده است. نسخه‌های قدیمی‌تر gdb، مانند نسخه‌ای که به‌طور پیش‌فرض در MacOS موجود است، فشرده‌سازی را درک نمی‌کنند. شما می توانید با استفاده از <code>go build -ldflags=-compressdwarf=false‍</code> اطلاعات اشکال زدایی فشرده نشده تولید کنید. (برای راحتی می توانید گزینه -ldflags را در  <a href=https://go.dev/cmd/go/#hdr-Environment_variables><code>GOFLAGS</code> environment variable</a> قرار دهید تا مجبور نباشید هر بار آدرس آن را مشخص کنید.)</p><h3 id=4244---مثال-های-gdb>4.2.4.4 مثال های GDB
+۲-Type information برای قسمت های C که در runtime library هستند، وجود ندارد.
+۳- GDB شرایط Go’s name را نمی‌فهمد و «fmt.Print» را به‌عنوان یک کلمه بدون ساختار با یک «» در نظر می‌گیرد. که باید نقل شود. حتی با شدت بیشتری به method names فرم <code>pkg.(*MyType).Meth</code>. برخورد می کند.
+۴- از Go 1.11، قسمت debug information به طور پیش فرض فشرده شده است. نسخه‌های قدیمی‌تر gdb، مانند نسخه‌ای که به‌طور پیش‌فرض در MacOS موجود است، فشرده‌سازی را درک نمی‌کنند. شما می توانید با استفاده از <code>go build -ldflags=-compressdwarf=false‍</code> اطلاعات اشکال زدایی فشرده نشده تولید کنید. (برای راحتی می توانید گزینه -ldflags را در  <a href=https://go.dev/cmd/go/#hdr-Environment_variables><code>GOFLAGS</code> environment variable</a> قرار دهید تا مجبور نباشید هر بار آدرس آن را مشخص کنید.)</p><h3 id=4244---مثال-های-gdb>4.2.4.4 مثال های GDB
 <a class=anchor href=#4244---%d9%85%d8%ab%d8%a7%d9%84-%d9%87%d8%a7%db%8c-gdb>#</a></h3><p>در این آموزش ما باینری unit tests پکیج <a href=https://go.dev/pkg/regexp/>regexp</a> را بررسی می کنیم. برای ساخت باینری، به  <code>GOROOT/src/regexp$</code> تغییر دهید و <code>go test -c</code> را اجرا کنید. این باید یک فایل اجرایی به نام <code>regexp.test</code> تولید کند.</p><h4 id=شروع-دیباگ>شروع دیباگ
-<a class=anchor href=#%d8%b4%d8%b1%d9%88%d8%b9-%d8%af%db%8c%d8%a8%d8%a7%da%af>#</a></h4><p>Launch GDB, debugging <code>regexp.test</code>:</p><pre><code class=language-shell>$  gdb regexp.test 
+<a class=anchor href=#%d8%b4%d8%b1%d9%88%d8%b9-%d8%af%db%8c%d8%a8%d8%a7%da%af>#</a></h4><p>Launch GDB, debugging <code>regexp.test</code>:</p><pre><code class=language-shell>$  gdb regexp.test
 GNU gdb (GDB) 7.2-gg8
 Copyright (C) 2010 Free Software Foundation, Inc.
 License GPLv  3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
@@ -170,24 +158,24 @@ Reading symbols from  /home/user/go/src/regexp/regexp.test...
 done.
 Loading Go Runtime support.
 (gdb)
-</code></pre><p>پیام &lsquo;Loading Go Runtime Support&rsquo; به این معنی است که GDB برنامه extension را از مسیر <code>GOROOT/src/runtime/runtime-gdb.py$</code> بارگیری کرده است.</p><p>برای کمک به GDB در یافتن آدرس Go runtime sources و سایر اسکریپت‌های همراه، <code>$GOROOT</code> را با پرچم &lsquo;-d&rsquo; ارسال کنید:</p><p><code>gdb regexp.test -d $GOROOT$</code></p><p>اگر به دلایلی هنوز GDB نمی تواند آن دایرکتوری یا آن اسکریپت را پیدا کند، می توانید آن را دستی load کنید (با فرض اینکه  go sources در آدرس ~/go/ باشد):</p><pre><code class=language-shell>(gdb)  source ~/go/src/runtime/runtime-gdb.py 
+</code></pre><p>پیام &lsquo;Loading Go Runtime Support&rsquo; به این معنی است که GDB برنامه extension را از مسیر <code>GOROOT/src/runtime/runtime-gdb.py$</code> بارگیری کرده است.</p><p>برای کمک به GDB در یافتن آدرس Go runtime sources و سایر اسکریپت‌های همراه، <code>$GOROOT</code> را با پرچم &lsquo;-d&rsquo; ارسال کنید:</p><p><code>gdb regexp.test -d $GOROOT$</code></p><p>اگر به دلایلی هنوز GDB نمی تواند آن دایرکتوری یا آن اسکریپت را پیدا کند، می توانید آن را دستی load کنید (با فرض اینکه  go sources در آدرس ~/go/ باشد):</p><pre><code class=language-shell>(gdb)  source ~/go/src/runtime/runtime-gdb.py
 Loading Go Runtime support.
 </code></pre><h4 id=بررسی-کردن-source>بررسی کردن source
-<a class=anchor href=#%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%da%a9%d8%b1%d8%af%d9%86-source>#</a></h4><p>از دستور &rsquo;l&rsquo; یا &rsquo;list&rsquo; برای بررسی source code استفاده کنید.</p><pre><code class=language-shell>(gdb) l 
-</code></pre><p>بخش خاصی از منبع را که &rsquo;list&rsquo; را پارامتر می کند با نام تابع فهرست کنید (باید با نام بسته آن مرتبط باشد).</p><pre><code class=language-shell>(gdb)  l main.main 
-</code></pre><p>یک file خاص و line number را فهرست کنید:</p><pre><code class=language-shell>(gdb) l regexp.go:1 
+<a class=anchor href=#%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%da%a9%d8%b1%d8%af%d9%86-source>#</a></h4><p>از دستور &rsquo;l&rsquo; یا &rsquo;list&rsquo; برای بررسی source code استفاده کنید.</p><pre><code class=language-shell>(gdb) l
+</code></pre><p>بخش خاصی از منبع را که &rsquo;list&rsquo; را پارامتر می کند با نام تابع فهرست کنید (باید با نام بسته آن مرتبط باشد).</p><pre><code class=language-shell>(gdb)  l main.main
+</code></pre><p>یک file خاص و line number را فهرست کنید:</p><pre><code class=language-shell>(gdb) l regexp.go:1
 (gdb) _# Hit enter to repeat last command. Here, this lists next 10 lines._
 </code></pre><h4 id=naming>Naming
 <a class=anchor href=#naming>#</a></h4><p>نام متغیرها و توابع باید با نام package هایی که به آنها تعلق دارند قابل بازیابی باشند. به عنوان مثال تابع Compile از بسته regexp برای GDB به عنوان &lsquo;regexp.Compile&rsquo; شناخته می شود.</p><p>متدها باید با نام receiver types خود قابل بازیابی باشند. به عنوان مثال، <code>*Regexp</code> type’s <code>String</code> به عنوان <code>'regexp.(*Regexp).String'</code> شناخته می شود.</p><p>متغیرهایی که سایر متغیرها را تحت shadow قرار می دهند، به صورت جادویی با یک عدد در debug info پسوند می شوند. متغیرهایی که توسط بسته‌ها ارجاع می‌شوند به‌عنوان اشاره‌گرهایی با پیشوند جادویی «&» ظاهر می‌شوند.</p><h4 id=قراردادن---breakpoints>قراردادن breakpoints
 <a class=anchor href=#%d9%82%d8%b1%d8%a7%d8%b1%d8%af%d8%a7%d8%af%d9%86---breakpoints>#</a></h4><p>یک breakpoint در تابع TestFind تنظیم کنید:
-‍‍</p><pre><code class=language-shell>(gdb)  b 'regexp.TestFind' 
+‍‍</p><pre><code class=language-shell>(gdb)  b 'regexp.TestFind'
 Breakpoint 1 at 0x424908: file /home/user/go/src/regexp/find_test.go, line 148.
-</code></pre><p>اجرا کردن برنامه:</p><pre><code class=language-shell>(gdb)  run 
+</code></pre><p>اجرا کردن برنامه:</p><pre><code class=language-shell>(gdb)  run
 Starting program: /home/user/go/src/regexp/regexp.test
 
 Breakpoint 1, regexp.TestFind (t=0xf8404a89c0) at /home/user/go/src/regexp/find_test.go:148
 148	func TestFind(t *testing.T) {
-</code></pre><p>اجرا در breakpoint متوقف شده است. ببینید کدام گوروتین ها در حال اجرا هستند و چه کار می کنند:</p><pre><code class=language-shell>(gdb)  info goroutines 
+</code></pre><p>اجرا در breakpoint متوقف شده است. ببینید کدام گوروتین ها در حال اجرا هستند و چه کار می کنند:</p><pre><code class=language-shell>(gdb)  info goroutines
   1  waiting runtime.gosched
 * 13  running runtime.goexit
 </code></pre><p>موردی که با * مشخص شده است، گوروتین فعلی است.</p><h4 id=بررسی-کردن-stack>بررسی کردن stack
@@ -198,7 +186,7 @@ Breakpoint 1, regexp.TestFind (t=0xf8404a89c0) at /home/user/go/src/regexp/find_
 #3  0x000000f8404a89c0 in ?? ()
 #4  0x0000000000573720 in ?? ()
 #5  0x0000000000000000 in ?? ()
-</code></pre><p>گوروتین دیگر، شماره 1، در runtime.gosched گیر کرده و در channel receive مسدود شده است:</p><pre><code class=language-shell>(gdb)  goroutine 1 bt 
+</code></pre><p>گوروتین دیگر، شماره 1، در runtime.gosched گیر کرده و در channel receive مسدود شده است:</p><pre><code class=language-shell>(gdb)  goroutine 1 bt
 #0  0x000000000040facb in runtime.gosched () at /home/user/go/src/runtime/proc.c:873
 #1  0x00000000004031c9 in runtime.chanrecv (c=void, ep=void, selected=void, received=void)
  at  /home/user/go/src/runtime/chan.c:342
@@ -212,7 +200,7 @@ at /home/user/go/src/testing/testing.go:168
 #6  0x00000000004022e7 in runtime.mainstart () at /home/user/go/src/runtime/amd64/asm.s:78
 #7  0x000000000040ea6f in runtime.initdone () at /home/user/go/src/runtime/proc.c:243
 #8  0x0000000000000000 in ?? ()
-</code></pre><p>همانطور که stack frame نشان می دهد، انتظار می رود الان باید در حال اجرای تابع regexp.TestFind باشیم.</p><pre><code class=language-shell>(gdb) info frame 
+</code></pre><p>همانطور که stack frame نشان می دهد، انتظار می رود الان باید در حال اجرای تابع regexp.TestFind باشیم.</p><pre><code class=language-shell>(gdb) info frame
 Stack level 0, frame at 0x7ffff7f9ff88:
  rip = 0x425530 in regexp.TestFind (/home/user/go/src/regexp/find_test.go:148);
     saved rip 0x430233
@@ -222,9 +210,9 @@ Stack level 0, frame at 0x7ffff7f9ff88:
  Locals at 0x7ffff7f9ff78, Previous frame's sp is 0x7ffff7f9ff88
  Saved registers:
   rip at 0x7ffff7f9ff80
-</code></pre><p>دستور info locals همه متغیرهای محلی تابع و مقادیر آنها را فهرست می‌کند، اما استفاده از آن کمی خطرناک است، زیرا سعی می‌کند متغیرهای اولیه را نیز چاپ کند. برش‌های بدون مقدار اولیه ممکن است باعث شوند که gdb سعی کند آرایه‌های بزرگ دلخواه را چاپ کند.</p><p>آرگومان های تابع:</p><pre><code class=language-shell>(gdb)  info args 
+</code></pre><p>دستور info locals همه متغیرهای محلی تابع و مقادیر آنها را فهرست می‌کند، اما استفاده از آن کمی خطرناک است، زیرا سعی می‌کند متغیرهای اولیه را نیز چاپ کند. برش‌های بدون مقدار اولیه ممکن است باعث شوند که gdb سعی کند آرایه‌های بزرگ دلخواه را چاپ کند.</p><p>آرگومان های تابع:</p><pre><code class=language-shell>(gdb)  info args
 t = 0xf840688b60
-</code></pre><p>هنگام چاپ آرگومان، توجه کنید که نشانگر یک مقدار Regexp است. توجه داشته باشید که GDB به اشتباه * را در سمت راست نام تایپ قرار داده و یک کلمه کلیدی &lsquo;struct&rsquo; به سبک سنتی C ساخته است.</p><pre><code class=language-shell>(gdb)  p re 
+</code></pre><p>هنگام چاپ آرگومان، توجه کنید که نشانگر یک مقدار Regexp است. توجه داشته باشید که GDB به اشتباه * را در سمت راست نام تایپ قرار داده و یک کلمه کلیدی &lsquo;struct&rsquo; به سبک سنتی C ساخته است.</p><pre><code class=language-shell>(gdb)  p re
 (gdb) p t
 $1 = (struct testing.T *) 0xf840688b60
 (gdb) p t
@@ -233,26 +221,27 @@ $1 = (struct testing.T *) 0xf840688b60
 $2 = {errors = &quot;&quot;, failed = false, ch = 0xf8406f5690}
 (gdb) p *t-&gt;ch
 $3 = struct hchan&lt;*testing.T&gt;
-</code></pre><p>که ساختار  <code>hchan&lt;*testing.T></code> نمایش  runtime-internal یک کانال است و در حال حاضر خالی است، وگرنه gdb محتویات آن را به زیبایی چاپ می کرد.<br>حالا به قسمت مهم پیمایش دیباگر میرسیم که با حرف n صورت می‌گیرد.</p><p>پیمایش دیباگر :</p><pre><code class=language-shell>(gdb)  n   _# execute next line_
+</code></pre><p>که ساختار  <code>hchan&lt;*testing.T></code> نمایش  runtime-internal یک کانال است و در حال حاضر خالی است، وگرنه gdb محتویات آن را به زیبایی چاپ می کرد.
+حالا به قسمت مهم پیمایش دیباگر میرسیم که با حرف n صورت می‌گیرد.</p><p>پیمایش دیباگر :</p><pre><code class=language-shell>(gdb)  n   _# execute next line_
 149             for _, test := range findTests {
 (gdb)    _# enter is repeat_
 150                     re := MustCompile(test.pat)
-(gdb)  p test.pat 
+(gdb)  p test.pat
 $4 = &quot;&quot;
-(gdb) p re 
+(gdb) p re
 $5 = (struct regexp.Regexp *) 0xf84068d070
-(gdb)  p *re 
+(gdb)  p *re
 $6 = {expr = &quot;&quot;, prog = 0xf840688b80, prefix = &quot;&quot;, prefixBytes =  []uint8, prefixComplete = true,
   prefixRune = 0, cond = 0 '\000', numSubexp = 0, longest = false, mu = {state = 0, sema = 0},
   machine =  []*regexp.machine}
-(gdb)  p *re-&gt;prog 
+(gdb)  p *re-&gt;prog
 $7 = {Inst =  []regexp/syntax.Inst = {{Op = 5 '\005', Out = 0, Arg = 0, Rune =  []int}, {Op =
     6 '\006', Out = 2, Arg = 0, Rune =  []int}, {Op = 4 '\004', Out = 0, Arg = 0, Rune =  []int}},
   Start = 1, NumCap = 2}
-</code></pre><p>می توانیم با حرف &rsquo;s&rsquo; وارد فراخوانی Stringfunction شویم:</p><pre><code class=language-shell>(gdb)  s 
+</code></pre><p>می توانیم با حرف &rsquo;s&rsquo; وارد فراخوانی Stringfunction شویم:</p><pre><code class=language-shell>(gdb)  s
 regexp.(*Regexp).String (re=0xf84068d070, noname=void) at /home/user/go/src/regexp/regexp.go:97
 97      func (re *Regexp) String() string {
-</code></pre><p>یک stack trace بگیرید تا ببینید کجا هستیم:</p><pre><code class=language-shell>(gdb)  bt 
+</code></pre><p>یک stack trace بگیرید تا ببینید کجا هستیم:</p><pre><code class=language-shell>(gdb)  bt
 #0  regexp.(*Regexp).String (re=0xf84068d070, noname=void)
     at /home/user/go/src/regexp/regexp.go:97
 #1  0x0000000000425615 in regexp.TestFind (t=0xf840688b60)
@@ -261,7 +250,7 @@ regexp.(*Regexp).String (re=0xf84068d070, noname=void) at /home/user/go/src/rege
     at /home/user/go/src/testing/testing.go:156
 #3  0x000000000040ea6f in runtime.initdone () at /home/user/go/src/runtime/proc.c:243
 ....
-</code></pre><p>به source code نگاه کنید:</p><pre><code class=language-shell>(gdb)  l 
+</code></pre><p>به source code نگاه کنید:</p><pre><code class=language-shell>(gdb)  l
 92              mu      sync.Mutex
 93              machine []*machine
 94      }
@@ -272,28 +261,28 @@ regexp.(*Regexp).String (re=0xf84068d070, noname=void) at /home/user/go/src/rege
 99      }
 100
 101     // Compile parses a regular expression and returns, if successful,
-</code></pre><p>Pretty Printing</p><p>مکانیسم چاپ زیبا GDB توسط regexp matches به صورت زیر می‌باشد:</p><pre><code class=language-shell>(gdb)  p utf 
+</code></pre><p>Pretty Printing</p><p>مکانیسم چاپ زیبا GDB توسط regexp matches به صورت زیر می‌باشد:</p><pre><code class=language-shell>(gdb)  p utf
 $22 =  []uint8 = {0 '\000', 0 '\000', 0 '\000', 0 '\000'}
-</code></pre><p>از آنجایی که slice ها، آرایه ها و رشته ها اصلا اشاره‌گرهای C نیستند در نتیجه GDB نمی تواند عملیات subscripting را برای شما تفسیر کند، اما می توانید برای انجام این کار به نمایش runtime نگاه کنید (tab completion در اینجا کاربرد دارد):</p><pre><code class=language-shell>(gdb)  p slc 
+</code></pre><p>از آنجایی که slice ها، آرایه ها و رشته ها اصلا اشاره‌گرهای C نیستند در نتیجه GDB نمی تواند عملیات subscripting را برای شما تفسیر کند، اما می توانید برای انجام این کار به نمایش runtime نگاه کنید (tab completion در اینجا کاربرد دارد):</p><pre><code class=language-shell>(gdb)  p slc
 $11 =  []int = {0, 0}
 (gdb)  p slc-&gt;* _&lt;TAB&gt;_
 array  slc    len
-(gdb)  p slc-&gt;array 
+(gdb)  p slc-&gt;array
 $12 = (int *) 0xf84057af00
-(gdb)  p slc-&gt;array[1] 
+(gdb)  p slc-&gt;array[1]
 $13 = 0
-</code></pre><p>توابع extension یا افزونه <code>$len</code> و <code>$cap</code> روی strings, arrays , slices کار می‌کنند:</p><pre><code class=language-shell>(gdb)  p $len(utf) 
+</code></pre><p>توابع extension یا افزونه <code>$len</code> و <code>$cap</code> روی strings, arrays , slices کار می‌کنند:</p><pre><code class=language-shell>(gdb)  p $len(utf)
 $23 = 4
-(gdb)  p $cap(utf) 
+(gdb)  p $cap(utf)
 $24 = 4
 </code></pre><p>Channelها و mapها در واقع typeهایی از جنس «reference» هستند که gdb آن‌ها را به‌عنوان اشاره‌گر به C++ like types مانند <code>&lt;hash&lt;int,string>*</code> نشان می‌دهد.
-Interface ها در runtime به عنوان یک اشاره گر به یک توصیفگر(descriptor) و یک اشاره گر به یک مقدار نشان داده می شوند. پسوند Go GDB در runtime این را رمزگشایی می کند و به طور خودکار pretty printing را برای runtime type ایجاد می کند. تابع افزونه dtype$ درنهایت یک  dynamic type را برای شما رمزگشایی می‌کند (مثال‌هایی از یک breakpoint در خط 293 regexp.go گرفته شده‌اند.)</p><pre><code class=language-shell>(gdb)  p i 
+Interface ها در runtime به عنوان یک اشاره گر به یک توصیفگر(descriptor) و یک اشاره گر به یک مقدار نشان داده می شوند. پسوند Go GDB در runtime این را رمزگشایی می کند و به طور خودکار pretty printing را برای runtime type ایجاد می کند. تابع افزونه dtype$ درنهایت یک  dynamic type را برای شما رمزگشایی می‌کند (مثال‌هایی از یک breakpoint در خط 293 regexp.go گرفته شده‌اند.)</p><pre><code class=language-shell>(gdb)  p i
 $4 = {str = &quot;cbb&quot;}
-(gdb) whatis i 
+(gdb) whatis i
 type = regexp.input
-(gdb)  p $dtype(i) 
+(gdb)  p $dtype(i)
 $26 = (struct regexp.inputBytes *) 0xf8400b4930
-(gdb)  iface i 
+(gdb)  iface i
 regexp.input: struct regexp.inputBytes *
 </code></pre><h2 id=425---معرفی-دیباگر--delve>4.2.5 معرفی دیباگر DELVE
 <a class=anchor href=#425---%d9%85%d8%b9%d8%b1%d9%81%db%8c-%d8%af%db%8c%d8%a8%d8%a7%da%af%d8%b1--delve>#</a></h2><p><a href=https://github.com/go-delve/delve>delve</a> یک debugger برای زبان برنامه نویسی GO است. هدف این پروژه ارائه یک ابزار ساده و کامل debugger برای GO است. DeLve باید به راحتی استفاده می‌شود و استفاده از آن آسان بسیار آسان می‌باشد.</p><h3 id=4251--راهنمای-نصب-delve>4.2.5.1 راهنمای نصب DELVE
@@ -328,13 +317,13 @@ Breakpoint 1 set at 0x49ecf3 for main.main() ./test.go:5
 (dlv) continue
 &gt; main.main() ./test.go:5 (hits goroutine(1):1 total:1) (PC: 0x49ecf3)
      1:	package main
-     2:	
+     2:
      3:	import &quot;fmt&quot;
-     4:	
+     4:
 =&gt;   5:	func main() {
      6:		fmt.Println(&quot;delve test&quot;)
      7:	}
-(dlv) 
+(dlv)
 </code></pre><h3 id=4254-debugging-tests>4.2.5.4 Debugging tests
 <a class=anchor href=#4254-debugging-tests>#</a></h3><p>با توجه به ساختار دایرکتوری مشابه با بالا، می توانید کد خود را با اجرای مجموعه آزمایشی خود اشکال زدایی کنید. برای این کار می توانید از subcommand یا دستور <code>dlv test</code> استفاده کنید، که همان package path اختیاری را به عنوان  <code>dlv debug</code> طی می کند و در صورت عدم ارائه آرگومان، package فعلی را نیز می سازد.</p><pre><code class=language-shell>$ dlv test github.com/me/foo/pkg/baz
 Type 'help' for list of commands.
@@ -345,13 +334,13 @@ Breakpoint 1 set at 0x536513 for /home/me/go/src/github.com/me/foo/pkg/baz/test.
 (dlv) continue
 &gt; /home/me/go/src/github.com/me/foo/pkg/baz/test.TestHi() ./bar_test.go:5 (hits goroutine(5):1 total:1) (PC: 0x536513)
      1:	package baz
-     2:	
+     2:
      3:	import &quot;testing&quot;
-     4:	
+     4:
 =&gt;   5:	func TestHi(t *testing.T) {
      6:		t.Fatal(&quot;implement me!&quot;)
      7:	}
-(dlv) 
+(dlv)
 </code></pre><p>همانطور که می بینید، ما شروع به دیباگ کردن یک test binary کردیم، تابع تست خود را از طریق دستور  <code>funcs</code> پیدا کردیم که یک regexp برای فیلتر کردن لیست توابع می گیرد، حالا یک breakpoint تعیین می کنیم و سپس اجرا را ادامه می دهیم تا زمانی که به آن breakpoint رسیدیم.</p><p>برای اطلاعات بیشتر در مورد subcommands که می‌توانید استفاده کنید،  <code>dlv help</code> را تایپ کنید، و یک بار در debug session می‌توانید با تایپ help در هر زمانی، تمام دستورات موجود را مشاهده کنید.</p><h3 id=4255-synopsis-و-گزینه-های-command-line-options>4.2.5.5 Synopsis و گزینه های Command line options
 <a class=anchor href=#4255-synopsis-%d9%88-%da%af%d8%b2%db%8c%d9%86%d9%87-%d9%87%d8%a7%db%8c-command-line-options>#</a></h3><p>Delve شما را قادر می سازد تا با کنترل اجرای فرآیند، ارزیابی متغیرها و ارائه اطلاعات state thread / goroutine، همینطور CPU register state و موارد دیگر، با برنامه خود تعامل داشته باشید.</p><p>هدف این ابزار ارائه یک رابط ساده و در عین حال قدرتمند برای اشکال زدایی برنامه های Go است.
 flagبرای استفاده از قابلیت های delve باید flagها را به برنامه‌ای که با استفاده از آن اشکال‌زدایی می‌کنید ارسال کنید، به کمک دستور  <code>--</code>

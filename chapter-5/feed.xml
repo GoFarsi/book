@@ -221,11 +221,12 @@
 &lt;p>در قطعه کد زیر
 با تابع &lt;code>acceptLoop()&lt;/code> درخواست های اتصال را مپذیریم
 و با تابع &lt;code>readLoop()&lt;/code> پیام های اتصال را میخوانیم&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;net&amp;quot;
+"fmt"
+"log"
+"net"
 )
 // ساختار هر پیام در سرور
 type Message struct {
@@ -245,7 +246,7 @@ msgch chan Message
 }
 // ایجاد یک سرور جدید
 func newServer(listenAddr string) *Server {
-return &amp;amp;Server{
+return &amp;Server{
 listenAddr: listenAddr,
 msgch: make(chan Message, 10),
 }
@@ -253,7 +254,7 @@ msgch: make(chan Message, 10),
 // شروع سرور و دریافت اتصال های جدید
 func (s *Server) start() error {
 // شروع سرور
-ln, err := net.Listen(&amp;quot;tcp&amp;quot;, s.listenAddr)
+ln, err := net.Listen("tcp", s.listenAddr)
 if err != nil {
 return err
 }
@@ -275,7 +276,7 @@ for {
 // اتصال های موجود را تایید میکنیم متغییر conn را با اتصال مورد نظر مقدار دهی میکنیم
 conn, err := s.ln.Accept()
 if err != nil {
-fmt.Println(&amp;quot;accept error:&amp;quot;, err)
+fmt.Println("accept error:", err)
 continue
 }
 // با استفاده از این تابع مقادیر ارسال شده توسط اتصال را به چنل message میدهیم
@@ -289,22 +290,22 @@ for {
 // پیام ارسال شده توسط هر اتصال را به متغییر buf میدهیم
 n, err := conn.Read(buf)
 if err != nil {
-fmt.Println(&amp;quot;read error:&amp;quot;, err)
+fmt.Println("read error:", err)
 continue
 }
-s.msgch &amp;lt;- Message{
+s.msgch &lt;- Message{
 // ادرس ip ارسال کننده پیام از نوع net.IP
 from: conn.RemoteAddr().String(),
 // متن پیام
 payload: buf[:n],
 }
 // بعد از دریافت هر پیام یک پیام به عنوان پاسخ ارسال میکنیم
-conn.Write([]byte(&amp;quot;your message recived!\n&amp;quot;))
+conn.Write([]byte("your message recived!\n"))
 }
 }
 func main() {
 // ساخت سرور
-server := newServer(&amp;quot;:3000&amp;quot;)
+server := newServer(":3000")
 //start the server
 if err := server.start(); err != nil {
 log.Fetal(err)
@@ -312,13 +313,17 @@ log.Fetal(err)
 go func() {
 // در ازای هر پیام مقادیر آن را چاپ میکنیم
 for msg := range server.msgch {
-fmt.Printf(&amp;quot;recived new from connection(%s): %s\n&amp;quot;, msg.from, msg.payload)
+fmt.Printf("recived new from connection(%s): %s\n", msg.from, msg.payload)
 }
 }()
 // Run an infinite loop to keep the program running
 select {}
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>بعد از پایان پیاده سازی سرور tcp
 با دستور زیر سرور خود را اجرا میکنیم:
 &lt;code>go run main.go&lt;/code>&lt;/p>
@@ -336,20 +341,21 @@ select {}
 اما ما با استفاده از روش استریم، داده و فایل خود را بصورت &lt;span class="tooltip" data-tooltip="chunk file" ontouchend="toggleTooltip(this)">قطعه&lt;/span>
 های کم حجم و پشت سر هم ارسال میکنیم.&lt;/p>
 &lt;p>در ادامه به پیاده سازی سرور خود با استفاده از پروتکل tcp میپردازیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;bytes&amp;quot;
-&amp;quot;crypto/rand&amp;quot;
-&amp;quot;encoding/binary&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;net&amp;quot;
-&amp;quot;time&amp;quot;
+"bytes"
+"crypto/rand"
+"encoding/binary"
+"fmt"
+"io"
+"log"
+"net"
+"time"
 )
 type FileServer struct { }
 func (fs *FileServer) start() {
-ln, err := net.Listen(&amp;quot;tcp&amp;quot;, &amp;quot;0.0.0.0:3000&amp;quot;)
+ln, err := net.Listen("tcp", "0.0.0.0:3000")
 if err != nil {
 panic(err)
 }
@@ -359,7 +365,7 @@ if err != nil {
 log.Fatal(err)
 continue
 }
-fmt.Printf(&amp;quot;new connection: %s\n&amp;quot;, conn.RemoteAddr().String())
+fmt.Printf("new connection: %s\n", conn.RemoteAddr().String())
 // read data from accepted connections
 go fs.readLoop(conn)
 }
@@ -370,7 +376,7 @@ buf := new(bytes.Buffer)
 for {
 var size int64
 // get the size from connection
-binary.Read(conn, binary.LittleEndian, &amp;amp;size)
+binary.Read(conn, binary.LittleEndian, &amp;size)
 // copy from connection until the end of file
 n, err := io.CopyN(buf, conn, size)
 if err != nil {
@@ -378,7 +384,7 @@ log.Fatal(err)
 continue
 }
 fmt.Println(buf.Bytes())
-fmt.Printf(&amp;quot;received %d bytes over the network\n&amp;quot;, n)
+fmt.Printf("received %d bytes over the network\n", n)
 }
 }
 func main() {
@@ -387,7 +393,7 @@ time.Sleep(4 * time.Second)
 // set your file szie
 sendFile(2000000)
 }()
-s := &amp;amp;FileServer{}
+s := &amp;FileServer{}
 s.start()
 }
 // client example that send a large file to server!
@@ -399,7 +405,7 @@ if err != nil {
 return err
 }
 // dial with the tcp server (you can do this is an other file)
-conn, err := net.Dial(&amp;quot;tcp&amp;quot;, &amp;quot;:3000&amp;quot;)
+conn, err := net.Dial("tcp", ":3000")
 if err != nil {
 return err
 }
@@ -410,10 +416,14 @@ n, err := io.CopyN(conn, bytes.NewReader(file), int64(size))
 if err != nil {
 return err
 }
-fmt.Printf(&amp;quot;written %d byte over the network\n&amp;quot;, n)
+fmt.Printf("written %d byte over the network\n", n)
 return nil
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>بعد از پایان نوشتن کد شما میتوانید با اجرا کردن کد خود (ترجیحا انتخاب یک عدد بزرگ برای حجم فایل یا همان ورودی تابع sendFile) میتوانید استریم شدن بایت هارا بصورت چانک چانک در لاگ های سمت سرور ببینید.&lt;/p></description></item><item><author/><title>5.4 سرور udp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</guid><description>&lt;p>در این قسمت به طراحی و ساخت یک سرور UDP مقدماتی با گولنگ می پردازیم.&lt;/p>
 &lt;h2 id="541-معرفی-udp">
 5.4.1 معرفی UDP
@@ -431,23 +441,24 @@ return nil
 &lt;a class="anchor" href="#542-%d9%be%db%8c%d8%a7%d8%af%d9%87-%d8%b3%d8%a7%d8%b2%db%8c">#&lt;/a>
 &lt;/h2>
 &lt;p>برای پیاده سازی یک سرور udp در گولنگ و اتصال به آن همچنان از کتابخانه net استفاده میکنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;net&amp;quot;
-&amp;quot;strings&amp;quot;
+"fmt"
+"net"
+"strings"
 )
 func main() {
 // ادرس IP و پورت مورد نظر را برای گوش سپردن به پکت های UDP مشخص میکنیم (مقدار بازگشتی این تابع اتصال ما است که قابلیت نوشتن و خواندن آن را داریم)
-conn, err := net.ListenUDP(&amp;quot;udp&amp;quot;, &amp;amp;net.UDPAddr{
+conn, err := net.ListenUDP("udp", &amp;net.UDPAddr{
 Port: 3000,
-IP: net.ParseIP(&amp;quot;0.0.0.0&amp;quot;),
+IP: net.ParseIP("0.0.0.0"),
 })
 if err != nil {
 panic(err)
 }
 defer conn.Close()
-fmt.Printf(&amp;quot;server listening %s\n&amp;quot;, conn.LocalAddr().String())
+fmt.Printf("server listening %s\n", conn.LocalAddr().String())
 for {
 message := make([]byte, 20)
 // تمام پیام های نوشته شده (ارسال شده) را میخوانیم
@@ -459,26 +470,35 @@ panic(err)
 // متن پیام را تا قسمت خوانده شده به string تبدیل میکنیم
 data := strings.TrimSpace(string(message[:readLen]))
 // داده خروجی را چاپ میکنیم
-fmt.Printf(&amp;quot;received: %s from %s\n&amp;quot;, data, remote)
+fmt.Printf("received: %s from %s\n", data, remote)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>بعد از انجام مراحل بالا با دستور ‍&lt;code>go run main.go&lt;/code> کد خود را اجرا میکنیم.&lt;/p>
 &lt;h2 id="543-کد-کلاینت-برای-اتصال-به-سرور-ساخته-شده">
 5.4.3 کد کلاینت برای اتصال به سرور ساخته شده
 &lt;a class="anchor" href="#543-%da%a9%d8%af-%da%a9%d9%84%d8%a7%db%8c%d9%86%d8%aa-%d8%a8%d8%b1%d8%a7%db%8c-%d8%a7%d8%aa%d8%b5%d8%a7%d9%84-%d8%a8%d9%87-%d8%b3%d8%b1%d9%88%d8%b1-%d8%b3%d8%a7%d8%ae%d8%aa%d9%87-%d8%b4%d8%af%d9%87">#&lt;/a>
 &lt;/h2>
 &lt;p>اکنون با چند خط کد در زبان گولنگ به سرور خود متصل میشویم پیامی را به آن ارسال میکنیم&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;net&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "net"
 func main() {
 // یک اتصال به سرور ایجاد میکنیم
-Conn, _ := net.DialUDP(&amp;quot;udp&amp;quot;, nil, &amp;amp;net.UDPAddr{IP:[]byte{127,0,0,1},Port:3000,Zone:&amp;quot;&amp;quot;})
+Conn, _ := net.DialUDP("udp", nil, &amp;net.UDPAddr{IP:[]byte{127,0,0,1},Port:3000,Zone:""})
 defer Conn.Close()
 // متن زیر را به سرور ارسال میکنیم
-Conn.Write([]byte(&amp;quot;hello, gofarsi!&amp;quot;))
-}
-&lt;/code>&lt;/pre>
+Conn.Write([]byte("hello, gofarsi!"))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اکنون همزمان با اجرا بودن کد سرور این قطعه کد را با دستور
 ‍‍&lt;code>go run client.go&lt;/code>
 اجرا میکنیم (بسته به اسمی که برای فایل انتخاب کرده اید)&lt;/p>
@@ -488,37 +508,38 @@ Conn.Write([]byte(&amp;quot;hello, gofarsi!&amp;quot;))
 عملکرد سرور و کلاینت:
 یک سرور udp ایجاد میکنیم که تمام کانکشن های موجود را ذخیره میکند و به محض دریافت پیام از هر یک از کانکشن ها پیام را برای تمام کانکشن های دیگر بجر کانکشن ارسال کننده پیام ارسال میکند.&lt;/p>
 &lt;p>در مرحله اول سروری که کانکشن ها و ارسال پیام را مدیریت میکنید مینویسیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;net&amp;quot;
+"fmt"
+"net"
 )
 func main() {
 // Set up the server
 addr := net.UDPAddr{
 Port: 8000,
-IP: net.ParseIP(&amp;quot;0.0.0.0&amp;quot;),
+IP: net.ParseIP("0.0.0.0"),
 }
-conn, err := net.ListenUDP(&amp;quot;udp&amp;quot;, &amp;amp;addr)
+conn, err := net.ListenUDP("udp", &amp;addr)
 if err != nil {
-fmt.Println(&amp;quot;Error listening:&amp;quot;, err)
+fmt.Println("Error listening:", err)
 return
 }
 defer conn.Close()
-fmt.Println(&amp;quot;Server started on port&amp;quot;, addr.Port)
+fmt.Println("Server started on port", addr.Port)
 // Listen for incoming messages
 buffer := make([]byte, 1024)
 clients := make(map[string]*net.UDPAddr)
 for {
 n, clientAddr, err := conn.ReadFromUDP(buffer)
 if err != nil {
-fmt.Println(&amp;quot;Error reading:&amp;quot;, err)
+fmt.Println("Error reading:", err)
 continue
 }
 // Add new client
 if _, ok := clients[clientAddr.String()]; !ok {
 clients[clientAddr.String()] = clientAddr
-fmt.Println(&amp;quot;New client joined:&amp;quot;, clientAddr.String())
+fmt.Println("New client joined:", clientAddr.String())
 }
 // Broadcast message to all clients
 message := buffer[:n]
@@ -526,28 +547,33 @@ for _, addr := range clients {
 if addr.String() != clientAddr.String() {
 _, err = conn.WriteToUDP(message, addr)
 if err != nil {
-fmt.Println(&amp;quot;Error broadcasting message:&amp;quot;, err)
+fmt.Println("Error broadcasting message:", err)
 }
 }
 }
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این قسمت یک سرور udp ایجاد کرده ایم و هر کانکشن جدید را به لیست کانکشن های خود اضافه میکنیم.
 همچنین در ازای هر پیام دریافتی از سمت کانکشن ها آن را برای کانکشن های دیگر ارسال میکنیم.&lt;/p>
 &lt;p>در ادامه یک کلاینت ساده برای سرور خود مینویسیم که پیام هارا نمایش دهد و متن ورودی در ترمینال را به سرور ارسال کند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;bufio&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;net&amp;quot;
-&amp;quot;os&amp;quot;
+"bufio"
+"fmt"
+"net"
+"os"
 )
 func main() {
 // Set up connection to the server
-conn, err := net.Dial(&amp;quot;udp&amp;quot;, &amp;quot;localhost:8000&amp;quot;)
+conn, err := net.Dial("udp", "localhost:8000")
 if err != nil {
-fmt.Println(&amp;quot;Error connecting:&amp;quot;, err)
+fmt.Println("Error connecting:", err)
 return
 }
 defer conn.Close()
@@ -556,29 +582,33 @@ for {
 buf := make([]byte, 1024) // buffer for incoming message
 n, err := conn.Read(buf)
 if err != nil {
-fmt.Println(&amp;quot;Error receiving message:&amp;quot;, err)
+fmt.Println("Error receiving message:", err)
 continue
 }
-fmt.Printf(&amp;quot;Received message: %s\n&amp;quot;, string(buf[:n]))
+fmt.Printf("Received message: %s\n", string(buf[:n]))
 }
 }()
 // Read input from terminal and send to server
 scanner := bufio.NewScanner(os.Stdin)
 for {
 // send messages to server
-fmt.Print(&amp;quot;Enter message: &amp;quot;)
+fmt.Print("Enter message: ")
 if !scanner.Scan() {
 break
 }
 message := scanner.Text()
 _, err = conn.Write([]byte(message))
 if err != nil {
-fmt.Println(&amp;quot;Error sending message:&amp;quot;, err)
+fmt.Println("Error sending message:", err)
 continue
 }
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این کد ما تمام پیام های دریافتی از سرور را چاپ میکنیم و هر پیامی که کاربر در ترمینال وارد کند را به سرور ارسال میکنیم.&lt;/p>
 &lt;p>بعد از اتمام کار برای تست کد خود سه ترمینال مجزا بار میکنیم.
 و در یکی از سرور ها فایل &lt;code>server.go&lt;/code> و در دو ترمینال دیگر فایل &lt;code>client.go&lt;/code> را اجرا میکنیم.&lt;/p>
@@ -590,57 +620,63 @@ continue
 &lt;p>درگاه وب سرور: هر وب سرور نیاز دارد که درگاه (Port) خاصی را در اختیار داشته باشد و همواره به آن درگاه گوش بسپارد.&lt;/p>
 &lt;p>مقدار برگشتی: هرگاه کاربر به مسیری وارد میشود یا اطلاعاتی را برای وب سرور ارسال میکند، مقداری از سمت سرور برای کاربر ارسال میشود.&lt;/p>
 &lt;p>یک نمونه وب سرور در گو&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;net/http&amp;quot;
+"fmt"
+"net/http"
 )
 func main() {
 // مسیر / یا root را برای این تابع انتخاب میکنیم (کد این تابع با صدا شدن مسیر localhost:3000 اجرا می شود)
-http.HandleFunc(&amp;quot;/&amp;quot;, func(writer http.ResponseWriter, request *http.Request) {
+http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 // مقدار hello world را در مسیر مشخص شده برمیگردانیم
-_, err := fmt.Fprint(writer, &amp;quot;&amp;lt;h1&amp;gt;Hellow World!&amp;lt;/h1&amp;gt;&amp;quot;)
+_, err := fmt.Fprint(writer, "&lt;h1>Hellow World!&lt;/h1>")
 if err != nil {
 return
 }
 })
-fmt.Println(&amp;quot;Starting The Server on :3000...&amp;quot;)
+fmt.Println("Starting The Server on :3000...")
 // به درخواست های ارسال شده به پورت 3000 با پروتوکول http گوش میکنیم (سرور در انتظار درخواست از سمت کاربر یا client) می ماند
-err := http.ListenAndServe(&amp;quot;:3000&amp;quot;, nil)
+err := http.ListenAndServe(":3000", nil)
 if err != nil {
 return
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>با وارد شدن به آدرس &lt;code>localhost:3000&lt;/code> مقدار برگشته شده در ‍&lt;code>handleFunc&lt;/code> را مشاهده خواهید کرد.&lt;/p></description></item><item><author/><title>5.7 کتابخانه http سمت سرور پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</guid><description>&lt;p>در قسمت قبل با استفاده از کتابخانه &lt;code>net/http&lt;/code> یک api ساده ایجاد کردیم.&lt;/p>
 &lt;p>در این قسمت به پیاده سازی یک سرور http برای مدیریت لیست TODO های خود میپردازیم و از چهار متد GET, POST, DELET and PATCH استفاده میکنیم.&lt;/p>
 &lt;p>در این پروژه از دیتابیس استفاده نمیشود. روش ذخیره سازی اطلاعات درون متغییر هاست دلیل استفاده نکردن از یک دیتابیس تمرکز این قسمت روی کتابخانه و پروتکل http است.&lt;/p>
 &lt;p>در ادامه به ایجاد سرور خود میپردازیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;encoding/json&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;net/http&amp;quot;
+"encoding/json"
+"fmt"
+"log"
+"net/http"
 )
 // todo struct with json tags
 type Todo struct {
-ID int `json:&amp;quot;id&amp;quot;`
-Title string `json:&amp;quot;title&amp;quot;`
-Status bool `json:&amp;quot;status&amp;quot;`
+ID int `json:"id"`
+Title string `json:"title"`
+Status bool `json:"status"`
 }
 // just work as a DB for us!
 var todos []Todo
 // get all the items in the Todo list and write it. GET
 func getTodos(w http.ResponseWriter, r *http.Request) {
-w.Header().Set(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/json&amp;quot;)
+w.Header().Set("Content-Type", "application/json")
 json.NewEncoder(w).Encode(todos)
 }
 // append a new data in array. POST
 func addTodo(w http.ResponseWriter, r *http.Request) {
-w.Header().Set(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/json&amp;quot;)
+w.Header().Set("Content-Type", "application/json")
 var todo Todo
-json.NewDecoder(r.Body).Decode(&amp;amp;todo)
+json.NewDecoder(r.Body).Decode(&amp;todo)
 // NOTE: this isn't a good way to set ids in production!
 todo.ID = len(todos) + 1
 todos = append(todos, todo)
@@ -648,9 +684,9 @@ json.NewEncoder(w).Encode(todo)
 }
 // change the todo status. PATCH
 func updateTodo(w http.ResponseWriter, r *http.Request) {
-w.Header().Set(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/json&amp;quot;)
+w.Header().Set("Content-Type", "application/json")
 var todo Todo
-json.NewDecoder(r.Body).Decode(&amp;amp;todo)
+json.NewDecoder(r.Body).Decode(&amp;todo)
 for i, t := range todos {
 if t.ID == todo.ID {
 todos[i].Status = todo.Status
@@ -659,34 +695,38 @@ return
 }
 }
 w.WriteHeader(http.StatusNotFound)
-json.NewEncoder(w).Encode(map[string]string{&amp;quot;message&amp;quot;: &amp;quot;TODO not found&amp;quot;})
+json.NewEncoder(w).Encode(map[string]string{"message": "TODO not found"})
 }
 // remove the TODO from array. DELETE
 func deleteTodo(w http.ResponseWriter, r *http.Request) {
-w.Header().Set(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/json&amp;quot;)
+w.Header().Set("Content-Type", "application/json")
 var todo Todo
-json.NewDecoder(r.Body).Decode(&amp;amp;todo)
+json.NewDecoder(r.Body).Decode(&amp;todo)
 for i, t := range todos {
 if t.ID == todo.ID {
 todos = append(todos[:i], todos[i+1:]...)
-json.NewEncoder(w).Encode(map[string]string{&amp;quot;message&amp;quot;: &amp;quot;TODO deleted&amp;quot;})
+json.NewEncoder(w).Encode(map[string]string{"message": "TODO deleted"})
 return
 }
 }
 w.WriteHeader(http.StatusNotFound)
-json.NewEncoder(w).Encode(map[string]string{&amp;quot;message&amp;quot;: &amp;quot;TODO not found&amp;quot;})
+json.NewEncoder(w).Encode(map[string]string{"message": "TODO not found"})
 }
 func main() {
 // set routes
-http.HandleFunc(&amp;quot;/todos&amp;quot;, getTodos)
-http.HandleFunc(&amp;quot;/todos/add&amp;quot;, addTodo)
-http.HandleFunc(&amp;quot;/todos/update&amp;quot;, updateTodo)
-http.HandleFunc(&amp;quot;/todos/delete&amp;quot;, deleteTodo)
+http.HandleFunc("/todos", getTodos)
+http.HandleFunc("/todos/add", addTodo)
+http.HandleFunc("/todos/update", updateTodo)
+http.HandleFunc("/todos/delete", deleteTodo)
 // start server
-fmt.Println(&amp;quot;Server starting at port 8080&amp;quot;)
-log.Fatal(http.ListenAndServe(&amp;quot;:8080&amp;quot;, nil))
-}
-&lt;/code>&lt;/pre>
+fmt.Println("Server starting at port 8080")
+log.Fatal(http.ListenAndServe(":8080", nil))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>بعد از اتمام نوشتن سرور با استفاده از یک کلاینت &lt;code>http&lt;/code> مثل postman سرور خود را به روش زیر تست میکنیم:&lt;/p>
 &lt;p>نکته: شما می توانید کلاینت خود را خودتان با استفاده از اموزش کلاینت http در قسمت های دیگر بنویسید!&lt;/p>
 &lt;h3 id="add-todo">
@@ -773,31 +813,36 @@ delete todo
 &lt;/h2>
 &lt;p>کلاینت های در پروتوکول http برای صدا کردن (call) و ارسال درخواست به سرور ها طراحی و ساخته میشوند.
 در ادامه یک کلاینت مقدماتی و ساده را در زبان گولنگ ایجاد میکنیم.&lt;/p>
-&lt;p>‍‍&lt;/p>
-&lt;pre>&lt;code class="language-go">
-package main
+&lt;p>‍‍
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;io/ioutil&amp;quot;
-&amp;quot;net/http&amp;quot;
-&amp;quot;time&amp;quot;
+"fmt"
+"io/ioutil"
+"net/http"
+"time"
 )
 func main() {
 // کلاینت خود را با استفاده از ماژول http ایجاد میکنیم
 c := http.Client{Timeout: time.Duration(1) * time.Second}
 // از طریق کلاینت ایجاد شده یک درخواست با متد GET به آدرس example.com ارسال میکنیم
 // دقیقا سروری مشابه به سرور هایی که در قسمت های قبل ایجاد کردیم در آدرسی که الان به آن درخوایت ارسال میکنیم درحال گوش سپردن به درخواست ها میباشد.
-resp, err := c.Get(&amp;quot;https://www.example.com&amp;quot;)
+resp, err := c.Get("https://www.example.com")
 if err != nil {
-fmt.Printf(&amp;quot;Error %s&amp;quot;, err)
+fmt.Printf("Error %s", err)
 return
 }
 defer resp.Body.Close()
 // مقادیر دریافت شده از سرور را میخوانیم و چاپ میکنیم
 body, err := ioutil.ReadAll(resp.Body)
-fmt.Printf(&amp;quot;Body : %s&amp;quot;, body)
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("Body : %s", body)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;/p>
 &lt;p>در نهایت با اجرای قطعه کد بالا خروجی ما پاسخی است که از سرور دریافت کرده ایم:&lt;/p>
 &lt;pre>&lt;code class="language-html">Body : &amp;lt;!doctype html&amp;gt;
 &amp;lt;html&amp;gt;
@@ -885,17 +930,18 @@ GET : پیام هایی که در این روش ارسال می‌شوند تن�
 &lt;a class="anchor" href="#593-get-request">#&lt;/a>
 &lt;/h2>
 &lt;p>در مرحله اول به ایجاد یک درخواست GET به سرور میپردازیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;io/ioutil&amp;quot;
-&amp;quot;net/http&amp;quot;
+"fmt"
+"io/ioutil"
+"net/http"
 )
 func main() {
 // به url مورد نظر برای دریافت لیست محصولات موجود یک درخوایت با متد GET ایجاد میکنیم
-resp, err := http.Get(&amp;quot;https://fakestoreapi.com/products&amp;quot;)
+resp, err := http.Get("https://fakestoreapi.com/products")
 if err != nil {
-fmt.Println(&amp;quot;Error:&amp;quot;, err)
+fmt.Println("Error:", err)
 return
 }
 defer resp.Body.Close()
@@ -904,13 +950,17 @@ fmt.Println(resp.StatusCode)
 // خروجی را در یک اسلایس ذخیره میکنیم
 body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
-fmt.Println(&amp;quot;Error:&amp;quot;, err)
+fmt.Println("Error:", err)
 return
 }
 // خروجی را چاپ میکنیم
 fmt.Println(string(body))
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>خروجی:&lt;/p>
 &lt;pre>&lt;code class="language-json">
 [
@@ -929,14 +979,15 @@ fmt.Println(string(body))
 &lt;a class="anchor" href="#594-post-request">#&lt;/a>
 &lt;/h2>
 &lt;p>در مرحله بعد با استفاده از متد POST یک محصول جدید به سرور اضافه میکنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;bytes&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;net/http&amp;quot;
+"bytes"
+"fmt"
+"net/http"
 )
 func main() {
-url := &amp;quot;https://fakestoreapi.com/products&amp;quot;
+url := "https://fakestoreapi.com/products"
 // جیسان مورد نظر برای ارسال و ثبت در سرور را ایجاد میکنیم (مقادیر مورد نیاز در مستندات api ذکر میشود)
 jsonStr := []byte(`
 {
@@ -948,11 +999,11 @@ category: 'electronic'
 }
 `)
 // یک درخواست یه ادرس سرور میسازیم
-req, err := http.NewRequest(&amp;quot;POST&amp;quot;, url, bytes.NewBuffer(jsonStr))
+req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 if err != nil {
 fmt.Println(err)
 }
-client := &amp;amp;http.Client{}
+client := &amp;http.Client{}
 // درخواست را انجام میدهیم
 resp, err := client.Do(req)
 if err != nil {
@@ -960,30 +1011,35 @@ fmt.Println(err)
 }
 defer resp.Body.Close()
 // کد وضعیت و پاسخ سرور را چاپ میکنیم
-fmt.Println(&amp;quot;Status:&amp;quot;, resp.Status)
-fmt.Println(&amp;quot;Response:&amp;quot;, resp)
-}
-&lt;/code>&lt;/pre>
+fmt.Println("Status:", resp.Status)
+fmt.Println("Response:", resp)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در صورت برابر بودن کد وضعیت با ۲۰۰ محصول ایجاد شده توسط شما با موفقیت ثبت شده است.&lt;/p>
 &lt;h2 id="595-delete-request">
 5.9.5 DELETE request
 &lt;a class="anchor" href="#595-delete-request">#&lt;/a>
 &lt;/h2>
 &lt;p>در مرحله بعد به ایجاد یک درخواست DELETE و پاک کردن یک محصول از سرور میپردازیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;net/http&amp;quot;
+"fmt"
+"net/http"
 )
 func main() {
 // شماره محصول مورد نظر را در انتهای url اضافه میکنیم (طبق مستندات)
-url := &amp;quot;https://fakestoreapi.com/products/1&amp;quot;
+url := "https://fakestoreapi.com/products/1"
 // یک درخواست با متد DELETE ایجاد میکنیم
-req, err := http.NewRequest(&amp;quot;DELETE&amp;quot;, url, nil)
+req, err := http.NewRequest("DELETE", url, nil)
 if err != nil {
 fmt.Println(err)
 }
-client := &amp;amp;http.Client{}
+client := &amp;http.Client{}
 // درخواست را به سرور ارسال میکنیم
 resp, err := client.Do(req)
 if err != nil {
@@ -991,23 +1047,28 @@ fmt.Println(err)
 }
 defer resp.Body.Close()
 // درصورت موفقیت آمیز بودن درخواست خروجی عدد 200 است
-fmt.Println(&amp;quot;Status:&amp;quot;, resp.Status)
-}
-&lt;/code>&lt;/pre>
+fmt.Println("Status:", resp.Status)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="596-put-request">
 5.9.6 PUT request
 &lt;a class="anchor" href="#596-put-request">#&lt;/a>
 &lt;/h2>
 &lt;p>در مرحله بعد به ایجاد یک درخواست PUT و اپدیت کردن اطلاعات یک محصول میپردازیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;bytes&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;net/http&amp;quot;
+"bytes"
+"fmt"
+"net/http"
 )
 func main() {
 // ایدی محول مورد نظر را به انتهای url اضافه میکنیم
-url := &amp;quot;https://fakestoreapi.com/products/7&amp;quot;
+url := "https://fakestoreapi.com/products/7"
 // مقدار های جدید را برای اپدیت شدن وارد میکنیم
 requestBody := []byte(`
 {
@@ -1019,12 +1080,12 @@ category: 'electronic'
 }
 `)
 ‍‍ // درخواست را ایجاد میکنیم
-req, err := http.NewRequest(&amp;quot;PUT&amp;quot;, url, bytes.NewBuffer(requestBody))
+req, err := http.NewRequest("PUT", url, bytes.NewBuffer(requestBody))
 if err != nil {
 fmt.Println(err)
 return
 }
-client := &amp;amp;http.Client{}
+client := &amp;http.Client{}
 // درخواست را به سرور ارسال میکنیم
 resp, err := client.Do(req)
 if err != nil {
@@ -1034,8 +1095,12 @@ return
 defer resp.Body.Close()
 // درصورت 200 بودن کد وضعیت اپدیت با موفقیت انجام شده.
 fmt.Println(resp.StatusCode)
-}
-&lt;/code>&lt;/pre></description></item><item><author/><title>5.10 پروتکل quic</title><link>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</guid><description>&lt;p>پروتکل quic یک پروتکل توسعه یافته توسط google است. این پروتکل برای امنیت و سرعت بیشتر توسعه داده شده است.&lt;/p>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div></description></item><item><author/><title>5.10 پروتکل quic</title><link>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</guid><description>&lt;p>پروتکل quic یک پروتکل توسعه یافته توسط google است. این پروتکل برای امنیت و سرعت بیشتر توسعه داده شده است.&lt;/p>
 &lt;p>پروتکل quic از UDP استفاده میکند و در لایه transport قرار میگیرد.&lt;/p>
 &lt;p>این پروتکل اجازه ایجاد چند کانکشن بصورت همزمان را فراهم میکنید و همچنین http/3 بر اساس این پروتکل طراحی و ایجاد شده است.&lt;/p>
 &lt;p>چند مورد از ویژگی های کلیدی quic :
@@ -1047,23 +1112,24 @@ fmt.Println(resp.StatusCode)
 &lt;p>با استفاده از دستور زیر:
 &lt;code>go get github.com/quic-go/quic-go&lt;/code>&lt;/p>
 &lt;p>بعد از اتمام مرحله نصب شروع به نوشتن کد سرور و کلاینت خود میکنیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;context&amp;quot;
-&amp;quot;crypto/rand&amp;quot;
-&amp;quot;crypto/rsa&amp;quot;
-&amp;quot;crypto/tls&amp;quot;
-&amp;quot;crypto/x509&amp;quot;
-&amp;quot;encoding/pem&amp;quot;
-&amp;quot;fmt&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;log&amp;quot;
-&amp;quot;math/big&amp;quot;
-&amp;quot;github.com/quic-go/quic-go&amp;quot;
+"context"
+"crypto/rand"
+"crypto/rsa"
+"crypto/tls"
+"crypto/x509"
+"encoding/pem"
+"fmt"
+"io"
+"log"
+"math/big"
+"github.com/quic-go/quic-go"
 )
-const addr = &amp;quot;localhost:4242&amp;quot;
+const addr = "localhost:4242"
 // the message we sent to server you can also change it!
-const message = &amp;quot;hello gifarsi!&amp;quot;
+const message = "hello gifarsi!"
 // starting the server and call the client function.
 func main() {
 go func() { log.Fatal(echoServer()) }()
@@ -1096,9 +1162,9 @@ return err
 // client function thah send the message to our server
 func clientMain() error {
 // set up a tls config
-tlsConf := &amp;amp;tls.Config{
+tlsConf := &amp;tls.Config{
 InsecureSkipVerify: true,
-NextProtos: []string{&amp;quot;quic-echo-example&amp;quot;},
+NextProtos: []string{"quic-echo-example"},
 }
 // dial with our udp server
 conn, err := quic.DialAddr(context.Background(), addr, tlsConf, nil)
@@ -1111,7 +1177,7 @@ if err != nil {
 return err
 }
 // write the message over the stream
-fmt.Printf(&amp;quot;Client: Sending '%s'\n&amp;quot;, message)
+fmt.Printf("Client: Sending '%s'\n", message)
 _, err = stream.Write([]byte(message))
 if err != nil {
 return err
@@ -1122,13 +1188,13 @@ _, err = io.ReadFull(stream, buf)
 if err != nil {
 return err
 }
-fmt.Printf(&amp;quot;Client: Got '%s'\n&amp;quot;, buf)
+fmt.Printf("Client: Got '%s'\n", buf)
 return nil
 }
 // A wrapper for io.Writer that also logs the message.
 type loggingWriter struct{ io.Writer }
 func (w loggingWriter) Write(b []byte) (int, error) {
-fmt.Printf(&amp;quot;Server: Got '%s'\n&amp;quot;, string(b))
+fmt.Printf("Server: Got '%s'\n", string(b))
 return w.Writer.Write(b)
 }
 // Setup a bare-bones TLS config for the server
@@ -1138,22 +1204,26 @@ if err != nil {
 panic(err)
 }
 template := x509.Certificate{SerialNumber: big.NewInt(1)}
-certDER, err := x509.CreateCertificate(rand.Reader, &amp;amp;template, &amp;amp;template, &amp;amp;key.PublicKey, key)
+certDER, err := x509.CreateCertificate(rand.Reader, &amp;template, &amp;template, &amp;key.PublicKey, key)
 if err != nil {
 panic(err)
 }
-keyPEM := pem.EncodeToMemory(&amp;amp;pem.Block{Type: &amp;quot;RSA PRIVATE KEY&amp;quot;, Bytes: x509.MarshalPKCS1PrivateKey(key)})
-certPEM := pem.EncodeToMemory(&amp;amp;pem.Block{Type: &amp;quot;CERTIFICATE&amp;quot;, Bytes: certDER})
+keyPEM := pem.EncodeToMemory(&amp;pem.Block{Type: "RSA PRIVATE KEY", Bytes: x509.MarshalPKCS1PrivateKey(key)})
+certPEM := pem.EncodeToMemory(&amp;pem.Block{Type: "CERTIFICATE", Bytes: certDER})
 tlsCert, err := tls.X509KeyPair(certPEM, keyPEM)
 if err != nil {
 panic(err)
 }
-return &amp;amp;tls.Config{
+return &amp;tls.Config{
 Certificates: []tls.Certificate{tlsCert},
-NextProtos: []string{&amp;quot;quic-echo-example&amp;quot;},
+NextProtos: []string{"quic-echo-example"},
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>بعد از اتمام نوشتن کد های سرور میتوانیم کد خود را اجرا و تست کنیم&lt;/p>
 &lt;p>&lt;code>go run main.go&lt;/code>&lt;/p>
 &lt;p>خروجی لاگ های ما به این صورت خواهد بود :&lt;/p>
