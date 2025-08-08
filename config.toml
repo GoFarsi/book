@@ -109,17 +109,6 @@ strategy = "network-first"
 
 [markup]
   [markup.highlight]
-    anchorLineNos = true
-    codeFences = true
-    guessSyntax = true
-    hl_Lines = ''
-    hl_inline = false
-    lineAnchors = ''
-    lineNoStart = 1
-    lineNos = true
-    lineNumbersInTable = false
-    noClasses = true
-    noHl = true
-    style = 'dracula'
-    tabWidth = 4
+    noClasses = false      # Enables class-based styling (needed for Prism)
+    codeFences = false     # Disables automatic highlighting of ``` blocks
 
