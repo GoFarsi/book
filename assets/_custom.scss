@@ -639,22 +639,23 @@ a.book-btn {
   display: none;
 }
 
-/* Ensure horizontal scroll works with line numbers */
-.go-playground pre {
-  overflow-x: auto;
-}
-
-/* Prism line numbers spacing */
-pre.line-numbers {
-  padding-left: 2.8em;
-}
 
 .go-playground pre.line-numbers {
+  position: relative;
   overflow-x: auto;
   white-space: pre;
-  padding-left: 3em;
+  padding-left: 3.5em;   /* More space for numbers */
+  line-height: 1.5;      /* Critical for matching line numbers */
   margin: 0;
 }
+
+/* Ensures code block calculates line height correctly */
+.go-playground pre.line-numbers > code {
+  display: block;
+  white-space: pre;
+  position: relative;
+}
+
 
 .go-playground-header {
   display: flex;
@@ -683,4 +684,24 @@ html.light .copy-code {
 
 html.light .copy-code:hover {
   background-color: #1565c0;
+}
+
+.playground-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.run-code,
+.hide-output {
+  background-color: #007acc;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hide-output {
+  background-color: #e53935;
 }

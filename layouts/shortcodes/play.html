@@ -1,6 +1,7 @@
 <div class="go-playground">
-  <pre class="line-numbers"><code class="language-go">{{ .Inner | safeHTML }}</code></pre>
+  <pre class="line-numbers"><code class="language-go">{{ .Inner | strings.TrimSpace | safeHTML }}</code></pre>
   <button class="run-code">▶ اجرای کد</button>
     <button class="copy-code">کپی</button>
+    <button class="hide-output">✖ بستن خروجی</button>
   <pre class="run-output hidden"></pre>
 </div>

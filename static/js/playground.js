@@ -2,10 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.go-playground').forEach(container => {
     const runBtn = container.querySelector('.run-code');
     const copyBtn = container.querySelector('.copy-code');
+    const hideBtn = container.querySelector('.hide-output');
     const codeBlock = container.querySelector('code');
     const outputBlock = container.querySelector('.run-output');
 
-     // Copy logic
+    // 📋 Copy button logic
     copyBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(codeBlock.innerText.trim());
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // ▶ Run button logic
     runBtn.addEventListener('click', async () => {
       const rawCode = codeBlock.innerText.trim();
       outputBlock.classList.remove('hidden');
@@ -33,34 +35,38 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const formattedCode = await formatGoCode(rawCode);
 
-        const runResp = await fetch('http://localhost:9123/api/v2/run?vet=true&backend=', {
+        const runResp = await fetch('https://play.gofarsi.ir/api/v2/run?vet=true&backend=', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            files: { 'main.go': formattedCode }
-          })
+          body: JSON.stringify({ files: { 'main.go': formattedCode } })
         });
 
         const runResult = await runResp.json();
 
-          if (runResult.errors) {
-            outputBlock.textContent = `${runResult.errors}`;
-          } else if (Array.isArray(runResult.events)) {
-            outputBlock.textContent = `${runResult.events.map(e => e.Message).join('')}`;
-          } else {
-            outputBlock.textContent = '⚠️ اجرای کد انجام نشد. پاسخ نامعتبر بود.';
-          }
-
+        if (runResult.errors) {
+          outputBlock.textContent = `${runResult.errors}`;
+        } else if (runResult.error) {
+          outputBlock.textContent = `${runResult.error}`;
+        } else if (Array.isArray(runResult.events) && runResult.events.length > 0) {
+          outputBlock.textContent = `${runResult.events.map(e => e.Message).join('')}`;
+        } else {
+          outputBlock.textContent = 'بدون خطا اجرا شد!';
+        }
       } catch (err) {
         outputBlock.textContent = `${err.message}`;
         console.error(err);
       }
     });
-  });
-});
 
-async function formatGoCode(code) {
-  const response = await fetch('http://localhost:9123/api/v2/format?backend=', {
+    // ❌ Hide output button logic
+    hideBtn.addEventListener('click', () => {
+      outputBlock.classList.add('hidden');
+      outputBlock.textContent = '';
+    });
+  });
+
+  async function formatGoCode(code) {
+  const response = await fetch('https://play.gofarsi.ir/api/v2/format?backend=', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -77,7 +83,7 @@ async function formatGoCode(code) {
   return result.files['main.go'];
 }
 
-// Manually re-highlight all Prism blocks after DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+
+  // ✅ Re-highlight Prism blocks
   Prism.highlightAll();
 });
