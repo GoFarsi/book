@@ -1035,9 +1035,9 @@ t.Errorf(&amp;quot;expected %v, got %v&amp;quot;, expected, result)
 func TestAddPositiveNumbers(t *testing.T) { ... }
 &lt;/code>&lt;/pre>
 &lt;p>از نام‌هایی مثل &lt;code>Test1&lt;/code>, &lt;code>TestA&lt;/code>, &lt;code>TestXYZ&lt;/code> اجتناب کنید.&lt;/p>
-&lt;h2 id="725-تست-واحد-برای-ساختارها-و-متدهای-hahahugoshortcode177s10hbhb">
+&lt;h2 id="725-تست-واحد-برای-ساختارها-و-متدهای-hahahugoshortcode175s10hbhb">
 7.2.5 تست واحد برای ساختارها و متدهای &lt;span class="tooltip" data-tooltip="receiver methods" ontouchend="toggleTooltip(this)">گیرنده&lt;/span>
-&lt;a class="anchor" href="#725-%d8%aa%d8%b3%d8%aa-%d9%88%d8%a7%d8%ad%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1%d9%87%d8%a7-%d9%88-%d9%85%d8%aa%d8%af%d9%87%d8%a7%db%8c-hahahugoshortcode177s10hbhb">#&lt;/a>
+&lt;a class="anchor" href="#725-%d8%aa%d8%b3%d8%aa-%d9%88%d8%a7%d8%ad%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1%d9%87%d8%a7-%d9%88-%d9%85%d8%aa%d8%af%d9%87%d8%a7%db%8c-hahahugoshortcode175s10hbhb">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان Go، بسیاری از قابلیت‌های سطح بالا از طریق متدهایی روی ساختارها (structs) پیاده‌سازی می‌شوند. این متدها بسته به نوع گیرنده‌شان (&lt;code>value receiver&lt;/code> یا &lt;code>pointer receiver&lt;/code>) و میزان وابستگی‌شان به وضعیت داخلی ساختار، نیاز به طراحی تست دقیق‌تری دارند.&lt;/p>
 &lt;p>در این بخش، بررسی می‌کنیم که چگونه می‌توان به صورت مؤثر برای متدهای متصل به ساختارها تست واحد نوشت.&lt;/p>
@@ -1218,7 +1218,7 @@ PASS
 &lt;p>در سیستم‌های CI/CD، می‌توان دو مرحله اجرای تست داشت:&lt;/p>
 &lt;pre>&lt;code class="language-bash">go test -short ./... # فقط تست‌های سریع
 go test ./... # همه تست‌ها (مثلاً فقط در زمان انتشار نسخه)
-&lt;/code>&lt;/pre></description></item><item><author/><title>7.3 تست جدول‌محور (Table-Driven Test)</title><link>https://book.gofarsi.ir/chapter-7/go-table-driven-tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-7/go-table-driven-tests/</guid><description>&lt;p>fدر زبان Go، یکی از الگوهای محبوب و بسیار قدرتمند برای نوشتن تست‌های واحد و رفتاری، الگوی «تست جدول‌محور» است. این سبک از تست‌نویسی نه‌تنها منجر به حذف تکرارهای زائد در کد تست می‌شود، بلکه ساختاری منسجم برای تعریف سناریوهای مختلف تست، به همراه ورودی و خروجی‌های مورد انتظار، فراهم می‌سازد.&lt;/p>
+&lt;/code>&lt;/pre></description></item><item><author/><title>7.3 تست جدول‌محور (Table-Driven Test)</title><link>https://book.gofarsi.ir/chapter-7/go-table-driven-tests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-7/go-table-driven-tests/</guid><description>&lt;p>در زبان Go، یکی از الگوهای محبوب و بسیار قدرتمند برای نوشتن تست‌های واحد و رفتاری، الگوی «تست جدول‌محور» است. این سبک از تست‌نویسی نه‌تنها منجر به حذف تکرارهای زائد در کد تست می‌شود، بلکه ساختاری منسجم برای تعریف سناریوهای مختلف تست، به همراه ورودی و خروجی‌های مورد انتظار، فراهم می‌سازد.&lt;/p>
 &lt;p>در این الگو، مجموعه‌ای از تست‌ها به‌صورت یک جدول از structها تعریف می‌شود که شامل نام تست، ورودی‌ها، خروجی مورد انتظار، و گاهی انتظار وقوع خطا است. سپس با استفاده از یک حلقه و تابع &lt;code>t.Run&lt;/code>، هر ردیف از جدول به‌صورت یک تست مستقل (subtest) اجرا می‌شود. این طراحی باعث می‌شود اضافه‌کردن یک تست جدید، تنها با افزودن یک struct به جدول امکان‌پذیر باشد—بدون نیاز به کپی‌کردن منطق کلی تست.&lt;/p>
 &lt;p>این نوع تست‌نویسی به‌طور ویژه برای پوشش کامل مسیرهای مختلف در توابعی با منطق شرطی یا چند حالت ورودی مناسب است. همچنین، به‌کارگیری آن در کنار subtestها موجب می‌شود گزارش شکست‌ها دقیق‌تر، ساخت‌یافته‌تر و خواناتر باشد. در پروژه‌های مقیاس‌پذیر، این سبک نه‌تنها خوانایی تست‌ها را حفظ می‌کند، بلکه روند توسعه و نگهداری آن‌ها را نیز تسهیل می‌کند.&lt;/p>
 &lt;p>در ادامه‌ی این بخش، ابتدا ساختار استاندارد یک تست جدول‌محور را معرفی می‌کنیم، سپس به بررسی تکنیک‌های پیشرفته، اشتباهات رایج، اجرای موازی تست‌ها، طراحی تست‌های نگهدارنده‌ی خطا، و الگوهای پیشنهادی برای پروژه‌های واقعی می‌پردازیم.&lt;/p>
