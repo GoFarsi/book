@@ -93,18 +93,30 @@ offline_image = "icons/offline.png"  # optional
 
 [[params.pwa.precaches]]
 url = "/"
+[[params.pwa.precaches]]
+url = "/offline/"
 
-[params.pwa.caches.font]
-strategy = "network-first"
-
-[params.pwa.caches.image]
+# Caching strategies
+[params.pwa.caches.document]
 strategy = "network-first"
 
 [params.pwa.caches.script]
-strategy = "network-first"
+strategy = "stale-while-revalidate"
 
 [params.pwa.caches.style]
-strategy = "network-first"
+strategy = "stale-while-revalidate"
+
+[params.pwa.caches.image]
+strategy = "cache-first"
+  [params.pwa.caches.image.expiration]
+  max_entries = 100
+  max_age = "30d"
+
+[params.pwa.caches.font]
+strategy = "cache-first"
+  [params.pwa.caches.font.expiration]
+  max_entries = 30
+  max_age = "365d"
 
 
 [markup]
