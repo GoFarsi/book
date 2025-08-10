@@ -571,14 +571,27 @@ main.main.func2()
 7.2.1.1 ساختار پایه تست واحد
 &lt;a class="anchor" href="#7211-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1-%d9%be%d8%a7%db%8c%d9%87-%d8%aa%d8%b3%d8%aa-%d9%88%d8%a7%d8%ad%d8%af">#&lt;/a>
 &lt;/h3>
-&lt;pre>&lt;code class="language-go">func TestAdd(t *testing.T) {
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"testing"
+)
+func Add(a, b int) int {
+return a + b
+}
+func TestAdd(t *testing.T) {
 got := Add(2, 3)
 want := 5
 if got != want {
-t.Errorf(&amp;quot;Add(2,3) = %d; want %d&amp;quot;, got, want)
+t.Errorf("Add(2,3) = %d; want %d", got, want)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال ساده:&lt;/p>
 &lt;ul>
 &lt;li>تابع &lt;code>Add&lt;/code> بررسی می‌شود.&lt;/li>
@@ -683,94 +696,133 @@ t.Fatalf(&amp;quot;unexpected error: %v&amp;quot;, err)
 &lt;a class="anchor" href="#7221-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%d8%ae%d8%b7%d8%a7%d9%87%d8%a7%db%8c-%d9%85%d9%88%d8%b1%d8%af-%d8%a7%d9%86%d8%aa%d8%b8%d8%a7%d8%b1">#&lt;/a>
 &lt;/h3>
 &lt;p>در بسیاری از مواقع، یک تابع در شرایط خاص باید خطا بازگرداند. تست صحیح باید این خطا را بررسی کرده و اطمینان حاصل کند که نوع خطا، پیام و زمان وقوع آن دقیقاً مطابق انتظار است.&lt;/p>
-&lt;p>مثال:&lt;/p>
-&lt;pre>&lt;code class="language-go">func Divide(a, b int) (int, error) {
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"testing"
+)
+func Divide(a, b int) (int, error) {
 if b == 0 {
-return 0, fmt.Errorf(&amp;quot;cannot divide by zero&amp;quot;)
+return 0, fmt.Errorf("cannot divide by zero")
 }
 return a / b, nil
 }
-&lt;/code>&lt;/pre>
-&lt;p>تست:&lt;/p>
-&lt;pre>&lt;code class="language-go">func TestDivideByZero(t *testing.T) {
+func TestDivideByZero(t *testing.T) {
 _, err := Divide(10, 0)
 if err == nil {
-t.Fatal(&amp;quot;expected error, got nil&amp;quot;)
+t.Fatal("expected error, got nil")
 }
-if err.Error() != &amp;quot;cannot divide by zero&amp;quot; {
-t.Errorf(&amp;quot;unexpected error message: %v&amp;quot;, err)
+if err.Error() != "cannot divide by zero" {
+t.Errorf("unexpected error message: %v", err)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="7222-تست-موفقیت-در-غیاب-خطا">
 7.2.2.2 تست موفقیت در غیاب خطا
 &lt;a class="anchor" href="#7222-%d8%aa%d8%b3%d8%aa-%d9%85%d9%88%d9%81%d9%82%db%8c%d8%aa-%d8%af%d8%b1-%d8%ba%db%8c%d8%a7%d8%a8-%d8%ae%d8%b7%d8%a7">#&lt;/a>
 &lt;/h3>
 &lt;p>در طرف دیگر، باید اطمینان حاصل کنیم که در شرایط صحیح، تابع بدون خطا عمل می‌کند:&lt;/p>
-&lt;pre>&lt;code class="language-go">func TestDivideSuccess(t *testing.T) {
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"testing"
+)
+func Divide(a, b int) (int, error) {
+if b == 0 {
+return 0, fmt.Errorf("cannot divide by zero")
+}
+return a / b, nil
+}
+func TestDivideSuccess(t *testing.T) {
 res, err := Divide(10, 2)
 if err != nil {
-t.Fatalf(&amp;quot;unexpected error: %v&amp;quot;, err)
+t.Fatalf("unexpected error: %v", err)
 }
 if res != 5 {
-t.Errorf(&amp;quot;expected 5, got %d&amp;quot;, res)
+t.Errorf("expected 5, got %d", res)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="7223-استفاده-از-errorsis-و-errorsas">
 7.2.2.3 استفاده از errors.Is و errors.As
 &lt;a class="anchor" href="#7223-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-errorsis-%d9%88-errorsas">#&lt;/a>
 &lt;/h3>
 &lt;p>در شرایط حرفه‌ای، به‌جای بررسی پیام خطا، بهتر است از توابع استاندارد کتابخانه &lt;code>errors&lt;/code> برای بررسی نوع خطا استفاده شود، خصوصاً زمانی که خطاها wrap می‌شوند.&lt;/p>
-&lt;pre>&lt;code class="language-go">var ErrDivideByZero = errors.New(&amp;quot;cannot divide by zero&amp;quot;)
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"testing"
+)
+var ErrDivideByZero = errors.New("cannot divide by zero")
 func Divide(a, b int) (int, error) {
 if b == 0 {
-return 0, fmt.Errorf(&amp;quot;wrap: %w&amp;quot;, ErrDivideByZero)
+return 0, fmt.Errorf("wrap: %w", ErrDivideByZero)
 }
 return a / b, nil
 }
-&lt;/code>&lt;/pre>
-&lt;p>تست:&lt;/p>
-&lt;pre>&lt;code class="language-go">func TestDivideByZeroTypedError(t *testing.T) {
+func TestDivideByZeroTypedError(t *testing.T) {
 _, err := Divide(1, 0)
 if !errors.Is(err, ErrDivideByZero) {
-t.Errorf(&amp;quot;expected ErrDivideByZero, got %v&amp;quot;, err)
+t.Errorf("expected ErrDivideByZero, got %v", err)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="7224-پوشش-تمامی-مسیرهای-منطقی">
 7.2.2.4 پوشش تمامی مسیرهای منطقی
 &lt;a class="anchor" href="#7224-%d9%be%d9%88%d8%b4%d8%b4-%d8%aa%d9%85%d8%a7%d9%85%db%8c-%d9%85%d8%b3%db%8c%d8%b1%d9%87%d8%a7%db%8c-%d9%85%d9%86%d8%b7%d9%82%db%8c">#&lt;/a>
 &lt;/h3>
 &lt;p>هر تابعی که دارای چند مسیر شرطی است، باید در تست‌های واحد به‌صورت جداگانه در تمامی مسیرها آزمایش شود. عدم پوشش یکی از مسیرها می‌تواند منجر به بروز باگ‌های پنهان در آینده شود.&lt;/p>
 &lt;p>برای مثال، تابع زیر دو مسیر دارد:&lt;/p>
-&lt;pre>&lt;code class="language-go">func Authenticate(token string) error {
-if token == &amp;quot;&amp;quot; {
-return errors.New(&amp;quot;token required&amp;quot;)
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"testing"
+)
+func Authenticate(token string) error {
+if token == "" {
+return errors.New("token required")
 }
 return nil
 }
-&lt;/code>&lt;/pre>
-&lt;p>تست صحیح باید هر دو مسیر را پوشش دهد:&lt;/p>
-&lt;pre>&lt;code class="language-go">func TestAuthenticate(t *testing.T) {
+func TestAuthenticate(t *testing.T) {
 tests := []struct {
 name string
 input string
 wantErr bool
 }{
-{&amp;quot;valid token&amp;quot;, &amp;quot;abc123&amp;quot;, false},
-{&amp;quot;empty token&amp;quot;, &amp;quot;&amp;quot;, true},
+{"valid token", "abc123", false},
+{"empty token", "", true},
 }
 for _, tt := range tests {
 t.Run(tt.name, func(t *testing.T) {
 err := Authenticate(tt.input)
 if (err != nil) != tt.wantErr {
-t.Errorf(&amp;quot;unexpected error result. got error=%v&amp;quot;, err)
+t.Errorf("unexpected error result. got error=%v", err)
 }
 })
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این تکنیک با نام &lt;span class="tooltip" data-tooltip="table-driven test" ontouchend="toggleTooltip(this)">تست جدول‌محور&lt;/span>
 شناخته می‌شود و در بخش بعدی به‌صورت مفصل بررسی خواهد شد.&lt;/p>
 &lt;h2 id="723-تست-توابع-غیرصادرشده-unexported-و-کاربرد-پکیج-_test">
@@ -783,21 +835,25 @@ t.Errorf(&amp;quot;unexpected error result. got error=%v&amp;quot;, err)
 &lt;a class="anchor" href="#7231-%d9%86%d9%88%d8%b4%d8%aa%d9%86-%d8%aa%d8%b3%d8%aa-%d8%af%d8%b1-%d9%87%d9%85%d8%a7%d9%86-%d9%be%da%a9%db%8c%d8%ac">#&lt;/a>
 &lt;/h3>
 &lt;p>در ساده‌ترین حالت، فایل تست را در همان پکیجی می‌نویسیم که کد اصلی قرار دارد. این روش به تست دسترسی کامل به توابع، متغیرها و انواع داخلی را می‌دهد.&lt;/p>
-&lt;pre>&lt;code class="language-go">// file: internal.go
-package math
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"testing"
+)
 func subtract(a, b int) int {
 return a - b
 }
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-go">// file: internal_test.go
-package math
-import &amp;quot;testing&amp;quot;
 func TestSubtract(t *testing.T) {
 if subtract(5, 3) != 2 {
-t.Errorf(&amp;quot;expected 2, got %d&amp;quot;, subtract(5, 3))
+t.Errorf("expected 2, got %d", subtract(5, 3))
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این روش توصیه‌شده و رسمی‌ترین راه برای تست موارد غیرصادرشده است.&lt;/p>
 &lt;h3 id="7232-استفاده-از-پکیج-تست-جداگانه-_test">
 7.2.3.2 استفاده از پکیج تست جداگانه (_test)
@@ -979,9 +1035,9 @@ t.Errorf(&amp;quot;expected %v, got %v&amp;quot;, expected, result)
 func TestAddPositiveNumbers(t *testing.T) { ... }
 &lt;/code>&lt;/pre>
 &lt;p>از نام‌هایی مثل &lt;code>Test1&lt;/code>, &lt;code>TestA&lt;/code>, &lt;code>TestXYZ&lt;/code> اجتناب کنید.&lt;/p>
-&lt;h2 id="725-تست-واحد-برای-ساختارها-و-متدهای-hahahugoshortcode177s4hbhb">
+&lt;h2 id="725-تست-واحد-برای-ساختارها-و-متدهای-hahahugoshortcode177s10hbhb">
 7.2.5 تست واحد برای ساختارها و متدهای &lt;span class="tooltip" data-tooltip="receiver methods" ontouchend="toggleTooltip(this)">گیرنده&lt;/span>
-&lt;a class="anchor" href="#725-%d8%aa%d8%b3%d8%aa-%d9%88%d8%a7%d8%ad%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1%d9%87%d8%a7-%d9%88-%d9%85%d8%aa%d8%af%d9%87%d8%a7%db%8c-hahahugoshortcode177s4hbhb">#&lt;/a>
+&lt;a class="anchor" href="#725-%d8%aa%d8%b3%d8%aa-%d9%88%d8%a7%d8%ad%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1%d9%87%d8%a7-%d9%88-%d9%85%d8%aa%d8%af%d9%87%d8%a7%db%8c-hahahugoshortcode177s10hbhb">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان Go، بسیاری از قابلیت‌های سطح بالا از طریق متدهایی روی ساختارها (structs) پیاده‌سازی می‌شوند. این متدها بسته به نوع گیرنده‌شان (&lt;code>value receiver&lt;/code> یا &lt;code>pointer receiver&lt;/code>) و میزان وابستگی‌شان به وضعیت داخلی ساختار، نیاز به طراحی تست دقیق‌تری دارند.&lt;/p>
 &lt;p>در این بخش، بررسی می‌کنیم که چگونه می‌توان به صورت مؤثر برای متدهای متصل به ساختارها تست واحد نوشت.&lt;/p>
@@ -1073,34 +1129,42 @@ t.Error(&amp;quot;expected origin from zero value&amp;quot;)
 &lt;a class="anchor" href="#7256-%d8%aa%d8%b1%da%a9%db%8c%d8%a8-%d9%85%d8%aa%d8%af-%d9%88-%d8%ae%d8%b7%d8%a7">#&lt;/a>
 &lt;/h3>
 &lt;p>در صورتی که متدی روی struct خطا بازمی‌گرداند، حتماً باید شرایط موفق/ناموفق را تست کنید:&lt;/p>
-&lt;pre>&lt;code class="language-go">type User struct {
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"testing"
+)
+type User struct {
 Email string
 }
 func (u *User) Validate() error {
-if u.Email == &amp;quot;&amp;quot; {
-return errors.New(&amp;quot;email required&amp;quot;)
+if u.Email == "" {
+return errors.New("email required")
 }
 return nil
 }
-&lt;/code>&lt;/pre>
-&lt;p>تست:&lt;/p>
-&lt;pre>&lt;code class="language-go">func TestUser_Validate(t *testing.T) {
+func TestUser_Validate(t *testing.T) {
 tests := []struct {
 email string
 wantErr bool
 }{
-{&amp;quot;&amp;quot;, true},
-{&amp;quot;hello@example.com&amp;quot;, false},
+{"", true},
+{"hello@example.com", false},
 }
 for _, tt := range tests {
-u := &amp;amp;User{Email: tt.email}
+u := &amp;User{Email: tt.email}
 err := u.Validate()
 if (err != nil) != tt.wantErr {
-t.Errorf(&amp;quot;unexpected error state for email %q&amp;quot;, tt.email)
+t.Errorf("unexpected error state for email %q", tt.email)
 }
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="726-تفکیک-تستهای-سریع-و-آهسته-با--short">
 7.2.6 تفکیک تست‌های سریع و آهسته با -short
 &lt;a class="anchor" href="#726-%d8%aa%d9%81%da%a9%db%8c%da%a9-%d8%aa%d8%b3%d8%aa%d9%87%d8%a7%db%8c-%d8%b3%d8%b1%db%8c%d8%b9-%d9%88-%d8%a2%d9%87%d8%b3%d8%aa%d9%87-%d8%a8%d8%a7--short">#&lt;/a>
@@ -1164,7 +1228,8 @@ go test ./... # همه تست‌ها (مثلاً فقط در زمان انتشا
 &lt;/h2>
 &lt;p>الگوی تست‌های جدول‌محور در Go یکی از کاربردی‌ترین الگوهای تست‌نویسی است که توسط بسیاری از توسعه‌دهندگان و در پروژه‌های رسمی Go نیز به کار می‌رود. این سبک از تست‌نویسی، بر پایه‌ی تعریف یک جدول از سناریوهای تست و اجرای آن‌ها در یک حلقه‌ی ساده بنا شده است. هدف، کاهش تکرار در کد تست، افزایش خوانایی و ساده‌سازی افزودن موارد تست جدید است.&lt;/p>
 &lt;p>در این الگو، هر ردیف جدول معمولاً یک struct است که شامل فیلدهایی مانند نام تست، ورودی‌ها، خروجی مورد انتظار، و گاهی هم انتظار وقوع خطاست. ساختار کلی آن شبیه به کد زیر است:&lt;/p>
-&lt;pre>&lt;code class="language-go">func TestAdd(t *testing.T) {
+&lt;pre>&lt;code class="language-go">
+func TestAdd(t *testing.T) {
 tests := []struct {
 name string
 a, b int
@@ -1480,7 +1545,6 @@ cases := []mathTest{
 {&amp;quot;zero divisor&amp;quot;, 10, 0, 0, true},
 }
 for _, tc := range cases {
-tc := tc
 t.Run(tc.name, func(t *testing.T) {
 t.Parallel()
 got, err := Divide(tc.a, tc.b)
@@ -1497,12 +1561,9 @@ t.Errorf(&amp;quot;expected %d, got %d&amp;quot;, tc.want, got)
 &lt;p>در این الگو:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>t.Parallel()&lt;/code> برای سرعت بالا&lt;/li>
-&lt;li>&lt;code>tc := tc&lt;/code> برای جلوگیری از closure bug&lt;/li>
 &lt;li>پیام‌های دقیق و واضح&lt;/li>
 &lt;li>struct مشخص و تایپ‌شده برای هر تست&lt;/li>
 &lt;/ul>
-&lt;blockquote>
-&lt;p>از&lt;a href="https://go.dev/blog/loopvar-preview"> نسخه 1.22 این مشکل&lt;/a> حالت کاملا حل شده است و نیازی به shadowing نیست.&lt;/p>&lt;/blockquote>
 &lt;h2 id="735-استفاده-از-تستهای-تو-در-تو-subtests-در-table-test">
 7.3.5 استفاده از تست‌های تو در تو (Subtests) در Table Test
 &lt;a class="anchor" href="#735-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-%d8%aa%d8%b3%d8%aa%d9%87%d8%a7%db%8c-%d8%aa%d9%88-%d8%af%d8%b1-%d8%aa%d9%88-subtests-%d8%af%d8%b1-table-test">#&lt;/a>
@@ -1614,6 +1675,8 @@ t.Fail()
 &lt;a class="anchor" href="#7361-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b4%d8%aa%d8%a8%d8%a7%d9%87-%d8%a7%d8%b2-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-loop-closure-bug">#&lt;/a>
 &lt;/h3>
 &lt;p>یکی از خطرناک‌ترین و رایج‌ترین اشتباهات، استفاده مستقیم از متغیر loop (&lt;code>tt&lt;/code>) درون تابع &lt;code>t.Run&lt;/code> است. به دلیل اینکه &lt;code>tt&lt;/code> در هر iteration یک متغیر مشترک است، همه goroutineها ممکن است به آخرین مقدار آن دسترسی داشته باشند.&lt;/p>
+&lt;blockquote>
+&lt;p>از&lt;a href="https://go.dev/blog/loopvar-preview"> نسخه 1.22 این مشکل&lt;/a> کاملا حل شده است و نیازی به shadowing نیست.&lt;/p>&lt;/blockquote>
 &lt;p>❌ مثال اشتباه:&lt;/p>
 &lt;pre>&lt;code class="language-go">for _, tt := range tests {
 t.Run(tt.name, func(t *testing.T) {
