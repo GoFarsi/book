@@ -5936,39 +5936,49 @@ fmt.Println("File updated successfully")
 &lt;a class="anchor" href="#42731-iocopy-%d9%88-iocopyn">#&lt;/a>
 &lt;/h3>
 &lt;p>تابع &lt;code>io.Copy&lt;/code> داده را از یک &lt;code>io.Reader&lt;/code> به یک &lt;code>io.Writer&lt;/code> منتقل می‌کند تا زمانی که منبع به انتها برسد یا خطایی رخ دهد.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;strings&amp;quot;
+"fmt"
+"io"
+"os"
+"strings"
 )
 func main() {
-src := strings.NewReader(&amp;quot;Hello io.Copy\n&amp;quot;)
+src := strings.NewReader("Hello io.Copy\n")
 _, err := io.Copy(os.Stdout, src)
 if err != nil {
 panic(err)
 }
-fmt.Println(&amp;quot;Copy completed successfully&amp;quot;)
-}
-&lt;/code>&lt;/pre>
+fmt.Println("Copy completed successfully")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>اگر بخواهیم فقط تعداد مشخصی بایت منتقل کنیم، می‌توانیم از &lt;code>io.CopyN&lt;/code> استفاده کنیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;strings&amp;quot;
+"fmt"
+"io"
+"os"
+"strings"
 )
 func main() {
-src := strings.NewReader(&amp;quot;ABCDEFGH&amp;quot;)
+src := strings.NewReader("ABCDEFGH")
 _, err := io.CopyN(os.Stdout, src, 4)
 if err != nil {
 panic(err)
 }
-fmt.Println(&amp;quot;\nCopyN completed successfully&amp;quot;)
-}
-&lt;/code>&lt;/pre>
+fmt.Println("\nCopyN completed successfully")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="42732-iomultireader-و-iomultiwriter">
 4.27.3.2 io.MultiReader و io.MultiWriter
 &lt;a class="anchor" href="#42732-iomultireader-%d9%88-iomultiwriter">#&lt;/a>
@@ -5976,114 +5986,144 @@ fmt.Println(&amp;quot;\nCopyN completed successfully&amp;quot;)
 &lt;ul>
 &lt;li>&lt;strong>&lt;code>io.MultiReader&lt;/code>&lt;/strong> چند Reader را به هم وصل می‌کند تا خروجی‌شان پشت سر هم خوانده شود.&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;strings&amp;quot;
+"io"
+"os"
+"strings"
 )
 func main() {
-r1 := strings.NewReader(&amp;quot;Hello &amp;quot;)
-r2 := strings.NewReader(&amp;quot;World\n&amp;quot;)
+r1 := strings.NewReader("Hello ")
+r2 := strings.NewReader("World\n")
 mr := io.MultiReader(r1, r2)
 io.Copy(os.Stdout, mr)
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;ul>
 &lt;li>&lt;strong>&lt;code>io.MultiWriter&lt;/code>&lt;/strong> داده را همزمان به چند Writer ارسال می‌کند.&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;strings&amp;quot;
+"io"
+"os"
+"strings"
 )
 func main() {
-file, _ := os.Create(&amp;quot;multi.txt&amp;quot;)
+file, _ := os.Create("multi.txt")
 defer file.Close()
 mw := io.MultiWriter(os.Stdout, file)
-io.Copy(mw, strings.NewReader(&amp;quot;Hello MultiWriter\n&amp;quot;))
-}
-&lt;/code>&lt;/pre>
+io.Copy(mw, strings.NewReader("Hello MultiWriter\n"))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="42733-ioteereader">
 4.27.3.3 io.TeeReader
 &lt;a class="anchor" href="#42733-ioteereader">#&lt;/a>
 &lt;/h3>
 &lt;p>&lt;code>io.TeeReader&lt;/code> داده را از یک Reader می‌خواند و در حین خواندن، همان داده را در یک Writer هم می‌نویسد.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;strings&amp;quot;
+"io"
+"os"
+"strings"
 )
 func main() {
-src := strings.NewReader(&amp;quot;Hello TeeReader\n&amp;quot;)
+src := strings.NewReader("Hello TeeReader\n")
 tr := io.TeeReader(src, os.Stdout)
 // خواندن کامل باعث می‌شود داده هم روی stdout نوشته شود
 io.ReadAll(tr)
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="42734-iolimitreader-و-iolimitwriter">
 4.27.3.4 io.LimitReader و io.LimitWriter
 &lt;a class="anchor" href="#42734-iolimitreader-%d9%88-iolimitwriter">#&lt;/a>
 &lt;/h3>
 &lt;p>این توابع حجم داده را محدود می‌کنند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
-&amp;quot;strings&amp;quot;
+"io"
+"os"
+"strings"
 )
 func main() {
-src := strings.NewReader(&amp;quot;This is a long text&amp;quot;)
+src := strings.NewReader("This is a long text")
 limited := io.LimitReader(src, 7)
 io.Copy(os.Stdout, limited) // فقط ۷ بایت اول چاپ می‌شود
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="42735-ioreadall">
 4.27.3.5 io.ReadAll
 &lt;a class="anchor" href="#42735-ioreadall">#&lt;/a>
 &lt;/h3>
 &lt;p>&lt;code>io.ReadAll&lt;/code> تمام داده را تا پایان منبع (&lt;code>io.EOF&lt;/code>) می‌خواند و در حافظه نگه می‌دارد (برای داده‌های بزرگ باید با احتیاط استفاده شود).&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;strings&amp;quot;
+"fmt"
+"io"
+"strings"
 )
 func main() {
-data := strings.NewReader(&amp;quot;ReadAll example&amp;quot;)
+data := strings.NewReader("ReadAll example")
 all, err := io.ReadAll(data)
 if err != nil {
 panic(err)
 }
 fmt.Println(string(all))
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h3 id="42736-iosectionreader">
 4.27.3.6 io.SectionReader
 &lt;a class="anchor" href="#42736-iosectionreader">#&lt;/a>
 &lt;/h3>
 &lt;p>&lt;code>io.SectionReader&lt;/code> اجازه می‌دهد فقط بخشی از یک منبع داده را بخوانیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 import (
-&amp;quot;fmt&amp;quot;
-&amp;quot;io&amp;quot;
-&amp;quot;os&amp;quot;
+"fmt"
+"io"
+"os"
 )
 func main() {
-file, _ := os.Open(&amp;quot;section.txt&amp;quot;)
+file, _ := os.Open("section.txt")
 defer file.Close()
 // فرض می‌کنیم فایل حداقل ۱۰ بایت دارد
 section := io.NewSectionReader(file, 3, 5) // از بایت سوم، ۵ بایت بخوان
 buf := make([]byte, 5)
 _, err := section.Read(buf)
-if err != nil &amp;amp;&amp;amp; err != io.EOF {
+if err != nil &amp;&amp; err != io.EOF {
 panic(err)
 }
-fmt.Printf(&amp;quot;Section data: %s\n&amp;quot;, buf)
-}
-&lt;/code>&lt;/pre>
+fmt.Printf("Section data: %s\n", buf)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;h2 id="4274-کار-با-iopipe-و-ارتباط-بین-goroutines">
 4.27.4 کار با io.Pipe و ارتباط بین Goroutines
 &lt;a class="anchor" href="#4274-%da%a9%d8%a7%d8%b1-%d8%a8%d8%a7-iopipe-%d9%88-%d8%a7%d8%b1%d8%aa%d8%a8%d8%a7%d8%b7-%d8%a8%db%8c%d9%86-goroutines">#&lt;/a>
