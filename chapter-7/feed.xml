@@ -1035,9 +1035,9 @@ t.Errorf(&amp;quot;expected %v, got %v&amp;quot;, expected, result)
 func TestAddPositiveNumbers(t *testing.T) { ... }
 &lt;/code>&lt;/pre>
 &lt;p>از نام‌هایی مثل &lt;code>Test1&lt;/code>, &lt;code>TestA&lt;/code>, &lt;code>TestXYZ&lt;/code> اجتناب کنید.&lt;/p>
-&lt;h2 id="725-تست-واحد-برای-ساختارها-و-متدهای-hahahugoshortcode175s10hbhb">
+&lt;h2 id="725-تست-واحد-برای-ساختارها-و-متدهای-hahahugoshortcode178s10hbhb">
 7.2.5 تست واحد برای ساختارها و متدهای &lt;span class="tooltip" data-tooltip="receiver methods" ontouchend="toggleTooltip(this)">گیرنده&lt;/span>
-&lt;a class="anchor" href="#725-%d8%aa%d8%b3%d8%aa-%d9%88%d8%a7%d8%ad%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1%d9%87%d8%a7-%d9%88-%d9%85%d8%aa%d8%af%d9%87%d8%a7%db%8c-hahahugoshortcode175s10hbhb">#&lt;/a>
+&lt;a class="anchor" href="#725-%d8%aa%d8%b3%d8%aa-%d9%88%d8%a7%d8%ad%d8%af-%d8%a8%d8%b1%d8%a7%db%8c-%d8%b3%d8%a7%d8%ae%d8%aa%d8%a7%d8%b1%d9%87%d8%a7-%d9%88-%d9%85%d8%aa%d8%af%d9%87%d8%a7%db%8c-hahahugoshortcode178s10hbhb">#&lt;/a>
 &lt;/h2>
 &lt;p>در زبان Go، بسیاری از قابلیت‌های سطح بالا از طریق متدهایی روی ساختارها (structs) پیاده‌سازی می‌شوند. این متدها بسته به نوع گیرنده‌شان (&lt;code>value receiver&lt;/code> یا &lt;code>pointer receiver&lt;/code>) و میزان وابستگی‌شان به وضعیت داخلی ساختار، نیاز به طراحی تست دقیق‌تری دارند.&lt;/p>
 &lt;p>در این بخش، بررسی می‌کنیم که چگونه می‌توان به صورت مؤثر برای متدهای متصل به ساختارها تست واحد نوشت.&lt;/p>

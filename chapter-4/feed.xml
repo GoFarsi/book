@@ -5663,4 +5663,1414 @@ log.Fatal(&amp;quot;failed to listen pprof server&amp;quot;, &amp;quot;err&amp;q
 4.26.8 نکته‌ها
 &lt;a class="anchor" href="#4268-%d9%86%da%a9%d8%aa%d9%87%d9%87%d8%a7">#&lt;/a>
 &lt;/h3>
-&lt;p>یک الگوی پروژه با نظر بیشتر با تنظیمات sample/reusable استفاده مجدد، اسکریپت‌ها و کد یک WIP است.&lt;/p></description></item></channel></rss>
+&lt;p>یک الگوی پروژه با نظر بیشتر با تنظیمات sample/reusable استفاده مجدد، اسکریپت‌ها و کد یک WIP است.&lt;/p></description></item><item><author/><title>4.27 آموزش کار با پکیج io</title><link>https://book.gofarsi.ir/chapter-4/go-io-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-io-package/</guid><description>&lt;p>پکیج &lt;code>io&lt;/code> در زبان Go یکی از ابزارهای پایه و همه‌فن‌حریف برای کار با عملیات &lt;span class="tooltip" data-tooltip="ورودی/خروجی" ontouchend="toggleTooltip(this)">Input/Output&lt;/span>
+است. فلسفه‌اش اینه که ما بدون وابستگی به نوع خاص داده (مثل فایل، شبکه یا حافظه) بتونیم از یک &lt;span class="tooltip" data-tooltip="رابط" ontouchend="toggleTooltip(this)">Interface&lt;/span>
+ساده استفاده کنیم. این یعنی اگر یک شیء فقط متد مورد نیاز رو پیاده‌سازی کنه، می‌تونه در تمام جاهایی که اون رابط انتظار میره استفاده بشه. مثلا &lt;code>io.Reader&lt;/code> فقط یک متد &lt;code>Read&lt;/code> داره و &lt;code>io.Writer&lt;/code> یک متد &lt;code>Write&lt;/code>، ولی همین دو قرارداد ساده پایه تمام سیستم &lt;span class="tooltip" data-tooltip="انتزاع ورودی/خروجی" ontouchend="toggleTooltip(this)">I/O Abstraction&lt;/span>
+در Go رو تشکیل میدن.&lt;/p>
+&lt;p>اینترفیس‌های اصلی این پکیج مثل &lt;code>io.Reader&lt;/code> و &lt;code>io.Writer&lt;/code> رو میشه ترکیب کرد و ساختارهای جدیدی ساخت، مثل &lt;code>io.ReadWriter&lt;/code> که هم قابلیت خواندن داره و هم نوشتن، یا &lt;code>io.ReadCloser&lt;/code> که علاوه بر خواندن، قابلیت بستن منبع داده رو هم فراهم می‌کنه. این ترکیب‌ها به ما امکان میدن با منابع داده‌ای مختلف، از فایل گرفته تا اتصال شبکه، به شکلی یکپارچه کار کنیم. وقتی کد رو بر اساس اینترفیس‌ها بنویسیم، نه‌تنها تست‌پذیرتر و قابل توسعه‌تر میشه، بلکه وابستگی به پیاده‌سازی‌های خاص هم از بین میره.&lt;/p>
+&lt;p>پکیج &lt;code>io&lt;/code> فقط به رابط‌ها محدود نیست و مجموعه‌ای از &lt;span class="tooltip" data-tooltip="توابع کمکی" ontouchend="toggleTooltip(this)">Helper Functions&lt;/span>
+رو هم ارائه میده که کار رو به شدت ساده‌تر و بهینه‌تر می‌کنن. مثلا &lt;code>io.Copy&lt;/code> داده رو مستقیم از یک &lt;code>Reader&lt;/code> به یک &lt;code>Writer&lt;/code> منتقل می‌کنه بدون اینکه ما نیاز به نوشتن حلقه خواندن و نوشتن داشته باشیم. &lt;code>io.MultiWriter&lt;/code> خروجی رو به چند مقصد به طور همزمان ارسال می‌کنه، و &lt;code>io.TeeReader&lt;/code> برای زمانی که می‌خوای داده رو بخونی و همزمان یک نسخه ازش رو برای &lt;span class="tooltip" data-tooltip="ثبت رویداد" ontouchend="toggleTooltip(this)">Logging&lt;/span>
+یا &lt;span class="tooltip" data-tooltip="اشکال‌زدایی" ontouchend="toggleTooltip(this)">Debugging&lt;/span>
+ذخیره کنی عالیه. همچنین ابزارهایی مثل &lt;code>io.LimitReader&lt;/code> یا &lt;code>io.SectionReader&lt;/code> وجود دارن که اجازه میدن فقط بخش خاصی از داده رو پردازش کنیم.&lt;/p>
+&lt;p>در بخش پیشرفته‌تر، این پکیج امکاناتی مثل &lt;code>io.Pipe&lt;/code> رو هم ارائه میده که دو سر ورودی و خروجی رو به هم وصل می‌کنه و به‌ویژه برای &lt;span class="tooltip" data-tooltip="جریان داده" ontouchend="toggleTooltip(this)">Streaming&lt;/span>
+و ارتباط بین &lt;span class="tooltip" data-tooltip="گوروتین‌ها" ontouchend="toggleTooltip(this)">Goroutines&lt;/span>
+بسیار کاربردیه. نکته مهم توی استفاده از این پکیج مدیریت درست خطاست؛ مثلا تفاوت &lt;code>io.EOF&lt;/code> که فقط نشون‌دهنده پایان داده‌ست با یک خطای واقعی رو باید بدونیم. همچنین استفاده از بافرها (&lt;code>bufio&lt;/code>) برای بهبود کارایی و کاهش هزینه I/O در پروژه‌های &lt;span class="tooltip" data-tooltip="محیط عملیاتی" ontouchend="toggleTooltip(this)">Production&lt;/span>
+توصیه میشه.&lt;/p>
+&lt;h2 id="4271-معرفی-پکیج-io-و-فلسفه-طراحی">
+4.27.1 معرفی پکیج io و فلسفه طراحی
+&lt;a class="anchor" href="#4271-%d9%85%d8%b9%d8%b1%d9%81%db%8c-%d9%be%da%a9%db%8c%d8%ac-io-%d9%88-%d9%81%d9%84%d8%b3%d9%81%d9%87-%d8%b7%d8%b1%d8%a7%d8%ad%db%8c">#&lt;/a>
+&lt;/h2>
+&lt;p>پکیج &lt;code>io&lt;/code> در زبان Go یک بخش کلیدی از کتابخانه استاندارد است که پایه و اساس تمام عملیات &lt;span class="tooltip" data-tooltip="ورودی/خروجی" ontouchend="toggleTooltip(this)">Input/Output&lt;/span>
+را فراهم می‌کند. هدف اصلی این پکیج، ایجاد یک &lt;span class="tooltip" data-tooltip="انتزاع" ontouchend="toggleTooltip(this)">Abstraction&lt;/span>
+ساده اما قدرتمند برای خواندن و نوشتن داده است، بدون این‌که برنامه‌نویس به منبع یا مقصد خاصی وابسته باشد. این یعنی چه داده از یک فایل بیاید، چه از یک اتصال شبکه یا حتی از حافظه، کدی که آن را پردازش می‌کند یکسان خواهد بود.&lt;/p>
+&lt;p>در قلب این پکیج دو &lt;span class="tooltip" data-tooltip="رابط" ontouchend="toggleTooltip(this)">Interface&lt;/span>
+بسیار ساده قرار دارند: &lt;code>io.Reader&lt;/code> و &lt;code>io.Writer&lt;/code>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>io.Reader&lt;/code>&lt;/strong>: فقط یک متد &lt;code>Read&lt;/code> دارد که داده را به صورت بایت‌اسلایس می‌خواند.&lt;/li>
+&lt;li>&lt;strong>&lt;code>io.Writer&lt;/code>&lt;/strong>: فقط یک متد &lt;code>Write&lt;/code> دارد که داده را به یک مقصد ارسال می‌کند.&lt;/li>
+&lt;/ul>
+&lt;p>هر نوعی (type) که این متدها را پیاده‌سازی کند، به طور خودکار به یک منبع یا مقصد داده قابل استفاده در اکوسیستم &lt;code>io&lt;/code> تبدیل می‌شود. همین سادگی باعث شده که اجزای مختلف سیستم، از جمله پکیج‌هایی مثل &lt;code>os&lt;/code>، &lt;code>net&lt;/code>، &lt;code>bufio&lt;/code> و &lt;code>compress&lt;/code>، بتوانند به راحتی با هم ترکیب شوند.&lt;/p>
+&lt;p>یکی از مزیت‌های بزرگ این طراحی این است که به‌جای وابستگی به نوع خاص، وابستگی به رفتار داریم. مثلا تابعی که یک &lt;code>io.Reader&lt;/code> را می‌گیرد، می‌تواند بدون تغییر، هم از یک فایل روی دیسک بخواند و هم از یک جریان داده آنلاین یا حتی داده تولیدشده در حافظه. این قابلیت انعطاف‌پذیری بالا را ممکن می‌سازد و کد را برای تست و توسعه آسان‌تر می‌کند.&lt;/p>
+&lt;p>در نتیجه، پکیج &lt;code>io&lt;/code> نه فقط یک ابزار برای کار با داده، بلکه یک لایه انتزاعی است که ساختار و معماری برنامه را ساده، منسجم و مقیاس‌پذیر نگه می‌دارد. این فلسفه مینیمالیستی و ماژولار، از دلایلی است که Go را برای پروژه‌های بزرگ و طولانی‌مدت به انتخابی محبوب تبدیل کرده است.&lt;/p>
+&lt;h3 id="42711-اهمیت-abstraction-در-io">
+4.27.1.1 اهمیت abstraction در I/O
+&lt;a class="anchor" href="#42711-%d8%a7%d9%87%d9%85%db%8c%d8%aa-abstraction-%d8%af%d8%b1-io">#&lt;/a>
+&lt;/h3>
+&lt;p>وقتی صحبت از &lt;span class="tooltip" data-tooltip="ورودی/خروجی" ontouchend="toggleTooltip(this)">Input/Output&lt;/span>
+می‌شود، خیلی‌ها اولین چیزی که به ذهنشان می‌رسد یک فایل روی دیسک یا یک اتصال شبکه است. اما در عمل، منابع داده می‌توانند بسیار متنوع باشند: یک فایل محلی، یک API، یک بافر حافظه، یا حتی داده تولیدشده لحظه‌ای توسط یک الگوریتم. اگر برای هر کدام بخواهیم کد جداگانه بنویسیم، خیلی زود با یک مجموعه توابع و کلاس‌های تکراری و پیچیده روبه‌رو می‌شویم که نگهداری آن‌ها کابوس خواهد بود.&lt;/p>
+&lt;p>اینجاست که &lt;span class="tooltip" data-tooltip="انتزاع" ontouchend="toggleTooltip(this)">Abstraction&lt;/span>
+وارد میدان می‌شود. با تعریف یک &lt;span class="tooltip" data-tooltip="رابط" ontouchend="toggleTooltip(this)">Interface&lt;/span>
+مشترک مثل &lt;code>io.Reader&lt;/code> یا &lt;code>io.Writer&lt;/code>، می‌توانیم منطق اصلی کد را مستقل از منبع یا مقصد داده بنویسیم. این یعنی یک تابعی که داده را از ورودی می‌خواند و روی خروجی می‌نویسد، می‌تواند بدون تغییر هم روی فایل کار کند، هم روی شبکه، و هم روی داده‌های در حافظه.&lt;/p>
+&lt;p>مثلا تصور کنید می‌خواهیم یک تابع بنویسیم که محتوا را از یک &lt;span class="tooltip" data-tooltip="خواننده" ontouchend="toggleTooltip(this)">Reader&lt;/span>
+به یک &lt;span class="tooltip" data-tooltip="نویسنده" ontouchend="toggleTooltip(this)">Writer&lt;/span>
+منتقل کند:&lt;/p>
+&lt;pre>&lt;code class="language-go">func TransferData(src io.Reader, dst io.Writer) error {
+_, err := io.Copy(dst, src)
+return err
+}
+&lt;/code>&lt;/pre>
+&lt;p>این تابع اصلاً اهمیتی نمی‌دهد که &lt;code>src&lt;/code> یک فایل است (&lt;code>*os.File&lt;/code>)، یک اتصال TCP (&lt;code>net.Conn&lt;/code>) یا حتی یک رشته متنی در حافظه (&lt;code>strings.Reader&lt;/code>). کافی است آن منبع متد &lt;code>Read&lt;/code> را داشته باشد. همین موضوع باعث می‌شود کد قابل استفاده مجدد، ساده و به راحتی تست‌پذیر شود.&lt;/p>
+&lt;p>به این شکل، abstraction در I/O مثل یک پل عمل می‌کند که لایه منطق برنامه را از جزئیات فنی منابع داده جدا می‌کند. این کار نه تنها خوانایی و نگهداری کد را بهتر می‌کند، بلکه توسعه ویژگی‌های جدید را هم سریع‌تر و بی‌خطرتر می‌سازد.&lt;/p>
+&lt;h3 id="42712-نقش-io-در-کتابخانه-استاندارد-go">
+4.27.1.2 نقش io در کتابخانه استاندارد Go
+&lt;a class="anchor" href="#42712-%d9%86%d9%82%d8%b4-io-%d8%af%d8%b1-%da%a9%d8%aa%d8%a7%d8%a8%d8%ae%d8%a7%d9%86%d9%87-%d8%a7%d8%b3%d8%aa%d8%a7%d9%86%d8%af%d8%a7%d8%b1%d8%af-go">#&lt;/a>
+&lt;/h3>
+&lt;p>پکیج &lt;code>io&lt;/code> رو میشه به‌نوعی ستون فقرات عملیات &lt;span class="tooltip" data-tooltip="ورودی/خروجی" ontouchend="toggleTooltip(this)">Input/Output&lt;/span>
+در کل اکوسیستم Go دونست. خیلی از پکیج‌های کتابخانه استاندارد روی همین رابط‌های ساده &lt;code>io.Reader&lt;/code> و &lt;code>io.Writer&lt;/code> ساخته شدن. این یعنی وقتی با اینترفیس‌های &lt;code>io&lt;/code> کار می‌کنید، عملاً دارید با یک استاندارد مشترک صحبت می‌کنید که بقیه پکیج‌ها هم اون رو می‌فهمن.&lt;/p>
+&lt;p>برای مثال:&lt;/p>
+&lt;ul>
+&lt;li>پکیج &lt;code>os&lt;/code> که برای کار با فایل‌ها استفاده میشه، وقتی فایل رو با &lt;code>os.Open&lt;/code> باز می‌کنید، یک شیء برمی‌گردونه که هم &lt;code>io.Reader&lt;/code> هست، هم &lt;code>io.Writer&lt;/code>، هم &lt;code>io.Seeker&lt;/code> و هم &lt;code>io.Closer&lt;/code>.&lt;/li>
+&lt;li>پکیج &lt;code>net&lt;/code> برای کار با شبکه، اتصالات TCP و HTTP رو به شکلی پیاده‌سازی کرده که اون‌ها هم این اینترفیس‌ها رو داشته باشن.&lt;/li>
+&lt;li>پکیج &lt;code>bufio&lt;/code> که برای افزایش کارایی از بافر استفاده می‌کنه، عملاً روی همین رابط‌ها سوار شده و می‌تونه هر چیزی که &lt;code>io.Reader&lt;/code> یا &lt;code>io.Writer&lt;/code> باشه رو بپذیره.&lt;/li>
+&lt;li>پکیج‌های فشرده‌سازی مثل &lt;code>compress/gzip&lt;/code> و &lt;code>compress/zlib&lt;/code> هم با همین استاندارد کار می‌کنن، بنابراین می‌تونید یک فایل gzip رو بخونید و بدون تغییر خاصی روی خروجی HTTP بفرستید.&lt;/li>
+&lt;/ul>
+&lt;p>این یکپارچگی باعث میشه بتونید اجزای مختلف رو خیلی راحت به هم وصل کنید. مثلا می‌تونید یک فایل فشرده رو باز کنید، خروجیش رو مستقیم از طریق شبکه بفرستید، یا برعکس داده‌های دریافتی رو مستقیماً داخل یک فایل ذخیره کنید، همه این‌ها فقط با چند خط کد.&lt;/p>
+&lt;p>در واقع پکیج &lt;code>io&lt;/code> نقش یک زبان مشترک رو بین اجزای مختلف Go بازی می‌کنه. وقتی هر منبع یا مقصد داده این رابط‌ها رو پیاده‌سازی می‌کنه، شما می‌تونید اون‌ها رو به صورت ماژولار ترکیب کنید و بدون دغدغه از تفاوت‌های داخلی هر منبع، به یک جریان داده واحد برسید. این دقیقاً همون چیزی هست که Go رو در پروژه‌های بزرگ و چندبخشی، ساده و قابل اعتماد نگه می‌داره.&lt;/p>
+&lt;h2 id="4272-اینترفیسهای-اصلی-پکیج-io">
+4.27.2 اینترفیس‌های اصلی پکیج io
+&lt;a class="anchor" href="#4272-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3%d9%87%d8%a7%db%8c-%d8%a7%d8%b5%d9%84%db%8c-%d9%be%da%a9%db%8c%d8%ac-io">#&lt;/a>
+&lt;/h2>
+&lt;p>پکیج &lt;code>io&lt;/code> بر پایه چند &lt;span class="tooltip" data-tooltip="رابط" ontouchend="toggleTooltip(this)">Interface&lt;/span>
+کلیدی ساخته شده که هر کدوم رفتار مشخصی رو تعریف می‌کنن. این اینترفیس‌ها شبیه یک قرارداد عمل می‌کنن؛ هر نوعی که این قرارداد رو پیاده‌سازی کنه، می‌تونه به عنوان ورودی یا خروجی در هر کدی که با اون اینترفیس کار می‌کنه استفاده بشه. این رویکرد باعث میشه کدها انعطاف‌پذیر، قابل توسعه و ماژولار باقی بمونن.&lt;/p>
+&lt;h3 id="42721-ioreader-و-متد-read">
+4.27.2.1 io.Reader و متد Read
+&lt;a class="anchor" href="#42721-ioreader-%d9%88-%d9%85%d8%aa%d8%af-read">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>io.Reader&lt;/code> مهم‌ترین و پرکاربردترین اینترفیس پکیج &lt;code>io&lt;/code> است:&lt;/p>
+&lt;pre>&lt;code class="language-go">type Reader interface {
+Read(p []byte) (n int, err error)
+}
+&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>پارامتر &lt;code>p&lt;/code>&lt;/strong>: یک &lt;span class="tooltip" data-tooltip="برش بایت" ontouchend="toggleTooltip(this)">Byte Slice&lt;/span>
+است که داده‌ها در آن قرار می‌گیرند.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>برگشتی &lt;code>n&lt;/code>&lt;/strong>: تعداد بایت‌هایی که خوانده شده.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>برگشتی &lt;code>err&lt;/code>&lt;/strong>: اگر خطایی رخ دهد برگردانده می‌شود، که ممکن است &lt;code>io.EOF&lt;/code> باشد تا پایان داده را نشان دهد.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>هر نوعی که این متد را پیاده‌سازی کند، می‌تواند به عنوان یک Reader استفاده شود. این منبع داده می‌تواند یک فایل، شبکه، حافظه یا هر چیز دیگری باشد.&lt;/p>
+&lt;p>مثال ساده خواندن از یک رشته:&lt;/p>
+&lt;pre>&lt;code class="language-go">r := strings.NewReader(&amp;quot;Hello IO&amp;quot;)
+buf := make([]byte, 4)
+for {
+n, err := r.Read(buf)
+fmt.Printf(&amp;quot;Read: %s\n&amp;quot;, buf[:n])
+if err == io.EOF {
+break
+}
+}
+&lt;/code>&lt;/pre>
+&lt;p>یک مثال کامل:&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"io"
+"strings"
+)
+func main() {
+r := strings.NewReader("Hello IO")
+buf := make([]byte, 4)
+for {
+n, err := r.Read(buf)
+if n > 0 {
+fmt.Printf("Read: %s\n", buf[:n])
+}
+if err == io.EOF {
+break
+}
+if err != nil {
+fmt.Println("Error:", err)
+break
+}
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;h3 id="42722-iowriter-و-متد-write">
+4.27.2.2 io.Writer و متد Write
+&lt;a class="anchor" href="#42722-iowriter-%d9%88-%d9%85%d8%aa%d8%af-write">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>io.Writer&lt;/code> مکمل &lt;code>io.Reader&lt;/code> است:&lt;/p>
+&lt;pre>&lt;code class="language-go">type Writer interface {
+Write(p []byte) (n int, err error)
+}
+&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>&lt;strong>پارامتر &lt;code>p&lt;/code>&lt;/strong>: داده‌هایی که باید نوشته شوند.&lt;/li>
+&lt;li>&lt;strong>برگشتی &lt;code>n&lt;/code>&lt;/strong>: تعداد بایت‌هایی که نوشته شده‌اند.&lt;/li>
+&lt;li>&lt;strong>برگشتی &lt;code>err&lt;/code>&lt;/strong>: خطا هنگام نوشتن (مثلاً فضای ناکافی یا قطع ارتباط).&lt;/li>
+&lt;/ul>
+&lt;p>هر چیزی که متد &lt;code>Write&lt;/code> را داشته باشد، می‌تواند مقصد داده باشد، چه این مقصد یک فایل باشد، چه یک اتصال شبکه یا حتی یک بافر حافظه.&lt;/p>
+&lt;p>مثال ساده نوشتن روی خروجی استاندارد:&lt;/p>
+&lt;pre>&lt;code class="language-go">msg := []byte(&amp;quot;Hello Writer\n&amp;quot;)
+os.Stdout.Write(msg)
+&lt;/code>&lt;/pre>
+&lt;p>مثال کامل:
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"os"
+)
+func main() {
+msg := []byte("Hello Writer\n")
+_, err := os.Stdout.Write(msg)
+if err != nil {
+panic(err)
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;/p>
+&lt;h3 id="42723-ترکیب-اینترفیسها">
+4.27.2.3 ترکیب اینترفیس‌ها
+&lt;a class="anchor" href="#42723-%d8%aa%d8%b1%da%a9%db%8c%d8%a8-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3%d9%87%d8%a7">#&lt;/a>
+&lt;/h3>
+&lt;p>در پکیج &lt;code>io&lt;/code>، اینترفیس‌ها می‌توانند با هم ترکیب شوند تا قابلیت‌های بیشتری ارائه دهند:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>io.ReadWriter&lt;/code>: ترکیب Reader و Writer.&lt;/li>
+&lt;li>&lt;code>io.ReadCloser&lt;/code>: ترکیب Reader و &lt;span class="tooltip" data-tooltip="بستن منبع داده" ontouchend="toggleTooltip(this)">Closer&lt;/span>
+.&lt;/li>
+&lt;li>&lt;code>io.WriteCloser&lt;/code>: ترکیب Writer و Closer.&lt;/li>
+&lt;li>&lt;code>io.ReadWriteCloser&lt;/code>: ترکیب Reader، Writer و Closer.&lt;/li>
+&lt;/ul>
+&lt;p>این ترکیب‌ها باعث می‌شوند بتوانید منابع داده‌ای داشته باشید که چندین قابلیت را همزمان ارائه می‌دهند، مثل یک فایل که هم قابل خواندن است، هم نوشتن و هم بستن.&lt;/p>
+&lt;p>به عنوان مثال:
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"os"
+)
+func main() {
+// os.File هم Reader است، هم Writer، هم Closer
+file, err := os.Create("example.txt")
+if err != nil {
+panic(err)
+}
+defer file.Close()
+_, err = file.Write([]byte("Hello File\n"))
+if err != nil {
+panic(err)
+}
+fmt.Println("Data written to example.txt successfully")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;/p>
+&lt;h3 id="42724-ioseeker-و-جابهجایی-در-دادهها">
+4.27.2.4 io.Seeker و جابه‌جایی در داده‌ها
+&lt;a class="anchor" href="#42724-ioseeker-%d9%88-%d8%ac%d8%a7%d8%a8%d9%87%d8%ac%d8%a7%db%8c%db%8c-%d8%af%d8%b1-%d8%af%d8%a7%d8%af%d9%87%d9%87%d8%a7">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>io.Seeker&lt;/code> امکان حرکت در یک منبع داده را فراهم می‌کند:&lt;/p>
+&lt;pre>&lt;code class="language-go">type Seeker interface {
+Seek(offset int64, whence int) (int64, error)
+}
+&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>&lt;strong>offset&lt;/strong>: تعداد بایت‌هایی که باید جابه‌جا شود.&lt;/li>
+&lt;li>&lt;strong>whence&lt;/strong>: نقطه مرجع برای جابه‌جایی (&lt;code>io.SeekStart&lt;/code>, &lt;code>io.SeekCurrent&lt;/code>, &lt;code>io.SeekEnd&lt;/code>).&lt;/li>
+&lt;/ul>
+&lt;p>مثال تغییر مکان در یک فایل:&lt;/p>
+&lt;pre>&lt;code class="language-go">file, _ := os.Open(&amp;quot;data.txt&amp;quot;)
+file.Seek(10, io.SeekStart) // حرکت به بایت دهم از ابتدای فایل
+&lt;/code>&lt;/pre>
+&lt;p>&lt;code>io.Seeker&lt;/code> معمولاً همراه Reader یا Writer استفاده می‌شود و برای کار با داده‌هایی که نیاز به دسترسی تصادفی دارند (مثل پایگاه داده یا فرمت‌های باینری خاص) ضروری است.&lt;/p>
+&lt;p>به عنوان مثال:
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"io"
+"os"
+)
+func main() {
+file, err := os.Create("seek.txt")
+if err != nil {
+panic(err)
+}
+defer file.Close()
+// نوشتن داده اولیه
+file.Write([]byte("0123456789"))
+// رفتن به بایت پنجم
+_, err = file.Seek(5, io.SeekStart)
+if err != nil {
+panic(err)
+}
+// بازنویسی از بایت پنجم به بعد
+file.Write([]byte("XYZ"))
+fmt.Println("File updated successfully")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;/p>
+&lt;h2 id="4273-توابع-کمکی-کاربردی">
+4.27.3 توابع کمکی کاربردی
+&lt;a class="anchor" href="#4273-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%da%a9%d9%85%da%a9%db%8c-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af%db%8c">#&lt;/a>
+&lt;/h2>
+&lt;p>پکیج &lt;code>io&lt;/code> علاوه بر &lt;span class="tooltip" data-tooltip="رابط" ontouchend="toggleTooltip(this)">Interface&lt;/span>
+‌های پایه، یک سری &lt;span class="tooltip" data-tooltip="توابع کمکی" ontouchend="toggleTooltip(this)">Helper Functions&lt;/span>
+هم دارد که خیلی از عملیات رایج I/O را ساده‌تر و بهینه‌تر انجام می‌دهند. این توابع باعث می‌شوند دیگر لازم نباشد حلقه‌های دستی برای خواندن و نوشتن بنویسیم و در عین حال از پیاده‌سازی‌های بهینه Go هم استفاده کنیم.&lt;/p>
+&lt;h3 id="42731-iocopy-و-iocopyn">
+4.27.3.1 io.Copy و io.CopyN
+&lt;a class="anchor" href="#42731-iocopy-%d9%88-iocopyn">#&lt;/a>
+&lt;/h3>
+&lt;p>تابع &lt;code>io.Copy&lt;/code> داده را از یک &lt;code>io.Reader&lt;/code> به یک &lt;code>io.Writer&lt;/code> منتقل می‌کند تا زمانی که منبع به انتها برسد یا خطایی رخ دهد.&lt;/p>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;fmt&amp;quot;
+&amp;quot;io&amp;quot;
+&amp;quot;os&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+func main() {
+src := strings.NewReader(&amp;quot;Hello io.Copy\n&amp;quot;)
+_, err := io.Copy(os.Stdout, src)
+if err != nil {
+panic(err)
+}
+fmt.Println(&amp;quot;Copy completed successfully&amp;quot;)
+}
+&lt;/code>&lt;/pre>
+&lt;p>اگر بخواهیم فقط تعداد مشخصی بایت منتقل کنیم، می‌توانیم از &lt;code>io.CopyN&lt;/code> استفاده کنیم:&lt;/p>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;fmt&amp;quot;
+&amp;quot;io&amp;quot;
+&amp;quot;os&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+func main() {
+src := strings.NewReader(&amp;quot;ABCDEFGH&amp;quot;)
+_, err := io.CopyN(os.Stdout, src, 4)
+if err != nil {
+panic(err)
+}
+fmt.Println(&amp;quot;\nCopyN completed successfully&amp;quot;)
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="42732-iomultireader-و-iomultiwriter">
+4.27.3.2 io.MultiReader و io.MultiWriter
+&lt;a class="anchor" href="#42732-iomultireader-%d9%88-iomultiwriter">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>io.MultiReader&lt;/code>&lt;/strong> چند Reader را به هم وصل می‌کند تا خروجی‌شان پشت سر هم خوانده شود.&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;io&amp;quot;
+&amp;quot;os&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+func main() {
+r1 := strings.NewReader(&amp;quot;Hello &amp;quot;)
+r2 := strings.NewReader(&amp;quot;World\n&amp;quot;)
+mr := io.MultiReader(r1, r2)
+io.Copy(os.Stdout, mr)
+}
+&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>io.MultiWriter&lt;/code>&lt;/strong> داده را همزمان به چند Writer ارسال می‌کند.&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;io&amp;quot;
+&amp;quot;os&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+func main() {
+file, _ := os.Create(&amp;quot;multi.txt&amp;quot;)
+defer file.Close()
+mw := io.MultiWriter(os.Stdout, file)
+io.Copy(mw, strings.NewReader(&amp;quot;Hello MultiWriter\n&amp;quot;))
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="42733-ioteereader">
+4.27.3.3 io.TeeReader
+&lt;a class="anchor" href="#42733-ioteereader">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>io.TeeReader&lt;/code> داده را از یک Reader می‌خواند و در حین خواندن، همان داده را در یک Writer هم می‌نویسد.&lt;/p>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;io&amp;quot;
+&amp;quot;os&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+func main() {
+src := strings.NewReader(&amp;quot;Hello TeeReader\n&amp;quot;)
+tr := io.TeeReader(src, os.Stdout)
+// خواندن کامل باعث می‌شود داده هم روی stdout نوشته شود
+io.ReadAll(tr)
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="42734-iolimitreader-و-iolimitwriter">
+4.27.3.4 io.LimitReader و io.LimitWriter
+&lt;a class="anchor" href="#42734-iolimitreader-%d9%88-iolimitwriter">#&lt;/a>
+&lt;/h3>
+&lt;p>این توابع حجم داده را محدود می‌کنند.&lt;/p>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;io&amp;quot;
+&amp;quot;os&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+func main() {
+src := strings.NewReader(&amp;quot;This is a long text&amp;quot;)
+limited := io.LimitReader(src, 7)
+io.Copy(os.Stdout, limited) // فقط ۷ بایت اول چاپ می‌شود
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="42735-ioreadall">
+4.27.3.5 io.ReadAll
+&lt;a class="anchor" href="#42735-ioreadall">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>io.ReadAll&lt;/code> تمام داده را تا پایان منبع (&lt;code>io.EOF&lt;/code>) می‌خواند و در حافظه نگه می‌دارد (برای داده‌های بزرگ باید با احتیاط استفاده شود).&lt;/p>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;fmt&amp;quot;
+&amp;quot;io&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+func main() {
+data := strings.NewReader(&amp;quot;ReadAll example&amp;quot;)
+all, err := io.ReadAll(data)
+if err != nil {
+panic(err)
+}
+fmt.Println(string(all))
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="42736-iosectionreader">
+4.27.3.6 io.SectionReader
+&lt;a class="anchor" href="#42736-iosectionreader">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>io.SectionReader&lt;/code> اجازه می‌دهد فقط بخشی از یک منبع داده را بخوانیم.&lt;/p>
+&lt;pre>&lt;code class="language-go">package main
+import (
+&amp;quot;fmt&amp;quot;
+&amp;quot;io&amp;quot;
+&amp;quot;os&amp;quot;
+)
+func main() {
+file, _ := os.Open(&amp;quot;section.txt&amp;quot;)
+defer file.Close()
+// فرض می‌کنیم فایل حداقل ۱۰ بایت دارد
+section := io.NewSectionReader(file, 3, 5) // از بایت سوم، ۵ بایت بخوان
+buf := make([]byte, 5)
+_, err := section.Read(buf)
+if err != nil &amp;amp;&amp;amp; err != io.EOF {
+panic(err)
+}
+fmt.Printf(&amp;quot;Section data: %s\n&amp;quot;, buf)
+}
+&lt;/code>&lt;/pre>
+&lt;h2 id="4274-کار-با-iopipe-و-ارتباط-بین-goroutines">
+4.27.4 کار با io.Pipe و ارتباط بین Goroutines
+&lt;a class="anchor" href="#4274-%da%a9%d8%a7%d8%b1-%d8%a8%d8%a7-iopipe-%d9%88-%d8%a7%d8%b1%d8%aa%d8%a8%d8%a7%d8%b7-%d8%a8%db%8c%d9%86-goroutines">#&lt;/a>
+&lt;/h2>
+&lt;p>پکیج &lt;code>io&lt;/code> یک ابزار جالب و قدرتمند به اسم &lt;code>io.Pipe&lt;/code> داره که برای اتصال مستقیم دو &lt;strong>goroutine&lt;/strong> به هم استفاده میشه. ایده اینه که یک goroutine داده‌ها رو به &lt;code>PipeWriter&lt;/code> می‌نویسه و یک goroutine دیگه همون لحظه اون داده‌ها رو از &lt;code>PipeReader&lt;/code> می‌خونه؛ یعنی بینشون یک کانال داده با API شبیه &lt;code>io.Reader&lt;/code>/&lt;code>io.Writer&lt;/code> ایجاد میشه.&lt;/p>
+&lt;p>برخلاف فایل یا بافر، &lt;code>io.Pipe&lt;/code> داده رو جایی ذخیره نمی‌کنه؛ بلکه هر چیزی که نوشته میشه، باید همون لحظه توسط Reader خونده بشه. اگه Reader آماده نباشه، Writer بلاک میشه، و برعکس. این باعث میشه برای &lt;strong>streaming real-time&lt;/strong> یا پردازش خط‌به‌خط داده عالی باشه، بدون اینکه کل داده تو حافظه بارگذاری بشه.&lt;/p>
+&lt;p>یک کاربرد مهمش وقتی هست که بخوای داده رو از یک منبع بخونی، قبل از ذخیره یا ارسال، پردازش کنی، و نتیجه رو به مقصد برسونی — و این کار رو با چند goroutine موازی انجام بدی. برای مثال، در کتاب‌های مرجع هم توضیح داده شده که &lt;code>io.Pipe&lt;/code> برای اتصال encoder/decoder به ورودی یا خروجی در لحظه عالیه، مثل گرفتن خروجی یک پردازش و ارسال مستقیمش به gzip بدون ذخیره‌ی موقت.&lt;/p>
+&lt;h2 id="42741-مفاهیم-pipereader-و-pipewriter">
+4.27.4.1 مفاهیم PipeReader و PipeWriter
+&lt;a class="anchor" href="#42741-%d9%85%d9%81%d8%a7%d9%87%db%8c%d9%85-pipereader-%d9%88-pipewriter">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;code>&lt;span class="tooltip" data-tooltip="PipeReader / PipeWriter" ontouchend="toggleTooltip(this)">io.Pipe&lt;/span>
+&lt;/code> یه &lt;strong>لولهٔ درون‌حافظه‌ای&lt;/strong> می‌سازه: یه سرش &lt;code>&lt;span class="tooltip" data-tooltip="انتهای خواندن pipe" ontouchend="toggleTooltip(this)">*io.PipeReader&lt;/span>
+&lt;/code> و سر دیگه‌ش &lt;code>&lt;span class="tooltip" data-tooltip="انتهای نوشتن pipe" ontouchend="toggleTooltip(this)">*io.PipeWriter&lt;/span>
+&lt;/code>. هر بایتی که در &lt;code>PipeWriter&lt;/code> می‌نویسی، از &lt;code>PipeReader&lt;/code> خونده می‌شه—معمولاً توی دو تا goroutine جدا. این برای زمانی عالیه که &lt;strong>تولید داده (producer)&lt;/strong> و &lt;strong>مصرف اون (consumer)&lt;/strong> هم‌زمان و بدون بافر بزرگ کار کنن. &lt;strong>Backpressure&lt;/strong> طبیعی هم داریم: اگه خواننده کند باشه، نویسنده بلاک می‌شه (و برعکس)، پس هر دو سمت باید «زنده» باشن. ایدهٔ پایه و مثال سادهٔ همین الگو توی منابع پیوست هم اومده.&lt;/p>
+&lt;p>دو نکتهٔ حیاتی:&lt;/p>
+&lt;ul>
+&lt;li>همیشه انتهای &lt;strong>Writer&lt;/strong> رو وقتی کارت تموم شد &lt;code>&lt;span class="tooltip" data-tooltip="بستن Writer" ontouchend="toggleTooltip(this)">Close&lt;/span>
+&lt;/code> یا بهتر از اون &lt;code>&lt;span class="tooltip" data-tooltip="بستن با خطا برای propagate" ontouchend="toggleTooltip(this)">CloseWithError&lt;/span>
+&lt;/code> کن؛ وگرنه خواننده تا ابد منتظر می‌مونه → deadlock.&lt;/li>
+&lt;li>مصرف‌کننده تا &lt;strong>EOF&lt;/strong> بخونه (یا Copy کنه). قواعد خواندن/EOF رو جدی بگیر—خیلی از باگ‌های استریم همین‌جان.&lt;/li>
+&lt;/ul>
+&lt;h3 id="مثال-۱-ابتداییترین-اتصال-producerconsumer-با-iocopy">
+مثال ۱: ابتدایی‌ترین اتصال Producer/Consumer با &lt;code>io.Copy&lt;/code>
+&lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-%db%b1-%d8%a7%d8%a8%d8%aa%d8%af%d8%a7%db%8c%db%8c%d8%aa%d8%b1%db%8c%d9%86-%d8%a7%d8%aa%d8%b5%d8%a7%d9%84-producerconsumer-%d8%a8%d8%a7-iocopy">#&lt;/a>
+&lt;/h3>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"bytes"
+"fmt"
+"io"
+"os"
+)
+func main() {
+// منبع دادهٔ ما: یک بافر درون‌حافظه‌ای
+src := new(bytes.Buffer)
+src.WriteString("hello pipe\n")
+src.WriteString("line 2\n")
+pr, pw := io.Pipe()
+// Producer: می‌نویسه داخل pw
+go func() {
+defer func() {
+_ = pw.Close() // پایان جریان؛ مهم برای جلوگیری از بن‌بست
+}()
+if _, err := io.Copy(pw, src); err != nil {
+// در صورت خطا بهتره CloseWithError بدیم:
+// _ = pw.CloseWithError(err)
+fmt.Println("producer copy error:", err)
+}
+}()
+// Consumer: از pr می‌خونه و می‌ریزه روی Stdout
+if _, err := io.Copy(os.Stdout, pr); err != nil {
+fmt.Println("consumer copy error:", err)
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>این الگو تقریباً همون چیزیه که در نمونه‌های پیوست هم می‌بینی: &lt;code>Pipe()&lt;/code>، یک goroutine برای نوشتن، و &lt;code>io.Copy&lt;/code> برای خواندن تا EOF.&lt;/p>
+&lt;h2 id="42742-استفاده-در-جریان-داده-streaming">
+4.27.4.2 استفاده در جریان داده (Streaming)
+&lt;a class="anchor" href="#42742-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%af%d8%b1-%d8%ac%d8%b1%db%8c%d8%a7%d9%86-%d8%af%d8%a7%d8%af%d9%87-streaming">#&lt;/a>
+&lt;/h2>
+&lt;p>جذابیت اصلی &lt;code>io.Pipe&lt;/code> اینه که می‌تونی &lt;strong>پایپ‌لاین‌های استریم&lt;/strong> بسازی: ورودی از یه جا میاد، وسط راه encode/zip/hash می‌شه، و خروجی همزمان جای دیگه می‌ره—همه بدون اینکه کل داده رو تو حافظه نگه داری. نمونه‌ها و توصیه‌های استریمی در مقالات پیوست زیاد تأکید می‌کنن که به جای &lt;code>ReadAll&lt;/code>، &lt;strong>جریان بده&lt;/strong> و تو مسیر پردازش کن.&lt;/p>
+&lt;h3 id="مثال-۲-فشردهسازی-on-the-fly-با-compressgzip-روی-pipe">
+مثال ۲: فشرده‌سازی on-the-fly با &lt;code>compress/gzip&lt;/code> روی pipe
+&lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-%db%b2-%d9%81%d8%b4%d8%b1%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-on-the-fly-%d8%a8%d8%a7-compressgzip-%d8%b1%d9%88%db%8c-pipe">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Producer دادهٔ خام رو می‌خونه و داخل &lt;code>gzip.Writer&lt;/code> می‌نویسه که خروجی‌ش &lt;code>PipeWriter&lt;/code> ماست.&lt;/li>
+&lt;li>Consumer از &lt;code>PipeReader&lt;/code> می‌خونه و مستقیم به فایل می‌نویسه.&lt;/li>
+&lt;/ul>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"compress/gzip"
+"fmt"
+"io"
+"os"
+"strings"
+)
+func main() {
+input := strings.NewReader(strings.Repeat("Go IO Pipe\n", 5))
+pr, pw := io.Pipe()
+// Producer: gzip روی pw
+go func() {
+defer func() {
+_ = pw.Close() // اول gzip.Close، بعد pw.Close
+}()
+gzw := gzip.NewWriter(pw)
+if _, err := io.Copy(gzw, input); err != nil {
+_ = gzw.Close()
+_ = pw.CloseWithError(err)
+return
+}
+_ = gzw.Close()
+}()
+// Consumer: خروجی gzip شده می‌ره توی فایل
+out, err := os.Create("out.gz")
+if err != nil {
+panic(err)
+}
+defer out.Close()
+if _, err := io.Copy(out, pr); err != nil {
+fmt.Println("copy error:", err)
+}
+fmt.Println("done -> out.gz")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>&lt;strong>نکتهٔ مهم:&lt;/strong> ترتیب بستن‌ها: اول &lt;code>gzw.Close()&lt;/code> تا footer نوشته بشه، بعد &lt;code>pw.Close()&lt;/code> تا EOF به مصرف‌کننده برسد. این دقیقا همان الگوی «اتصال goroutine‌ها با Pipe و Copy»‌ است.&lt;/p>
+&lt;h3 id="مثال-۳-محاسبه-checksum-همزمان-با-عبور-داده-pipe--teereader">
+مثال ۳: محاسبهٔ checksum همزمان با عبور داده (Pipe + TeeReader)
+&lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-%db%b3-%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d9%87-checksum-%d9%87%d9%85%d8%b2%d9%85%d8%a7%d9%86-%d8%a8%d8%a7-%d8%b9%d8%a8%d9%88%d8%b1-%d8%af%d8%a7%d8%af%d9%87-pipe--teereader">#&lt;/a>
+&lt;/h3>
+&lt;p>گاهی می‌خوای همزمان که داده رو می‌فرستی، &lt;strong>هش/چک‌سام&lt;/strong> هم بگیری. &lt;code>&lt;span class="tooltip" data-tooltip="کپی موازی داده به یک Writer" ontouchend="toggleTooltip(this)">io.TeeReader&lt;/span>
+&lt;/code> همین کارو می‌کنه.&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"crypto/sha256"
+"fmt"
+"io"
+"os"
+"strings"
+)
+func main() {
+src := strings.NewReader(strings.Repeat("data...", 100))
+pr, pw := io.Pipe()
+// Producer: src -> TeeReader(hasher) -> pw
+go func() {
+defer pw.Close()
+hasher := sha256.New()
+tr := io.TeeReader(src, hasher)
+if _, err := io.Copy(pw, tr); err != nil {
+_ = pw.CloseWithError(err)
+return
+}
+sum := hasher.Sum(nil)
+fmt.Fprintf(os.Stderr, "sha256: %x\n", sum)
+}()
+// Consumer: pr -> stdout (یا هر مقصد دیگری)
+if _, err := io.Copy(os.Stdout, pr); err != nil {
+fmt.Println("copy error:", err)
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>این الگوی «داده رد می‌شه، همزمان پردازش جانبی انجام می‌دیم».&lt;/p>
+&lt;h2 id="42743-الگوهای-همزمانی-با-iopipe">
+4.27.4.3 الگوهای همزمانی با io.Pipe
+&lt;a class="anchor" href="#42743-%d8%a7%d9%84%da%af%d9%88%d9%87%d8%a7%db%8c-%d9%87%d9%85%d8%b2%d9%85%d8%a7%d9%86%db%8c-%d8%a8%d8%a7-iopipe">#&lt;/a>
+&lt;/h2>
+&lt;p>چند الگوی پرکاربرد و Best Practiceها:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Producer/Consumer با پایان مشخص&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>Writer را حتماً Close/CloseWithError کنید&lt;/strong>؛ در غیر این صورت خواننده هرگز EOF نمی‌گیره و گیر می‌کنه. نمونهٔ درست توی مثال‌ها و منبع پیوست هست.&lt;/li>
+&lt;li>سمت مصرف‌کننده از &lt;code>io.Copy&lt;/code> استفاده کن تا قواعد &lt;code>EOF&lt;/code> و شمارش بایت‌ها خودکار رعایت بشه.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>خطا را propagate کن&lt;/strong>
+&lt;ul>
+&lt;li>اگر وسط کار producer خطا خورد، &lt;code>CloseWithError&lt;/code> بده تا consumer مطلع شه و سریع‌تر fail کنه. این باور غلط که «همیشه Close ساده کافیه» در استریم‌های طولانی دردسرسازه. (قواعد خطا/EOF در منابع پیوست مرور شده.)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>بافر جایی دیگه، Pipe اینجا&lt;/strong>
+&lt;ul>
+&lt;li>&lt;code>io.Pipe&lt;/code> خودش بافر قابل‌توجهی نداره؛ برای throughput بهتر از &lt;code>&lt;span class="tooltip" data-tooltip="بافرخوانی/نوشتن" ontouchend="toggleTooltip(this)">bufio&lt;/span>
+&lt;/code> یا &lt;code>&lt;span class="tooltip" data-tooltip="کپی با بافر سفارشی" ontouchend="toggleTooltip(this)">io.CopyBuffer&lt;/span>
+&lt;/code> روی مقصد/مبدأ استفاده کن؛&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Fan-in/Fan-out با Pipeهای زنجیره‌ای&lt;/strong>
+&lt;ul>
+&lt;li>می‌تونی چند مرحلهٔ پردازش (encode → compress → encrypt) رو با چند goroutine و چند Pipe زنجیره کنی. دقت کن هر مرحله خروجی رو &lt;strong>تا آخر&lt;/strong> drain کنه و به‌موقع ببنده، وگرنه مرحلهٔ قبل block می‌شه.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>از ReadAll پرهیز کن&lt;/strong>
+&lt;ul>
+&lt;li>برای دادهٔ بزرگ، به‌جای &lt;code>&lt;span class="tooltip" data-tooltip="خواندن کامل در حافظه" ontouchend="toggleTooltip(this)">io.ReadAll&lt;/span>
+&lt;/code> استریم کن.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="نکات-production-ready-خلاصه">
+نکات Production-Ready خلاصه
+&lt;a class="anchor" href="#%d9%86%da%a9%d8%a7%d8%aa-production-ready-%d8%ae%d9%84%d8%a7%d8%b5%d9%87">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>همیشه&lt;/strong> پایان جریان را سیگنال بده: &lt;code>Close()&lt;/code> یا &lt;code>CloseWithError(err)&lt;/code>.&lt;/li>
+&lt;li>سمت مصرف‌کننده &lt;strong>تا EOF بخونه&lt;/strong>؛ ساده‌ترین: &lt;code>io.Copy(dst, pr)&lt;/code>. قواعد EOF/Read را رعایت کن.&lt;/li>
+&lt;li>در pipelineها ترتیب &lt;strong>بستن wrapperها&lt;/strong> مهمه (مثلاً اول &lt;code>gzip.Close&lt;/code> بعد &lt;code>PipeWriter.Close&lt;/code>).&lt;/li>
+&lt;li>عملکرد: برای انتقال‌های بزرگ، از &lt;code>io.CopyBuffer&lt;/code> یا &lt;code>bufio.Writer/Reader&lt;/code> کمک بگیر و سایز بافر رو بسته به سناریو تنظیم کن.&lt;/li>
+&lt;li>اگر مرحله‌ای error داد، سریعاً &lt;strong>propagate&lt;/strong> کن تا همهٔ goroutineها بدونن باید جمع کنن؛ لوپ‌های بی‌پایان مصرف CPU می‌شن.&lt;/li>
+&lt;/ul>
+&lt;h2 id="4275-پیادهسازی-reader-و-writer-سفارشی">
+4.27.5 پیاده‌سازی Reader و Writer سفارشی
+&lt;a class="anchor" href="#4275-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-reader-%d9%88-writer-%d8%b3%d9%81%d8%a7%d8%b1%d8%b4%db%8c">#&lt;/a>
+&lt;/h2>
+&lt;p>ایده‌ی اصلی اینجاست: هر چیزی که متد &lt;code>Read([]byte) (int, error)&lt;/code> داشته باشه یک &lt;span class="tooltip" data-tooltip="رابط خواندن داده در کتابخانه استاندارد Go" ontouchend="toggleTooltip(this)">io.Reader&lt;/span>
+و هر چیزی که متد &lt;code>Write([]byte) (int, error)&lt;/code> داشته باشه یک &lt;span class="tooltip" data-tooltip="رابط نوشتن داده در کتابخانه استاندارد Go" ontouchend="toggleTooltip(this)">io.Writer&lt;/span>
+محسوب می‌شه. این دو رابط پایهٔ تمام ورودی/خروجیِ «جریان‌محور» هستن و باهاشون می‌تونیم اجزای قابل‌اتصال بسازیم.&lt;/p>
+&lt;h3 id="42751-ساخت-یک-custom-reader">
+4.27.5.1 ساخت یک Custom Reader
+&lt;a class="anchor" href="#42751-%d8%b3%d8%a7%d8%ae%d8%aa-%db%8c%da%a9-custom-reader">#&lt;/a>
+&lt;/h3>
+&lt;p>بیایید یک Reader بسازیم که حروف را به &lt;strong>UpperCase&lt;/strong> تبدیل می‌کند. این Reader خودش دادهٔ خام را از یک Readerِ زیری می‌خواند و هنگام بازگشت، تبدیل را اعمال می‌کند.&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"bytes"
+"fmt"
+"io"
+"os"
+"strings"
+)
+type UpperReader struct {
+r io.Reader // زیرساخت خواندن
+}
+// Read باید تا حد امکان بافر p را پر کند، تعداد بایت‌های نوشته‌شده و خطا را برگرداند.
+func (u *UpperReader) Read(p []byte) (int, error) {
+n, err := u.r.Read(p)
+if n > 0 {
+// فقط همان تکه‌ای را که پر شده upper کنیم
+// (تبدیل درجا روی p[:n])
+copy(p[:n], bytes.ToUpper(p[:n]))
+}
+return n, err
+}
+func main() {
+src := strings.NewReader("go io is composable!\n")
+ur := &amp;UpperReader{r: src}
+if _, err := io.Copy(os.Stdout, ur); err != nil {
+fmt.Fprintln(os.Stderr, "copy error:", err)
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>نکات مهم طراحی (طبق توصیه‌های فصل I/O):&lt;/p>
+&lt;ul>
+&lt;li>سعی کنید روی &lt;code>p[:n]&lt;/code> کار کنید و از ایجاد &lt;span class="tooltip" data-tooltip="تخصیص حافظه" ontouchend="toggleTooltip(this)">allocation&lt;/span>
+‌های اضافی پرهیز کنید.&lt;/li>
+&lt;li>اجازه بدید خطاهای زیری (مثل &lt;code>io.EOF&lt;/code>) همون‌طور عبور کنن تا &lt;span class="tooltip" data-tooltip="تابع کپی داده" ontouchend="toggleTooltip(this)">io.Copy&lt;/span>
+رفتار درست داشته باشه.&lt;/li>
+&lt;/ul>
+&lt;h3 id="42752-ساخت-یک-custom-writer">
+4.27.5.2 ساخت یک Custom Writer
+&lt;a class="anchor" href="#42752-%d8%b3%d8%a7%d8%ae%d8%aa-%db%8c%da%a9-custom-writer">#&lt;/a>
+&lt;/h3>
+&lt;p>حالا یک Writer می‌سازیم که به ابتدای هر &lt;strong>خط&lt;/strong> یک پیشوند اضافه کند؛ این یعنی باید مرز خطوط را مدیریت کنیم و ممکن است تکه‌خطوط بین فراخوانی‌های &lt;code>Write&lt;/code> بمانند.&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"bufio"
+"bytes"
+"fmt"
+"io"
+"os"
+)
+type LinePrefixWriter struct {
+w io.Writer
+prefix []byte
+pending bool // آیا در ابتدای خط جدید هستیم؟
+buf []byte // بافر carry برای تکه‌خط‌های بدون \n
+}
+func NewLinePrefixWriter(w io.Writer, prefix string) *LinePrefixWriter {
+return &amp;LinePrefixWriter{w: w, prefix: []byte(prefix), pending: true}
+}
+func (lp *LinePrefixWriter) Write(p []byte) (int, error) {
+total := 0
+// دادهٔ جدید را به بافر داخلی اضافه می‌کنیم
+lp.buf = append(lp.buf, p...)
+sc := bufio.NewScanner(bytes.NewReader(lp.buf))
+sc.Split(bufio.ScanLines)
+var out bytes.Buffer
+for sc.Scan() {
+line := sc.Bytes()
+// ScanLines انتهای \n را حذف می‌کند؛ باید خودمان اضافه کنیم
+if lp.pending {
+out.Write(lp.prefix)
+}
+out.Write(line)
+out.WriteByte('\n')
+lp.pending = true // بعد از نوشتن \n ابتدای خط بعدی هستیم
+total += len(line) + 1
+}
+if err := sc.Err(); err != nil {
+return 0, err
+}
+// تشخیص اینکه آیا ورودی با \n تمام شده یا تکه‌خط نیمه‌کاره داریم
+if len(lp.buf) > 0 &amp;&amp; lp.buf[len(lp.buf)-1] != '\n' {
+// آخرین توکن توسط Scanner برگردانده نمی‌شود؛ نگهش می‌داریم
+// و pending را false می‌کنیم چون وسط خط هستیم.
+lastNL := bytes.LastIndexByte(lp.buf, '\n')
+if lastNL >= 0 {
+lp.buf = append([]byte{}, lp.buf[lastNL+1:]...) // نگه داشتن دمِ خط
+}
+lp.pending = false
+} else {
+lp.buf = lp.buf[:0] // همه مصرف شده
+lp.pending = true
+}
+// خروجی بافر را یکجا بنویسیم
+nw, err := lp.w.Write(out.Bytes())
+if err != nil {
+return nw, err
+}
+return len(p), nil // قرارداد Writer: تعداد بایت‌های از ورودیِ p پذیرفته‌شده
+}
+func main() {
+lw := NewLinePrefixWriter(os.Stdout, "[LOG] ")
+_, _ = lw.Write([]byte("hello"))
+_, _ = lw.Write([]byte(" world\nnext line\npartial"))
+_, _ = lw.Write([]byte(" tail\n"))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>نکات:&lt;/p>
+&lt;ul>
+&lt;li>Writer باید تا حد امکان «همهٔ p» را بپذیرد و اگر کمتر نوشت، مقدار برگشتی را دقیق بده (قابل‌استناد برای &lt;span class="tooltip" data-tooltip="فشار معکوس؛ کند کردن تولیدکننده هنگام کند بودن مصرف‌کننده" ontouchend="toggleTooltip(this)">backpressure&lt;/span>
+).&lt;/li>
+&lt;li>استفاده از بافر داخلی برای تکه‌خط‌ها یک الگوی رایج است. مراقب رشد بافر باشید.&lt;/li>
+&lt;/ul>
+&lt;h3 id="42753-پیادهسازی-ioreaderfrom-و-iowriterto-برای-بهینهسازی">
+4.27.5.3 پیاده‌سازی io.ReaderFrom و io.WriterTo برای بهینه‌سازی
+&lt;a class="anchor" href="#42753-%d9%be%db%8c%d8%a7%d8%af%d9%87%d8%b3%d8%a7%d8%b2%db%8c-ioreaderfrom-%d9%88-iowriterto-%d8%a8%d8%b1%d8%a7%db%8c-%d8%a8%d9%87%db%8c%d9%86%d9%87%d8%b3%d8%a7%d8%b2%db%8c">#&lt;/a>
+&lt;/h3>
+&lt;p>تابع &lt;span class="tooltip" data-tooltip="کپی بین Reader و Writer" ontouchend="toggleTooltip(this)">io.Copy&lt;/span>
+یک میان‌بُر مهم دارد:&lt;/p>
+&lt;ul>
+&lt;li>اگر &lt;strong>Reader&lt;/strong> متد &lt;span class="tooltip" data-tooltip="WriteTo(w) (int64, error)" ontouchend="toggleTooltip(this)">io.WriterTo&lt;/span>
+را پیاده‌سازی کند، &lt;code>io.Copy&lt;/code> به‌جای حلقهٔ پیش‌فرض، &lt;code>r.WriteTo(dst)&lt;/code> را صدا می‌زند.&lt;/li>
+&lt;li>اگر &lt;strong>Writer&lt;/strong> متد &lt;span class="tooltip" data-tooltip="ReadFrom(r) (int64, error)" ontouchend="toggleTooltip(this)">io.ReaderFrom&lt;/span>
+را پیاده‌سازی کند، &lt;code>io.Copy&lt;/code> از &lt;code>w.ReadFrom(src)&lt;/code> استفاده می‌کند.&lt;/li>
+&lt;/ul>
+&lt;p>این مسیرها اجازه می‌دهند پیاده‌سازیِ شما مسیر داده را بهینه کند (مثلاً استفاده از بافرهای بزرگ‌تر، جلوگیری از کپی‌های اضافه، یا بهره‌بردن از توابع سیستم‌عاملی). به الگوهای استاندارد I/O و توضیحات دربارهٔ &lt;code>io.Copy&lt;/code> در منابع اشاره‌شده رجوع کنید.&lt;/p>
+&lt;p>در کُد زیر، برای &lt;code>UpperReader&lt;/code>، متد &lt;code>WriteTo&lt;/code> را اضافه می‌کنیم تا مسیر «Reader → Writer» مستقیم‌تر شود. و برای &lt;code>LinePrefixWriter&lt;/code>، متد &lt;code>ReadFrom&lt;/code> را می‌گذاریم تا داده را &lt;strong>بکشد&lt;/strong>.&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"bytes"
+"fmt"
+"io"
+"os"
+"strings"
+)
+type UpperReader struct{ r io.Reader }
+func (u *UpperReader) Read(p []byte) (int, error) {
+n, err := u.r.Read(p)
+if n > 0 {
+copy(p[:n], bytes.ToUpper(p[:n]))
+}
+return n, err
+}
+// WriterTo: به io.Copy اجازه می‌دهد مستقیماً از WriteTo استفاده کند.
+func (u *UpperReader) WriteTo(w io.Writer) (int64, error) {
+var total int64
+buf := make([]byte, 32*1024) // بافر بزرگ‌تر برای throughput بهتر
+for {
+n, err := u.r.Read(buf)
+if n > 0 {
+blk := bytes.ToUpper(buf[:n])
+m, werr := w.Write(blk)
+total += int64(m)
+if werr != nil {
+return total, werr
+}
+if m &lt; n {
+return total, io.ErrShortWrite
+}
+}
+if err != nil {
+if err == io.EOF {
+return total, nil
+}
+return total, err
+}
+}
+}
+type LinePrefixWriter struct {
+w io.Writer
+prefix []byte
+pending bool
+}
+// ReaderFrom: به io.Copy اجازه می‌دهد Writer خودش از منبع بخواند.
+func (lp *LinePrefixWriter) ReadFrom(r io.Reader) (int64, error) {
+var total int64
+buf := make([]byte, 32*1024)
+var carry []byte
+writeLine := func(line []byte) error {
+if lp.pending {
+if _, err := lp.w.Write(lp.prefix); err != nil {
+return err
+}
+}
+if _, err := lp.w.Write(line); err != nil {
+return err
+}
+if _, err := lp.w.Write([]byte{'\n'}); err != nil {
+return err
+}
+lp.pending = true
+return nil
+}
+for {
+n, err := r.Read(buf)
+if n > 0 {
+total += int64(n)
+chunk := append(carry, buf[:n]...)
+start := 0
+for {
+i := bytes.IndexByte(chunk[start:], '\n')
+if i &lt; 0 {
+// تکه‌خط ناقص
+carry = append([]byte{}, chunk[start:]...)
+lp.pending = false
+break
+}
+end := start + i
+if err2 := writeLine(chunk[start:end]); err2 != nil {
+return total, err2
+}
+start = end + 1
+}
+}
+if err != nil {
+if err == io.EOF {
+// هرچه مانده را بدون \n نهایی، با پیشوند بنویسیم
+if len(carry) > 0 {
+if lp.pending {
+if _, werr := lp.w.Write(lp.prefix); werr != nil {
+return total, werr
+}
+}
+if _, werr := lp.w.Write(carry); werr != nil {
+return total, werr
+}
+lp.pending = false
+}
+return total, nil
+}
+return total, err
+}
+}
+}
+func NewLinePrefixWriter(w io.Writer, prefix string) *LinePrefixWriter {
+return &amp;LinePrefixWriter{w: w, prefix: []byte(prefix), pending: true}
+}
+func main() {
+// مسیر بهینه‌شده: io.Copy ابتدا WriterTo روی Reader را امتحان می‌کند
+r := &amp;UpperReader{r: strings.NewReader("hello\nGo io\n")}
+w := NewLinePrefixWriter(os.Stdout, "[UP] ")
+if _, err := io.Copy(w, r); err != nil {
+fmt.Fprintln(os.Stderr, "copy error:", err)
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>چرا این کار سریع‌تر می‌شود؟&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>WriteTo&lt;/code> و &lt;code>ReadFrom&lt;/code> به شما کنترل بافر و مسیر داده را می‌دهند، پس &lt;strong>کپی‌های کمتر&lt;/strong> و &lt;strong>تخصیص‌های کمتر&lt;/strong> خواهید داشت؛&lt;/li>
+&lt;li>مطابق توضیحات منابع I/O، &lt;code>io.Copy&lt;/code> طبق قرارداد ابتدا &lt;code>WriterTo&lt;/code> را روی Reader و بعد &lt;code>ReaderFrom&lt;/code> را روی Writer چک می‌کند؛ داشتن یکی از این‌ها کافی‌ست تا حلقهٔ پیش‌فرضِ کپی کنار گذاشته شود.&lt;/li>
+&lt;/ul>
+&lt;h2 id="4276-مدیریت-خطا-در-io">
+4.27.6 مدیریت خطا در io
+&lt;a class="anchor" href="#4276-%d9%85%d8%af%db%8c%d8%b1%db%8c%d8%aa-%d8%ae%d8%b7%d8%a7-%d8%af%d8%b1-io">#&lt;/a>
+&lt;/h2>
+&lt;p>کار با I/O توی Go قشنگه چون همه‌چیز «جریان بایت»‌ه؛ اما همین‌جا اکثر خطاهای ریزه‌میزه هم رخ می‌دن: از برگشتن &lt;code>n&amp;gt;0&lt;/code> همراه با یک &lt;code>err&lt;/code> گرفته تا تشخیص پایان داده با &lt;code>io.EOF&lt;/code> و هندل کردن عملیات طولانی که باید قابل لغو باشن. این بخش خیلی جمع‌وجور ولی کاربردی می‌گه «چه خطایی عادیه، چی بحرانیه و چطور تولیدی (Production-Ready) هندلش کنیم». بر اساس مقاله‌های پیوست‌شده درباره‌ی I/O استریمی و الگوهای خطا (و چند نکته از اسناد استاندارد)، قواعد مهم &lt;code>Read/Write&lt;/code>، تمایز &lt;code>io.EOF&lt;/code>، و مدیریت عملیات طولانی با &lt;span class="tooltip" data-tooltip="انقضای زمان" ontouchend="toggleTooltip(this)">Timeout&lt;/span>
+و &lt;span class="tooltip" data-tooltip="لغو" ontouchend="toggleTooltip(this)">Cancellation&lt;/span>
+رو مرور می‌کنیم.&lt;/p>
+&lt;h3 id="42761-تفاوت-ioeof-با-خطاهای-دیگر">
+4.27.6.1 تفاوت &lt;code>io.EOF&lt;/code> با خطاهای دیگر
+&lt;a class="anchor" href="#42761-%d8%aa%d9%81%d8%a7%d9%88%d8%aa-ioeof-%d8%a8%d8%a7-%d8%ae%d8%b7%d8%a7%d9%87%d8%a7%db%8c-%d8%af%db%8c%da%af%d8%b1">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>&lt;code>io.EOF&lt;/code> خطا نیست؛ علامت پایان جریانه.&lt;/strong> وقتی منبع داده تموم می‌شه، بعضی Readerها &lt;code>n&amp;gt;0&lt;/code> و &lt;code>err==io.EOF&lt;/code> برمی‌گردونن (یعنی «این آخریشه!»). بعضی‌های دیگه ممکنه همون لحظه &lt;code>err==nil&lt;/code> بدن و خواندن بعدی &lt;code>io.EOF&lt;/code> بده. پس «پایان» همیشه در فراخوانی بعدی قطعی می‌شه. نتیجه؟ حلقه‌ی خواندن باید روی &lt;code>io.EOF&lt;/code> از حلقه خارج بشه؛ ولی قبلش هر بایتی که با &lt;code>n&amp;gt;0&lt;/code> اومده رو پردازش کن. این دقیقاً همون «قوانین خواندن»یه که روی Readerها تأکید شده.&lt;/li>
+&lt;li>&lt;strong>&lt;code>n&amp;gt;0&lt;/code> همراه با &lt;code>err!=nil&lt;/code>&lt;/strong>: طبق قواعد Reader، ممکنه قبل از وقوع خطا هنوز چند بایت معتبر توی &lt;code>p[:n]&lt;/code> داشته باشید (مثلاً سوکت ناگهانی بسته شده). حواستون باشه اون بایت‌ها از دست نرن؛ اول مصرفشون کنید، بعد تصمیم بگیرید ریترای کنید یا قطع.&lt;/li>
+&lt;li>&lt;strong>&lt;code>io.ErrUnexpectedEOF&lt;/code> با &lt;code>io.EOF&lt;/code> فرق داره.&lt;/strong> &lt;code>io.ErrUnexpectedEOF&lt;/code> یعنی «داده زودتر از حد انتظار تموم شد» (مثلاً وسط یک بلاک ساختاریافته). این یکی خطای واقعی است و معمولاً باید به کاربر گزارش بشه یا عملیات رو ریترای/رول‌بک کنید. (نمونه‌های مرسوم هنگام &lt;code>io.CopyN&lt;/code> یا &lt;code>io.ReadFull&lt;/code> اتفاق می‌افته.)&lt;/li>
+&lt;li>&lt;strong>الگوی صحیح حلقه‌ی خواندن&lt;/strong>: تا وقتی &lt;code>err==nil&lt;/code> ادامه بده؛ اگر &lt;code>err==io.EOF&lt;/code> بود از حلقه خارج شو؛ اگر &lt;code>err!=nil&lt;/code> بود، بسته به سناریو لاگ/بازگشت خطا. (و یادت باشه قبل از خروج هر چیزی در &lt;code>p[:n]&lt;/code> رو مصرف کنی.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>مثال (الگوی درستِ برخورد با EOF و خطاهای جزئی):&lt;/strong>&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"io"
+"os"
+"strings"
+)
+func main() {
+// می‌تونی این رو با فایل هم تست کنی: f, _ := os.Open("file.txt"); defer f.Close(); r := f
+r := strings.NewReader("Clear is better than clever")
+buf := make([]byte, 4)
+for {
+n, err := r.Read(buf)
+if n > 0 {
+fmt.Print(string(buf[:n])) // قبل از بررسی خطا، داده‌های دریافت‌شده رو مصرف کن
+}
+if err != nil {
+if err == io.EOF {
+break // پایان طبیعی جریان
+}
+// خطای واقعی (شبکه، دیسک، مجوز و...)
+fmt.Fprintln(os.Stderr, "read error:", err)
+return
+}
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>این الگو دقیقاً همون چیزیه که در منابع رویش تأکید شده: ممکنه &lt;code>n&lt;/code> کمتر از &lt;code>len(p)&lt;/code> باشه، ممکنه &lt;code>n&amp;gt;0&lt;/code> همراه با خطا بیاد، و &lt;code>n=0, err=nil&lt;/code> به معنی EOF نیست.&lt;/p>
+&lt;p>&lt;strong>نکات پروداکشنی:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>از &lt;code>io.Copy&lt;/code> برای ساده‌سازی حلقه‌ها استفاده کن؛ خودش شمارش بایت و EOF رو درست مدیریت می‌کنه.&lt;/li>
+&lt;li>موقع &lt;code>Write&lt;/code>، &lt;code>n!=len(p)&lt;/code> و &lt;code>io.ErrShortWrite&lt;/code> رو جدی بگیر.&lt;/li>
+&lt;li>خطاهای &lt;code>Close()&lt;/code> رو چک کن؛ مخصوصاً روی فایل/شبکه. (اگرچه مثال‌های این بخش روی Reader تمرکز دارن، اما چک کردن Close توی خروجی هم مهمه.)&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h3 id="42762-مدیریت-خطا-در-عملیات-طولانی">
+4.27.6.2 مدیریت خطا در عملیات طولانی
+&lt;a class="anchor" href="#42762-%d9%85%d8%af%db%8c%d8%b1%db%8c%d8%aa-%d8%ae%d8%b7%d8%a7-%d8%af%d8%b1-%d8%b9%d9%85%d9%84%db%8c%d8%a7%d8%aa-%d8%b7%d9%88%d9%84%d8%a7%d9%86%db%8c">#&lt;/a>
+&lt;/h3>
+&lt;p>هدف اینجاست: کد I/O طولانی شما باید &lt;strong>قابل لغو&lt;/strong> باشه، &lt;strong>زمان‌بندی&lt;/strong> داشته باشه، و &lt;strong>به‌صورت پیوسته خطا/پیشرفت&lt;/strong> رو مدیریت کنه—بدون اینکه رم رو بترکونه یا فایل لاک بمونه.&lt;/p>
+&lt;p>&lt;strong>1) لغو با &lt;code>context.Context&lt;/code> (سراسری و ساده):&lt;/strong>&lt;br>
+خیلی از APIهای خالص &lt;code>io&lt;/code> کانتکست نمی‌گیرن، ولی می‌تونیم یک Reader «کانتکست-اگاه» بسازیم که اگر &lt;code>ctx.Done()&lt;/code> شد، دیگه نخونه و &lt;code>ctx.Err()&lt;/code> برگردونه. این روش برای هر منبعی جواب می‌ده (فایل، حافظه، Pipe، HTTP body و&amp;hellip;).&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"context"
+"fmt"
+"io"
+"os"
+"strings"
+"time"
+)
+type ctxReader struct {
+ctx context.Context
+r io.Reader
+}
+func (c *ctxReader) Read(p []byte) (int, error) {
+select {
+case &lt;-c.ctx.Done():
+return 0, c.ctx.Err()
+default:
+return c.r.Read(p)
+}
+}
+func main() {
+ctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)
+defer cancel()
+// منبع کند (شبیه‌سازی): هر 200ms چند بایت می‌ده
+src := io.Reader(strings.NewReader(strings.Repeat("DATA-", 1&lt;&lt;14)))
+r := &amp;ctxReader{ctx: ctx, r: src}
+// خروجی: استاندارد (می‌تونی فایل هم بذاری)
+if _, err := io.Copy(os.Stdout, r); err != nil {
+fmt.Fprintln(os.Stderr, "copy stopped:", err) // deadline exceeded یا canceled
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>نکته: برای شبکه‌ها (&lt;code>net.Conn&lt;/code>) اصلاً لازم نیست دور Reader کُوری بپیچید؛ مستقیماً از &lt;code>SetDeadline/SetReadDeadline&lt;/code> استفاده کنید تا Read/Write با &lt;span class="tooltip" data-tooltip="انقضای زمان" ontouchend="toggleTooltip(this)">Timeout&lt;/span>
+قطع بشه. برای HTTP از &lt;code>http.Client&lt;/code> با &lt;code>Timeout&lt;/code> یا &lt;code>Context&lt;/code> روی &lt;code>Request&lt;/code> استفاده کنید. (الگوی خطا همان است: اگر &lt;code>n&amp;gt;0&lt;/code> برگشته، مصرف کن و بعد خطا را مدیریت کن.)&lt;/p>
+&lt;p>&lt;strong>2) کنترل حافظه و اندازه‌ی داده:&lt;/strong>&lt;br>
+در عملیات طولانی، وسوسه نشید &lt;code>io.ReadAll&lt;/code> بزنید؛ برای داده‌های بزرگ باعث مصرف رم می‌شه. به‌جایش جریان‌محور (&lt;code>io.Copy&lt;/code>، &lt;code>io.CopyBuffer&lt;/code> با بافر قابل‌استفاده‌مجدد) کار کنید. اگر باید سقف اندازه را enforce کنید، &lt;code>io.LimitReader&lt;/code> یا &lt;code>io.CopyN&lt;/code> بگذارید و به &lt;code>io.ErrUnexpectedEOF&lt;/code> حساس باشید.&lt;/p>
+&lt;p>&lt;strong>3) پایش و لاگ خطای مرحله‌ای (Stream-aware):&lt;/strong>&lt;br>
+اگر هم‌زمان می‌خواید پیشرفت یا checksum بگیرید، از &lt;code>io.TeeReader&lt;/code> استفاده کنید تا جریان یکجا هم مصرف شود هم ثبت/هش شود—و هر خطا همان‌جا متوقف کند.&lt;/p>
+&lt;p>&lt;strong>4) بستن منابع به‌موقع:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>روی هر مسیر خروج (موفق/ناموفق) &lt;code>Close()&lt;/code> را چک کنید و در حلقه‌ها &lt;code>defer Close()&lt;/code> نگذارید (نشت دسته‌جمعی می‌ده). برای تعداد زیاد فایل‌ها، «باز کن—کار کن—ببند» را سریع انجام بده.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>مثال (کپیِ قابل-لغو + محدودیت حجم + شمارنده‌ی پیشرفت):&lt;/strong>&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"context"
+"crypto/sha256"
+"fmt"
+"io"
+"os"
+"strings"
+"time"
+)
+type ctxReader struct {
+ctx context.Context
+r io.Reader
+}
+func (c *ctxReader) Read(p []byte) (int, error) {
+select {
+case &lt;-c.ctx.Done():
+return 0, c.ctx.Err()
+default:
+return c.r.Read(p)
+}
+}
+func main() {
+// منبع شبیه‌سازی‌شدهٔ بزرگ
+src := strings.NewReader(strings.Repeat("X", 10&lt;&lt;20)) // 10MB
+// 1) محدودیت 1MB
+limited := io.LimitReader(src, 1&lt;&lt;20) // 1 MiB
+// 2) پیشرفت/هش موازی با TeeReader
+hasher := sha256.New()
+tr := io.TeeReader(limited, hasher)
+// 3) لغو با Timeout
+ctx, cancel := context.WithTimeout(context.Background(), 300*time.Millisecond)
+defer cancel()
+cr := &amp;ctxReader{ctx: ctx, r: tr}
+dst, err := os.Create("out.bin")
+if err != nil {
+fmt.Println("create:", err)
+return
+}
+defer func() {
+if err := dst.Close(); err != nil {
+fmt.Println("close:", err)
+}
+}()
+// کپی جریان‌محور
+written, err := io.Copy(dst, cr)
+if err != nil {
+fmt.Println("copy error:", err) // ممکنه context deadline exceeded باشه
+} else {
+fmt.Println("written bytes:", written)
+}
+fmt.Printf("sha256 (partial/complete): %x\n", hasher.Sum(nil))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>&lt;strong>چند Best Practice کوتاه برای عملیات طولانی:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>«سقف ورودی» بگذار: &lt;code>io.LimitReader&lt;/code> روی بدنه‌ی درخواست‌ها (مثلاً آپلود) تا از سوءاستفاده و OOM جلوگیری کنی.&lt;/li>
+&lt;li>«بافر درست» انتخاب کن و اگر حلقه‌ی طولانیه از &lt;code>io.CopyBuffer&lt;/code> با یک بافر reuse‌شونده استفاده کن. (افزایش کارایی روی فایل/شبکه)&lt;/li>
+&lt;li>&lt;code>io.Copy&lt;/code> خطاها و EOF رو درست مدیریت می‌کنه؛ وقتی خاص‌نویسی لازم نیست، از همون استفاده کن.&lt;/li>
+&lt;/ul>
+&lt;h2 id="4277-best-practices-در-استفاده-از-io">
+4.27.7 Best Practices در استفاده از io
+&lt;a class="anchor" href="#4277-best-practices-%d8%af%d8%b1-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-io">#&lt;/a>
+&lt;/h2>
+&lt;p>پکیج &lt;code>io&lt;/code> قلب عملیات ورودی/خروجی (I/O) در Go است و تقریبا همه کتابخانه‌های استاندارد مربوط به فایل، شبکه، و پردازش داده بر پایه همین abstractionها ساخته شده‌اند. اما استفاده درست از آن می‌تواند تفاوت زیادی در کارایی، مصرف حافظه، و پایداری کد شما ایجاد کند. در ادامه چند &lt;strong>بهترین شیوه&lt;/strong>‌ی مهم برای استفاده از این پکیج را بررسی می‌کنیم.&lt;/p>
+&lt;h3 id="42771-استفاده-از-interface-به-جای-نوع-خاص">
+4.27.7.1 استفاده از Interface به جای نوع خاص
+&lt;a class="anchor" href="#42771-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-interface-%d8%a8%d9%87-%d8%ac%d8%a7%db%8c-%d9%86%d9%88%d8%b9-%d8%ae%d8%a7%d8%b5">#&lt;/a>
+&lt;/h3>
+&lt;p>یکی از فلسفه‌های کلیدی Go این است که به جای تکیه بر نوع خاص (مثل &lt;code>*os.File&lt;/code>) از اینترفیس‌های عمومی مثل &lt;code>io.Reader&lt;/code> و &lt;code>io.Writer&lt;/code> استفاده کنیم.&lt;br>
+این کار باعث می‌شود که کد ما انعطاف‌پذیر باشد و بتواند با هر منبع یا مقصد داده‌ای کار کند — چه فایل باشد، چه شبکه، چه حافظه.&lt;/p>
+&lt;p>&lt;strong>مثال:&lt;/strong>&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"io"
+"os"
+"strings"
+)
+func printData(r io.Reader) {
+buf := make([]byte, 16)
+for {
+n, err := r.Read(buf)
+if n > 0 {
+fmt.Print(string(buf[:n]))
+}
+if err == io.EOF {
+break
+}
+if err != nil {
+fmt.Println("Error:", err)
+break
+}
+}
+}
+func main() {
+// خواندن از یک رشته
+printData(strings.NewReader("Hello Go\n"))
+// خواندن از یک فایل
+file, _ := os.Open("test.txt")
+defer file.Close()
+printData(file)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;p>در این مثال، تابع &lt;code>printData&lt;/code> با هر چیزی که &lt;code>io.Reader&lt;/code> را پیاده‌سازی کند کار می‌کند، بدون وابستگی به نوع خاص.&lt;/p>
+&lt;h3 id="42772-بهینهسازی-با-bufio">
+4.27.7.2 بهینه‌سازی با bufio
+&lt;a class="anchor" href="#42772-%d8%a8%d9%87%db%8c%d9%86%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%d8%a8%d8%a7-bufio">#&lt;/a>
+&lt;/h3>
+&lt;p>خواندن و نوشتن مستقیم روی منابع I/O می‌تواند منجر به تعداد زیادی فراخوانی سیستم (syscall) و کاهش کارایی شود. برای همین &lt;code>bufio&lt;/code> بافرهایی ارائه می‌دهد که باعث کاهش فراخوانی‌های I/O و افزایش سرعت می‌شوند.&lt;/p>
+&lt;p>&lt;strong>نکته:&lt;/strong> همیشه وقتی با داده‌های زیاد یا عملیات کوچک و پرتکرار کار می‌کنید، از &lt;code>bufio.Reader&lt;/code> یا &lt;code>bufio.Writer&lt;/code> استفاده کنید.&lt;/p>
+&lt;p>&lt;strong>مثال:&lt;/strong>&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"bufio"
+"fmt"
+"os"
+)
+func main() {
+file, err := os.Open("bigfile.txt")
+if err != nil {
+panic(err)
+}
+defer file.Close()
+reader := bufio.NewReader(file)
+for {
+line, err := reader.ReadString('\n')
+fmt.Print(line)
+if err != nil {
+break
+}
+}
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;h3 id="42773-مدیریت-منابع-با-iocloser-و-defer">
+4.27.7.3 مدیریت منابع با io.Closer و defer
+&lt;a class="anchor" href="#42773-%d9%85%d8%af%db%8c%d8%b1%db%8c%d8%aa-%d9%85%d9%86%d8%a7%d8%a8%d8%b9-%d8%a8%d8%a7-iocloser-%d9%88-defer">#&lt;/a>
+&lt;/h3>
+&lt;p>بسیاری از منابع I/O مثل فایل‌ها و کانکشن‌های شبکه نیاز به بستن (Close) دارند. پیاده‌سازی &lt;code>io.Closer&lt;/code> و استفاده از &lt;code>defer&lt;/code> تضمین می‌کند که حتی در صورت بروز خطا، منابع آزاد می‌شوند.&lt;/p>
+&lt;p>&lt;strong>مثال:&lt;/strong>&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+"os"
+)
+func main() {
+file, err := os.Open("data.txt")
+if err != nil {
+panic(err)
+}
+defer file.Close() // تضمین آزاد شدن منبع
+buf := make([]byte, 32)
+n, _ := file.Read(buf)
+fmt.Println(string(buf[:n]))
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;h3 id="42774-انتخاب-اندازه-buffer-مناسب">
+4.27.7.4 انتخاب اندازه buffer مناسب
+&lt;a class="anchor" href="#42774-%d8%a7%d9%86%d8%aa%d8%ae%d8%a7%d8%a8-%d8%a7%d9%86%d8%af%d8%a7%d8%b2%d9%87-buffer-%d9%85%d9%86%d8%a7%d8%b3%d8%a8">#&lt;/a>
+&lt;/h3>
+&lt;p>اندازه بافر تأثیر مستقیم روی کارایی دارد. بافر کوچک ممکن است باعث افزایش تعداد فراخوانی‌ها و کندی برنامه شود؛ بافر بزرگ هم می‌تواند حافظه را هدر دهد.&lt;br>
+به‌طور معمول، برای بیشتر کاربردها بافر 4KB تا 32KB مناسب است (همانند اندازه پیش‌فرض در &lt;code>bufio&lt;/code>)، اما در عملیات شبکه‌ای یا پردازش فایل‌های بزرگ می‌توانید آزمایش و بهینه‌سازی کنید.&lt;/p>
+&lt;p>&lt;strong>مثال:&lt;/strong>&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"io"
+"os"
+)
+func main() {
+src, _ := os.Open("large.bin")
+defer src.Close()
+dst, _ := os.Create("copy.bin")
+defer dst.Close()
+buf := make([]byte, 64*1024) // 64KB buffer
+io.CopyBuffer(dst, src, buf)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;h3 id="42775-آپلود-استریمی-فایل-بزرگ-با-ذخیرهسازی-امن-atomic-روی-دیسک">
+4.27.7.5 آپلود استریمیِ فایل بزرگ با ذخیره‌سازی امن (atomic) روی دیسک
+&lt;a class="anchor" href="#42775-%d8%a2%d9%be%d9%84%d9%88%d8%af-%d8%a7%d8%b3%d8%aa%d8%b1%db%8c%d9%85%db%8c-%d9%81%d8%a7%db%8c%d9%84-%d8%a8%d8%b2%d8%b1%da%af-%d8%a8%d8%a7-%d8%b0%d8%ae%db%8c%d8%b1%d9%87%d8%b3%d8%a7%d8%b2%db%8c-%d8%a7%d9%85%d9%86-atomic-%d8%b1%d9%88%db%8c-%d8%af%db%8c%d8%b3%da%a9">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="اصول">
+اصول
+&lt;a class="anchor" href="#%d8%a7%d8%b5%d9%88%d9%84">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>استریم‌کردن&lt;/strong>: به‌جای نگه‌داشتن کل فایل در حافظه، ورودی را مستقیم به دیسک کپی کنید.&lt;/li>
+&lt;li>&lt;strong>حداکثر اندازه&lt;/strong>: حتماً روی بدنه‌ی درخواست limit بگذارید.&lt;/li>
+&lt;li>&lt;strong>فایل موقت + rename اتمی&lt;/strong>: اول در مسیر مقصد یک فایل موقت (&lt;code>*.part&lt;/code>) بسازید، آخر کار که موفق بود، با &lt;code>os.Rename&lt;/code> به نام نهایی منتقلش کنید. روی یک فایل‌سیستم، rename اتمی است.&lt;/li>
+&lt;li>&lt;strong>پاکسازی مطمئن&lt;/strong>: هر خطا/لغو باعث حذف فایل موقت شود.&lt;/li>
+&lt;li>&lt;strong>Context‑aware&lt;/strong>: اگر کلاینت آپلود را کنسل کرد، کپی متوقف شود (Go خودش روی &lt;code>r.Context()&lt;/code> این را propagate می‌کند).&lt;/li>
+&lt;/ul>
+&lt;h3 id="هندلر-نمونه-http-multipartform-data">
+هندلر نمونه (HTTP، &lt;code>multipart/form-data&lt;/code>)
+&lt;a class="anchor" href="#%d9%87%d9%86%d8%af%d9%84%d8%b1-%d9%86%d9%85%d9%88%d9%86%d9%87-http-multipartform-data">#&lt;/a>
+&lt;/h3>
+&lt;p>این نمونه آپلود &lt;strong>تک‌فایله&lt;/strong> را نشان می‌دهد. برای چند فایل، حلقه روی پارت‌ها بزنید.&lt;/p>
+&lt;pre>&lt;code class="language-go">package upload
+import (
+&amp;quot;bufio&amp;quot;
+&amp;quot;errors&amp;quot;
+&amp;quot;fmt&amp;quot;
+&amp;quot;io&amp;quot;
+&amp;quot;mime/multipart&amp;quot;
+&amp;quot;net/http&amp;quot;
+&amp;quot;os&amp;quot;
+&amp;quot;path/filepath&amp;quot;
+&amp;quot;strconv&amp;quot;
+&amp;quot;strings&amp;quot;
+)
+const (
+maxUploadSize = 1 &amp;lt;&amp;lt; 30 // 1GiB نمونه؛ بسته به نیاز تغییر دهید
+uploadDir = &amp;quot;./uploads&amp;quot;
+)
+func UploadHandler(w http.ResponseWriter, r *http.Request) {
+// 1) محدود کردن اندازه بدنۀ درخواست (حفاظت از حافظه و DoS)
+r.Body = http.MaxBytesReader(w, r.Body, maxUploadSize)
+// 2) استریم‌کردن multipart بدون بافرکردن کل فرم
+mr, err := r.MultipartReader()
+if err != nil {
+http.Error(w, &amp;quot;invalid multipart request&amp;quot;, http.StatusBadRequest)
+return
+}
+// 3) اطمینان از وجود مسیر ذخیره
+if err := os.MkdirAll(uploadDir, 0o755); err != nil {
+http.Error(w, &amp;quot;cannot create upload dir&amp;quot;, http.StatusInternalServerError)
+return
+}
+// انتظار داریم یک part فایل به نام &amp;quot;file&amp;quot;
+var savedName string
+for {
+part, err := mr.NextPart()
+if errors.Is(err, io.EOF) {
+break
+}
+if err != nil {
+http.Error(w, &amp;quot;read part failed&amp;quot;, http.StatusBadRequest)
+return
+}
+if part.FormName() != &amp;quot;file&amp;quot; || part.FileName() == &amp;quot;&amp;quot; {
+// سایر فیلدهای فرم را رد کنید (مثلاً متن و …)
+continue
+}
+// 4) ساخت فایل موقت در همان دایرکتوری مقصد (برای rename اتمی روی همان FS)
+tmp, err := os.CreateTemp(uploadDir, &amp;quot;*.part&amp;quot;)
+if err != nil {
+http.Error(w, &amp;quot;cannot create temp file&amp;quot;, http.StatusInternalServerError)
+return
+}
+tmpPath := tmp.Name()
+defer func() {
+// اگر تا آخر کار rename موفق نشود، فایل موقت پاک می‌شود
+tmp.Close() // امن است حتی اگر قبلاً بسته شده باشد
+_ = os.Remove(tmpPath)
+}()
+// 5) استریم کپی با بافر معقول (کاهش syscall ها)
+bufw := bufio.NewWriterSize(tmp, 64*1024) // 64KiB؛ با بنچمارک تنظیم کنید
+// اگر بخواهید همزمان hash بگیرید:
+// h := sha256.New()
+// src := io.TeeReader(part, h)
+// _, err = io.CopyBuffer(bufw, src, make([]byte, 64*1024))
+_, err = io.CopyBuffer(bufw, part, make([]byte, 64*1024))
+closeErr := bufw.Flush()
+if err == nil {
+err = closeErr
+}
+// توجه: اگر کلاینت وسط کار قطع شود، copy با خطا برمی‌گردد.
+if err != nil {
+http.Error(w, &amp;quot;upload interrupted/failed&amp;quot;, http.StatusBadRequest)
+return
+}
+// 6) اطمینان از پایداری روی دیسک (اختیاری، برای حساسیت بالا)
+if err := tmp.Sync(); err != nil {
+http.Error(w, &amp;quot;fsync failed&amp;quot;, http.StatusInternalServerError)
+return
+}
+if err := tmp.Close(); err != nil {
+http.Error(w, &amp;quot;close failed&amp;quot;, http.StatusInternalServerError)
+return
+}
+// 7) تولید نام نهایی امن
+finalName := sanitizeFilename(part.FileName())
+finalPath := filepath.Join(uploadDir, finalName)
+// در صورت وجود فایل همنام، یک suffix یکتا اضافه کنید
+finalPath = uniquifyPath(finalPath)
+// 8) جابجایی اتمی
+if err := os.Rename(tmpPath, finalPath); err != nil {
+http.Error(w, &amp;quot;atomic move failed&amp;quot;, http.StatusInternalServerError)
+return
+}
+// از اینجا به بعد، فایل موقت را دیگر پاک نکنید
+savedName = filepath.Base(finalPath)
+// یک فایل را ذخیره کردیم؛ اگر فقط یک فایل می‌پذیرید، می‌توانید break کنید.
+break
+}
+if savedName == &amp;quot;&amp;quot; {
+http.Error(w, &amp;quot;no file part found&amp;quot;, http.StatusBadRequest)
+return
+}
+w.WriteHeader(http.StatusCreated)
+_, _ = fmt.Fprintf(w, &amp;quot;uploaded: %s\n&amp;quot;, savedName)
+}
+func sanitizeFilename(name string) string {
+// خیلی ساده: مسیرها را حذف و فضای خالی را _ کنیم؛ در عمل سخت‌گیرتر باشید.
+name = filepath.Base(name)
+name = strings.ReplaceAll(name, &amp;quot; &amp;quot;, &amp;quot;_&amp;quot;)
+return name
+}
+func uniquifyPath(path string) string {
+dir := filepath.Dir(path)
+base := filepath.Base(path)
+ext := filepath.Ext(base)
+name := strings.TrimSuffix(base, ext)
+p := path
+i := 1
+for {
+if _, err := os.Stat(p); errors.Is(err, os.ErrNotExist) {
+return p
+}
+p = filepath.Join(dir, name+&amp;quot;(&amp;quot;+strconv.Itoa(i)+&amp;quot;)&amp;quot;+ext)
+i++
+}
+}
+&lt;/code>&lt;/pre>
+&lt;h3 id="نکات-کلیدی">
+نکات کلیدی
+&lt;a class="anchor" href="#%d9%86%da%a9%d8%a7%d8%aa-%da%a9%d9%84%db%8c%d8%af%db%8c">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>http.MaxBytesReader&lt;/code> جلوی خواندن بیش از حد را می‌گیرد؛ اگر بزرگ‌تر باشد با خطای 4xx برمی‌گردید.&lt;/li>
+&lt;li>به‌جای &lt;code>r.ParseMultipartForm&lt;/code> از &lt;code>r.MultipartReader()&lt;/code> استفاده کردیم تا &lt;strong>کاملاً استریمی&lt;/strong> باشد.&lt;/li>
+&lt;li>اول روی فایل موقت می‌نویسیم، بعد &lt;code>Sync&lt;/code> و &lt;code>Close&lt;/code> و در پایان &lt;code>Rename&lt;/code> اتمی. اگر هر جا خطا بخورد، &lt;code>defer&lt;/code> فایل موقت را پاک می‌کند.&lt;/li>
+&lt;li>اگر حجم‌ها واقعاً بزرگند، بهتر است &lt;strong>اندازه بافر&lt;/strong> را با بنچمارک روی محیط واقعی تنظیم کنید.&lt;/li>
+&lt;li>اگر نیاز دارید &lt;strong>checksum/virus‑scan/thumbnail&lt;/strong> بسازید، از &lt;code>io.TeeReader&lt;/code> (یا کانال‌های موازی با &lt;code>errgroup&lt;/code>) استفاده کنید تا هنگام نوشتن، داده را همزمان به پردازش ثانویه بدهید.&lt;/li>
+&lt;/ul>
+&lt;h3 id="آیا-اینجا-از-iopipe-استفاده-کنیم">
+آیا اینجا از &lt;code>io.Pipe&lt;/code> استفاده کنیم؟
+&lt;a class="anchor" href="#%d8%a2%db%8c%d8%a7-%d8%a7%db%8c%d9%86%d8%ac%d8%a7-%d8%a7%d8%b2-iopipe-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%da%a9%d9%86%db%8c%d9%85">#&lt;/a>
+&lt;/h3>
+&lt;p>برای «کپی ساده‌ی ورودی به دیسک» معمولاً &lt;strong>لازم نیست&lt;/strong>. &lt;code>io.Copy&lt;/code>/&lt;code>io.TeeReader&lt;/code> ساده‌تر و کم‌ریسک‌ترند.&lt;/p>
+&lt;p>&lt;code>io.Pipe&lt;/code> وقتی می‌درخشد که:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>تولیدکننده و مصرف‌کننده همزمان&lt;/strong> دارید و می‌خواهید backpressure طبیعی رخ دهد (تا وقتی مصرف‌کننده نخوانَد، تولیدکننده پیش نرود).&lt;/li>
+&lt;li>نیاز به &lt;strong>تبدیل/فشرده‌سازی/اسکن&lt;/strong> در goroutine جدا دارید که داده را از همون استریم بگیرد.&lt;/li>
+&lt;/ul>
+&lt;p>نمونه‌ی کوتاه با &lt;code>io.Pipe&lt;/code> همزمان:&lt;/p>
+&lt;pre>&lt;code class="language-go">pr, pw := io.Pipe()
+// تولیدکننده: داده‌ی آپلود را در Pipe می‌نویسد
+go func() {
+defer pw.Close()
+_, err := io.Copy(pw, part) // part همان multipart.Part
+if err != nil {
+// اگر خراب شد، Pipe را با خطا می‌بندیم تا مصرف‌کننده مطلع شود
+_ = pw.CloseWithError(err)
+}
+}()
+// مصرف‌کننده: همزمان روی دیسک می‌نویسد و پردازش می‌کند
+go func() {
+defer pr.Close()
+dst, _ := os.CreateTemp(uploadDir, &amp;quot;*.part&amp;quot;)
+defer dst.Close()
+// همزمان hash یا AV:
+// h := sha256.New()
+// multi := io.TeeReader(pr, h)
+_, err := io.Copy(dst, pr) // یا multi
+if err != nil {
+// خطا را log/propagate کنید و فایل موقت را حذف کنید
+}
+// ... Sync/Close/Rename مثل قبل
+}()
+&lt;/code>&lt;/pre>
+&lt;p>احتیاط: با &lt;code>io.Pipe&lt;/code> اگر یکی از طرفین خواندن/نوشتن را متوقف کند و دیگری چشم‌انتظار بماند، &lt;strong>بن‌بست&lt;/strong> می‌گیرید. حتماً با مدیریت خطا/بستن و &lt;code>errgroup&lt;/code> کنترل کامل جریان را داشته باشید.&lt;/p></description></item></channel></rss>
