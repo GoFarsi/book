@@ -5663,7 +5663,10 @@ log.Fatal(&amp;quot;failed to listen pprof server&amp;quot;, &amp;quot;err&amp;q
 4.26.8 نکته‌ها
 &lt;a class="anchor" href="#4268-%d9%86%da%a9%d8%aa%d9%87%d9%87%d8%a7">#&lt;/a>
 &lt;/h3>
-&lt;p>یک الگوی پروژه با نظر بیشتر با تنظیمات sample/reusable استفاده مجدد، اسکریپت‌ها و کد یک WIP است.&lt;/p></description></item><item><author/><title>4.27 آموزش کار با پکیج io</title><link>https://book.gofarsi.ir/chapter-4/go-io-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-io-package/</guid><description>&lt;p>پکیج &lt;code>io&lt;/code> در زبان Go یکی از ابزارهای پایه و همه‌فن‌حریف برای کار با عملیات &lt;span class="tooltip" data-tooltip="ورودی/خروجی" ontouchend="toggleTooltip(this)">Input/Output&lt;/span>
+&lt;p>یک الگوی پروژه با نظر بیشتر با تنظیمات sample/reusable استفاده مجدد، اسکریپت‌ها و کد یک WIP است.&lt;/p></description></item><item><author/><title>4.27 آموزش کار با پکیج io</title><link>https://book.gofarsi.ir/chapter-4/go-io-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-io-package/</guid><description>&lt;p align="center">
+&lt;img src="../../assets/img/content/chapter4/io/go-io.png" alt="io">
+&lt;/p>
+&lt;p>پکیج &lt;code>io&lt;/code> در زبان Go یکی از ابزارهای پایه و همه‌فن‌حریف برای کار با عملیات &lt;span class="tooltip" data-tooltip="ورودی/خروجی" ontouchend="toggleTooltip(this)">Input/Output&lt;/span>
 است. فلسفه‌اش اینه که ما بدون وابستگی به نوع خاص داده (مثل فایل، شبکه یا حافظه) بتونیم از یک &lt;span class="tooltip" data-tooltip="رابط" ontouchend="toggleTooltip(this)">Interface&lt;/span>
 ساده استفاده کنیم. این یعنی اگر یک شیء فقط متد مورد نیاز رو پیاده‌سازی کنه، می‌تونه در تمام جاهایی که اون رابط انتظار میره استفاده بشه. مثلا &lt;code>io.Reader&lt;/code> فقط یک متد &lt;code>Read&lt;/code> داره و &lt;code>io.Writer&lt;/code> یک متد &lt;code>Write&lt;/code>، ولی همین دو قرارداد ساده پایه تمام سیستم &lt;span class="tooltip" data-tooltip="انتزاع ورودی/خروجی" ontouchend="toggleTooltip(this)">I/O Abstraction&lt;/span>
 در Go رو تشکیل میدن.&lt;/p>
