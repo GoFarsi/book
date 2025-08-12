@@ -119,6 +119,10 @@ strategy = "cache-first"
   max_age = "365d"
 
 
+[minify]
+  [minify.tdewolff.html]
+    keepWhitespace = false
+
 [markup]
   [markup.highlight]
     noClasses = false      # Enables class-based styling (needed for Prism)
