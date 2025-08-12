@@ -500,11 +500,11 @@ Hello world!!!
 &lt;/details>
 &lt;details >&lt;summary>4: چه وقت باید از پوینتر استفاده کنیم؟&lt;/summary>
 &lt;div class="markdown-inner">
-&lt;p>&lt;strong>1- تابعی که یکی از پارامترهای خود را تغییر می‌دهد&lt;/strong>&lt;br>
+&lt;p>&lt;strong>1- تابعی که یکی از پارامترهای خود را تغییر می‌دهد&lt;/strong>
 -وقتی تابعی را فراخوانی می‌کنیم که یک پوینتر را به عنوان پارامتر می‌گیرد، انتظار داریم که متغیر ما تغییر داده شود. اگر شما متغیر را در تابع خود تغییر نمی‌دهید، پس احتمالا نباید از پوینتر استفاده کنید.&lt;/p>
-&lt;p>&lt;strong>2- عملکرد بهتر&lt;/strong>&lt;br>
+&lt;p>&lt;strong>2- عملکرد بهتر&lt;/strong>
 -اگر رشته‌ای داشته باشید که شامل یک رمان کامل در حافظه باشد، کپی کردن این متغیر هر بار که به یک تابع جدید ارسال می‌شود، کاری بسیار گران است. ممکن است ارزشمند باشد که به جای این کار یک پوینتر را ارسال کنید، که باعث صرفه‌جویی در پردازنده و حافظه می‌شود. با این حال انجام این کار به قیمت خوانا بودن است، بنابراین فقط در صورت لزوم این بهینه‌سازی را انجام دهید.&lt;/p>
-&lt;p>&lt;strong>3- به گزینه nil نیاز دارید&lt;/strong>&lt;br>
+&lt;p>&lt;strong>3- به گزینه nil نیاز دارید&lt;/strong>
 -گاهی اوقات یک تابع باید بداند که مقدار یک چیزی چیست، همچنین باید وجود یا عدم وجود آن را بداند. معمولا هنگام خواندن JSON از این استفاده می‌کنیم تا بدانیم فیلدی وجود دارد یا خیر.&lt;/p>
 &lt;/div>
 &lt;/details>
@@ -597,6 +597,769 @@ Error handling در Go اغلب از طریق بازگرداندن ارور از
 &lt;details >&lt;summary>21: کامپایلر گولنگ از نوع AOT است یا JIT؟ تفاوت بین AOT و JIT را بگو.&lt;/summary>
 &lt;div class="markdown-inner">
 کامپایلر گو یک Ahead Of Time compilation است. تفاوت AOT با JIT در این است که کامپایلر های AOT مستقیم کد ما را تبدیل به machine code می کنند اما در کامپایتر های JIT کد ما تبدیل به یک کد میانی Bytecode می شود و در زمان اجرا توسط runtime engine هر قسمت از برنامه که مورد استفاده قرار می گیرد، تفسیر می شود و تبدیل به machine code می شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>22: تفاوت بین nil و مقدار صفر در انواع داده چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+در Go مقدار &lt;strong>nil&lt;/strong> مخصوص انواع reference است (مانند slice, map, channel, function, pointer, interface) و به معنای عدم وجود داده یا ارجاع است.
+مقدار صفر (zero value) برای انواع مقداری مانند int، bool، struct و غیره تعریف می‌شود (مثلاً 0 برای int یا false برای bool) و همیشه یک مقدار معتبر است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>23: تفاوت بین close(channel) و خواندن از یک کانال بسته چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>close(channel)&lt;/code> تنها برای ارسال‌کننده استفاده می‌شود تا به دریافت‌کننده‌ها اطلاع دهد داده‌ای دیگر ارسال نخواهد شد.&lt;/li>
+&lt;li>خواندن از یک کانال بسته مقدار صفر نوع داده را برمی‌گرداند بدون این که بلاک شود.&lt;/li>
+&lt;li>ارسال روی کانال بسته &lt;strong>panic&lt;/strong> ایجاد می‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>24: چه زمانی باید از context استفاده کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+زمانی که نیاز داریم پردازش‌ها یا درخواست‌های طولانی را لغو کنیم یا timeout بگذاریم، از &lt;code>context.Context&lt;/code> استفاده می‌کنیم. این ابزار برای همگام‌سازی لغو عملیات بین goroutineها و جلوگیری از resource leak بسیار مهم است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>25: تفاوت sync.Mutex و sync.RWMutex چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>sync.Mutex&lt;/code> قفل ساده‌ای است که در یک زمان فقط اجازه دسترسی به یک goroutine را می‌دهد.&lt;/li>
+&lt;li>&lt;code>sync.RWMutex&lt;/code> دو حالت دارد: قفل خواندن (می‌تواند همزمان توسط چند goroutine گرفته شود) و قفل نوشتن (انحصاری). این باعث بهبود عملکرد در سناریوهایی با خواندن زیاد و نوشتن کم می‌شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>26: data race چیست و چگونه می‌توان از آن جلوگیری کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;strong>Data race&lt;/strong> زمانی رخ می‌دهد که چند goroutine همزمان به یک متغیر مشترک دسترسی پیدا کرده و حداقل یکی از آنها عملیات نوشتن انجام دهد، بدون هماهنگ‌سازی مناسب.
+جلوگیری: استفاده از &lt;code>sync.Mutex&lt;/code>، &lt;code>sync.RWMutex&lt;/code>، channelها یا اجتناب از اشتراک داده‌ها. ابزار &lt;code>go run -race&lt;/code> می‌تواند این مشکلات را پیدا کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>27: در چه شرایطی slice باعث memory leak می‌شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+زمانی که slice‌ای کوچک ایجاد می‌کنیم ولی همچنان به یک آرایه بزرگ‌تر در حافظه اشاره دارد، GC نمی‌تواند آرایه اصلی را آزاد کند. راه‌حل: ایجاد یک کپی slice جدید با &lt;code>copy&lt;/code> یا ساختن slice از ابتدا.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>28: تفاوت len و cap در slice چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>len&lt;/code> تعداد عناصر موجود در slice را برمی‌گرداند.&lt;/li>
+&lt;li>&lt;code>cap&lt;/code> ظرفیت slice را برمی‌گرداند، یعنی تعداد عناصر از اندیس صفر تا انتهای آرایه زیرین که می‌توان بدون تخصیص حافظه جدید استفاده کرد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>29: آیا map در Go thread-safe است؟&lt;/summary>
+&lt;div class="markdown-inner">
+خیر. map به صورت پیش‌فرض thread-safe نیست و دسترسی همزمان بدون قفل یا sync.Map باعث panic می‌شود. برای ایمنی، باید از &lt;code>sync.Mutex&lt;/code>، &lt;code>sync.RWMutex&lt;/code> یا &lt;code>sync.Map&lt;/code> استفاده کرد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>30: چگونه می‌توان یک panic را مدیریت کرد بدون اینکه برنامه متوقف شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;p>با استفاده از &lt;code>recover&lt;/code> در داخل یک defer می‌توان panic را گرفتن و از توقف کامل برنامه جلوگیری کرد:&lt;/p>
+&lt;pre>&lt;code class="language-go">defer func() {
+if r := recover(); r != nil {
+fmt.Println(&amp;quot;Recovered:&amp;quot;, r)
+}
+}()
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>31: تفاوت بین unbuffered و buffered channel چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;strong>Unbuffered channel&lt;/strong>: ارسال‌کننده تا زمانی که دریافت‌کننده آماده نباشد بلاک می‌شود.&lt;/li>
+&lt;li>&lt;strong>Buffered channel&lt;/strong>: ارسال‌کننده می‌تواند تا ظرفیت کانال داده بفرستد بدون بلاک شدن. دریافت‌کننده فقط زمانی بلاک می‌شود که کانال خالی باشد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>32: چرا نباید از pointer به متغیر loop variable در goroutine استفاده کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون همه goroutineها به همان آدرس حافظه اشاره می‌کنند که مقدار آن در هر iteration تغییر می‌کند و باعث نتایج غیرمنتظره می‌شود. باید از یک متغیر محلی کپی‌شده استفاده کرد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>33: تفاوت := و var در تعریف متغیر چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>:=&lt;/code> فقط در داخل توابع و برای تعریف و مقداردهی اولیه استفاده می‌شود.&lt;/li>
+&lt;li>&lt;code>var&lt;/code> در هر جایی (داخل یا بیرون تابع) می‌تواند استفاده شود و امکان تعریف بدون مقدار اولیه (با مقدار صفر) را می‌دهد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>34: چه زمانی باید از sync.Once استفاده کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+زمانی که می‌خواهیم یک قطعه کد فقط یک‌بار در کل طول عمر برنامه اجرا شود (مثل بارگذاری تنظیمات یا ایجاد اتصال اولیه).
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>35: تفاوت nil interface و interface حاوی nil چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;strong>nil interface&lt;/strong>: مقدار و نوع هر دو nil هستند.&lt;/li>
+&lt;li>&lt;strong>interface حاوی nil&lt;/strong>: نوع مشخص شده است ولی مقدار nil است. این تفاوت باعث می‌شود مقایسه مستقیم با nil نتیجه متفاوتی بدهد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>36: آیا گوروتین‌ها به صورت موازی اجرا می‌شوند یا همزمانی (Concurrency) دارند؟&lt;/summary>
+&lt;div class="markdown-inner">
+گوروتین‌ها ذاتاً همزمانی دارند و Go scheduler آنها را روی چندین thread اجرا می‌کند. اگر سیستم چند هسته‌ای باشد و &lt;code>GOMAXPROCS&lt;/code> متناسب تنظیم شده باشد، گوروتین‌ها می‌توانند موازی اجرا شوند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>37: تفاوت rune و byte چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>byte&lt;/code> معادل &lt;code>uint8&lt;/code> است و برای نمایش داده‌های خام یا کاراکترهای ASCII استفاده می‌شود.&lt;/li>
+&lt;li>&lt;code>rune&lt;/code> معادل &lt;code>int32&lt;/code> است و برای نمایش یک کاراکتر یونیکد استفاده می‌شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>38: چرا استفاده بیش از حد از defer می‌تواند بر عملکرد تأثیر بگذارد؟&lt;/summary>
+&lt;div class="markdown-inner">
+هر &lt;code>defer&lt;/code> یک فراخوانی اضافه ایجاد می‌کند که در خروج از تابع اجرا می‌شود. در مسیرهای پر فراخوانی (hot path)، این می‌تواند باعث افت کارایی شود. در این موارد بهتر است منابع را به صورت دستی آزاد کرد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>39: garbage collector در Go چه زمانی اجرا می‌شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+GC در Go به صورت خودکار و همزمان با اجرای برنامه، بر اساس تخصیص حافظه و فشار heap اجرا می‌شود. این فرآیند stop-the-world بسیار کوتاهی دارد تا حافظه غیرقابل دسترسی را آزاد کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>40: آیا slice به صورت مقادیر (value) پاس داده می‌شود یا ارجاع (reference)؟&lt;/summary>
+&lt;div class="markdown-inner">
+Slice خود یک ساختار کوچک است (pointer به آرایه، طول و ظرفیت) که به صورت value پاس داده می‌شود، ولی اشاره‌گر داخل آن باعث می‌شود به آرایه زیرین ارجاع دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>41: چه زمانی استفاده از map به جای slice بهینه‌تر است؟&lt;/summary>
+&lt;div class="markdown-inner">
+وقتی که نیاز به دسترسی سریع بر اساس کلیدهای غیر ترتیبی داریم یا جستجوی O(1) می‌خواهیم. در مقابل، slice برای داده‌های ترتیبی کوچک و قابل پیمایش سریع‌تر است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>42: چگونه می‌توان ظرفیت اولیه یک map را تعیین کرد و چرا این کار مهم است؟&lt;/summary>
+&lt;div class="markdown-inner">
+با استفاده از &lt;code>make(map[KeyType]ValueType, initialCapacity)&lt;/code> می‌توان ظرفیت اولیه تعیین کرد. این باعث کاهش عملیات rehash و بهبود عملکرد می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>43: تفاوت select بدون case و select با default چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>select {}&lt;/code> بدون case باعث بلاک شدن دائمی گوروتین می‌شود.&lt;/li>
+&lt;li>&lt;code>select { default: ... }&lt;/code> بلافاصله default را اجرا می‌کند اگر هیچ کانالی آماده نباشد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>44: چرا باید منابع مانند فایل یا connection را در defer بلافاصله بعد از ایجاد آن ببندیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+این کار تضمین می‌کند که حتی در صورت بروز خطا یا panic، منبع به درستی آزاد شود و از resource leak جلوگیری شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>45: تفاوت channel جهت‌دار (send-only/receive-only) با channel دوطرفه چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>Send-only: &lt;code>chan&amp;lt;- T&lt;/code> فقط اجازه ارسال دارد.&lt;/li>
+&lt;li>Receive-only: &lt;code>&amp;lt;-chan T&lt;/code> فقط اجازه دریافت دارد.&lt;/li>
+&lt;li>دوطرفه: &lt;code>chan T&lt;/code> می‌تواند هم ارسال و هم دریافت انجام دهد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>46: چگونه می‌توان benchmark در Go نوشت و اجرا کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+با نوشتن تابع‌هایی با امضای &lt;code>func BenchmarkXxx(b *testing.B)&lt;/code> و اجرای &lt;code>go test -bench=.&lt;/code> می‌توان benchmark گرفت. مقدار &lt;code>b.N&lt;/code> مشخص می‌کند چند بار تست اجرا می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>47: sync.Pool چیست و چه کاربردی دارد؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>sync.Pool&lt;/code> یک ساختار برای ذخیره و بازیابی موقت اشیاء قابل استفاده مجدد است که فشار روی GC را کاهش می‌دهد. برای داده‌های موقتی که ایجادشان هزینه‌بر است استفاده می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>48: تفاوت testing.T و testing.B در پکیج testing چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>testing.T&lt;/code> برای تست‌های معمولی و مدیریت خطاها استفاده می‌شود.&lt;/li>
+&lt;li>&lt;code>testing.B&lt;/code> برای benchmark استفاده می‌شود و شامل حلقه اجرای تکرارها (&lt;code>b.N&lt;/code>) است.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>49: آیا Go از tail call optimization پشتیبانی می‌کند؟&lt;/summary>
+&lt;div class="markdown-inner">
+خیر، Go به صورت رسمی tail call optimization ندارد. بنابراین توابع بازگشتی عمیق می‌توانند منجر به مصرف زیاد stack شوند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>50: چه تفاوتی بین make و append برای ایجاد slice وجود دارد؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>make&lt;/code> یک slice با طول و ظرفیت مشخص ایجاد می‌کند.&lt;/li>
+&lt;li>&lt;code>append&lt;/code> برای افزودن عناصر به slice موجود استفاده می‌شود و در صورت پر بودن ظرفیت، یک آرایه جدید ایجاد می‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>51: تفاوت بین زمان‌بندی گوروتین‌ها در Go و threadها در سیستم‌عامل چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+Scheduler گوروتین‌ها در Go به صورت &lt;strong>M:N&lt;/strong> کار می‌کند، یعنی تعداد زیادی گوروتین (M) روی تعداد محدودی thread سیستم‌عامل (N) نگاشت می‌شوند. این مدل سبک‌تر از زمان‌بندی مستقیم threadها توسط سیستم‌عامل است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>52: آیا استفاده از global variable در Go توصیه می‌شود؟ چرا؟&lt;/summary>
+&lt;div class="markdown-inner">
+به طور کلی خیر، چون باعث کاهش تست‌پذیری، افزایش coupling و خطر data race می‌شود. در صورت نیاز، باید با قفل یا سایر روش‌های همگام‌سازی محافظت شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>53: چرا تغییر دادن slice در یک goroutine می‌تواند روی goroutineهای دیگر تأثیر بگذارد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون همه sliceها به یک آرایه زیرین اشاره می‌کنند. تغییر عناصر باعث تغییر در آرایه مشترک و در نتیجه مشاهده تغییرات توسط سایر goroutineها می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>54: تفاوت string و []byte در Go چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>string&lt;/code> غیرقابل تغییر (immutable) است و تغییر مستقیم آن ممکن نیست. &lt;code>[]byte&lt;/code> قابل تغییر است و برای عملیات پردازشی روی داده‌ها بهینه‌تر است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>55: چرا map در Go iteration order ثابت ندارد؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای جلوگیری از وابستگی برنامه‌ها به ترتیب کلیدها و بهبود کارایی، Go عمداً ترتیب پیمایش map را تصادفی می‌کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>56: چه زمانی باید از atomic operations استفاده کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+زمانی که نیاز به عملیات خواندن/نوشتن thread-safe روی انواع عددی یا آدرس حافظه داریم، بدون استفاده از قفل‌های سنگین مانند Mutex. پکیج &lt;code>sync/atomic&lt;/code> برای این منظور استفاده می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>57: تفاوت nil slice با empty slice چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>Nil slice: &lt;code>nil&lt;/code> است، طول و ظرفیت صفر دارد.&lt;/li>
+&lt;li>Empty slice: مقدار غیر nil با طول صفر است، ولی به یک آرایه صفر‌ظرفیت اشاره می‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>58: چرا استفاده از pointer receiver برای struct بزرگ بهینه‌تر است؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون از کپی شدن struct بزرگ جلوگیری می‌کند و تغییرات در method روی نمونه اصلی اعمال می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>59: تفاوت fallthrough در switch چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+در Go، caseها به طور پیش‌فرض break می‌شوند. استفاده از &lt;code>fallthrough&lt;/code> باعث می‌شود اجرای case بعدی بدون بررسی شرط ادامه یابد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>60: چرا باید بعد از استفاده از ticker آن را متوقف کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+عدم توقف (&lt;code>ticker.Stop()&lt;/code>) باعث نشت منابع و ادامه کار goroutine داخلی آن می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>61: تفاوت new و literal برای struct چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>new(T)&lt;/code> یک pointer به مقدار صفر نوع T برمی‌گرداند.&lt;/li>
+&lt;li>&lt;code>&amp;amp;T{}&lt;/code> نیز یک pointer می‌سازد ولی می‌توان فیلدها را مقداردهی کرد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>62: چرا حلقه for range روی map ممکن است نتیجه متفاوتی در هر اجرا بدهد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون ترتیب پیمایش map در Go عمداً تصادفی است تا از وابستگی برنامه به ترتیب کلیدها جلوگیری شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>63: تفاوت deep copy و shallow copy در Go چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>Shallow copy فقط مقادیر سطح اول را کپی می‌کند و referenceها همچنان مشترک می‌مانند.&lt;/li>
+&lt;li>Deep copy تمام داده‌ها را بازگشتی کپی می‌کند تا هیچ اشتراک حافظه وجود نداشته باشد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>64: چه زمانی باید از select با context.Done استفاده کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+وقتی که می‌خواهیم عملیات منتظر روی channel را در صورت لغو context یا timeout متوقف کنیم.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>65: تفاوت بین runtime.GOMAXPROCS و تعداد گوروتین‌ها چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>GOMAXPROCS&lt;/code> حداکثر تعداد threadهای همزمانی که می‌توانند کد Go اجرا کنند را مشخص می‌کند، ولی تعداد گوروتین‌ها می‌تواند بسیار بیشتر باشد و توسط scheduler مدیریت می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>66: چرا string در Go غیرقابل تغییر است؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای بهینه‌سازی عملکرد و امنیت، string به داده‌های فقط خواندنی اشاره می‌کند. این طراحی اجازه می‌دهد رشته‌ها را به‌طور ایمن بین goroutineها به اشتراک گذاشت بدون نیاز به قفل.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>67: تفاوت بین time.Sleep و استفاده از time.After چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>time.Sleep&lt;/code> اجرای گوروتین را برای مدت مشخص متوقف می‌کند.&lt;/li>
+&lt;li>&lt;code>time.After&lt;/code> یک channel برمی‌گرداند که بعد از گذشت مدت زمان مشخص سیگنال ارسال می‌کند و می‌تواند در &lt;code>select&lt;/code> استفاده شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>68: چرا نباید از panic برای کنترل جریان عادی برنامه استفاده کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+panic برای شرایط غیرمنتظره و خطاهای بحرانی طراحی شده است. استفاده از آن در منطق عادی باعث سختی در خواندن کد، مشکلات تست و مدیریت منابع می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>69: sync.Cond چیست و چه زمانی استفاده می‌شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>sync.Cond&lt;/code> ابزاری برای هماهنگ‌سازی پیشرفته است که به goroutineها اجازه می‌دهد تا تا زمان برآورده شدن یک شرط منتظر بمانند و توسط دیگر goroutineها بیدار شوند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>70: تفاوت بین context.Background و context.TODO چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>context.Background&lt;/code> برای شروع زنجیره context در برنامه‌های سطح بالا استفاده می‌شود.&lt;/li>
+&lt;li>&lt;code>context.TODO&lt;/code> زمانی استفاده می‌شود که هنوز مشخص نیست چه contextی باید استفاده شود یا در حال توسعه هستیم.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>71: چرا mapهای بزرگ می‌توانند باعث فشار روی GC شوند؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون map ممکن است مقادیر زیادی حافظه تخصیص دهد و GC باید همه کلیدها و مقادیر را بررسی کند. حذف مقادیر غیرضروری یا بازسازی map می‌تواند فشار را کاهش دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>72: تفاوت بین کانال بسته و nil channel چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>کانال بسته: خواندن از آن مقدار صفر و وضعیت بسته بودن را برمی‌گرداند. ارسال روی آن panic ایجاد می‌کند.&lt;/li>
+&lt;li>nil channel: هر عملیات ارسال یا دریافت روی آن برای همیشه بلاک می‌شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>73: چرا استفاده از range روی string با کاراکترهای یونیکد خاص می‌تواند کند باشد؟&lt;/summary>
+&lt;div class="markdown-inner">
+زیرا Go هر بار کاراکترها را به صورت rune دیکد می‌کند که شامل تبدیل UTF-8 به int32 است. برای داده‌های ASCII این تبدیل سریع‌تر است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>74: چه زمانی باید از copy برای slice استفاده کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+وقتی که می‌خواهیم داده‌ها را از یک slice به دیگری منتقل کنیم بدون اینکه به آرایه زیرین مشترک اشاره کنند، مخصوصاً برای جلوگیری از مشکلات memory leak یا تغییرات ناخواسته.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>75: تفاوت بین defer با تابع معمولی در مدیریت منابع چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>defer&lt;/code> تضمین می‌کند که تابع در پایان محدوده اجرا شود، حتی در صورت panic یا بازگشت زودهنگام، ولی تابع معمولی بلافاصله اجرا می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>76: چرا نباید روی کانال nil عملیات انجام داد؟&lt;/summary>
+&lt;div class="markdown-inner">
+هر ارسال یا دریافت روی کانال nil باعث بلاک شدن بی‌پایان goroutine می‌شود، که معمولاً به صورت ناخواسته deadlock ایجاد می‌کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>77: تفاوت بین append به slice و append به nil slice چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+هر دو معتبر هستند. append به nil slice باعث ایجاد slice جدید با ظرفیت مورد نیاز می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>78: چرا حلقه‌های for بدون شرط در Go می‌توانند مشکل‌ساز شوند؟&lt;/summary>
+&lt;div class="markdown-inner">
+یک حلقه &lt;code>for {}&lt;/code> بدون شرط توقف می‌تواند CPU را ۱۰۰٪ مشغول کند مگر اینکه شامل عملیات بلاک‌کننده یا sleep باشد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>79: sync.Map چه مزیتی نسبت به map با Mutex دارد؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>sync.Map&lt;/code> برای سناریوهایی با خواندن زیاد و نوشتن کم بهینه‌سازی شده و نیازی به قفل دستی ندارد، ولی در همه موارد سریع‌تر از map+Mutex نیست.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>80: چرا تبدیل بین []byte و string در Go معمولاً باعث کپی می‌شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای جلوگیری از تغییر داده‌های string (که immutable است)، Go معمولاً داده‌ها را کپی می‌کند. این رفتار هزینه زمانی و حافظه دارد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>81: چرا استفاده از time.Tick بدون توقف می‌تواند memory leak ایجاد کند؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>time.Tick&lt;/code> یک channel بازگشتی ایجاد می‌کند که هرگز متوقف نمی‌شود. برای جلوگیری از نشت منابع، بهتر است از &lt;code>time.NewTicker&lt;/code> استفاده کرده و در زمان مناسب &lt;code>Stop()&lt;/code> را فراخوانی کنید.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>82: تفاوت بین interface خالی و interface با متد چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>Interface خالی (&lt;code>interface{}&lt;/code>) می‌تواند هر نوعی را نگه دارد.&lt;/li>
+&lt;li>Interface با متدها فقط می‌تواند نوع‌هایی را نگه دارد که تمام متدهای تعریف‌شده را پیاده‌سازی کرده باشند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>83: چرا استفاده از goroutine در حلقه for بدون همگام‌سازی می‌تواند مشکل‌ساز باشد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون متغیرهای حلقه بین goroutineها به اشتراک گذاشته می‌شوند و مقدارشان در زمان اجرا ممکن است تغییر کند. باید متغیر را به صورت محلی کپی یا با آرگومان به goroutine پاس داد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>84: تفاوت بین make برای map و literal map چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>make(map[Key]Value, cap)&lt;/code> ظرفیت اولیه را مشخص می‌کند.&lt;/li>
+&lt;li>Literal map (&lt;code>map[Key]Value{...}&lt;/code>) بلافاصله داده‌ها را مقداردهی می‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>85: چرا نباید روی کانالی که چند تولیدکننده دارد بدون هماهنگی close انجام داد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون ممکن است چند goroutine همزمان تلاش به بستن کانال کنند که باعث panic می‌شود. معمولاً فقط یک تولیدکننده مسئول close است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>86: تفاوت بین string literal با backtick و با quote چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>با quote (&lt;code>&amp;quot;...&amp;quot;&lt;/code>): رشته escape می‌شود و می‌توان از &lt;code>\n&lt;/code> و غیره استفاده کرد.&lt;/li>
+&lt;li>با backtick (&lt;code>`...`&lt;/code>): رشته raw است و escape interpretation انجام نمی‌شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>87: چرا garbage collector نمی‌تواند فایل‌های باز را ببندد؟&lt;/summary>
+&lt;div class="markdown-inner">
+GC فقط حافظه را آزاد می‌کند، ولی منابع سیستم‌عاملی مثل فایل‌ها یا socketها را باید به صورت صریح با &lt;code>Close()&lt;/code> آزاد کرد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>88: تفاوت بین untyped constant و typed constant چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>Untyped constant می‌تواند با هر نوع سازگار استفاده شود تا زمانی که مقدارش در محدوده باشد.&lt;/li>
+&lt;li>Typed constant نوع مشخص دارد و فقط با همان نوع یا نوع‌های سازگار استفاده می‌شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>89: چرا استفاده از recover خارج از defer بی‌اثر است؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون &lt;code>recover&lt;/code> فقط زمانی panic را می‌گیرد که درون یک defer اجرا شود که در همان گوروتین panic اتفاق افتاده باشد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>90: تفاوت بین range روی slice و روی array چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>روی slice: مقدار و اندیس عناصر slice را برمی‌گرداند.&lt;/li>
+&lt;li>روی array: مشابه slice، ولی آرایه به صورت کامل پاس داده می‌شود که می‌تواند هزینه‌بر باشد مگر اینکه با reference پاس شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>91: چرا capacity slice بعد از append ممکن است چند برابر شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای بهینه‌سازی تخصیص حافظه، Go هنگام نیاز به افزایش ظرفیت معمولاً آن را به صورت نمایی (دو برابر یا بیشتر) افزایش می‌دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>92: تفاوت بین runtime.Gosched و time.Sleep چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>runtime.Gosched&lt;/code> به scheduler اجازه می‌دهد گوروتین‌های دیگر را اجرا کند بدون توقف زمان مشخص.&lt;/li>
+&lt;li>&lt;code>time.Sleep&lt;/code> گوروتین را برای مدت مشخص متوقف می‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>93: چرا nil pointer در method receiver ممکن است باعث panic نشود؟&lt;/summary>
+&lt;div class="markdown-inner">
+اگر متد به فیلد یا داده‌ای از struct دسترسی نداشته باشد، حتی اگر receiver nil باشد، panic ایجاد نمی‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>94: تفاوت بین map[string]struct{} و map[string]bool چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>map[string]struct{}&lt;/code> حافظه کمتری مصرف می‌کند چون struct خالی صفر بایت است.&lt;/li>
+&lt;li>&lt;code>map[string]bool&lt;/code> نیاز به یک بایت برای مقدار دارد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>95: چرا استفاده از for-select بدون default می‌تواند کارایی را کاهش دهد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون گوروتین بلاک می‌ماند تا یکی از caseها آماده شود، که ممکن است باعث استفاده ناکارآمد از CPU شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>96: تفاوت بین var x = y و x := y چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>var x = y&lt;/code> می‌تواند در سطح package یا تابع استفاده شود.&lt;/li>
+&lt;li>&lt;code>x := y&lt;/code> فقط در داخل توابع مجاز است و همیشه تعریف جدید انجام می‌دهد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>97: چرا استفاده از init function باید محدود باشد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون باعث اجرای مخفیانه کد در هنگام بارگذاری پکیج می‌شود و می‌تواند تست و اشکال‌زدایی را سخت کند. بهتر است منطق راه‌اندازی به صراحت در main یا سازنده‌ها باشد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>98: تفاوت بین context.WithCancel و context.WithTimeout چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>WithCancel&lt;/code> فقط با فراخوانی تابع cancel لغو می‌شود.&lt;/li>
+&lt;li>&lt;code>WithTimeout&lt;/code> به صورت خودکار بعد از زمان مشخص لغو می‌شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>99: چرا حلقه‌های بازگشتی بدون شرط توقف می‌توانند باعث stack overflow شوند؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون Go tail call optimization ندارد و هر فراخوانی بازگشتی stack را افزایش می‌دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>100: تفاوت بین log.Fatal و panic چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>log.Fatal&lt;/code> پیام را چاپ کرده و برنامه را بلافاصله با &lt;code>os.Exit&lt;/code> متوقف می‌کند.&lt;/li>
+&lt;li>&lt;code>panic&lt;/code> اجرای عادی را متوقف کرده و chain فراخوانی deferها را اجرا می‌کند قبل از توقف.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>101: تفاوت بین unsafe.Pointer و uintptr چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>unsafe.Pointer&lt;/code> برای تبدیل بین انواع اشاره‌گر استفاده می‌شود.&lt;/li>
+&lt;li>&lt;code>uintptr&lt;/code> یک نوع عددی است که آدرس را به عنوان یک عدد ذخیره می‌کند. تبدیل بین آنها باید با احتیاط انجام شود چون ممکن است GC آدرس را جابجا کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>102: چرا استفاده از reflect می‌تواند کارایی را کاهش دهد؟&lt;/summary>
+&lt;div class="markdown-inner">
+پکیج &lt;code>reflect&lt;/code> باعث عملیات‌های زمان اجرا و type checking پویا می‌شود که نسبت به کد معمولی کندتر است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>103: تفاوت بین constant expression و runtime value چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+Constant expression در زمان کامپایل مشخص می‌شود و می‌تواند در تعریف ثابت‌ها استفاده شود. Runtime value فقط در زمان اجرای برنامه مشخص می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>104: چرا nil channel برای همگام‌سازی گاهی مفید است؟&lt;/summary>
+&lt;div class="markdown-inner">
+با nil کردن یک channel می‌توانیم آن را از انتخاب در &lt;code>select&lt;/code> حذف کنیم و رفتار برنامه را به صورت پویا کنترل کنیم.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>105: تفاوت بین stack و heap allocation در Go چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+Stack سریع‌تر و برای داده‌های کوتاه‌مدت استفاده می‌شود. Heap برای داده‌هایی که طول عمر نامعلوم دارند و بین goroutineها به اشتراک گذاشته می‌شوند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>106: چرا slicing از یک array بزرگ می‌تواند باعث نگه‌داشتن حافظه اضافی شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون slice به آرایه زیرین اشاره می‌کند و GC نمی‌تواند آرایه بزرگ را آزاد کند تا زمانی که slice زنده باشد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>107: تفاوت بین break و continue در حلقه چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>break&lt;/code> حلقه را کامل متوقف می‌کند.&lt;/li>
+&lt;li>&lt;code>continue&lt;/code> فقط iteration جاری را رد کرده و iteration بعدی را شروع می‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>108: چرا append ممکن است باعث تغییر آدرس حافظه slice شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+وقتی ظرفیت پر شود، append یک آرایه جدید می‌سازد و داده‌ها را کپی می‌کند که آدرس حافظه متفاوت خواهد داشت.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>109: تفاوت بین go vet و go fmt چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>go fmt&lt;/code> کد را قالب‌بندی می‌کند.&lt;/li>
+&lt;li>&lt;code>go vet&lt;/code> مشکلات احتمالی کد را شناسایی می‌کند ولی تغییرات ظاهری ایجاد نمی‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>110: چرا باید از io.Reader و io.Writer در طراحی API استفاده کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای انعطاف‌پذیری بیشتر و امکان استفاده از منابع مختلف (فایل، شبکه، حافظه) بدون تغییر کد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>111: تفاوت بین os.Exit و return در main چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>os.Exit&lt;/code> فوراً برنامه را متوقف می‌کند و deferها اجرا نمی‌شوند، ولی &lt;code>return&lt;/code> اجازه اجرای deferها را می‌دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>112: چرا map نمی‌تواند به عنوان کلید slice داشته باشد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون slice قابل مقایسه نیست و hash آن ثابت نیست. فقط انواع قابل مقایسه (comparable) می‌توانند کلید باشند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>113: تفاوت بین io.Pipe و channel چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>io.Pipe&lt;/code> برای اتصال مستقیم بین io.Reader و io.Writer استفاده می‌شود، ولی channel برای ارسال هر نوع داده بین goroutineها استفاده می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>114: چرا نباید از pointer به local variable بعد از پایان تابع استفاده کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون متغیر ممکن است از بین برود یا آدرسش تغییر کند، که باعث رفتار غیرقابل پیش‌بینی می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>115: تفاوت بین testing.Short و تست‌های عادی چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>testing.Short()&lt;/code> می‌تواند در تست‌ها استفاده شود تا تست‌های طولانی در حالت کوتاه اجرا نشوند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>116: چرا باید برای عملیات‌های سنگین I/O از buffered channel استفاده کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای جلوگیری از بلاک شدن تولیدکننده یا مصرف‌کننده و افزایش throughput.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>117: تفاوت بین go build و go install چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>go build&lt;/code> فایل اجرایی را در دایرکتوری جاری می‌سازد.&lt;/li>
+&lt;li>&lt;code>go install&lt;/code> آن را در مسیر bin در &lt;code>$GOPATH&lt;/code> یا &lt;code>$GOBIN&lt;/code> نصب می‌کند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>118: چرا استفاده از strings.Builder به جای + برای رشته‌ها بهتر است؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون از تخصیص‌های متعدد جلوگیری می‌کند و حافظه را بهینه‌تر مدیریت می‌کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>119: تفاوت بین cap و len در array چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای array هر دو برابر طول آرایه هستند، ولی برای slice ممکن است متفاوت باشند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>120: چرا باید بعد از استفاده از bufio.Writer حتماً Flush کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون داده‌ها در بافر ذخیره می‌شوند و تا زمانی که Flush نشوند به مقصد نهایی ارسال نمی‌شوند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>121: تفاوت بین import _ و import alias چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>import _&lt;/code> فقط برای اجرای init پکیج است.&lt;/li>
+&lt;li>Import alias برای استفاده از نام متفاوت جهت ارجاع به پکیج.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>122: چرا باید از context در عملیات‌های شبکه استفاده کنیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای امکان لغو یا timeout در صورت طولانی شدن عملیات.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>123: تفاوت بین interface value و concrete value چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+Interface value شامل نوع و مقدار واقعی است، concrete value فقط مقدار واقعی است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>124: چرا استفاده از constant برای magic number بهتر است؟&lt;/summary>
+&lt;div class="markdown-inner">
+باعث خوانایی بهتر، کاهش خطا و امکان تغییر راحت در آینده می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>125: تفاوت بین log.Println و fmt.Println چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>log.Println&lt;/code> علاوه بر چاپ پیام، timestamp هم اضافه می‌کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>126: چرا sync.WaitGroup باید با Add قبل از اجرای goroutine استفاده شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای جلوگیری از شرایطی که goroutine قبل از افزایش شمارنده شروع شود و WaitGroup صفر بماند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>127: تفاوت بین path و filepath در Go چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>path&lt;/code> برای مسیرهای URL و forward slash استفاده می‌شود.&lt;/li>
+&lt;li>&lt;code>filepath&lt;/code> برای مسیرهای سیستم فایل وابسته به سیستم‌عامل استفاده می‌شود.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>128: چرا استفاده از http.Client پیش‌فرض می‌تواند مشکل‌ساز باشد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون connectionها را cache نمی‌کند و ممکن است باعث نشت اتصال شود مگر اینکه timeout یا Transport سفارشی تعریف شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>129: تفاوت بین sync.Mutex و sync.RWMutex در خواندن زیاد چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>sync.RWMutex&lt;/code> اجازه می‌دهد چندین خواننده همزمان کار کنند، ولی Mutex فقط یک قفل کلی می‌دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>130: چرا panic در گوروتین جداگانه باید به صورت جداگانه recover شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون recover فقط panic در همان goroutine را می‌گیرد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>131: تفاوت بین os.Create و os.OpenFile چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>os.Create&lt;/code> فایل را با truncate ایجاد یا باز می‌کند.&lt;/li>
+&lt;li>&lt;code>os.OpenFile&lt;/code> کنترل کامل روی mode و flagها می‌دهد.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>132: چرا context باید به صورت اولین آرگومان به توابع پاس داده شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+این یک قرارداد استاندارد Go است که خوانایی و یکپارچگی API را بهبود می‌دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>133: تفاوت بین errors.Is و errors.As چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>errors.Is&lt;/code> برای بررسی تطابق با یک خطای خاص استفاده می‌شود.&lt;/li>
+&lt;li>&lt;code>errors.As&lt;/code> برای استخراج و استفاده از نوع خاص خطا.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>134: چرا نباید از defer در حلقه‌های شدیداً پرتکرار استفاده کرد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون هر defer تا پایان تابع ذخیره می‌شود و باعث سربار می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>135: تفاوت بین nil slice و empty slice در JSON چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+Nil slice به &lt;code>null&lt;/code> سریالایز می‌شود، ولی empty slice به &lt;code>[]&lt;/code>.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>136: چرا map در Go به صورت داخلی rehash انجام می‌دهد؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای حفظ کارایی O(1) در دسترسی و جلوگیری از افزایش بیش از حد load factor.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>137: تفاوت بین encoding/json و jsoniter چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>jsoniter&lt;/code> سریع‌تر و انعطاف‌پذیرتر است ولی encoding/json رسمی و پایدار است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>138: چرا باید کانال را فقط توسط ارسال‌کننده ببندیم؟&lt;/summary>
+&lt;div class="markdown-inner">
+برای جلوگیری از panic ناشی از ارسال به کانال بسته.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>139: تفاوت بین context.WithValue و متغیر global چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+Context برای داده‌های کوتاه‌مدت مرتبط با درخواست استفاده می‌شود، global برای داده‌های بلندمدت.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>140: چرا time.AfterFunc می‌تواند به جای time.Sleep مفید باشد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون به صورت asynchronous عمل می‌کند و callback مشخصی را بعد از مدت معین اجرا می‌کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>141: تفاوت بین select با یک case و استفاده مستقیم از channel چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>select&lt;/code> حتی با یک case هم امکان اضافه کردن default یا caseهای دیگر را در آینده می‌دهد و ساختار کد را منعطف‌تر می‌کند، ولی دریافت مستقیم ساده‌تر است.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>142: چرا استفاده از buffer بزرگ‌تر در bufio.Reader می‌تواند کارایی را بهبود دهد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون تعداد فراخوانی‌های سیستم‌عاملی (syscall) را کاهش می‌دهد و داده‌ها را یک‌جا می‌خواند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>143: تفاوت بین defer با anonymous function و با نام تابع چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+در defer با anonymous function می‌توان پارامترها را در زمان اجرای defer ارزیابی کرد، ولی در تابع نام‌دار پارامترها در لحظه تعریف defer ارزیابی می‌شوند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>144: چرا از sync/atomic برای شمارنده‌ها استفاده می‌شود؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون عملیات‌های اتمیک بدون نیاز به Mutex انجام می‌شوند و سرعت بیشتری دارند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>145: تفاوت بین byte buffer و byte slice چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+Byte buffer (مثل bytes.Buffer) امکانات بیشتری مثل نوشتن و خواندن با رشد خودکار دارد، ولی byte slice ساده‌تر است و امکانات اضافی ندارد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>146: چرا استفاده از fallthrough باید محدود باشد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون می‌تواند باعث اجرای غیرمنتظره caseها شود و خوانایی کد را کاهش دهد.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>147: تفاوت بین log.Fatal و os.Exit چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;code>log.Fatal&lt;/code> قبل از توقف پیام خطا را چاپ می‌کند، ولی &lt;code>os.Exit&lt;/code> فقط برنامه را متوقف می‌کند.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>148: چرا map در Go به‌صورت همزمان توسط چند goroutine قابل استفاده نیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون پیاده‌سازی داخلی map thread-safe نیست و همزمانی بدون قفل باعث panic می‌شود.
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>149: تفاوت بین os.Getenv و os.LookupEnv چیست؟&lt;/summary>
+&lt;div class="markdown-inner">
+&lt;ul>
+&lt;li>&lt;code>os.Getenv&lt;/code> رشته را برمی‌گرداند و اگر وجود نداشته باشد مقدار خالی می‌دهد.&lt;/li>
+&lt;li>&lt;code>os.LookupEnv&lt;/code> مقدار و وضعیت وجود داشتن را برمی‌گرداند.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;details >&lt;summary>150: چرا range روی channel تا زمان بسته شدن ادامه دارد؟&lt;/summary>
+&lt;div class="markdown-inner">
+چون range از channel تا زمانی که همه مقادیر خوانده و کانال بسته نشود، بلاک می‌ماند.
 &lt;/div>
 &lt;/details></description></item><item><author/><title>فصل اول: آشنایی با مفاهیم گو</title><link>https://book.gofarsi.ir/chapter-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/</guid><description>&lt;p>در فصل اول به مفاهیم پایه زبان برنامه‌نویسی گو بطور عمیق می‌پردازیم. این فصل شامل چندین بخش هست:&lt;/p>
 &lt;ul>
