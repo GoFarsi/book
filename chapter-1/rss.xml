@@ -1,0 +1,678 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل اول: آشنایی با مفاهیم گو on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-1/</link><description>Recent content in فصل اول: آشنایی با مفاهیم گو on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-1/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>1.1 ساختار کد گو</title><link>https://book.gofarsi.ir/chapter-1/structure-of-go-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/structure-of-go-code/</guid><description>&lt;p>همانطور که در تاریخچه زبان گو گفتیم, زبان گو سینتکس خیلی تمیز و ساده‌ای دارد که به راحتی می‌توانید کدهای زبان گو را بخوانید. در ادامه ما سعی می‌کنیم با مثال‌های ساده شما را با ساختار کد زبان گو آشنا کنیم.&lt;/p>
+&lt;blockquote class="book-hint info">
+&lt;strong>به نقل از تاریخچه&lt;/strong>
+سینتکس زبان گو به گونه‌ای طراحی شده که خیلی ساده و تمیز است و این باعث می‌شود خیلی سریع زبان گو را یاد بگیرید و از همه مهم‌تر توسعه پروژه‌های &lt;span class="tooltip" data-tooltip="Scale up" ontouchend="toggleTooltip(this)">مقیاس پذیر&lt;/span>
+با زبان گو به دلیل سادگی و آشکار بودن مفاهیم خیلی سریع‌تر صورت‌ گیرد.
+&lt;/blockquote>
+&lt;h2 id="110-زبان-برنامهنویسی">
+1.1.0 زبان برنامه‌نویسی
+&lt;a class="anchor" href="#110-%d8%b2%d8%a8%d8%a7%d9%86-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87%d9%86%d9%88%db%8c%d8%b3%db%8c">#&lt;/a>
+&lt;/h2>
+&lt;p>یک زبان برنامه‌نویسی یک زبان مصنوعی انگلیسی است که برای بیان محاسباتی که توسط یک ماشین (مخصوصاً رایانه) قابل انجام است، طراحی شده‌ است. زبان‌های برنامه‌نویسی برای ایجاد برنامه‌هایی به کار می‌روند که رفتار یک ماشین را مشخص می‌کنند، الگوریتم دقیق را بیان می‌کنند، یا روشی برای تعامل انسان و رایانه هستند. بسیاری از زبان‌های برنامه‌نویسی تعدادی قالب از ویژگی‌های نوشته شده دستوری یا نحو (syntax) و معناشناسی (semantics) دارند، چرا که رایانه‌ها دستورهای دقیقاً مشخص نیاز دارند. برخی توسط سند خصوصیات (specification document) تعیین شده‌اند (برای مثال یک استاندارد ISO)، در حالی که برخی دیگر دارای پیاده‌سازی غالبی هستند. [&lt;a href="https://fa.wikipedia.org/wiki/%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C">به نقل از ویکی‌پدیا&lt;/a>].&lt;/p></description></item><item><author/><title>1.2 کلید واژه و شناسه‌ها</title><link>https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/</guid><description>&lt;p>در این بخش قصد داریم به &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
+و &lt;span class="tooltip" data-tooltip="identifier" ontouchend="toggleTooltip(this)">شناسه&lt;/span>
+های زبان گو بپردازیم.&lt;/p>
+&lt;h2 id="121-کلید-واژه">
+1.2.1 کلید واژه
+&lt;a class="anchor" href="#121-%da%a9%d9%84%db%8c%d8%af-%d9%88%d8%a7%da%98%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>زبان گو تا &lt;span class="tooltip" data-tooltip="1.1.23" ontouchend="toggleTooltip(this)">نسخه فعلی&lt;/span>
+فقط ۲۵ تا کلید واژه دارد که به شرح زیر ست:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>1&lt;/th>
+&lt;th>2&lt;/th>
+&lt;th>3&lt;/th>
+&lt;th>4&lt;/th>
+&lt;th>5&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>break&lt;/td>
+&lt;td>default&lt;/td>
+&lt;td>func&lt;/td>
+&lt;td>interface&lt;/td>
+&lt;td>select&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>case&lt;/td>
+&lt;td>defer&lt;/td>
+&lt;td>go&lt;/td>
+&lt;td>map&lt;/td>
+&lt;td>struct&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3&lt;/td>
+&lt;td>chan&lt;/td>
+&lt;td>else&lt;/td>
+&lt;td>goto&lt;/td>
+&lt;td>package&lt;/td>
+&lt;td>switch&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>4&lt;/td>
+&lt;td>const&lt;/td>
+&lt;td>fallthrough&lt;/td>
+&lt;td>if&lt;/td>
+&lt;td>range&lt;/td>
+&lt;td>type&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5&lt;/td>
+&lt;td>continue&lt;/td>
+&lt;td>for&lt;/td>
+&lt;td>import&lt;/td>
+&lt;td>return&lt;/td>
+&lt;td>var&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>کلمات کلیدی فوق به ۴ دسته تقسیم می‌شوند که به شرح زیر است:&lt;/p></description></item><item><author/><title>1.3 تایپ‌های پایه</title><link>https://book.gofarsi.ir/chapter-1/go-basic-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-basic-types/</guid><description>&lt;h2 id="131-تایپ-چیست">
+1.3.1 تایپ چیست؟
+&lt;a class="anchor" href="#131-%d8%aa%d8%a7%db%8c%d9%be-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
+&lt;/h2>
+&lt;p>یک تایپ مشخص کننده نوع داده است، که به کامپایلر می‌گوید قرار است چه نوع داده‌ای داخل یک متغیر ذخیره گردد. زبان‌ها انواع تایپ‌های مختلفی به صورت پیش‌فرض دارند که می‌توان از آن‌ها داخل برنامه خود استفاده کرد.
+ما می‌توانیم تایپ‌ها را به دو دسته کلی تعریف کنیم.&lt;/p>
+&lt;h3 id="1311-تایپ-ایستا-static-type">
+1.3.1.1 تایپ ایستا (Static Type)
+&lt;a class="anchor" href="#1311-%d8%aa%d8%a7%db%8c%d9%be-%d8%a7%db%8c%d8%b3%d8%aa%d8%a7-static-type">#&lt;/a>
+&lt;/h3>
+&lt;p>زبانی مثل زبان گو یک زبان تایپ ایستا است، یعنی وقتی ما یک داده‌ای از نوع عددی داخل یک متغیر تعریف می‌کنیم داخل همان متغیر امکان اضافه کردن داده‌ای، غیر داده عددی وجود ندارد.&lt;/p></description></item><item><author/><title>1.4 عملگرها</title><link>https://book.gofarsi.ir/chapter-1/go-operators/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-operators/</guid><description>&lt;p>زبان گو مثل سایر زبان‌ها دارای یکسری &lt;span class="tooltip" data-tooltip="Oprators" ontouchend="toggleTooltip(this)">عملگرها&lt;/span>
+مانند: عملگرهای حسابی, عملگرهای مقایسه‌ای, عملگرهای منطقی و عملگرهای بیتی است.&lt;/p>
+&lt;h2 id="141-عملگرهای-حسابی">
+1.4.1 عملگرهای حسابی
+&lt;a class="anchor" href="#141-%d8%b9%d9%85%d9%84%da%af%d8%b1%d9%87%d8%a7%db%8c-%d8%ad%d8%b3%d8%a7%d8%a8%db%8c">#&lt;/a>
+&lt;/h2>
+&lt;p>زبان گو دارای ۵ تا عملگر حسابی است که به ترتیب:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>عملگر&lt;/th>
+&lt;th>نام&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>+&lt;/code>&lt;/td>
+&lt;td>جمع&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-&lt;/code>&lt;/td>
+&lt;td>تفریق&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>*&lt;/code>&lt;/td>
+&lt;td>ضرب&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/&lt;/code>&lt;/td>
+&lt;td>تقسیم&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%&lt;/code>&lt;/td>
+&lt;td>باقی مانده&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>این ۵ تا عملگر اغلب به ترتیب مجموع, تفاوت, حاصل‌ضرب و ضریب نیز نامیده می‌شوند.&lt;/p>
+&lt;pre>&lt;code class="language-go"> a := 1
+b := 2
+c := a + b // 3
+d := a - b // -1
+e := a * b // 2
+f := a / b // 0
+g := a % b // 1
+&lt;/code>&lt;/pre>
+&lt;blockquote class="book-hint info">
+در نمونه کد بالا ما از عملگر &lt;code>:=&lt;/code> که شیوه تعریف متغیر به روش کوتاه است استفاده کردیم که در بخش &lt;a href="https://book.gofarsi.ir/chapter-1/go-variables-and-consts/">1.5 متغیرها و ثابت ها معرفی&lt;/a> خواهیم کرد.
+&lt;/blockquote>
+&lt;h2 id="142-عملگرهای-مقایسهای">
+1.4.2 عملگرهای مقایسه‌ای
+&lt;a class="anchor" href="#142-%d8%b9%d9%85%d9%84%da%af%d8%b1%d9%87%d8%a7%db%8c-%d9%85%d9%82%d8%a7%db%8c%d8%b3%d9%87%d8%a7%db%8c">#&lt;/a>
+&lt;/h2>
+&lt;p>زبان گو دارای ۶ عملگر مقایسه‌ای است که به ترتیب:&lt;/p></description></item><item><author/><title>1.5 متغیرها و constant</title><link>https://book.gofarsi.ir/chapter-1/go-variables-and-consts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-variables-and-consts/</guid><description>&lt;h2 id="151-متغیر-variable">
+1.5.1 متغیر (Variable)
+&lt;a class="anchor" href="#151-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-variable">#&lt;/a>
+&lt;/h2>
+&lt;p>در برنامه‌نویسی رایانه، یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+یک مکان در حافظه (آدرس حافظه) است که دارای یک نام نمادین با عنوان است و می‌تواند حاوی اطلاعات یا یک مقدار معلوم یا مجهول که به آن &lt;span class="tooltip" data-tooltip="Value" ontouchend="toggleTooltip(this)">ارزش یا مقدار&lt;/span>
+می‌گویند، باشد. به زبان دیگر، متغیر در برنامه‌نویسی به فضایی که برای ذخیره داده‌ها کنار گذاشته شده‌ است می‌گویند (&lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%AA%D8%BA%DB%8C%D8%B1_%28%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C%29">به نقل از سایت ویکی‌پدیا&lt;/a>)&lt;/p>
+&lt;h3 id="تعریف-یک-متغیر-رشته">
+تعریف یک متغیر رشته
+&lt;a class="anchor" href="#%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%db%8c%da%a9-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%b1%d8%b4%d8%aa%d9%87">#&lt;/a>
+&lt;/h3>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+)
+func main() {
+var s string = "Hello World"
+fmt.Println(s)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;ol>
+&lt;li>یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+با استفاده از &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
+&lt;code>var&lt;/code> ایجاد کردیم.&lt;/li>
+&lt;li>نام &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+را &lt;code>s&lt;/code> گذاشتیم.&lt;/li>
+&lt;li>تایپ &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+را از نوع &lt;code>string&lt;/code> تعیین کردیم.&lt;/li>
+&lt;li>سپس با عملگر &lt;code>=&lt;/code> مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+را مشخص از نوع رشته تعیین کردیم.&lt;/li>
+&lt;li>رشته &lt;code>&amp;quot;Hello World&amp;quot;&lt;/code> به عنوان مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+&lt;code>s&lt;/code> است و این مقدار در خانه مشخصی از حافظه قرار داده شده است.&lt;/li>
+&lt;li>از پکیج استاندارد &lt;code>fmt&lt;/code> برای چاپ مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+&lt;code>s&lt;/code> استفاده کردیم که این پکیج یکسری توابع جهت انجام عملیات‌های مختلفی نظیر چاپ مقادیر را دارد که در کد بالا ما از تابع &lt;code>Println&lt;/code> استفاده کردیم.&lt;/li>
+&lt;/ol>
+&lt;h3 id="1511-اختصاص-مقدار-جدید-به-متغیر-از-قبل-ایجاد-شده">
+1.5.1.1 اختصاص مقدار جدید به متغیر از قبل ایجاد شده
+&lt;a class="anchor" href="#1511-%d8%a7%d8%ae%d8%aa%d8%b5%d8%a7%d8%b5-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%d8%ac%d8%af%db%8c%d8%af-%d8%a8%d9%87-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%a7%d8%b2-%d9%82%d8%a8%d9%84-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%b4%d8%af%d9%87">#&lt;/a>
+&lt;/h3>
+&lt;p>در کد زیر ما یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+از قبل تعریف کردیم و مقدار جدید را در خط ۹ به &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
+اختصاص دادیم.&lt;/p></description></item><item><author/><title>1.6 مقادیر صفر تایپ‌ها (zero values)</title><link>https://book.gofarsi.ir/chapter-1/go-zero-values/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-zero-values/</guid><description>&lt;p>در جدول زیر فهرست تمامی تایپ‌ها را با مقادیر صفرشان &lt;code>(پیش‌فرض)&lt;/code> قرار دادیم:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>تایپ&lt;/th>
+&lt;th>مقدار پیش فرض یا مقدار صفر&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>int&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>int8&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>int16&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>int32&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>int64&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uint&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uint8&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uint16&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uint32&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uint64&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uintptr&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>float32&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>float64&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>complex64&lt;/td>
+&lt;td>0+0i&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>complex128&lt;/td>
+&lt;td>0+0i&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>bool&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>string&lt;/td>
+&lt;td>&amp;quot;&amp;quot;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>interface&lt;/td>
+&lt;td>nil&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>slice&lt;/td>
+&lt;td>nil&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>channel&lt;/td>
+&lt;td>nil&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>map&lt;/td>
+&lt;td>nil&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pointer&lt;/td>
+&lt;td>nil&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>function&lt;/td>
+&lt;td>nil&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>struct&lt;/td>
+&lt;td>براساس مقدار پیش فرض فیلدها&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>نمونه کد نمایش مقدار صفر تایپ‌ها:&lt;/p></description></item><item><author/><title>1.7 تابع (function)</title><link>https://book.gofarsi.ir/chapter-1/go-function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-function/</guid><description>&lt;h2 id="171-تابع-چیست">
+1.7.1 تابع چیست؟
+&lt;a class="anchor" href="#171-%d8%aa%d8%a7%d8%a8%d8%b9-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
+&lt;/h2>
+&lt;p>در برنامه‌نویسی، &lt;strong>تابع&lt;/strong> به تکه کدهایی گفته می‌شود که برای انجام عملی خاص استفاده می‌شوند. به کمک توابع می‌توانیم تکه کدها را از یکدیگر جدا کنیم و از تکرار کدها جلوگیری کنیم.&lt;/p>
+&lt;p>همانند شکل زیر تابع مانند یک جعبه (یا قطعه کد) است. که یک مقدار ورودی گرفته و روی آن پردازش‌هایی انجام می‌دهد و یک خروجی تولید می‌کند. تابع می‌تواند هر چندتا ورودی یا خروجی داشته باشد.
+&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--iCkOfD0L--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/1024/1%2A709ugF12LLkYxvb839YNlg.png" alt="" />&lt;/p></description></item><item><author/><title>1.8 آرایه و slice</title><link>https://book.gofarsi.ir/chapter-1/go-array/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-array/</guid><description>&lt;p>&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
+و slice دو نوع تایپ با یک وجه اشتراک در زبان گو هستند ولی این دو نوع تایپ یکسری تفاوت‌هایی نیز با هم دارند که در ادامه به آن‌ها می‌پردازیم.&lt;/p>
+&lt;h2 id="181-تعریف-آرایه">
+1.8.1 تعریف آرایه
+&lt;a class="anchor" href="#181-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
+یکی از عمومی‌ترین تایپ‌ها در زبان‌های برنامه‌نویسی آرایه‌ها هستند که برای نگه داری گروهی مقادیر از یک نوع تایپ استفاده می‌شود.
+برای دسترسی به هر کدام از مقادیر درون آرایه باید از &lt;span class="tooltip" data-tooltip="Index" ontouchend="toggleTooltip(this)">اندیس&lt;/span>
+استفاده کرد.
+معمولا برای تعریف آرایه تعداد مشخص و ثابتی را برای تعداد مقادیر مشخص میکنید. یعنی این آرایه قرار است چند تا مقدار نگه داری کند.&lt;/p></description></item><item><author/><title>1.9 حلقه‌ها (for)</title><link>https://book.gofarsi.ir/chapter-1/go-for/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-for/</guid><description>&lt;h2 id="191-حلقه">
+1.9.1 حلقه
+&lt;a class="anchor" href="#191-%d8%ad%d9%84%d9%82%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>حلقه‌ها را در زبان گو به ساده‌ترین شکل ممکن و فقط با استفاده از کلید واژه for و در مدل‌های مختلف (سه‌بخشی، بی نهایت، foreach و &amp;hellip;) می‌توان پیاده‌سازی کرد.&lt;/p>
+&lt;h2 id="192-حلقه-سه-بخشی">
+1.9.2 حلقه سه بخشی
+&lt;a class="anchor" href="#192-%d8%ad%d9%84%d9%82%d9%87-%d8%b3%d9%87-%d8%a8%d8%ae%d8%b4%db%8c">#&lt;/a>
+&lt;/h2>
+&lt;p>این نمونه که متداول‌ترین نوع حلقه &lt;code>for&lt;/code> نیز هستند با استفاده از سه‌ بخش:&lt;/p>
+&lt;ul>
+&lt;li>مقداردهی&lt;/li>
+&lt;li>شرط&lt;/li>
+&lt;li>شمارنده&lt;/li>
+&lt;/ul>
+&lt;p>ایجاد می‌شوند.&lt;/p>
+&lt;pre>&lt;code class="language-go">for initialization ; condition ; counter {
+//loop codes
+}
+&lt;/code>&lt;/pre>
+&lt;p>در مثال زیر نمونه‌ای از این حلقه‌ قابل مشاهده و اجرا است.
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
+func main() {
+sum := 0
+for i := 1; i &lt; 10; i++ {
+sum += i
+}
+fmt.Println(sum)
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;/p></description></item><item><author/><title>1.10 نقشه map</title><link>https://book.gofarsi.ir/chapter-1/go-map/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-map/</guid><description>&lt;h2 id="1101-مقدمه">
+1.10.1 مقدمه
+&lt;a class="anchor" href="#1101-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
+، یک نوع ساختار داده است.&lt;/li>
+&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
+ها جهت جمع‌آوری و نگهداری مجموعه‌ای از داده‌ها استفاده می‌گردند.&lt;/li>
+&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
+، از نوع داده‌های &lt;span class="tooltip" data-tooltip="associative data type" ontouchend="toggleTooltip(this)">انجمنی&lt;/span>
+(هش) بصورت &lt;span class="tooltip" data-tooltip="key-value" ontouchend="toggleTooltip(this)">«کلید-مقدار»&lt;/span>
+است.&lt;/li>
+&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
+، مجموعه‌ای از داده‌ها بصورت &lt;span class="tooltip" data-tooltip="unordered key:value pairs" ontouchend="toggleTooltip(this)">جفت‌‌های مرتب‌نشده&lt;/span>
+است.&lt;/li>
+&lt;/ul>
+&lt;h2 id="1102-تعریف">
+1.10.2 تعریف
+&lt;a class="anchor" href="#1102-%d8%aa%d8%b9%d8%b1%db%8c%d9%81">#&lt;/a>
+&lt;/h2>
+&lt;p>یک مپ شبیه به فرمت زیر است:&lt;/p>
+&lt;pre>&lt;code class="language-go">map[KeyType]ValueType
+&lt;/code>&lt;/pre>
+&lt;p>کلمه کلیدی &lt;code>map&lt;/code> و بعد نوع کلید و در آخر هم نوع مقدار تعریف می‌شود.&lt;/p></description></item><item><author/><title>1.11 شرط (if, switch)</title><link>https://book.gofarsi.ir/chapter-1/go-if-switch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-if-switch/</guid><description>&lt;h2 id="1111-شرط-if-else">
+1.11.1 شرط (if-else)
+&lt;a class="anchor" href="#1111-%d8%b4%d8%b1%d8%b7-if-else">#&lt;/a>
+&lt;/h2>
+&lt;p>زبان گو همانند سایر زبان‌ها دارای &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
+است که شما خیلی ساده می‌توانید از آن استفاده کنید. در مثال زیر ما فرمت استاندارد &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
+در زبان گو را قرار دادیم:&lt;/p>
+&lt;pre>&lt;code class="language-go">if condition {
+//Do something
+} else if condition {
+//Do something
+} else {
+//Do something
+}
+&lt;/code>&lt;/pre>
+&lt;p>در بالا &lt;strong>condition&lt;/strong> عبارتی است که قرار است وضعیت شرط را مشخص کند و در صورت &lt;strong>true&lt;/strong> شدن شرط بر قرار می‌شود و در صورت برقرار نشدن شرط اول، برنامه وارد else if می‌شود و مجدد یک &lt;strong>condition&lt;/strong> دیگری را چک می‌کند که وضعیتش &lt;strong>true&lt;/strong> می‌شود یا خیر و در نهایت منتهی می‌شود به &lt;strong>else&lt;/strong>.&lt;/p></description></item><item><author/><title>1.12 اضافه کردن پکیج در کد (package)</title><link>https://book.gofarsi.ir/chapter-1/go-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-package/</guid><description>&lt;p>زبان برنامه‌نویسی گو به شکلی طراحی شده است تا بتوانیم شیو‌ه‌های خوب مهندسی نرم‌افزار را به سادگی پیاده‌سازی کنیم. یکی از الگوهای مهم برای ارتقای کیفیت یک نرم افزار استفاده از DRY principle است. کلمه DRY مخفف &lt;strong>D&lt;/strong>on’t &lt;strong>R&lt;/strong>epeat &lt;strong>Y&lt;/strong>ourself &lt;code>همون چرخ رو دوباره اختراع نکن خودمون&lt;/code> است, که اگر به صورت خیلی ساده بیانش کنیم یعنی، کدی که خواهید نوشت را دوبار تکرار نکنید. تا جایی که امکان دارد باید بتوانید از کدهای قبلی که نوشته اید استفاده کنید. پکیج‌ها امکاناتی از جمله:&lt;/p></description></item><item><author/><title>1.13 defer, panic, recovery</title><link>https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/</guid><description>&lt;h2 id="1131-تعویق-defer">
+1.13.1 تعویق (defer)
+&lt;a class="anchor" href="#1131-%d8%aa%d8%b9%d9%88%db%8c%d9%82-defer">#&lt;/a>
+&lt;/h2>
+&lt;p>کلمه کلیدی defer یکی از کاربردی‌ترین امکانات زبان گو را برای ما فراهم می‌سازد. شما می‌توانید اجرای یک تابع را به تعویق بندازید‍‍. عموماً defer برای توابعی کاربرد دارد که قصد پاک‌سازی یا بستن عملیات‌های صورت گرفته را دارند، نظیر توابع Close در برخی از جاها.&lt;/p>
+&lt;p>&lt;img src="../../assets/img/content/chapter1/defer-panic-recovery/1.png" alt="defer" />&lt;/p>
+&lt;p>به مثال زیر توجه کنید:&lt;/p>
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import (
+"fmt"
+)
+func main() {
+defer fmt.Println("world")
+fmt.Println("hello")
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;h3 id="11311-تعویق-defer-در-توابع-anonymous">
+1.13.1.1 تعویق (defer) در توابع (Anonymous)
+&lt;a class="anchor" href="#11311-%d8%aa%d8%b9%d9%88%db%8c%d9%82-defer-%d8%af%d8%b1-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-anonymous">#&lt;/a>
+&lt;/h3>
+&lt;p>شما خیلی ساده می‌توانید با استفاده از توابع &lt;code>Anonymous&lt;/code> &lt;code>توابع بینام یا گمنام :)&lt;/code> اجرای قسمتی از برنامه خودتان را به تعویق بندازید. به مثال زیر توجه کنید:&lt;/p></description></item><item><author/><title>1.14 لیست تایپ‌ها و توابع Builtin</title><link>https://book.gofarsi.ir/chapter-1/go-builtins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-builtins/</guid><description>&lt;p>در مثال زیر لیست تایپ‌ها و توابع Builtin را با توضیحات قرار دادیم.&lt;/p>
+&lt;pre>&lt;code class="language-go">// Copyright 2011 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+/*
+Package builtin provides documentation for Go's predeclared identifiers.
+The items documented here are not actually in package builtin
+but their descriptions here allow godoc to present documentation
+for the language's special identifiers.
+*/
+package builtin
+import &amp;quot;cmp&amp;quot;
+// bool is the set of boolean values, true and false.
+type bool bool
+// true and false are the two untyped boolean values.
+const (
+true = 0 == 0 // Untyped bool.
+false = 0 != 0 // Untyped bool.
+)
+// uint8 is the set of all unsigned 8-bit integers.
+// Range: 0 through 255.
+type uint8 uint8
+// uint16 is the set of all unsigned 16-bit integers.
+// Range: 0 through 65535.
+type uint16 uint16
+// uint32 is the set of all unsigned 32-bit integers.
+// Range: 0 through 4294967295.
+type uint32 uint32
+// uint64 is the set of all unsigned 64-bit integers.
+// Range: 0 through 18446744073709551615.
+type uint64 uint64
+// int8 is the set of all signed 8-bit integers.
+// Range: -128 through 127.
+type int8 int8
+// int16 is the set of all signed 16-bit integers.
+// Range: -32768 through 32767.
+type int16 int16
+// int32 is the set of all signed 32-bit integers.
+// Range: -2147483648 through 2147483647.
+type int32 int32
+// int64 is the set of all signed 64-bit integers.
+// Range: -9223372036854775808 through 9223372036854775807.
+type int64 int64
+// float32 is the set of all IEEE 754 32-bit floating-point numbers.
+type float32 float32
+// float64 is the set of all IEEE 754 64-bit floating-point numbers.
+type float64 float64
+// complex64 is the set of all complex numbers with float32 real and
+// imaginary parts.
+type complex64 complex64
+// complex128 is the set of all complex numbers with float64 real and
+// imaginary parts.
+type complex128 complex128
+// string is the set of all strings of 8-bit bytes, conventionally but not
+// necessarily representing UTF-8-encoded text. A string may be empty, but
+// not nil. Values of string type are immutable.
+type string string
+// int is a signed integer type that is at least 32 bits in size. It is a
+// distinct type, however, and not an alias for, say, int32.
+type int int
+// uint is an unsigned integer type that is at least 32 bits in size. It is a
+// distinct type, however, and not an alias for, say, uint32.
+type uint uint
+// uintptr is an integer type that is large enough to hold the bit pattern of
+// any pointer.
+type uintptr uintptr
+// byte is an alias for uint8 and is equivalent to uint8 in all ways. It is
+// used, by convention, to distinguish byte values from 8-bit unsigned
+// integer values.
+type byte = uint8
+// rune is an alias for int32 and is equivalent to int32 in all ways. It is
+// used, by convention, to distinguish character values from integer values.
+type rune = int32
+// any is an alias for interface{} and is equivalent to interface{} in all ways.
+type any = interface{}
+// comparable is an interface that is implemented by all comparable types
+// (booleans, numbers, strings, pointers, channels, arrays of comparable types,
+// structs whose fields are all comparable types).
+// The comparable interface may only be used as a type parameter constraint,
+// not as the type of a variable.
+type comparable interface{ comparable }
+// iota is a predeclared identifier representing the untyped integer ordinal
+// number of the current const specification in a (usually parenthesized)
+// const declaration. It is zero-indexed.
+const iota = 0 // Untyped int.
+// nil is a predeclared identifier representing the zero value for a
+// pointer, channel, func, interface, map, or slice type.
+var nil Type // Type must be a pointer, channel, func, interface, map, or slice type
+// Type is here for the purposes of documentation only. It is a stand-in
+// for any Go type, but represents the same type for any given function
+// invocation.
+type Type int
+// Type1 is here for the purposes of documentation only. It is a stand-in
+// for any Go type, but represents the same type for any given function
+// invocation.
+type Type1 int
+// IntegerType is here for the purposes of documentation only. It is a stand-in
+// for any integer type: int, uint, int8 etc.
+type IntegerType int
+// FloatType is here for the purposes of documentation only. It is a stand-in
+// for either float type: float32 or float64.
+type FloatType float32
+// ComplexType is here for the purposes of documentation only. It is a
+// stand-in for either complex type: complex64 or complex128.
+type ComplexType complex64
+// The append built-in function appends elements to the end of a slice. If
+// it has sufficient capacity, the destination is resliced to accommodate the
+// new elements. If it does not, a new underlying array will be allocated.
+// Append returns the updated slice. It is therefore necessary to store the
+// result of append, often in the variable holding the slice itself:
+//
+// slice = append(slice, elem1, elem2)
+// slice = append(slice, anotherSlice...)
+//
+// As a special case, it is legal to append a string to a byte slice, like this:
+//
+// slice = append([]byte(&amp;quot;hello &amp;quot;), &amp;quot;world&amp;quot;...)
+func append(slice []Type, elems ...Type) []Type
+// The copy built-in function copies elements from a source slice into a
+// destination slice. (As a special case, it also will copy bytes from a
+// string to a slice of bytes.) The source and destination may overlap. Copy
+// returns the number of elements copied, which will be the minimum of
+// len(src) and len(dst).
+func copy(dst, src []Type) int
+// The delete built-in function deletes the element with the specified key
+// (m[key]) from the map. If m is nil or there is no such element, delete
+// is a no-op.
+func delete(m map[Type]Type1, key Type)
+// The len built-in function returns the length of v, according to its type:
+//
+// - Array: the number of elements in v.
+// - Pointer to array: the number of elements in *v (even if v is nil).
+// - Slice, or map: the number of elements in v; if v is nil, len(v) is zero.
+// - String: the number of bytes in v.
+// - Channel: the number of elements queued (unread) in the channel buffer;
+// if v is nil, len(v) is zero.
+//
+// For some arguments, such as a string literal or a simple array expression, the
+// result can be a constant. See the Go language specification's &amp;quot;Length and
+// capacity&amp;quot; section for details.
+func len(v Type) int
+// The cap built-in function returns the capacity of v, according to its type:
+//
+// - Array: the number of elements in v (same as len(v)).
+// - Pointer to array: the number of elements in *v (same as len(v)).
+// - Slice: the maximum length the slice can reach when resliced;
+// if v is nil, cap(v) is zero.
+// - Channel: the channel buffer capacity, in units of elements;
+// if v is nil, cap(v) is zero.
+//
+// For some arguments, such as a simple array expression, the result can be a
+// constant. See the Go language specification's &amp;quot;Length and capacity&amp;quot; section for
+// details.
+func cap(v Type) int
+// The make built-in function allocates and initializes an object of type
+// slice, map, or chan (only). Like new, the first argument is a type, not a
+// value. Unlike new, make's return type is the same as the type of its
+// argument, not a pointer to it. The specification of the result depends on
+// the type:
+//
+// - Slice: The size specifies the length. The capacity of the slice is
+// equal to its length. A second integer argument may be provided to
+// specify a different capacity; it must be no smaller than the
+// length. For example, make([]int, 0, 10) allocates an underlying array
+// of size 10 and returns a slice of length 0 and capacity 10 that is
+// backed by this underlying array.
+// - Map: An empty map is allocated with enough space to hold the
+// specified number of elements. The size may be omitted, in which case
+// a small starting size is allocated.
+// - Channel: The channel's buffer is initialized with the specified
+// buffer capacity. If zero, or the size is omitted, the channel is
+// unbuffered.
+func make(t Type, size ...IntegerType) Type
+// The max built-in function returns the largest value of a fixed number of
+// arguments of [cmp.Ordered] types. There must be at least one argument.
+// If T is a floating-point type and any of the arguments are NaNs,
+// max will return NaN.
+func max[T cmp.Ordered](x T, y ...T) T
+// The min built-in function returns the smallest value of a fixed number of
+// arguments of [cmp.Ordered] types. There must be at least one argument.
+// If T is a floating-point type and any of the arguments are NaNs,
+// min will return NaN.
+func min[T cmp.Ordered](x T, y ...T) T
+// The new built-in function allocates memory. The first argument is a type,
+// not a value, and the value returned is a pointer to a newly
+// allocated zero value of that type.
+func new(Type) *Type
+// The complex built-in function constructs a complex value from two
+// floating-point values. The real and imaginary parts must be of the same
+// size, either float32 or float64 (or assignable to them), and the return
+// value will be the corresponding complex type (complex64 for float32,
+// complex128 for float64).
+func complex(r, i FloatType) ComplexType
+// The real built-in function returns the real part of the complex number c.
+// The return value will be floating point type corresponding to the type of c.
+func real(c ComplexType) FloatType
+// The imag built-in function returns the imaginary part of the complex
+// number c. The return value will be floating point type corresponding to
+// the type of c.
+func imag(c ComplexType) FloatType
+// The clear built-in function clears maps and slices.
+// For maps, clear deletes all entries, resulting in an empty map.
+// For slices, clear sets all elements up to the length of the slice
+// to the zero value of the respective element type. If the argument
+// type is a type parameter, the type parameter's type set must
+// contain only map or slice types, and clear performs the operation
+// implied by the type argument. If t is nil, clear is a no-op.
+func clear[T ~[]Type | ~map[Type]Type1](t T)
+// The close built-in function closes a channel, which must be either
+// bidirectional or send-only. It should be executed only by the sender,
+// never the receiver, and has the effect of shutting down the channel after
+// the last sent value is received. After the last value has been received
+// from a closed channel c, any receive from c will succeed without
+// blocking, returning the zero value for the channel element. The form
+//
+// x, ok := &amp;lt;-c
+//
+// will also set ok to false for a closed and empty channel.
+func close(c chan&amp;lt;- Type)
+// The panic built-in function stops normal execution of the current
+// goroutine. When a function F calls panic, normal execution of F stops
+// immediately. Any functions whose execution was deferred by F are run in
+// the usual way, and then F returns to its caller. To the caller G, the
+// invocation of F then behaves like a call to panic, terminating G's
+// execution and running any deferred functions. This continues until all
+// functions in the executing goroutine have stopped, in reverse order. At
+// that point, the program is terminated with a non-zero exit code. This
+// termination sequence is called panicking and can be controlled by the
+// built-in function recover.
+//
+// Starting in Go 1.21, calling panic with a nil interface value or an
+// untyped nil causes a run-time error (a different panic).
+// The GODEBUG setting panicnil=1 disables the run-time error.
+func panic(v any)
+// The recover built-in function allows a program to manage behavior of a
+// panicking goroutine. Executing a call to recover inside a deferred
+// function (but not any function called by it) stops the panicking sequence
+// by restoring normal execution and retrieves the error value passed to the
+// call of panic. If recover is called outside the deferred function it will
+// not stop a panicking sequence. In this case, or when the goroutine is not
+// panicking, recover returns nil.
+//
+// Prior to Go 1.21, recover would also return nil if panic is called with
+// a nil argument. See [panic] for details.
+func recover() any
+// The print built-in function formats its arguments in an
+// implementation-specific way and writes the result to standard error.
+// Print is useful for bootstrapping and debugging; it is not guaranteed
+// to stay in the language.
+func print(args ...Type)
+// The println built-in function formats its arguments in an
+// implementation-specific way and writes the result to standard error.
+// Spaces are always added between arguments and a newline is appended.
+// Println is useful for bootstrapping and debugging; it is not guaranteed
+// to stay in the language.
+func println(args ...Type)
+// The error built-in interface type is the conventional interface for
+// representing an error condition, with the nil value representing no error.
+type error interface {
+Error() string
+}
+&lt;/code>&lt;/pre></description></item><item><author/><title>1.15 قالب بندی رشته‌ها</title><link>https://book.gofarsi.ir/chapter-1/go-string-formatting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-string-formatting/</guid><description>&lt;p>در زبان گو مانند سایر زبان‌ها یکسری عناوین برای قالب‌بندی رشته وجود دارد که برخی از این عناوین مشترک بین همه زبان‌ها هست و برخی مختص زبان گو.&lt;/p>
+&lt;h2 id="1151-قالب-بندی-با-توابع-printf-و-sprintf">
+1.15.1 قالب بندی با توابع Printf و Sprintf
+&lt;a class="anchor" href="#1151-%d9%82%d8%a7%d9%84%d8%a8-%d8%a8%d9%86%d8%af%db%8c-%d8%a8%d8%a7-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-printf-%d9%88-sprintf">#&lt;/a>
+&lt;/h2>
+&lt;p>زمانیکه شما از تابع Printf یا Sprintf استفاده می‌کنید می‌توانید رشته خروجی را با استفاده از پارامترهای بعد از رشته قالب‌بندی کنید، و در نهایت به‌صورت یک رشته نمایش دهید.&lt;/p>
+&lt;pre>&lt;code class="language-go">fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, value1, value2, value3, ..., valueN)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-go">fmt.Sprintf(&amp;quot;{{Verb}}&amp;quot;, value1, value2, value3, ..., valueN)
+&lt;/code>&lt;/pre>
+&lt;blockquote class="book-hint info">
+&lt;p>توجه کنید هر دو تابع فوق خیلی کاربردی و پر استفاده هستند. این ۲ تابع کارکردشان مشترک است ولی خروجی متفاوتی دارند.&lt;/p></description></item></channel></rss>

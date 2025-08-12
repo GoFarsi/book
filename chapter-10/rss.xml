@@ -1,0 +1,23 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل دهم: الگوریتم و ساختار داده on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-10/</link><description>Recent content in فصل دهم: الگوریتم و ساختار داده on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-10/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title/><link>https://book.gofarsi.ir/chapter-10/10.1--data-structures-queue-stack-lists/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-10/10.1--data-structures-queue-stack-lists/</guid><description>&lt;p>در این قسمت به بررسی مواردی مهم از ساختمان داده در زبان گو می‌پردازیم و این آموزش مناسب افرادی هست که با مباحث ساختمان داده آشنایی داشته باشند.&lt;/p>
+&lt;h2 id="1011--queue-in-golang">
+10.1.1 Queue in Golang
+&lt;a class="anchor" href="#1011--queue-in-golang">#&lt;/a>
+&lt;/h2>
+&lt;p>یک صف (queue) ساده را می توان با استفاده از GO به کمک موارد زیر پیاده سازی کرد:&lt;/p>
+&lt;ol>
+&lt;li>container/list package&lt;/li>
+&lt;li>slice&lt;/li>
+&lt;/ol>
+&lt;p>یک صف عملیات زیر را انجام می‌دهد:&lt;/p>
+&lt;ol>
+&lt;li>Enqueue&lt;/li>
+&lt;li>Dequeue&lt;/li>
+&lt;li>Front&lt;/li>
+&lt;li>Size&lt;/li>
+&lt;li>Empty&lt;/li>
+&lt;/ol>
+&lt;h3 id="10111---list-implementation">
+10.1.1.1 &lt;strong>List Implementation&lt;/strong>
+&lt;a class="anchor" href="#10111---list-implementation">#&lt;/a>
+&lt;/h3>
+&lt;p>پیاده سازی صف به کمک لیست‌ها&lt;/p></description></item></channel></rss>

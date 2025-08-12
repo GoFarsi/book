@@ -1,0 +1,70 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>9.3 الگوهای طراحی رفتاری on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/</link><description>Recent content in 9.3 الگوهای طراحی رفتاری on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-9/behavioral-patterns/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>9.3.1 الگو Chain Of Responsibility</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-chain-of-responsibility-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-chain-of-responsibility-pattern/</guid><description>&lt;h2 id="9311---الگوی-زنجیره-مسئولیت-chain-of-responsibility">
+9.3.1.1 - الگوی زنجیره مسئولیت (Chain of Responsibility)
+&lt;a class="anchor" href="#9311---%d8%a7%d9%84%da%af%d9%88%db%8c-%d8%b2%d9%86%d8%ac%db%8c%d8%b1%d9%87-%d9%85%d8%b3%d8%a6%d9%88%d9%84%db%8c%d8%aa-chain-of-responsibility">#&lt;/a>
+&lt;/h2>
+&lt;p>الگوی زنجیره مسئولیت (Chain of Responsibility) یک الگوی طراحی رفتاری است که به شما امکان می‌دهد درخواست‌ها را در امتداد زنجیره‌ای از هندلرها (handlers) پاس دهید. هر هندلر پس از دریافت یک درخواست، تصمیم می‌گیرد که درخواست را پردازش کند یا آن را به هندلر بعدی در زنجیره منتقل نماید.&lt;/p>
+&lt;h3 id="9312----مشکل">
+9.3.1.2 - مشکل
+&lt;a class="anchor" href="#9312----%d9%85%d8%b4%da%a9%d9%84">#&lt;/a>
+&lt;/h3>
+&lt;p>فرض کنید روی یک سیستم سفارش آنلاین کار می‌کنید. می‌خواهید دسترسی به سیستم را محدود کنید تا فقط کاربران احراز هویت شده بتوانند سفارش ایجاد کنند. همچنین، کاربرانی که دارای مجوز مدیریت هستند باید دسترسی کامل به تمام سفارشات داشته باشند.&lt;/p></description></item><item><author/><title>9.3.2 الگو Command</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-command-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-command-pattern/</guid><description>&lt;h2 id="9321-الگوی-طراحی-فرمان-command">
+9.3.2.1-الگوی طراحی فرمان (Command)
+&lt;a class="anchor" href="#9321-%d8%a7%d9%84%da%af%d9%88%db%8c-%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d9%81%d8%b1%d9%85%d8%a7%d9%86-command">#&lt;/a>
+&lt;/h2>
+&lt;p>الگوی طراحی Command یک الگوی رفتاری است که یک درخواست را به یک شیء(object) مستقل تبدیل می کند که حاوی تمام اطلاعات مربوط به درخواست است. این تغییر شکل به شما امکان می دهد درخواست‌ها را به عنوان آرگومان متد ارسال کنید و اجرای یک درخواست را به تعویق بیندازید یا در صف قرار دهید و از عملیات قابل لغو پشتیبانی کنید.&lt;/p>
+&lt;h2 id="9322-مشکل">
+9.3.2.2-مشکل
+&lt;a class="anchor" href="#9322-%d9%85%d8%b4%da%a9%d9%84">#&lt;/a>
+&lt;/h2>
+&lt;p>فرض کنید روی یک برنامه ویرایشگر متن جدید کار می‌کنید. وظیفه فعلی شما ایجاد نوار ابزار با تعدادی دکمه برای عملیات مختلف ویرایشگر است. شما یک کلاس Button بسیار مرتب ایجاد کرده اید که می‌توان از آن برای دکمه های روی نوار ابزار و همچنین برای دکمه های عمومی در گفتگوهای مختلف استفاده کرد.&lt;/p></description></item><item><author/><title>9.3.3 الگو Iterator</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-iterator-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-iterator-pattern/</guid><description>&lt;h2 id="9331-هدف">
+9.3.3.1-هدف
+&lt;a class="anchor" href="#9331-%d9%87%d8%af%d9%81">#&lt;/a>
+&lt;/h2>
+&lt;p>الگوي طراحی تکرارکننده (Iterator) یک الگوی رفتاری است که به شما امکان می دهد عناصر یک مجموعه را بدون نمایش ساختار درونی آن (فهرست، پشته، درخت و غیره) پیمایش کنید.&lt;/p>
+&lt;h2 id="9332-مشکل">
+9.3.3.2-مشکل
+&lt;a class="anchor" href="#9332-%d9%85%d8%b4%da%a9%d9%84">#&lt;/a>
+&lt;/h2>
+&lt;p>مجموعه ها (collections) یکی از پرکاربردترین انواع داده در برنامه نویسی هستند. با این وجود، یک مجموعه فقط یک ظرف برای گروهی از اشیاء است.&lt;/p>
+&lt;p>&lt;img src="../../../assets/img/content/chapter9/designPatterns/iterator-problem1.png" alt="iterator-problem1" />
+(انواع مختلف از collections)&lt;/p>
+&lt;p>اکثر مجموعه ها عناصر خود را در لیست های ساده ذخیره می کنند. با این حال، برخی از آنها بر اساس پشته‌ها، درختان، نمودارها و سایر ساختارهای داده پیچیده ساخته شده‌اند.&lt;/p></description></item><item><author/><title>9.3.4 الگو Mediator</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-mediator-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-mediator-pattern/</guid><description>&lt;h2 id="9341-الگوی-طراحی-mediator">
+9.3.4.1-&lt;strong>الگوی طراحی Mediator&lt;/strong>
+&lt;a class="anchor" href="#9341-%d8%a7%d9%84%da%af%d9%88%db%8c-%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-mediator">#&lt;/a>
+&lt;/h2>
+&lt;p>الگوی طراحی واسطه (&lt;strong>Mediator&lt;/strong>)، یک الگوی رفتاری است که به شما امکان می‌دهد تا وابستگی‌های درهم‌تنیده بین اشیاء را کاهش دهید. این الگو ارتباط مستقیم بین اشیاء را محدود می‌کند و آن‌ها را مجبور می‌سازد تا تنها از طریق یک شیء واسطه با هم همکاری کنند.&lt;/p>
+&lt;h3 id="9342-مشکل">
+9.3.4.2-&lt;strong>مشکل&lt;/strong>
+&lt;a class="anchor" href="#9342-%d9%85%d8%b4%da%a9%d9%84">#&lt;/a>
+&lt;/h3>
+&lt;p>فرض کنید یک جعبه dialog برای ایجاد و ویرایش پروفایل کاربران دارید. این جعبه dialog شامل کنترل‌های مختلف فرم مانند فیلدهای متنی، کادرهای انتخابی(checkbox)، دکمه‌ها و غیره می‌شود.&lt;/p></description></item><item><author/><title>9.3.5 الگو Memento</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-memento-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-memento-pattern/</guid><description>&lt;p>الگو Memento&amp;hellip;&lt;/p></description></item><item><author/><title>9.3.6 الگو Observer</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-observer-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-observer-pattern/</guid><description>&lt;p>الگو Observer&amp;hellip;&lt;/p></description></item><item><author/><title>9.3.7 الگو State</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-state-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-state-pattern/</guid><description>&lt;p>الگو State&amp;hellip;&lt;/p>
+&lt;h2 id="9371-مقدمه">
+9.3.7.1 مقدمه:
+&lt;a class="anchor" href="#9371-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>دیزاین پترن State یک دیزاین پترن behavioral است که مبتنی بر Finite State Machine است. ما دیزاین پترن State را در زمینه نمونه ای از &lt;a href="https://en.wikipedia.org/wiki/Vending_machine">Vending Machine&lt;/a> توضیح خواهیم داد. برای سادگی، بیایید فرض کنیم که Vending Machine فقط یک نوع کالا یا محصول دارد. همچنین برای سادگی، فرض می کنیم که یک Vending Machine می تواند در 4 حالت(state) مختلف باشد:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>hasItem&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>noItem&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>itemRequested&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>hasMoney&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>یک Vending Machine خودکار نیز عملکردهای متفاوتی خواهد داشت. دوباره برای سادگی فرض می کنیم که فقط چهار عمل وجود دارد:&lt;/p></description></item><item><author/><title>9.3.8 الگو Strategy</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-strategy-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-strategy-pattern/</guid><description>&lt;p>الگو Strategy&amp;hellip;&lt;/p></description></item><item><author/><title>9.3.9 الگو Template Method</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-template-method-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-template-method-pattern/</guid><description>&lt;p>الگو Template Method&amp;hellip;&lt;/p>
+&lt;h2 id="9391-مقدمه">
+9.3.9.1 مقدمه:
+&lt;a class="anchor" href="#9391-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>الگوی Template Method یک الگوی طراحی behavioral است که به شما امکان می دهد یک الگو یا الگوریتم برای یک عملیات خاص تعریف کنید. بیایید الگوی Template Method را با یک مثال درک کنیم.&lt;/p>
+&lt;p>مثال یک مرز یک بار مصرف (One Time Password) یا OTP را در نظر بگیرید. انواع مختلفی از OTP وجود دارد که می تواند برای مثال اجرا شود. OTP می تواند SMS OTP یا EMAIL OTP باشد. اما صرف نظر از اینکه یک پیامک OTP یا EMAIL OTP باشد، کل مراحل فرآیند OTP یکسان است. مراحل مورد نظر به ترتیب زیر هستند.&lt;/p></description></item><item><author/><title>9.3.10 الگو Visitor</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-visitor-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/go-visitor-pattern/</guid><description>&lt;p>الگو Visitor&amp;hellip;&lt;/p>
+&lt;h2 id="93101-مقدمه">
+9.3.10.1 مقدمه:
+&lt;a class="anchor" href="#93101-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>الگوی طراحی Visitor یک الگوی طراحی Behavioural است که به شما امکان می‌دهد بدون تغییر در ساختار برنامه، رفتاری را به ساختار آن اضافه کنید.&lt;br>
+بیایید الگوی Visitor را با یک مثال درک کنیم. فرض کنید شما نگهدارنده(maintainer) یک lib هستید که ساختارهای با شکل‌های متفاوتی دارد مانند:&lt;/p>
+&lt;ol>
+&lt;li>Square&lt;/li>
+&lt;li>Circle&lt;/li>
+&lt;li>Triangle&lt;/li>
+&lt;/ol>
+&lt;p>هر یک از ساختارهای شکل بالا یک شکل رابط مشترک را پیاده سازی می کند. تیم های زیادی در شرکت شما وجود دارند که از lib شما استفاده می کنند. حال فرض کنید یکی از تیم از شما می خواهد که یک رفتار دیگر (getArea()) به ساختارهای Shape اضافه کنید. در نتیجه گزینه های زیادی برای حل این مشکل وجود دارد.&lt;/p></description></item></channel></rss>

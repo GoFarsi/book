@@ -1,0 +1,159 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل ششم: ژنریک ها (Generics) on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-6/</link><description>Recent content in فصل ششم: ژنریک ها (Generics) on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-6/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>6.1 مقدمه و اهمیت ژنریک‌ها</title><link>https://book.gofarsi.ir/chapter-6/go-generics-basic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/go-generics-basic/</guid><description>&lt;p>ایده ژنریک (Generics) به مفهوم &lt;strong>برنامه‌نویسی پارامتری (Parametric Polymorphism)&lt;/strong> برمی‌گردد؛ یعنی نوشتن توابع، کلاس‌ها یا انواعی که با انواع مختلف داده کار کنند بدون اینکه برای هر نوع داده، پیاده‌سازی مجزایی لازم باشد. این مفهوم در علوم کامپیوتر از دهه ۱۹۷۰ مطرح بود و به تدریج به زبان‌های اصلی برنامه‌نویسی راه یافت.&lt;/p>
+&lt;h4 id="نقش-کلیدی-david-r-musser-و-alexander-a-stepanov">
+نقش کلیدی &lt;strong>David R. Musser&lt;/strong> و &lt;strong>Alexander A. Stepanov&lt;/strong>
+&lt;a class="anchor" href="#%d9%86%d9%82%d8%b4-%da%a9%d9%84%db%8c%d8%af%db%8c-david-r-musser-%d9%88-alexander-a-stepanov">#&lt;/a>
+&lt;/h4>
+&lt;p>دو نفر از پیشگامان و پژوهشگران مهم این حوزه، &lt;strong>David R. Musser&lt;/strong> و &lt;strong>Alexander A. Stepanov&lt;/strong> هستند. آن‌ها در دهه ۸۰ و ۹۰ میلادی پژوهش‌هایی درباره طراحی و پیاده‌سازی الگوریتم‌های ژنریک انجام دادند.&lt;br>
+یکی از مهم‌ترین مقالات آن‌ها:&lt;/p></description></item><item><author/><title>6.2 مبانی ژنریک‌ها در Go</title><link>https://book.gofarsi.ir/chapter-6/go-generics-fundamentals/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/go-generics-fundamentals/</guid><description>&lt;h3 id="۶۲۱-تعریف-ژنریک-generic-چیست">
+۶.۲.۱ تعریف ژنریک (Generic) چیست؟
+&lt;a class="anchor" href="#%db%b6%db%b2%db%b1-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%da%98%d9%86%d8%b1%db%8c%da%a9-generic-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>ژنریک (Generic)&lt;/strong> به معنی &amp;ldquo;کلی&amp;rdquo;، &amp;ldquo;عام&amp;rdquo; یا &amp;ldquo;نوع‌پذیر&amp;rdquo; است؛ مفهومی که به شما امکان می‌دهد یک تابع، نوع داده یا ساختار را به گونه‌ای بنویسید که با انواع مختلف داده‌ها کار کند، بدون اینکه برای هر نوع، پیاده‌سازی جداگانه لازم باشد.&lt;br>
+به بیان دیگر، ژنریک‌ها قابلیتی برای &lt;strong>بازاستفاده امن و بهینه از کد&lt;/strong> در سطح زبان برنامه‌نویسی هستند.&lt;/p>
+&lt;blockquote class="book-hint info">
+&lt;p>&lt;strong>یه جمله ای از Ian lancer tailor هست:&lt;/strong>&lt;/p></description></item><item><author/><title>6.3 سینتکس و ساختار ژنریک‌ها در Go</title><link>https://book.gofarsi.ir/chapter-6/go-generics-syntax-and-structure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/go-generics-syntax-and-structure/</guid><description>&lt;h2 id="۶۳۱-تعریف-تابع-ژنریک-generic-functions">
+۶.۳.۱ تعریف تابع ژنریک (Generic Functions)
+&lt;a class="anchor" href="#%db%b6%db%b3%db%b1-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%aa%d8%a7%d8%a8%d8%b9-%da%98%d9%86%d8%b1%db%8c%da%a9-generic-functions">#&lt;/a>
+&lt;/h2>
+&lt;p>در Go از نسخه ۱.۱۸، می‌توانید توابعی بنویسید که به‌جای نوع خاص، با نوع پارامتری کار می‌کنند. پارامترهای نوعی (type parameters) در کروشه &lt;code>[]&lt;/code> بعد از نام تابع قرار می‌گیرند.&lt;/p>
+&lt;h4 id="نمونه-سینتکس">
+&lt;strong>نمونه سینتکس:&lt;/strong>
+&lt;a class="anchor" href="#%d9%86%d9%85%d9%88%d9%86%d9%87-%d8%b3%db%8c%d9%86%d8%aa%da%a9%d8%b3">#&lt;/a>
+&lt;/h4>
+&lt;pre>&lt;code class="language-go">func Swap[T any](a, b T) (T, T) {
+return b, a
+}
+&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>T&lt;/strong> پارامتر نوعی است که می‌تواند هر نوعی را بپذیرد (در اینجا با constraint &lt;code>any&lt;/code>).&lt;/p></description></item><item><author/><title>6.4 Constraints و Type Sets</title><link>https://book.gofarsi.ir/chapter-6/go-generics-type-sets-and-constraints/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/go-generics-type-sets-and-constraints/</guid><description>&lt;h2 id="۶۴۱-مفهوم-constraint-و-نقش-آن-در-ژنریکها">
+۶.۴.۱ مفهوم constraint و نقش آن در ژنریک‌ها
+&lt;a class="anchor" href="#%db%b6%db%b4%db%b1-%d9%85%d9%81%d9%87%d9%88%d9%85-constraint-%d9%88-%d9%86%d9%82%d8%b4-%d8%a2%d9%86-%d8%af%d8%b1-%da%98%d9%86%d8%b1%db%8c%da%a9%d9%87%d8%a7">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Constraint&lt;/strong> (قید یا محدودیت) در ژنریک‌های Go ابزاری است برای کنترل اینکه یک پارامتر نوعی (type parameter) باید چه ویژگی‌هایی داشته باشد.&lt;br>
+بدون constraint، هر نوعی می‌تواند جایگزین شود، اما با تعریف constraint، دایره‌ی مجاز را محدود می‌کنیم تا هم ایمنی نوعی بالا رود و هم امکانات بیشتری برای پیاده‌سازی داشته باشیم.&lt;/p>
+&lt;h4 id="نقش-constraint">
+&lt;strong>نقش constraint:&lt;/strong>
+&lt;a class="anchor" href="#%d9%86%d9%82%d8%b4-constraint">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>جلوگیری از استفاده نادرست از ژنریک‌ها (مثلاً استفاده از عملیات غیرمجاز روی نوع پارامتری)&lt;/li>
+&lt;li>افزایش قابلیت تشخیص خطا در زمان کامپایل&lt;/li>
+&lt;li>امکان تعریف abstractionهای قوی‌تر&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>مثال ساده:&lt;/strong>&lt;/p></description></item><item><author/><title>6.5 مثال‌ها و کاربردهای عملی ژنریک‌ها</title><link>https://book.gofarsi.ir/chapter-6/go-generics-examples-and-practical/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/go-generics-examples-and-practical/</guid><description>&lt;h2 id="۶۵۱-توابع-ژنریک-متداول-مانند-min-max-map-filter">
+۶.۵.۱ توابع ژنریک متداول (مانند Min, Max, Map, Filter)
+&lt;a class="anchor" href="#%db%b6%db%b5%db%b1-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-%da%98%d9%86%d8%b1%db%8c%da%a9-%d9%85%d8%aa%d8%af%d8%a7%d9%88%d9%84-%d9%85%d8%a7%d9%86%d9%86%d8%af-min-max-map-filter">#&lt;/a>
+&lt;/h2>
+&lt;h4 id="تابع-min-و-max">
+تابع Min و Max
+&lt;a class="anchor" href="#%d8%aa%d8%a7%d8%a8%d8%b9-min-%d9%88-max">#&lt;/a>
+&lt;/h4>
+&lt;pre>&lt;code class="language-go">import &amp;quot;cmp&amp;quot; // از Go 1.21+
+func Min[T cmp.Ordered](a, b T) T {
+if a &amp;lt; b {
+return a
+}
+return b
+}
+func Max[T cmp.Ordered](a, b T) T {
+if a &amp;gt; b {
+return a
+}
+return b
+}
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>توضیح:&lt;/strong>&lt;br>
+این دو تابع ژنریک به شما اجازه می‌دهند با هر نوع داده‌ای که قابل مقایسه با عملگرهای بزرگ‌تر/کوچک‌تر باشد (مثل int، float64، string و&amp;hellip;) بیشینه یا کمینه دو مقدار را به دست آورید. پارامتر نوعی &lt;code>T&lt;/code> باید قید &lt;code>cmp.Ordered&lt;/code> را داشته باشد تا عملیات مقایسه مجاز باشد. این ساختار به جای نوشتن نسخه‌های تکراری برای هر نوع داده، یک تابع عمومی و امن ایجاد می‌کند.&lt;/p></description></item><item><author/><title>6.6 مقایسه ژنریک‌ها با راهکارهای قبل از Go 1.18</title><link>https://book.gofarsi.ir/chapter-6/comparing-generics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/comparing-generics/</guid><description>&lt;h2 id="۶۶۱-استفاده-از-interface-و-reflect-قبل-از-ژنریکها">
+۶.۶.۱ استفاده از interface{} و reflect قبل از ژنریک‌ها
+&lt;a class="anchor" href="#%db%b6%db%b6%db%b1-%d8%a7%d8%b3%d8%aa%d9%81%d8%a7%d8%af%d9%87-%d8%a7%d8%b2-interface-%d9%88-reflect-%d9%82%d8%a8%d9%84-%d8%a7%d8%b2-%da%98%d9%86%d8%b1%db%8c%da%a9%d9%87%d8%a7">#&lt;/a>
+&lt;/h2>
+&lt;p>پیش از Go 1.18، برای پیاده‌سازی توابع یا ساختارهای داده عمومی، معمولاً از نوع &lt;strong>interface{}&lt;/strong> (نوع همه‌کاره) استفاده می‌شد.
+در موارد نیاز به عملیات خاص یا تبدیل نوع، ناچار به استفاده از &lt;strong>reflect&lt;/strong> یا type assertion بودیم. این روش‌ها معایب و ریسک‌های خاص خود را داشتند.&lt;/p>
+&lt;h4 id="مثال-تابع-max-با-interface-و-reflect">
+&lt;strong>مثال: تابع Max با interface{} و reflect&lt;/strong>
+&lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-%d8%aa%d8%a7%d8%a8%d8%b9-max-%d8%a8%d8%a7-interface-%d9%88-reflect">#&lt;/a>
+&lt;/h4>
+&lt;p>`&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">import (
+"fmt"
+"reflect"
+)
+func Max(a, b interface{}) interface{} {
+av := reflect.ValueOf(a)
+bv := reflect.ValueOf(b)
+if av.Kind() == reflect.Int &amp;&amp; bv.Kind() == reflect.Int {
+if av.Int() > bv.Int() {
+return a
+}
+return b
+}
+// می‌توانید برای انواع دیگر هم کد بنویسید
+return nil
+}
+func main() {
+fmt.Println(Max(3, 7)) // خروجی: 7
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
+&lt;/p></description></item><item><author/><title>6.7 محدودیت‌ها، خطاها و ضدالگوها در ژنریک‌ها</title><link>https://book.gofarsi.ir/chapter-6/limitations-errors-and-anti-patterns-in-generics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/limitations-errors-and-anti-patterns-in-generics/</guid><description>&lt;h2 id="۶۷۱-محدودیتهای-فعلی-ژنریکها-در-go-compile-time--runtime">
+۶.۷.۱ محدودیت‌های فعلی ژنریک‌ها در Go (Compile-time &amp;amp; Runtime)
+&lt;a class="anchor" href="#%db%b6%db%b7%db%b1-%d9%85%d8%ad%d8%af%d9%88%d8%af%db%8c%d8%aa%d9%87%d8%a7%db%8c-%d9%81%d8%b9%d9%84%db%8c-%da%98%d9%86%d8%b1%db%8c%da%a9%d9%87%d8%a7-%d8%af%d8%b1-go-compile-time--runtime">#&lt;/a>
+&lt;/h2>
+&lt;p>اگرچه ژنریک‌ها قابلیت فوق‌العاده‌ای به Go افزوده‌اند، اما هنوز با برخی محدودیت‌های فنی و زبانی روبه‌رو هستند که باید حتماً در پروژه‌های جدی مدنظر قرار گیرد:&lt;/p>
+&lt;h4 id="محدودیتهای-زمان-کامپایل-compile-time">
+محدودیت‌های زمان کامپایل (Compile-time)
+&lt;a class="anchor" href="#%d9%85%d8%ad%d8%af%d9%88%d8%af%db%8c%d8%aa%d9%87%d8%a7%db%8c-%d8%b2%d9%85%d8%a7%d9%86-%da%a9%d8%a7%d9%85%d9%be%d8%a7%db%8c%d9%84-compile-time">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>عدم پشتیبانی از عملیات ریاضی یا منطقی روی هر نوع دلخواه:&lt;/strong>&lt;br>
+فقط انواعی که قید مناسب (مانند &lt;code>cmp.Ordered&lt;/code> یا union خاص) دارند می‌توانند با عملگرهای مقایسه یا ریاضی استفاده شوند.&lt;/p></description></item><item><author/><title>6.8 بهترین شیوه‌های استفاده از ژنریک‌ها (Best Practices)</title><link>https://book.gofarsi.ir/chapter-6/generics-best-practice/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/generics-best-practice/</guid><description>&lt;p>در این بخش، به‌صورت حرفه‌ای، کاربردی و تجربی، &lt;strong>بهترین شیوه‌های استفاده از ژنریک‌ها&lt;/strong> در پروژه‌های Go را همراه با نکات تولیدی و فنی ارائه می‌دهم.&lt;/p>
+&lt;h3 id="۶۸۱-راهنمای-تصمیمگیری-چه-زمانی-ژنریک-چه-زمانی-نه">
+۶.۸.۱ راهنمای تصمیم‌گیری: چه زمانی ژنریک؟ چه زمانی نه؟
+&lt;a class="anchor" href="#%db%b6%db%b8%db%b1-%d8%b1%d8%a7%d9%87%d9%86%d9%85%d8%a7%db%8c-%d8%aa%d8%b5%d9%85%db%8c%d9%85%da%af%db%8c%d8%b1%db%8c-%da%86%d9%87-%d8%b2%d9%85%d8%a7%d9%86%db%8c-%da%98%d9%86%d8%b1%db%8c%da%a9-%da%86%d9%87-%d8%b2%d9%85%d8%a7%d9%86%db%8c-%d9%86%d9%87">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>ژنریک‌ها ابزار قدرتمندی هستند، اما استفاده درست و هوشمندانه از آن‌ها حیاتی است.&lt;/strong>&lt;br>
+بهتر است ژنریک را فقط زمانی به کار ببرید که:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>یک منطق تکراری برای چندین نوع مختلف وجود دارد&lt;/strong> و پیاده‌سازی جداگانه برای هر نوع باعث تکرار و دشواری نگهداری می‌شود.&lt;/li>
+&lt;li>&lt;strong>نیاز به abstraction و توسعه‌پذیری کد&lt;/strong> برای آینده وجود دارد، مانند ساختار داده‌ها (Stack, Queue, Map)، یا توابع عمومی (Map, Filter, Reduce).&lt;/li>
+&lt;li>&lt;strong>ایمنی نوعی (Type Safety)&lt;/strong> برایتان مهم است و می‌خواهید خطاها را در زمان کامپایل متوجه شوید.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>چه زمانی ژنریک استفاده نکنیم؟&lt;/strong>&lt;/p></description></item><item><author/><title>6.9 مثال‌های پیشرفته و نکات ویژه</title><link>https://book.gofarsi.ir/chapter-6/generics-advanced-examples-and-tips/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/generics-advanced-examples-and-tips/</guid><description>&lt;h2 id="۶۹۱-ساخت-کتابخانههای-عمومی-و-abstractionهای-حرفهای-با-ژنریکها">
+۶.۹.۱ ساخت کتابخانه‌های عمومی و abstractionهای حرفه‌ای با ژنریک‌ها
+&lt;a class="anchor" href="#%db%b6%db%b9%db%b1-%d8%b3%d8%a7%d8%ae%d8%aa-%da%a9%d8%aa%d8%a7%d8%a8%d8%ae%d8%a7%d9%86%d9%87%d9%87%d8%a7%db%8c-%d8%b9%d9%85%d9%88%d9%85%db%8c-%d9%88-abstraction%d9%87%d8%a7%db%8c-%d8%ad%d8%b1%d9%81%d9%87%d8%a7%db%8c-%d8%a8%d8%a7-%da%98%d9%86%d8%b1%db%8c%da%a9%d9%87%d8%a7">#&lt;/a>
+&lt;/h2>
+&lt;p>در پروژه‌های مدرن، معمولاً نیاز به abstraction و لایه‌بندی وجود دارد تا بتوانید کدهای reusable و توسعه‌پذیر بسازید. ژنریک‌ها در Go این کار را بسیار ساده و حرفه‌ای می‌کنند.&lt;/p>
+&lt;h4 id="مثال-کتابخانه-datastore-ژنریک">
+&lt;strong>مثال: کتابخانه DataStore ژنریک&lt;/strong>
+&lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-%da%a9%d8%aa%d8%a7%d8%a8%d8%ae%d8%a7%d9%86%d9%87-datastore-%da%98%d9%86%d8%b1%db%8c%da%a9">#&lt;/a>
+&lt;/h4>
+&lt;pre>&lt;code class="language-go">type DataStore[T any] interface {
+Get(id string) (T, error)
+Save(id string, data T) error
+}
+type MemoryStore[T any] struct {
+data map[string]T
+}
+func NewMemoryStore[T any]() *MemoryStore[T] {
+return &amp;amp;MemoryStore[T]{data: make(map[string]T)}
+}
+func (m *MemoryStore[T]) Get(id string) (T, error) {
+v, ok := m.data[id]
+if !ok {
+var zero T
+return zero, fmt.Errorf(&amp;quot;not found&amp;quot;)
+}
+return v, nil
+}
+func (m *MemoryStore[T]) Save(id string, data T) error {
+m.data[id] = data
+return nil
+}
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>توضیح:&lt;/strong>&lt;br>
+در این مثال یک abstraction برای ذخیره‌سازی داده‌ها پیاده‌سازی شده که می‌تواند برای هر نوع داده‌ای مورد استفاده قرار گیرد (مثلاً User, Order, Product و &amp;hellip;). این ساختار با پیاده‌سازی interface ژنریک، قابلیت توسعه و تست بسیار بالایی دارد و به راحتی می‌توانید MemoryStore را با نسخه DatabaseStore یا CacheStore جایگزین کنید.&lt;/p></description></item></channel></rss>

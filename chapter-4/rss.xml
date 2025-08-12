@@ -1,0 +1,207 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل چهارم: مباحث پیشرفته on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-4/</link><description>Recent content in فصل چهارم: مباحث پیشرفته on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-4/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>4.1 آموزش Build پروژه</title><link>https://book.gofarsi.ir/chapter-4/build-go-file/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/build-go-file/</guid><description>&lt;p>برای build یک پروژه شما باید از کامند go build استفاده کنید که این کامند دارای یکسری سوییچ می باشد که در زیر ما معرفی خواهیم کرد.&lt;/p>
+&lt;h2 id="411-نحوه-build-یک-فایل-گو">
+4.1.1 نحوه build یک فایل گو
+&lt;a class="anchor" href="#411-%d9%86%d8%ad%d9%88%d9%87-build-%db%8c%da%a9-%d9%81%d8%a7%db%8c%d9%84-%da%af%d9%88">#&lt;/a>
+&lt;/h2>
+&lt;p>معمولا شما باید برای build فایلی که دارای package main هست را برای build استفاده کنید مانند مثال زیر :&lt;/p>
+&lt;pre>&lt;code class="language-shell">$ go build main.go
+&lt;/code>&lt;/pre>
+&lt;p>پس از build در محل همان فایل یک فایل با نام main ایجاد می شود.&lt;/p></description></item><item><author/><title>4.2 آموزش کار با Debugging</title><link>https://book.gofarsi.ir/chapter-4/debugging-go-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/debugging-go-code/</guid><description>&lt;p>برای بحث debugging در زبان گو روش های مختلفی وجود دارد که محبوبترین روش ها به شرح زیر می باشد :&lt;/p>
+&lt;ol>
+&lt;li>با استفاده پکیج &lt;code>fmt&lt;/code> : شما با استفاده از تابع &lt;code>fmt.Println&lt;/code> می توانید مقادیر برخی از متغیرها را چاپ کنید و یکی از روش های ساده برای بحث دیباگ هستش.&lt;/li>
+&lt;li>با استفاده از پکیج &lt;code>log&lt;/code> : یکی از کاربردی ترین روش ها بحث لاگ کردن هستش که شما می توانید هر بخش از کدهای خود را لاگ کنید و بصورت زنده در console یا داخل فایل ببینید و از همه مهمتر شما می توانید لاگ های خود را سطح بندی کنید تا بهتر بتوانید دیباگ کنید.&lt;/li>
+&lt;li>استفاده از پکیج &lt;code>pprof&lt;/code> : پکیج pprof به شما کمک می کند تا راحتر مشکلات عملکردی برنامه خود را بیابید و همچنین خروجی profile از عملکرد برنامه با CPU و Memory را آنالیز کنید.&lt;/li>
+&lt;li>با استفاده از IDE ها: اکثر IDE هایی (Goland, Vscode) که قبلا معرفی کردیم دارای دیباگر داخلی می باشند که شما می توانید در هر بخش از کد خود breakpoint بزارید و خط به خط کد را دیباگ کنید و مشکلات را برطرف کنید.&lt;/li>
+&lt;li>با استفاده از دیباگر &lt;code>dlv&lt;/code> : یکی از محبوبترین دیباگرهایی بصورت متن باز در حال توسعه است &lt;a href="https://github.com/go-delve/delve">delve&lt;/a> می باشد که به شما برای دیباگ کردن بصورت تعاملی هنگام اجرا کمک می کند.&lt;/li>
+&lt;/ol>
+&lt;p>حال در ادامه ما با مثال هایی نحوه کار با این شیوه هایی که معرفی کردیم آموزش می دهیم.&lt;/p></description></item><item><author/><title>4.3 آموزش کار با go mod</title><link>https://book.gofarsi.ir/chapter-4/go-mod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-mod/</guid><description>&lt;p>از نسخه 1.11 زبان گو مفهوم جدیدی برای مدیریت &lt;span class="tooltip" data-tooltip="dependencies" ontouchend="toggleTooltip(this)">وابستگی ها&lt;/span>
+آمد و جایگزین GOPATH شد. ماژول های گو این امکان را می دهد خیلی راحت ماژول های مختلف را به پروژه اضافه کنید و نسخه های هر ماژول را مدیریت کنید. با استفاده از ماژول گو برنامه نویسان گو محدود به GOPATH برای توسعه نخواهد بود و در جایی می توانند پروژه خود را ایجاد و ماژول های پروژه را به آسانی مدیریت کند.&lt;/p></description></item><item><author/><title>4.4 آموزش کار با workspace</title><link>https://book.gofarsi.ir/chapter-4/workspace/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/workspace/</guid><description>&lt;p>با استفاده از workspace می توانید همزمان چندین ماژول در یک محل داشته باشید و هر ماژول را به راحتی مدیریت کنید و همچنین همزمان به آسانی این ماژول ها را build و اجرا کنید.&lt;/p>
+&lt;pre>&lt;code class="language-shell">$ go help work
+Work provides access to operations on workspaces.
+Note that support for workspaces is built into many other commands, not
+just 'go work'.
+See 'go help modules' for information about Go's module system of which
+workspaces are a part.
+See https://go.dev/ref/mod#workspaces for an in-depth reference on
+workspaces.
+See https://go.dev/doc/tutorial/workspaces for an introductory
+tutorial on workspaces.
+A workspace is specified by a go.work file that specifies a set of
+module directories with the &amp;quot;use&amp;quot; directive. These modules are used as
+root modules by the go command for builds and related operations. A
+workspace that does not specify modules to be used cannot be used to do
+builds from local modules.
+go.work files are line-oriented. Each line holds a single directive,
+made up of a keyword followed by arguments. For example:
+go 1.18
+use ../foo/bar
+use ./baz
+replace example.com/foo v1.2.3 =&amp;gt; example.com/bar v1.4.5
+The leading keyword can be factored out of adjacent lines to create a block,
+like in Go imports.
+use (
+../foo/bar
+./baz
+)
+The use directive specifies a module to be included in the workspace's
+set of main modules. The argument to the use directive is the directory
+containing the module's go.mod file.
+The go directive specifies the version of Go the file was written at. It
+is possible there may be future changes in the semantics of workspaces
+that could be controlled by this version, but for now the version
+specified has no effect.
+The replace directive has the same syntax as the replace directive in a
+go.mod file and takes precedence over replaces in go.mod files. It is
+primarily intended to override conflicting replaces in different workspace
+modules.
+To determine whether the go command is operating in workspace mode, use
+the &amp;quot;go env GOWORK&amp;quot; command. This will specify the workspace file being
+used.
+Usage:
+go work &amp;lt;command&amp;gt; [arguments]
+The commands are:
+edit edit go.work from tools or scripts
+init initialize workspace file
+sync sync workspace build list to modules
+use add modules to workspace file
+Use &amp;quot;go help work &amp;lt;command&amp;gt;&amp;quot; for more information about a command.
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>پیش نیاز ها&lt;/strong>&lt;/p></description></item><item><author/><title>4.5 آموزش کار با Vendor</title><link>https://book.gofarsi.ir/chapter-4/vendor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/vendor/</guid><description>&lt;p>در زبان گو یک کامند کاربردی در go mod به نام vendor داریم که ماژول هایی که داخل پروژه استفاده شده و مورد نیاز برای اجرا و بیلد می باشد را در محل پروژه کش می کند و به شما این امکان را می دهد خیلی سریع و راحت بدون نیاز به دانلود مجدد ماژول پروژه را بیلد و اجرا کنید.&lt;/p>
+&lt;pre>&lt;code class="language-shell">$ go help mod vendor
+usage: go mod vendor [-e] [-v] [-o outdir]
+Vendor resets the main module's vendor directory to include all packages
+needed to build and test all the main module's packages.
+It does not include test code for vendored packages.
+The -v flag causes vendor to print the names of vendored
+modules and packages to standard error.
+The -e flag causes vendor to attempt to proceed despite errors
+encountered while loading packages.
+The -o flag causes vendor to create the vendor directory at the given
+path instead of &amp;quot;vendor&amp;quot;. The go command can only use a vendor directory
+named &amp;quot;vendor&amp;quot; within the module root directory, so this flag is
+primarily useful for other tools.
+See https://golang.org/ref/mod#go-mod-vendor for more about 'go mod vendor'.
+&lt;/code>&lt;/pre>
+&lt;h2 id="451-ایجاد-vendor">
+4.5.1 ایجاد vendor
+&lt;a class="anchor" href="#451-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-vendor">#&lt;/a>
+&lt;/h2>
+&lt;p>با دستور زیر می توانید در محل پروژه خود پوشه vendor ایجاد کنید و ماژول های استفاده شده را داخل این پوشه کش کنید.&lt;/p></description></item><item><author/><title>4.6 آموزش نوشتن برنامه command line</title><link>https://book.gofarsi.ir/chapter-4/command-line-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/command-line-go/</guid><description>&lt;h2 id="461-مقدمه">
+4.6.1 مقدمه
+&lt;a class="anchor" href="#461-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>هنگامی که می‌خواهید نرم‌افزاری بنویسید، ممکن است بخواهید از محیط Command Line یا خط فرمان استفاده کنید. خط فرمان، رابط کاربری ساده‌تری نسبت به محیط گرافیکی دارد و در برخی موارد، سرعت بخش بسیار قابل توجهی است. برای آموزش نوشتن برنامه در خط فرمان، شما به یک زبان برنامه‌نویسی نیاز دارید که از بسیاری از کانسپت‌هایی که در برنامه‌نویسی استفاده می‌شوند، پشتیبانی کند. ما به شما پیشنهاد می‌دهیم که از زبان برنامه‌نویسی Go استفاده کنید زیرا برای کار با Command Line بسیار مناسب است.&lt;/p></description></item><item><author/><title>4.7 آموزش کار با فایل</title><link>https://book.gofarsi.ir/chapter-4/work-with-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-file-in-go/</guid><description>&lt;h2 id="471-مقدمه">
+4.7.1 مقدمه
+&lt;a class="anchor" href="#471-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>توسعه دهندگان Go می‌توانند از پکیج‌های built-in مانند &amp;ldquo;os&amp;rdquo; و &amp;ldquo;io&amp;rdquo; برای کار با فایل‌ها استفاده کنند. همچنین، پکیج‌های دیگری نیز برای کار با فایل وجود دارند که می‌توان به عنوان پکیج استاندارد نامید. نمونه ای از این پکیج‌ها، پکیج &amp;ldquo;bufio&amp;rdquo; است که برای کار با بافرهای ورودی/خروجی استفاده شده و به توسعه دهندگان اجازه می‌دهد تا برنامه‌هایی با عملکرد بهتر و با کارایی بالاتر ایجاد کنند.&lt;/p></description></item><item><author/><title>4.8 آموزش کار با json</title><link>https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-json-file-in-go/</guid><description>&lt;h2 id="481-مقدمه">
+4.8.1 مقدمه
+&lt;a class="anchor" href="#481-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>JSON یک فرمت متنی است که برای مبادله و ذخیره داده‌ها استفاده می‌شود. نام JSON مخفف عبارت JavaScript Object Notation است و در ابتدا به عنوان یک زبان مبتنی بر جاوااسکریپت توسعه یافته است. با این حال، در حال حاضر JSON به راحتی با بیشتر زبان‌های برنامه‌نویسی سازگار است.&lt;/p>
+&lt;p>JSON یک مجموعه از جفت‌های «key: value» است که با کاما از یکدیگر جدا شده‌اند و بین آنها با «:» ارتباط دارند. JSON در بین برنامه‌نویسان به عنوان یک ساختار داده‌ای محبوب است و به راحتی داده‌ها را به صورت ساختاردهی شده در برنامه‌های کاربردی مختلف به کار می‌رود. این فرمت دیتا استاندارد و مستقل از زبان‌ها و پلتفرم‌های برنامه‌نویسی است و برای برنامه‌های تحت وب، موبایل، دسکتاپ و سرور قابل استفاده است.&lt;/p></description></item><item><author/><title>4.9 آموزش کار با toml</title><link>https://book.gofarsi.ir/chapter-4/work-with-toml-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-toml-file-in-go/</guid><description>&lt;h2 id="491-مقدمه">
+4.9.1 مقدمه
+&lt;a class="anchor" href="#491-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>فایل‌های TOML یک نمونه از فایل‌های پیکربندی هستند که در سیستم‌های مدرن مورد استفاده قرار می‌گیرند، این فایل‌ها به صورت متنی و قابل خواندن برای انسان و در عین حال قابل پردازش برای ماشین طراحی شده‌اند.&lt;/p>
+&lt;p>TOML مخفف کلمات (Tom&amp;rsquo;s Obvious, Minimal Language) می‌باشد. جمعیت بزرگتری از افراد آن را مفسرند به این شکل که TOML ابزاری ساده برای پیکربندی بسیار درون‌فرمانی است. این فرمت فایل متنی دارای مقادیر شبیه به دیکشنری بوده و در بسیاری از نرم‌افزارها، به‌طور خاص در نرم‌افزارهای ساخته شده با golang بسیار به‌کار می‌رود.&lt;/p></description></item><item><author/><title>4.10 آموزش کار با yaml</title><link>https://book.gofarsi.ir/chapter-4/work-with-yaml-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-yaml-file-in-go/</guid><description>&lt;h2 id="4101-مقدمه">
+4.10.1 مقدمه
+&lt;a class="anchor" href="#4101-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>YAML یک زبان فراهم کننده ساختار پذیر برای نمایش اطلاعات است که در قالب متن موجود می‌باشد. این زبان ابتدا برای نوشتن سند‌های XML توسعه یافت که با پیشرفت کاربردهای آن به محل جایگزینی برای فرمت‌های رایجی همچون JSON و اقلیتاً TOML تبدیل شده است.&lt;/p>
+&lt;p>این فرمت در صنعت‌های مختلف مورد استفاده و ستوده شده ‌است، مانند ذخیره سازی تنظیمات سیستمی، فایل‌های کانفیگ مختلف، فایل‌های داده و &amp;hellip; . همچنین به خاطر قابل خواندن بودن برای انسان، استفاده از YAML در فایل‌هایی که باید توسط بشر خوانده شوند مانند فایل‌های خودرو، پروژه و&amp;hellip; صورت گرفته است.&lt;/p></description></item><item><author/><title>4.11 آموزش کار با csv</title><link>https://book.gofarsi.ir/chapter-4/work-with-csv-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-csv-file-in-go/</guid><description>&lt;h2 id="4111-مقدمه">
+4.11.1 مقدمه
+&lt;a class="anchor" href="#4111-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>CSV یکی از فرمت‌های متداول برای ذخیره داده‌های جدولی است. خروجی اکثر برنامه‌های قابلیت دستکاری داده، همراه با نرم‌افزار‌های آفیس، به فرمت CSV تولید می‌شود. فرمت CSV چندین ستون در یک ردیف را با استفاده از کاما (,) جدا کرده و هر ردیف را با استفاده از عبارت جدید (newline) جدا می‌کند.&lt;/p>
+&lt;p>در زبان برنامه‌نویسی Go نیز پکیج encoding/csv وجود دارد که در آن، توابع مربوط به خواندن و نوشتن داده‌های CSV به صورت دستی یا از طریق پرونده‌ها فراهم شده است. با استفاده از این پکیج، می‌توان داده‌های CSV را به داده‌های جدولی تبدیل کرد و برعکس.&lt;/p></description></item><item><author/><title>4.12 آموزش کار با ini</title><link>https://book.gofarsi.ir/chapter-4/work-with-ini-file-in-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-ini-file-in-go/</guid><description>&lt;p>بطور خلاصه فایل های ini.* جهت ذخیره تنظیمات مختلف استفاده می شود تنظیماتی مثل: آدرس خاص در شبکه، اطلاعات ورود به سیستم های مختلف و موارد از این قبیل.&lt;/p>
+&lt;p>برای شروع ساختار پروژه ما به این شکل است&lt;/p>
+&lt;pre>&lt;code class="language-shell">$ mkdir -p /tmp/ini
+$ cd /tmp/ini
+$ touch my.ini main.go
+$ tree . .
+├── main.go
+└── my.ini
+&lt;/code>&lt;/pre>
+&lt;p>در پروژه دو فایل ایجاد کردیم یکی فایل اصلی برنامه main.go و دیگری my.ini که می خواهیم تنظیمات برنامه را در آن نگهداری کنیم. محتوای داخل فایل ini را بصورت ذیل تعریف کرده ایم&lt;/p></description></item><item><author/><title>4.13 آموزش کار با environment variable</title><link>https://book.gofarsi.ir/chapter-4/work-with-environment-variable/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/work-with-environment-variable/</guid><description>&lt;p>Environment Variables یا متغیرهای محیطی، متغیرهایی هستند که در فضای محیطی سیستم عامل مشخص شده‌اند. این متغیرها، شامل اطلاعاتی مانند مسیر فایل‌ها، تنظیمات سیستم، ترجیحات و تعیینات ساده و دیگر اطلاعات مورد استفاده توسط برنامه‌ها هستند.&lt;/p>
+&lt;p>به عنوان مثال، در سیستم عامل لینوکس، PATH یک متغیر محیطی است که شامل یک فهرست از دایرکتوری‌هایی است که سیستم به دنبال فایل‌ها و برنامه‌ها می‌گردد. برای دسترسی به این متغیر، می‌توان از دستور زیر در خط فرمان استفاده کرد:&lt;/p></description></item><item><author/><title>4.14 آموزش کار با regexp</title><link>https://book.gofarsi.ir/chapter-4/go-regular-expressions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-regular-expressions/</guid><description>&lt;p>مواقعی در کد نویسی دارید که نیاز هست تا یک عبارتی مثل شماره تلفن،کد پستی و یا شماره پاسپورت وارد شده را بصورت قاعده مند بررسی کنید به عبارتی کاربر نتواند برای فیلد شماره تلفن، کاراکتر غیر عددی وارد کند. در این مواقع بهتر است داده وارد شده بصورت قاعده مند بررسی شود. برای درک بهتر موضوع به رشته وارد شده توسط کاربر که می تواند سهوا باشد دقت کنید&lt;/p></description></item><item><author/><title>4.15 آموزش reflection</title><link>https://book.gofarsi.ir/chapter-4/go-reflection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-reflection/</guid><description>&lt;p>پکیج &lt;a href="https://pkg.go.dev/reflect">reflect&lt;/a> در زبان Go، امکانات reflection زمان اجرا را فراهم می‌کند که به یک برنامه اجازه می‌دهد تا با اشیاءی با انواع دلخواه کار کند. استفاده اصلی این پکیج، گرفتن اطلاعات نوع پویای یک مقدار با نوع استاتیک interface{} با فراخوانی تابع TypeOf است که یک مقدار Type را برمی‌گرداند.&lt;/p>
+&lt;p>با فراخوانی تابع ValueOf، یک شیء Value که حاوی دادهٔ زمان اجراست، برمی‌گرداند. تابع Zero یک مقدار Type دریافت کرده و یک شیء Value را که مقدار صفر برای آن نوع است، برمی‌گرداند.&lt;/p></description></item><item><author/><title>4.16 آموزش generator</title><link>https://book.gofarsi.ir/chapter-4/go-generator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-generator/</guid><description>&lt;p>کد generator در گو، یک ابزار است که برای تولید کد خودکار استفاده می‌شود. برای ایجاد یک کد generator در گو، می‌توان از قابلیت‌هایی که در زبان گو موجود است، مانند بسته‌های &lt;code>go/ast&lt;/code> و &lt;code>go/parser&lt;/code> استفاده کرد.&lt;/p>
+&lt;p>با استفاده از بسته &lt;code>go/ast&lt;/code> می‌توانید ساختار داده‌های AST (Abstract Syntax Tree) را برای کد خود بسازید. AST، ساختار درختی از کدهای گو است که به طور معمول برای بررسی و تحلیل کد استفاده می‌شود.&lt;/p></description></item><item><author/><title>4.17 آموزش stringer</title><link>https://book.gofarsi.ir/chapter-4/go-stringer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-stringer/</guid><description>&lt;p>Stringer به طور کلی برای پیاده‌سازی مفهوم شمارشی (enumeration) استفاده می‌شود در حالی که از برنامه‌نویسی ثابت رشته‌های مقدار استفاده نمی‌کند. شمارشی یا enum زمانی استفاده می‌شود که می‌خواهید مجموعه‌ای متناهی و ثابتی از مقادیر یک نوع داده‌ای را تعریف کنید. به عنوان مثال، انواع غذا در منو (پیش غذا، اصلی، دسر)، انواع پوکمون (گیاهی، آبی، آتشی، و غیره).&lt;/p>
+&lt;p>بنابراین، زمانی که می‌خواهیم از این مجموعه‌های تعریف شده استفاده کنیم، باید از برنامه‌نویسی ثابت رشته‌های مقدار استفاده کنیم زیرا ممکن است به خطاهای انسانی مانند اشتباهات املایی منجر شود. اگر از Stringer استفاده کنیم، مقادیر را یکبار تولید می‌کنیم و مطمئن می‌شویم که هیچ خطایی ایجاد نمی‌شود. پس از آن، می‌توانیم از آن‌ها بدون نگرانی از خطاهای انسانی استفاده کنیم.&lt;/p></description></item><item><author/><title>4.18 تکنیک های کدنویسی زبان گو</title><link>https://book.gofarsi.ir/chapter-4/effective-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/effective-go/</guid><description>&lt;p>در این بخش به موارد زیر می پردازیم.&lt;/p>
+&lt;ul>
+&lt;li>کارآمدی (effective)&lt;/li>
+&lt;li>استایل اوبر&lt;/li>
+&lt;li>تکنیک ها&lt;/li>
+&lt;li>نکات فنی&lt;/li>
+&lt;li>بهینه سازی&lt;/li>
+&lt;/ul>
+&lt;h2 id="4181-کارآمدی-effective">
+4.18.1 کارآمدی (Effective)
+&lt;a class="anchor" href="#4181-%da%a9%d8%a7%d8%b1%d8%a2%d9%85%d8%af%db%8c-effective">#&lt;/a>
+&lt;/h2>
+&lt;p>در زیر به کارآمدی زبان گو می پردازیم.&lt;/p>
+&lt;h3 id="41811-نام-پکیج-ها">
+4.18.1.1 نام پکیج ها
+&lt;a class="anchor" href="#41811-%d9%86%d8%a7%d9%85-%d9%be%da%a9%db%8c%d8%ac-%d9%87%d8%a7">#&lt;/a>
+&lt;/h3>
+&lt;p>زمانیکه شما یک پکیج را ایمپورت میکنید نام پکیج در بالای بدنه فایل گو قرار میگیرد مانند :&lt;/p>
+&lt;pre>&lt;code class="language-go">import &amp;quot;bytes&amp;quot;
+&lt;/code>&lt;/pre>
+&lt;p>حال وقتی که پکیج ایمپورت می شود و نام اش در بالای بدنه فایل کد شما قرار میگیرد می توانید در ادامه نام پکیج توابع, تایپ ها و یا متغیر و const ها را مانند &lt;code>bytes.Buffer&lt;/code> فراخوانی کنید.&lt;/p></description></item><item><author/><title>4.19 اصول کامنت نویسی</title><link>https://book.gofarsi.ir/chapter-4/go-commentry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-commentry/</guid><description>&lt;p>اصول کامنت‌نویسی در زبان گو&lt;/p>
+&lt;h2 id="4191-تعریف">
+4.19.1 تعریف
+&lt;a class="anchor" href="#4191-%d8%aa%d8%b9%d8%b1%db%8c%d9%81">#&lt;/a>
+&lt;/h2>
+&lt;p>«کامنت» به توضیحات‌ی گفته می‌شود که داخل کد، به‌قصد «یادآوری»، «جلب‌توجه مخاطب به موضوع‌(ها)ی خاص»، کمک به onboard شدن اعضاء جدید تیم و مانند اون نگارش می‌شود. در زبان گو، به شیوه‌های زیر کامنت می‌گذاریم:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>قرار دادن &lt;code>//&lt;/code> در ابتدای سطر.&lt;/p>
+&lt;pre>&lt;code class="language-go">// defined to store multi string (see below why this is not a good comment)
+var sliceVar []string
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>قراردادن متن کامنت داخل یک بلوک که با &lt;code>*/&lt;/code> شروع می‌شود و &lt;code>/*&lt;/code> تمام می‌شود.&lt;/p></description></item><item><author/><title>4.20 قوانین کدنویسی در گو</title><link>https://book.gofarsi.ir/chapter-4/go-code-rules/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-code-rules/</guid><description>&lt;p>قوانین در زبان گو همانند دیگر زبان های برنامه نویسی به دو دسته تقسیم می شود. بخشی از قوانین در سطح &lt;span class="tooltip" data-tooltip="Syntax" ontouchend="toggleTooltip(this)">سینتکس&lt;/span>
+زبان مطرح می شوند، لذا رعایت آنها مهم هست، در غیر اینصورت کامپایلر قادر به کامپایل درست کدهای شما نخواهد بود و در بعضی شرایط ممکن است به صورت خاموش خطا به محیط اجرا (runtime) نیز برده شود. بخشی از قوانین به عنوان پیشنهاد و ترجیح مطرح هستند که عموما توسط لینتر بررسی می شوند و تاثیر اصلی بر خوانایی منطق کدها دارند. یعنی رعایت آنها الزام قطعی ندارد. به طور مثال استفاده از &lt;code>_&lt;/code> در نام گذاری ها در گو توصیه نمی شود ولی در کتابخانه استاندارد (الحاقی به زبان گو) به وفور عدم رعایت این موضوع دیده می شود.&lt;/p></description></item><item><author/><title>4.21 زباله جمع کن (garbage collector)</title><link>https://book.gofarsi.ir/chapter-4/go-garbage-collector/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-garbage-collector/</guid><description>&lt;p>یکی از جذابیت های زبان های برنامه نویسی جدید قابلیت زباله جمع کن (garbage collector) ایجاد شده در آنها است. بطور خلاصه مدیریت و آزاد سازی منابع اختصاص داده شده از حافظه را که بصورت خودکار در زبان های برنامه نویسی مدرن انجام می شود را garbage collector می شناسیم.&lt;/p>
+&lt;p>مدیریت منابع حافظه که بسیار حساس و در مواقعی زمان بر است توسط برخی زبان ها بصورت توکار پشتیبانی می شود و این کار به افزایش سرعت و همچنین کاهش خطا در زمان و پروسه تولید نرم افزار می شود. با تمام این تفاسیر مواقعی است که برنامه نویس می باید خودش مدیریت حافظه را در دست گرفته و پیش از بروز شرایط بحرانی اقدام به آزاد سازی حافظه و یا منابع اختصاص یافته نماید. خبر خوب اینکه در زبان Go مدیریت منابع حافظه نسبت به زبان های دیگر ساده تر و راحتر است ولی در این نوشته سعی می کنیم تا درک خوبی از مدیریت منابع و نحوه عملکرد آن داشته باشید بنابر این در ادامه با یک مثال که نیاز به بررسی کد در سطوح پایین دارد می پردازیم.&lt;/p></description></item><item><author/><title>4.22 کتابخانه Plugin</title><link>https://book.gofarsi.ir/chapter-4/go-plugin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-plugin/</guid><description>&lt;p>در میان ویژگی‌های قابل توجه Go نسخه 1.8، سیستم جدید پلاگین‌های Go قرار دارد. این ویژگی به برنامه‌نویسان اجازه می‌دهد تا برنامه‌های ماژولار بدون ارتباط زنجیره‌ای با هم، با استفاده از بسته‌هایی که به صورت کتابخانه‌های اشیا شیء‌گرا کامپایل شده‌اند، ساخته شوند و به‌صورت پویا در زمان اجرا بارگذاری و به‌صورت پیوسته به آن‌ها پیوند داده شوند.&lt;/p>
+&lt;p>این تغییر بزرگی است! چرا که توسعه‌دهندگان نرم‌افزارهای سیستمی بزرگ در Go، بدون شک، نیاز به ماژولارسازی کد خود دارند. ما برای دستیابی به ماژولارسازی کد، از طراحی‌های متعدد out-of-process، مانند &lt;a href="https://kubernetes.io/docs/admin/network-plugins/">OS exec calls&lt;/a>، &lt;a href="https://docs.docker.com/engine/extend/plugin_api/">سوکت&lt;/a> و &lt;a href="https://github.com/hashicorp/go-plugin">RPC/gRPC&lt;/a> (و غیره) استفاده کرده‌ایم. این روش‌ها ممکن است به خوبی کار کنند، اما در بسیاری از زمینه‌ها به‌عنوان پایانه‌ای برای پردازش با قبل نبود یک سیستم پلاگین‌ای ناتیو در Go بکار رفته‌اند.&lt;/p></description></item><item><author/><title>4.23 شی گرایی در زبان گو</title><link>https://book.gofarsi.ir/chapter-4/oop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/oop/</guid><description>&lt;p>گو یک زبان statically-typed است و بطور کلی امکانات شی گرایی را به شیوه قدیم و مرسوم پشتیبانی نمی کند. اما در عوض یک شیوه قرار دادی وجود دارد که به شما کمک می کند برخی از مفاهیم شی گرایی را با کمک اینترفیس, composition, متد و type embedding پیاده سازی کنید.&lt;/p>
+&lt;p>&lt;strong>این مفاهیم شامل :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="go-encapsulation">کپسوله سازی&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-inheritance">ارث بری&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-polymorphism">پلی مورفیسم&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-overriding">overriding&lt;/a>&lt;/li>
+&lt;li>&lt;a href="go-abstraction">abstraction&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="تعریف-شی-گرایی-به-زبان-ساده">
+تعریف شی گرایی به زبان ساده
+&lt;a class="anchor" href="#%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%b4%db%8c-%da%af%d8%b1%d8%a7%db%8c%db%8c-%d8%a8%d9%87-%d8%b2%d8%a8%d8%a7%d9%86-%d8%b3%d8%a7%d8%af%d9%87">#&lt;/a>
+&lt;/h2>
+&lt;p>بیاید با چند تا مثال ساده، سوا از اینکه با چه زبانی کار می کنیم، با مفهوم شی گرایی آشنا شویم.&lt;/p></description></item><item><author/><title>4.24 آموزش tracing</title><link>https://book.gofarsi.ir/chapter-4/tracing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/tracing/</guid><description>&lt;p>در این فصل، این مورد را یاد خواهیم گرفت که چگونه یک برنامه در حال اجرا را ردیابی کنیم و آن را با ابزار ردیابی مشاهده کنیم. در این حالت با استفاده از کتابخانه استاندارد، یک ردیابی ایجاد خواهیم کرد.&lt;/p>
+&lt;h2 id="4241--مثال-از-tracing">
+4.24.1 مثال از tracing
+&lt;a class="anchor" href="#4241--%d9%85%d8%ab%d8%a7%d9%84-%d8%a7%d8%b2-tracing">#&lt;/a>
+&lt;/h2>
+&lt;p>ما برنامه ای داریم که تعداد دفعات یافتن یک topic را در collection ای ازRSS news feed document را می شمارد. این برنامه از یک threaded algorithm به نام freq استفاده می کند که روی collection تکرار می شود و هر سند را یک به یک پردازش می کند و تعداد دفعاتی که topic پیدا شده است را برمی‌گرداند.&lt;/p></description></item><item><author/><title>4.25 آموزش profiling</title><link>https://book.gofarsi.ir/chapter-4/profiling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/profiling/</guid><description>&lt;p>پروفایلینگ یک تکنیک مفید برای شناسایی &lt;span class="tooltip" data-tooltip="bottlenecks" ontouchend="toggleTooltip(this)">گلوگاه‌های&lt;/span>
+&lt;span class="tooltip" data-tooltip="performance" ontouchend="toggleTooltip(this)">عملکرد&lt;/span>
+، بررسی مصرف حافظه و به دست آوردن بینش درباره سربار جمع‌آوری زباله (Garbage Collection) و موارد دیگر است. اکوسیستم Go ابزارهای فوق‌العاده‌ای برای این منظور ارائه می‌دهد. امکان فعال و غیرفعال کردن پروفایلینگ به ویژه هنگام رفع اشکال در یک برنامه CLI نوشته شده با Go بسیار مفید است.&lt;/p>
+&lt;blockquote class="book-hint info">
+&lt;p>&lt;strong>نقل و قول نویسنده:&lt;/strong>&lt;/p>
+&lt;p>شاید profiling برای حال حاضر قابل اهمیت نباشد اما روزی خواهد رسید که در بخش هایی از پروژه دچار مصرف بیش از حد memory, CPU خواهید شد و اینجاس که profiling به شما کمک خواهد کرد سریز منابع را پیدا کنید.&lt;/p></description></item><item><author/><title>4.26 ساختار پروژه</title><link>https://book.gofarsi.ir/chapter-4/go-project-layout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-project-layout/</guid><description>&lt;h2 id="4261-نمای-کلی-project-layout">
+4.26.1 نمای کلی project-layout
+&lt;a class="anchor" href="#4261-%d9%86%d9%85%d8%a7%db%8c-%da%a9%d9%84%db%8c-project-layout">#&lt;/a>
+&lt;/h2>
+&lt;p>این متن یک طرح اساسی برای پروژه‌های برنامه‌نویسی به زبان Go است. توجه داشته باشید که این طرح از نظر محتوا ساده است، زیرا فقط روی layout کلی تمرکز دارد و نه آنچه در داخل آن قرار دارد. همچنین ساده است هر چند که از نظر محتوی پیشرفته است ولی به جزئیات زیادی در مورد نحوه ساختاردهی بیشتر پروژه شما نمی‌پردازد. برای مثال، سعی نمی‌کند ساختار پروژه‌ای را با چیزی مانند Clean Architecture پوشش دهد.
+برای بررسی نمونه کدهای مشابه و مرجع این متن به این &lt;a href="https://github.com/golang-standards/project-layout/tree/master">لینک&lt;/a> مراجعه کنید.
+این یک &lt;code>استاندارد رسمی تعریف شده توسط تیم توسعه اصلی Go نیست&lt;/code>. این مجموعه‌ای از الگوهای layout پروژه‌های رایج با سابقه و نوظهور در اکوسیستم Go است. برخی از این الگوها از بقیه محبوب‌تر هستند. همچنین دارای تعدادی بهبود کوچک همراه با چندین دایرکتوری پشتیبانی مشترک در هر برنامه واقعی به اندازه کافی بزرگ است. توجه داشته باشید که تیم اصلی Go مجموعه خوبی از دستورالعمل‌های عمومی در مورد ساختاردهی پروژه‌های Go و معنای آن برای پروژه شما هنگام وارد شدن و نصب آن ارائه می‌دهد. برای اطلاعات بیشتر، به صفحه &lt;a href="https://go.dev/doc/modules/layout">&lt;code>Organizing a Go module&lt;/code>&lt;/a> در اسناد رسمی Go مراجعه کنید. این صفحه شامل الگوهای دایرکتوری داخلی و cmd (که در زیر توضیح داده شده است) و سایر اطلاعات مفید است.
+اگر در حال یادگیری Go هستید یا یک PoC یا یک پروژه ساده برای خودتان می‌سازید، این طرح پروژه بیش از حد پیچیده است. در عوض، با چیزی بسیار ساده شروع کنید (یک فایل main.go و go.mod بیش از اندازه کافی است). با پیشرفت پروژه، به خاطر داشته باشید که ساختاردهی مناسب کد شما بسیار مهم خواهد بود، در غیر این صورت در نهایت با یک کد نامرتب با وابستگی‌های پنهان (hidden dependencies) و global state زیادی مواجه خواهید شد. وقتی افراد بیشتری روی پروژه کار می‌کنند، به ساختار بیشتری نیاز خواهید داشت. در این زمان است که معرفی یک روش مشترک برای مدیریت بسته‌ها/کتابخانه‌ها اهمیت دارد. وقتی یک پروژه متن‌باز دارید یا می‌دانید که پروژه‌های دیگر کد را از مخزن پروژه شما وارد می‌کنند، آن زمان است که داشتن بسته‌ها و کدهای خصوصی (معادل internal) اهمیت دارد. repository را کپی کنید، آنچه را که نیاز دارید نگه دارید و بقیه را حذف کنید! فقط به این دلیل که وجود دارد، به این معنی نیست که باید از همه آن استفاده کنید. هیچ یک از این الگوها در هر پروژه‌ای استفاده نمی‌شوند. حتی الگوی &lt;code>vendor&lt;/code> نیز universal نیست.
+با آمدن Go 1.14 در نهایت &lt;a href="https://go.dev/wiki/Modules">&lt;code>Go Modules&lt;/code>&lt;/a> برای production آماده شدند. از &lt;a href="https://blog.golang.org/using-go-modules">&lt;code>Go Modules&lt;/code>&lt;/a> استفاده کنید، مگر اینکه دلیل خاصی برای استفاده نکردن از آن‌ها داشته باشید و اگر اینطور است، نیازی به نگرانی در مورد $GOPATH و جایی که پروژه خود را قرار می‌دهید ندارید. فایل &lt;code>go.mod&lt;/code> پایه در مخزن فرض می‌کند که پروژه شما در GitHub میزبانی می‌شود، اما این یک الزام نیست. module path می‌تواند هر چیزی باشد، اگرچه اولین جزء module path باید یک نقطه در نام خود داشته باشد (نسخه فعلی Go دیگر آن را اجباری نمی‌کند، اما اگر از نسخه‌های کمی قدیمی‌تر استفاده می‌کنید، تعجب نکنید اگر ساخت‌های شما بدون آن شکست بخورد). اگر می‌خواهید درباره آن بیشتر بدانید، به Issues &lt;a href="https://github.com/golang/go/issues/37554">&lt;code>37554&lt;/code>&lt;/a> و &lt;a href="https://github.com/golang/go/issues/32819">&lt;code>32819&lt;/code>&lt;/a>مراجعه کنید.
+این طرح پروژه عمداً عمومی است و سعی نمی‌کند یک ساختار پکیج Go خاص را تحمیل کند.
+این یک تلاش مشترک است. اگر الگوی جدیدی مشاهده کردید یا فکر می‌کنید یکی از الگوهای موجود نیاز به به‌روزرسانی دارد، یک issue را باز کنید.
+اگر به کمک در مورد نام‌گذاری، قالب‌بندی و style نیاز دارید، ابتدا &lt;a href="https://golang.org/cmd/gofmt/">&lt;code>gofmt&lt;/code>&lt;/a> و &lt;a href="https://github.com/dominikh/go-tools/tree/master/cmd/staticcheck">&lt;code>staticcheck&lt;/code>&lt;/a> را اجرا کنید. linter استاندارد قبلی، golint، اکنون منسوخ شده است و نگهداری نمی‌شود؛ استفاده از یک linter در حال توسعه و نگهداری شده مانند staticcheck توصیه می‌شود. همچنین مطمئن شوید که این دستورالعمل‌ها و توصیه‌های Go code style را بخوانید:&lt;/p></description></item><item><author/><title>4.27 آموزش کار با پکیج io</title><link>https://book.gofarsi.ir/chapter-4/go-io-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-4/go-io-package/</guid><description>&lt;p align="center">
+&lt;img src="../../assets/img/content/chapter4/io/go-io.png" alt="io">
+&lt;/p>
+&lt;p>پکیج &lt;code>io&lt;/code> در زبان Go یکی از ابزارهای پایه و همه‌فن‌حریف برای کار با عملیات &lt;span class="tooltip" data-tooltip="ورودی/خروجی" ontouchend="toggleTooltip(this)">Input/Output&lt;/span>
+است. فلسفه‌اش اینه که ما بدون وابستگی به نوع خاص داده (مثل فایل، شبکه یا حافظه) بتونیم از یک &lt;span class="tooltip" data-tooltip="رابط" ontouchend="toggleTooltip(this)">Interface&lt;/span>
+ساده استفاده کنیم. این یعنی اگر یک شیء فقط متد مورد نیاز رو پیاده‌سازی کنه، می‌تونه در تمام جاهایی که اون رابط انتظار میره استفاده بشه. مثلا &lt;code>io.Reader&lt;/code> فقط یک متد &lt;code>Read&lt;/code> داره و &lt;code>io.Writer&lt;/code> یک متد &lt;code>Write&lt;/code>، ولی همین دو قرارداد ساده پایه تمام سیستم &lt;span class="tooltip" data-tooltip="انتزاع ورودی/خروجی" ontouchend="toggleTooltip(this)">I/O Abstraction&lt;/span>
+در Go رو تشکیل میدن.&lt;/p></description></item></channel></rss>

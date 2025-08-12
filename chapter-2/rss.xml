@@ -1,0 +1,77 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل دوم: مکانیزم‌های زبان on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-2/</link><description>Recent content in فصل دوم: مکانیزم‌های زبان on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-2/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>2.1 اشاره‌گر (Pointer)</title><link>https://book.gofarsi.ir/chapter-2/pointer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/pointer/</guid><description>&lt;p>&lt;span class="tooltip" data-tooltip="pointer" ontouchend="toggleTooltip(this)">اشاره‌گر&lt;/span>
+در واقع متغیری است که، آدرس حافظه یک مقدار را نگه می‌دارد.&lt;/p>
+&lt;pre>&lt;code class="language-go">var ex *T
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="../../assets/img/content/chapter2/pointer/1.png" alt="pointer" />&lt;/p>
+&lt;p>درک اشاره‌گرها (Pointers) برای بسیاری از مبتدیان ترسناک به نظر می‌رسد، اما در واقع اگر با یک مثال ساده آن را توضیح دهیم، می‌تواند بسیار قابل فهم باشد. اجازه بدهید ترجمه و توضیحی روان بر پایه مثالی که دادی ارائه کنم:&lt;/p>
+&lt;blockquote>
+&lt;p>اشاره‌گرها پیچیده به نظر می‌رسند،
+اما واقعاً نیازی نیست که این‌طور باشند.
+اشاره‌گرها را می‌توان شبیه &amp;ldquo;فهرست مطالب یک کتاب&amp;rdquo; در نظر گرفت.
+برای مثال، همین کتاب را در نظر بگیر.
+فهرست مطالب این کتاب مثل پنج اشاره‌گر است.
+شما می‌توانید آن‌ها را بخوانید و بفهمید که اطلاعات مربوط به هر فصل در کجا قرار دارد.
+مثلاً فصل «زندگی من» در صفحه ۱ است (یعنی به صفحه ۱ اشاره می‌کند).
+و فصل «شغل من» در صفحه ۲۳ است.&lt;/p></description></item><item><author/><title>2.2 ساختار (struct)</title><link>https://book.gofarsi.ir/chapter-2/struct/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/struct/</guid><description>&lt;p>در زبان گو &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+کالکشنی از فیلدها با تایپ‌های مختلف است. شما با استفاده از &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+می‌توانید یک مدل کلی از بدنه پروژه خود را تعریف کنید. برای نمونه ما در مثال زیر یک نمونه از &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+employee &lt;code>کارمند&lt;/code> را مثال زدیم تا شما کمی با مفهوم &lt;span class="tooltip" data-tooltip="struct" ontouchend="toggleTooltip(this)">ساختار&lt;/span>
+آشنا شوید.&lt;/p>
+&lt;pre>&lt;code class="language-go">type employee struct {
+name string
+age int
+salary int
+}
+&lt;/code>&lt;/pre>
+&lt;blockquote class="book-hint warning">
+&lt;p>نکته: ساختار می‌تواند بصورت خالی جهت برخی اهداف ایجاد گردد. به مثال زیر دقت کنید:‌&lt;/p></description></item><item><author/><title>2.3 متد (Method)</title><link>https://book.gofarsi.ir/chapter-2/method/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/method/</guid><description>&lt;p>متد در واقع یک تابع گیرنده (receiver) است که به واسطه یک تایپ در دسترس خواهد بود. توجه کنید برای تعریف متد باید قبل از اسم تابع، داخل پرانتز یک نام و یک تایپ قرار دهید. برای درک بهتر این موضوع فکر کنید نامی که داخل پرانتز قرار می‌دید یه متغیر هست که به تایپ شما اشاره می‌کند. به مثال زیر توجه کنید:&lt;/p>
+&lt;pre>&lt;code class="language-go">func (receiver receiver_type) some_func_name(arguments) return_values
+&lt;/code>&lt;/pre>
+&lt;p>برای درک بهتر این مفهوم، می‌توانید متد را دقیقاً یک تابع در نظر بگیرید. نحوه تعریف به صورت متد صرفاً برای راحتی در زمان توسعه نرم افزار است و به برنامه‌نویس امکان توسعه بهتر بدون نیاز به حفظ کردن زیاد عملکرد‌های سیستم را می‌دهد.&lt;/p></description></item><item><author/><title>2.4 اینترفیس (Interface)</title><link>https://book.gofarsi.ir/chapter-2/interface/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/interface/</guid><description>&lt;p>اینترفیس در زبان گو مجموعه‌ای از متدها است. این مجموعه متدها با توجه به ورودی و خروجی که دارند دارای رفتارهای خاصی هستند. زمانیکه شما یک اینترفیس به همراه یکسری از متدها تعریف می‌کنید باید در جایی این متدها را پیاده سازی کنید.&lt;/p>
+&lt;p>اینترفیس‌ها به شما اجازه می‌دهد تا از &lt;a href="https://fa.wikipedia.org/wiki/%D9%86%D9%88%D8%B9%E2%80%8C%D8%AF%D9%87%DB%8C_%D8%A7%D8%B1%D8%AF%DA%A9%DB%8C">Duck typing&lt;/a> استفاده کنید. حالا این duck typing چیست؟&lt;/p>
+&lt;p>duck typing روشی در برنامه‌نویسی کامپیوتری است که به شما امکان می‌دهد تست اردک را انجام دهید، جایی که ما نوع را بررسی نمی‌کنیم، بلکه تنها وجود برخی ویژگی‌ها یا روش‌ها را بررسی می‌کنیم. بنابراین آنچه واقعاً اهمیت دارد این است که آیا یک شی دارای ویژگی‌ها و روش‌های خاصی است و نه نوع آن.&lt;/p></description></item><item><author/><title>2.5 جاسازی تایپ (type embedding)</title><link>https://book.gofarsi.ir/chapter-2/type-embedding/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/type-embedding/</guid><description>&lt;p>در زبان گو برای ساختار و اینترفیس امکان &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
+تایپ وجود دارد. یعنی شما می‌توانید یک ساختار یا یک اینترفیس را داخل ساختار دیگر &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
+کنید و یا داخل اینترفیس یک اینترفیس دیگر را جاسازی کنید.&lt;/p>
+&lt;pre>&lt;code class="language-go">
+type animal interface {
+breathe()
+walk()
+}
+type human interface {
+animal
+speak()
+}
+type base struct {
+num int
+}
+type container struct {
+human
+base
+str string
+}
+&lt;/code>&lt;/pre>
+&lt;p>در بالا ما اینترفیس animal را در اینترفیس human &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
+کردیم و در ادامه داخل ساختار container اینترفیس human و ساختار base را &lt;span class="tooltip" data-tooltip="embedding" ontouchend="toggleTooltip(this)">جاسازی&lt;/span>
+کردیم.&lt;/p></description></item><item><author/><title>2.6 مدیریت خطاها</title><link>https://book.gofarsi.ir/chapter-2/error-handling/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/error-handling/</guid><description>&lt;p>در این بخش قصد داریم به مقوله مدیریت خطاها در زبان گو بپردازیم و اینکه چطور می‌توانید خیلی ساده خطاها را مدیریت کنید. مدیریت خطا در زبان گو با سایر زبان‌ها متفاوت هست و شما با چیزی به نام try-catch یا try-except سروکار ندارید.&lt;/p>
+&lt;p>مدیریت خطاها در زبان گو به دو روش صورت می گیرد:&lt;/p>
+&lt;ul>
+&lt;li>با استفاده از پیاده سازی اینترفیس error که یک روش مرسوم جهت مدیریت و نمایش خطا است.&lt;/li>
+&lt;li>با استفاده از panic/recover که در فصل اول توضیح دادیم.&lt;/li>
+&lt;/ul>
+&lt;h2 id="261-مدیریت-خطا-با-اینترفیس-error">
+2.6.1 مدیریت خطا با اینترفیس error
+&lt;a class="anchor" href="#261-%d9%85%d8%af%db%8c%d8%b1%db%8c%d8%aa-%d8%ae%d8%b7%d8%a7-%d8%a8%d8%a7-%d8%a7%db%8c%d9%86%d8%aa%d8%b1%d9%81%db%8c%d8%b3-error">#&lt;/a>
+&lt;/h2>
+&lt;p>روش زبان گو برای مقابله با خطا این است که به صراحت، شما خطا را به عنوان خروجی تابع برگردانید. برای این کار کافیست اگر میخواهید خطای هر تابع را مدیریت کنید، اینترفیس error را در خروجی تابع بگذارید.&lt;/p></description></item><item><author/><title>2.7 فرق casting با conversion</title><link>https://book.gofarsi.ir/chapter-2/casting-vs-conversion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-2/casting-vs-conversion/</guid><description>&lt;h2 id="271-conversion">
+2.7.1 conversion
+&lt;a class="anchor" href="#271-conversion">#&lt;/a>
+&lt;/h2>
+&lt;p>conversion زمانی اتفاق می‌افتد که ما مقدار یک داده را به تایپ دیگری اختصاص دهیم.&lt;/p>
+&lt;p>زبان‌هایی که Static Type هستند از این مقوله بطور &lt;span class="tooltip" data-tooltip="implicit" ontouchend="toggleTooltip(this)">ضمنی&lt;/span>
+پشتیبانی می‌کنند ولی در زبان گو کمی متفاوت است. اگر شما بخواهید conversion انجام دهید باید بصورت دستی اینکار را انجام دهید. چون کامپایلر گو برخی از عناوین را بطور &lt;span class="tooltip" data-tooltip="explicit" ontouchend="toggleTooltip(this)">صریح&lt;/span>
+در نظر می‌گیرد.&lt;/p>
+&lt;h2 id="272-type-casting">
+2.7.2 type casting
+&lt;a class="anchor" href="#272-type-casting">#&lt;/a>
+&lt;/h2>
+&lt;p>در زبان گو، چیزی به نام type casting بطور کلی وجود ندارد. پس بهتر است در خصوص این مورد داخل داکیومنت‌ها یا سایت‌های مختلف نگردید. برای درک بهتر این موضوع بهتره &lt;a href="https://go.dev/ref/spec#Conversions">https://go.dev/ref/spec#Conversions&lt;/a> را مطالعه کنید.&lt;/p></description></item></channel></rss>
