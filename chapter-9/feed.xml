@@ -103,13 +103,12 @@
 &lt;td>✅&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><author/><title>9.5 الگوهای Cloud Native</title><link>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</guid><description>&lt;p>الگوهای cloud native&amp;hellip;&lt;/p></description></item><item><author/><title>9.6 ضد الگوها (Anti-Patterns)</title><link>https://book.gofarsi.ir/chapter-9/anti-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/anti-pattern/</guid><description>&lt;p>ضد الگوها&lt;/p></description></item><item><author/><title>9.7 اصول SOLID</title><link>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</guid><description>&lt;h2 id="971-مقدمه">
-9.7.1 مقدمه
-&lt;a class="anchor" href="#971-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
-&lt;/h2>
-&lt;p>این مقاله ترجمه ارایه اصول solid در golang توسط &lt;a href="https://dave.cheney.net/">Dave Cheney&lt;/a>می‌‌باشد.&lt;/p>
-&lt;p>در این مبحث به بررسی پیاده سازی solid در زبان Go می‌پردازیم.&lt;/p>
-&lt;p>بررسی کد&lt;/p>
+&lt;/table></description></item><item><author/><title>9.5 الگوهای Cloud Native</title><link>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</guid><description>&lt;p>الگوهای cloud native&amp;hellip;&lt;/p></description></item><item><author/><title>9.6 ضد الگوها (Anti-Patterns)</title><link>https://book.gofarsi.ir/chapter-9/anti-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/anti-pattern/</guid><description>&lt;p>ضد الگوها&lt;/p></description></item><item><author/><title>9.7 اصول SOLID</title><link>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</guid><description>&lt;p>این مقاله ترجمه ارایه اصول solid در golang توسط &lt;a href="https://dave.cheney.net/">Dave Cheney&lt;/a>می‌‌باشد.
+در این مبحث به بررسی پیاده سازی solid در زبان Go می‌پردازیم.&lt;/p>
+&lt;h4 id="بررسی-کد">
+بررسی کد
+&lt;a class="anchor" href="#%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%da%a9%d8%af">#&lt;/a>
+&lt;/h4>
 &lt;ul>
 &lt;li>چه کسی اینجا بررسی کد را به عنوان بخشی از کار خود انجام می‌دهد؟ تمام اتاق دستشان را بالا بردند که تشویق کننده بود. خوب، چرا بررسی کد انجام می‌دهید؟ کسی فریاد زد «برای جلوگیری از کد بد»&lt;/li>
 &lt;li>اگر code review برای شناسایی کد‌های نامناسب است، پس چگونه می‌دانید کدی که بررسی می‌کنید خوب است یا بد؟&lt;/li>
@@ -149,9 +148,9 @@
 &lt;/ul>
 &lt;p>این کتاب کمی قدیمی است، زبان‌هایی که در مورد آن‌ها صحبت می‌کند، زبان‌هایی هستند که بیش از یک دهه پیش استفاده می‌شدند. اما، شاید جنبه‌هایی از اصول SOLID وجود داشته باشد که بتواند به ما سرنخی در مورد نحوه صحبت در مورد برنامه‌های Go با طراحی خوب بدهد.&lt;/p>
 &lt;p>بنابراین می‌خواهم مدتی را صرف بحث در مورد این موضوع با شما کنم.&lt;/p>
-&lt;h2 id="972--اصل-single-responsibility">
-9.7.2 اصل Single Responsibility
-&lt;a class="anchor" href="#972--%d8%a7%d8%b5%d9%84-single-responsibility">#&lt;/a>
+&lt;h2 id="971--اصل-single-responsibility">
+9.7.1 اصل Single Responsibility
+&lt;a class="anchor" href="#971--%d8%a7%d8%b5%d9%84-single-responsibility">#&lt;/a>
 &lt;/h2>
 &lt;p>اولین اصل S در SOLID که اصل مسئولیت واحد است.&lt;/p>
 &lt;blockquote>
@@ -159,18 +158,18 @@
 &lt;p>خب در زبان Go واضح است که چیزی به نام کلاس وجود ندارد - در عوض ما مفهوم بسیار قدرتمندتر composition را داریم - اما اگر بتوانید از استفاده از کلمه کلاس چشم‌پوشی کنید، فکر می‌کنم ارزش آن را دارد.&lt;/p>
 &lt;p>چرا مهم است که یک قطعه کد فقط یک دلیل برای تغییر داشته باشد؟ خب، به اندازه اینکه ایده تغییر کد خودتان آزاردهنده است، کشف اینکه کدی که کد شما به آن وابسته است و مبنای آن تغییر می‌کند بسیار آزاردهنده‌تر است و وقتی کد شما باید تغییر کند، باید در پاسخ به یک محرک مستقیم این کار را انجام دهد، نباید قربانی آسیب‌های جانبی شود.&lt;/p>
 &lt;p>بنابراین کدی که مسئولیت واحدی دارد، در نتیجه کمترین دلایل برای تغییر را دارد.&lt;/p>
-&lt;h3 id="9721-بررسی-coupling-و-cohesion">
-9.7.2.1 بررسی Coupling و Cohesion
-&lt;a class="anchor" href="#9721-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-coupling-%d9%88-cohesion">#&lt;/a>
+&lt;h3 id="9711-بررسی-coupling-و-cohesion">
+9.7.1.1 بررسی Coupling و Cohesion
+&lt;a class="anchor" href="#9711-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-coupling-%d9%88-cohesion">#&lt;/a>
 &lt;/h3>
 &lt;p>کوپلینگ و Cohesion دو کلمه‌ای که توصیف می‌کنند تغییر یک نرم‌افزار چقدر آسان یا سخت است، Coupling و Cohesion هستند.&lt;/p>
 &lt;p>کوپلینگ به سادگی کلمه‌ای است که دو چیز را توصیف می‌کند که با هم تغییر می‌کنند - حرکت در یکی باعث حرکت در دیگری می‌شود.&lt;/p>
 &lt;p>یک مفهوم مرتبط اما جداگانه، ایده Cohesion است، نیروی جذب متقابل.&lt;/p>
 &lt;p>در زمینه نرم‌افزار، Cohesion خاصیتی است که توصیف می‌کند قطعات کد به طور طبیعی به یکدیگر جذب می‌شوند.&lt;/p>
 &lt;p>برای توصیف واحدهای کوپلینگ و Cohesion در یک برنامه Go، ممکن است در مورد توابع و متدها صحبت کنیم، همانطور که در هنگام بحث در مورد SRP بسیار رایج است، اما من معتقدم که این کار با مدل packageهای Go شروع می‌شود.&lt;/p>
-&lt;h3 id="9722-نام--packageها">
-9.7.2.2 نام Package‌ها
-&lt;a class="anchor" href="#9722-%d9%86%d8%a7%d9%85--package%d9%87%d8%a7">#&lt;/a>
+&lt;h3 id="9712-نام--packageها">
+9.7.1.2 نام Package‌ها
+&lt;a class="anchor" href="#9712-%d9%86%d8%a7%d9%85--package%d9%87%d8%a7">#&lt;/a>
 &lt;/h3>
 &lt;p>در Go، تمام کدها داخل یک Package قرار دارند و یک Package خوب طراحی شده با نام آن شروع می‌شود. نام یک Package هم توصیفی از هدف آن است و هم پیشوند فضای نام. برخی از مثال‌های Package‌های خوب از کتابخانه‌ی استاندارد Go می‌توانند باشند:&lt;/p>
 &lt;ul>
@@ -179,24 +178,26 @@
 &lt;li>‏encoding/json،که کدگذاری و رمزگشایی اسناد JSON را پیاده‌سازی می‌کند.&lt;/li>
 &lt;/ul>
 &lt;p>وقتی شما از نمادهای Package دیگری در داخل Package خود استفاده می‌کنید، این کار با اعلامیه‌ی &lt;code>import&lt;/code> انجام می‌شود که یک کوپلینگ سطح منبع بین دو Package ایجاد می‌کند. آن‌ها حالا یکدیگر را می‌شناسند.&lt;/p>
-&lt;h3 id="9723-نامهای-بد-package">
-9.7.2.3 نام‌های بد Package
-&lt;a class="anchor" href="#9723-%d9%86%d8%a7%d9%85%d9%87%d8%a7%db%8c-%d8%a8%d8%af-package">#&lt;/a>
+&lt;h3 id="9713-نامهای-بد-package">
+9.7.1.3 نام‌های بد Package
+&lt;a class="anchor" href="#9713-%d9%86%d8%a7%d9%85%d9%87%d8%a7%db%8c-%d8%a8%d8%af-package">#&lt;/a>
 &lt;/h3>
 &lt;p>این تمرکز بر نام‌ها فقط موشکافی نیست. یک Package بدنام فرصت بررسی هدف خود را از دست می‌دهد، اگر اصلا هدفی داشته باشد.&lt;/p>
-&lt;p>بسته‌ی server چه چیزی را فراهم می‌کند؟ &amp;hellip; خب، امیدوارم یک سرور، اما با کدام پروتکل؟&lt;/p>
-&lt;p>بسته‌ی private چه چیزی را فراهم می‌کند؟ چیزهایی که نباید ببینم؟ آیا باید نمادهای public داشته باشد؟&lt;/p>
-&lt;p>و بسته‌ی common، درست مثل همکارش، بسته‌ی utils، اغلب در نزدیکی این متخلفان دیگر پیدا می‌شود.&lt;/p>
+&lt;ul>
+&lt;li>بسته‌ی server چه چیزی را فراهم می‌کند؟ &amp;hellip; خب، امیدوارم یک سرور، اما با کدام پروتکل؟&lt;/li>
+&lt;li>بسته‌ی private چه چیزی را فراهم می‌کند؟ چیزهایی که نباید ببینم؟ آیا باید نمادهای public داشته باشد؟&lt;/li>
+&lt;li>بسته‌ی common، درست مثل همکارش، بسته‌ی utils، اغلب در نزدیکی این متخلفان دیگر پیدا می‌شود.&lt;/li>
+&lt;/ul>
 &lt;p>بسته‌های همه کاره‌ی مانند این به یک محل دفن زباله برای چیزهای مختلف تبدیل می‌شوند و چون مسئولیت‌های زیادی دارند، اغلب بدون دلیل تغییر می‌کنند.&lt;/p>
-&lt;h3 id="9724-فلسفهی-یونیکس-در-go">
-9.7.2.4 فلسفه‌ی یونیکس در Go
-&lt;a class="anchor" href="#9724-%d9%81%d9%84%d8%b3%d9%81%d9%87%db%8c-%db%8c%d9%88%d9%86%db%8c%da%a9%d8%b3-%d8%af%d8%b1-go">#&lt;/a>
+&lt;h3 id="9714-فلسفهی-یونیکس-در-go">
+9.7.1.4 فلسفه‌ی یونیکس در Go
+&lt;a class="anchor" href="#9714-%d9%81%d9%84%d8%b3%d9%81%d9%87%db%8c-%db%8c%d9%88%d9%86%db%8c%da%a9%d8%b3-%d8%af%d8%b1-go">#&lt;/a>
 &lt;/h3>
 &lt;p>به نظر من، هیچ بحثی در مورد طراحی جدا شده بدون ذکر فلسفه‌ی یونیکس  Doug McIlroy کامل نمی‌شود؛ ابزارهای کوچک و چابک که برای حل کارهای بزرگ‌تر ترکیب می‌شوند، اغلب کارهایی که توسط نویسندگان اصلی پیش‌بینی نشده بود.&lt;/p>
 &lt;p>فکر می‌کنم بسته‌های Go روحیه‌ی فلسفه‌ی یونیکس را تجسم می‌بخشند. در واقع هر بسته‌ی Go خود یک برنامه‌ی کوچک Go است، یک اثرگذاری کوچک با یک مسئولیت واحد.&lt;/p>
-&lt;h3 id="9725-مثال-single-responsibility">
-9.7.2.5 مثال Single Responsibility
-&lt;a class="anchor" href="#9725-%d9%85%d8%ab%d8%a7%d9%84-single-responsibility">#&lt;/a>
+&lt;h3 id="9715-مثال-single-responsibility">
+9.7.1.5 مثال Single Responsibility
+&lt;a class="anchor" href="#9715-%d9%85%d8%ab%d8%a7%d9%84-single-responsibility">#&lt;/a>
 &lt;/h3>
 &lt;p>این اصل بیان می‌کند که یک ساختار باید تنها یک دلیل برای تغییر داشته باشد، به این معنی که یک ساختار باید تنها یک مسئولیت داشته باشد. این کمک می کند تا کد را تمیز و قابل نگهداری نگه دارید، زیرا تغییرات در ساختار فقط باید در یک مکان انجام شود.&lt;/p>
 &lt;p>فرض کنید من یک کارمند ساختاری دارم که نام، حقوق و آدرس یک کارمند را پیگیری می‌کند:&lt;/p>
@@ -224,24 +225,25 @@ return e.Address
 }
 &lt;/code>&lt;/pre>
 &lt;p>با پیروی از SRP، من کد را قابل نگهداری تر و درک آن آسان‌تر کرده‌ام، زیرا اکنون هر ساختار مسئولیت مشخص و مشخصی دارد. اگر بخواهم تغییراتی در محاسبه حقوق و دستمزد یا رسیدگی به آدرس ایجاد کنم، دقیقاً می‌دانم به کجا نگاه کنم، بدون اینکه نیازی به کدهای نامرتبط زیادی داشته باشم.&lt;/p>
-&lt;h2 id="973-اصل-open--closed">
-9.7.3 اصل Open / Closed
-&lt;a class="anchor" href="#973-%d8%a7%d8%b5%d9%84-open--closed">#&lt;/a>
+&lt;h2 id="972-اصل-open--closed">
+9.7.2 اصل Open / Closed
+&lt;a class="anchor" href="#972-%d8%a7%d8%b5%d9%84-open--closed">#&lt;/a>
 &lt;/h2>
 &lt;p>اصل دوم، O، اصل بسته باز توسط برتراند مایر است که در سال 1988 نوشت:&lt;/p>
 &lt;blockquote>
 &lt;p>موجودیت‌های نرم‌افزار باید برای توسعه باز باشند، اما برای اصلاح بسته شوند.&lt;br>
 – برتراند مایر، ساخت نرم افزار شی گرا&lt;/p>&lt;/blockquote>
 &lt;p>این توصیه چگونه در مورد زبانی که 21 سال بعد نوشته شده است صدق می کند؟&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 type A struct {
 year int
 }
-func (a A) Greet() { fmt.Println(&amp;quot;Hello GolangUK&amp;quot;, a.year) }
+func (a A) Greet() { fmt.Println("Hello GolangUK", a.year) }
 type B struct {
 A
 }
-func (b B) Greet() { fmt.Println(&amp;quot;Welcome to GolangUK&amp;quot;, b.year) }
+func (b B) Greet() { fmt.Println("Welcome to GolangUK", b.year) }
 func main() {
 var a A
 a.year = 2016
@@ -249,18 +251,23 @@ var b B
 b.year = 2016
 a.Greet() // Hello GolangUK 2016
 b.Greet() // Welcome to GolangUK 2016
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>ما یک type به نام A داریم با یک field به نام year و یک متد به نام Greet. یک type دوم به نام B داریم که A را در خود جای می‌دهد، بنابراین فراخواننده‌ها متدهای B را روی متدهای A می‌بینند زیرا A به عنوان یک field در داخل B جاسازی شده است و B می‌تواند متد Greet خود را ارائه دهد و آن را از A پنهان کند.&lt;/p>
 &lt;p>اما جاسازی فقط برای متدها نیست، بلکه دسترسی به فیلدهای نوع جاسازی شده را نیز فراهم می‌کند. همانطور که می‌بینید، از آنجایی که هر دو A و B در یک package تعریف شده‌اند، B می‌تواند به فیلد خصوصی year در A دسترسی داشته باشد انگار که در داخل B تعریف شده است.&lt;/p>
 &lt;p>بنابراین جاسازی (embedding) یک ابزار قدرتمند است که به تایپ‌های Go اجازه می‌دهد برای گسترش باز باشند.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
 type Cat struct {
 Name string
 }
 func (c Cat) Legs() int { return 4 }
 func (c Cat) PrintLegs() {
-fmt.Printf(&amp;quot;I have %d legs\n&amp;quot;, c.Legs())
+fmt.Printf("I have %d legs\n", c.Legs())
 }
 type OctoCat struct {
 Cat
@@ -270,8 +277,12 @@ func main() {
 var octo OctoCat
 fmt.Println(octo.Legs()) // 5
 octo.PrintLegs() // I have 4 legs
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>در این مثال، ما یک type به نام Cat داریم که می‌تواند تعداد پاهای خود را با متد Legs بشمارد. ما این نوع Cat را در یک نوع جدید به نام OctoCat جاسازی می‌کنیم و اعلام می‌کنیم که Octocatها پنج پا دارند. با این حال، اگرچه OctoCat متد Legs خود را تعریف می‌کند که 5 برمی‌گرداند، اما وقتی متد PrintLegs فراخوانی می‌شود، 4 برمی‌گرداند.&lt;/p>
 &lt;p>این به این دلیل است که PrintLegs روی نوع Cat تعریف شده است. این متد یک Cat را به عنوان گیرنده خود می‌گیرد، بنابراین به متد Legs در Cat ارسال می‌شود. Cat هیچ اطلاعی از نوعی که در آن جاسازی شده است ندارد، بنابراین مجموعه متدهای آن نمی‌تواند با جاسازی تغییر کند.&lt;/p>
 &lt;p>بنابراین می‌توانیم بگوییم که انواع Go در حالی که برای گسترش باز هستند، برای تغییر بسته هستند.&lt;/p>
@@ -284,13 +295,14 @@ fmt.Printf(&amp;quot;I have %d legs\n&amp;quot;, c.Legs())
 }
 &lt;/code>&lt;/pre>
 &lt;p>گیرنده یا receiver دقیقا همان چیزی است که به آن پاس می‌دهید، اولین پارامتر function است و از آنجا که Go از  function overloading پشتیبانی نمی‌کند، در نتیجه OctoCatها جایگزین Cats معمولی نمی‌شوند. که من را به اصل بعدی در solid می‌رساند.&lt;/p>
-&lt;h3 id="9731-مثال--open--closed">
-9.7.3.1 مثال Open / Closed
-&lt;a class="anchor" href="#9731-%d9%85%d8%ab%d8%a7%d9%84--open--closed">#&lt;/a>
+&lt;h3 id="9721-مثال--open--closed">
+9.7.2.1 مثال Open / Closed
+&lt;a class="anchor" href="#9721-%d9%85%d8%ab%d8%a7%d9%84--open--closed">#&lt;/a>
 &lt;/h3>
 &lt;p>فرض کنید من وظیفه دارم یک سیستم پرداخت بسازم که بتواند پرداخت‌های کارت اعتباری را پردازش کند. همچنین باید به‌اندازه کافی انعطاف‌پذیر باشد تا انواع روش‌های پرداخت را در آینده بپذیرد.&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type PaymentMethod interface {
 Pay()
 }
@@ -302,14 +314,18 @@ type CreditCard struct {
 amount float64
 }
 func (cc CreditCard) Pay() {
-fmt.Printf(&amp;quot;Paid %.2f using CreditCard&amp;quot;, cc.amount)
+fmt.Printf("Paid %.2f using CreditCard", cc.amount)
 }
 func main() {
 p := Payment{}
 cc := CreditCard{12.23}
 p.Process(cc)
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>طبق OCP، ساختار پرداخت من برای توسعه باز و برای اصلاح بسته است. ازآنجایی‌که من از واسط PaymentMethod استفاده می‌کنم، مجبور نیستم رفتار پرداخت را هنگام افزودن روش‌های پرداخت جدید ویرایش کنم. اضافه‌کردن چیزی مانند PayPal به شکل زیر است:&lt;/p>
 &lt;pre>&lt;code class="language-go">type PayPal struct {
 amount float64
@@ -321,22 +337,22 @@ fmt.Printf(&amp;quot;Paid %.2f using PayPal&amp;quot;, pp.amount)
 pp := PayPal{22.33}
 p.Process(pp)
 &lt;/code>&lt;/pre>
-&lt;h2 id="974-اصل--liskov-substitution">
-9.7.4 اصل Liskov Substitution
-&lt;a class="anchor" href="#974-%d8%a7%d8%b5%d9%84--liskov-substitution">#&lt;/a>
+&lt;h2 id="973-اصل--liskov-substitution">
+9.7.3 اصل Liskov Substitution
+&lt;a class="anchor" href="#973-%d8%a7%d8%b5%d9%84--liskov-substitution">#&lt;/a>
 &lt;/h2>
 &lt;p>این اصل توسط توسط باربارا لیسکوف معرفی شده است، اصل جایگزینی لیسکوف تقریباً بیان می‌کند که دو نوع قابل جایگزینی هستند اگر رفتارهایی را نشان دهند که فراخواننده نتواند تفاوت را تشخیص دهد.&lt;/p>
 &lt;p>در یک زبان مبتنی بر کلاس‌ها، اصل جایگزینی لیسکوف معمولاً به عنوان یک مشخصات برای یک abstract base class با زیرگونه‌های concrete class مختلف تفسیر می‌شود. اما Go کلاس یا وراثت ندارد، بنابراین جایگزینی نمی‌تواند از نظر سلسله مراتب abstract class پیاده‌سازی شود.&lt;/p>
-&lt;h3 id="9741-بررسی-interface-ها">
-9.7.4.1 بررسی Interface ها
-&lt;a class="anchor" href="#9741-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-interface-%d9%87%d8%a7">#&lt;/a>
+&lt;h3 id="9731-بررسی-interface-ها">
+9.7.3.1 بررسی Interface ها
+&lt;a class="anchor" href="#9731-%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-interface-%d9%87%d8%a7">#&lt;/a>
 &lt;/h3>
 &lt;p>در عوض، پایده سازی اصل جایگزینی (substitution) در این حوزه‌ بر عهده Interfaceها در Go است. در Go، از تایپ‌ها انتظار نمی‌رود که یک Interface خاصی را که پیاده‌سازی می‌کنند را از قبل معرفی کنند، در عوض هر تایپ یک Interface را پیاده‌سازی می‌کند به شرطی که متدهایی داشته باشد که امضای (signature) آن با اعلامیه اینترفیس (interface declaration) مطابقت داشته باشد.&lt;/p>
 &lt;p>ما می‌گوییم که در Go، رابط‌ها یا Interfaceها به طور ضمنی (implicitly) برآورده می‌شوند، نه صریح یا explicitly و این تأثیر عمیقی بر نحوه استفاده از آن‌ها در این زبان برنامه نویسی دارد.&lt;/p>
 &lt;p>اینترفیس‌های طراحی شده خوب در بیشتر موارد احتمال دارد که اینترفیس‌های کوچکی باشند؛ ضرب‌المثل غالب این است که یک Interface فقط یک متد دارد. منطقی است که اینترفیس‌های کوچک منجر به پیاده‌سازی‌های ساده شوند، زیرا انجام خلاف آن دشوار است. که منجر به بسته‌هایی می‌شود که از پیاده‌سازی‌های ساده تشکیل شده‌اند و توسط رفتار مشترک به هم متصل شده‌اند.&lt;/p>
-&lt;h3 id="9742--بررسی-ioreader">
-9.7.4.2 بررسی io.Reader
-&lt;a class="anchor" href="#9742--%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-ioreader">#&lt;/a>
+&lt;h3 id="9732--بررسی-ioreader">
+9.7.3.2 بررسی io.Reader
+&lt;a class="anchor" href="#9732--%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-ioreader">#&lt;/a>
 &lt;/h3>
 &lt;pre>&lt;code class="language-go">type Reader interface {
 // Read reads up to len(buf) bytes into buf.
@@ -352,9 +368,9 @@ Read(buf []byte) (n int, err error)
 &lt;p>Require no more, promise no less.&lt;br>
 –Jim Weirich&lt;/p>&lt;/blockquote>
 &lt;p>و این یک حرکت عالی در چهارمین اصل SOLID است.&lt;/p>
-&lt;h3 id="9743-مثال--liskov-substitution">
-9.7.4.3 مثال Liskov Substitution
-&lt;a class="anchor" href="#9743-%d9%85%d8%ab%d8%a7%d9%84--liskov-substitution">#&lt;/a>
+&lt;h3 id="9733-مثال--liskov-substitution">
+9.7.3.3 مثال Liskov Substitution
+&lt;a class="anchor" href="#9733-%d9%85%d8%ab%d8%a7%d9%84--liskov-substitution">#&lt;/a>
 &lt;/h3>
 &lt;p>بیایید یک struct Animal را در نظر بگیریم:&lt;/p>
 &lt;pre>&lt;code class="language-go">type Animal struct {
@@ -387,9 +403,9 @@ MakeSound(a)
 MakeSound(b)
 &lt;/code>&lt;/pre>
 &lt;p>این وراثت در Go و همچنین اصل جایگزینی Liskov را نشان می‌دهد، زیرا اشیاء یک نوع فرعی Bird را می‌توان در هر جایی که اشیایی از نوع پایه Animal انتظار می‌رود استفاده کرد، بدون اینکه بر صحت برنامه تأثیر بگذارد.&lt;/p>
-&lt;h2 id="975-اصل--interface-segregation">
-9.7.5 اصل Interface Segregation
-&lt;a class="anchor" href="#975-%d8%a7%d8%b5%d9%84--interface-segregation">#&lt;/a>
+&lt;h2 id="974-اصل--interface-segregation">
+9.7.4 اصل Interface Segregation
+&lt;a class="anchor" href="#974-%d8%a7%d8%b5%d9%84--interface-segregation">#&lt;/a>
 &lt;/h2>
 &lt;p>چهارمین اصل، اصل جداسازی اینترفیس است که به شرح زیر است:&lt;/p>
 &lt;blockquote>
@@ -411,9 +427,9 @@ func Save(w io.Writer, doc *Document) error
 &lt;blockquote>
 &lt;p>یک قانون بزرگ برای Go پذیرش interfaceها در structهای بازگشتی است.
 Jack Lindamood&lt;/p>&lt;/blockquote>
-&lt;h3 id="9751-مثال-interface-segregation">
-9.7.5.1 مثال Interface Segregation:
-&lt;a class="anchor" href="#9751-%d9%85%d8%ab%d8%a7%d9%84-interface-segregation">#&lt;/a>
+&lt;h3 id="9741-مثال-interface-segregation">
+9.7.4.1 مثال Interface Segregation:
+&lt;a class="anchor" href="#9741-%d9%85%d8%ab%d8%a7%d9%84-interface-segregation">#&lt;/a>
 &lt;/h3>
 &lt;p>فرض کنید یک interface برای چاپگر اسناد داریم:&lt;/p>
 &lt;pre>&lt;code class="language-go">goCopy codetype Printer interface {
@@ -433,9 +449,9 @@ type FaxMachine interface {
 Fax()
 }
 &lt;/code>&lt;/pre>
-&lt;h2 id="976-اصل-dependency-inversion">
-9.7.6 اصل Dependency Inversion
-&lt;a class="anchor" href="#976-%d8%a7%d8%b5%d9%84-dependency-inversion">#&lt;/a>
+&lt;h2 id="975-اصل-dependency-inversion">
+9.7.5 اصل Dependency Inversion
+&lt;a class="anchor" href="#975-%d8%a7%d8%b5%d9%84-dependency-inversion">#&lt;/a>
 &lt;/h2>
 &lt;p>اصل SOLID نهایی، اصل وارونگی وابستگی است که بیان می‌کند:&lt;/p>
 &lt;blockquote>
@@ -448,9 +464,9 @@ Fax()
 &lt;p>در Go باید import graph شما باید غیر دوره‌ای باشد. عدم رعایت این نیاز غیر دوره‌ای زمینه‌ای برای شکست کامپایل است، اما جدی‌تر نشان‌دهنده یک خطای جدی در طراحی است.&lt;/p>
 &lt;p>همه چیز برابر است، import graph یک برنامه‌ی Go به خوبی طراحی شده باید گسترده و نسبتاً مسطح باشد، نه بلند و باریک. اگر packageهای دارید که توابع آن بدون کمک گرفتن از packageهای‌ دیگری نمی‌توانند کار کنند، این احتمالاً نشانه‌ای است که کد به خوبی در امتداد مرزهای بسته فاکتور نشده است.&lt;/p>
 &lt;p>اصل وارونگی وابستگی شما را تشویق می‌کند که مسئولیت جزئیات را تا حد امکان به بالای import graph به packageهای‌ اصلی یا هندلر سطح بالا، منتقل کنید و اجازه دهید کد سطح پایین با انتزاعات - اینترفیس‌‌ها (abstractions–interfaces) سروکار داشته باشد.&lt;/p>
-&lt;h3 id="9761-مثال">
-9.7.6.1 مثال
-&lt;a class="anchor" href="#9761-%d9%85%d8%ab%d8%a7%d9%84">#&lt;/a>
+&lt;h3 id="9751-مثال">
+9.7.5.1 مثال
+&lt;a class="anchor" href="#9751-%d9%85%d8%ab%d8%a7%d9%84">#&lt;/a>
 &lt;/h3>
 &lt;p>فرض کنید یک struct Worker داریم که نماینده یک &lt;code>Worker&lt;/code> در یک شرکت است و یک struct &lt;code>Supervisor&lt;/code> که نماینده یک سرپرست یا Supervisor است:
 ‍‍&lt;/p>
@@ -493,8 +509,9 @@ Employees []Employee
 }
 &lt;/code>&lt;/pre>
 &lt;p>و حالت نهایی:&lt;/p>
-&lt;pre>&lt;code class="language-go">package main
-import &amp;quot;fmt&amp;quot;
+&lt;div class="go-playground">
+&lt;pre class="line-numbers">&lt;code class="language-go">package main
+import "fmt"
 type Worker struct {
 ID int
 Name string
@@ -540,25 +557,29 @@ return e
 return nil
 }
 func main() {
-dep := &amp;amp;Department{}
-dep.AddEmployee(Worker{ID: 1, Name: &amp;quot;John&amp;quot;})
-dep.AddEmployee(Supervisor{ID: 2, Name: &amp;quot;Jane&amp;quot;})
+dep := &amp;Department{}
+dep.AddEmployee(Worker{ID: 1, Name: "John"})
+dep.AddEmployee(Supervisor{ID: 2, Name: "Jane"})
 fmt.Println(dep.GetEmployeeNames())
 e := dep.GetEmployee(1)
 switch v := e.(type) {
 case Worker:
-fmt.Printf(&amp;quot;found worker %+v\n&amp;quot;, v)
+fmt.Printf("found worker %+v\n", v)
 case Supervisor:
-fmt.Printf(&amp;quot;found supervisor %+v\n&amp;quot;, v)
+fmt.Printf("found supervisor %+v\n", v)
 default:
-fmt.Printf(&amp;quot;could not find an employee by id: %d\n&amp;quot;, 1)
+fmt.Printf("could not find an employee by id: %d\n", 1)
 }
-}
-&lt;/code>&lt;/pre>
+}&lt;/code>&lt;/pre>
+&lt;button class="run-code">▶ اجرای کد&lt;/button>
+&lt;button class="copy-code">کپی&lt;/button>
+&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
+&lt;pre class="run-output hidden">&lt;/pre>
+&lt;/div>
 &lt;p>این اصل وابستگی وارونگی را نشان می‌دهد، زیرا ساختار &lt;code>Department&lt;/code> به‌جای یک پیاده‌سازی خاص (ساختار &lt;code>Worker&lt;/code> یا &lt;code>Supervisor&lt;/code>) به یک انتزاع (&lt;code>Employee&lt;/code> interface) وابستگی دارد. این امر کد را انعطاف‌پذیرتر می‌کند و نگهداری آن را آسان‌تر می‌کند، زیرا تغییرات در اجرای workers و supervisors بر ساختار &lt;code>Department&lt;/code> تأثیر نمی‌گذارد.&lt;/p>
-&lt;h3 id="977-طراحی-solid-در-go">
-9.7.7 طراحی SOLID در Go
-&lt;a class="anchor" href="#977-%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-solid-%d8%af%d8%b1-go">#&lt;/a>
+&lt;h3 id="976-طراحی-solid-در-go">
+9.7.6 طراحی SOLID در Go
+&lt;a class="anchor" href="#976-%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-solid-%d8%af%d8%b1-go">#&lt;/a>
 &lt;/h3>
 &lt;p>برای جمع‌بندی، وقتی هر یک از اصول SOLID را به Go اعمال می‌کنیم، موارد قدرتمندی در مورد طراحی هستند، اما وقتی با هم به کاربرده می‌شوند، می‌توان گفت که یک ایده مرکزی دارند.&lt;/p>
 &lt;p>اصل مسئولیت واحد (Single Responsibility) شما را تشویق می‌کند تا توابع، انواع و متدها را در بسته‌هایی ساختار دهید که انسجام طبیعی دارند؛ تایپ‌ها با هم مرتبط هستند، توابع یک هدف واحد دارند.&lt;/p>
@@ -572,15 +593,12 @@ fmt.Printf(&amp;quot;could not find an employee by id: %d\n&amp;quot;, 1)
 &lt;blockquote>
 &lt;p>طراحی هنر چیدمان کدی است که باید امروز کار کند و برای همیشه آسان تغییر کند.&lt;/p>&lt;/blockquote>
 &lt;p>زیرا اگر Go قرار است زبانی باشد که شرکت‌ها برای بلندمدت در آن سرمایه‌گذاری کنند، نگهداری برنامه‌های Go، سهولت تغییر آن‌ها، عامل کلیدی در تصمیم آن‌ها خواهد بود.&lt;/p>
-&lt;h2 id="978-در-پایان">
-9.7.8 &lt;strong>در پایان&lt;/strong>
-&lt;a class="anchor" href="#978-%d8%af%d8%b1-%d9%be%d8%a7%db%8c%d8%a7%d9%86">#&lt;/a>
+&lt;h2 id="977-در-پایان">
+9.7.7 در پایان
+&lt;a class="anchor" href="#977-%d8%af%d8%b1-%d9%be%d8%a7%db%8c%d8%a7%d9%86">#&lt;/a>
 &lt;/h2>
 &lt;p>بیایید به سؤالی که این صحبت را با آن شروع کردم برگردیم؛ چند برنامه‌نویس Go در دنیا وجود دارد؟ این حدس من است:&lt;/p>
-&lt;p>تا سال 2020، 500000 توسعه‌دهنده Go وجود خواهد داشت.&lt;/p>
-&lt;ul>
-&lt;li>من&lt;/li>
-&lt;/ul>
+&lt;p>&lt;strong>تا سال 2020، 500000 توسعه‌دهنده Go وجود خواهد داشت.&lt;/strong>&lt;/p>
 &lt;p>نیم میلیون برنامه‌نویس Go با وقت خود چه خواهند کرد؟ خب، واضح است که آن‌ها مقدار زیادی کد Go خواهند نوشت و اگر صادق باشیم، همه آن خوب نخواهد بود و برخی کاملاً بد خواهند بود.&lt;/p>
 &lt;p>لطفا بدانید که من این را برای بی‌رحمی نمی‌گویم، اما هر یک از شما در این اتاق با تجربه توسعه در زبان‌های دیگر - زبان‌هایی که از آن‌ها به Go آمدید - از تجربه خود می‌دانید که این پیش‌بینی تا حدی درست است.&lt;/p>
 &lt;blockquote>
@@ -593,10 +611,9 @@ fmt.Printf(&amp;quot;could not find an employee by id: %d\n&amp;quot;, 1)
 &lt;p>برنامه‌نویسان Go باید کمتر در مورد فریمورک‌ها صحبت کنند و بیشتر در مورد طراحی صحبت کنند. باید تمرکز خود را از عملکرد به هر قیمتی متوقف کنیم و در عوض روی استفاده مجدد به هر قیمتی تمرکز کنیم.&lt;/p>
 &lt;p>من می‌خواهم ببینم مردم در مورد نحوه استفاده از زبانی که امروز داریم، صرف نظر از انتخاب‌ها و محدودیت‌های آن، برای طراحی راه‌حل‌ها و حل مشکلات واقعی صحبت می‌کنند.&lt;/p>
 &lt;p>من می‌خواهم بشنوم که مردم در مورد نحوه طراحی برنامه‌های Go به روشی که به خوبی مهندسی شده، جدا شده، قابل استفاده مجدد و از همه مهم‌تر پاسخگو به تغییر است صحبت می‌کنند.&lt;/p>
-&lt;p>&amp;hellip; یک چیز دیگر&lt;/p>
+&lt;p>&lt;strong>یک چیز دیگر&amp;hellip;&lt;/strong>&lt;/p>
 &lt;p>حالا، عالی است که بسیاری از شما امروز برای شنیدن از سخنرانان بزرگ اینجا هستید، اما واقعیت این است که صرف نظر از اینکه این کنفرانس چقدر بزرگ می‌شود، در مقایسه با تعداد افرادی که در طول عمر خود از Go استفاده خواهند کرد، ما فقط یک بخش کوچک هستیم.&lt;/p>
 &lt;p>بنابراین باید به بقیه دنیا بگوییم که نرم‌افزار خوب چگونه باید نوشته شود. نرم‌افزار خوب، نرم‌افزار قابل ترکیب، نرم‌افزاری که قابل تغییر است و به آن‌ها نشان دهیم که چگونه این کار را با استفاده از Go انجام دهند. و این کار از شما شروع می‌شود.&lt;/p>
 &lt;p>من می‌خواهم شما شروع به صحبت در مورد طراحی کنید، شاید از برخی ایده‌هایی که در اینجا ارائه کردم استفاده کنید، امیدوارم تحقیقات خود را انجام دهید و این ایده‌ها را در پروژه‌های خود اعمال کنید. سپس می‌خواهم شما:&lt;/p>
 &lt;p>یک پست وبلاگ در مورد آن بنویسید. یک کارگاه در مورد کاری که انجام دادید تدریس کنید. یک کتاب در مورد آنچه آموخته‌اید بنویسید. و سال آینده به این کنفرانس برگردید و در مورد آنچه به دست آوردید صحبت کنید.&lt;/p>
-&lt;p>زیرا با انجام این کارها می‌توانیم فرهنگی از توسعه‌دهندگان Go ایجاد کنیم که به برنامه‌هایی اهمیت می‌دهند که برای ماندگاری طراحی شده‌اند.&lt;/p>
-&lt;p>متشکرم.&lt;/p></description></item></channel></rss>
+&lt;p>زیرا با انجام این کارها می‌توانیم فرهنگی از توسعه‌دهندگان Go ایجاد کنیم که به برنامه‌هایی اهمیت می‌دهند که برای ماندگاری طراحی شده‌اند.&lt;/p></description></item></channel></rss>
