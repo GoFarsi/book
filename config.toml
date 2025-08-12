@@ -22,7 +22,7 @@ home = ["HTML", "RSS", "Offline"]
 [outputFormats]
     [outputFormats.RSS]
         mediaType = "application/rss+xml"
-        baseName = "feed"
+        baseName = "rss"
 
 [languages]
 [languages.fa]

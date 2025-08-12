@@ -13,15 +13,34 @@
     {{ with .OutputFormats.Get "RSS" }}
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
-    {{ range .Pages }}
+
+    {{/* Collect pages: for home use all regular pages (nested), else keep current context */}}
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}
+      {{ $pages = .Site.RegularPages }}
+    {{ end }}
+
+    {{/* Optional: include section index pages (_index.md) too: uncomment next line */}}
+    {{/* $pages = union $pages .Site.Sections */}}
+
+    {{/* Sort by date (newest first) */}}
+    {{ $pages = sort $pages "Date" "desc" }}
+
+    {{/* Apply rssLimit from config if set (>0) */}}
+    {{ $limit := .Site.Config.Services.RSS.Limit }}
+    {{ if gt $limit 0 }}
+      {{ $pages = first $limit $pages }}
+    {{ end }}
+
+    {{ range $pages }}
     <item>
-      <author>{{.Site.Params.Author.name}}</author>
+      <author>{{ .Site.Params.Author.name }}</author>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Params.Author.email }}<author>{{.}}{{ with $.Site.Params.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ .Content | html }}</description>
+      <description>{{ with .Summary }}{{ . | html }}{{ else }}{{ .Content | html }}{{ end }}</description>
     </item>
     {{ end }}
   </channel>
