@@ -138,7 +138,7 @@ tags:
 
 
 <--->
-<img src="/assets/img/start-go.svg" alt="زبان گو فارسی" style="width: 470px;" />
+<img src="/assets/img/start-go.svg" alt="آموزش زبان گو - کتاب گولنگ" style="width: 470px;" />
 
 
 ### <span class="fas fa-sharp fa-solid fa-rocket"></span> دانلود نسخه های آفلاین و آنلاین کتاب

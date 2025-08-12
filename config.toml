@@ -1,8 +1,9 @@
 baseURL = 'https://book.gofarsi.ir'
-languageCode = 'fa-IR'
 title = 'زبان گو فارسی'
 enableRobotsTXT = true
-defaultContentLanguage = 'fa'
+languageCode = "fa"
+defaultContentLanguage = "fa"
+hasCJKLanguage = true
 rssLimit = 1000
 copyright = "2023 GoFarsi All rights reserved"
 
@@ -11,6 +12,8 @@ copyright = "2023 GoFarsi All rights reserved"
   path = "github.com/alex-shpak/hugo-book"
   [[module.imports]]
   path = "github.com/hugomods/pwa"
+  [[module.imports]]
+    path = "github.com/hugomods/seo"
 
 [outputs]
 home = ["HTML", "RSS", "Offline"]
@@ -35,6 +38,16 @@ unsafe= true
 startLevel = 1
 
 [params]
+description = "کتاب رایگان آموزش زبان گو (گولنگ) به فارسی از مقدماتی تا پیشرفته"
+keywords = [
+  "کتاب گو",
+  "زبان گو",
+  "آموزش گو",
+  "آموزش زبان گو",
+  "زبان برنامه نویسی گو",
+  "آموزش گولنگ",
+  "کتاب گولنگ"
+]
 # (Optional, default light) Sets color theme: light, dark or auto.
 # Theme 'auto' switches between dark and light modes based on browser/os preferences
 BookTheme = 'light'
@@ -118,6 +131,19 @@ strategy = "cache-first"
   max_entries = 30
   max_age = "365d"
 
+[params.seo.schema]
+  type = "Book"
+  name = "کتاب آموزش زبان گو"
+  author = "گروه گو فارسی"
+  inLanguage = "fa"
+
+[params.seo.opengraph]
+  image = "/assets/img/start-go.svg" 
+  site_name = "کتاب زبان گو"
+
+[params.seo.twitter]
+  card = "summary_large_image"
+  creator = "@ja7adr"
 
 [minify]
   [minify.tdewolff.html]

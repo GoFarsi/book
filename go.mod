@@ -8,5 +8,6 @@ require (
 	github.com/hugomods/icons v0.6.6 // indirect
 	github.com/hugomods/idb-js v0.1.0 // indirect
 	github.com/hugomods/pwa v0.9.0 // indirect
+	github.com/hugomods/seo v0.0.0-20240615051139-4fe7e25508f7 // indirect
 	github.com/twbs/icons v1.13.1 // indirect
 )

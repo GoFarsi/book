@@ -8,5 +8,7 @@ github.com/hugomods/idb-js v0.1.0 h1:mA6hEGtR0aFEdmq9zYMGpfSpCU6SMilx9RzC4uK3DqY
 github.com/hugomods/idb-js v0.1.0/go.mod h1:GPfnmr+BQpP4s6Epd4Yu+RlUog8q/Djw8qy8BZFWZ04=
 github.com/hugomods/pwa v0.9.0 h1:bEKFkP7xkow6IadY9hKEwPbdKeLC0XZfVT31gGP7CPc=
 github.com/hugomods/pwa v0.9.0/go.mod h1:KpYK2Ffn969+Py5SzV3+iXYase4UoUeRAsd9jY7Q2Us=
+github.com/hugomods/seo v0.0.0-20240615051139-4fe7e25508f7 h1:7X/hiPCbgEipjcaiTvKtnpG6qZROObwLy7i1XOBvkf8=
+github.com/hugomods/seo v0.0.0-20240615051139-4fe7e25508f7/go.mod h1:1vLIDsNyyObjpTa90fBPzHBJKBfHvP+IBuGsNZAKDVc=
 github.com/twbs/icons v1.13.1 h1:6bmNXvoeIbvjFWjfbjXg5JGbelLD1haIsMaEIzE9UZI=
 github.com/twbs/icons v1.13.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
