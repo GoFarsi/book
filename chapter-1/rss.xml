@@ -1,326 +1,326 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل اول: آشنایی با مفاهیم گو on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-1/</link><description>Recent content in فصل اول: آشنایی با مفاهیم گو on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-1/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>1.1 ساختار کد گو</title><link>https://book.gofarsi.ir/chapter-1/structure-of-go-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/structure-of-go-code/</guid><description>&lt;p>همانطور که در تاریخچه زبان گو گفتیم, زبان گو سینتکس خیلی تمیز و ساده‌ای دارد که به راحتی می‌توانید کدهای زبان گو را بخوانید. در ادامه ما سعی می‌کنیم با مثال‌های ساده شما را با ساختار کد زبان گو آشنا کنیم.&lt;/p>
-&lt;blockquote class="book-hint info">
-&lt;strong>به نقل از تاریخچه&lt;/strong>
-سینتکس زبان گو به گونه‌ای طراحی شده که خیلی ساده و تمیز است و این باعث می‌شود خیلی سریع زبان گو را یاد بگیرید و از همه مهم‌تر توسعه پروژه‌های &lt;span class="tooltip" data-tooltip="Scale up" ontouchend="toggleTooltip(this)">مقیاس پذیر&lt;/span>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل اول: آشنایی با مفاهیم گو on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-1/</link><description>Recent content in فصل اول: آشنایی با مفاهیم گو on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-1/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>1.1 ساختار کد گو</title><link>https://book.gofarsi.ir/chapter-1/structure-of-go-code/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/structure-of-go-code/</guid><description>&lt;p&gt;همانطور که در تاریخچه زبان گو گفتیم, زبان گو سینتکس خیلی تمیز و ساده‌ای دارد که به راحتی می‌توانید کدهای زبان گو را بخوانید. در ادامه ما سعی می‌کنیم با مثال‌های ساده شما را با ساختار کد زبان گو آشنا کنیم.&lt;/p&gt;
+&lt;blockquote class="book-hint info"&gt;
+&lt;strong&gt;به نقل از تاریخچه&lt;/strong&gt;
+سینتکس زبان گو به گونه‌ای طراحی شده که خیلی ساده و تمیز است و این باعث می‌شود خیلی سریع زبان گو را یاد بگیرید و از همه مهم‌تر توسعه پروژه‌های &lt;span class="tooltip" data-tooltip="Scale up" ontouchend="toggleTooltip(this)"&gt;مقیاس پذیر&lt;/span&gt;
 با زبان گو به دلیل سادگی و آشکار بودن مفاهیم خیلی سریع‌تر صورت‌ گیرد.
-&lt;/blockquote>
-&lt;h2 id="110-زبان-برنامهنویسی">
+&lt;/blockquote&gt;
+&lt;h2 id="110-زبان-برنامهنویسی"&gt;
 1.1.0 زبان برنامه‌نویسی
-&lt;a class="anchor" href="#110-%d8%b2%d8%a8%d8%a7%d9%86-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87%d9%86%d9%88%db%8c%d8%b3%db%8c">#&lt;/a>
-&lt;/h2>
-&lt;p>یک زبان برنامه‌نویسی یک زبان مصنوعی انگلیسی است که برای بیان محاسباتی که توسط یک ماشین (مخصوصاً رایانه) قابل انجام است، طراحی شده‌ است. زبان‌های برنامه‌نویسی برای ایجاد برنامه‌هایی به کار می‌روند که رفتار یک ماشین را مشخص می‌کنند، الگوریتم دقیق را بیان می‌کنند، یا روشی برای تعامل انسان و رایانه هستند. بسیاری از زبان‌های برنامه‌نویسی تعدادی قالب از ویژگی‌های نوشته شده دستوری یا نحو (syntax) و معناشناسی (semantics) دارند، چرا که رایانه‌ها دستورهای دقیقاً مشخص نیاز دارند. برخی توسط سند خصوصیات (specification document) تعیین شده‌اند (برای مثال یک استاندارد ISO)، در حالی که برخی دیگر دارای پیاده‌سازی غالبی هستند. [&lt;a href="https://fa.wikipedia.org/wiki/%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C">به نقل از ویکی‌پدیا&lt;/a>].&lt;/p></description></item><item><author/><title>1.2 کلید واژه و شناسه‌ها</title><link>https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/</guid><description>&lt;p>در این بخش قصد داریم به &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
-و &lt;span class="tooltip" data-tooltip="identifier" ontouchend="toggleTooltip(this)">شناسه&lt;/span>
-های زبان گو بپردازیم.&lt;/p>
-&lt;h2 id="121-کلید-واژه">
+&lt;a class="anchor" href="#110-%d8%b2%d8%a8%d8%a7%d9%86-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87%d9%86%d9%88%db%8c%d8%b3%db%8c"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;یک زبان برنامه‌نویسی یک زبان مصنوعی انگلیسی است که برای بیان محاسباتی که توسط یک ماشین (مخصوصاً رایانه) قابل انجام است، طراحی شده‌ است. زبان‌های برنامه‌نویسی برای ایجاد برنامه‌هایی به کار می‌روند که رفتار یک ماشین را مشخص می‌کنند، الگوریتم دقیق را بیان می‌کنند، یا روشی برای تعامل انسان و رایانه هستند. بسیاری از زبان‌های برنامه‌نویسی تعدادی قالب از ویژگی‌های نوشته شده دستوری یا نحو (syntax) و معناشناسی (semantics) دارند، چرا که رایانه‌ها دستورهای دقیقاً مشخص نیاز دارند. برخی توسط سند خصوصیات (specification document) تعیین شده‌اند (برای مثال یک استاندارد ISO)، در حالی که برخی دیگر دارای پیاده‌سازی غالبی هستند. [&lt;a href="https://fa.wikipedia.org/wiki/%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C"&gt;به نقل از ویکی‌پدیا&lt;/a&gt;].&lt;/p&gt;</description></item><item><author/><title>1.2 کلید واژه و شناسه‌ها</title><link>https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-built-in-keywords-identifiers/</guid><description>&lt;p&gt;در این بخش قصد داریم به &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)"&gt;کلید واژه&lt;/span&gt;
+و &lt;span class="tooltip" data-tooltip="identifier" ontouchend="toggleTooltip(this)"&gt;شناسه&lt;/span&gt;
+های زبان گو بپردازیم.&lt;/p&gt;
+&lt;h2 id="121-کلید-واژه"&gt;
 1.2.1 کلید واژه
-&lt;a class="anchor" href="#121-%da%a9%d9%84%db%8c%d8%af-%d9%88%d8%a7%da%98%d9%87">#&lt;/a>
-&lt;/h2>
-&lt;p>زبان گو تا &lt;span class="tooltip" data-tooltip="1.1.23" ontouchend="toggleTooltip(this)">نسخه فعلی&lt;/span>
-فقط ۲۵ تا کلید واژه دارد که به شرح زیر ست:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>&lt;/th>
-&lt;th>1&lt;/th>
-&lt;th>2&lt;/th>
-&lt;th>3&lt;/th>
-&lt;th>4&lt;/th>
-&lt;th>5&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>1&lt;/td>
-&lt;td>break&lt;/td>
-&lt;td>default&lt;/td>
-&lt;td>func&lt;/td>
-&lt;td>interface&lt;/td>
-&lt;td>select&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>2&lt;/td>
-&lt;td>case&lt;/td>
-&lt;td>defer&lt;/td>
-&lt;td>go&lt;/td>
-&lt;td>map&lt;/td>
-&lt;td>struct&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>3&lt;/td>
-&lt;td>chan&lt;/td>
-&lt;td>else&lt;/td>
-&lt;td>goto&lt;/td>
-&lt;td>package&lt;/td>
-&lt;td>switch&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>4&lt;/td>
-&lt;td>const&lt;/td>
-&lt;td>fallthrough&lt;/td>
-&lt;td>if&lt;/td>
-&lt;td>range&lt;/td>
-&lt;td>type&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>5&lt;/td>
-&lt;td>continue&lt;/td>
-&lt;td>for&lt;/td>
-&lt;td>import&lt;/td>
-&lt;td>return&lt;/td>
-&lt;td>var&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>کلمات کلیدی فوق به ۴ دسته تقسیم می‌شوند که به شرح زیر است:&lt;/p></description></item><item><author/><title>1.3 تایپ‌های پایه</title><link>https://book.gofarsi.ir/chapter-1/go-basic-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-basic-types/</guid><description>&lt;h2 id="131-تایپ-چیست">
+&lt;a class="anchor" href="#121-%da%a9%d9%84%db%8c%d8%af-%d9%88%d8%a7%da%98%d9%87"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;زبان گو تا &lt;span class="tooltip" data-tooltip="1.1.23" ontouchend="toggleTooltip(this)"&gt;نسخه فعلی&lt;/span&gt;
+فقط ۲۵ تا کلید واژه دارد که به شرح زیر ست:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;5&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;break&lt;/td&gt;
+&lt;td&gt;default&lt;/td&gt;
+&lt;td&gt;func&lt;/td&gt;
+&lt;td&gt;interface&lt;/td&gt;
+&lt;td&gt;select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;case&lt;/td&gt;
+&lt;td&gt;defer&lt;/td&gt;
+&lt;td&gt;go&lt;/td&gt;
+&lt;td&gt;map&lt;/td&gt;
+&lt;td&gt;struct&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;chan&lt;/td&gt;
+&lt;td&gt;else&lt;/td&gt;
+&lt;td&gt;goto&lt;/td&gt;
+&lt;td&gt;package&lt;/td&gt;
+&lt;td&gt;switch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;const&lt;/td&gt;
+&lt;td&gt;fallthrough&lt;/td&gt;
+&lt;td&gt;if&lt;/td&gt;
+&lt;td&gt;range&lt;/td&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;continue&lt;/td&gt;
+&lt;td&gt;for&lt;/td&gt;
+&lt;td&gt;import&lt;/td&gt;
+&lt;td&gt;return&lt;/td&gt;
+&lt;td&gt;var&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;کلمات کلیدی فوق به ۴ دسته تقسیم می‌شوند که به شرح زیر است:&lt;/p&gt;</description></item><item><author/><title>1.3 تایپ‌های پایه</title><link>https://book.gofarsi.ir/chapter-1/go-basic-types/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-basic-types/</guid><description>&lt;h2 id="131-تایپ-چیست"&gt;
 1.3.1 تایپ چیست؟
-&lt;a class="anchor" href="#131-%d8%aa%d8%a7%db%8c%d9%be-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
-&lt;/h2>
-&lt;p>یک تایپ مشخص کننده نوع داده است، که به کامپایلر می‌گوید قرار است چه نوع داده‌ای داخل یک متغیر ذخیره گردد. زبان‌ها انواع تایپ‌های مختلفی به صورت پیش‌فرض دارند که می‌توان از آن‌ها داخل برنامه خود استفاده کرد.
-ما می‌توانیم تایپ‌ها را به دو دسته کلی تعریف کنیم.&lt;/p></description></item><item><author/><title>1.4 عملگرها</title><link>https://book.gofarsi.ir/chapter-1/go-operators/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-operators/</guid><description>&lt;p>زبان گو مثل سایر زبان‌ها دارای یکسری &lt;span class="tooltip" data-tooltip="Oprators" ontouchend="toggleTooltip(this)">عملگرها&lt;/span>
-مانند: عملگرهای حسابی, عملگرهای مقایسه‌ای, عملگرهای منطقی و عملگرهای بیتی است.&lt;/p>
-&lt;h2 id="141-عملگرهای-حسابی">
+&lt;a class="anchor" href="#131-%d8%aa%d8%a7%db%8c%d9%be-%da%86%db%8c%d8%b3%d8%aa"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;یک تایپ مشخص کننده نوع داده است، که به کامپایلر می‌گوید قرار است چه نوع داده‌ای داخل یک متغیر ذخیره گردد. زبان‌ها انواع تایپ‌های مختلفی به صورت پیش‌فرض دارند که می‌توان از آن‌ها داخل برنامه خود استفاده کرد.
+ما می‌توانیم تایپ‌ها را به دو دسته کلی تعریف کنیم.&lt;/p&gt;</description></item><item><author/><title>1.4 عملگرها</title><link>https://book.gofarsi.ir/chapter-1/go-operators/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-operators/</guid><description>&lt;p&gt;زبان گو مثل سایر زبان‌ها دارای یکسری &lt;span class="tooltip" data-tooltip="Oprators" ontouchend="toggleTooltip(this)"&gt;عملگرها&lt;/span&gt;
+مانند: عملگرهای حسابی, عملگرهای مقایسه‌ای, عملگرهای منطقی و عملگرهای بیتی است.&lt;/p&gt;
+&lt;h2 id="141-عملگرهای-حسابی"&gt;
 1.4.1 عملگرهای حسابی
-&lt;a class="anchor" href="#141-%d8%b9%d9%85%d9%84%da%af%d8%b1%d9%87%d8%a7%db%8c-%d8%ad%d8%b3%d8%a7%d8%a8%db%8c">#&lt;/a>
-&lt;/h2>
-&lt;p>زبان گو دارای ۵ تا عملگر حسابی است که به ترتیب:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>عملگر&lt;/th>
-&lt;th>نام&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>+&lt;/code>&lt;/td>
-&lt;td>جمع&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-&lt;/code>&lt;/td>
-&lt;td>تفریق&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>*&lt;/code>&lt;/td>
-&lt;td>ضرب&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>/&lt;/code>&lt;/td>
-&lt;td>تقسیم&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>%&lt;/code>&lt;/td>
-&lt;td>باقی مانده&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>این ۵ تا عملگر اغلب به ترتیب مجموع, تفاوت, حاصل‌ضرب و ضریب نیز نامیده می‌شوند.&lt;/p>
-&lt;pre>&lt;code class="language-go"> a := 1
+&lt;a class="anchor" href="#141-%d8%b9%d9%85%d9%84%da%af%d8%b1%d9%87%d8%a7%db%8c-%d8%ad%d8%b3%d8%a7%d8%a8%db%8c"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;زبان گو دارای ۵ تا عملگر حسابی است که به ترتیب:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;عملگر&lt;/th&gt;
+&lt;th&gt;نام&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;+&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;جمع&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;تفریق&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;*&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ضرب&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;تقسیم&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;%&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;باقی مانده&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;این ۵ تا عملگر اغلب به ترتیب مجموع, تفاوت, حاصل‌ضرب و ضریب نیز نامیده می‌شوند.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-go"&gt; a := 1
 b := 2
 c := a + b // 3
 d := a - b // -1
 e := a * b // 2
 f := a / b // 0
 g := a % b // 1
-&lt;/code>&lt;/pre>
-&lt;blockquote class="book-hint info">
-در نمونه کد بالا ما از عملگر &lt;code>:=&lt;/code> که شیوه تعریف متغیر به روش کوتاه است استفاده کردیم که در بخش &lt;a href="https://book.gofarsi.ir/chapter-1/go-variables-and-consts/">1.5 متغیرها و ثابت ها معرفی&lt;/a> خواهیم کرد.
-&lt;/blockquote>
-&lt;h2 id="142-عملگرهای-مقایسهای">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote class="book-hint info"&gt;
+در نمونه کد بالا ما از عملگر &lt;code&gt;:=&lt;/code&gt; که شیوه تعریف متغیر به روش کوتاه است استفاده کردیم که در بخش &lt;a href="https://book.gofarsi.ir/chapter-1/go-variables-and-consts/"&gt;1.5 متغیرها و ثابت ها معرفی&lt;/a&gt; خواهیم کرد.
+&lt;/blockquote&gt;
+&lt;h2 id="142-عملگرهای-مقایسهای"&gt;
 1.4.2 عملگرهای مقایسه‌ای
-&lt;a class="anchor" href="#142-%d8%b9%d9%85%d9%84%da%af%d8%b1%d9%87%d8%a7%db%8c-%d9%85%d9%82%d8%a7%db%8c%d8%b3%d9%87%d8%a7%db%8c">#&lt;/a>
-&lt;/h2>
-&lt;p>زبان گو دارای ۶ عملگر مقایسه‌ای است که به ترتیب:&lt;/p></description></item><item><author/><title>1.5 متغیرها و constant</title><link>https://book.gofarsi.ir/chapter-1/go-variables-and-consts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-variables-and-consts/</guid><description>&lt;h2 id="151-متغیر-variable">
+&lt;a class="anchor" href="#142-%d8%b9%d9%85%d9%84%da%af%d8%b1%d9%87%d8%a7%db%8c-%d9%85%d9%82%d8%a7%db%8c%d8%b3%d9%87%d8%a7%db%8c"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;زبان گو دارای ۶ عملگر مقایسه‌ای است که به ترتیب:&lt;/p&gt;</description></item><item><author/><title>1.5 متغیرها و constant</title><link>https://book.gofarsi.ir/chapter-1/go-variables-and-consts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-variables-and-consts/</guid><description>&lt;h2 id="151-متغیر-variable"&gt;
 1.5.1 متغیر (Variable)
-&lt;a class="anchor" href="#151-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-variable">#&lt;/a>
-&lt;/h2>
-&lt;p>در برنامه‌نویسی رایانه، یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-یک مکان در حافظه (آدرس حافظه) است که دارای یک نام نمادین با عنوان است و می‌تواند حاوی اطلاعات یا یک مقدار معلوم یا مجهول که به آن &lt;span class="tooltip" data-tooltip="Value" ontouchend="toggleTooltip(this)">ارزش یا مقدار&lt;/span>
-می‌گویند، باشد. به زبان دیگر، متغیر در برنامه‌نویسی به فضایی که برای ذخیره داده‌ها کنار گذاشته شده‌ است می‌گویند (&lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%AA%D8%BA%DB%8C%D8%B1_%28%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C%29">به نقل از سایت ویکی‌پدیا&lt;/a>)&lt;/p>
-&lt;h3 id="تعریف-یک-متغیر-رشته">
+&lt;a class="anchor" href="#151-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-variable"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;در برنامه‌نویسی رایانه، یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+یک مکان در حافظه (آدرس حافظه) است که دارای یک نام نمادین با عنوان است و می‌تواند حاوی اطلاعات یا یک مقدار معلوم یا مجهول که به آن &lt;span class="tooltip" data-tooltip="Value" ontouchend="toggleTooltip(this)"&gt;ارزش یا مقدار&lt;/span&gt;
+می‌گویند، باشد. به زبان دیگر، متغیر در برنامه‌نویسی به فضایی که برای ذخیره داده‌ها کنار گذاشته شده‌ است می‌گویند (&lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D8%AA%D8%BA%DB%8C%D8%B1_%28%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C%29"&gt;به نقل از سایت ویکی‌پدیا&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id="تعریف-یک-متغیر-رشته"&gt;
 تعریف یک متغیر رشته
-&lt;a class="anchor" href="#%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%db%8c%da%a9-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%b1%d8%b4%d8%aa%d9%87">#&lt;/a>
-&lt;/h3>
-&lt;div class="go-playground">
-&lt;pre class="line-numbers">&lt;code class="language-go">package main
+&lt;a class="anchor" href="#%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%db%8c%da%a9-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%b1%d8%b4%d8%aa%d9%87"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class="go-playground"&gt;
+&lt;pre class="line-numbers"&gt;&lt;code class="language-go"&gt;package main
 import (
 "fmt"
 )
 func main() {
 var s string = "Hello World"
 fmt.Println(s)
-}&lt;/code>&lt;/pre>
-&lt;button class="run-code">▶ اجرای کد&lt;/button>
-&lt;button class="copy-code">کپی&lt;/button>
-&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
-&lt;pre class="run-output hidden">&lt;/pre>
-&lt;/div>
-&lt;ol>
-&lt;li>یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-با استفاده از &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)">کلید واژه&lt;/span>
-&lt;code>var&lt;/code> ایجاد کردیم.&lt;/li>
-&lt;li>نام &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-را &lt;code>s&lt;/code> گذاشتیم.&lt;/li>
-&lt;li>تایپ &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-را از نوع &lt;code>string&lt;/code> تعیین کردیم.&lt;/li>
-&lt;li>سپس با عملگر &lt;code>=&lt;/code> مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-را مشخص از نوع رشته تعیین کردیم.&lt;/li>
-&lt;li>رشته &lt;code>&amp;quot;Hello World&amp;quot;&lt;/code> به عنوان مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-&lt;code>s&lt;/code> است و این مقدار در خانه مشخصی از حافظه قرار داده شده است.&lt;/li>
-&lt;li>از پکیج استاندارد &lt;code>fmt&lt;/code> برای چاپ مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-&lt;code>s&lt;/code> استفاده کردیم که این پکیج یکسری توابع جهت انجام عملیات‌های مختلفی نظیر چاپ مقادیر را دارد که در کد بالا ما از تابع &lt;code>Println&lt;/code> استفاده کردیم.&lt;/li>
-&lt;/ol>
-&lt;h3 id="1511-اختصاص-مقدار-جدید-به-متغیر-از-قبل-ایجاد-شده">
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;button class="run-code"&gt;▶ اجرای کد&lt;/button&gt;
+&lt;button class="copy-code"&gt;کپی&lt;/button&gt;
+&lt;button class="hide-output"&gt;✖ بستن خروجی&lt;/button&gt;
+&lt;pre class="run-output hidden"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+با استفاده از &lt;span class="tooltip" data-tooltip="keyword" ontouchend="toggleTooltip(this)"&gt;کلید واژه&lt;/span&gt;
+&lt;code&gt;var&lt;/code&gt; ایجاد کردیم.&lt;/li&gt;
+&lt;li&gt;نام &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+را &lt;code&gt;s&lt;/code&gt; گذاشتیم.&lt;/li&gt;
+&lt;li&gt;تایپ &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+را از نوع &lt;code&gt;string&lt;/code&gt; تعیین کردیم.&lt;/li&gt;
+&lt;li&gt;سپس با عملگر &lt;code&gt;=&lt;/code&gt; مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+را مشخص از نوع رشته تعیین کردیم.&lt;/li&gt;
+&lt;li&gt;رشته &lt;code&gt;&amp;quot;Hello World&amp;quot;&lt;/code&gt; به عنوان مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+&lt;code&gt;s&lt;/code&gt; است و این مقدار در خانه مشخصی از حافظه قرار داده شده است.&lt;/li&gt;
+&lt;li&gt;از پکیج استاندارد &lt;code&gt;fmt&lt;/code&gt; برای چاپ مقدار &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+&lt;code&gt;s&lt;/code&gt; استفاده کردیم که این پکیج یکسری توابع جهت انجام عملیات‌های مختلفی نظیر چاپ مقادیر را دارد که در کد بالا ما از تابع &lt;code&gt;Println&lt;/code&gt; استفاده کردیم.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="1511-اختصاص-مقدار-جدید-به-متغیر-از-قبل-ایجاد-شده"&gt;
 1.5.1.1 اختصاص مقدار جدید به متغیر از قبل ایجاد شده
-&lt;a class="anchor" href="#1511-%d8%a7%d8%ae%d8%aa%d8%b5%d8%a7%d8%b5-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%d8%ac%d8%af%db%8c%d8%af-%d8%a8%d9%87-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%a7%d8%b2-%d9%82%d8%a8%d9%84-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%b4%d8%af%d9%87">#&lt;/a>
-&lt;/h3>
-&lt;p>در کد زیر ما یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-از قبل تعریف کردیم و مقدار جدید را در خط ۹ به &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)">متغیر&lt;/span>
-اختصاص دادیم.&lt;/p></description></item><item><author/><title>1.6 مقادیر صفر تایپ‌ها (zero values)</title><link>https://book.gofarsi.ir/chapter-1/go-zero-values/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-zero-values/</guid><description>&lt;p>در جدول زیر فهرست تمامی تایپ‌ها را با مقادیر صفرشان &lt;code>(پیش‌فرض)&lt;/code> قرار دادیم:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>تایپ&lt;/th>
-&lt;th>مقدار پیش فرض یا مقدار صفر&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>int&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>int8&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>int16&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>int32&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>int64&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uint&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uint8&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uint16&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uint32&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uint64&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uintptr&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>float32&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>float64&lt;/td>
-&lt;td>0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>complex64&lt;/td>
-&lt;td>0+0i&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>complex128&lt;/td>
-&lt;td>0+0i&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>bool&lt;/td>
-&lt;td>false&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>string&lt;/td>
-&lt;td>&amp;quot;&amp;quot;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>interface&lt;/td>
-&lt;td>nil&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>slice&lt;/td>
-&lt;td>nil&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>channel&lt;/td>
-&lt;td>nil&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>map&lt;/td>
-&lt;td>nil&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>pointer&lt;/td>
-&lt;td>nil&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>function&lt;/td>
-&lt;td>nil&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>struct&lt;/td>
-&lt;td>براساس مقدار پیش فرض فیلدها&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>نمونه کد نمایش مقدار صفر تایپ‌ها:&lt;/p></description></item><item><author/><title>1.7 تابع (function)</title><link>https://book.gofarsi.ir/chapter-1/go-function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-function/</guid><description>&lt;h2 id="171-تابع-چیست">
+&lt;a class="anchor" href="#1511-%d8%a7%d8%ae%d8%aa%d8%b5%d8%a7%d8%b5-%d9%85%d9%82%d8%af%d8%a7%d8%b1-%d8%ac%d8%af%db%8c%d8%af-%d8%a8%d9%87-%d9%85%d8%aa%d8%ba%db%8c%d8%b1-%d8%a7%d8%b2-%d9%82%d8%a8%d9%84-%d8%a7%db%8c%d8%ac%d8%a7%d8%af-%d8%b4%d8%af%d9%87"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;در کد زیر ما یک &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+از قبل تعریف کردیم و مقدار جدید را در خط ۹ به &lt;span class="tooltip" data-tooltip="Variable" ontouchend="toggleTooltip(this)"&gt;متغیر&lt;/span&gt;
+اختصاص دادیم.&lt;/p&gt;</description></item><item><author/><title>1.6 مقادیر صفر تایپ‌ها (zero values)</title><link>https://book.gofarsi.ir/chapter-1/go-zero-values/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-zero-values/</guid><description>&lt;p&gt;در جدول زیر فهرست تمامی تایپ‌ها را با مقادیر صفرشان &lt;code&gt;(پیش‌فرض)&lt;/code&gt; قرار دادیم:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;تایپ&lt;/th&gt;
+&lt;th&gt;مقدار پیش فرض یا مقدار صفر&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;int8&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;int16&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;int32&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;int64&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uint&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uint8&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uint16&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uint32&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uint64&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uintptr&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;float32&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;float64&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;complex64&lt;/td&gt;
+&lt;td&gt;0+0i&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;complex128&lt;/td&gt;
+&lt;td&gt;0+0i&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;quot;&amp;quot;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;interface&lt;/td&gt;
+&lt;td&gt;nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;slice&lt;/td&gt;
+&lt;td&gt;nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;channel&lt;/td&gt;
+&lt;td&gt;nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;map&lt;/td&gt;
+&lt;td&gt;nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pointer&lt;/td&gt;
+&lt;td&gt;nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;function&lt;/td&gt;
+&lt;td&gt;nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;struct&lt;/td&gt;
+&lt;td&gt;براساس مقدار پیش فرض فیلدها&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;نمونه کد نمایش مقدار صفر تایپ‌ها:&lt;/p&gt;</description></item><item><author/><title>1.7 تابع (function)</title><link>https://book.gofarsi.ir/chapter-1/go-function/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-function/</guid><description>&lt;h2 id="171-تابع-چیست"&gt;
 1.7.1 تابع چیست؟
-&lt;a class="anchor" href="#171-%d8%aa%d8%a7%d8%a8%d8%b9-%da%86%db%8c%d8%b3%d8%aa">#&lt;/a>
-&lt;/h2>
-&lt;p>در برنامه‌نویسی، &lt;strong>تابع&lt;/strong> به تکه کدهایی گفته می‌شود که برای انجام عملی خاص استفاده می‌شوند. به کمک توابع می‌توانیم تکه کدها را از یکدیگر جدا کنیم و از تکرار کدها جلوگیری کنیم.&lt;/p>
-&lt;p>همانند شکل زیر تابع مانند یک جعبه (یا قطعه کد) است. که یک مقدار ورودی گرفته و روی آن پردازش‌هایی انجام می‌دهد و یک خروجی تولید می‌کند. تابع می‌تواند هر چندتا ورودی یا خروجی داشته باشد.
-&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--iCkOfD0L--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/1024/1%2A709ugF12LLkYxvb839YNlg.png" alt="" />&lt;/p></description></item><item><author/><title>1.8 آرایه و slice</title><link>https://book.gofarsi.ir/chapter-1/go-array/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-array/</guid><description>&lt;p>&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
-و slice دو نوع تایپ با یک وجه اشتراک در زبان گو هستند ولی این دو نوع تایپ یکسری تفاوت‌هایی نیز با هم دارند که در ادامه به آن‌ها می‌پردازیم.&lt;/p>
-&lt;h2 id="181-تعریف-آرایه">
+&lt;a class="anchor" href="#171-%d8%aa%d8%a7%d8%a8%d8%b9-%da%86%db%8c%d8%b3%d8%aa"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;در برنامه‌نویسی، &lt;strong&gt;تابع&lt;/strong&gt; به تکه کدهایی گفته می‌شود که برای انجام عملی خاص استفاده می‌شوند. به کمک توابع می‌توانیم تکه کدها را از یکدیگر جدا کنیم و از تکرار کدها جلوگیری کنیم.&lt;/p&gt;
+&lt;p&gt;همانند شکل زیر تابع مانند یک جعبه (یا قطعه کد) است. که یک مقدار ورودی گرفته و روی آن پردازش‌هایی انجام می‌دهد و یک خروجی تولید می‌کند. تابع می‌تواند هر چندتا ورودی یا خروجی داشته باشد.
+&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--iCkOfD0L--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/1024/1%2A709ugF12LLkYxvb839YNlg.png" alt="" /&gt;&lt;/p&gt;</description></item><item><author/><title>1.8 آرایه و slice</title><link>https://book.gofarsi.ir/chapter-1/go-array/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-array/</guid><description>&lt;p&gt;&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)"&gt;آرایه&lt;/span&gt;
+و slice دو نوع تایپ با یک وجه اشتراک در زبان گو هستند ولی این دو نوع تایپ یکسری تفاوت‌هایی نیز با هم دارند که در ادامه به آن‌ها می‌پردازیم.&lt;/p&gt;
+&lt;h2 id="181-تعریف-آرایه"&gt;
 1.8.1 تعریف آرایه
-&lt;a class="anchor" href="#181-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)">آرایه&lt;/span>
+&lt;a class="anchor" href="#181-%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d8%a2%d8%b1%d8%a7%db%8c%d9%87"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;span class="tooltip" data-tooltip="array" ontouchend="toggleTooltip(this)"&gt;آرایه&lt;/span&gt;
 یکی از عمومی‌ترین تایپ‌ها در زبان‌های برنامه‌نویسی آرایه‌ها هستند که برای نگه داری گروهی مقادیر از یک نوع تایپ استفاده می‌شود.
-برای دسترسی به هر کدام از مقادیر درون آرایه باید از &lt;span class="tooltip" data-tooltip="Index" ontouchend="toggleTooltip(this)">اندیس&lt;/span>
+برای دسترسی به هر کدام از مقادیر درون آرایه باید از &lt;span class="tooltip" data-tooltip="Index" ontouchend="toggleTooltip(this)"&gt;اندیس&lt;/span&gt;
 استفاده کرد.
-معمولا برای تعریف آرایه تعداد مشخص و ثابتی را برای تعداد مقادیر مشخص میکنید. یعنی این آرایه قرار است چند تا مقدار نگه داری کند.&lt;/p></description></item><item><author/><title>1.9 حلقه‌ها (for)</title><link>https://book.gofarsi.ir/chapter-1/go-for/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-for/</guid><description>&lt;h2 id="191-حلقه">
+معمولا برای تعریف آرایه تعداد مشخص و ثابتی را برای تعداد مقادیر مشخص میکنید. یعنی این آرایه قرار است چند تا مقدار نگه داری کند.&lt;/p&gt;</description></item><item><author/><title>1.9 حلقه‌ها (for)</title><link>https://book.gofarsi.ir/chapter-1/go-for/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-for/</guid><description>&lt;h2 id="191-حلقه"&gt;
 1.9.1 حلقه
-&lt;a class="anchor" href="#191-%d8%ad%d9%84%d9%82%d9%87">#&lt;/a>
-&lt;/h2>
-&lt;p>حلقه‌ها را در زبان گو به ساده‌ترین شکل ممکن و فقط با استفاده از کلید واژه for و در مدل‌های مختلف (سه‌بخشی، بی نهایت، foreach و &amp;hellip;) می‌توان پیاده‌سازی کرد.&lt;/p>
-&lt;h2 id="192-حلقه-سه-بخشی">
+&lt;a class="anchor" href="#191-%d8%ad%d9%84%d9%82%d9%87"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;حلقه‌ها را در زبان گو به ساده‌ترین شکل ممکن و فقط با استفاده از کلید واژه for و در مدل‌های مختلف (سه‌بخشی، بی نهایت، foreach و &amp;hellip;) می‌توان پیاده‌سازی کرد.&lt;/p&gt;
+&lt;h2 id="192-حلقه-سه-بخشی"&gt;
 1.9.2 حلقه سه بخشی
-&lt;a class="anchor" href="#192-%d8%ad%d9%84%d9%82%d9%87-%d8%b3%d9%87-%d8%a8%d8%ae%d8%b4%db%8c">#&lt;/a>
-&lt;/h2>
-&lt;p>این نمونه که متداول‌ترین نوع حلقه &lt;code>for&lt;/code> نیز هستند با استفاده از سه‌ بخش:&lt;/p>
-&lt;ul>
-&lt;li>مقداردهی&lt;/li>
-&lt;li>شرط&lt;/li>
-&lt;li>شمارنده&lt;/li>
-&lt;/ul>
-&lt;p>ایجاد می‌شوند.&lt;/p>
-&lt;pre>&lt;code class="language-go">for initialization ; condition ; counter {
+&lt;a class="anchor" href="#192-%d8%ad%d9%84%d9%82%d9%87-%d8%b3%d9%87-%d8%a8%d8%ae%d8%b4%db%8c"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;این نمونه که متداول‌ترین نوع حلقه &lt;code&gt;for&lt;/code&gt; نیز هستند با استفاده از سه‌ بخش:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;مقداردهی&lt;/li&gt;
+&lt;li&gt;شرط&lt;/li&gt;
+&lt;li&gt;شمارنده&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ایجاد می‌شوند.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-go"&gt;for initialization ; condition ; counter {
 //loop codes
 }
-&lt;/code>&lt;/pre>
-&lt;p>در مثال زیر نمونه‌ای از این حلقه‌ قابل مشاهده و اجرا است.
-&lt;div class="go-playground">
-&lt;pre class="line-numbers">&lt;code class="language-go">package main
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;در مثال زیر نمونه‌ای از این حلقه‌ قابل مشاهده و اجرا است.
+&lt;div class="go-playground"&gt;
+&lt;pre class="line-numbers"&gt;&lt;code class="language-go"&gt;package main
 import "fmt"
 func main() {
 sum := 0
@@ -328,78 +328,78 @@ for i := 1; i &lt; 10; i++ {
 sum += i
 }
 fmt.Println(sum)
-}&lt;/code>&lt;/pre>
-&lt;button class="run-code">▶ اجرای کد&lt;/button>
-&lt;button class="copy-code">کپی&lt;/button>
-&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
-&lt;pre class="run-output hidden">&lt;/pre>
-&lt;/div>
-&lt;/p></description></item><item><author/><title>1.10 نقشه map</title><link>https://book.gofarsi.ir/chapter-1/go-map/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-map/</guid><description>&lt;h2 id="1101-مقدمه">
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;button class="run-code"&gt;▶ اجرای کد&lt;/button&gt;
+&lt;button class="copy-code"&gt;کپی&lt;/button&gt;
+&lt;button class="hide-output"&gt;✖ بستن خروجی&lt;/button&gt;
+&lt;pre class="run-output hidden"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/p&gt;</description></item><item><author/><title>1.10 نقشه map</title><link>https://book.gofarsi.ir/chapter-1/go-map/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-map/</guid><description>&lt;h2 id="1101-مقدمه"&gt;
 1.10.1 مقدمه
-&lt;a class="anchor" href="#1101-%d9%85%d9%82%d8%af%d9%85%d9%87">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
-، یک نوع ساختار داده است.&lt;/li>
-&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
-ها جهت جمع‌آوری و نگهداری مجموعه‌ای از داده‌ها استفاده می‌گردند.&lt;/li>
-&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
-، از نوع داده‌های &lt;span class="tooltip" data-tooltip="associative data type" ontouchend="toggleTooltip(this)">انجمنی&lt;/span>
-(هش) بصورت &lt;span class="tooltip" data-tooltip="key-value" ontouchend="toggleTooltip(this)">«کلید-مقدار»&lt;/span>
-است.&lt;/li>
-&lt;li>&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)">نقشه&lt;/span>
-، مجموعه‌ای از داده‌ها بصورت &lt;span class="tooltip" data-tooltip="unordered key:value pairs" ontouchend="toggleTooltip(this)">جفت‌‌های مرتب‌نشده&lt;/span>
-است.&lt;/li>
-&lt;/ul>
-&lt;h2 id="1102-تعریف">
+&lt;a class="anchor" href="#1101-%d9%85%d9%82%d8%af%d9%85%d9%87"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)"&gt;نقشه&lt;/span&gt;
+، یک نوع ساختار داده است.&lt;/li&gt;
+&lt;li&gt;&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)"&gt;نقشه&lt;/span&gt;
+ها جهت جمع‌آوری و نگهداری مجموعه‌ای از داده‌ها استفاده می‌گردند.&lt;/li&gt;
+&lt;li&gt;&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)"&gt;نقشه&lt;/span&gt;
+، از نوع داده‌های &lt;span class="tooltip" data-tooltip="associative data type" ontouchend="toggleTooltip(this)"&gt;انجمنی&lt;/span&gt;
+(هش) بصورت &lt;span class="tooltip" data-tooltip="key-value" ontouchend="toggleTooltip(this)"&gt;«کلید-مقدار»&lt;/span&gt;
+است.&lt;/li&gt;
+&lt;li&gt;&lt;span class="tooltip" data-tooltip="map" ontouchend="toggleTooltip(this)"&gt;نقشه&lt;/span&gt;
+، مجموعه‌ای از داده‌ها بصورت &lt;span class="tooltip" data-tooltip="unordered key:value pairs" ontouchend="toggleTooltip(this)"&gt;جفت‌‌های مرتب‌نشده&lt;/span&gt;
+است.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="1102-تعریف"&gt;
 1.10.2 تعریف
-&lt;a class="anchor" href="#1102-%d8%aa%d8%b9%d8%b1%db%8c%d9%81">#&lt;/a>
-&lt;/h2>
-&lt;p>یک مپ شبیه به فرمت زیر است:&lt;/p>
-&lt;pre>&lt;code class="language-go">map[KeyType]ValueType
-&lt;/code>&lt;/pre>
-&lt;p>کلمه کلیدی &lt;code>map&lt;/code> و بعد نوع کلید و در آخر هم نوع مقدار تعریف می‌شود.&lt;/p></description></item><item><author/><title>1.11 شرط (if, switch)</title><link>https://book.gofarsi.ir/chapter-1/go-if-switch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-if-switch/</guid><description>&lt;h2 id="1111-شرط-if-else">
+&lt;a class="anchor" href="#1102-%d8%aa%d8%b9%d8%b1%db%8c%d9%81"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;یک مپ شبیه به فرمت زیر است:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-go"&gt;map[KeyType]ValueType
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;کلمه کلیدی &lt;code&gt;map&lt;/code&gt; و بعد نوع کلید و در آخر هم نوع مقدار تعریف می‌شود.&lt;/p&gt;</description></item><item><author/><title>1.11 شرط (if, switch)</title><link>https://book.gofarsi.ir/chapter-1/go-if-switch/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-if-switch/</guid><description>&lt;h2 id="1111-شرط-if-else"&gt;
 1.11.1 شرط (if-else)
-&lt;a class="anchor" href="#1111-%d8%b4%d8%b1%d8%b7-if-else">#&lt;/a>
-&lt;/h2>
-&lt;p>زبان گو همانند سایر زبان‌ها دارای &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
-است که شما خیلی ساده می‌توانید از آن استفاده کنید. در مثال زیر ما فرمت استاندارد &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)">شرط&lt;/span>
-در زبان گو را قرار دادیم:&lt;/p>
-&lt;pre>&lt;code class="language-go">if condition {
+&lt;a class="anchor" href="#1111-%d8%b4%d8%b1%d8%b7-if-else"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;زبان گو همانند سایر زبان‌ها دارای &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)"&gt;شرط&lt;/span&gt;
+است که شما خیلی ساده می‌توانید از آن استفاده کنید. در مثال زیر ما فرمت استاندارد &lt;span class="tooltip" data-tooltip="if-else" ontouchend="toggleTooltip(this)"&gt;شرط&lt;/span&gt;
+در زبان گو را قرار دادیم:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-go"&gt;if condition {
 //Do something
 } else if condition {
 //Do something
 } else {
 //Do something
 }
-&lt;/code>&lt;/pre>
-&lt;p>در بالا &lt;strong>condition&lt;/strong> عبارتی است که قرار است وضعیت شرط را مشخص کند و در صورت &lt;strong>true&lt;/strong> شدن شرط بر قرار می‌شود و در صورت برقرار نشدن شرط اول، برنامه وارد else if می‌شود و مجدد یک &lt;strong>condition&lt;/strong> دیگری را چک می‌کند که وضعیتش &lt;strong>true&lt;/strong> می‌شود یا خیر و در نهایت منتهی می‌شود به &lt;strong>else&lt;/strong>.&lt;/p></description></item><item><author/><title>1.12 اضافه کردن پکیج در کد (package)</title><link>https://book.gofarsi.ir/chapter-1/go-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-package/</guid><description>&lt;p>زبان برنامه‌نویسی گو به شکلی طراحی شده است تا بتوانیم شیو‌ه‌های خوب مهندسی نرم‌افزار را به سادگی پیاده‌سازی کنیم. یکی از الگوهای مهم برای ارتقای کیفیت یک نرم افزار استفاده از DRY principle است. کلمه DRY مخفف &lt;strong>D&lt;/strong>on’t &lt;strong>R&lt;/strong>epeat &lt;strong>Y&lt;/strong>ourself &lt;code>همون چرخ رو دوباره اختراع نکن خودمون&lt;/code> است, که اگر به صورت خیلی ساده بیانش کنیم یعنی، کدی که خواهید نوشت را دوبار تکرار نکنید. تا جایی که امکان دارد باید بتوانید از کدهای قبلی که نوشته اید استفاده کنید. پکیج‌ها امکاناتی از جمله:&lt;/p></description></item><item><author/><title>1.13 defer, panic, recovery</title><link>https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/</guid><description>&lt;h2 id="1131-تعویق-defer">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;در بالا &lt;strong&gt;condition&lt;/strong&gt; عبارتی است که قرار است وضعیت شرط را مشخص کند و در صورت &lt;strong&gt;true&lt;/strong&gt; شدن شرط بر قرار می‌شود و در صورت برقرار نشدن شرط اول، برنامه وارد else if می‌شود و مجدد یک &lt;strong&gt;condition&lt;/strong&gt; دیگری را چک می‌کند که وضعیتش &lt;strong&gt;true&lt;/strong&gt; می‌شود یا خیر و در نهایت منتهی می‌شود به &lt;strong&gt;else&lt;/strong&gt;.&lt;/p&gt;</description></item><item><author/><title>1.12 اضافه کردن پکیج در کد (package)</title><link>https://book.gofarsi.ir/chapter-1/go-package/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-package/</guid><description>&lt;p&gt;زبان برنامه‌نویسی گو به شکلی طراحی شده است تا بتوانیم شیو‌ه‌های خوب مهندسی نرم‌افزار را به سادگی پیاده‌سازی کنیم. یکی از الگوهای مهم برای ارتقای کیفیت یک نرم افزار استفاده از DRY principle است. کلمه DRY مخفف &lt;strong&gt;D&lt;/strong&gt;on’t &lt;strong&gt;R&lt;/strong&gt;epeat &lt;strong&gt;Y&lt;/strong&gt;ourself &lt;code&gt;همون چرخ رو دوباره اختراع نکن خودمون&lt;/code&gt; است, که اگر به صورت خیلی ساده بیانش کنیم یعنی، کدی که خواهید نوشت را دوبار تکرار نکنید. تا جایی که امکان دارد باید بتوانید از کدهای قبلی که نوشته اید استفاده کنید. پکیج‌ها امکاناتی از جمله:&lt;/p&gt;</description></item><item><author/><title>1.13 defer, panic, recovery</title><link>https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-defer-panic-recovery/</guid><description>&lt;h2 id="1131-تعویق-defer"&gt;
 1.13.1 تعویق (defer)
-&lt;a class="anchor" href="#1131-%d8%aa%d8%b9%d9%88%db%8c%d9%82-defer">#&lt;/a>
-&lt;/h2>
-&lt;p>کلمه کلیدی defer یکی از کاربردی‌ترین امکانات زبان گو را برای ما فراهم می‌سازد. شما می‌توانید اجرای یک تابع را به تعویق بندازید‍‍. عموماً defer برای توابعی کاربرد دارد که قصد پاک‌سازی یا بستن عملیات‌های صورت گرفته را دارند، نظیر توابع Close در برخی از جاها.&lt;/p>
-&lt;p>&lt;img src="../../assets/img/content/chapter1/defer-panic-recovery/1.png" alt="defer" />&lt;/p>
-&lt;p>به مثال زیر توجه کنید:&lt;/p>
-&lt;div class="go-playground">
-&lt;pre class="line-numbers">&lt;code class="language-go">package main
+&lt;a class="anchor" href="#1131-%d8%aa%d8%b9%d9%88%db%8c%d9%82-defer"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;کلمه کلیدی defer یکی از کاربردی‌ترین امکانات زبان گو را برای ما فراهم می‌سازد. شما می‌توانید اجرای یک تابع را به تعویق بندازید‍‍. عموماً defer برای توابعی کاربرد دارد که قصد پاک‌سازی یا بستن عملیات‌های صورت گرفته را دارند، نظیر توابع Close در برخی از جاها.&lt;/p&gt;
+&lt;p&gt;&lt;img src="../../assets/img/content/chapter1/defer-panic-recovery/1.png" alt="defer" /&gt;&lt;/p&gt;
+&lt;p&gt;به مثال زیر توجه کنید:&lt;/p&gt;
+&lt;div class="go-playground"&gt;
+&lt;pre class="line-numbers"&gt;&lt;code class="language-go"&gt;package main
 import (
 "fmt"
 )
 func main() {
 defer fmt.Println("world")
 fmt.Println("hello")
-}&lt;/code>&lt;/pre>
-&lt;button class="run-code">▶ اجرای کد&lt;/button>
-&lt;button class="copy-code">کپی&lt;/button>
-&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
-&lt;pre class="run-output hidden">&lt;/pre>
-&lt;/div>
-&lt;h3 id="11311-تعویق-defer-در-توابع-anonymous">
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;button class="run-code"&gt;▶ اجرای کد&lt;/button&gt;
+&lt;button class="copy-code"&gt;کپی&lt;/button&gt;
+&lt;button class="hide-output"&gt;✖ بستن خروجی&lt;/button&gt;
+&lt;pre class="run-output hidden"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id="11311-تعویق-defer-در-توابع-anonymous"&gt;
 1.13.1.1 تعویق (defer) در توابع (Anonymous)
-&lt;a class="anchor" href="#11311-%d8%aa%d8%b9%d9%88%db%8c%d9%82-defer-%d8%af%d8%b1-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-anonymous">#&lt;/a>
-&lt;/h3>
-&lt;p>شما خیلی ساده می‌توانید با استفاده از توابع &lt;code>Anonymous&lt;/code> &lt;code>توابع بینام یا گمنام :)&lt;/code> اجرای قسمتی از برنامه خودتان را به تعویق بندازید. به مثال زیر توجه کنید:&lt;/p></description></item><item><author/><title>1.14 لیست تایپ‌ها و توابع Builtin</title><link>https://book.gofarsi.ir/chapter-1/go-builtins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-builtins/</guid><description>&lt;p>در مثال زیر لیست تایپ‌ها و توابع Builtin را با توضیحات قرار دادیم.&lt;/p>
-&lt;pre>&lt;code class="language-go">// Copyright 2011 The Go Authors. All rights reserved.
+&lt;a class="anchor" href="#11311-%d8%aa%d8%b9%d9%88%db%8c%d9%82-defer-%d8%af%d8%b1-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-anonymous"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;شما خیلی ساده می‌توانید با استفاده از توابع &lt;code&gt;Anonymous&lt;/code&gt; &lt;code&gt;توابع بینام یا گمنام :)&lt;/code&gt; اجرای قسمتی از برنامه خودتان را به تعویق بندازید. به مثال زیر توجه کنید:&lt;/p&gt;</description></item><item><author/><title>1.14 لیست تایپ‌ها و توابع Builtin</title><link>https://book.gofarsi.ir/chapter-1/go-builtins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-builtins/</guid><description>&lt;p&gt;در مثال زیر لیست تایپ‌ها و توابع Builtin را با توضیحات قرار دادیم.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-go"&gt;// Copyright 2011 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 /*
@@ -659,15 +659,15 @@ func println(args ...Type)
 type error interface {
 Error() string
 }
-&lt;/code>&lt;/pre></description></item><item><author/><title>1.15 قالب بندی رشته‌ها</title><link>https://book.gofarsi.ir/chapter-1/go-string-formatting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-string-formatting/</guid><description>&lt;p>در زبان گو مانند سایر زبان‌ها یکسری عناوین برای قالب‌بندی رشته وجود دارد که برخی از این عناوین مشترک بین همه زبان‌ها هست و برخی مختص زبان گو.&lt;/p>
-&lt;h2 id="1151-قالب-بندی-با-توابع-printf-و-sprintf">
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><author/><title>1.15 قالب بندی رشته‌ها</title><link>https://book.gofarsi.ir/chapter-1/go-string-formatting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-1/go-string-formatting/</guid><description>&lt;p&gt;در زبان گو مانند سایر زبان‌ها یکسری عناوین برای قالب‌بندی رشته وجود دارد که برخی از این عناوین مشترک بین همه زبان‌ها هست و برخی مختص زبان گو.&lt;/p&gt;
+&lt;h2 id="1151-قالب-بندی-با-توابع-printf-و-sprintf"&gt;
 1.15.1 قالب بندی با توابع Printf و Sprintf
-&lt;a class="anchor" href="#1151-%d9%82%d8%a7%d9%84%d8%a8-%d8%a8%d9%86%d8%af%db%8c-%d8%a8%d8%a7-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-printf-%d9%88-sprintf">#&lt;/a>
-&lt;/h2>
-&lt;p>زمانیکه شما از تابع Printf یا Sprintf استفاده می‌کنید می‌توانید رشته خروجی را با استفاده از پارامترهای بعد از رشته قالب‌بندی کنید، و در نهایت به‌صورت یک رشته نمایش دهید.&lt;/p>
-&lt;pre>&lt;code class="language-go">fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, value1, value2, value3, ..., valueN)
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-go">fmt.Sprintf(&amp;quot;{{Verb}}&amp;quot;, value1, value2, value3, ..., valueN)
-&lt;/code>&lt;/pre>
-&lt;blockquote class="book-hint info">
-&lt;p>توجه کنید هر دو تابع فوق خیلی کاربردی و پر استفاده هستند. این ۲ تابع کارکردشان مشترک است ولی خروجی متفاوتی دارند.&lt;/p></description></item></channel></rss>
+&lt;a class="anchor" href="#1151-%d9%82%d8%a7%d9%84%d8%a8-%d8%a8%d9%86%d8%af%db%8c-%d8%a8%d8%a7-%d8%aa%d9%88%d8%a7%d8%a8%d8%b9-printf-%d9%88-sprintf"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;زمانیکه شما از تابع Printf یا Sprintf استفاده می‌کنید می‌توانید رشته خروجی را با استفاده از پارامترهای بعد از رشته قالب‌بندی کنید، و در نهایت به‌صورت یک رشته نمایش دهید.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-go"&gt;fmt.Printf(&amp;quot;{{Verb}}&amp;quot;, value1, value2, value3, ..., valueN)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-go"&gt;fmt.Sprintf(&amp;quot;{{Verb}}&amp;quot;, value1, value2, value3, ..., valueN)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote class="book-hint info"&gt;
+&lt;p&gt;توجه کنید هر دو تابع فوق خیلی کاربردی و پر استفاده هستند. این ۲ تابع کارکردشان مشترک است ولی خروجی متفاوتی دارند.&lt;/p&gt;</description></item></channel></rss>

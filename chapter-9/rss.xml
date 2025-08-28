@@ -1,135 +1,135 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل نهم: الگوهای طراحی on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-9/</link><description>Recent content in فصل نهم: الگوهای طراحی on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-9/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>9.1 الگوهای طراحی سازنده</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/</guid><description>&lt;p>الگوهای طراحی سازنده&amp;hellip;&lt;/p></description></item><item><author/><title>9.2 الگوهای طراحی ساختاری</title><link>https://book.gofarsi.ir/chapter-9/structural-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/structural-patterns/</guid><description>&lt;p>الگوهای طراحی ساختاری&amp;hellip;&lt;/p></description></item><item><author/><title>9.3 الگوهای طراحی رفتاری</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/</guid><description>&lt;p>الگوهای طراحی رفتاری&amp;hellip;&lt;/p></description></item><item><author/><title>9.4 الگوهای همزمانی</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/</guid><description>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>عنوان&lt;/th>
-&lt;th>توضیحات&lt;/th>
-&lt;th>وضعیت&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-result">Wait For Result&lt;/a>&lt;/td>
-&lt;td>با استفاده از الگو Wait For Result می توانید یک عملیاتی را بصورت همزمانی انجام دهید و سپس منتظر نتیجه عملیات صورت گرفته بمانید. برای اینکار از کانال استفاده می شود.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-fan-out-in">Fan Out/In&lt;/a>&lt;/td>
-&lt;td>الگو Fan Out/In یک تکنیک همزمانی در زبان گو می باشد که به شما اجازه می دهد چندین کار را با گوروتین همزمان انجام دهید و در نتیجه خروجی این کارها را با هم ترکیب کنید و به عنوان نتیجه نهایی دریافت کنید.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-task">Wait For Task&lt;/a>&lt;/td>
-&lt;td>الگو wait for task یکی از الگوهای رایج در زبان گو می باشد و انتظار برای تکمیل یک تسک یا فرآیند استفاده می شود. یک تسک با استفاده از گوروتین اجرا می شود و پس اتمامش کار تسک از طریق کانال سیگنال انجام می فرستد.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-drop">Drop&lt;/a>&lt;/td>
-&lt;td>الگو Drop یک الگو مهم برای انجام خدمات سنگین می باشد. خدماتی که مواقعی باعث می شود حجم درخواست هایش بیش از ظرفیت موجود باشد و این درخواست ها بواسطه این الگو می تواند Drop شود. به عنوان مثال سرویس های DNS باید از این الگو استفاده کنند.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation">Context Cancellation Pattern&lt;/a>&lt;/td>
-&lt;td>الگو cancellation که حرکت تکنیکی هست برای ارسال سینگال به گوروتین ها استفاده می شود که باید اجرای کاری را متوقف کند و ایده اصلی این کار با استفاده بستن کانال صورت میگیرد.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-semaphore">Semaphore&lt;/a>&lt;/td>
-&lt;td>الگو Semaphore برای مدیریت کنترل دسترسی به منابع مشترک در همزمانی استفاده می شود. فرض کنید بصورت موازی ۱۰۰ درخواست HTTP سمت سرور میاد و I/O شبکه برای پردازش همزمان این ۱۰۰ درخواست درگیر میشود و به مرور عملکرد کاهش می یابد. حال اگر ما بیایم این ۱۰۰ درخواست موازی را تقسیم کنیم به ۵ دسته ۲۰ تایی که بصورت همزمانی انجام شود باعث می شود I/O شبکه کاهش یابد و عملکرد بهتری را خواهیم داشت.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-worker-pool">Worker Pool&lt;/a>&lt;/td>
-&lt;td>با استفاده از الگو Bounded Work Pooling امکان محدود سازی تعداد گوروتین ها را براساس کار مشخصی دارید و گوروتین ها را محدود به تعداد دفعات کار مشخص شده محدود می شود. این الگو برای وقت مفید است که شما می خواهید منابع را به یک کار خاص محدود کنید.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout">Retry Timeout&lt;/a>&lt;/td>
-&lt;td>شما از الگو Retry Timeout برای تلاش مجدد یکسری عملیات استفاده کنید. برای اینکار شما می توانید از حلقه و تابع After در پکیج time کمک بگیرید و برای هرتلاش یک timeout مشخص کنید.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-channel-cancellation">Channel Cancellation&lt;/a>&lt;/td>
-&lt;td>از کانال ها برای ارتباط بین گوروتین ها و هماهنگ کردن اجرا استفاده می شود. حال گاهی اوقات نیاز است که ما یکسری فرآیند را داخل گوروتین لغو کنیم. در اینجا می توانیم با استفاده از کانال سیگنال لغو کردن بفرستید تا عملیات هایی که گوروتین مورد نظر انجام می داد لغو شود.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer">Producer-Consumer&lt;/a>&lt;/td>
-&lt;td>الگو producer-consumer یکی از کاربردی ترین الگوها در زبان گو می باشد که با استفاده از الگو می توانید بطور همزمان یکسری اطلاعات تولید کنید و بفرستید داخل کانال و این اطلاعات توسط مصرف کننده بواسطه کانال دریافت شود.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-monitor">Monitor&lt;/a>&lt;/td>
-&lt;td>الگوی مانیتور به گروتین‌ ها اجازه می‌دهد هنگام ورود به حالت خواب بدون مسدود کردن اجرا یا مصرف منابع، منتظر شرایط خاصی باشند.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-future">Future&lt;/a>&lt;/td>
-&lt;td>در زبان گو الگو Future راهی برای نمایش نتیجه یک عملیات ناهمزمان (asynchronous) است که ممکن است آن عملیات هنوز تکمیل نشده باشد اما این الگو به شما این امکان را می دهد کدی بنویسید که طوری رفتار کند که گویی نتیجه یک عملیات فورا در دسترس است. حتی اگر عملیات در پس زمینه در حال اجرا باشد.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-pipeline">Pipeline&lt;/a>&lt;/td>
-&lt;td>الگو خط لوله (Pipeline) یکی از پرکاربردی ترین الگوها در همزمانی می باشد شما با استفاده از این الگو می توانید تسک های بزرگ را به تسک های کوچکتر و مستقل تقسیم کنید که می توانند بطور همزمان کار کنند. هر stage داخل یک گوروتین انجام می شود و بواسطه کانال داده ها بین stage های مختلف منتقل می شود.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-subscription">Subscription&lt;/a>&lt;/td>
-&lt;td>الگو Subscription یکی از الگوهای کاربردی برای پیاده سازی consumer می باشد که به یک آدرسی مشترک شوید و در بازده زمانی مختلف درخواست دهید و یکسری اطلاعات دریافت کنید.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-brdige-channel">Bridge Channel&lt;/a>&lt;/td>
-&lt;td>با استفاده از الگو Bridge Channel می توانید بین ۲ کانال داده ای را منتقل کنید فرض کنید یک داده را به کانال input میفرستید و از دریافت داده آن را می توانید به کانال دیگری منتقل کنید و عملا شما یک پل برای انتقال داده ایجاد کردید.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-queuing">Queuing&lt;/a>&lt;/td>
-&lt;td>الگوی &amp;ldquo;صف&amp;rdquo; در زبان گو الگویی است که در آن از یک گوروتین برای بافر کردن و مدیریت ترتیب مقادیر ارسال شده و دریافت شده از یک کانال استفاده می شود.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-ratelimit">Rate limit&lt;/a>&lt;/td>
-&lt;td>الگوی &lt;strong>Rate Limiting&lt;/strong> برای کنترل تعداد درخواست‌ها یا وظایف همزمان در یک بازه زمانی مشخص استفاده می‌شود. این الگو با استفاده از یک &lt;code>time.Ticker&lt;/code> یا روش‌های مشابه، اجرای گوروتین‌ها یا پردازش داده‌ها را محدود می‌کند.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-deadlock-recovery">Deadlock Recovery&lt;/a>&lt;/td>
-&lt;td>الگوی &lt;strong>بازیابی از بن‌بست&lt;/strong> (Deadlock Recovery) برای شناسایی و بازیابی از وضعیت‌های بن‌بست استفاده می‌شود، جایی که چندین گوروتین به طور نامحدود منتظر منابعی هستند که توسط یکدیگر نگه داشته شده‌اند. بن‌بست می‌تواند به دلیل همگام‌سازی نادرست یا رقابت برای منابع در برنامه‌های همزمان رخ دهد.&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-lock-free-synchronization">Lock-free synchronization&lt;/a>&lt;/td>
-&lt;td>&lt;strong>همگام‌سازی بدون قفل (lock-free synchronization)&lt;/strong> به مجموعه‌ای از تکنیک‌ها و الگوهای برنامه‌نویسی گفته می‌شود که به چندین thread یا goroutine اجازه می‌دهد به طور همزمان و ایمن به داده‌های مشترک دسترسی پیدا کنند، بدون اینکه از primitiveهایی مثل Mutex یا قفل‌های سنتی استفاده شود. هدف اصلی این الگوها افزایش &lt;strong>بازدهی (throughput)&lt;/strong>، کاهش &lt;strong>زمان انتظار (latency)&lt;/strong> و جلوگیری از مشکلات رایج قفل‌گذاری (مثل deadlock، priority inversion و contention) است. الگوریتم‌های lock-free تضمین می‌کنند که حتی اگر برخی از threadها متوقف شوند یا دچار کندی شوند، باقی سیستم همچنان قادر به پیشرفت خواهد بود (&lt;strong>progress guarantee&lt;/strong>).&lt;/td>
-&lt;td>✅&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item><item><author/><title>9.5 الگوهای Cloud Native</title><link>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</guid><description>&lt;p>الگوهای cloud native&amp;hellip;&lt;/p></description></item><item><author/><title>9.6 ضد الگوها (Anti-Patterns)</title><link>https://book.gofarsi.ir/chapter-9/anti-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/anti-pattern/</guid><description>&lt;p>ضد الگوها&lt;/p></description></item><item><author/><title>9.7 اصول SOLID</title><link>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</guid><description>&lt;p>این مقاله ترجمه ارایه اصول solid در golang توسط &lt;a href="https://dave.cheney.net/">Dave Cheney&lt;/a>می‌‌باشد.
-در این مبحث به بررسی پیاده سازی solid در زبان Go می‌پردازیم.&lt;/p>
-&lt;h4 id="بررسی-کد">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل نهم: الگوهای طراحی on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-9/</link><description>Recent content in فصل نهم: الگوهای طراحی on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-9/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>9.1 الگوهای طراحی سازنده</title><link>https://book.gofarsi.ir/chapter-9/creational-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/creational-patterns/</guid><description>&lt;p&gt;الگوهای طراحی سازنده&amp;hellip;&lt;/p&gt;</description></item><item><author/><title>9.2 الگوهای طراحی ساختاری</title><link>https://book.gofarsi.ir/chapter-9/structural-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/structural-patterns/</guid><description>&lt;p&gt;الگوهای طراحی ساختاری&amp;hellip;&lt;/p&gt;</description></item><item><author/><title>9.3 الگوهای طراحی رفتاری</title><link>https://book.gofarsi.ir/chapter-9/behavioral-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/behavioral-patterns/</guid><description>&lt;p&gt;الگوهای طراحی رفتاری&amp;hellip;&lt;/p&gt;</description></item><item><author/><title>9.4 الگوهای همزمانی</title><link>https://book.gofarsi.ir/chapter-9/concurrency-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/concurrency-patterns/</guid><description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;عنوان&lt;/th&gt;
+&lt;th&gt;توضیحات&lt;/th&gt;
+&lt;th&gt;وضعیت&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-result"&gt;Wait For Result&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;با استفاده از الگو Wait For Result می توانید یک عملیاتی را بصورت همزمانی انجام دهید و سپس منتظر نتیجه عملیات صورت گرفته بمانید. برای اینکار از کانال استفاده می شود.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-fan-out-in"&gt;Fan Out/In&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو Fan Out/In یک تکنیک همزمانی در زبان گو می باشد که به شما اجازه می دهد چندین کار را با گوروتین همزمان انجام دهید و در نتیجه خروجی این کارها را با هم ترکیب کنید و به عنوان نتیجه نهایی دریافت کنید.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-wait-for-task"&gt;Wait For Task&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو wait for task یکی از الگوهای رایج در زبان گو می باشد و انتظار برای تکمیل یک تسک یا فرآیند استفاده می شود. یک تسک با استفاده از گوروتین اجرا می شود و پس اتمامش کار تسک از طریق کانال سیگنال انجام می فرستد.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-drop"&gt;Drop&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو Drop یک الگو مهم برای انجام خدمات سنگین می باشد. خدماتی که مواقعی باعث می شود حجم درخواست هایش بیش از ظرفیت موجود باشد و این درخواست ها بواسطه این الگو می تواند Drop شود. به عنوان مثال سرویس های DNS باید از این الگو استفاده کنند.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-cancellation"&gt;Context Cancellation Pattern&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو cancellation که حرکت تکنیکی هست برای ارسال سینگال به گوروتین ها استفاده می شود که باید اجرای کاری را متوقف کند و ایده اصلی این کار با استفاده بستن کانال صورت میگیرد.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-semaphore"&gt;Semaphore&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو Semaphore برای مدیریت کنترل دسترسی به منابع مشترک در همزمانی استفاده می شود. فرض کنید بصورت موازی ۱۰۰ درخواست HTTP سمت سرور میاد و I/O شبکه برای پردازش همزمان این ۱۰۰ درخواست درگیر میشود و به مرور عملکرد کاهش می یابد. حال اگر ما بیایم این ۱۰۰ درخواست موازی را تقسیم کنیم به ۵ دسته ۲۰ تایی که بصورت همزمانی انجام شود باعث می شود I/O شبکه کاهش یابد و عملکرد بهتری را خواهیم داشت.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-worker-pool"&gt;Worker Pool&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;با استفاده از الگو Bounded Work Pooling امکان محدود سازی تعداد گوروتین ها را براساس کار مشخصی دارید و گوروتین ها را محدود به تعداد دفعات کار مشخص شده محدود می شود. این الگو برای وقت مفید است که شما می خواهید منابع را به یک کار خاص محدود کنید.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-retry-timeout"&gt;Retry Timeout&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;شما از الگو Retry Timeout برای تلاش مجدد یکسری عملیات استفاده کنید. برای اینکار شما می توانید از حلقه و تابع After در پکیج time کمک بگیرید و برای هرتلاش یک timeout مشخص کنید.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-channel-cancellation"&gt;Channel Cancellation&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;از کانال ها برای ارتباط بین گوروتین ها و هماهنگ کردن اجرا استفاده می شود. حال گاهی اوقات نیاز است که ما یکسری فرآیند را داخل گوروتین لغو کنیم. در اینجا می توانیم با استفاده از کانال سیگنال لغو کردن بفرستید تا عملیات هایی که گوروتین مورد نظر انجام می داد لغو شود.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-producer-consumer"&gt;Producer-Consumer&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو producer-consumer یکی از کاربردی ترین الگوها در زبان گو می باشد که با استفاده از الگو می توانید بطور همزمان یکسری اطلاعات تولید کنید و بفرستید داخل کانال و این اطلاعات توسط مصرف کننده بواسطه کانال دریافت شود.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-monitor"&gt;Monitor&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگوی مانیتور به گروتین‌ ها اجازه می‌دهد هنگام ورود به حالت خواب بدون مسدود کردن اجرا یا مصرف منابع، منتظر شرایط خاصی باشند.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-future"&gt;Future&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;در زبان گو الگو Future راهی برای نمایش نتیجه یک عملیات ناهمزمان (asynchronous) است که ممکن است آن عملیات هنوز تکمیل نشده باشد اما این الگو به شما این امکان را می دهد کدی بنویسید که طوری رفتار کند که گویی نتیجه یک عملیات فورا در دسترس است. حتی اگر عملیات در پس زمینه در حال اجرا باشد.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-pipeline"&gt;Pipeline&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو خط لوله (Pipeline) یکی از پرکاربردی ترین الگوها در همزمانی می باشد شما با استفاده از این الگو می توانید تسک های بزرگ را به تسک های کوچکتر و مستقل تقسیم کنید که می توانند بطور همزمان کار کنند. هر stage داخل یک گوروتین انجام می شود و بواسطه کانال داده ها بین stage های مختلف منتقل می شود.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-subscription"&gt;Subscription&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگو Subscription یکی از الگوهای کاربردی برای پیاده سازی consumer می باشد که به یک آدرسی مشترک شوید و در بازده زمانی مختلف درخواست دهید و یکسری اطلاعات دریافت کنید.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-brdige-channel"&gt;Bridge Channel&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;با استفاده از الگو Bridge Channel می توانید بین ۲ کانال داده ای را منتقل کنید فرض کنید یک داده را به کانال input میفرستید و از دریافت داده آن را می توانید به کانال دیگری منتقل کنید و عملا شما یک پل برای انتقال داده ایجاد کردید.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-queuing"&gt;Queuing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگوی &amp;ldquo;صف&amp;rdquo; در زبان گو الگویی است که در آن از یک گوروتین برای بافر کردن و مدیریت ترتیب مقادیر ارسال شده و دریافت شده از یک کانال استفاده می شود.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-ratelimit"&gt;Rate limit&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگوی &lt;strong&gt;Rate Limiting&lt;/strong&gt; برای کنترل تعداد درخواست‌ها یا وظایف همزمان در یک بازه زمانی مشخص استفاده می‌شود. این الگو با استفاده از یک &lt;code&gt;time.Ticker&lt;/code&gt; یا روش‌های مشابه، اجرای گوروتین‌ها یا پردازش داده‌ها را محدود می‌کند.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-deadlock-recovery"&gt;Deadlock Recovery&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;الگوی &lt;strong&gt;بازیابی از بن‌بست&lt;/strong&gt; (Deadlock Recovery) برای شناسایی و بازیابی از وضعیت‌های بن‌بست استفاده می‌شود، جایی که چندین گوروتین به طور نامحدود منتظر منابعی هستند که توسط یکدیگر نگه داشته شده‌اند. بن‌بست می‌تواند به دلیل همگام‌سازی نادرست یا رقابت برای منابع در برنامه‌های همزمان رخ دهد.&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../../chapter-9/concurrency-patterns/go-concurrency-pattern-lock-free-synchronization"&gt;Lock-free synchronization&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;همگام‌سازی بدون قفل (lock-free synchronization)&lt;/strong&gt; به مجموعه‌ای از تکنیک‌ها و الگوهای برنامه‌نویسی گفته می‌شود که به چندین thread یا goroutine اجازه می‌دهد به طور همزمان و ایمن به داده‌های مشترک دسترسی پیدا کنند، بدون اینکه از primitiveهایی مثل Mutex یا قفل‌های سنتی استفاده شود. هدف اصلی این الگوها افزایش &lt;strong&gt;بازدهی (throughput)&lt;/strong&gt;، کاهش &lt;strong&gt;زمان انتظار (latency)&lt;/strong&gt; و جلوگیری از مشکلات رایج قفل‌گذاری (مثل deadlock، priority inversion و contention) است. الگوریتم‌های lock-free تضمین می‌کنند که حتی اگر برخی از threadها متوقف شوند یا دچار کندی شوند، باقی سیستم همچنان قادر به پیشرفت خواهد بود (&lt;strong&gt;progress guarantee&lt;/strong&gt;).&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><author/><title>9.5 الگوهای Cloud Native</title><link>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/cloud-native-patterns/</guid><description>&lt;p&gt;الگوهای cloud native&amp;hellip;&lt;/p&gt;</description></item><item><author/><title>9.6 ضد الگوها (Anti-Patterns)</title><link>https://book.gofarsi.ir/chapter-9/anti-pattern/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/anti-pattern/</guid><description>&lt;p&gt;ضد الگوها&lt;/p&gt;</description></item><item><author/><title>9.7 اصول SOLID</title><link>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-9/solid-principle-in-golang/</guid><description>&lt;p&gt;این مقاله ترجمه ارایه اصول solid در golang توسط &lt;a href="https://dave.cheney.net/"&gt;Dave Cheney&lt;/a&gt;می‌‌باشد.
+در این مبحث به بررسی پیاده سازی solid در زبان Go می‌پردازیم.&lt;/p&gt;
+&lt;h4 id="بررسی-کد"&gt;
 بررسی کد
-&lt;a class="anchor" href="#%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%da%a9%d8%af">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>چه کسی اینجا بررسی کد را به عنوان بخشی از کار خود انجام می‌دهد؟ تمام اتاق دستشان را بالا بردند که تشویق کننده بود. خوب، چرا بررسی کد انجام می‌دهید؟ کسی فریاد زد «برای جلوگیری از کد بد»&lt;/li>
-&lt;li>اگر code review برای شناسایی کد‌های نامناسب است، پس چگونه می‌دانید کدی که بررسی می‌کنید خوب است یا بد؟&lt;/li>
-&lt;li>حالا خوب است بگوییم «آن کد نامناسب است» یا «آن کد منبع زیبا است»، درست مانند اینکه بگویید «این نقاشی زیبا است» یا «این اتاق زیبا است» اما اینها اصطلاحات ذهنی هستند و من به دنبال راه‌های عینی برای صحبت در مورد خواص کد خوب یا بد هستم.&lt;/li>
-&lt;/ul>
-&lt;h4 id="کد-بد">
+&lt;a class="anchor" href="#%d8%a8%d8%b1%d8%b1%d8%b3%db%8c-%da%a9%d8%af"&gt;#&lt;/a&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;چه کسی اینجا بررسی کد را به عنوان بخشی از کار خود انجام می‌دهد؟ تمام اتاق دستشان را بالا بردند که تشویق کننده بود. خوب، چرا بررسی کد انجام می‌دهید؟ کسی فریاد زد «برای جلوگیری از کد بد»&lt;/li&gt;
+&lt;li&gt;اگر code review برای شناسایی کد‌های نامناسب است، پس چگونه می‌دانید کدی که بررسی می‌کنید خوب است یا بد؟&lt;/li&gt;
+&lt;li&gt;حالا خوب است بگوییم «آن کد نامناسب است» یا «آن کد منبع زیبا است»، درست مانند اینکه بگویید «این نقاشی زیبا است» یا «این اتاق زیبا است» اما اینها اصطلاحات ذهنی هستند و من به دنبال راه‌های عینی برای صحبت در مورد خواص کد خوب یا بد هستم.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="کد-بد"&gt;
 کد بد
-&lt;a class="anchor" href="#%da%a9%d8%af-%d8%a8%d8%af">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>برخی از ویژگی‌های کد بد که ممکن است در بررسی کد به آن پی ببرید کدامند؟&lt;/li>
-&lt;li>سفت و خشک یا در اصطلاح Rigid. آیا کد Rigid است؟ آیا دارای یک محافظ محدود کننده از انواع و پارامترهای غالب است که اصلاح آن را دشوار می‌کند؟&lt;/li>
-&lt;li>شکننده یا در اصطلاح Fragile. آیا کد Fragile است؟ آیا کوچکترین تغییر در کد باعث ایجاد ویرانی‌های فراوان می‌شود؟&lt;/li>
-&lt;li>بی‌حرکتی یا Immobile . آیا تغییر در ساختار کد سخت است؟ آیا اضافه کردن یک حلقه ساده در برنامه کار پیچیده‌ای است؟&lt;/li>
-&lt;li>پیچیده (Complex). آیا کدها به دلیل اینکه فقط کدی نوشته شده باشد بدون آن که به آن نیاز باشد، وجود دارد، آیا چیزها بیش از حد مهندسی (over-engineered) شده‌اند؟&lt;/li>
-&lt;li>شرح دادن بیش از حد یا Verbose. آیا استفاده و بررسی از کد خسته‌کننده است؟ وقتی به آن نگاه می‌کنید، می‌توانید بگویید این کد چه کاری می‌خواهد انجام دهد؟&lt;/li>
-&lt;li>آیا این کلمات مثبت هستند؟ آیا از شنیدن این کلمات در بررسی کد خود خوشحال خواهید شد؟&lt;/li>
-&lt;li>احتمالا نه.&lt;/li>
-&lt;/ul>
-&lt;h4 id="طراحی-خوب">
+&lt;a class="anchor" href="#%da%a9%d8%af-%d8%a8%d8%af"&gt;#&lt;/a&gt;
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;برخی از ویژگی‌های کد بد که ممکن است در بررسی کد به آن پی ببرید کدامند؟&lt;/li&gt;
+&lt;li&gt;سفت و خشک یا در اصطلاح Rigid. آیا کد Rigid است؟ آیا دارای یک محافظ محدود کننده از انواع و پارامترهای غالب است که اصلاح آن را دشوار می‌کند؟&lt;/li&gt;
+&lt;li&gt;شکننده یا در اصطلاح Fragile. آیا کد Fragile است؟ آیا کوچکترین تغییر در کد باعث ایجاد ویرانی‌های فراوان می‌شود؟&lt;/li&gt;
+&lt;li&gt;بی‌حرکتی یا Immobile . آیا تغییر در ساختار کد سخت است؟ آیا اضافه کردن یک حلقه ساده در برنامه کار پیچیده‌ای است؟&lt;/li&gt;
+&lt;li&gt;پیچیده (Complex). آیا کدها به دلیل اینکه فقط کدی نوشته شده باشد بدون آن که به آن نیاز باشد، وجود دارد، آیا چیزها بیش از حد مهندسی (over-engineered) شده‌اند؟&lt;/li&gt;
+&lt;li&gt;شرح دادن بیش از حد یا Verbose. آیا استفاده و بررسی از کد خسته‌کننده است؟ وقتی به آن نگاه می‌کنید، می‌توانید بگویید این کد چه کاری می‌خواهد انجام دهد؟&lt;/li&gt;
+&lt;li&gt;آیا این کلمات مثبت هستند؟ آیا از شنیدن این کلمات در بررسی کد خود خوشحال خواهید شد؟&lt;/li&gt;
+&lt;li&gt;احتمالا نه.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="طراحی-خوب"&gt;
 طراحی خوب
-&lt;a class="anchor" href="#%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d8%ae%d9%88%d8%a8">#&lt;/a>
-&lt;/h4>
-&lt;p>اما این یک بهبود دادن در سطح کد است، حالا می‌توانیم چیزهایی مثل «من این را دوست ندارم چون خیلی سخت است تغییرش داد» یا «من این را دوست ندارم چون نمی‌توانم بفهمم کد چه کاری می‌خواهد انجام دهد» بگوییم، اما چه می‌شود اگر با مثبت شروع کنیم؟&lt;/p></description></item></channel></rss>
+&lt;a class="anchor" href="#%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d8%ae%d9%88%d8%a8"&gt;#&lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;اما این یک بهبود دادن در سطح کد است، حالا می‌توانیم چیزهایی مثل «من این را دوست ندارم چون خیلی سخت است تغییرش داد» یا «من این را دوست ندارم چون نمی‌توانم بفهمم کد چه کاری می‌خواهد انجام دهد» بگوییم، اما چه می‌شود اگر با مثبت شروع کنیم؟&lt;/p&gt;</description></item></channel></rss>

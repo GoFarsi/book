@@ -1,11 +1,11 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-5/</link><description>Recent content in فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-5/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>5.1 شبکه چیست</title><link>https://book.gofarsi.ir/chapter-5/network-basic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/network-basic/</guid><description>&lt;p>به تجهیزات متصل یکدیگر شبکه گفته می‌شود. مکانیزم‌های اتصال ممکن است از طریق سیم مسی، اترنت، فیبر نوری یا بی‌سیم. اندازه ی شبکه می تواند به اندازه ی اینترنت بزرگ یا به اندازه ی یک شبکه خانگی کوچک باشد. یک شبکه محلی (LAN) کامپیوترهایی را که در نزدیکی یکدیگر هستند، معمولاً تعلق به یک خانه، سازمان کوچک یا قسمتی از یک سازمان بزرگ دارند، به هم متصل می‌کند.&lt;/p>
-&lt;p>یک شبکه گسترده (WAN) کامپیوترها را در یک منطقه فیزیکی بزرگتر، مانند بین شهرها متصل می‌کند. انواع دیگری هم وجود دارند، مانند MANs (شبکه‌های منطقه شهری)، PANs (شبکه‌های منطقه شخصی) و حتی BANs (شبکه‌های منطقه بدن).&lt;/p></description></item><item><author/><title>5.2 سرور tcp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</guid><description>&lt;p>ما میتوانیم در گو با استفاده از کتابخانه net یک سرور &lt;a href="https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D9%88%D8%AA%DA%A9%D9%84_%D9%87%D8%AF%D8%A7%DB%8C%D8%AA_%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D9%84">tcp&lt;/a> ایجاد کنیم
-بعد از تکمیل شدن سرور با استفاده از دستور &lt;code>telnet&lt;/code> به آن متصل میشویم&lt;/p>
-&lt;p>در قطعه کد زیر
-با تابع &lt;code>acceptLoop()&lt;/code> درخواست های اتصال را مپذیریم
-و با تابع &lt;code>readLoop()&lt;/code> پیام های اتصال را میخوانیم&lt;/p>
-&lt;div class="go-playground">
-&lt;pre class="line-numbers">&lt;code class="language-go">package main
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><author/><title>فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</title><link>https://book.gofarsi.ir/chapter-5/</link><description>Recent content in فصل پنجم: برنامه نویسی شبکه با گو on زبان گو فارسی</description><generator>Hugo -- gohugo.io</generator><language>fa</language><copyright>2023 GoFarsi All rights reserved</copyright><atom:link href="https://book.gofarsi.ir/chapter-5/rss.xml" rel="self" type="application/rss+xml"/><item><author/><title>5.1 شبکه چیست</title><link>https://book.gofarsi.ir/chapter-5/network-basic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/network-basic/</guid><description>&lt;p&gt;به تجهیزات متصل یکدیگر شبکه گفته می‌شود. مکانیزم‌های اتصال ممکن است از طریق سیم مسی، اترنت، فیبر نوری یا بی‌سیم. اندازه ی شبکه می تواند به اندازه ی اینترنت بزرگ یا به اندازه ی یک شبکه خانگی کوچک باشد. یک شبکه محلی (LAN) کامپیوترهایی را که در نزدیکی یکدیگر هستند، معمولاً تعلق به یک خانه، سازمان کوچک یا قسمتی از یک سازمان بزرگ دارند، به هم متصل می‌کند.&lt;/p&gt;
+&lt;p&gt;یک شبکه گسترده (WAN) کامپیوترها را در یک منطقه فیزیکی بزرگتر، مانند بین شهرها متصل می‌کند. انواع دیگری هم وجود دارند، مانند MANs (شبکه‌های منطقه شهری)، PANs (شبکه‌های منطقه شخصی) و حتی BANs (شبکه‌های منطقه بدن).&lt;/p&gt;</description></item><item><author/><title>5.2 سرور tcp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-begginer/</guid><description>&lt;p&gt;ما میتوانیم در گو با استفاده از کتابخانه net یک سرور &lt;a href="https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D9%88%D8%AA%DA%A9%D9%84_%D9%87%D8%AF%D8%A7%DB%8C%D8%AA_%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D9%84"&gt;tcp&lt;/a&gt; ایجاد کنیم
+بعد از تکمیل شدن سرور با استفاده از دستور &lt;code&gt;telnet&lt;/code&gt; به آن متصل میشویم&lt;/p&gt;
+&lt;p&gt;در قطعه کد زیر
+با تابع &lt;code&gt;acceptLoop()&lt;/code&gt; درخواست های اتصال را مپذیریم
+و با تابع &lt;code&gt;readLoop()&lt;/code&gt; پیام های اتصال را میخوانیم&lt;/p&gt;
+&lt;div class="go-playground"&gt;
+&lt;pre class="line-numbers"&gt;&lt;code class="language-go"&gt;package main
 import (
 "fmt"
 "log"
@@ -101,64 +101,64 @@ fmt.Printf("recived new from connection(%s): %s\n", msg.from, msg.payload)
 }()
 // Run an infinite loop to keep the program running
 select {}
-}&lt;/code>&lt;/pre>
-&lt;button class="run-code">▶ اجرای کد&lt;/button>
-&lt;button class="copy-code">کپی&lt;/button>
-&lt;button class="hide-output">✖ بستن خروجی&lt;/button>
-&lt;pre class="run-output hidden">&lt;/pre>
-&lt;/div>
-&lt;p>بعد از پایان پیاده سازی سرور tcp
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;button class="run-code"&gt;▶ اجرای کد&lt;/button&gt;
+&lt;button class="copy-code"&gt;کپی&lt;/button&gt;
+&lt;button class="hide-output"&gt;✖ بستن خروجی&lt;/button&gt;
+&lt;pre class="run-output hidden"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;بعد از پایان پیاده سازی سرور tcp
 با دستور زیر سرور خود را اجرا میکنیم:
-&lt;code>go run main.go&lt;/code>&lt;/p></description></item><item><author/><title>5.3 سرور tcp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</guid><description>&lt;p>در این قسمت به طراحی و ساخت یک سرور tcp بصورت پیشرفته میپردازیم.
-در قسمت قبل بعد از ایجاد سرور TCP ساده با استفاده از کلاینت telnet به آن متصل شدیم و دیتایی را انتقال دادیم.&lt;/p>
-&lt;p>در این قسمت یک سرور tcp را با هدف انتقال فایل های &lt;span class="tooltip" data-tooltip="large file" ontouchend="toggleTooltip(this)">حجیم&lt;/span>
-بصورت &lt;span class="tooltip" data-tooltip="stream" ontouchend="toggleTooltip(this)">جریان&lt;/span>
-ایجاد میکنم.&lt;/p>
-&lt;p>قبل از شروع ایجاد سرور خود به دلیل اینکه چرا فایل های حجیم را استریم میکنیم و یا اصلا استریم چیست میپردازیم.
+&lt;code&gt;go run main.go&lt;/code&gt;&lt;/p&gt;</description></item><item><author/><title>5.3 سرور tcp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-tcp-server-advanced/</guid><description>&lt;p&gt;در این قسمت به طراحی و ساخت یک سرور tcp بصورت پیشرفته میپردازیم.
+در قسمت قبل بعد از ایجاد سرور TCP ساده با استفاده از کلاینت telnet به آن متصل شدیم و دیتایی را انتقال دادیم.&lt;/p&gt;
+&lt;p&gt;در این قسمت یک سرور tcp را با هدف انتقال فایل های &lt;span class="tooltip" data-tooltip="large file" ontouchend="toggleTooltip(this)"&gt;حجیم&lt;/span&gt;
+بصورت &lt;span class="tooltip" data-tooltip="stream" ontouchend="toggleTooltip(this)"&gt;جریان&lt;/span&gt;
+ایجاد میکنم.&lt;/p&gt;
+&lt;p&gt;قبل از شروع ایجاد سرور خود به دلیل اینکه چرا فایل های حجیم را استریم میکنیم و یا اصلا استریم چیست میپردازیم.
 زمانی که شما فایل های کم حجم را مستقیما انتقال میدهید با تاخیر کم و بصورت مطلوب انجام میشود.
 اما روایت برای فایل های سنگین تر متفاوت است، اگر این عمل بصورت مستقیم و یکجا انجام شود باعث ایجاد تاخیر و مصرف منابع بیش از حد روی سرور میشود.
-اما ما با استفاده از روش استریم، داده و فایل خود را بصورت &lt;span class="tooltip" data-tooltip="chunk file" ontouchend="toggleTooltip(this)">قطعه&lt;/span>
-های کم حجم و پشت سر هم ارسال میکنیم.&lt;/p></description></item><item><author/><title>5.4 سرور udp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</guid><description>&lt;p>در این قسمت به طراحی و ساخت یک سرور UDP مقدماتی با گولنگ می پردازیم.&lt;/p>
-&lt;h2 id="541-معرفی-udp">
+اما ما با استفاده از روش استریم، داده و فایل خود را بصورت &lt;span class="tooltip" data-tooltip="chunk file" ontouchend="toggleTooltip(this)"&gt;قطعه&lt;/span&gt;
+های کم حجم و پشت سر هم ارسال میکنیم.&lt;/p&gt;</description></item><item><author/><title>5.4 سرور udp مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-begginer/</guid><description>&lt;p&gt;در این قسمت به طراحی و ساخت یک سرور UDP مقدماتی با گولنگ می پردازیم.&lt;/p&gt;
+&lt;h2 id="541-معرفی-udp"&gt;
 5.4.1 معرفی UDP
-&lt;a class="anchor" href="#541-%d9%85%d8%b9%d8%b1%d9%81%db%8c-udp">#&lt;/a>
-&lt;/h2>
-&lt;p>پروتکل(User Datagram Protocol)
-یک پروتکل &lt;span class="tooltip" data-tooltip="connectionless" ontouchend="toggleTooltip(this)">فاقد اتصال&lt;/span>
+&lt;a class="anchor" href="#541-%d9%85%d8%b9%d8%b1%d9%81%db%8c-udp"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;پروتکل(User Datagram Protocol)
+یک پروتکل &lt;span class="tooltip" data-tooltip="connectionless" ontouchend="toggleTooltip(this)"&gt;فاقد اتصال&lt;/span&gt;
 است.
-به این معنا که &lt;span class="tooltip" data-tooltip="packet" ontouchend="toggleTooltip(this)">بسته&lt;/span>
+به این معنا که &lt;span class="tooltip" data-tooltip="packet" ontouchend="toggleTooltip(this)"&gt;بسته&lt;/span&gt;
 های این پروتکل بدون اتصال قبلی و بررسی اینکه ایا همه بسته ها به درستی ارسال شده اند به دستگاه مورد نظر ارسال میشود.
 به همین دلیل سرعت در این پروتکل از پروتکل tcp پایین تر است اما تظمین ارسال کامل و سالم داده وجود ندارد.
-از موارد استفاده این پروتکل میتوان سرور بازی های انلاین را مثال زد.&lt;/p></description></item><item><author/><title>5.5 سرور udp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</guid><description>&lt;p>در قسمت قبل به ایجاد یک سرور udp ساده و ارسال پکت به آن پرداختیم.
+از موارد استفاده این پروتکل میتوان سرور بازی های انلاین را مثال زد.&lt;/p&gt;</description></item><item><author/><title>5.5 سرور udp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</guid><description>&lt;p&gt;در قسمت قبل به ایجاد یک سرور udp ساده و ارسال پکت به آن پرداختیم.
 در این قسمت با استفاده از یک سرور و کلاینت udp یک پیام رسان بصورت feed میسازیم.
 عملکرد سرور و کلاینت:
-یک سرور udp ایجاد میکنیم که تمام کانکشن های موجود را ذخیره میکند و به محض دریافت پیام از هر یک از کانکشن ها پیام را برای تمام کانکشن های دیگر بجر کانکشن ارسال کننده پیام ارسال میکند.&lt;/p></description></item><item><author/><title>5.6 کتابخانه http سمت سرور مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</guid><description>&lt;p>یکی از قابلیت های زبان گو این است که می توان با استفاده از کتابخانه http داخلی گو استفاده کرده و وب سرور پیاده سازی کرد.&lt;/p>
-&lt;p>برای پیاده سازی یک وب سرور حداقل به 3 چیز نیاز داریم: 1) مسیر 2) درگاه وب سرور 3) مقدار برگشتی&lt;/p>
-&lt;p>مسیر: عبارت است از URL منحصر به فرد برای ارسال و دریافت اطلاعات ورودی&lt;/p>
-&lt;p>درگاه وب سرور: هر وب سرور نیاز دارد که درگاه (Port) خاصی را در اختیار داشته باشد و همواره به آن درگاه گوش بسپارد.&lt;/p></description></item><item><author/><title>5.7 کتابخانه http سمت سرور پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</guid><description>&lt;p>در قسمت قبل با استفاده از کتابخانه &lt;code>net/http&lt;/code> یک api ساده ایجاد کردیم.&lt;/p>
-&lt;p>در این قسمت به پیاده سازی یک سرور http برای مدیریت لیست TODO های خود میپردازیم و از چهار متد GET, POST, DELET and PATCH استفاده میکنیم.&lt;/p>
-&lt;p>در این پروژه از دیتابیس استفاده نمیشود. روش ذخیره سازی اطلاعات درون متغییر هاست دلیل استفاده نکردن از یک دیتابیس تمرکز این قسمت روی کتابخانه و پروتکل http است.&lt;/p>
-&lt;p>در ادامه به ایجاد سرور خود میپردازیم.&lt;/p></description></item><item><author/><title>5.8 کتابخانه http سمت کلاینت مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</guid><description>&lt;p>برای ایجاد کلاینت http در گولنگ نیاز به کتابخانه &lt;code>net/http&lt;/code> داریم.
-قبل از شروع به نوشتن کلاینت خود چند مفهوم کلی راه بررسی میکنیم.&lt;/p>
-&lt;h2 id="581-سرور">
+یک سرور udp ایجاد میکنیم که تمام کانکشن های موجود را ذخیره میکند و به محض دریافت پیام از هر یک از کانکشن ها پیام را برای تمام کانکشن های دیگر بجر کانکشن ارسال کننده پیام ارسال میکند.&lt;/p&gt;</description></item><item><author/><title>5.6 کتابخانه http سمت سرور مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-server-begginer/</guid><description>&lt;p&gt;یکی از قابلیت های زبان گو این است که می توان با استفاده از کتابخانه http داخلی گو استفاده کرده و وب سرور پیاده سازی کرد.&lt;/p&gt;
+&lt;p&gt;برای پیاده سازی یک وب سرور حداقل به 3 چیز نیاز داریم: 1) مسیر 2) درگاه وب سرور 3) مقدار برگشتی&lt;/p&gt;
+&lt;p&gt;مسیر: عبارت است از URL منحصر به فرد برای ارسال و دریافت اطلاعات ورودی&lt;/p&gt;
+&lt;p&gt;درگاه وب سرور: هر وب سرور نیاز دارد که درگاه (Port) خاصی را در اختیار داشته باشد و همواره به آن درگاه گوش بسپارد.&lt;/p&gt;</description></item><item><author/><title>5.7 کتابخانه http سمت سرور پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-server-advanced/</guid><description>&lt;p&gt;در قسمت قبل با استفاده از کتابخانه &lt;code&gt;net/http&lt;/code&gt; یک api ساده ایجاد کردیم.&lt;/p&gt;
+&lt;p&gt;در این قسمت به پیاده سازی یک سرور http برای مدیریت لیست TODO های خود میپردازیم و از چهار متد GET, POST, DELET and PATCH استفاده میکنیم.&lt;/p&gt;
+&lt;p&gt;در این پروژه از دیتابیس استفاده نمیشود. روش ذخیره سازی اطلاعات درون متغییر هاست دلیل استفاده نکردن از یک دیتابیس تمرکز این قسمت روی کتابخانه و پروتکل http است.&lt;/p&gt;
+&lt;p&gt;در ادامه به ایجاد سرور خود میپردازیم.&lt;/p&gt;</description></item><item><author/><title>5.8 کتابخانه http سمت کلاینت مقدماتی</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-client-begginer/</guid><description>&lt;p&gt;برای ایجاد کلاینت http در گولنگ نیاز به کتابخانه &lt;code&gt;net/http&lt;/code&gt; داریم.
+قبل از شروع به نوشتن کلاینت خود چند مفهوم کلی راه بررسی میکنیم.&lt;/p&gt;
+&lt;h2 id="581-سرور"&gt;
 5.8.1 سرور
-&lt;a class="anchor" href="#581-%d8%b3%d8%b1%d9%88%d8%b1">#&lt;/a>
-&lt;/h2>
-&lt;p>همانطور که میدانیم سرور های http برای تعریف مسیر ها منطق سرور و دریافت درخواست ها طراحی و ساخته میشوند.
-(در قسمت های قبل ایجاد سرور http بصورت کامل یادگرفتیم)&lt;/p>
-&lt;h2 id="582-کلاینت">
+&lt;a class="anchor" href="#581-%d8%b3%d8%b1%d9%88%d8%b1"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;همانطور که میدانیم سرور های http برای تعریف مسیر ها منطق سرور و دریافت درخواست ها طراحی و ساخته میشوند.
+(در قسمت های قبل ایجاد سرور http بصورت کامل یادگرفتیم)&lt;/p&gt;
+&lt;h2 id="582-کلاینت"&gt;
 5.8.2 کلاینت
-&lt;a class="anchor" href="#582-%da%a9%d9%84%d8%a7%db%8c%d9%86%d8%aa">#&lt;/a>
-&lt;/h2>
-&lt;p>کلاینت های در پروتوکول http برای صدا کردن (call) و ارسال درخواست به سرور ها طراحی و ساخته میشوند.
-در ادامه یک کلاینت مقدماتی و ساده را در زبان گولنگ ایجاد میکنیم.&lt;/p></description></item><item><author/><title>5.9 کتابخانه http سمت کلاینت پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</guid><description>&lt;p>در قسمت قبل به ایجاد یک کلاینت http ساده و ارسال یک درخواست با متد get پرداختیم.&lt;/p>
-&lt;p>در این قسمت به موارد کامل تر و جزیی تر کلاینت http میپردازیم.&lt;/p>
-&lt;p>برای انجام تمرین های این قسمت از یک api تستی که جهت یادگیری ساخته شده است استفاده میکنیم (شما میتوانید از هر api یا سروری استفاده کنید حتی سرور http که خودتان نوشته باشید.)&lt;/p>
-&lt;p>در این آموزش ما از api زیر استفاده میکنیم:
-&lt;a href="https://fakestoreapi.com/docs">api docs&lt;/a>&lt;/p></description></item><item><author/><title>5.10 پروتکل quic</title><link>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</guid><description>&lt;p>پروتکل quic یک پروتکل توسعه یافته توسط google است. این پروتکل برای امنیت و سرعت بیشتر توسعه داده شده است.&lt;/p>
-&lt;p>پروتکل quic از UDP استفاده میکند و در لایه transport قرار میگیرد.&lt;/p>
-&lt;p>این پروتکل اجازه ایجاد چند کانکشن بصورت همزمان را فراهم میکنید و همچنین http/3 بر اساس این پروتکل طراحی و ایجاد شده است.&lt;/p>
-&lt;p>چند مورد از ویژگی های کلیدی quic :
+&lt;a class="anchor" href="#582-%da%a9%d9%84%d8%a7%db%8c%d9%86%d8%aa"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;کلاینت های در پروتوکول http برای صدا کردن (call) و ارسال درخواست به سرور ها طراحی و ساخته میشوند.
+در ادامه یک کلاینت مقدماتی و ساده را در زبان گولنگ ایجاد میکنیم.&lt;/p&gt;</description></item><item><author/><title>5.9 کتابخانه http سمت کلاینت پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-http-client-advanced/</guid><description>&lt;p&gt;در قسمت قبل به ایجاد یک کلاینت http ساده و ارسال یک درخواست با متد get پرداختیم.&lt;/p&gt;
+&lt;p&gt;در این قسمت به موارد کامل تر و جزیی تر کلاینت http میپردازیم.&lt;/p&gt;
+&lt;p&gt;برای انجام تمرین های این قسمت از یک api تستی که جهت یادگیری ساخته شده است استفاده میکنیم (شما میتوانید از هر api یا سروری استفاده کنید حتی سرور http که خودتان نوشته باشید.)&lt;/p&gt;
+&lt;p&gt;در این آموزش ما از api زیر استفاده میکنیم:
+&lt;a href="https://fakestoreapi.com/docs"&gt;api docs&lt;/a&gt;&lt;/p&gt;</description></item><item><author/><title>5.10 پروتکل quic</title><link>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-quic-prtoocol/</guid><description>&lt;p&gt;پروتکل quic یک پروتکل توسعه یافته توسط google است. این پروتکل برای امنیت و سرعت بیشتر توسعه داده شده است.&lt;/p&gt;
+&lt;p&gt;پروتکل quic از UDP استفاده میکند و در لایه transport قرار میگیرد.&lt;/p&gt;
+&lt;p&gt;این پروتکل اجازه ایجاد چند کانکشن بصورت همزمان را فراهم میکنید و همچنین http/3 بر اساس این پروتکل طراحی و ایجاد شده است.&lt;/p&gt;
+&lt;p&gt;چند مورد از ویژگی های کلیدی quic :
 ۱. ایجاد کانکشن سریع تر به دلیل اسفاده از udp.
 ۲. نیازی به دست دادن سه مرحله مثل tcp ندارد.
-۳. بصورت پیش فرص از رمزنگاری استفاده میکند.&lt;/p></description></item></channel></rss>
+۳. بصورت پیش فرص از رمزنگاری استفاده میکند.&lt;/p&gt;</description></item></channel></rss>
