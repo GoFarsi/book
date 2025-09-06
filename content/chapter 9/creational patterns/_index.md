@@ -12,8 +12,10 @@ bookCollapseSection: true
 
 **انواع الگو های طراحی سازنده** :
 این الگوها به پنج نوع اصلی تقسیم می‌شوند که در ادامه بیان شده اند.
+
 1. Factory Method Design Pattern
-2. Abstract Factory Method Design Pattern
-3. Singleton Method Design Pattern
-4. Prototype Method Design Pattern
-5. Builder Method Design Pattern
+2. Abstract Factory Design Pattern
+3. Singleton Design Pattern
+4. Prototype Design Pattern
+5. Builder Design Pattern
+
