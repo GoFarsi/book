@@ -91,7 +91,7 @@ func main() {
 server := newServer(":3000")
 //start the server
 if err := server.start(); err != nil {
-log.Fetal(err)
+log.Fatal(err)
 }
 go func() {
 // در ازای هر پیام مقادیر آن را چاپ میکنیم
@@ -128,7 +128,7 @@ select {}
 است.
 به این معنا که &lt;span class="tooltip" data-tooltip="packet" ontouchend="toggleTooltip(this)"&gt;بسته&lt;/span&gt;
 های این پروتکل بدون اتصال قبلی و بررسی اینکه ایا همه بسته ها به درستی ارسال شده اند به دستگاه مورد نظر ارسال میشود.
-به همین دلیل سرعت در این پروتکل از پروتکل tcp پایین تر است اما تظمین ارسال کامل و سالم داده وجود ندارد.
+به همین دلیل سرعت در این پروتکل از پروتکل tcp بیشتر است اما تظمین ارسال کامل و سالم داده وجود ندارد.
 از موارد استفاده این پروتکل میتوان سرور بازی های انلاین را مثال زد.&lt;/p&gt;</description></item><item><author/><title>5.5 سرور udp پیشرفته</title><link>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-5/go-udp-server-advanced/</guid><description>&lt;p&gt;در قسمت قبل به ایجاد یک سرور udp ساده و ارسال پکت به آن پرداختیم.
 در این قسمت با استفاده از یک سرور و کلاینت udp یک پیام رسان بصورت feed میسازیم.
 عملکرد سرور و کلاینت:
