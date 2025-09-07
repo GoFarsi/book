@@ -49,20 +49,33 @@ return b, a
 تابع Min و Max
 &lt;a class="anchor" href="#%d8%aa%d8%a7%d8%a8%d8%b9-min-%d9%88-max"&gt;#&lt;/a&gt;
 &lt;/h4&gt;
-&lt;pre&gt;&lt;code class="language-go"&gt;import &amp;quot;cmp&amp;quot; // از Go 1.21+
+&lt;div class="go-playground"&gt;
+&lt;pre class="line-numbers"&gt;&lt;code class="language-go"&gt;package main
+import (
+"cmp" // از Go 1.21+
+"fmt"
+)
+func main() {
+fmt.Println("Max", Max(2, 7))
+fmt.Println("Min", Min(2, 7))
+}
 func Min[T cmp.Ordered](a, b T) T {
-if a &amp;lt; b {
+if a &lt; b {
 return a
 }
 return b
 }
 func Max[T cmp.Ordered](a, b T) T {
-if a &amp;gt; b {
+if a &gt; b {
 return a
 }
 return b
-}
-&lt;/code&gt;&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;button class="run-code"&gt;▶ اجرای کد&lt;/button&gt;
+&lt;button class="copy-code"&gt;کپی&lt;/button&gt;
+&lt;button class="hide-output"&gt;✖ بستن خروجی&lt;/button&gt;
+&lt;pre class="run-output hidden"&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;توضیح:&lt;/strong&gt;&lt;br&gt;
 این دو تابع ژنریک به شما اجازه می‌دهند با هر نوع داده‌ای که قابل مقایسه با عملگرهای بزرگ‌تر/کوچک‌تر باشد (مثل int، float64، string و&amp;hellip;) بیشینه یا کمینه دو مقدار را به دست آورید. پارامتر نوعی &lt;code&gt;T&lt;/code&gt; باید قید &lt;code&gt;cmp.Ordered&lt;/code&gt; را داشته باشد تا عملیات مقایسه مجاز باشد. این ساختار به جای نوشتن نسخه‌های تکراری برای هر نوع داده، یک تابع عمومی و امن ایجاد می‌کند.&lt;/p&gt;</description></item><item><author/><title>6.6 مقایسه ژنریک‌ها با راهکارهای قبل از Go 1.18</title><link>https://book.gofarsi.ir/chapter-6/comparing-generics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/comparing-generics/</guid><description>&lt;h2 id="۶۶۱-استفاده-از-interface-و-reflect-قبل-از-ژنریکها"&gt;
 ۶.۶.۱ استفاده از interface{} و reflect قبل از ژنریک‌ها
@@ -74,8 +87,9 @@ return b
 &lt;strong&gt;مثال: تابع Max با interface{} و reflect&lt;/strong&gt;
 &lt;a class="anchor" href="#%d9%85%d8%ab%d8%a7%d9%84-%d8%aa%d8%a7%d8%a8%d8%b9-max-%d8%a8%d8%a7-interface-%d9%88-reflect"&gt;#&lt;/a&gt;
 &lt;/h4&gt;
-&lt;p&gt;`&lt;div class="go-playground"&gt;
-&lt;pre class="line-numbers"&gt;&lt;code class="language-go"&gt;import (
+&lt;div class="go-playground"&gt;
+&lt;pre class="line-numbers"&gt;&lt;code class="language-go"&gt;package main
+import (
 "fmt"
 "reflect"
 )
@@ -99,7 +113,8 @@ fmt.Println(Max(3, 7)) // خروجی: 7
 &lt;button class="hide-output"&gt;✖ بستن خروجی&lt;/button&gt;
 &lt;pre class="run-output hidden"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/p&gt;</description></item><item><author/><title>6.7 محدودیت‌ها، خطاها و ضدالگوها در ژنریک‌ها</title><link>https://book.gofarsi.ir/chapter-6/limitations-errors-and-anti-patterns-in-generics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/limitations-errors-and-anti-patterns-in-generics/</guid><description>&lt;h2 id="۶۷۱-محدودیتهای-فعلی-ژنریکها-در-go-compile-time--runtime"&gt;
+&lt;p&gt;&lt;strong&gt;توضیح:&lt;/strong&gt;
+در این مثال تابع Max با هر نوعی که به آن بدهید کار می‌کند، اما باید به کمک reflect نوع مقدار را بررسی و مقایسه کنید. این کار هم کند است و هم ایمنی نوعی ندارد و در زمان اجرا ممکن است باعث panic یا رفتار ناخواسته شود.&lt;/p&gt;</description></item><item><author/><title>6.7 محدودیت‌ها، خطاها و ضدالگوها در ژنریک‌ها</title><link>https://book.gofarsi.ir/chapter-6/limitations-errors-and-anti-patterns-in-generics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://book.gofarsi.ir/chapter-6/limitations-errors-and-anti-patterns-in-generics/</guid><description>&lt;h2 id="۶۷۱-محدودیتهای-فعلی-ژنریکها-در-go-compile-time--runtime"&gt;
 ۶.۷.۱ محدودیت‌های فعلی ژنریک‌ها در Go (Compile-time &amp;amp; Runtime)
 &lt;a class="anchor" href="#%db%b6%db%b7%db%b1-%d9%85%d8%ad%d8%af%d9%88%d8%af%db%8c%d8%aa%d9%87%d8%a7%db%8c-%d9%81%d8%b9%d9%84%db%8c-%da%98%d9%86%d8%b1%db%8c%da%a9%d9%87%d8%a7-%d8%af%d8%b1-go-compile-time--runtime"&gt;#&lt;/a&gt;
 &lt;/h2&gt;
