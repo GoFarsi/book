@@ -43,6 +43,7 @@ tags:
 - تاریخچه گو
 ---
 
+
 <style>
 :root {
   --bg: #ffffff;
